@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.31 2004/12/16 12:40:45 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.32 2004/12/16 14:23:47 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -390,7 +390,7 @@ implements SecureComposite{
 			
 			};
    private List columnList = new ArrayList();
-   TableRowList rowList = new TableRowList();
+   public TableRowList rowList = new TableRowList();
 	
 	public ConUIAddConsignment(org.eclipse.swt.widgets.Composite parent, int style) {
 		super(parent, style);
