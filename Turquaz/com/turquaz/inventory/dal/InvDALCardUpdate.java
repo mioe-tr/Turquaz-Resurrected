@@ -17,12 +17,11 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.15 2005/03/26 15:06:43 onsel Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.16 2005/03/29 15:44:19 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqInventoryCard;
@@ -40,14 +39,13 @@ public class InvDALCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
 					+ "where transactions.turqInventoryCard = :invCard" + " and transactions.turqInventoryTransactionType.id <>"
 					+ EngBLCommon.INV_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("invCard", card);
 			List list = q.list();
-			session.close();
 			if (list.size() > 0)
 			{
 				return true;
@@ -67,14 +65,13 @@ public class InvDALCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
 					+ "where transactions.turqInventoryCard = :invCard" + " and transactions.turqInventoryTransactionType.id ="
 					+ EngBLCommon.INV_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("invCard", card);
 			List list = q.list();
-			session.close();
 			if (list.size() > 0)
 			{
 				return true;
@@ -94,8 +91,7 @@ public class InvDALCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "Select invTrans from TurqInventoryTransaction as invTrans "
 					+ " where invTrans.turqInventoryTransactionType.id = " + EngBLCommon.INV_TRANS_INITIAL
 					+ " and invTrans.turqInventoryCard = :invCard ";
@@ -107,8 +103,6 @@ public class InvDALCardUpdate
 				session.delete(list.get(i));
 			}
 			session.flush();
-			tx.commit();
-			session.close();
 		}
 		catch (Exception ex)
 		{

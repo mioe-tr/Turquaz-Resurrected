@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALWarehouseUpdate.java,v 1.9 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: InvDALWarehouseUpdate.java,v 1.10 2005/03/29 15:44:19 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -31,13 +31,12 @@ public class InvDALWarehouseUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
 					+ "where transactions.turqInventoryWarehous = :warehouse ";
 			Query q = session.createQuery(query);
 			q.setParameter("warehouse", warehouse);
 			List list = q.list();
-			session.close();
 			if (list.size() > 0)
 			{
 				return true;
