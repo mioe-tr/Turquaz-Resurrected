@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
 
@@ -71,11 +72,12 @@ import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLXmlParser;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.component.TreeFactory;
+import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.45 2004/11/01 07:50:24 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.46 2004/11/01 14:37:04 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 /**
@@ -678,6 +680,11 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 /** Add your pre-init code in here 	*/
 	public void preInitGUI(){
 		
+		
+	EngUIDatabaseConnectionWizard wizard = new EngUIDatabaseConnectionWizard();
+	WizardDialog dialog = new WizardDialog(this.getShell(),wizard);
+	dialog.open();	
+		
 	 //Set System variables
 	 System.setProperty("company","0"); //$NON-NLS-1$ //$NON-NLS-2$
 	 System.setProperty("user","admin"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -828,6 +835,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		treeInventory.setMenu(popupTreeAddFavorites);
 		treeCurrent.setMenu(popupTreeAddFavorites);
 		treeFavorites.setMenu(popupTreeRemoveFavorites);
+		
+		
 		
 		
 		
