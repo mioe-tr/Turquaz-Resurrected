@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.11 2004/11/12 12:34:27 onsel Exp $
 */
 
 
@@ -210,7 +210,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	compTransactionAdd.getComboCurrentCode().setText(transaction.getTurqCurrentCard().getCardsCurrentCode());
 	compTransactionAdd.getDateTransDate().setDate(transaction.getTransactionsDate());
 	
-	TurqAccountingTransaction accTrans = transaction.getTurqAccountingTransaction();
+	/*TurqAccountingTransaction accTrans = transaction.getTurqAccountingTransaction();
 	
 	boolean isCredit = false;
 	//Tediye fisi
@@ -246,7 +246,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	}
 
 	
-	
+	*/
 	}
 	
 	catch(Exception ex){

@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.12 2004/11/12 12:05:17 onsel Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.13 2004/11/12 12:34:27 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -146,7 +146,7 @@ public class CurBLCurrentTransactionAdd {
 		
  		TurqAccountingTransaction accTrans = new TurqAccountingTransaction();
  		accTrans.setAccountingTransactionsId(transId);
- 		curTrans.setTurqAccountingTransaction(accTrans);
+ 		
  		 		
 		
  		if(isCredit){		

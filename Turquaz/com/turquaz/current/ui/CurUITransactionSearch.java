@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.9 2004/11/12 08:44:49 onsel Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.10 2004/11/12 12:34:27 onsel Exp $
 */
 import java.util.List;
 
@@ -387,8 +387,10 @@ public class CurUITransactionSearch extends Composite implements SecureComposite
 	/** Auto-generated event handler method */
 	protected void tableCurrentTransactionsMouseDoubleClick(MouseEvent evt){
 		TableItem items[] = tableCurrentTransactions.getSelection();
-		if(items.length >0){
+	//	if(items.length >0){
 		
+		if(false)
+		{
 		TurqCurrentTransaction trans = (TurqCurrentTransaction)items[0].getData();
 		
 		//nakit hareketi ise izin ver
