@@ -81,7 +81,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.38 2004/10/22 17:29:48 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.39 2004/10/24 14:08:44 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -881,8 +881,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			saveFavoritesTree();
 		}
 	});
-			shell.open();
-			
+			shell.open();		
 			
 			while (!shell.isDisposed()){
 				
