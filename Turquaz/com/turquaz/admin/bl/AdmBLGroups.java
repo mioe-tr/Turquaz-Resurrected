@@ -19,7 +19,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: AdmBLGroups.java,v 1.3 2004/11/18 09:54:12 huseyiner Exp $
+* @version  $Id: AdmBLGroups.java,v 1.4 2005/03/17 10:22:59 onsel Exp $
 */
 
 import java.util.List;
@@ -27,15 +27,15 @@ import java.util.List;
 import com.turquaz.engine.dal.EngDALCommon;
 
 public class AdmBLGroups {
-	private EngDALCommon dalCommon = new EngDALCommon();
+
 	public AdmBLGroups(){
 		
 	}
 	
-	public List getGroups()throws Exception{
+	public static List getGroups()throws Exception{
 		try{
 			
-			return dalCommon.getGroups();
+			return EngDALCommon.getGroups();
 			
 		}
 		catch(Exception ex){

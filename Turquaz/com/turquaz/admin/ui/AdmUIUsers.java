@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.10 2004/12/14 21:07:19 cemdayanik Exp $
+* @version  $Id: AdmUIUsers.java,v 1.11 2005/03/17 10:22:59 onsel Exp $
 */
 import java.util.List;
 
@@ -66,7 +66,6 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 	private TableColumn tableColumnUsername;
 	private TableColumn tableColumnDescription;
 	private TableColumn tableColumnRealName;
-	AdmBLUsers blUsers = new AdmBLUsers();
 
 	/**
 	* Auto-generated main method to display this 
@@ -172,7 +171,7 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 	public void fillTable(){
 		try{
 			tableUsers.removeAll();
-			List list = blUsers.getUsers();
+			List list = AdmBLUsers.getUsers();
 			TurqUser user;
 			TableItem item;
 			for(int i=0;i<list.size();i++){

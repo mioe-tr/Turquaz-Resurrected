@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.11 2004/12/14 21:07:19 cemdayanik Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.12 2005/03/17 10:22:59 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -60,7 +60,6 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 	private Text txtAdmGroupDesc;
 	private CLabel lblAdmGroupDesc;
 	
-	private AdmBLGroupAdd blGroupAdd = new AdmBLGroupAdd();
 
 	/**
 	* Auto-generated main method to display this 
@@ -175,7 +174,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		MessageBox messageBox = new MessageBox(this.getShell(),SWT.NULL);
 		if (verifyFields()){
 			try{
-				blGroupAdd.saveGroup(txtAdmGroupName.getText().trim(),txtAdmGroupDesc.getText().trim());
+				AdmBLGroupAdd.saveGroup(txtAdmGroupName.getText().trim(),txtAdmGroupDesc.getText().trim());
 				messageBox.setMessage(Messages.getString("AdmUIGroupAdd.3")); //$NON-NLS-1$
 				messageBox.open();
 				newForm();

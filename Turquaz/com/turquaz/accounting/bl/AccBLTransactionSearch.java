@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.23 2005/03/17 09:30:57 cemdayanik Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.24 2005/03/17 10:23:00 onsel Exp $
 */
 
 
@@ -233,8 +233,7 @@ public class AccBLTransactionSearch {
 	
 	
 	public void removeAccountingTransaction(TurqAccountingTransaction accTrans)throws Exception{
-		dalTransSearch.deleteTransaction(accTrans);
-		
+		dalTransSearch.deleteTransaction(accTrans);		
 	}
 		
 	

@@ -18,7 +18,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.11 2005/03/17 09:11:03 onsel Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.12 2005/03/17 10:22:59 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -28,16 +28,17 @@ import com.turquaz.engine.dal.TurqGroup;
 
 
 public class AdmBLGroupAdd {
-	Calendar cal = Calendar.getInstance();
+	
 	public AdmBLGroupAdd(){
 		
 	}
 	
 	
-	public Integer saveGroup(String groupname, String description)
+	public static Integer saveGroup(String groupname, String description)
 			throws Exception {
 		try {
-
+			
+			Calendar cal = Calendar.getInstance();
 			TurqGroup group = new TurqGroup();
 			group.setGroupsName(groupname);
 			group.setGroupsDescription(description);

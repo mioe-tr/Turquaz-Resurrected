@@ -19,24 +19,22 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: AdmBLGroupUpdate.java,v 1.4 2005/03/17 09:11:03 onsel Exp $
+* @version  $Id: AdmBLGroupUpdate.java,v 1.5 2005/03/17 10:22:59 onsel Exp $
 */
 
 import java.util.Calendar;
 
-import com.turquaz.admin.dal.AdmDALGroupUpdate;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 
 public class AdmBLGroupUpdate {
-	AdmDALGroupUpdate dalAdmin = new AdmDALGroupUpdate();
-	Calendar cal = Calendar.getInstance();
+
 	public AdmBLGroupUpdate(){
 		
 	}
-	public void updateGroup( String name, String description,TurqGroup group)throws Exception{
+	public static void updateGroup( String name, String description,TurqGroup group)throws Exception{
 		try{
-			
+			Calendar cal = Calendar.getInstance();
 			group.setGroupsName(name);
 			group.setGroupsDescription(description);;
 			
@@ -51,7 +49,7 @@ public class AdmBLGroupUpdate {
 		}
 		
 		}
-	public void deleteObject(Object obj)throws Exception{
+	public static void deleteObject(Object obj)throws Exception{
 		try{
 		 
 			EngDALCommon.deleteObject(obj);

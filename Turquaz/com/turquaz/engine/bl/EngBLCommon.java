@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.66 2005/03/17 09:11:02 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.67 2005/03/17 10:22:57 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -387,12 +387,12 @@ public class EngBLCommon {
 
 	}
 
-	private EngDALCommon engDALCom = new EngDALCommon();
+
 
 	public List getCurrencies() throws Exception {
 		try {
 
-			return engDALCom.getCurrencies();
+			return EngDALCommon.getCurrencies();
 
 		} catch (Exception ex) {
 			throw ex;
@@ -402,7 +402,7 @@ public class EngBLCommon {
 
 	public List getTurqCurrentGroups() throws Exception {
 		try {
-			return engDALCom.getTurqCurrentGroups();
+			return EngDALCommon.getTurqCurrentGroups();
 		} catch (Exception ex) {
 			throw ex;
 		}
@@ -411,7 +411,7 @@ public class EngBLCommon {
 	public boolean checkUserPass(String user, String pass) throws Exception {
 		try {
 
-			return engDALCom.checkUserPass(user, pass);
+			return EngDALCommon.checkUserPass(user, pass);
 
 		} catch (Exception ex) {
 			throw ex;
@@ -421,7 +421,7 @@ public class EngBLCommon {
 	public List getInventoryWarehouses() throws Exception {
 		try {
 
-			return engDALCom.getInventoryWarehouses();
+			return EngDALCommon.getInventoryWarehouses();
 		} catch (Exception ex) {
 			throw ex;
 		}

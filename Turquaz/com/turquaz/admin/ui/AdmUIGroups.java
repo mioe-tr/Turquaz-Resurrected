@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroups.java,v 1.9 2004/12/14 21:07:19 cemdayanik Exp $
+* @version  $Id: AdmUIGroups.java,v 1.10 2005/03/17 10:22:59 onsel Exp $
 */
 import java.util.List;
 
@@ -66,7 +66,7 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 	private Table tableGroups;
 	private TableColumn tableColumnGroupname;
 	private TableColumn tableColumnDescription;
-	AdmBLGroups blGroups = new AdmBLGroups();
+
 
 	/**
 	* Auto-generated main method to display this 
@@ -162,7 +162,7 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 	public void fillTable(){
 		try{
 			tableGroups.removeAll();
-			List list = blGroups.getGroups();
+			List list = AdmBLGroups.getGroups();
 			TurqGroup group;
 			TableItem item;
 			for(int i=0;i<list.size();i++){

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.44 2005/03/01 16:24:37 onsel Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.45 2005/03/17 10:22:58 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -372,8 +372,7 @@ public class AccUITransactionSearch extends Composite implements
 
 					blUpdate.initiliazeTransactionRows(accTrans);
 
-					Iterator it = accTrans
-							.getTurqAccountingTransactionColumns().iterator();
+					Iterator it = accTrans.getTurqAccountingTransactionColumns().iterator();
 					while (it.hasNext()) {
 						EngBLCommon.delete(it.next());
 					}
