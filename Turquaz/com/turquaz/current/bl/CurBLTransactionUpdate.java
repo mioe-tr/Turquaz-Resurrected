@@ -21,7 +21,7 @@ import com.turquaz.current.dal.CurDALCurrentCardUpdate;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.4 2005/01/09 20:10:41 onsel Exp $
+* @version  $Id: CurBLTransactionUpdate.java,v 1.5 2005/01/14 12:59:35 onsel Exp $
 */
 
 public class CurBLTransactionUpdate {
@@ -39,6 +39,16 @@ public class CurBLTransactionUpdate {
             throw ex;
         }
         
+    }
+    public static void delete(Object obj)throws Exception{
+        try{
+            
+            dalUpdate.deleteObject(obj);
+            
+        }
+        catch(Exception ex){
+            throw ex;
+        }
     }
     
 }
