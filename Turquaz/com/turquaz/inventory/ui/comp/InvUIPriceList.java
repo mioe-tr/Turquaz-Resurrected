@@ -19,15 +19,14 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIPriceList.java,v 1.6 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: InvUIPriceList.java,v 1.7 2005/02/08 09:31:59 onsel Exp $
 */
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import com.turquaz.inventory.Messages;
-
+import com.turquaz.engine.bl.EngBLCommon;
 
 
 /**
@@ -52,7 +51,7 @@ public class InvUIPriceList {
 
 	// Combo box choices
 	String[] CURRENCIES ;
-	String[] PRICE_TYPES =new String[]{Messages.getString("InvUIPriceList.0"),Messages.getString("InvUIPriceList.1")}; //$NON-NLS-1$ //$NON-NLS-2$
+	String[] PRICE_TYPES =new String[]{EngBLCommon.COMMON_BUY_STRING,EngBLCommon.COMMON_SELL_STRING};
 	
 	
 	/**

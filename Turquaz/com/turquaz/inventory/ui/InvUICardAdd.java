@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.101 2005/02/07 19:56:57 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.102 2005/02/08 09:31:59 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1269,7 +1269,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 		editors[0] = new ComboBoxCellEditor(
 				tableInvCardAddPrices,
 				new String[] {
-						Messages.getString("InvUICardAdd.22"), Messages.getString("InvUICardAdd.26") }); //$NON-NLS-1$ //$NON-NLS-2$
+						EngBLCommon.COMMON_BUY_STRING, EngBLCommon.COMMON_SELL_STRING }); //$NON-NLS-1$ //$NON-NLS-2$
 
 		TurqCurrency currency;
 		String[] currencies = new String[currencyList.size()];
