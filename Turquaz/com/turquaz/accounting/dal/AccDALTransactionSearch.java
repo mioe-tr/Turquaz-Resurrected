@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.6 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.7 2004/11/25 20:00:57 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -59,7 +59,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.6 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.7 2004/11/25 20:00:57 cemdayanik Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -73,7 +73,7 @@ public class AccDALTransactionSearch {
 		try{
 			Session session = EngDALSessionFactory.openSession();
 			
-			String query = "select transType from TurqAccountingTransactionType as transType";
+			String query = "select distinct transType from TurqAccountingTransactionType as transType";
 			Query q = session.createQuery(query); 
 			List list = q.list();
 			session.close();
