@@ -1,9 +1,4 @@
-/*
- * Created on 20.Eki.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current.bl;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.10 2004/12/07 18:02:35 onsel Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.11 2004/12/17 20:26:35 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
