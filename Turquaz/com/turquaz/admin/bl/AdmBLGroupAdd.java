@@ -23,7 +23,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.5 2004/11/10 08:03:58 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -33,12 +33,6 @@ import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 
 
-/**
- * @author huseyin
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class AdmBLGroupAdd {
 	private EngDALCommon dalCommon = new EngDALCommon();
 	private AdmDALGroupAdd dalAdmin = new AdmDALGroupAdd();
