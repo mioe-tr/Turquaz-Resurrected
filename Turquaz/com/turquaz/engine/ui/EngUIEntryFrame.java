@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.38 2005/01/18 13:00:42 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.39 2005/01/26 10:04:26 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -73,7 +73,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Composite;
 import com.cloudgarden.resource.SWTResourceManager;
-import com.turquaz.engine.ui.component.DatePicker;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
