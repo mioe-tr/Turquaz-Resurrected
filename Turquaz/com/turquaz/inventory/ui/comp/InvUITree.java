@@ -1,4 +1,7 @@
 
+
+package com.turquaz.inventory.ui.comp;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,9 +18,10 @@
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
-package com.turquaz.inventory.ui.comp;
-
-
+/**
+* @author  Onsel Armagan
+* @version  $Id: InvUITree.java,v 1.9 2004/11/04 14:12:02 ehad Exp $
+*/
 
 
 import org.eclipse.swt.widgets.*;
@@ -33,7 +37,7 @@ import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 /**
  * @author onsel
  *
- * @version $Id: InvUITree.java,v 1.8 2004/10/22 09:00:41 huseyin Exp $
+ * @version $Id: InvUITree.java,v 1.9 2004/11/04 14:12:02 ehad Exp $
  */
 public class InvUITree extends Tree {
 	
