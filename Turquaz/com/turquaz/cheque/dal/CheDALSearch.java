@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.16 2005/03/02 11:03:23 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.17 2005/03/03 14:13:12 onsel Exp $
  */
 
 import java.util.Date;
@@ -283,7 +283,7 @@ public class CheDALSearch {
 			
 			String query = "Select chequeRoll.turqChequeRoll.turqBanksCard from TurqChequeChequeInRoll as chequeRoll" +
 					" where chequeRoll.turqChequeCheque = :cheque and " +
-					" chequeRoll.turqChequeRoll.turqChequeTransactionType.chequeTransactionTypesId ="+EngBLCommon.CHEQUE_TRANS_OUT_BANK;
+					" chequeRoll.turqChequeRoll.turqChequeTransactionType.id ="+EngBLCommon.CHEQUE_TRANS_OUT_BANK;
 
 			Query q = session.createQuery(query);
 			q.setParameter("cheque",cheque);
