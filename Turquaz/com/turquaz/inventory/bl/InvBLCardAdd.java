@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.26 2005/02/06 15:38:53 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.27 2005/02/06 20:46:46 onsel Exp $
 */
 
 
@@ -234,11 +234,23 @@ public class InvBLCardAdd {
 		}
 	}
 
-	public List getInventoryGroups() throws Exception {
+	public static List getInventoryGroups() throws Exception {
 
 		try {
 
-			return cardAdd.getInventoryGroups();
+			return InvDALCardAdd.getInventoryGroups();
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+
+	}
+	
+	public static List getParentInventoryGroups() throws Exception {
+
+		try {
+
+			return InvDALCardAdd.getParentInventoryGroups();
 
 		} catch (Exception ex) {
 			throw ex;

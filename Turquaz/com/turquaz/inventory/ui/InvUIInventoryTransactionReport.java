@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.6 2005/02/06 19:55:22 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.7 2005/02/06 20:46:44 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -61,6 +61,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
 
 import com.turquaz.inventory.Messages;
+import com.turquaz.inventory.bl.InvBLCardAdd;
 import com.turquaz.inventory.bl.InvBLSearchTransaction;
 import com.turquaz.inventory.dal.InvDALCardAdd;
 
@@ -363,7 +364,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			cal.set(cal.get(Calendar.YEAR),0,1);
 			dateStartDate.setDate(cal.getTime());
 		
-			List groupList=invCardAdd.getInventoryGroups();
+			List groupList=InvBLCardAdd.getInventoryGroups();
 			for(int k=0; k<groupList.size(); k++)
 			{
 				TurqInventoryGroup gr=(TurqInventoryGroup)groupList.get(k);

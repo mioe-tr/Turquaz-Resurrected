@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.43 2005/02/04 15:59:07 cemdayanik Exp $
+* @version  $Id: InvUICardSearch.java,v 1.44 2005/02/06 20:46:45 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -311,7 +311,7 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 	}
 	public void fillComboGroup(){
 	try {
-			java.util.List groupLst = invBLCardAdd.getInventoryGroups();
+			java.util.List groupLst = InvBLCardAdd.getInventoryGroups();
 			TableItem item = null;
 			TurqInventoryGroup trqInvGroup;
 			for (int i = 0; i < groupLst.size(); i++) {

@@ -18,8 +18,9 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.24 2005/02/06 19:17:20 cemdayanik Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.25 2005/02/06 20:46:45 onsel Exp $
 */
+
 
 import java.util.List;
 
