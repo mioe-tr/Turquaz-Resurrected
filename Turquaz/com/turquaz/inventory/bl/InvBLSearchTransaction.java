@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: InvBLSearchTransaction.java,v 1.6 2005/02/08 18:23:28 cemdayanik Exp $
+* @version  $Id: InvBLSearchTransaction.java,v 1.7 2005/02/11 18:31:53 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -31,6 +31,7 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
+import com.turquaz.engine.dal.TurqInventoryTransaction;
 import com.turquaz.inventory.dal.InvDALSearchTransaction;
 
 public class InvBLSearchTransaction {
@@ -64,6 +65,17 @@ public class InvBLSearchTransaction {
 			throw ex;
 		}
 		
+	}
+	public static TurqInventoryTransaction getInvTransByTransId(Integer transId) throws Exception
+	{
+		try
+		{
+			return InvDALSearchTransaction.getInvTransByTransId(transId);
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
 	}
 	
 	public List searchTransactionsAdvanced(String invCardCodeStart,String invCardCodeEnd,
