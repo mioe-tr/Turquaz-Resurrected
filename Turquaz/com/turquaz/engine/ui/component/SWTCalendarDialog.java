@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SWTCalendarDialog.java,v 1.5 2004/11/28 11:26:26 onsel Exp $
+* @version  $Id: SWTCalendarDialog.java,v 1.6 2005/01/08 12:09:04 onsel Exp $
 */
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
@@ -29,6 +29,9 @@ import org.vafada.swtcalendar.SWTCalendar;
 import org.vafada.swtcalendar.SWTCalendarListener;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+
+import com.turquaz.engine.bl.EngBLUtils;
+
 import java.util.Locale;
 
 import java.util.Calendar;
@@ -74,6 +77,7 @@ public class SWTCalendarDialog {
 
     public void open() {
         shell.pack();
+        EngBLUtils.centreWindow(shell);
         shell.open();
         while (!shell.isDisposed()) {
             if (!display.readAndDispatch()) display.sleep();
