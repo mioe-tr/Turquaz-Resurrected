@@ -18,16 +18,30 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALUpdate.java,v 1.2 2005/01/30 19:30:38 onsel Exp $
+* @version  $Id: CheDALUpdate.java,v 1.3 2005/02/15 16:10:09 onsel Exp $
 */
+
 
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Session;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
+import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqChequeRoll;
 
 public class CheDALUpdate {
+	public static TurqChequeCheque initializeCheque(Integer chequeId)throws Exception{
+		try{
+			
+		     Session session = EngDALSessionFactory.openSession();
+		     TurqChequeCheque cheque = (TurqChequeCheque)session.load(TurqChequeCheque.class,chequeId);
+			return cheque;
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
     public static void initializeChequeRoll(TurqChequeRoll chequeRoll)throws Exception {
         try{
             
@@ -45,5 +59,18 @@ public class CheDALUpdate {
         catch(Exception ex){
             throw ex;
         }
+    }
+    public static void initChequeRolls(TurqChequeCheque cheque) throws Exception {
+    	try{
+    		Session session = EngDALSessionFactory.openSession();
+    		session.refresh(cheque);
+    		Hibernate.initialize(cheque.getTurqChequeChequeInRolls());
+    		session.close();
+    		
+    		
+    	}
+    	catch(Exception ex){
+    		throw ex;
+    	}
     }
 }
