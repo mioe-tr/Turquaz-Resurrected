@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.19 2005/01/13 13:34:35 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.20 2005/01/13 14:29:25 onsel Exp $
 */
 import java.util.List;
 
@@ -55,6 +55,8 @@ public class EngBLCommon {
     public final static int CURRENT_TRANS_BANK = 5; //Cari Banka Hareketi
     
     public final static int CURRENT_TRANS_INITIAL = 6; //Cari Acilis
+    
+    public final static int CURRENT_TRANS_OTHERS = 7; //Diger Borc Alacaklar
     
     
     
