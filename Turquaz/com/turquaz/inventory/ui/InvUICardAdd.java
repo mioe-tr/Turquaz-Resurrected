@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.49 2004/10/27 13:40:03 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.50 2004/10/27 14:17:05 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -55,6 +55,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqInventoryUnit;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 import java.util.HashMap;
@@ -1315,6 +1316,8 @@ public class InvUICardAdd extends SecureComposite {
 		fillInvCardUnits();
 		fillTableInvAllGroups();
 		initTableInvPrices();
+	
+		
 
 	}
 
@@ -1530,6 +1533,17 @@ decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
 		}
 
 	}
+	
+	public void clearFields(){
+	
+	 InvUICardAdd cardAdd = new InvUICardAdd(this.getParent(),this.getStyle());
+	 CTabFolder tabfld = (CTabFolder)this.getParent();
+	 tabfld.getSelection().setControl(cardAdd);	 
+	 this.dispose();
+		
+	
+	}
+	
 
 	public boolean verifyFields() {
 		
@@ -1591,12 +1605,15 @@ decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
 				
 				// Save the price list now.
 		        saveInvPrices(cardId);
-		         
+		        
+		        clearFields();
+		        	         
 		         } catch (Exception ex) {
 				ex.printStackTrace();
 				MessageBox msg=new MessageBox(this.getShell(), SWT.NULL);
 				msg.setMessage(ex.getMessage());
 				msg.open();
+				
 			}
 
 		}
