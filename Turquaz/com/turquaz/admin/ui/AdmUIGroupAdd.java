@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.3 2004/11/04 14:22:05 onsel Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.4 2004/11/05 14:42:14 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -105,7 +105,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 			thisLayout.verticalSpacing = 20;
 			thisLayout.marginHeight = 20;
 			this.setLayout(thisLayout);
-			this.setSize(438, 167);
+			this.setSize(438, 170);
 			{
 				lblAdmGroupName = new CLabel(this, SWT.NONE);
 				lblAdmGroupName.setText("Group Name");
