@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIStaticAccountsDialog.java,v 1.2 2004/10/28 09:48:24 onsel Exp $
+* @version  $Id: AccUIStaticAccountsDialog.java,v 1.3 2004/10/28 14:27:15 onsel Exp $
 */
 
 
@@ -30,7 +30,6 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
 
-import com.turquaz.accounting.ui.comp.AccUIAccountsTree;
 import com.turquaz.accounting.ui.comp.AccUIStaticAccountsTree;
 
 import org.eclipse.swt.events.MouseAdapter;

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIDialogInventoryCodeChoose.java,v 1.7 2004/10/25 10:46:46 onsel Exp $
+* @version  $Id: AccUIDialogInventoryCodeChoose.java,v 1.8 2004/10/28 14:27:15 onsel Exp $
 */
 
 
@@ -32,7 +32,6 @@ import org.eclipse.swt.SWT;
 import com.turquaz.accounting.ui.comp.AccUIAccountsTree;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Tree;
 import com.turquaz.accounting.bl.AccBLAccountAdd;
 
