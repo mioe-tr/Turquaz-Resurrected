@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardUpdate.java,v 1.19 2005/03/23 10:33:03 onsel Exp $
+ * @version $Id: InvBLCardUpdate.java,v 1.20 2005/03/23 15:21:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -51,9 +51,18 @@ public class InvBLCardUpdate
 			updateInvCardUnits(session, card, invCardUnits);
 			updateInvPrices(session, card, invPrices);
 			updateInvAccounts(session, card, invAccounts);
+			if(!InvDALCardUpdate.hasInitialTransaction(card))
+			{
+				InvBLCardAdd.saveInitialTransaction(card,InvBLCardAdd.getBaseUnitFromCardUnits(invCardUnits),session);
+				
+			}
+			
 			session.flush();
 			tx.commit();
 			session.close();
+			
+			
+			
 		}
 		catch (Exception ex)
 		{
@@ -244,7 +253,7 @@ public class InvBLCardUpdate
 			throw ex;
 		}
 	}
-
+	
 	public static boolean hasTransactions(TurqInventoryCard card) throws Exception
 	{
 		try

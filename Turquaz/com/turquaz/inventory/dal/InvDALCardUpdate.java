@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.13 2005/03/23 10:33:07 onsel Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.14 2005/03/23 15:21:51 onsel Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -44,6 +44,32 @@ public class InvDALCardUpdate
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
 					+ "where transactions.turqInventoryCard = :invCard" +
 					 " and transactions.turqInventoryTransactionType.id <>" +EngBLCommon.INV_TRANS_INITIAL;
+			Query q = session.createQuery(query);
+			q.setParameter("invCard", card);
+			List list = q.list();
+			session.close();
+			if (list.size() > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	public static boolean hasInitialTransaction(TurqInventoryCard card) throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.openSession();
+			String query = "Select transactions from TurqInventoryTransaction as transactions "
+					+ "where transactions.turqInventoryCard = :invCard" +
+					 " and transactions.turqInventoryTransactionType.id =" +EngBLCommon.INV_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("invCard", card);
 			List list = q.list();
