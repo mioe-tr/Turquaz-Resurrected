@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.20 2005/03/06 19:33:24 cemdayanik Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.21 2005/03/17 11:46:03 onsel Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -75,7 +75,6 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	TurqCurrentTransaction transaction;
 	private ToolItem toolCancel;
 	
-	private CurBLSearchTransaction blSearch = new CurBLSearchTransaction();
 	
 	private TurqCurrency baseCurrency=EngBLCommon.getBaseCurrency();
 	private TurqCurrencyExchangeRate exchangeRate=null;
@@ -304,7 +303,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			
 			
-			blSearch.updateCurrentTransaction((TurqCurrentCard)compTransactionAdd.getTxtCurrentCode().getData(compTransactionAdd.getTxtCurrentCode().getText()),
+			CurBLSearchTransaction.updateCurrentTransaction((TurqCurrentCard)compTransactionAdd.getTxtCurrentCode().getData(compTransactionAdd.getTxtCurrentCode().getText()),
 											  compTransactionAdd.getDateTransDate().getDate(),
 											  compTransactionAdd.getTxtDocumentNo().getText(),
 											  isCredit,
@@ -331,7 +330,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	MessageBox msg = new MessageBox(this.getParent(),SWT.NULL);
 	try{
 	
-	 blSearch.deleteCurrentTransaction(transaction);
+	CurBLSearchTransaction.deleteCurrentTransaction(transaction);
 	
 	 msg.setMessage(Messages.getString("CUrUITransactionUpdateDialog.11")); //$NON-NLS-1$
 	 msg.open();

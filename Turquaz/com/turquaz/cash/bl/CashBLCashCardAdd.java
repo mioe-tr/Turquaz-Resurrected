@@ -27,19 +27,20 @@ import com.turquaz.engine.dal.TurqCashCard;
 /**
  * 
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.4 2005/03/17 09:28:36 onsel Exp $
+ * @version $Id: CashBLCashCardAdd.java,v 1.5 2005/03/17 11:46:04 onsel Exp $
  *
  */
 public class CashBLCashCardAdd {
-    Calendar cal=Calendar.getInstance();
+   
     CashDALCashCard dalCash = new CashDALCashCard();
     
     public CashBLCashCardAdd(){
         
     }
-    public void saveCashCard(String name, String definition, TurqAccountingAccount cashAccount)throws Exception {
+    public static void saveCashCard(String name, String definition, TurqAccountingAccount cashAccount)throws Exception {
         try{
             
+        	Calendar cal=Calendar.getInstance();
           TurqCashCard cashCard = new TurqCashCard();
           
           cashCard.setCashCardName(name);

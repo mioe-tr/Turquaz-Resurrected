@@ -23,12 +23,11 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.8 2005/03/17 09:31:16 cemdayanik Exp $
+* @version  $Id: CurBLTransactionUpdate.java,v 1.9 2005/03/17 11:46:04 onsel Exp $
 */
 
 public class CurBLTransactionUpdate {
 
-    static CurDALCurrentCardUpdate dalUpdate = new CurDALCurrentCardUpdate();
     
     public static void updateTrans(Object trans)throws Exception{
         try{
@@ -53,7 +52,7 @@ public class CurBLTransactionUpdate {
     }
     public static void initCurTrans(TurqCurrentTransaction curTrans)throws Exception {
     	try{
-    		dalUpdate.initCurrentTrans(curTrans);
+    		CurDALCurrentCardUpdate.initCurrentTrans(curTrans);
     	}
     	catch(Exception ex){
     		throw ex;

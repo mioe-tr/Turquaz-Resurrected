@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.52 2005/03/15 15:46:11 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.53 2005/03/17 11:46:03 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -346,7 +346,6 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 	private CTabItem tabItemContactInfo;
 	private CTabItem tabItemGeneralInfo;
 	private CTabFolder tbfCurrentCardAdd;
-	private CurBLCurrentCardAdd currentAdd= new CurBLCurrentCardAdd();
 	public CurUICurrentCardAdd(Composite parent, int style) {
 		super(parent, style);
 		initGUI();
@@ -1086,7 +1085,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 	try{
 	HashMap groupMap = new HashMap(); 
 	
-	List list = currentAdd.getCurrentGroups();
+	List list = CurBLCurrentCardAdd.getCurrentGroups();
 	TurqCurrentGroup curGroup;
 	
 	for(int i=0; i<list.size();i++){

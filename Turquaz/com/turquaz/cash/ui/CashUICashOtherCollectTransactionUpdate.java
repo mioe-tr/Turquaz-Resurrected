@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashOtherCollectTransactionUpdate.java,v 1.4 2005/03/06 19:33:24 cemdayanik Exp $
+* @version  $Id: CashUICashOtherCollectTransactionUpdate.java,v 1.5 2005/03/17 11:46:04 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -71,7 +71,6 @@ public class CashUICashOtherCollectTransactionUpdate extends Dialog {
 	private ToolItem toolCancel;
 	private ToolBar toolBar1;
 
-	private CashBLCashTransactionUpdate  blUpdate = new CashBLCashTransactionUpdate();
 	
     private	TurqCashTransaction cashTrans ;  
     private boolean updated=false;
@@ -225,7 +224,7 @@ public class CashUICashOtherCollectTransactionUpdate extends Dialog {
 	        if(answer == SWT.YES)
 	        {
 	        	updated=true;
-	        	blUpdate.deleteCashTrans(cashTrans);
+	        	CashBLCashTransactionUpdate.deleteCashTrans(cashTrans);
 	         	MessageBox msg2 = new MessageBox(this.getParent(),SWT.ICON_INFORMATION);
 	         	msg2.setMessage(Messages.getString("CashUICashCollectTransactionUpdate.3")); //$NON-NLS-1$
 	         	msg2.open();         
@@ -243,7 +242,7 @@ public class CashUICashOtherCollectTransactionUpdate extends Dialog {
 	        
 	        if(compTransAdd.verifyFields()){
 	        updated=true;
-	        blUpdate.updateOtherTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
+	        CashBLCashTransactionUpdate.updateOtherTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
 	                                compTransAdd.getTxtAccountingAccount().getTurqAccountingAccount(),
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),

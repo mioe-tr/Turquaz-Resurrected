@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUIGroupAddDialog.java,v 1.13 2005/03/15 14:24:00 cemdayanik Exp $
+* @version  $Id: CurUIGroupAddDialog.java,v 1.14 2005/03/17 11:46:03 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -69,7 +69,6 @@ import org.eclipse.swt.events.KeyEvent;
 */
 public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 	private Shell dialogShell;
-	private CurBLCurrentCardAdd blCardAdd = new CurBLCurrentCardAdd();
 	Calendar cal = Calendar.getInstance();
 	private Text txtDescription;
 	private Button btnDelete;
@@ -293,7 +292,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
     public void fillTable(){
     try{
     tableCurGroups.removeAll();
-    List list = blCardAdd.getCurrentGroups();
+    List list = CurBLCurrentCardAdd.getCurrentGroups();
     
     TurqCurrentGroup curGroup;
     TableItem item;
@@ -324,7 +323,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 	    int result = msg.open();
 	    if(result==SWT.OK){
 	   
-	    blCardAdd.deleteObject(txtGroupName.getData());
+	    CurBLCurrentCardAdd.deleteObject(txtGroupName.getData());
 	   
 	   
 	    btnDelete.setEnabled(false);
@@ -370,7 +369,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 	invGroup.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 	invGroup.setGroupsName(txtGroupName.getText().trim());
 	invGroup.setGroupsDescription(txtDescription.getText().trim());
-	blCardAdd.updateObject(invGroup);
+	CurBLCurrentCardAdd.updateObject(invGroup);
 	
 	btnDelete.setEnabled(false);
 	btnUpdate.setEnabled(false);

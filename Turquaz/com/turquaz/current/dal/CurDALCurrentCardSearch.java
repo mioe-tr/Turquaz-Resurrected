@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.28 2005/03/17 11:39:50 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.29 2005/03/17 11:46:04 onsel Exp $
 */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -61,7 +61,7 @@ public class CurDALCurrentCardSearch {
 		
 	}
 	
-	public List searchCurrentCards(String currentCode, String currentName,
+	public static List searchCurrentCards(String currentCode, String currentName,
 									TurqCurrentGroup cardGroup)
 	throws Exception{
 		try{
@@ -107,7 +107,7 @@ public class CurDALCurrentCardSearch {
 		}
 	}
 	
-	public TurqViewCurrentAmountTotal getCurrentCardView (TurqCurrentCard currentCard)
+	public static TurqViewCurrentAmountTotal getCurrentCardView (TurqCurrentCard currentCard)
 	throws Exception	
 	{
 		try{
@@ -127,7 +127,7 @@ public class CurDALCurrentCardSearch {
 		
 	}
 	
-	public List getTransactions(TurqCurrentCard curCard) throws Exception
+	public static List getTransactions(TurqCurrentCard curCard) throws Exception
 	{
 		try
 		{
@@ -149,7 +149,7 @@ public class CurDALCurrentCardSearch {
 		}
 	}
 	
-	public List getCurrentCards()throws Exception{
+	public static List getCurrentCards()throws Exception{
 	    try{
 	        
 	        Session session = EngDALSessionFactory.openSession();
@@ -170,7 +170,7 @@ public class CurDALCurrentCardSearch {
 	    
 	
 	}
-	public List getCurrentCardsAndAccountingAccounts()throws Exception{
+	public static List getCurrentCardsAndAccountingAccounts()throws Exception{
 		  try{
 	        
 	        Session session = EngDALSessionFactory.openSession();
@@ -198,7 +198,7 @@ public class CurDALCurrentCardSearch {
 	        throw ex;
 	    }
 	}
-	public TurqCurrentCard getCurrentCard(String cardCode)throws Exception{
+	public static TurqCurrentCard getCurrentCard(String cardCode)throws Exception{
 	    try{
 	        
 	        Session session = EngDALSessionFactory.openSession();
@@ -228,7 +228,7 @@ public class CurDALCurrentCardSearch {
 	    
 	
 	}
-	public TurqCurrentCard initializeCurrentCard(Integer curCardId)throws Exception {
+	public static TurqCurrentCard initializeCurrentCard(Integer curCardId)throws Exception {
 		try{
 			  Session session = EngDALSessionFactory.openSession();
 			 TurqCurrentCard curCard =(TurqCurrentCard) session.load(TurqCurrentCard.class,curCardId);

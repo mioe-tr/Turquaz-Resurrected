@@ -18,7 +18,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCardAdd.java,v 1.9 2005/02/06 10:55:22 onsel Exp $
+* @version  $Id: CashUICashCardAdd.java,v 1.10 2005/03/17 11:46:04 onsel Exp $
 */
 import org.eclipse.swt.layout.GridLayout;
 
@@ -59,7 +59,6 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
 	private CashAccountPicker accountPicker;
 	private CLabel lblAccountingCode;
 	private Text txtCardCode;
-	CashBLCashCardAdd blCardAdd = new CashBLCashCardAdd();
 
 	public CashUICashCardAdd(org.eclipse.swt.widgets.Composite parent, int style) {
 		super(parent, style);
@@ -128,7 +127,7 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
        try{
            
            if(verifyFields()){
-               blCardAdd.saveCashCard(txtCardCode.getText().trim(),
+               CashBLCashCardAdd.saveCashCard(txtCardCode.getText().trim(),
                        				  txtDefinition.getText().trim(),
                        				  (TurqAccountingAccount)accountPicker.getData());
                 

@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardAdd.java,v 1.12 2005/03/17 09:31:07 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardAdd.java,v 1.13 2005/03/17 11:46:04 onsel Exp $
 */
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class CurDALCurrentCardAdd {
 	public CurDALCurrentCardAdd(){
 	}
 	
-	public List getCurrentGroups() throws Exception {
+	public static List getCurrentGroups() throws Exception {
 	try{
 		Session session = EngDALSessionFactory.openSession();
 	
@@ -64,7 +64,7 @@ public class CurDALCurrentCardAdd {
 	}
 	
 	}
-	public boolean isCurrentCodePresent(String code)throws Exception{
+	public static boolean isCurrentCodePresent(String code)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
 	
@@ -86,7 +86,7 @@ public class CurDALCurrentCardAdd {
 		}
 		
 	}
-	public boolean isCurrentNamePresent(String code)throws Exception{
+	public static boolean isCurrentNamePresent(String code)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
 		

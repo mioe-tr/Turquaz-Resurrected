@@ -16,7 +16,7 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardSearch.java,v 1.4 2005/01/30 19:41:04 onsel Exp $
+ * @version $Id: CashBLCashCardSearch.java,v 1.5 2005/03/17 11:46:04 onsel Exp $
  */
 package com.turquaz.cash.bl;
 
@@ -29,16 +29,15 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 
 
 public class CashBLCashCardSearch {
-    CashDALCashCard dalCash = new CashDALCashCard();
     
     public CashBLCashCardSearch(){
         
         
     }
-    public List searchCashCard(TurqAccountingAccount account, String cardName)throws Exception {
+    public static List searchCashCard(TurqAccountingAccount account, String cardName)throws Exception {
         try{
             
-           return dalCash.searchCashCard(account,cardName); 
+           return CashDALCashCard.searchCashCard(account,cardName); 
             
         }
         

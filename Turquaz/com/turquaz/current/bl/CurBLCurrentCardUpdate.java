@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardUpdate.java,v 1.15 2005/03/17 09:31:07 cemdayanik Exp $
+* @version  $Id: CurBLCurrentCardUpdate.java,v 1.16 2005/03/17 11:46:04 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -43,7 +43,6 @@ import com.turquaz.engine.dal.TurqCurrentTransactionType;
 
 public class CurBLCurrentCardUpdate {
 	
-	private CurDALCurrentCardUpdate currentUpdate=new CurDALCurrentCardUpdate();	
 
 	public CurBLCurrentCardUpdate(){
 		
@@ -232,10 +231,10 @@ public class CurBLCurrentCardUpdate {
 		
 	}
 
-	public List getCurrentGroups() throws Exception {
+	public static List getCurrentGroups() throws Exception {
 
 		try {
-			return currentUpdate.getCurrentGroups();
+			return CurDALCurrentCardUpdate.getCurrentGroups();
 
 		} catch (Exception ex) {
 			throw ex;
@@ -243,13 +242,13 @@ public class CurBLCurrentCardUpdate {
 
 	}
 	
-	public List getCurrentTransactionBalances(TurqCurrentCard curCard, int type)throws Exception{
+	public static List getCurrentTransactionBalances(TurqCurrentCard curCard, int type)throws Exception{
 	
 		try{
 		TurqCurrentTransactionType transType = new TurqCurrentTransactionType();
 		transType.setId(new Integer(type));
 		
-		return currentUpdate.getCurrentTransactionBalances(transType,curCard);
+		return CurDALCurrentCardUpdate.getCurrentTransactionBalances(transType,curCard);
 		}
 		catch(Exception ex){
 			throw ex;
@@ -258,7 +257,7 @@ public class CurBLCurrentCardUpdate {
 		
 	}
 	
-	public void deleteObject(Object obj) throws Exception{
+	public static void deleteObject(Object obj) throws Exception{
  		try{
  			EngDALCommon.deleteObject(obj); 			
 		}

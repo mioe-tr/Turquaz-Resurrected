@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.10 2005/03/17 09:31:07 cemdayanik Exp $
+* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.11 2005/03/17 11:46:04 onsel Exp $
 */
 import java.util.List;
 
@@ -53,7 +53,7 @@ public class CurDALCurrentTransactionAdd {
 		
 	}
 
-	public List getCurrentCards()throws Exception {
+	public static List getCurrentCards()throws Exception {
 	try{
 		
 		Session session = EngDALSessionFactory.openSession();
@@ -71,7 +71,7 @@ public class CurDALCurrentTransactionAdd {
 	
 	}	
 
-	public List getTransactionTypes()throws Exception {
+	public static List getTransactionTypes()throws Exception {
 		try{
 			
 			Session session = EngDALSessionFactory.openSession();

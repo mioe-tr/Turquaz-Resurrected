@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.16 2005/03/06 19:33:25 cemdayanik Exp $
+* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.17 2005/03/17 11:46:04 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -72,8 +72,6 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	private ToolItem toolCancel;
 	private ToolBar toolBar1;
 
-	private CashBLCashTransactionUpdate  blUpdate = new CashBLCashTransactionUpdate();
-	
     private	TurqCashTransaction cashTrans ;  
     private boolean updated=false;
 
@@ -194,7 +192,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	   
         try{
             
-        TurqCurrentCard curCard = blUpdate.getCurrentCard(cashTrans.getTurqEngineSequence());
+        TurqCurrentCard curCard = CashBLCashTransactionUpdate.getCurrentCard(cashTrans.getTurqEngineSequence());
         
         if(curCard!=null){
         
@@ -245,7 +243,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	        if(answer == SWT.YES)
 	        {
 	        	updated=true;
-	        	blUpdate.deleteCashTrans(cashTrans);
+	        	CashBLCashTransactionUpdate.deleteCashTrans(cashTrans);
 	         	MessageBox msg2 = new MessageBox(this.getParent(),SWT.ICON_INFORMATION);
 	         	msg2.setMessage(Messages.getString("CashUICashCollectTransactionUpdate.3")); //$NON-NLS-1$
 	         	msg2.open();         
@@ -264,7 +262,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	        if(compTransAdd.verifyFields()){
 	        updated=true;
 
-	        blUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
+	        CashBLCashTransactionUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
 	                                (TurqCurrentCard)compTransAdd.getTxtCurrentAccount().getData(),
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),

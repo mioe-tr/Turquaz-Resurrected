@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCardAbstract.java,v 1.11 2005/03/14 15:36:59 cemdayanik Exp $
+* @version  $Id: CashUICashCardAbstract.java,v 1.12 2005/03/17 11:46:04 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -476,7 +476,7 @@ public class CashUICashCardAbstract extends org.eclipse.swt.widgets.Composite im
 	            	return;
 	            }
 	            
-	            TurqCashTransaction cashTrans = new CashBLCashTransactionSearch().initializeCashTransaction(id);
+	            TurqCashTransaction cashTrans = CashBLCashTransactionSearch.initializeCashTransaction(id);
 	            
 	            
 	            if(cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue()!=EngBLCommon.MODULE_CASH){	                
