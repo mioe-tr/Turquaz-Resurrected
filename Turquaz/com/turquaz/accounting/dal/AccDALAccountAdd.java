@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.17 2004/12/23 15:49:56 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.18 2004/12/30 12:19:53 onsel Exp $
 */
 
 
@@ -61,6 +61,7 @@ public class AccDALAccountAdd {
 							" order by accounts.accountingAccountsId";   
 
 			Query q = session.createQuery(query); 
+			
 			List list = q.list();
 			tx.commit();
 			session.close();

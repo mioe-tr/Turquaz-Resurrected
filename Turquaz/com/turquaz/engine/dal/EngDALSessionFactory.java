@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.24 2004/12/30 08:19:53 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.25 2004/12/30 12:19:53 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -86,7 +86,7 @@ public class EngDALSessionFactory {
 		props.put("hibernate.connection.driver_class",driver);
 		props.put("hibernate.connection.username",username);
 		props.put("hibernate.connection.password",password);
-		props.put("hibernate.show_sql","true");
+		props.put("hibernate.show_sql","false");
 		props.put("hibernate.schema","public");
 		
 			
