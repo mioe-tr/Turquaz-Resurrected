@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.21 2005/03/15 09:24:29 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.22 2005/03/15 13:45:10 onsel Exp $
  */
 
 import java.util.Date;
@@ -135,7 +135,7 @@ public class CheDALSearch {
 					+ "where cheque.id = chequeStatus.chequeChequesId "
 					+ " and currentCard.id =  chequeStatus.currentCardsId "
 					+ " and (chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_IN
-					+" or chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK+")";
+					+" or chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY+")";
 
 			Query q = session.createQuery(query);
 

@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.13 2005/03/03 10:42:22 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.14 2005/03/15 13:45:09 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -321,7 +321,7 @@ public class CheUIChequeOutPayrollCurrent extends
 						null,
 						txtRollNo.getText().trim(),
 						datePicker1.getDate(),
-						cheques, EngBLCommon.CHEQUE_TRANS_OUT_CURRENT,
+						cheques, EngBLCommon.CHEQUE_TRANS_OUT_CURRENT.intValue(),
 						btnSumTotals.getSelection(),
 						EngBLCommon.getBaseCurrencyExchangeRate());
 				EngUICommon

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.8 2005/03/02 19:30:49 onsel Exp $
+* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.9 2005/03/15 13:45:08 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -286,7 +286,7 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
 					bankCardPicker.getTurqBank(),
 					txtRollNo.getText().trim(),
 					datePicker1.getDate(),cheques,
-					EngBLCommon.CHEQUE_TRANS_OUT_BANK,
+					EngBLCommon.CHEQUE_TRANS_OUT_BANK.intValue(),
 					btnSumTotals.getSelection(),
 					EngBLCommon.getBaseCurrencyExchangeRate());
 

@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.17 2005/03/10 13:44:10 onsel Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.18 2005/03/15 13:45:09 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -285,35 +285,35 @@ public class CheUIChequeRollSearch extends org.eclipse.swt.widgets.Composite
 						.initializeChequeRoll(rollId);
 
 				if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_IN) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_IN.intValue()) {
 					isUpdated = new CheUIChequeInPayrollUpdate(updateShell,
 							SWT.NULL, roll).open();
 				} else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT.intValue()) {
 					isUpdated = new CheUIChequeOutPayrollCurrentUpdate(
 							updateShell, SWT.NULL, roll).open();
 				} else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_OUT_BANK) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_OUT_BANK.intValue()) {
 					isUpdated = new CheUIChequeOutPayrollBankUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}
 				else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_BANK) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_BANK.intValue()) {
 					isUpdated = new CheUIChequeCollectFromBankUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}
 				else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_CURRENT) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_CURRENT.intValue()) {
 					isUpdated = new CheUIChequeCollectUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}
 				else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY.intValue()) {
 					isUpdated = new CheUIReturnFromBankRollUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}
 				else if (roll.getTurqChequeTransactionType()
-						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_RETURN_FROM_CURRENT) {
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_RETURN_FROM_CURRENT.intValue()) {
 					isUpdated = new CheUIReturnFromCurrentUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollCurrentUpdate.java,v 1.4 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CheUIChequeOutPayrollCurrentUpdate.java,v 1.5 2005/03/15 13:45:09 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -256,7 +256,7 @@ public class CheUIChequeOutPayrollCurrentUpdate extends org.eclipse.swt.widgets.
 					compChequeRoll.getTxtRollNo().getText().trim(),
 					compChequeRoll.getDatePicker1().getDate(),
 					chequeList,
-					EngBLCommon.CHEQUE_TRANS_OUT_CURRENT,
+					EngBLCommon.CHEQUE_TRANS_OUT_CURRENT.intValue(),
 					compChequeRoll.getBtnSumTotals().getSelection(),
 					EngBLCommon.getBaseCurrencyExchangeRate());
 	           EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIChequeInPayroll.13"),SWT.ICON_INFORMATION); //$NON-NLS-1$
