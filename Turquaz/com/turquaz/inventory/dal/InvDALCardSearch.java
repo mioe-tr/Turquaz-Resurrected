@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.24 2005/01/11 18:33:41 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.25 2005/02/01 15:25:46 onsel Exp $
 */
 import java.util.List;
 
@@ -61,6 +61,7 @@ public class InvDALCardSearch {
 					query +="and :invGroup in (Select myGroup.turqInventoryGroup From invCard.turqInventoryCardGroups as myGroup)" ;
 					
 				}
+				query += " order by invCard.cardInventoryCode";
 				   
 				Query q = session.createQuery(query); 
 				if(invGroup!=null){

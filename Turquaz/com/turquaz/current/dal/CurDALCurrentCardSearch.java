@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.17 2005/01/11 18:33:38 onsel Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.18 2005/02/01 15:25:46 onsel Exp $
 */
 import java.util.List;
 
@@ -71,6 +71,7 @@ public class CurDALCurrentCardSearch {
 				query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";
 				//query +=" and gr.turqCurrentGroup = :cardGroup)";//left join fetch" +
 			}		
+			query += " order by currentCard.cardsCurrentCode";
 			Query q = session.createQuery(query); 	
 			if (cardGroup!=null){
 				q.setParameter("cardGroup",cardGroup);
