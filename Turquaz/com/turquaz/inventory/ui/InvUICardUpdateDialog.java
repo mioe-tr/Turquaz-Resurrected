@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.46 2005/02/06 21:19:46 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.47 2005/02/08 14:17:06 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -64,20 +64,7 @@ import com.turquaz.engine.ui.component.CurrencyText;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-/**
-* This code was generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* *************************************
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
-* for this machine, so Jigloo or this code cannot be used legally
-* for any corporate or commercial purpose.
-* *************************************
-*/
+
 public class InvUICardUpdateDialog extends Dialog{
 
 	{
