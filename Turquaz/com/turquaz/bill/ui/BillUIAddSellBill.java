@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.30 2005/01/03 00:00:04 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.31 2005/01/04 15:02:22 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1455,7 +1455,7 @@ public class BillUIAddSellBill extends Composite
 				
 				if(answer == SWT.YES)
 				{
-				    EngBLUtils.printBill(bill,getShell());
+				    EngBLUtils.printBill(bill);
 				    
 				}
 				
