@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: NumericText.java,v 1.6 2004/10/09 11:59:43 onsel Exp $
+ * @version $Id: NumericText.java,v 1.7 2004/10/21 10:46:49 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -46,6 +46,7 @@ import org.eclipse.swt.widgets.Listener;
 
 public class NumericText extends Composite {
  private Text text;
+ public int textLimit;
 
  public NumericText(Composite arg0, int arg1) {
   super(arg0, SWT.NONE);
@@ -92,7 +93,13 @@ public class NumericText extends Composite {
   }
  
  }
- 
+ public void setTextLimit(int a){
+ 	textLimit = a;
+ 	text.setTextLimit(a);
+ }
+ public int getTextLimit(){
+ 	return textLimit;
+ }
  public void setText(int a){
  	text.setText(a+"");
  }

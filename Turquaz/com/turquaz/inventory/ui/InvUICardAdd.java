@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.41 2004/10/21 07:01:36 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.42 2004/10/21 10:46:49 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1797,8 +1797,7 @@ decimalSymbol + "][0-9]+)?");
 		int selectedIndex = tableInvCardAddGroupsAllGroups.getSelectionIndex();
 
 		if (selectedIndex >= 0) {
-			TableItem registeredItem = new TableItem(
-					tableInvCardAddGroupsRegisteredGroups, SWT.NULL);
+			TableItem registeredItem = new TableItem(tableInvCardAddGroupsRegisteredGroups, SWT.NULL);
 			registeredItem.setText(tableInvCardAddGroupsAllGroups.getItem(
 					selectedIndex).getText());
 			registeredItem.setData(tableInvCardAddGroupsAllGroups.getItem(
