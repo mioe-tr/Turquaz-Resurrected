@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.20 2005/03/01 16:24:38 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.21 2005/03/17 09:30:57 cemdayanik Exp $
 */
 
 
@@ -26,6 +26,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.turquaz.accounting.dal.AccDALAccountAdd;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
 public class AccBLAccountAdd {
@@ -163,7 +164,7 @@ public class AccBLAccountAdd {
 		account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
 		}
 	
-		dalAccountAdd.saveOrUpdateAccount(account);
+		EngDALCommon.saveObject(account);
 		}
 		
 		catch(Exception ex){

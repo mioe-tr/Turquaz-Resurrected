@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.22 2005/03/15 14:24:01 cemdayanik Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.23 2005/03/17 09:31:15 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -35,6 +35,7 @@ import com.turquaz.current.dal.CurDALTransactionUpdate;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
@@ -130,7 +131,7 @@ public class CurBLSearchTransaction {
 		
 		}
 
- 		dalUpdate.updateObject(curTrans);
+		EngDALCommon.updateObject(curTrans);
  	
  /*		
     	accDalUpdate.updateTransaction(bankTrans.getTurqAccountingTransaction(),documentNo,transDate,accTransType);		

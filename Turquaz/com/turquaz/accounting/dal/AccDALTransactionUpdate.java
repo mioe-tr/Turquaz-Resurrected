@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionUpdate.java,v 1.6 2005/03/01 17:50:35 onsel Exp $
+* @version  $Id: AccDALTransactionUpdate.java,v 1.7 2005/03/17 09:30:58 cemdayanik Exp $
 */
 
 
@@ -36,43 +36,7 @@ import com.turquaz.engine.dal.TurqAccountingTransaction;
 
 public class AccDALTransactionUpdate {
 	
-	public void updateObject(Object obj)throws Exception{
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			
-			session.update(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				throw ex;
-			}
-		
-		
-	}
-	/**
-	 * 
-	 * @param obj
-	 * @throws Exception
-	 */
-	public void deleteObject(Object obj)throws Exception{
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-		
-			session.delete(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				throw ex;
-			}
-	}
+
 	public void initializeTransactionRows(TurqAccountingTransaction accTrans)throws Exception{
 	   try{
 	        

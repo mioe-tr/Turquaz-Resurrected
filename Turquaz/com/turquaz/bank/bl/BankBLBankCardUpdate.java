@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardUpdate.java,v 1.11 2005/03/15 14:24:00 cemdayanik Exp $
+* @version  $Id: BankBLBankCardUpdate.java,v 1.12 2005/03/17 09:31:16 cemdayanik Exp $
 */
 
 
@@ -31,6 +31,7 @@ import net.sf.hibernate.Transaction;
 
 import com.turquaz.bank.dal.BankDALBankCardUpdate;
 import com.turquaz.bank.dal.BankDALCommon;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -88,7 +89,7 @@ public class BankBLBankCardUpdate {
 		bankCard.setLastModified(cal.getTime());
 		bankCard.setBankDefinition(definition);
 		bankCard.setBankCode(bankCode);		
-		BankDALBankCardUpdate.updateObject(session,bankCard);		
+		EngDALCommon.updateObject(session,bankCard);		
 	}
 	
 	
@@ -111,7 +112,7 @@ public class BankBLBankCardUpdate {
 		while(it.hasNext())
 		{
 			//TODO SESSION
-			BankDALCommon.deleteObject(it.next());
+			EngDALCommon.deleteObject(it.next());
 		}
 		
 		BankBLBankCardAdd.saveBankAccountingAccounts(session,curCard,accounts);	
@@ -135,7 +136,7 @@ public class BankBLBankCardUpdate {
  			
  			
  			
- 			bankDALBankCardUpdate.deleteObject(obj);
+ 			EngDALCommon.deleteObject(obj);
  			
 		}
 		catch(Exception ex){
@@ -160,7 +161,7 @@ public class BankBLBankCardUpdate {
  			
  			bankDALBankCardUpdate.deleteInitialTransaction(bankCard);
  			
- 			bankDALBankCardUpdate.deleteObject(bankCard);
+ 			EngDALCommon.deleteObject(bankCard);
  			
 		}
 		catch(Exception ex){

@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALSave.java,v 1.7 2005/03/03 19:31:47 onsel Exp $
+* @version  $Id: CheDALSave.java,v 1.8 2005/03/17 09:31:16 cemdayanik Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -27,84 +27,7 @@ import net.sf.hibernate.Transaction;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
 public class CheDALSave {
-  
-    public static void save(Object obj)throws Exception {
-        try{
-            Session session = EngDALSessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
-            session.save(obj);
-            
-            tx.commit();
-         session.flush();
-            session.close();    
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        
-    }
-    
-    public static void saveOrUpdate(Object obj)throws Exception {
-        try{
-            Session session = EngDALSessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
-            session.saveOrUpdate(obj);
-            
-            tx.commit();
-         //   session.flush();
-            session.close();
-            
-            
-            
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        
-    }
-    
-    public static void update(Object obj)throws Exception {
-        try{
-            
-            Session session = EngDALSessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
-            session.update(obj);
-            
-            tx.commit();
-            session.flush();
-            session.close();
-            
-            
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        
-        
-        
-    }
-    
-    public static void delete(Object obj)throws Exception{
-        try{
-            
-            Session session = EngDALSessionFactory.openSession();
-         Transaction tx = session.beginTransaction();
-            session.delete(obj);
-            session.flush();
-          tx.commit();
-         
-           session.close();
-            
-            
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-    } 
+      
     public static void deleteRollAccountingAccount(Integer rollId)throws Exception
 	{
     	try{

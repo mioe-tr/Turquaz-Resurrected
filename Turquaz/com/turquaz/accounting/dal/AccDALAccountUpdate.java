@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.13 2005/03/01 17:50:35 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.14 2005/03/17 09:30:58 cemdayanik Exp $
 */
 
 
@@ -27,50 +27,13 @@ import java.util.List;
 
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
 
 public class AccDALAccountUpdate {
-	public void updateObject(Object obj)throws Exception{
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			
-			session.update(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				throw ex;
-			}
-		
-		
-	}
-	/**
-	 * 
-	 * @param obj
-	 * @throws Exception
-	 */
-	public void deleteObject(Object obj)throws Exception{
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-		
-			session.delete(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				throw ex;
-			}
-	}
+	
+	
 	public List getSubAccounts (TurqAccountingAccount parentAcc) throws Exception
 	{
 		try

@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.22 2005/03/16 11:55:14 onsel Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.23 2005/03/17 09:30:57 cemdayanik Exp $
 */
 
 
@@ -32,6 +32,7 @@ import com.turquaz.accounting.dal.AccDALTransactionAdd;
 import com.turquaz.accounting.dal.AccDALTransactionSearch;
 
 
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingJournal;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
@@ -201,13 +202,13 @@ public class AccBLTransactionSearch {
 	       journal.setLastModified(new java.sql.Date( cal.getTime().getTime()));
 	       journal.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
 		   journal.setJournalDate(journalDate);
-		   dalTransAdd.save(journal);
+		   EngDALCommon.saveObject(journal);
 	       
 			    
 	       trans.setTurqAccountingJournal(journal);
 	       trans.setLastModified(new java.sql.Date( cal.getTime().getTime()));
 	       trans.setUpdatedBy(System.getProperty("user"));
-			dalTransAdd.update(trans);
+	       EngDALCommon.updateObject(trans);
 	        
 	        
 	        

@@ -2,6 +2,7 @@
 package com.turquaz.current.bl;
 
 import com.turquaz.current.dal.CurDALCurrentCardUpdate;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 
 /************************************************************************/
@@ -22,7 +23,7 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.7 2005/03/15 14:24:01 cemdayanik Exp $
+* @version  $Id: CurBLTransactionUpdate.java,v 1.8 2005/03/17 09:31:16 cemdayanik Exp $
 */
 
 public class CurBLTransactionUpdate {
@@ -32,8 +33,7 @@ public class CurBLTransactionUpdate {
     public static void updateTrans(Object trans)throws Exception{
         try{
             
-//        	TODO Should not send null
-          CurDALCurrentCardUpdate.updateObject(null,trans);  
+        	EngDALCommon.updateObject(trans);  
             
             
         }
@@ -44,8 +44,7 @@ public class CurBLTransactionUpdate {
     }
     public static void delete(Object obj)throws Exception{
         try{
-//        	TODO Should not send null
-            CurDALCurrentCardUpdate.deleteObject(null,obj);
+        	EngDALCommon.deleteObject(obj);
             
         }
         catch(Exception ex){

@@ -18,15 +18,13 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardUpdate.java,v 1.5 2005/03/15 14:24:00 cemdayanik Exp $
+* @version  $Id: BankDALBankCardUpdate.java,v 1.6 2005/03/17 09:31:16 cemdayanik Exp $
 */
 
 import java.util.List;
 
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
 import com.turquaz.bank.bl.BankBLTransactionUpdate;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -36,41 +34,6 @@ import com.turquaz.engine.dal.TurqBanksTransactionBill;
 
 public class BankDALBankCardUpdate {
 	public BankDALBankCardUpdate(){
-	}
-
-	public static void updateObject(Session session, Object obj)throws Exception{
-		try
-		{
-			session.update(obj);
-		}
-		catch(Exception ex)
-		{
-			throw ex;
-		}		
-	}
-	
-	public void deleteObject(Object obj)throws Exception{
-		
-		Transaction tx = null;
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			tx = session.beginTransaction();
-		
-			session.delete(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				
-				if(tx!=null)
-				{
-					tx.rollback();
-				}
-				throw ex;
-			}
-		
 	}
 	public boolean hasTransaction(TurqBanksCard bankCard)throws Exception {
 		try{
