@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardUpdate.java,v 1.10 2005/03/15 14:24:01 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardUpdate.java,v 1.11 2005/03/17 08:47:01 onsel Exp $
 */
 import java.util.List;
 
@@ -116,8 +116,19 @@ public class CurDALCurrentCardUpdate {
 		{		
 			//TODO All methods should send a session here
 			if (session==null)
+			{
+				
 				session=EngDALSessionFactory.openSession();
-			session.delete(obj);			
+				Transaction tx = session.beginTransaction();
+				session.delete(obj);
+				session.flush();
+				tx.commit();
+				session.close();
+			}
+			else{
+				session.delete(obj);
+			}
+			 
 		}
 		catch(Exception ex)
 		{
