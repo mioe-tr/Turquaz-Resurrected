@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.19 2005/02/19 21:16:49 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.20 2005/02/25 16:41:21 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -276,8 +276,14 @@ public class InvDALSearchTransaction {
 							" where invGr.turqInventoryGroup.inventoryGroupsId="+invMainGroup.getInventoryGroupsId()+")))";
 				}
 			}
-
-			query += " order by transaction.turqInventoryCard.inventoryCardsId,transaction.transactionsDate";
+			if (invMainGroup != null)
+			{
+				query += " order by cardGroup.turqInventoryGroup.inventoryGroupsId,transaction.transactionsDate";
+			}
+			else
+			{
+				query += " order by transaction.turqInventoryCard.inventoryCardsId,transaction.transactionsDate";
+			}
 			
 			Query q = session.createQuery(query);
 			q.setParameter("startDate", startDate);
