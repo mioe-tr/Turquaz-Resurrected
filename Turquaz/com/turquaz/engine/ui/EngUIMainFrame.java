@@ -73,7 +73,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.24 2004/10/11 14:25:20 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.25 2004/10/12 12:29:55 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -714,7 +714,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			    
 				Class c = Class.forName(classname);
 				Composite comp =(Composite)c.getConstructor(new Class[]{Composite.class, int.class})
-				.newInstance(new Object[]{tabfldMain,Integer.valueOf(SWT.NONE+"")});
+				.newInstance(new Object[]{tabfldMain,Integer.valueOf(SWT.NULL+"")});
 				yeni.setControl(comp);
 				tabfldMain.setSelection(yeni);
 				arrangeIcons();
