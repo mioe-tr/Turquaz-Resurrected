@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.105 2005/02/22 17:47:50 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.106 2005/02/22 18:18:48 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1413,14 +1413,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 			if (txtInvCardCode.getText().trim().equals("")) { //$NON-NLS-1$
 				msg.setMessage(Messages.getString("InvUICardAdd.43")); //$NON-NLS-1$
 				msg.open();
-				BalloonWindow balWin = new BalloonWindow(getShell(),SWT.ON_TOP|SWT.TITLE|SWT.CLOSE);
-				balWin.setText(Messages.getString("InvUICardAdd.43")); //$NON-NLS-1$
-			
-				int p_x = getShell().getLocation().x+getParent().getLocation().x+txtInvCardCode.getLocation().x;
-			    int p_y = getShell().getLocation().y+getParent().getLocation().x+txtInvCardCode.getLocation().y;
-			    balWin.setLocation(	Display.getCurrent().getCursorLocation());
-			    
-				balWin.open();
+				
 				
 				tabfldInvCardAdd.setSelection(tabInvCardGeneral);
 				txtInvCardCode.setFocus();
