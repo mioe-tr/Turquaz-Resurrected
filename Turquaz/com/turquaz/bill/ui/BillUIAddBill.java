@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.23 2004/12/22 10:20:50 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.24 2004/12/24 14:40:27 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1343,7 +1343,7 @@ public class BillUIAddBill extends Composite
 				
 			    if(row.okToSave()){
 			      blAddConsignment.saveConsignmentRow(invTrans,
-						consignmentID, type, txtDiscountRate.getIntValue());
+						consignmentID, type);
 			    }
 			}
 
@@ -1380,7 +1380,7 @@ public class BillUIAddBill extends Composite
 					txtConsignmentDocumentNo.getText(),
 					txtDefinition.getText(), false, dateConsignmentDate
 							.getDate(), (TurqCurrentCard) txtCurrentCard
-							.getData(), txtDiscountRate.getIntValue(),
+							.getData(),
 					txtDiscountAmount.getBigDecimalValue(), txtDocumentNo
 							.getText(), txtTotalVat.getBigDecimalValue(),
 					decSpecialVat.getBigDecimalValue(), txtTotalAmount
