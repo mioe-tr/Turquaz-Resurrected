@@ -19,7 +19,7 @@ package com.turquaz.inventory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.9 2004/12/23 14:24:48 onsel Exp $
+* @version  $Id: Messages.java,v 1.10 2004/12/23 15:49:56 onsel Exp $
 */
 
 import java.util.Locale;
@@ -35,7 +35,7 @@ public class Messages {
 	}
 
 	public static String getString(String key) {
-		// TODO Auto-generated method stub
+		
 		try {
 			 final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
 			.getBundle(BUNDLE_NAME,Locale.getDefault());

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 12, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.ui.comp;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: IPriceListViewer.java,v 1.2 2004/11/04 14:12:02 ehad Exp $
+* @version  $Id: IPriceListViewer.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
 */
 public interface IPriceListViewer {
 	/**

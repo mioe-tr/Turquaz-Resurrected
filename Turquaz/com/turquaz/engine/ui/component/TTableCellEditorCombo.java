@@ -1,9 +1,4 @@
-/*
- * Created on Sep 26, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TTableCellEditorCombo.java,v 1.4 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: TTableCellEditorCombo.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
 */
 
  

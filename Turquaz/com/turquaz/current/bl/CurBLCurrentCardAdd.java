@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.11 2004/12/17 20:26:35 huseyiner Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.12 2004/12/23 15:49:55 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -32,12 +32,7 @@ import com.turquaz.engine.dal.TurqCurrentCardsPhone;
 import com.turquaz.engine.dal.TurqCurrentContact;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 
-/**
- * @author Ceday
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 public class CurBLCurrentCardAdd {
 	
 	public CurBLCurrentCardAdd(){

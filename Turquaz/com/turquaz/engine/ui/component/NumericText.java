@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: NumericText.java,v 1.11 2004/12/12 15:09:33 cemdayanik Exp $
+* @version  $Id: NumericText.java,v 1.12 2004/12/23 15:49:55 onsel Exp $
 */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,8 +34,6 @@ import org.eclipse.swt.widgets.Text;
 /**
  * @author onsel
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 
 import org.eclipse.swt.graphics.Point;

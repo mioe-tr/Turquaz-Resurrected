@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.102 2004/12/20 09:45:48 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.103 2004/12/23 15:50:12 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -36,7 +36,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.layout.GridLayout;
@@ -84,7 +83,6 @@ import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLXmlParser;
-import com.turquaz.engine.dal.EngDALConnection;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.component.TreeFactory;
@@ -93,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.102 2004/12/20 09:45:48 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.103 2004/12/23 15:50:12 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1424,7 +1422,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	
    /** Auto-generated event handler method */
 	protected void EngUIMainFramePaintControl(PaintEvent evt){
-		//TODO add your handler code here
+		
 	}
 
 	/** Auto-generated event handler method */

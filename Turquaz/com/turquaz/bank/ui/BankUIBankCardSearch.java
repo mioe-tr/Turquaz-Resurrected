@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.16 2004/12/06 19:52:59 huseyiner Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.17 2004/12/23 15:49:55 onsel Exp $
 */
 
 
@@ -379,7 +379,7 @@ public class BankUIBankCardSearch extends  Composite implements SearchComposite 
 	}
 	/** Auto-generated event handler method */
 	protected void tableBankCardsMouseDoubleClick(MouseEvent evt){
-		//TODO add your handler code here
+		
 		TableItem [] selection= tableBankCards.getSelection();	
 	
 		if(selection.length>0){

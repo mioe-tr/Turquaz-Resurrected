@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.15 2004/12/17 21:50:50 huseyiner Exp $
+* @version  $Id: CurrencyText.java,v 1.16 2004/12/23 15:49:55 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -33,12 +33,7 @@ import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 22, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TurqShell.java,v 1.2 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: TurqShell.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
 */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;

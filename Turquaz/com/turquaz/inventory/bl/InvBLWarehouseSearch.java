@@ -1,9 +1,4 @@
-/*
- * Created on Oct 13, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.bl;
 
 import java.util.Calendar;
@@ -29,7 +24,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseSearch;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseSearch.java,v 1.4 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvBLWarehouseSearch.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
 */
 
 public class InvBLWarehouseSearch {

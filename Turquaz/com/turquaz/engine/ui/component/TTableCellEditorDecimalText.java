@@ -1,9 +1,4 @@
-/*
- * Created on Sep 27, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TTableCellEditorDecimalText.java,v 1.4 2004/11/25 20:17:57 cemdayanik Exp $
+* @version  $Id: TTableCellEditorDecimalText.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -38,12 +33,6 @@ import org.eclipse.swt.widgets.Control;
 
 import de.kupzog.ktable.KTable;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class TTableCellEditorDecimalText extends TTableCellEditor {
 
 	private CurrencyText m_Text;

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 28, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.accounting.ui.comp;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIStaticAccountsTree.java,v 1.4 2004/11/05 14:18:16 onsel Exp $
+* @version  $Id: AccUIStaticAccountsTree.java,v 1.5 2004/12/23 15:50:12 onsel Exp $
 */
 
 import java.util.HashMap;
@@ -37,12 +32,7 @@ import org.eclipse.swt.widgets.TreeItem;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 public class AccUIStaticAccountsTree {
 	public AccUIStaticAccountsTree(){
 		

@@ -19,7 +19,7 @@ package com.turquaz.admin;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: Messages.java,v 1.6 2004/12/19 21:55:55 huseyiner Exp $
+* @version  $Id: Messages.java,v 1.7 2004/12/23 15:50:12 onsel Exp $
 */
 
 
@@ -34,7 +34,7 @@ public class Messages {
 	}
 
 	public static String getString(String key) {
-		// TODO Auto-generated method stub
+		
 		try {
 			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
 			.getBundle(BUNDLE_NAME,Locale.getDefault());

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 15, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.accounting.dal;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.6 2004/12/17 20:08:48 cemdayanik Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.7 2004/12/23 15:49:56 onsel Exp $
 */
 
 

@@ -18,7 +18,7 @@ package com.turquaz.current;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.7 2004/12/19 21:55:54 huseyiner Exp $
+* @version  $Id: Messages.java,v 1.8 2004/12/23 15:50:12 onsel Exp $
 */
 
 import java.util.Locale;
@@ -32,7 +32,7 @@ public class Messages {
 	}
 
 	public static String getString(String key) {
-		// TODO Auto-generated method stub
+		
 		try {
 			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
 			.getBundle(BUNDLE_NAME, Locale.getDefault());

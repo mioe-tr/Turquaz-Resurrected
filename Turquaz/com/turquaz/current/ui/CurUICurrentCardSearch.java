@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.23 2004/12/17 20:17:13 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.24 2004/12/23 15:50:12 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -441,7 +441,7 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 	}
 	/** Auto-generated event handler method */
 	protected void tableCurrentCardSearchMouseDoubleClick(MouseEvent evt){
-		//TODO add your handler code here
+		
 		TableItem [] selection= tableCurrentCardSearch.getSelection();	
 	
 		if(selection.length>0){

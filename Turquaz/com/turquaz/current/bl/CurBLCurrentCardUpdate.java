@@ -1,9 +1,4 @@
-/*
- * Created on 22.Eki.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current.bl;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardUpdate.java,v 1.7 2004/11/05 08:45:28 onsel Exp $
+* @version  $Id: CurBLCurrentCardUpdate.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -39,12 +34,6 @@ import com.turquaz.engine.dal.TurqCurrentContact;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
 
-/**
- * @author Ceday
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class CurBLCurrentCardUpdate {
 	
 	private CurDALCurrentCardUpdate currentUpdate=new CurDALCurrentCardUpdate();	

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 15, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.bank.ui.comp;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.bank.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankUITree.java,v 1.5 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: BankUITree.java,v 1.6 2004/12/23 15:50:12 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -34,12 +29,6 @@ import org.eclipse.swt.widgets.TreeItem;
 import com.turquaz.bank.ui.BankUIBankCardAdd;
 import com.turquaz.bank.ui.BankUIBankCardSearch;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class BankUITree extends Tree{
 	public BankUITree(Composite comp, int style){
 	super(comp,style);

@@ -1,9 +1,4 @@
-/*
- * Created on Oct 11, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.dal;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.14 2004/12/12 15:09:34 cemdayanik Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.15 2004/12/23 15:50:12 onsel Exp $
 */
 import java.util.List;
 

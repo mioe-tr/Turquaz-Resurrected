@@ -1,9 +1,4 @@
-/*
- * Created on Oct 26, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current.dal;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.7 2004/12/06 17:21:58 huseyiner Exp $
+* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
 */
 import java.util.List;
 

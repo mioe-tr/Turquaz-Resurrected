@@ -1,9 +1,4 @@
-/*
- * Created on Oct 28, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current.dal;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.4 2004/12/20 10:37:14 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
 */
 import java.util.Date;
 import java.util.List;
@@ -35,12 +30,6 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class CurDALSearchTransaction {
 	
 	public CurDALSearchTransaction(){

@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.12 2004/12/17 13:15:15 huseyiner Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.13 2004/12/23 15:49:55 onsel Exp $
 */
 
 
@@ -32,12 +32,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingJournal;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 public class AccBLTransactionSearch {
 	
 	private AccDALTransactionSearch dalTransSearch = new AccDALTransactionSearch();

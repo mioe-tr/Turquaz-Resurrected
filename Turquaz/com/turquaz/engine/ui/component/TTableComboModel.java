@@ -1,9 +1,4 @@
-/*
- * Created on Sep 26, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -24,19 +19,13 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TTableComboModel.java,v 1.3 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: TTableComboModel.java,v 1.4 2004/12/23 15:49:55 onsel Exp $
 */
 import java.util.List;
 
 import de.kupzog.ktable.KTableCellEditor;
 import de.kupzog.ktable.KTableCellEditorText;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class TTableComboModel extends TTableModel {
 	private List listItems;
 	public TTableComboModel(List list ){

@@ -1,9 +1,4 @@
-/*
- * Created on Sep 27, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.bl;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.19 2004/12/07 18:02:34 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.20 2004/12/23 15:49:55 onsel Exp $
 */
 
 

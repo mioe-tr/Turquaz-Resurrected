@@ -1,9 +1,4 @@
-/*
- * Created on Oct 12, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.ui.comp;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIPrice.java,v 1.4 2004/12/04 20:14:27 cemdayanik Exp $
+* @version  $Id: InvUIPrice.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
 */
 import com.turquaz.inventory.Messages;
 

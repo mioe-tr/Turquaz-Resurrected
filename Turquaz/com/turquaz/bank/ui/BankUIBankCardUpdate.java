@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.9 2004/12/06 19:52:59 huseyiner Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.10 2004/12/23 15:49:55 onsel Exp $
 */
 
 
@@ -287,7 +287,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		}
 	}
 	protected void toolUpdateWidgetSelected(SelectionEvent evt){
-		//TODO add your handler code here
+		
 		update();
 
 	}
@@ -308,7 +308,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 
 	/** Auto-generated event handler method */
 	protected void toolDeleteWidgetSelected(SelectionEvent evt){
-		//TODO add your handler code here
+		
 		delete();
 	}
 }

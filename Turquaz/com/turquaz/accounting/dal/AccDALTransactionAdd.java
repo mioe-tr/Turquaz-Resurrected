@@ -1,9 +1,4 @@
-/*
- * Created on Oct 18, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.accounting.dal;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionAdd.java,v 1.4 2004/11/29 13:36:23 onsel Exp $
+* @version  $Id: AccDALTransactionAdd.java,v 1.5 2004/12/23 15:49:56 onsel Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -32,12 +27,6 @@ import net.sf.hibernate.Transaction;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class AccDALTransactionAdd {
 
 	public void save(Object obj)throws Exception{

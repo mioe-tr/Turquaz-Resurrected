@@ -1,9 +1,4 @@
-/*
- * Created on Sep 28, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.accounting.dal;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.16 2004/12/17 20:54:24 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.17 2004/12/23 15:49:56 onsel Exp $
 */
 
 

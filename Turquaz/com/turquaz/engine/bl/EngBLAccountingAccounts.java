@@ -1,9 +1,4 @@
-/*
- * Created on Oct 28, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.bl;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.9 2004/12/09 21:35:04 onsel Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.10 2004/12/23 15:49:55 onsel Exp $
 */
 
 import java.util.HashMap;
@@ -35,12 +30,7 @@ import com.turquaz.accounting.bl.AccBLAccountAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 public class EngBLAccountingAccounts {
 	public List accountList;
 	public List accountListForAccountPickers;
