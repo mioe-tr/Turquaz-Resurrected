@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.98 2004/12/09 21:35:05 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.99 2004/12/09 21:49:08 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.98 2004/12/09 21:35:05 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.99 2004/12/09 21:49:08 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1717,21 +1717,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	    SearchComposite sc = (SearchComposite)tabfldMain.getSelection().getControl();
 		sc.printTable();
 	}
-	public static void newForm(){
-	    try{
-	    
-	    Class c = Class.forName(tabfldMain.getSelection().getControl().getClass().getName());
-	 
-	    Composite comp =(Composite)c.getConstructor(new Class[]{Composite.class, int.class})
-		.newInstance(new Object[]{tabfldMain,Integer.valueOf(SWT.NULL+"")}); //$NON-NLS-1$
-	    tabfldMain.getSelection().getControl().dispose();   
-	    tabfldMain.getSelection().setControl(comp);	 
-	    }
-	    catch(Exception ex){
-	        ex.printStackTrace();
-	    }
-	    
-	}
+	
 	
 	
 }

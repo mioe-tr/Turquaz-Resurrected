@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseAdd.java,v 1.24 2004/12/09 19:13:06 huseyiner Exp $
+* @version  $Id: InvUIWarehouseAdd.java,v 1.25 2004/12/09 21:49:08 onsel Exp $
 */
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -32,7 +32,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.SWT;
 
-import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLWarehouseAdd;
@@ -363,7 +362,7 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 	
 	}
 	public void newForm(){
-		EngUIMainFrame.newForm();
+		clearFields();
 	    
 	}
 	public void search(){

@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.33 2004/12/08 20:07:36 cemdayanik Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.34 2004/12/09 21:49:08 onsel Exp $
 */
 
 
@@ -322,7 +322,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 	
 	}
 	public void newForm(){
-	    EngUIMainFrame.newForm();	    
+	    clearFields();	    
 	}
 
 	/**

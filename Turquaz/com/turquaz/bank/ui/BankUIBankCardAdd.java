@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.13 2004/12/06 19:52:59 huseyiner Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.14 2004/12/09 21:49:08 onsel Exp $
 */
 
 
@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.SWT;
 
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 
@@ -40,6 +41,7 @@ import org.eclipse.swt.custom.CCombo;
 
 import com.turquaz.bank.Messages;
 import com.turquaz.bank.bl.BankBLBankCardAdd;
+import com.turquaz.current.ui.CurUICurrentCardAdd;
 
 
 /**
@@ -322,7 +324,10 @@ private boolean verifyfields()
 	}
 	
 	public void newForm(){
-		EngUIMainFrame.newForm();
+	  BankUIBankCardAdd curCard = new BankUIBankCardAdd(this.getParent(),this.getStyle());
+	 CTabFolder tabfld = (CTabFolder)this.getParent();
+	 tabfld.getSelection().setControl(curCard);	 
+	 this.dispose();
 	}
 	
 	public void delete(){

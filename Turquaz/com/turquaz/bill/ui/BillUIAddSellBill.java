@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.3 2004/12/03 13:46:21 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.4 2004/12/09 21:49:07 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -57,6 +57,7 @@ import com.turquaz.bill.Messages;
 import com.turquaz.bill.bl.BillBLAddBill;
 import com.turquaz.bill.bl.BillBLAddGroups;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
+import com.turquaz.current.ui.CurUICurrentCardAdd;
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.dal.TurqBillGroup;
@@ -1171,7 +1172,10 @@ public class BillUIAddSellBill extends org.eclipse.swt.widgets.Composite
 	}
 
 	public void newForm() {
-		EngUIMainFrame.newForm();
+	    BillUIAddSellBill curCard = new BillUIAddSellBill(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
 
 	}
 

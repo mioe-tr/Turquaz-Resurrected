@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.24 2004/12/09 18:43:00 huseyiner Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.25 2004/12/09 21:49:08 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -38,13 +38,13 @@ import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.VerifyKeyListener;
 import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentCard;
-import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.DatePicker;
 import org.eclipse.swt.widgets.Text;
@@ -376,7 +376,10 @@ public class CurUITransactionAdd extends Composite implements SecureComposite{
 	
 	public void newForm(){
 		
-		EngUIMainFrame.newForm();
+	    CurUITransactionAdd  curCard = new CurUITransactionAdd(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
 		
 	
 	}

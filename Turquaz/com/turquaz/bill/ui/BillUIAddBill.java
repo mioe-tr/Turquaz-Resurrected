@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.13 2004/12/09 20:06:18 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.14 2004/12/09 21:49:07 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -57,6 +57,7 @@ import com.turquaz.bill.Messages;
 import com.turquaz.bill.bl.BillBLAddBill;
 import com.turquaz.bill.bl.BillBLAddGroups;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
+import com.turquaz.current.ui.CurUICurrentCardAdd;
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.dal.TurqBillGroup;
@@ -1125,7 +1126,10 @@ implements SecureComposite{
 		
 	}
 	public void newForm(){
-		EngUIMainFrame.newForm();
+	    BillUIAddBill curCard = new BillUIAddBill(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
 		
 		
 	}
