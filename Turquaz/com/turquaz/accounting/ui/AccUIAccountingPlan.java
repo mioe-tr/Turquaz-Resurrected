@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.30 2004/12/03 15:27:25 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.31 2004/12/09 14:54:19 onsel Exp $
 */
 
 
@@ -150,7 +150,7 @@ SearchComposite{
 	     MenuItem item = new MenuItem (popup, SWT.PUSH);
 		 item.setText(Messages.getString("AccUIAccountingPlan.2"));    	  //$NON-NLS-1$
 		
-		 item.addListener(SWT.Selection, new Listener () {
+		 item.addListener(SWT.Selection, new Listener (){
 					public void handleEvent (Event e) {					
 						delete();				
 										
