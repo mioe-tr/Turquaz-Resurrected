@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.35 2005/03/17 15:02:01 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.36 2005/03/18 15:01:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -234,6 +234,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					tableColumnDebit = new TableColumn(tableCurrentTransactions, SWT.RIGHT);
 					tableColumnDebit.setText(Messages.getString("CurUITransactionSearch.7")); //$NON-NLS-1$
 					tableColumnDebit.setWidth(62);
+					
 				}
 				{
 					tableColumnCredit = new TableColumn(tableCurrentTransactions, SWT.RIGHT);
@@ -269,6 +270,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 		dateStartDate.setDate(cal.getTime());
 		fillComboTypes();
 	}
+	
 
 	public void fillComboTypes()
 	{
