@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIReturnFromBankRoll.java,v 1.1 2005/03/08 14:20:02 onsel Exp $
+* @version  $Id: CheUIReturnFromBankRoll.java,v 1.2 2005/03/08 15:20:12 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -43,7 +43,6 @@ import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
 import com.turquaz.cheque.Messages;
-import com.turquaz.cheque.bl.CheBLSaveChequeTransaction;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 
