@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.39 2004/11/29 18:49:12 huseyiner Exp $
+* @version  $Id: TreeFactory.java,v 1.40 2004/11/29 19:28:18 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -171,15 +171,17 @@ public final class TreeFactory {
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.13")); //$NON-NLS-1$
 		item.setData(AccUITransactionCollect.class.getName());	
 		}
-		if(EngBLPermissions.getPermission(AccUITransactionSearch.class.getName())>0){
-			item = new TreeItem(root,SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.40"));  //$NON-NLS-1$
-			item.setData(AccUIInitialTransaction.class.getName());
-		}
+		
 		if(EngBLPermissions.getPermission(AccUITransactionPayment.class.getName())>0){
 		item = new TreeItem(root,SWT.NULL);
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.14")); //$NON-NLS-1$
 		item.setData(AccUITransactionPayment.class.getName());	
+		}
+		
+		if(EngBLPermissions.getPermission(AccUIInitialTransaction.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.40"));  //$NON-NLS-1$
+			item.setData(AccUIInitialTransaction.class.getName());
 		}
 		
 		if(EngBLPermissions.getPermission(AccUITransactionSearch.class.getName())>0){
