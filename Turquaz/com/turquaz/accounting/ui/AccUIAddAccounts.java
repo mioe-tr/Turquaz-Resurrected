@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.13 2004/10/27 08:46:29 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.14 2004/10/27 08:48:57 onsel Exp $
 */
 
 
@@ -248,7 +248,7 @@ public class AccUIAddAccounts extends SecureComposite{
 	txtAccAcountName.setText("");
 	txtParentAccount.setText("");
 	txtParentAccount.setData(null);
-	txtAccAcountName.setFocus();
+	txtAccAccountCode.setFocus();
 	}
 	
 	
