@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.37 2005/03/17 11:13:50 huseyiner Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.38 2005/03/17 11:59:23 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -364,9 +364,7 @@ public class BankBLTransactionAdd {
 
             List totals = new ArrayList();
             totals.add(totalAmount);
-            CashBLCashTransactionAdd blCash = new CashBLCashTransactionAdd();
-
-            blCash.saveCashTransaction(cashCard, seq, cashTransType, transDate,
+            CashBLCashTransactionAdd.saveCashTransaction(cashCard, seq, cashTransType, transDate,
                     definition, docNo, totals, bankAccount,exchangeRate);
 
             /**
@@ -485,16 +483,9 @@ public class BankBLTransactionAdd {
             EngDALCommon.saveObject(transRow);
 
             /**
-             * 
-             * 
-             *  
-             */
-            CurBLCurrentTransactionAdd blCurTrans = new CurBLCurrentTransactionAdd();
-
-            /**
              * Save Current transaction
              */
-            blCurTrans.saveCurrentTransaction(curCard, transDate, docNo,
+            CurBLCurrentTransactionAdd.saveCurrentTransaction(curCard, transDate, docNo,
                     currentTransType, totalAmount, new BigDecimal(0),
                     EngBLCommon.CURRENT_TRANS_BANK, seq.getId(),
                     currentTransDefinition, exchangeRate);

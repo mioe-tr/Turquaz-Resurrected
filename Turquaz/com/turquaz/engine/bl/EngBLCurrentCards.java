@@ -25,7 +25,7 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.5 2005/01/02 21:51:10 onsel Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.6 2005/03/17 11:59:23 cemdayanik Exp $
  */
 
 public class EngBLCurrentCards {
@@ -33,8 +33,6 @@ public class EngBLCurrentCards {
 	public List currentList;
 
 	static EngBLCurrentCards _instance;
-
-	private CurBLCurrentCardSearch blCurrentCards = new CurBLCurrentCardSearch();
 
 	public EngBLCurrentCards() throws Exception {
 		try {
@@ -47,7 +45,7 @@ public class EngBLCurrentCards {
 	public void fillCurrentCards() throws Exception {
 		try {
 		    
-			currentList = blCurrentCards.getCurrentCards();
+			currentList = CurBLCurrentCardSearch.getCurrentCards();
 			
 		} catch (Exception ex) {
 			throw ex;
@@ -117,7 +115,7 @@ public class EngBLCurrentCards {
 	public TurqCurrentCard getCurrentCard(String currentCode)throws Exception {
 	 try{
 	     
-	     return blCurrentCards.getCurrentCard(currentCode);
+	     return CurBLCurrentCardSearch.getCurrentCard(currentCode);
 	 }
 	 catch(Exception ex){
 	     throw ex;

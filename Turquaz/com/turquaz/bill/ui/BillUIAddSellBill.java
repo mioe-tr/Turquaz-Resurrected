@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.57 2005/03/17 11:39:49 cemdayanik Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.58 2005/03/17 11:59:24 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1333,9 +1333,8 @@ public class BillUIAddSellBill extends Composite
 	
 	public boolean checkStabilityInventoryLevel(TurqInventoryCard invCard ){
 	    try
-		{	     
-	    	InvBLCardSearch blCardSearch = new InvBLCardSearch();    
-	    	TurqViewInventoryAmountTotal invView=blCardSearch.getView(invCard);
+		{	        
+	    	TurqViewInventoryAmountTotal invView=InvBLCardSearch.getView(invCard);
 	    	int Now=(invView.getTransactionsTotalAmountNow()==null) ? 0 : invView.getTransactionsTotalAmountNow().intValue();
 	    	int Max=invCard.getCardMaximumAmount();
 			int Min=invCard.getCardMinimumAmount();	

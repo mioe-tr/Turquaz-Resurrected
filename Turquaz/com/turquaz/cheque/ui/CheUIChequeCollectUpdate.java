@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectUpdate.java,v 1.2 2005/03/03 19:31:47 onsel Exp $
+ * @version $Id: CheUIChequeCollectUpdate.java,v 1.3 2005/03/17 11:59:23 cemdayanik Exp $
  */
 
 import java.util.ArrayList;
@@ -193,7 +193,7 @@ public class CheUIChequeCollectUpdate extends
 			if(it.hasNext())
 			{
 				TurqCashTransaction cashTrans =(TurqCashTransaction)it.next();
-				new CashBLCashTransactionSearch().initializeCashTransaction(cashTrans);
+				CashBLCashTransactionSearch.initializeCashTransaction(cashTrans);
 				
 				Iterator it2 = cashTrans.getTurqCashTransactionRows().iterator();
 				while(it2.hasNext())
