@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardAdd.java,v 1.25 2005/03/29 16:00:56 cemdayanik Exp $
+ * @version $Id: CurBLCurrentCardAdd.java,v 1.26 2005/03/30 18:18:42 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -47,8 +47,9 @@ public class CurBLCurrentCardAdd
 			String cardTaxDepartment, String cardTaxNumber, int daysToValue, Map accountingAccounts, List phoneList, Map contactInfo,
 			List groupList) throws Exception
 	{
-		try
-		{
+		
+				
+		
 			TurqCurrentCard currentCard = registerCurrentCard(currentCode, cardName, cardDefinition, cardAddress,
 					cardDiscountRate, cardDiscountPayment, cardCreditLimit, cardRiskLimit, cardTaxDepartment, cardTaxNumber,
 					daysToValue);
@@ -57,14 +58,10 @@ public class CurBLCurrentCardAdd
 			saveCurrentCardContact(currentCard.getId(), contactInfo);
 			saveCurrentCardGroups( currentCard.getId(), groupList);
 			createInitialTransaction(currentCard);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+		
 	}
 
-	public static TurqCurrentCard registerCurrentCard(String currentCode, String cardName, String cardDefinition,
+	private static TurqCurrentCard registerCurrentCard(String currentCode, String cardName, String cardDefinition,
 			String cardAddress, BigDecimal cardDiscountRate, BigDecimal cardDiscountPayment, BigDecimal cardCreditLimit,
 			BigDecimal cardRiskLimit, String cardTaxDepartment, String cardTaxNumber, int daysToValue) throws Exception
 	{
@@ -96,7 +93,7 @@ public class CurBLCurrentCardAdd
 		}
 	}
 
-	public static void createInitialTransaction(TurqCurrentCard currentCard) throws Exception
+	private static void createInitialTransaction(TurqCurrentCard currentCard) throws Exception
 	{
 		try
 		{
