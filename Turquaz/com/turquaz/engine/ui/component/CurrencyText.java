@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel
-* @version  $Id: CurrencyText.java,v 1.25 2005/02/23 18:53:46 onsel Exp $
+* @version  $Id: CurrencyText.java,v 1.26 2005/03/01 11:36:01 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -91,6 +91,7 @@ public class CurrencyText extends Composite {
  public void removeModifyListener(ModifyListener listener){
      text.removeModifyListener(listener);
  }
+
  
  public CurrencyText(Composite arg0, int arg1) {
  	  super(arg0, SWT.NONE);
@@ -290,6 +291,7 @@ public class CurrencyText extends Composite {
  
  public void setText(BigDecimal bd){
      TurkishCurrencyFormat cf = new TurkishCurrencyFormat(numberOfDecimal);
+     cf.setMinimumFractionDigits(0);
      text.setText(cf.format(bd));
      
  }

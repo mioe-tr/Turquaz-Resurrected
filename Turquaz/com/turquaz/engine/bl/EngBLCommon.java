@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.44 2005/02/26 11:06:04 cemdayanik Exp $
+* @version  $Id: EngBLCommon.java,v 1.45 2005/03/01 11:36:01 onsel Exp $
 */
 
 import java.sql.Statement;
@@ -58,8 +58,16 @@ public class EngBLCommon {
 	public final static String COMMON_ALL_STRING=Messages.getString("EngBLCommon.2"); //$NON-NLS-1$
 	
 	
+	public final static int COMMON_DEPT = 0;
 	
+	public final static int COMMON_CREDIT = 1;
+	
+	
+	public final static String COMMON_DEPT_STRING = Messages.getString("EngBLCommon.3"); //$NON-NLS-1$
     
+	public final static String COMMON_CREDIT_STRING = Messages.getString("EngBLCommon.4"); //$NON-NLS-1$
+	
+	
     public final static int CASH_CURRENT_COLLECT = 0; //Kasa Cari Tahsilat
     
     public final static int CASH_CURRENT_PAYMENT = 1; // Kasa Cari Ödeme
@@ -166,9 +174,9 @@ public class EngBLCommon {
     public final static Integer CHEQUE_STATUS_CURRENT = new Integer(1); //ciro edili
     public final static Integer CHEQUE_STATUS_BANK = new Integer(2); // bankada tahsilde
     
-    public final static String CHEQUE_STATUS_PORTFOY_STRING = "Portföyde";
-    public final static String CHEQUE_STATUS_CURRENT_STRING = "Ciro Edildi";
-    public final static String CHEQUE_STATUS_BANK_STRING = "Bankada Tahsilde";
+    public final static String CHEQUE_STATUS_PORTFOY_STRING = Messages.getString("EngBLCommon.5"); //$NON-NLS-1$
+    public final static String CHEQUE_STATUS_CURRENT_STRING = Messages.getString("EngBLCommon.6"); //$NON-NLS-1$
+    public final static String CHEQUE_STATUS_BANK_STRING = Messages.getString("EngBLCommon.7"); //$NON-NLS-1$
     
     
     
@@ -289,7 +297,7 @@ public class EngBLCommon {
 			BillBLUpdateBill updateBill = new BillBLUpdateBill();
 			BillBLAddBill addBill = new BillBLAddBill();
 			
-			List bills =dalBill.searchBill(null,"",calStart.getTime(),calEnd.getTime(),EngBLCommon.COMMON_ALL_INT);
+			List bills =dalBill.searchBill(null,"",calStart.getTime(),calEnd.getTime(),EngBLCommon.COMMON_ALL_INT); //$NON-NLS-1$
 			
 			for(int i=0;i<bills.size();i++){
 			
@@ -328,12 +336,12 @@ public class EngBLCommon {
 		tx = session.beginTransaction();
 		
 		 Statement stmt = session.connection().createStatement();
-		 String query ="";
+		 String query =""; //$NON-NLS-1$
 		 
 		 for(int i=0;i<ls.size();i++){
 		 	Object result[] = (Object[])ls.get(i);
-		 	query = "insert into turq_current_accounting_accounts values("+result[0]+","+result[0]+","+result[1]
-																		  +","+0+","+"'admin','2005-01-01','admin','2005-01-01')";
+		 	query = "insert into turq_current_accounting_accounts values("+result[0]+","+result[0]+","+result[1] //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+																		  +","+0+","+"'admin','2005-01-01','admin','2005-01-01')"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		 	
 		 	stmt.execute(query);
 		 }
