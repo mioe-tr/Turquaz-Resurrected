@@ -17,13 +17,16 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.23 2005/03/01 16:24:38 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.24 2005/03/01 20:02:01 cemdayanik Exp $
 */
 
 
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -44,6 +47,7 @@ import org.eclipse.swt.events.DisposeListener;
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
 import com.turquaz.accounting.ui.AccUITransactionPayment;
+import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
@@ -258,12 +262,16 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	    
 	Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 	
-	Iterator it = transactionRows.iterator();
+	List transRows=new ArrayList();
+	transRows.addAll(transactionRows);
+	Collections.sort(transRows,new EngBLHibernateComparer());
+	
 	TurqAccountingTransactionColumn transRow;
 	TableItem item;
-	while(it.hasNext()){
+	for (int k=0; k<transRows.size(); k++)
+	{
 	
-	transRow =(TurqAccountingTransactionColumn)it.next();
+		transRow=(TurqAccountingTransactionColumn)transRows.get(k);
 	
 	if(!transRow.getDeptAmount().toString().equals("0")){ //$NON-NLS-1$
 	    ITableRow row = new AccUITransactionPaymentTableRow(compTransactionPayment.rowList);
