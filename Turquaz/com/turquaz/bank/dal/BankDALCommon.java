@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Ceday
- * @version $Id: BankDALCommon.java,v 1.2 2005/01/26 19:59:38 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.3 2005/01/26 21:40:01 onsel Exp $
  */
 
 import java.util.Date;
@@ -45,6 +45,40 @@ public class BankDALCommon {
 			Transaction tx = session.beginTransaction();
 
 			session.save(obj);
+			session.flush();
+			tx.commit();
+			session.close();
+
+		} catch (Exception ex) {
+
+			throw ex;
+
+		}
+	}
+	public static void updateObject(Object obj) throws Exception {
+		try {
+
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+
+			session.update(obj);
+			session.flush();
+			tx.commit();
+			session.close();
+
+		} catch (Exception ex) {
+
+			throw ex;
+
+		}
+	}
+	public static void deleteObject(Object obj) throws Exception {
+		try {
+
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+
+			session.delete(obj);
 			session.flush();
 			tx.commit();
 			session.close();
@@ -99,6 +133,7 @@ public class BankDALCommon {
 	         
 	        Hibernate.initialize(trans.getTurqBanksTransactions());
 	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCurrentTransactions());
+	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqAccountingTransactions());
 	        session.close();
 	        return trans;
 	        
