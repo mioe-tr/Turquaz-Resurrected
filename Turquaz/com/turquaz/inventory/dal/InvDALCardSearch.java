@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.22 2005/01/10 12:00:40 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.23 2005/01/10 21:04:10 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -202,6 +202,24 @@ public class InvDALCardSearch {
 			catch(Exception ex){
 				throw ex;
 			}
+	}
+	
+	public TurqInventoryCard getTurqInvCardById(Integer cardId )throws Exception{
+	    try{
+	        Session session = EngDALSessionFactory.openSession();
+	        Transaction tx = session.beginTransaction();
+	        
+	        TurqInventoryCard invCard = (TurqInventoryCard)session.load(TurqInventoryCard.class,cardId);	        
+	        
+	        tx.commit();
+	        session.flush();
+	        session.close();
+	        
+	        return invCard;
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 	
 
