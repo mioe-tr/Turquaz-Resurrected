@@ -31,7 +31,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseAdd.java,v 1.4 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvBLWarehouseAdd.java,v 1.5 2004/11/26 16:41:57 huseyiner Exp $
 */
 
 public class InvBLWarehouseAdd {
@@ -41,7 +41,7 @@ public class InvBLWarehouseAdd {
 	Calendar cal = Calendar.getInstance();
 	
 	
-	public void saveWarehouse(String whName, String whDescription,
+	public void saveWarehouse(String whName, String whCode, String whDescription,
 							String whAddress, String whTelephone,
 							String whCity )throws Exception {
 	  try{
@@ -51,7 +51,7 @@ public class InvBLWarehouseAdd {
 		warehouse.setWarehousesCity(whCity);
 		warehouse.setWarehousesTelephone(whTelephone);
 		warehouse.setWarehousesDescription(whDescription);
-		
+		warehouse.setWarehousesCode(whName);
 		TurqCompany company = new TurqCompany();
 		company.setCompaniesId(Integer.valueOf(System.getProperty("company")));
 		

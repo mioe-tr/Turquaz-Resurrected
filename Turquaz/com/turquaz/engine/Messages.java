@@ -23,34 +23,48 @@ package com.turquaz.engine;
 /************************************************************************/
 
 /**
-* @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.4 2004/11/04 13:28:07 ehad Exp $
-*/
+ * @author  Onsel Armagan
+ * @version  $Id: Messages.java,v 1.5 2004/11/26 16:41:55 huseyiner Exp $
+ */
+import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
  * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * 
+ * TODO To change the template for this generated type comment go to Window -
+ * Preferences - Java - Code Style - Code Templates
  */
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.engine.messages_tr_TR";//$NON-NLS-1$
+	private static String BUNDLE_NAME = "com.turquaz.engine.messages";//$NON-NLS-1$
 
-	private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
-			.getBundle(BUNDLE_NAME);
+	/**
+	 * @return Returns the bUNDLE_NAME.
+	 */
+	public static String getBUNDLE_NAME() {
+		return BUNDLE_NAME;
+	}
 
 	private Messages() {
 	}
 
 	public static String getString(String key) {
-		// TODO Auto-generated method stub
 		try {
+			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(
+					BUNDLE_NAME, Locale.getDefault());
+
 			return RESOURCE_BUNDLE.getString(key);
 		} catch (MissingResourceException e) {
 			return '!' + key + '!';
 		}
 	}
-	
+
+	/**
+	 * @param bundle_name
+	 *            The bUNDLE_NAME to set.
+	 */
+	public static void setBUNDLE_NAME(String bundle_name) {
+		BUNDLE_NAME = bundle_name;
+	}
 }

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.13 2004/11/25 14:59:48 huseyiner Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.14 2004/11/26 16:41:55 huseyiner Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Point;
@@ -236,7 +236,8 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog {
 				warehouse.getWarehousesName());
 		compInvUIWarehouse.getTxtWarehouseDescription().setText(
 				warehouse.getWarehousesDescription());
-
+		compInvUIWarehouse.getTxtWarehouseCode().setText(warehouse.getWarehousesDescription());
+		
 		Point parentLocation = this.getParent().getLocation();
 		Point parentSize = this.getParent().getSize();
 		Point dialogSize = dialogShell.getSize();
