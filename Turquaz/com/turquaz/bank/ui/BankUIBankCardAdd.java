@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.17 2005/01/17 21:20:30 onsel Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.18 2005/01/30 20:06:31 onsel Exp $
 */
 
 
@@ -34,6 +34,7 @@ import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 
+import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -345,6 +346,7 @@ private boolean verifyfields()
 				msg.setMessage(Messages.getString("BankUIBankCardAdd.17")); //$NON-NLS-1$
 				msg.open();
 				clearFields();
+				EngBLBankCards.RefreshContentAsistantMap();
 			}
 		}
 		catch(Exception ex)
