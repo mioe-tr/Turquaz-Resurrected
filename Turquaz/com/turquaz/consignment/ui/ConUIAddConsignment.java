@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.47 2005/01/03 00:00:05 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.48 2005/01/07 14:36:29 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -284,6 +284,7 @@ implements SecureComposite{
 	private TableColumn tableColumn1;
 	private Text txtBillDocumentNo;
 	private CLabel lblInventoryPrice;
+	private CLabel lblShippingDate;
 	private TableColumn tableColumnDiscountRate;
 	private CCombo comboWareHouse;
 	private CLabel lblWareHouse;
@@ -543,6 +544,12 @@ implements SecureComposite{
                                 comboWareHouseLData.widthHint = 85;
                                 comboWareHouseLData.heightHint = 14;
                                 comboWareHouse.setLayoutData(comboWareHouseLData);
+                            }
+                            {
+                                lblShippingDate = new CLabel(
+                                    compInfoPanel,
+                                    SWT.NONE);
+                                lblShippingDate.setText("Sevk Tarihi");
                             }
 						}
                         {

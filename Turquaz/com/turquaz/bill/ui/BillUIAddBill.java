@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.38 2005/01/07 10:30:07 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.39 2005/01/07 14:36:29 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -447,7 +447,7 @@ public class BillUIAddBill extends Composite
 			
 			this.setLayout(thisLayout);
 			thisLayout.numColumns = 2;
-			this.setSize(645, 526);
+			this.setSize(678, 526);
 			{
 				cTabFolder1 = new CTabFolder(this, SWT.NONE);
 				cTabFolder1.setSize(56, 25);
@@ -497,8 +497,8 @@ public class BillUIAddBill extends Composite
                                 GridData txtCurrentCardLData = new GridData();
                                 
                                 txtCurrentCard.setBackground(SWTResourceManager.getColor(255,255,255));
-                                txtCurrentCardLData.widthHint = 210;
-                                txtCurrentCardLData.heightHint = 17;
+                                txtCurrentCardLData.widthHint = 228;
+                                txtCurrentCardLData.heightHint = 15;
                                 txtCurrentCard.setLayoutData(txtCurrentCardLData);
                             }
                             {
@@ -571,7 +571,7 @@ public class BillUIAddBill extends Composite
                                     compInfoPanel,
                                     SWT.NONE);
                                 GridData txtDefinitionLData = new GridData();
-                                txtDefinitionLData.widthHint = 211;
+                                txtDefinitionLData.widthHint = 203;
                                 txtDefinitionLData.heightHint = 17;
                                 txtDefinition.setLayoutData(txtDefinitionLData);
                             }
@@ -1234,7 +1234,7 @@ public class BillUIAddBill extends Composite
 				
 	           Vector vec = rowList.getTasks();
 	           int index = vec.indexOf(row);
-	           if(index==vec.size()-1){
+	           if(index==vec.size()-1&&row.okToSave()){
 	           	
 	                    InvUITransactionTableRow row2 = new InvUITransactionTableRow(rowList,BILL_TYPE,tableViewer);
 	                    rowList.addTask(row2);                
