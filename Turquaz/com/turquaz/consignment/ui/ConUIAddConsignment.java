@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.51 2005/01/11 20:44:13 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.52 2005/01/13 13:44:43 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -584,11 +584,9 @@ implements SecureComposite{
                                 tableColumn2.setWidth(79);
                             }
                             {
-                                tableColumn = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn.setText(TRANS_AMOUNT);
-                                tableColumn.setWidth(58);
+                                tableColumn.setWidth(99);
                             }
                             {
                                 tableColumn5 = new TableColumn(
@@ -598,11 +596,9 @@ implements SecureComposite{
                                 tableColumn5.setWidth(53);
                             }
                             {
-                                tableColumn4 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn4 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn4.setText(TRANS_AMOUNT_IN_BASE_UNIT);
-                                tableColumn4.setWidth(75);
+                                tableColumn4.setWidth(98);
                             }
                             {
                                 tableColumn3 = new TableColumn(
@@ -632,7 +628,7 @@ implements SecureComposite{
 									tableConsignmentRows,
 									SWT.NONE);
 								tableColumnDiscountRate.setText(DISCOUNT_PERCENT);
-								tableColumnDiscountRate.setWidth(74);
+								tableColumnDiscountRate.setWidth(53);
 							}
                             {
                                 tableColumn8 = new TableColumn(

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.43 2005/01/13 11:01:07 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.44 2005/01/13 13:44:37 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -693,9 +693,7 @@ public class BillUIAddBill extends Composite
                                 tableColumn2.setWidth(103);
                             }
                             {
-                                tableColumn = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn.setText(TRANS_AMOUNT);
                                 tableColumn.setWidth(106);
                             }
@@ -707,9 +705,7 @@ public class BillUIAddBill extends Composite
                                 tableColumn5.setWidth(100);
                             }
                             {
-                                tableColumn4 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn4 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn4.setText(TRANS_AMOUNT_IN_BASE_UNIT);
                                 tableColumn4.setWidth(121);
                             }
