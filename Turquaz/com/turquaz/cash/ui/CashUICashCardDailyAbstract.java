@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: CashUICashCardDailyAbstract.java,v 1.2 2005/02/06 11:11:34 cemdayanik Exp $
+* @version  $Id: CashUICashCardDailyAbstract.java,v 1.3 2005/02/06 11:24:30 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -159,12 +159,12 @@ public class CashUICashCardDailyAbstract extends org.eclipse.swt.widgets.Composi
                 }
                 {
                     tableColumnCollect = new TableColumn(tableCashTrans, SWT.RIGHT);
-                    tableColumnCollect.setText(Messages.getString("CashUICashCardAbstract.6")); //$NON-NLS-1$
+                    tableColumnCollect.setText(Messages.getString("CashUICashCardDailyAbstract.0")); //$NON-NLS-1$
                     tableColumnCollect.setWidth(100);
                 }
                 {
                     tableColumnPayment = new TableColumn(tableCashTrans, SWT.RIGHT);
-                    tableColumnPayment.setText(Messages.getString("CashUICashCardAbstract.7")); //$NON-NLS-1$
+                    tableColumnPayment.setText(Messages.getString("CashUICashCardDailyAbstract.1")); //$NON-NLS-1$
                     tableColumnPayment.setWidth(100);
                 }
             }
