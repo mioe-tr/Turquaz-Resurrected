@@ -24,7 +24,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.10 2004/11/19 07:26:32 huseyiner Exp $
+* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.11 2004/11/19 20:34:03 huseyiner Exp $
 */
 import java.sql.ResultSet;
 
@@ -126,6 +126,8 @@ public class EngUIDatabaseSelectionWizardPage extends WizardPage {
 		        	       	MessageBox msg = new MessageBox(getShell(),SWT.NULL);
 	        	       		msg.setMessage(Messages.getString("EngUIDatabaseSelectionWizardPage.9")); //$NON-NLS-1$
 	        	       		msg.open();
+	        	       		//clears the database name from textbox after creation
+	        	       		txtNewDatabase.setText("");
 	        	       		fillCombo();
 		        	       	}
 		        	       	catch(Exception ex){
