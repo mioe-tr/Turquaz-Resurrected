@@ -18,11 +18,12 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.10 2004/11/05 09:30:57 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.11 2004/11/06 11:47:39 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Locale;
 import java.util.Properties;
 
 import org.eclipse.core.internal.preferences.Base64;
@@ -253,7 +254,9 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 		}
 	}
 	public void preInitGui(){
-				
+			
+		Locale.setDefault(new Locale("tr","TR"));
+		
 		File config = new File("config/turquaz.properties");
 		if(!config.exists()){
 			EngUIDatabaseConnectionWizard wizard = new EngUIDatabaseConnectionWizard();
