@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.88 2005/02/16 12:24:21 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.89 2005/02/17 18:28:00 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -711,7 +711,7 @@ public final class TreeFactory {
 	    }
 		if(EngBLPermissions.getPermission(CheUIChequeCollectFromBank.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
-			item.setText("Bankdana Çek Tahsilat?");   
+			item.setText(Messages.getString("TreeFactory.103"));    //$NON-NLS-1$
 			item.setData(CheUIChequeCollectFromBank.class.getName());
 	    }
 		
