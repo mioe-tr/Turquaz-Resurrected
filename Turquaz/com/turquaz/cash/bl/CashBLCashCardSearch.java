@@ -16,7 +16,7 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version Id: $$
+ * @version $Id: CashBLCashCardSearch.java,v 1.4 2005/01/30 19:41:04 onsel Exp $
  */
 package com.turquaz.cash.bl;
 

@@ -1,6 +1,5 @@
 
 package com.turquaz.engine.ui.component;
-
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -17,6 +16,10 @@ package com.turquaz.engine.ui.component;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel
+* @version  $Id: CurrencyText.java,v 1.24 2005/01/30 19:41:04 onsel Exp $
+*/
 import java.math.BigDecimal;
 
 import java.util.regex.Matcher;

@@ -26,7 +26,7 @@ import com.turquaz.engine.dal.TurqCashCard;
 /**
  * 
  * @author onsel
- * @version Id: $$
+ * @version $Id: CashBLCashCardAdd.java,v 1.3 2005/01/30 19:41:04 onsel Exp $
  *
  */
 public class CashBLCashCardAdd {

@@ -18,7 +18,7 @@
 
 /**
  * @author onsel
- * @version Id: $$
+ * @version $Id: CashBLCashCardUpdate.java,v 1.5 2005/01/30 19:41:04 onsel Exp $
  */
 package com.turquaz.cash.bl;
 
