@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.53 2005/03/30 18:37:25 cemdayanik Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.54 2005/03/31 16:59:58 huseyiner Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -137,9 +137,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 	{
 		try
 		{
-			EngDALSessionFactory.init();
-			EngBLCommon.getBaseCurrency();
-			EngBLCommon.getBaseCurrencyExchangeRate();
+			
+			
 			String database = EngConfiguration.getString("serverAddress"); //$NON-NLS-1$
 			database = database.trim();
 			if (database == null || database.equals("") || database.equals("localhost") || database.equals("127.0.0.1")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -442,6 +441,14 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 		comboLanguage.setData(Messages.getString("EngUIEntryFrame.18"), new Integer(1)); //$NON-NLS-1$
 		comboLanguage.setData(Messages.getString("EngUIEntryFrame.19"), new Integer(2)); //$NON-NLS-1$
 		comboLanguage.setText(Messages.getString("EngUIEntryFrame.20")); //$NON-NLS-1$
+		try{
+		EngDALSessionFactory.init();
+		EngBLCommon.getBaseCurrency();
+		EngBLCommon.getBaseCurrencyExchangeRate();
+		}
+		catch(Exception ex){
+			
+		}
 	}
 
 	public Text getTxtPassword()
