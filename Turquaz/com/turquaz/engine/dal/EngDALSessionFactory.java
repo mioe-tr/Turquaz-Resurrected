@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.31 2005/01/26 19:19:20 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.32 2005/01/28 12:46:06 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -66,6 +66,7 @@ public class EngDALSessionFactory {
 				url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
 				 driver = "org.postgresql.Driver";
 				 props.put("hibernate.dialect","net.sf.hibernate.dialect.PostgreSQLDialect");
+				 props.put("hibernate.schema","public");
 					
 			}
 		String username = EngConfiguration.getString("dbUsername");
@@ -85,7 +86,7 @@ public class EngDALSessionFactory {
 		props.put("hibernate.connection.username",username);
 		props.put("hibernate.connection.password",password);
 		props.put("hibernate.show_sql","false");
-		props.put("hibernate.schema","public");
+		
 		
 			
 		cfg = cfg.configure();
