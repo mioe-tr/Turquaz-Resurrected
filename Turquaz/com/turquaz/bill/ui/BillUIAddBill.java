@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.1 2004/11/18 14:28:59 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.2 2004/11/18 18:28:33 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1091,4 +1091,10 @@ implements SecureComposite{
 		
 	}
 
+    public Button getCheckIsOpen() {
+        return checkIsOpen;
+    }
+    public void setCheckIsOpen(Button checkIsOpen) {
+        this.checkIsOpen = checkIsOpen;
+    }
 }
