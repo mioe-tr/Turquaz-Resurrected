@@ -23,15 +23,19 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.2 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.3 2004/10/25 09:08:34 onsel Exp $
 */
 
 
 
+import java.util.List;
+
+import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 
 
 public class AccDALAccountUpdate {
@@ -71,6 +75,32 @@ public class AccDALAccountUpdate {
 			catch(Exception ex){
 				throw ex;
 			}
+	}
+	public List getTotalDeptAndCredit(TurqAccountingAccount account)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+	        String query = "from TurqAccountingTransactionColumns as transaction " +
+	        		"where transaction.turqAccountingAccount= :account" ;
+					  
+
+			Query q = session.createQuery(query); 
+			List list = q.list();
+			tx.commit();
+			session.close();
+			return list;
+			
+			
+			
+			
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+		
+		
 	}
 	
 	
