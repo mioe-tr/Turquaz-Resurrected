@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.10 2005/02/28 18:09:26 onsel Exp $
+* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.11 2005/02/28 19:25:28 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -247,7 +247,7 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog {
 	            }   
 	           
 	            
-	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,null,(TurqCurrentCard)compChequeRoll.getCurrentPicker().getData(),null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_IN,compChequeRoll.getBtnSumTotals().getSelection());
+	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,compChequeRoll.getAccountPicker().getTurqAccountingAccount(),(TurqCurrentCard)compChequeRoll.getCurrentPicker().getData(),null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_IN,compChequeRoll.getBtnSumTotals().getSelection());
 	           EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIChequeInPayroll.13"),SWT.ICON_INFORMATION); //$NON-NLS-1$
 	           isUpdated=true;
 	           dialogShell.close();

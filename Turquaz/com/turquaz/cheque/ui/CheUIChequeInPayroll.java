@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayroll.java,v 1.15 2005/02/28 10:16:01 onsel Exp $
+* @version  $Id: CheUIChequeInPayroll.java,v 1.16 2005/02/28 19:25:28 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -435,4 +435,17 @@ public class CheUIChequeInPayroll extends org.eclipse.swt.widgets.Composite impl
     public void setTxtRollNo(Text txtRollNo) {
         this.txtRollNo = txtRollNo;
     }
+    
+	/**
+	 * @return Returns the accountPicker.
+	 */
+	public AccountPicker getAccountPicker() {
+		return accountPicker;
+	}
+	/**
+	 * @param accountPicker The accountPicker to set.
+	 */
+	public void setAccountPicker(AccountPicker accountPicker) {
+		this.accountPicker = accountPicker;
+	}
 }

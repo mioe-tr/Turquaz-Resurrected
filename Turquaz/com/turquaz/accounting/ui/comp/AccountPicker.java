@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.28 2005/02/28 10:16:01 onsel Exp $
+* @version  $Id: AccountPicker.java,v 1.29 2005/02/28 19:25:28 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -183,6 +183,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 	
 	public void setData(Object obj){
 		super.setData(obj);
+		text1.setText("");
 		if(obj!=null){
 		TurqAccountingAccount account = (TurqAccountingAccount)obj;
 		text1.setText(account.getAccountCode());

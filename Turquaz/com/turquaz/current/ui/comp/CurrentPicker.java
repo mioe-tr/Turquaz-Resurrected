@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentPicker.java,v 1.8 2005/02/28 10:15:58 onsel Exp $
+* @version  $Id: CurrentPicker.java,v 1.9 2005/02/28 19:25:28 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -176,6 +176,7 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite {
 		if(obj==null)
 		{
 		    text1.setBackground(SWTResourceManager.getColor(255,150, 150));
+		    accountPicker.setData(null);
 		}
 		else
 		{
