@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.44 2004/12/25 08:48:57 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.45 2004/12/30 12:40:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -1225,6 +1225,25 @@ implements SecureComposite{
 			tableConsignmentRows.setFocus();
 			return false;			
 		}
+		
+		boolean isExistEntry=false;
+		TableItem items[] = tableConsignmentRows.getItems();
+		for(int k=0; k<items.length ; k++)
+		{
+			InvUITransactionTableRow row = (InvUITransactionTableRow)items[k].getData();
+			if (row.okToSave())
+			{
+				isExistEntry=true;
+				break;
+			}
+		}
+		if (!isExistEntry)
+		{
+			msg.setMessage(Messages.getString("ConUIAddConsignment.39")); //$NON-NLS-1$
+			msg.open();
+			return false;
+		}
+				
 		return true;
 	}
 	

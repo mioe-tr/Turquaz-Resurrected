@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.23 2004/12/30 12:13:41 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.24 2004/12/30 12:40:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -952,23 +952,6 @@ implements SecureComposite{
 			return false;
 		}
 		
-		boolean isExistEntry=false;
-		TableItem items[] = tableConsignmentRows.getItems();
-		for(int k=0; k<items.length ; k++)
-		{
-			InvUITransactionTableRow row = (InvUITransactionTableRow)items[k].getData();
-			if (row.okToSave())
-			{
-				isExistEntry=true;
-				break;
-			}
-		}
-		if (!isExistEntry)
-		{
-			msg.setMessage(Messages.getString("BillUIAddBill.39")); //$NON-NLS-1$
-			msg.open();
-			return false;
-		}
 		
 		Boolean isCurrent=(Boolean)comboPaymentType.getData(comboPaymentType.getText());
 		if (isCurrent.booleanValue())
