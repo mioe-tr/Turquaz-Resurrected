@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.5 2004/10/27 10:55:00 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.6 2004/12/17 20:08:48 cemdayanik Exp $
 */
 
 
@@ -76,8 +76,49 @@ public class AccDALAccountUpdate {
 				throw ex;
 			}
 	}
+	public List getSubAccounts (TurqAccountingAccount parentAcc) throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			String query = "from TurqAccountingAccount as accounts " +
+					"where accounts.turqAccountingAccountByParentAccount.accountingAccountsId ="+parentAcc.getAccountingAccountsId(); 
+
+			Query q = session.createQuery(query); 
+			List list = q.list();
+			tx.commit();
+			session.close();
+			return list;
+			
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}
 	
-	
+	public List getAccountTransColumns(TurqAccountingAccount account) throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			String query = "Select transColumns from TurqAccountingTransactionColumn as transColumns " +
+			"where transColumns.turqAccountingAccount.accountingAccountsId ="+account.getAccountingAccountsId();
+			
+	        Query q = session.createQuery(query); 
+			List list = q.list();
+			tx.commit();
+			session.close();
+			return list;
+			
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}
 	public List getTotalDeptAndCredit(TurqAccountingAccount account)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();

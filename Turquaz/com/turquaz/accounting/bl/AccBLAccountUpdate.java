@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.6 2004/11/05 14:18:16 onsel Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.7 2004/12/17 20:09:01 cemdayanik Exp $
 */
 
 
@@ -49,32 +49,73 @@ public class AccBLAccountUpdate {
 	 */
 	public AccBLAccountUpdate() {
 	}
-	public void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, Object parent)throws Exception{
-	try{
+	public void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, Object parent)throws Exception
+	{
+		try
+		{
 		
-		TurqAccountingAccount parentAccount =(TurqAccountingAccount)parent; 
-		account.setAccountName(accountName);
-		account.setAccountCode(accountCode);
+			TurqAccountingAccount parentAccount =(TurqAccountingAccount)parent; 
+			account.setAccountName(accountName);
+			account.setAccountCode(accountCode);
 	
-		account.setUpdatedBy(System.getProperty("user"));
-		account.setUpdateDate(new java.sql.Date( cal.getTime().getTime()));
+			account.setUpdatedBy(System.getProperty("user"));
+			account.setUpdateDate(new java.sql.Date( cal.getTime().getTime()));
 	
-		account.setTurqAccountingAccountByParentAccount(parentAccount);
-		account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
+			account.setTurqAccountingAccountByParentAccount(parentAccount);
+			account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
 
 	
-		dalAccountUpdate.updateObject(account);
-			
-			
-			
-			
+			dalAccountUpdate.updateObject(account);		
 	
-	}
-	catch(Exception ex){
+		}
+		catch(Exception ex)
+		{
 			throw ex;
+		}	
 	}
+	
+	public void updateTopAccount(TurqAccountingAccount toUpdate, TurqAccountingAccount topAccount)
+		throws Exception
+	{
+		try
+		{
+			toUpdate.setTurqAccountingAccountByTopAccount(topAccount);
+			List subAccounts=dalAccountUpdate.getSubAccounts(toUpdate);
+			for (int k=0; k<subAccounts.size(); k++)
+			{
+				TurqAccountingAccount subAcc=(TurqAccountingAccount)subAccounts.get(k);
+				updateTopAccount(subAcc, topAccount);
+			}
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
 		
-		
+	}
+	
+	public List getSubAccounts (TurqAccountingAccount parentAcc) throws Exception
+	{
+		try
+		{
+			return dalAccountUpdate.getSubAccounts(parentAcc);
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public List getAccountTransColumns(TurqAccountingAccount account) throws Exception
+	{
+		try
+		{
+			return dalAccountUpdate.getAccountTransColumns(account);
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
 		
 	}
 	public void deleteAccount(Object obj)throws Exception{
