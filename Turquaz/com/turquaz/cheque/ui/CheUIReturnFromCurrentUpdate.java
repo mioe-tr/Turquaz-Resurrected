@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author Onsel
- * @version $Id: CheUIReturnFromCurrentUpdate.java,v 1.2 2005/03/15 13:45:09 onsel Exp $
+ * @version $Id: CheUIReturnFromCurrentUpdate.java,v 1.3 2005/03/15 15:03:00 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -209,7 +209,7 @@ public class CheUIReturnFromCurrentUpdate extends
 	           
 //	          TODO cheq trans exRate
 	        
-	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,compChequeRoll.getAccountPicker().getTurqAccountingAccount(),null,null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_RETURN_FROM_CURRENT.intValue(),false,EngBLCommon.getBaseCurrencyExchangeRate());
+	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,compChequeRoll.getAccountPicker().getTurqAccountingAccount(),null,null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_RETURN_TO_CURRENT.intValue(),false,EngBLCommon.getBaseCurrencyExchangeRate());
 	           EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIChequeInPayroll.13"),SWT.ICON_INFORMATION); //$NON-NLS-1$
 	           
 	           isUpdated=true;

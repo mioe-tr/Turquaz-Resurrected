@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIReturnFromCurrent.java,v 1.2 2005/03/09 19:53:28 onsel Exp $
+* @version  $Id: CheUIReturnFromCurrent.java,v 1.3 2005/03/15 15:03:00 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -227,10 +227,10 @@ public class CheUIReturnFromCurrent extends org.eclipse.swt.widgets.Composite im
 
     public void newForm() {
        
-        CheUIChequeOutPayrollBank  curCard = new CheUIChequeOutPayrollBank(this.getParent(),this.getStyle());
-		 CTabFolder tabfld = (CTabFolder)this.getParent();
-		 tabfld.getSelection().setControl(curCard);	 
-		 this.dispose();
+        CheUIReturnFromCurrent  curCard = new CheUIReturnFromCurrent(this.getParent(),this.getStyle());
+		CTabFolder tabfld = (CTabFolder)this.getParent();
+		tabfld.getSelection().setControl(curCard);	 
+		this.dispose();
 
         
 

@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.60 2005/03/15 14:27:18 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.61 2005/03/15 15:03:00 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -187,8 +187,8 @@ public class EngBLCommon {
 	public final static String CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY_STRING = Messages.getString("EngBLCommon.10"); //$NON-NLS-1$
 	
 	
-	public final static Integer CHEQUE_TRANS_RETURN_FROM_CURRENT =  new Integer(6); //Cariden karsiliksiz iade...
-	public final static String CHEQUE_TRANS_RETURN_FROM_CURRENT_STRING = Messages.getString("EngBLCommon.11"); //$NON-NLS-1$
+	public final static Integer CHEQUE_TRANS_RETURN_TO_CURRENT =  new Integer(6); //Cariden karsiliksiz iade...
+	public final static String CHEQUE_TRANS_RETURN_TO_CURRENT_STRING = Messages.getString("EngBLCommon.11"); //$NON-NLS-1$
 	
 	
 	public final static Integer CHEQUE_STATUS_PORTFOY = new Integer(1);
@@ -243,7 +243,7 @@ public class EngBLCommon {
 		map.put(CHEQUE_TRANS_COLLECT_FROM_BANK_STRING,CHEQUE_TRANS_COLLECT_FROM_BANK);
 		map.put(CHEQUE_TRANS_COLLECT_FROM_CURRENT_STRING,CHEQUE_TRANS_COLLECT_FROM_CURRENT);
 		map.put(CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY_STRING,CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY);
-		map.put(CHEQUE_TRANS_RETURN_FROM_CURRENT_STRING,CHEQUE_TRANS_RETURN_FROM_CURRENT);
+		map.put(CHEQUE_TRANS_RETURN_TO_CURRENT_STRING,CHEQUE_TRANS_RETURN_TO_CURRENT);
 		
 		
 		return map;	
@@ -259,7 +259,7 @@ public class EngBLCommon {
 		map.put(CHEQUE_TRANS_COLLECT_FROM_BANK,CHEQUE_TRANS_COLLECT_FROM_BANK_STRING);
 		map.put(CHEQUE_TRANS_COLLECT_FROM_CURRENT,CHEQUE_TRANS_COLLECT_FROM_CURRENT_STRING);
 		map.put(CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY,CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY_STRING);
-		map.put(CHEQUE_TRANS_RETURN_FROM_CURRENT,CHEQUE_TRANS_RETURN_FROM_CURRENT_STRING);
+		map.put(CHEQUE_TRANS_RETURN_TO_CURRENT,CHEQUE_TRANS_RETURN_TO_CURRENT_STRING);
 		
 		
 		return map;	
