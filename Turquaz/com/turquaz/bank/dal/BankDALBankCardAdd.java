@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Ceday
- * @version $Id: BankDALBankCardAdd.java,v 1.3 2004/11/18 10:18:33 huseyiner Exp $
+ * @version $Id: BankDALBankCardAdd.java,v 1.4 2005/01/26 12:10:43 onsel Exp $
  */
 
 import net.sf.hibernate.Session;
@@ -31,7 +31,7 @@ public class BankDALBankCardAdd {
 	public BankDALBankCardAdd() {
 	}
 
-	public void saveObject(Object obj) throws Exception {
+	public static void saveObject(Object obj) throws Exception {
 		try {
 
 			Session session = EngDALSessionFactory.openSession();

@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.8 2005/01/17 21:21:27 onsel Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.9 2005/01/26 12:10:43 onsel Exp $
 */
 
 import com.turquaz.bank.dal.BankDALBankCardAdd;
@@ -56,7 +56,7 @@ public class BankBLBankCardAdd {
 			bankCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			bankCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			
-			bankCardDALAdd.saveObject(bankCard);	
+			BankDALBankCardAdd.saveObject(bankCard);	
 			
 		}
 		catch(Exception ex)
