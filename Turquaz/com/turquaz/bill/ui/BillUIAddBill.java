@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.54 2005/03/01 16:24:39 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.55 2005/03/09 10:08:12 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1369,7 +1369,7 @@ public class BillUIAddBill extends Composite
 					txtDiscountAmount.getBigDecimalValue(), txtDocumentNo
 							.getText(), txtTotalVat.getBigDecimalValue(),
 					decSpecialVat.getBigDecimalValue(), txtTotalAmount
-							.getBigDecimalValue(), type);
+							.getBigDecimalValue(), type, EngBLCommon.getBaseCurrencyExchangeRate());
 			saveConsignmentRows(cons.getId());
 
 			return cons;

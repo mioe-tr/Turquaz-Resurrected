@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistant.java,v 1.10 2005/01/30 19:41:06 onsel Exp $
+* @version  $Id: TurquazContentAssistant.java,v 1.11 2005/03/09 10:08:11 onsel Exp $
 */
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +75,10 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
      if(processor == null){
      	return -1;
      }
+     if(text==null)
+     {
+     	return -1;
+     }
      Proposal []proposals = processor.proposedCodes;
      
      for(int i =0;i<proposals.length;i++){
@@ -90,12 +94,16 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
     }
     public List getPartialProposal(String text1, String text2){
     	
+    	
+    	
     	int start = findIndex(text1);
     	int end = findIndex(text2);
         
     	if(start!=-1&&end!=-1){
     		Proposal []proposals = processor.proposedCodes;
+    		
     		List list = new ArrayList(); 
+    		
     		for(int i=start;i<=end;i++)
     		{
     			list.add(proposals[i].text);
@@ -104,7 +112,8 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
     		return list;
        	}
     	
-    	return null;
+    	
+    	return new ArrayList();
     	
     	
     	

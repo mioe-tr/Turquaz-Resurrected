@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistProcessors.java,v 1.26 2005/02/26 11:06:06 cemdayanik Exp $
+* @version  $Id: TurquazContentAssistProcessors.java,v 1.27 2005/03/09 10:08:11 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -203,6 +203,7 @@ public class TurquazContentAssistProcessors implements
             IContentAssistSubjectControl viewer,
 
             int documentOffset) {
+
          
         // Retrieve current document
         IDocument doc = viewer.getDocument();
@@ -222,6 +223,7 @@ public class TurquazContentAssistProcessors implements
 
         // and fill with list elements
         propList.toArray(proposals);
+      
 
         // Return the proposals
         return proposals;
@@ -231,7 +233,6 @@ public class TurquazContentAssistProcessors implements
     public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer,
 
     int documentOffset) {
-        
         // Retrieve current document
         IDocument doc = viewer.getDocument();
 
@@ -287,8 +288,9 @@ public class TurquazContentAssistProcessors implements
 
     private void computeStructureProposals(String qualifier,
             int documentOffset, List propList) {
-        int qlen = qualifier.length();
-
+      
+    	int qlen = qualifier.length();
+    
         qualifier = qualifier.toLowerCase(Locale.getDefault());
         // Loop through all proposals
         for (int i = 0; i < proposedCodes.length; i++) {
@@ -324,6 +326,7 @@ public class TurquazContentAssistProcessors implements
             }
 
         }
+    	
     }
 
     /*
