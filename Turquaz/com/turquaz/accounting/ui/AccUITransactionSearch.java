@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.22 2004/12/03 12:57:54 onsel Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.23 2004/12/03 13:15:15 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -48,7 +48,6 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.events.DisposeEvent;

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.16 2004/12/02 07:46:09 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.17 2004/12/03 13:12:27 onsel Exp $
 */
 import java.util.List;
 import java.util.Set;
@@ -49,7 +49,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
@@ -67,7 +66,7 @@ import org.eclipse.swt.events.KeyEvent;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CurUICurrentCardSearch extends  Composite implements SecureComposite,SearchComposite {
+public class CurUICurrentCardSearch extends  Composite implements SearchComposite {
 
 	private CCombo comboTurqGroupName;
 private TableColumn tableColumnCurrentName;

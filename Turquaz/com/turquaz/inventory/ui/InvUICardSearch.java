@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.26 2004/12/01 18:10:43 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.27 2004/12/03 13:12:27 onsel Exp $
 */
 
 import java.util.List;
@@ -35,7 +35,6 @@ import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLCardAdd;
@@ -72,7 +71,7 @@ import org.eclipse.swt.events.KeyEvent;
 */
 
 
-public class InvUICardSearch extends  Composite implements SecureComposite,SearchComposite {
+public class InvUICardSearch extends  Composite implements SearchComposite {
 
 	private InvBLCardAdd invBLCardAdd = new InvBLCardAdd();
 	private Composite compInvCardSearch;
