@@ -24,7 +24,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.4 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: EngBLCommon.java,v 1.5 2004/11/09 18:36:50 onsel Exp $
 */
 import java.util.List;
 
@@ -68,6 +68,15 @@ public class EngBLCommon {
 			
 			return engDALCom.checkUserPass(user,pass);
 			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
+	public List getInventoryWarehouses()throws Exception{
+		try{
+			
+			return engDALCom.getInventoryWarehouses();
 		}
 		catch(Exception ex){
 			throw ex;
