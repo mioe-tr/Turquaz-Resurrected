@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.45 2005/01/13 15:12:02 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.46 2005/01/13 16:03:18 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -732,9 +732,7 @@ public class BillUIAddBill extends Composite
                                 tableColumnDiscountRate.setWidth(50);
                             }
                             {
-                                tableColumn8 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn8 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn8.setText(VAT_PERCENT);
                                 tableColumn8.setWidth(56);
                             }

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.95 2005/01/07 10:15:52 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.96 2005/01/13 16:03:15 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -583,7 +583,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 				}
 				{
 					decTextSpecialVatAmount = new CurrencyText(
-							compInvCardDetails, SWT.NONE);
+							compInvCardDetails, SWT.NONE,42);
 					GridData decTextSpecialVatAmountLData = new GridData();
 					decTextSpecialVatAmount
 							.addTraverseListener(new TraverseListener() {
