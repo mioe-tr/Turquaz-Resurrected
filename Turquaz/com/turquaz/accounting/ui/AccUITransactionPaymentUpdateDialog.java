@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.14 2004/12/17 20:17:14 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.15 2004/12/29 14:15:13 cemdayanik Exp $
 */
 
 
@@ -130,7 +130,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 			coolItem1.setMinimumSize(new org.eclipse.swt.graphics.Point(42, 52));
 	
 	
-			toolUpdate.setText("Güncelle"); 
+			toolUpdate.setText("&Güncelle"); 
 			toolUpdate.setImage(SWTResourceManager.getImage("icons/save_edit.gif")); //$NON-NLS-1$
 			toolUpdate.addSelectionListener( new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent evt) {
