@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.20 2004/11/25 14:59:49 huseyiner Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.21 2004/12/03 18:55:34 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -427,10 +427,12 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	
 	}
 
+	
 	/** Auto-generated main method */
 
 	/** Auto-generated event handler method */
 	protected void toolDeleteWidgetSelected(SelectionEvent evt){
+	   
 		MessageBox msg = new MessageBox(this.getParent(),SWT.NULL);
 		MessageBox msg2 = new MessageBox(this.getParent(),SWT.OK|SWT.CANCEL);
 		try{
@@ -452,11 +454,13 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		
 		}
 		catch(Exception ex){
+		    MessageBox msg3 = new MessageBox(this.getParent(),SWT.ICON_WARNING);
 			ex.printStackTrace();
-			msg.setMessage(ex.getMessage());
-			msg.open();
+			msg3.setMessage(Messages.getString("CurUICurrentCardUpdate.15")); //$NON-NLS-1$
+			msg3.open();
 		}
-	}
+	    }
+	
 	
 	//Delete card Phones
 	//Delete Contacts
