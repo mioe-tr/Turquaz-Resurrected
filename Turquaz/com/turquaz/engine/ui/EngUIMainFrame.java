@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.51 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.52 2004/11/05 09:30:57 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -80,7 +80,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.51 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.52 2004/11/05 09:30:57 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 /**
@@ -683,9 +683,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 /** Add your pre-init code in here 	*/
 	public void preInitGUI(){
 	
-	 //Set System variables
-	 System.setProperty("company","0"); //$NON-NLS-1$ //$NON-NLS-2$
-	 System.setProperty("user","admin"); //$NON-NLS-1$ //$NON-NLS-2$
+	
 	 
 	 //init user permissions
 	 EngBLPermissions.init();

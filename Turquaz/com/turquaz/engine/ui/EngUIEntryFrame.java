@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.9 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.10 2004/11/05 09:30:57 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -225,6 +225,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			    FileOutputStream output = new FileOutputStream("config/turquaz.properties");
 			    props.save(output,"Turquaz Configuration");
 			    
+			    System.setProperty("user",txtUserName.getText());
+			    System.setProperty("company","0");
 			    
 			    EngDALSessionFactory.init();
 				}
