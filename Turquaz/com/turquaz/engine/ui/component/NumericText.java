@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: NumericText.java,v 1.10 2004/11/09 17:19:40 onsel Exp $
+* @version  $Id: NumericText.java,v 1.11 2004/12/12 15:09:33 cemdayanik Exp $
 */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -72,10 +72,12 @@ public class NumericText extends Composite {
 
  }
  protected void text3VerifyText(VerifyEvent evt){
-    Pattern pattern = Pattern.compile("[0-9]*");
+ 	Text control = (Text)evt.widget;
+    String textcontrol = control.getText();
+ 	String newText = textcontrol.substring(0, evt.start) + evt.text + textcontrol.substring(evt.end);
+ 		Pattern pattern = Pattern.compile("[0-9]{0,9}");
 
-       Matcher m = pattern.matcher(evt.text);
-
+ 		Matcher m = pattern.matcher(newText);
        // ONLY NUMERICAL VALUES ARE ACCEPTED    .
 
        if (!m.matches()) {

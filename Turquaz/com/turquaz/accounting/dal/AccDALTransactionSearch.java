@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.13 2004/12/10 01:48:27 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.14 2004/12/12 15:09:34 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -58,7 +58,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.13 2004/12/10 01:48:27 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.14 2004/12/12 15:09:34 cemdayanik Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -93,7 +93,6 @@ public class AccDALTransactionSearch {
 	
 	public List searchTransaction(String docNo,Object type,Object startDate, Object endDate)throws Exception {
     try{
-        System.out.println("deneme");
         
     	Session session = EngDALSessionFactory.openSession();
 		

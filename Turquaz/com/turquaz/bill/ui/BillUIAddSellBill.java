@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.4 2004/12/09 21:49:07 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.5 2004/12/12 15:09:34 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1032,7 +1032,7 @@ public class BillUIAddSellBill extends org.eclipse.swt.widgets.Composite
 	public void btnAddConsignmentRowMouseUp() {
 
 		TurqInventoryTransaction invTrans = new InvUITransactionAddDialog(this
-				.getShell(), SWT.NULL).open();
+				.getShell(), SWT.NULL, false).open();
 		if (invTrans != null) {
 			TableItem item = new TableItem(tableConsignmentRows, SWT.NULL);
 

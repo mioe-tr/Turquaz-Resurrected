@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.14 2004/12/09 21:49:07 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.15 2004/12/12 15:09:34 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -973,8 +973,12 @@ implements SecureComposite{
 	    }
 	}
 	public void btnAddConsignmentRowMouseUp(){
-		
-	TurqInventoryTransaction invTrans = new InvUITransactionAddDialog(this.getShell(),SWT.NULL).open();
+	int type =0;
+	if(comboConsignmentType.getText().equals(Messages.getString("BillUIAddBill.40"))){  //$NON-NLS-1$
+			type =1;
+	}
+	boolean buy=(type==0) ? true : false;
+	TurqInventoryTransaction invTrans = new InvUITransactionAddDialog(this.getShell(),SWT.NULL, buy).open();
 	if(invTrans!=null){
 	TableItem item = new TableItem(tableConsignmentRows,SWT.NULL);
 	
