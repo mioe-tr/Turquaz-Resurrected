@@ -73,7 +73,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.21 2004/10/03 10:38:18 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.22 2004/10/05 07:21:54 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -443,9 +443,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			coolbarRightTop.setSize(new org.eclipse.swt.graphics.Point(232,24));
 	
 			coolRightMain.setControl(toolbarMainTop);
-			coolRightMain.setSize(new org.eclipse.swt.graphics.Point(44,22));
-			coolRightMain.setPreferredSize(new org.eclipse.swt.graphics.Point(44,22));
-			coolRightMain.setMinimumSize(new org.eclipse.swt.graphics.Point(44,22));
+			coolRightMain.setSize(new org.eclipse.swt.graphics.Point(92,22));
+			coolRightMain.setPreferredSize(new org.eclipse.swt.graphics.Point(92,22));
+			coolRightMain.setMinimumSize(new org.eclipse.swt.graphics.Point(92,22));
 			coolRightMain.setText("coolItem3");
 	
 			toolbarMainTop.setLocation(new org.eclipse.swt.graphics.Point(20,0));
