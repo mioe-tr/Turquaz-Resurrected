@@ -68,7 +68,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.15 2004/09/25 17:47:52 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.16 2004/09/27 11:07:25 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -564,7 +564,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	}
 /** Add your pre-init code in here 	*/
 	public void preInitGUI(){
-	 System.setProperty("company","1");
+	 System.setProperty("company","0");
 	 System.setProperty("user","admin");
 	 EngBLPermissions.init();
 		
