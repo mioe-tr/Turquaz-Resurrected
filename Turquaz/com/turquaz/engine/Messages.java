@@ -19,7 +19,7 @@ package com.turquaz.engine;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: Messages.java,v 1.12 2005/01/13 15:20:39 cemdayanik Exp $
+ * @version  $Id: Messages.java,v 1.13 2005/01/16 13:21:18 onsel Exp $
  */
 
 import java.util.Locale;
@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.engine.messages";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.engine.messages_tr_TR";//$NON-NLS-1$
 
 	
 	private Messages() {
