@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.70 2004/11/27 14:24:43 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.71 2004/11/28 11:18:47 onsel Exp $
  */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -1356,6 +1356,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 
 		// Column 4 : Percent complete (Text with digits only)
 	TextCellEditor textEditor = new TextCellEditor(tableInvCardAddPrices);
+	
 		((Text) textEditor.getControl()).addVerifyListener(
 		
 			new VerifyListener() {

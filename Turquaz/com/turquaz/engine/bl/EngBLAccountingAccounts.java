@@ -24,7 +24,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.6 2004/11/27 11:59:06 onsel Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.7 2004/11/28 11:18:46 onsel Exp $
 */
 
 import java.util.HashMap;
@@ -43,7 +43,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
  */
 public class EngBLAccountingAccounts {
 	public List accountList;
-	public static HashMap accountMap = new HashMap();
+	public HashMap accountMap = new HashMap();
 
 	
 	static EngBLAccountingAccounts _instance;
@@ -102,14 +102,19 @@ public class EngBLAccountingAccounts {
 	}
 	public static TurqAccountingAccount getAccount(String accountCode)throws Exception{
 	    try{
-	        
-	        return (TurqAccountingAccount)accountMap.get(accountCode);
-	        
-	        
-	    }
-	    catch(Exception ex){
-	        throw ex;
-	    }
+	        if (_instance == null) {
+	              
+				_instance = new EngBLAccountingAccounts();
+
+			}
+			
+			 
+			return (TurqAccountingAccount)_instance.accountMap.get(accountCode);
+			}
+			catch(Exception ex){
+				throw ex;
+			}
+	    
 	    
 	    
 	}

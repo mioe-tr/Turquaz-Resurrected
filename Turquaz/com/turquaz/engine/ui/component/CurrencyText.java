@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.4 2004/11/27 13:30:26 cemdayanik Exp $
+* @version  $Id: CurrencyText.java,v 1.5 2004/11/28 11:18:47 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -197,6 +197,7 @@ public class CurrencyText extends Composite {
  
  public BigDecimal getBigDecimalValue(){
  	String text = this.text.getText();
+	text= text.replaceAll(",","");
  	if(text.equals("")){
  		return new BigDecimal(0);
  	}
