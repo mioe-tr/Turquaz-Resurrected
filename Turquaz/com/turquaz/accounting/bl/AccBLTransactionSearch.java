@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.14 2005/02/03 16:36:50 cemdayanik Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.15 2005/02/14 18:56:18 onsel Exp $
 */
 
 
@@ -42,10 +42,11 @@ public class AccBLTransactionSearch {
 	public AccBLTransactionSearch(){
 		
 	}
-	public List searchAccTransaction(String docNo, Object type, Object startDate, Object endDate)throws Exception{
+	public List searchAccTransaction(String docNo, Object startDate, Object endDate,
+			boolean isGeneralTrans, boolean isCollect, boolean isPayment)throws Exception{
 	try{
 		
-		return dalTransSearch.searchTransaction(docNo,type,startDate,endDate);
+		return dalTransSearch.searchTransaction(docNo,startDate,endDate,isGeneralTrans,isCollect,isPayment);
 				
 	}
 	catch(Exception ex){
