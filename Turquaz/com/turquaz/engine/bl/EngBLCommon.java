@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.24 2005/01/28 15:27:39 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.25 2005/02/01 19:28:05 onsel Exp $
 */
 import java.util.List;
 
@@ -93,7 +93,12 @@ public class EngBLCommon {
     
     
     public final static int CHEQUE_TRANS_IN = 0; //Cek Giris Bordrosu
-    public final static int CHEQUE_TRANS_OUT = 1; //Cek Cikis Bordrosu
+    public final static int CHEQUE_TRANS_OUT_CURRENT = 1; //Cek Cari Cikis Bordrosu
+    public final static int CHEQUE_TRANS_OUT_BANK = 2; //Cek bank Cikis bordrosu
+    
+    
+    public final static int CHEQUE_TYPE_CUSTOMER = 0; //mü?teri Ceki
+    public final static int CHEQUE_TYPE_OWN = 1; //Firma Ceki
     
     public final static boolean INVENTORY_SPEC_VAT_FOR_EACH = true; //OTV birimle hesaplanir
     public final static boolean INVENTORY_SPEC_VAT_PERCENT = false; //OTV yuzde ile hesaplanir.

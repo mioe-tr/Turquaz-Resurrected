@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.65 2005/01/28 20:00:47 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.66 2005/02/01 19:28:04 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -64,6 +64,7 @@ import com.turquaz.cash.ui.CashUICashCollectTransactionAdd;
 import com.turquaz.cash.ui.CashUICashPaymentTransactionAdd;
 import com.turquaz.cash.ui.CashUICashTransactionSearch;
 import com.turquaz.cheque.ui.CheUIChequeInPayroll;
+import com.turquaz.cheque.ui.CheUIChequeOutPayrollCurrent;
 import com.turquaz.cheque.ui.CheUIChequeRollSearch;
 import com.turquaz.consignment.ui.ConUIAddConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
@@ -523,6 +524,11 @@ public final class TreeFactory {
 			item = new TreeItem(root,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.65"));   //$NON-NLS-1$
 			item.setData(CheUIChequeRollSearch.class.getName());
+	    }
+		if(EngBLPermissions.getPermission(CheUIChequeOutPayrollCurrent.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.66"));  //$NON-NLS-1$
+			item.setData(CheUIChequeOutPayrollCurrent.class.getName());
 	    }
 		
 		root.setExpanded(true);

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.1 2005/02/01 14:44:21 onsel Exp $
+* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.2 2005/02/01 19:28:05 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,6 +26,7 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.cheque.Messages;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -265,7 +266,8 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog {
         cheque.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
         cheque.setLastModified(Calendar.getInstance().getTime());
         cheque.setCreationDate(Calendar.getInstance().getTime());
-	          
+	    cheque.setChequesType(EngBLCommon.CHEQUE_TYPE_OWN);
+        
         cheque.setTurqBanksCard(bankCard);
 	    
 	    TurqCurrency cur = new TurqCurrency();
