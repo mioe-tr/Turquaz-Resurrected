@@ -17,7 +17,7 @@ import net.sf.hibernate.expression.Expression;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.6 2004/11/03 18:01:09 onsel Exp $
+ * @version $Id: EngDALUserPerms.java,v 1.7 2004/11/03 18:57:42 onsel Exp $
  * 
  * Database functions for calculating user permissions.
  * TODO Module, Module Component functions must be placed in a different class
@@ -165,6 +165,8 @@ public class EngDALUserPerms {
  		throw e; 
  		} 
  	}
+ 
+ 
 	/**
 	 * 
 	 * @param module_id --Module id
@@ -259,7 +261,7 @@ public class EngDALUserPerms {
 	  		
 	  		Session session = EngDALSessionFactory.openSession();
 	 		Transaction tx = session.beginTransaction();
-	 		String query = "select module from TurqModule as module"; 		
+	 		String query = "select module from TurqModule as module order by module.modulesId"; 		
 	 		Query q = session.createQuery(query); 
 	 		List list = q.list();
 	 		tx.commit();
