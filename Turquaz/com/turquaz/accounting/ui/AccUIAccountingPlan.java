@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.42 2005/02/25 16:23:41 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.43 2005/02/25 16:24:38 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -294,23 +294,9 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite
 					
 					while (parentId.intValue() != -1)
 					{
-						//if (parentId.intValue()==account.getAccountingAccountsId().intValue())
-						//	break;
 						BigDecimal[] parentTotals=(BigDecimal[])accountTotals.get(parentId);
-						if (account.getTurqAccountingAccountByTopAccount().getAccountingAccountsId().intValue() ==2)
-						{
-							System.out.println("AccID:"+account.getAccountingAccountsId());
-							System.out.println("ParentID:"+parentId);
-							System.out.println(parentTotals[0]);
-							System.out.println(parentTotals[1]);
-						}
 						parentTotals[0]=parentTotals[0].add(totalCredit);
 						parentTotals[1]=parentTotals[1].add(totalDept);
-						if (account.getTurqAccountingAccountByTopAccount().getAccountingAccountsId().intValue() ==2)
-						{
-							System.out.println(parentTotals[0]);
-							System.out.println(parentTotals[1]);
-						}
 						account=account.getTurqAccountingAccountByParentAccount();
 						parentId=account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId();
 					}

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.31 2005/02/08 11:31:11 cemdayanik Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.32 2005/02/25 16:23:41 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -82,14 +82,16 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 	private Table tableAccBalance;
 	private Group groupAccountBalance;
 	private AccUIAddAccounts compAccountCard;
+	private BigDecimal[] totals;
 
 	AccBLAccountUpdate blAccount = new AccBLAccountUpdate();
    
 	boolean updateOccured = false;
 	
-	public AccUIAccountUpdate(Shell parent, int style, TurqAccountingAccount acc) {
+	public AccUIAccountUpdate(Shell parent, int style, TurqAccountingAccount acc, BigDecimal[] total) {
 		super(parent, style);
 		account = acc;
+		totals=total;
 	}
 
 	/**
@@ -315,6 +317,17 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 
 	public void fillBalances() {
 		try {
+			
+			TurkishCurrencyFormat cf=new TurkishCurrencyFormat();
+			BigDecimal credit = totals[0];
+			BigDecimal dept = totals[1];
+			BigDecimal balance=credit.subtract(dept);
+			
+			tableItemTotal.setText(new String[] { Messages.getString("AccUIAccountUpdate.4"), //$NON-NLS-1$
+					cf.format(dept), cf.format(credit),
+					(balance.doubleValue() <= 0) ? cf.format(balance.abs()):"0", //$NON-NLS-1$
+					(balance.doubleValue() > 0)? cf.format(balance) : "0"}); //$NON-NLS-1$
+			/*
 			List list = blAccount.getTotalDeptAndCredit(account);
 			
 			if (list.size() > 0) 
@@ -333,7 +346,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 
 				}
 
-			}
+			}*/
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
