@@ -24,7 +24,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.7 2004/11/28 11:18:46 onsel Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.8 2004/12/08 20:07:35 cemdayanik Exp $
 */
 
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public class EngBLAccountingAccounts {
 		}
 		
         //Not really static 
-		_instance.fillAccountList();
+		
 		 
 		return _instance.accountList;
 		}
@@ -114,10 +114,27 @@ public class EngBLAccountingAccounts {
 			catch(Exception ex){
 				throw ex;
 			}
-	    
-	    
-	    
 	}
+	
+	public static void RefreshContentAsistantMap()throws Exception
+	{
+		try
+		{
+			if (_instance == null)
+			{
+				_instance = new EngBLAccountingAccounts();
+				return;
+			}
+			_instance.fillAccountList();
+		}
+		
+		catch(Exception ex)
+		{
+			throw ex;
+		}	
+		
+	}
+	
 	
 
 

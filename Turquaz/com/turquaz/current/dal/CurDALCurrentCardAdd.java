@@ -23,7 +23,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardAdd.java,v 1.6 2004/12/06 17:21:57 huseyiner Exp $
+* @version  $Id: CurDALCurrentCardAdd.java,v 1.7 2004/12/08 20:07:36 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -141,8 +141,7 @@ public class CurDALCurrentCardAdd {
 			if(list.size()>0){
 				return true;
 			}
-			return false;
-			
+			return false;		
 			
 		}
 		catch(Exception ex){

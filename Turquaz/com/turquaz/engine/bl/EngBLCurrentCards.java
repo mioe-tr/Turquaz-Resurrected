@@ -24,7 +24,7 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.2 2004/12/06 14:24:40 cemdayanik Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.3 2004/12/08 20:07:35 cemdayanik Exp $
  */
 
 public class EngBLCurrentCards {
@@ -80,7 +80,8 @@ public class EngBLCurrentCards {
 	
 	public static TurqCurrentCard getCards(String currentCode)
 	throws Exception {
-		try {
+		try 
+		{
 
 			if (_instance == null) {
 
@@ -90,12 +91,30 @@ public class EngBLCurrentCards {
 
 			return (TurqCurrentCard) _instance.cardMap.get(currentCode);
 
-		} catch (Exception ex) {
+		}
+		catch (Exception ex) 
+		{
 			throw ex;
 		}
-
-}
-	
+	}
+	public static void RefreshContentAsistantMap()throws Exception
+	{
+		try
+		{
+			if (_instance == null)
+			{
+				_instance = new EngBLCurrentCards();
+				return;
+			}
+			_instance.fillCurrentCards();
+		}
+		
+		catch(Exception ex)
+		{
+			throw ex;
+		}	
+		
+	}
 	
 
 }

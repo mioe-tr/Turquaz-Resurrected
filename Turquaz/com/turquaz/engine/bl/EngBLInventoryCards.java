@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLInventoryCards.java,v 1.5 2004/12/08 16:25:59 cemdayanik Exp $
+ * @version  $Id: EngBLInventoryCards.java,v 1.6 2004/12/08 20:07:35 cemdayanik Exp $
  */
 
 import java.util.HashMap;
@@ -97,7 +97,25 @@ public class EngBLInventoryCards {
 		} catch (Exception ex) {
 			throw ex;
 		}
-
+	}
+	
+	public static void RefreshContentAsistantMap()throws Exception
+	{
+		try
+		{
+			if (_instance == null)
+			{
+				_instance = new EngBLInventoryCards();
+				return;
+			}
+			_instance.fillInventoryList();
+		}
+		
+		catch(Exception ex)
+		{
+			throw ex;
+		}	
+		
 	}
 
 }

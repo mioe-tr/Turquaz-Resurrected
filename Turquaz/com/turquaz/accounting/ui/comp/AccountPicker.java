@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.17 2004/12/07 09:06:38 onsel Exp $
+* @version  $Id: AccountPicker.java,v 1.18 2004/12/08 20:07:36 cemdayanik Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -99,8 +99,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
                                 
                                setData2(EngBLAccountingAccounts
                                     .getAccount(text1.getText().trim()));
-                                System.out.println(EngBLAccountingAccounts
-                                        .getAccount(text1.getText().trim()));
+                          
                                                            
                                 
                             } catch (Exception ex) {
