@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.36 2004/11/29 11:05:32 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.37 2004/11/29 12:28:14 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -46,6 +46,8 @@ import com.turquaz.admin.ui.AdmUIUsers;
 import com.turquaz.bank.ui.BankUIBankCardAdd;
 import com.turquaz.bank.ui.BankUIBankCardSearch;
 import com.turquaz.bill.ui.BillUIAddBill;
+import com.turquaz.bill.ui.BillUIAddBuyBill;
+import com.turquaz.bill.ui.BillUIAddSellBill;
 import com.turquaz.bill.ui.BillUIBillFromConsignment;
 import com.turquaz.bill.ui.BillUIBillSearch;
 import com.turquaz.consignment.ui.ConUIAddConsignment;
@@ -324,11 +326,22 @@ public final class TreeFactory {
 		item.setText(Messages.getString("TreeFactory.2")); //$NON-NLS-1$
 		item.setData(BillUIBillSearch.class.getName());
 	    }
+	    /*
 		if(EngBLPermissions.getPermission(BillUIAddBill.class.getName())>0){
 		item = new TreeItem(root,SWT.NULL);
 		item.setText(Messages.getString("TreeFactory.38")); //$NON-NLS-1$
 		item.setData(BillUIAddBill.class.getName());
-		}
+		} */
+		if(EngBLPermissions.getPermission(BillUIAddBuyBill.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.38")); //$NON-NLS-1$
+			item.setData(BillUIAddBuyBill.class.getName());
+			}
+		if(EngBLPermissions.getPermission(BillUIAddSellBill.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.40")); //$NON-NLS-1$
+			item.setData(BillUIAddSellBill.class.getName());
+			}
 		root.setExpanded(true);
 		return tree;
 		
