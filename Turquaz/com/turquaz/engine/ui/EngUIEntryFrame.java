@@ -18,13 +18,14 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.43 2005/02/08 11:27:40 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.44 2005/03/07 19:47:13 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Locale;
 import java.util.Properties;
+
 
 
 import org.eclipse.core.internal.preferences.Base64;
@@ -479,6 +480,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 		EngDALSessionFactory.init();
 		
 		
+		
 	}
 	
 	public void postInitGui(){
@@ -518,5 +520,20 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	}
 	public void setTxtUserName(Text txtUserName) {
 		this.txtUserName = txtUserName;
+	}
+	
+	public void updateDBSchema()
+	{
+		try{
+		
+			
+		
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		
 	}
 }

@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.49 2005/03/06 19:33:22 cemdayanik Exp $
+* @version  $Id: EngBLCommon.java,v 1.50 2005/03/07 19:47:12 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -183,10 +183,14 @@ public class EngBLCommon {
     public final static Integer CHEQUE_STATUS_PORTFOY = new Integer(0); //portfoyde
     public final static Integer CHEQUE_STATUS_CURRENT = new Integer(1); //ciro edili
     public final static Integer CHEQUE_STATUS_BANK = new Integer(2); // bankada tahsilde
+    public final static Integer CHEQUE_STATUS_COLLECTED_FROM_BANK = new Integer(3); //bankadan tahsil edildi..
+    public final static Integer CHEQUE_STATUS_COLLECTED_FROM_CURRENT = new Integer(4); //cariden tahsil edildi
     
     public final static String CHEQUE_STATUS_PORTFOY_STRING = Messages.getString("EngBLCommon.5"); //$NON-NLS-1$
     public final static String CHEQUE_STATUS_CURRENT_STRING = Messages.getString("EngBLCommon.6"); //$NON-NLS-1$
     public final static String CHEQUE_STATUS_BANK_STRING = Messages.getString("EngBLCommon.7"); //$NON-NLS-1$
+    public final static String CHEQUE_STATUS_COLLECTED_FROM_BANK_STRING = "Bankadan Tahsil Edildi.";
+    public final static String CHEQUE_STATUS_COLLECTED_FROM_CURRENT_STRING = "Cariden Tahsil Edildi!";
     
     
     

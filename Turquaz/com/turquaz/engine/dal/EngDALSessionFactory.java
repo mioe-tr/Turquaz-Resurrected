@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.46 2005/03/03 20:32:24 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.47 2005/03/07 19:47:13 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -41,6 +41,7 @@ public class EngDALSessionFactory {
 	static EngDALSessionFactory _instance;
 	public SessionFactory factory;
 	public Session session;
+	Configuration cfg ;
 	
 	/**
 	 * Default Constructor
@@ -80,13 +81,13 @@ public class EngDALSessionFactory {
 		System.setProperty("dbPass",password);
 		
 		
-		Configuration cfg =new Configuration();		
+	   cfg =new Configuration();		
 		
 		props.put("hibernate.connection.url",url);
 		props.put("hibernate.connection.driver_class",driver);
 		props.put("hibernate.connection.username",username);
 		props.put("hibernate.connection.password",password);
-		props.put("hibernate.show_sql","false");
+		props.put("hibernate.show_sql","true");
 
 		
 		
@@ -117,6 +118,21 @@ public class EngDALSessionFactory {
 
 		return _instance.factory;
 	}
+	/**
+	 * 
+	 * @return SessionFactory objects for opening Hibernate Sessions
+	 */
+	
+	public static synchronized Configuration getConfiguration(){
+		if (_instance == null) {
+
+			_instance = new EngDALSessionFactory();
+
+		}
+
+		return _instance.cfg;
+	}
+	
 	/**
 	 * 
 	 * @return Session object whisch is created by the static SessionFactory
