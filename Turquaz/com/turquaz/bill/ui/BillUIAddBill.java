@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.57 2005/03/11 15:41:35 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.58 2005/03/11 16:42:51 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -445,6 +445,12 @@ public class BillUIAddBill extends Composite
 		BILL_TYPE = type;
 		initGUI();
 	}
+	
+	public BillUIAddBill(org.eclipse.swt.widgets.Composite parent, int style) {
+		super(parent, style);
+		BILL_TYPE = 0;
+		initGUI();
+	}
 
 	private void initGUI() {
 		try {
@@ -502,8 +508,8 @@ public class BillUIAddBill extends Composite
                                 GridData txtCurrentCardLData = new GridData();
                                 
                                 txtCurrentCard.setBackground(SWTResourceManager.getColor(255,255,255));
-                                txtCurrentCardLData.widthHint = 228;
-                                txtCurrentCardLData.heightHint = 15;
+                                txtCurrentCardLData.widthHint = 150;
+                                txtCurrentCardLData.heightHint = 17;
                                 txtCurrentCard.setLayoutData(txtCurrentCardLData);
                             }
                             {
@@ -522,8 +528,8 @@ public class BillUIAddBill extends Composite
                                     SWT.NONE);
                                 GridData txtDocumentNoLData = new GridData();
                                 txtDocumentNo.setTextLimit(50);
-                                txtDocumentNoLData.widthHint = 106;
-                                txtDocumentNoLData.heightHint = 16;
+                                txtDocumentNoLData.widthHint = 150;
+                                txtDocumentNoLData.heightHint = 17;
                                 txtDocumentNo.setLayoutData(txtDocumentNoLData);
                             }
                             {
@@ -630,8 +636,8 @@ public class BillUIAddBill extends Composite
                                     compInfoPanel,
                                     SWT.NONE);
                                 GridData comboWareHouseLData = new GridData();
-                                comboWareHouseLData.widthHint = 89;
-                                comboWareHouseLData.heightHint = 14;
+                                comboWareHouseLData.widthHint = 134;
+                                comboWareHouseLData.heightHint = 17;
                                 comboWareHouse.setLayoutData(comboWareHouseLData);
                             }
 							{
@@ -645,8 +651,8 @@ public class BillUIAddBill extends Composite
 									compInfoPanel,
 									SWT.NONE);
 								GridData accountPickerCurAccLData = new GridData();
-								accountPickerCurAccLData.widthHint = 107;
-								accountPickerCurAccLData.heightHint = 16;
+								accountPickerCurAccLData.widthHint = 157;
+								accountPickerCurAccLData.heightHint = 17;
 								accountPickerCurAcc.setLayoutData(accountPickerCurAccLData);
 							}
                             {
