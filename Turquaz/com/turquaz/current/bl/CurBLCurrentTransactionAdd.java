@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.21 2005/01/08 13:02:19 onsel Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.22 2005/01/14 13:57:15 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -48,7 +48,7 @@ public class CurBLCurrentTransactionAdd {
 	}
 	
 	
-	public void saveCurrentTransaction(TurqCurrentCard curCard,java.util.Date transDate, String documentNo,
+	public TurqCurrentTransaction saveCurrentTransaction(TurqCurrentCard curCard,java.util.Date transDate, String documentNo,
 			boolean isCredit,BigDecimal amount, BigDecimal totalDiscount, int type,Integer seqDocNo,String definition)throws Exception{
 	  
 	    try{
@@ -101,7 +101,7 @@ public class CurBLCurrentTransactionAdd {
 	 		curTrans.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			
 	        dalCurrentTrans.saveObject(curTrans);
-			
+			return curTrans;
 			
 		}
 		catch(Exception ex){
