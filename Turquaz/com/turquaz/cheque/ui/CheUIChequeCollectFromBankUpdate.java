@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectFromBankUpdate.java,v 1.1 2005/02/17 10:35:59 onsel Exp $
+ * @version $Id: CheUIChequeCollectFromBankUpdate.java,v 1.2 2005/02/28 18:09:26 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -207,7 +207,7 @@ public class CheUIChequeCollectFromBankUpdate extends
 	            }   
 	           
 	            
-	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,null,null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_BANK,false);
+	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,null,null,null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_BANK,false);
 	           EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIChequeInPayroll.13"),SWT.ICON_INFORMATION); //$NON-NLS-1$
 	           isUpdated=true;
 	           dialogShell.close();
