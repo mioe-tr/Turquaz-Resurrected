@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.30 2005/02/03 18:16:40 cemdayanik Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.31 2005/02/08 11:31:11 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -170,14 +170,12 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 			{
 				compAccountCard = new AccUIAddAccounts(dialogShell, SWT.NONE);
 				GridData compAccountCardLData = new GridData();
-				compAccountCardLData.widthHint = 453;
-				compAccountCardLData.heightHint = 139;
+				compAccountCardLData.widthHint = 464;
+				compAccountCardLData.heightHint = 112;
 				compAccountCard.setLayoutData(compAccountCardLData);
-				compAccountCard.getTxtAccAcountName().setSize(228, 23);
-				compAccountCard.getTxtParentAccount().setBounds(101, 92, 234, 23);
-				compAccountCard.getTxtParentAccount().setSize(250, 14);
-				compAccountCard.getTxtAccAcountName().setBounds(101, 85, 256, 20);
-				compAccountCard.getTxtAccAccountCode().setSize(228, 23);
+				compAccountCard.getTxtAccAccountCode().setBounds(101, 51, 200, 17);
+				compAccountCard.getTxtParentAccount().setBounds(101, 5, 200, 17);
+				compAccountCard.getTxtAccAcountName().setBounds(101, 95, 200, 17);
 			}
 			{
 				groupAccountBalance = new Group(dialogShell, SWT.NONE);

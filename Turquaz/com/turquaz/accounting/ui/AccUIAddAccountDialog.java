@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.10 2005/01/31 17:10:27 cemdayanik Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.11 2005/02/08 11:31:10 cemdayanik Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -139,9 +139,9 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 			compAccountCardLData.widthHint = 452;
 			compAccountCardLData.heightHint = 125;
 			compAccountCard.setLayoutData(compAccountCardLData);
-			compAccountCard.getTxtAccAcountName().setSize(251, 26);
-			compAccountCard.getTxtAccAccountCode().setSize(250, 24);
-			compAccountCard.getTxtParentAccount().setBounds(101, 92, 234, 23);
+			compAccountCard.getTxtAccAcountName().setBounds(101, 93, 220, 20);
+			compAccountCard.getTxtAccAccountCode().setBounds(101, 45, 220, 20);
+			compAccountCard.getTxtParentAccount().setBounds(101, 5, 220, 20);
 			compAccountCard.layout();
 
 			

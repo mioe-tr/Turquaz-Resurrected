@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.39 2005/01/31 17:51:17 cemdayanik Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.40 2005/02/08 11:31:10 cemdayanik Exp $
 */
 
 
@@ -125,7 +125,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 			GridLayout thisLayout = new GridLayout(2, true);
 			this.setLayout(thisLayout);
 	
-			this.setSize(413, 176);
+			this.setSize(393, 152);
             {
                 cLabel2 = new CLabel(this, SWT.NONE);
                 GridData cLabel2LData = new GridData();
@@ -157,8 +157,8 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 
                     }
                 });
-                txtParentAccountLData.widthHint = 252;
-                txtParentAccountLData.heightHint = 22;
+                txtParentAccountLData.widthHint = 200;
+                txtParentAccountLData.heightHint = 17;
                 txtParentAccount.setLayoutData(txtParentAccountLData);
                 txtParentAccount.setEnabled(true);
             }
@@ -175,8 +175,8 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 				txtAccAccountCode = new Text(this, SWT.NONE);
 				GridData txtAccAccountCodeLData = new GridData();
 				
-				txtAccAccountCodeLData.widthHint = 250;
-				txtAccAccountCodeLData.heightHint = 24;
+				txtAccAccountCodeLData.widthHint = 200;
+				txtAccAccountCodeLData.heightHint = 17;
 				txtAccAccountCode.setLayoutData(txtAccAccountCodeLData);
 			}
 			{
@@ -191,8 +191,8 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 			{
 				txtAccAcountName = new Text(this, SWT.NONE);
 				GridData txtAccAcountNameLData = new GridData();
-				txtAccAcountNameLData.widthHint = 251;
-				txtAccAcountNameLData.heightHint = 26;
+				txtAccAcountNameLData.widthHint = 200;
+				txtAccAcountNameLData.heightHint = 17;
 				txtAccAcountName.setLayoutData(txtAccAcountNameLData);
 			}
 

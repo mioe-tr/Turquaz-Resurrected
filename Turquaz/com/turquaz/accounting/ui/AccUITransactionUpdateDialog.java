@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.27 2005/02/07 17:28:57 onsel Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.28 2005/02/08 11:31:11 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -135,6 +135,7 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
                 compTransactionAdd.setSize(new org.eclipse.swt.graphics.Point(
                     567,
                     389));
+                compTransactionAdd.getTxtDocumentNo().setBounds(80, 5, 150, 17);
                 compTransactionAdd.layout();
             }
 
