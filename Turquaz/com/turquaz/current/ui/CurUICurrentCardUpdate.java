@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.30 2005/01/16 08:13:52 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.31 2005/01/16 13:52:49 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -271,7 +271,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			return updated;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return true;
 		}
 	}
 /** Add your pre-init code in here 	*/

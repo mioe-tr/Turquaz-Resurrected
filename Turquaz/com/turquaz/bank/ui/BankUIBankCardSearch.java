@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.18 2005/01/08 13:02:19 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.19 2005/01/16 13:52:48 cemdayanik Exp $
 */
 
 
@@ -385,8 +385,9 @@ public class BankUIBankCardSearch extends  Composite implements SearchComposite 
 		if(selection.length>0){
 	
 			TurqBanksCard card = (TurqBanksCard)selection[0].getData();
-			new BankUIBankCardUpdate(this.getShell(),SWT.NULL,card).open();
-		search();
+			boolean updated=new BankUIBankCardUpdate(this.getShell(),SWT.NULL,card).open();
+			if (updated)
+				search();
 		}
 	}
 	public void printTable(){

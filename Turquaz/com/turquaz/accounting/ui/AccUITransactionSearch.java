@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.35 2005/01/16 13:09:50 cemdayanik Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.36 2005/01/16 13:52:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -458,8 +458,9 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
     
     int type =accTrans.getTurqAccountingTransactionType().getAccountingTransactionTypesId().intValue();
     if(type==2){
-    new AccUITransactionUpdateDialog(this.getShell(),SWT.NULL,accTrans).open();
-    search();
+    boolean updated=new AccUITransactionUpdateDialog(this.getShell(),SWT.NULL,accTrans).open();
+    if (updated)
+    	search();
     
     }
     else if(type==1){

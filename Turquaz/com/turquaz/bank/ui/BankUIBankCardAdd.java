@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.15 2004/12/14 21:07:21 cemdayanik Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.16 2005/01/16 13:52:48 cemdayanik Exp $
 */
 
 
@@ -266,6 +266,7 @@ private boolean verifyfields()
 			txtBankName.setText(""); //$NON-NLS-1$
 			txtBankBranchName.setText(""); //$NON-NLS-1$
 			txtBankAccountNo.setText(""); //$NON-NLS-1$
+			txtDefinition.setText("");
 			comboCurrency.setText(Messages.getString("BankUIBankCardAdd.15")); //$NON-NLS-1$
 		}
 		catch(Exception ex){

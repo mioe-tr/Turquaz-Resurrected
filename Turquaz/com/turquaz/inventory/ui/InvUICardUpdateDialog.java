@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.40 2005/01/16 08:19:33 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.41 2005/01/16 13:52:49 cemdayanik Exp $
 */
 import java.util.Iterator;
 
@@ -210,7 +210,7 @@ public class InvUICardUpdateDialog extends Dialog{
 			return updated;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return true;
 		}
 	}
 /** Add your pre-init code in here 	*/
