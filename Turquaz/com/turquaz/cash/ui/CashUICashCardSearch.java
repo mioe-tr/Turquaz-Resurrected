@@ -60,7 +60,7 @@ import org.eclipse.swt.layout.GridLayout;
 /**
  * 
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.5 2005/01/30 19:34:51 onsel Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.6 2005/02/16 17:04:31 cemdayanik Exp $
 */
 
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite{
@@ -178,13 +178,16 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 
     }
     
-    public void search() {
-      try{
-          tableCashCards.removeAll();
+    public void search() 
+    {
+      try
+	  {
+         tableCashCards.removeAll();
          List ls = blSearch.searchCashCard((TurqAccountingAccount)accountPicker.getData(),txtCardCode.getText().trim());
          TableItem item;
          TurqCashCard card;
-         for(int i=0;i<ls.size();i++){
+         for(int i=0;i<ls.size();i++)
+         {
              
              card = (TurqCashCard)ls.get(i);
              
