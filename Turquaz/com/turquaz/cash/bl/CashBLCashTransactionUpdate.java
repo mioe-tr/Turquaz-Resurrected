@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.14 2005/02/24 15:37:55 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.15 2005/02/28 19:59:15 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -144,10 +144,7 @@ public class CashBLCashTransactionUpdate {
 					String definition, String document_no)throws Exception {
         try{
             
-            // if it is a current transaction the delete Current Transactions
-            if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
-                    ||cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
-                
+        
             
                 
            //delete current Transactions..      
@@ -159,12 +156,11 @@ public class CashBLCashTransactionUpdate {
                     
                 }
                 
-                
-            }
+
              
              
              //delete cash Transaction rows...
-             Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+             it = cashTrans.getTurqCashTransactionRows().iterator();
              while(it.hasNext()){
                  
                  dalCash.delete(it.next());
@@ -315,10 +311,7 @@ public class CashBLCashTransactionUpdate {
 			String definition, String document_no)throws Exception {
 try{
     
-    // if it is a current transaction the delete Current Transactions
-    if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
-            ||cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
-        
+
     
         
    //delete current Transactions..      
@@ -329,13 +322,11 @@ try{
             dalCash.delete(it.next());
             
         }
-        
-        
-    }
+
      
      
      //delete cash Transaction rows...
-     Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+     it = cashTrans.getTurqCashTransactionRows().iterator();
      while(it.hasNext()){
          
          dalCash.delete(it.next());
@@ -472,10 +463,6 @@ catch(Exception ex){
 			String definition, String document_no)throws Exception {
 try{
     
-    // if it is a current transaction the delete Current Transactions
-    if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
-            ||cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
-        
     
         
    //delete current Transactions..      
@@ -488,11 +475,10 @@ try{
         }
         
         
-    }
      
      
      //delete cash Transaction rows...
-     Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+     it = cashTrans.getTurqCashTransactionRows().iterator();
      while(it.hasNext()){
          
          dalCash.delete(it.next());
