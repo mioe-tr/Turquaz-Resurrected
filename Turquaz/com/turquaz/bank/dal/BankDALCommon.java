@@ -17,8 +17,8 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 
 /**
- * @author Ceday
- * @version $Id: BankDALCommon.java,v 1.5 2005/01/28 21:23:52 onsel Exp $
+ * @author Onsel
+ * @version $Id: BankDALCommon.java,v 1.6 2005/01/30 19:27:24 onsel Exp $
  */
 
 import java.sql.ResultSet;
