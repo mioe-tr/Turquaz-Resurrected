@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.5 2005/02/19 13:24:39 onsel Exp $
+* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.6 2005/03/01 16:24:41 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -270,7 +270,7 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog {
         cheque.setTurqBanksCard(bankCard);
 	    
 	    TurqCurrency cur = new TurqCurrency();
-	    cur.setCurrenciesId(new Integer(1));
+	    cur.setId(new Integer(1));
 	    cheque.setTurqCurrency(cur);
 	    
 	    dialogShell.close();

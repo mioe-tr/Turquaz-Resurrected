@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.13 2005/01/08 13:02:19 onsel Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.14 2005/03/01 16:24:41 onsel Exp $
  */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -296,7 +296,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite
 			if (comboModules.getText().equals("*")) { //$NON-NLS-1$
 				comboModuleComponents.removeAll();
 				TurqModuleComponent modComp = new TurqModuleComponent();
-				modComp.setModuleComponentsId(new Integer(-1));
+				modComp.setId(new Integer(-1));
 				comboModuleComponents.setText("*"); //$NON-NLS-1$
 				comboModuleComponents.add("*"); //$NON-NLS-1$
 				comboModuleComponents.setData("*", modComp); //$NON-NLS-1$
@@ -306,7 +306,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite
 				comboModuleComponents.removeAll();
 				TurqModule module = (TurqModule) comboModules
 						.getData(comboModules.getText());
-				fillComboModuleComponents(module.getModulesId().intValue());
+				fillComboModuleComponents(module.getId().intValue());
 
 			}
 

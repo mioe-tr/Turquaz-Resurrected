@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.58 2005/02/07 18:49:37 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.59 2005/03/01 16:24:39 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1253,8 +1253,8 @@ implements SecureComposite{
 										txtTotalVat.getBigDecimalValue(),
 										decSpecialVat.getBigDecimalValue(),
 										txtTotalAmount.getBigDecimalValue(),type);
-		saveConsignmentRows(cons.getConsignmentsId());
-		saveGroups(cons.getConsignmentsId());
+		saveConsignmentRows(cons.getId());
+		saveGroups(cons.getId());
 		msg.setMessage(Messages.getString("ConUIAddConsignment.36")); //$NON-NLS-1$
 		msg.open();
 		newForm();

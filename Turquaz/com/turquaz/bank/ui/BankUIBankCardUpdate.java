@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.15 2005/03/01 14:03:38 onsel Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.16 2005/03/01 16:24:40 onsel Exp $
 */
 
 
@@ -255,7 +255,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			while(it.hasNext())
 			{
 				TurqBankAccountingAccount bankAccount = (TurqBankAccountingAccount)it.next();
-			    Integer type = (Integer) bankAccount.getTurqBankAccountingType().getBankAccoutingTypesId();
+			    Integer type = (Integer) bankAccount.getTurqBankAccountingType().getId();
 			    AccountPicker picker = (AccountPicker)fieldMap.get(type);
 			    picker.setData(bankAccount.getTurqAccountingAccount());
 				

@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLPermissions.java,v 1.11 2005/01/08 13:02:19 onsel Exp $
+* @version  $Id: EngBLPermissions.java,v 1.12 2005/03/01 16:24:42 onsel Exp $
 */
 import java.util.*;
 
@@ -33,7 +33,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.11 2005/01/08 13:02:19 onsel Exp $
+ * @version $Id: EngBLPermissions.java,v 1.12 2005/03/01 16:24:42 onsel Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
@@ -145,8 +145,8 @@ public class EngBLPermissions {
 				
 				TurqGroupPermission perms = (TurqGroupPermission)list.get(i);
 
-				module_id = perms.getTurqModule().getModulesId().intValue();
-				module_component_id = perms.getTurqModuleComponent().getModuleComponentsId().intValue();
+				module_id = perms.getTurqModule().getId().intValue();
+				module_component_id = perms.getTurqModuleComponent().getId().intValue();
 				
 				perm_level = perms.getGroupPermissionsLevel();
 
@@ -211,8 +211,8 @@ public class EngBLPermissions {
 				
 				TurqUserPermission perms = (TurqUserPermission)list.get(i);
 
-				module_id = perms.getTurqModule().getModulesId().intValue();
-				module_component_id = perms.getTurqModuleComponent().getModuleComponentsId().intValue();
+				module_id = perms.getTurqModule().getId().intValue();
+				module_component_id = perms.getTurqModuleComponent().getId().intValue();
 				
 				perm_level = perms.getUserPermissionsLevel();
 

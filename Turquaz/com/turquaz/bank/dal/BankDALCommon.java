@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.14 2005/03/01 14:03:38 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.15 2005/03/01 16:24:42 onsel Exp $
  */
 
 import java.sql.ResultSet;
@@ -206,7 +206,7 @@ public class BankDALCommon {
 	            		" ON  totals.transId = bankTrans.banks_transaction_bills_id," +
 	            		" turq_banks_cards bankCard ," +
 	            		" turq_banks_transaction_types type" +
-	            		" where totals.banksId ="+bankCard.getBanksCardsId().intValue()+
+	            		" where totals.banksId ="+bankCard.getId().intValue()+
 	            		" and bankTrans.transaction_bill_date >= '"+frmt.format(startDate)+"' and " +
 	            		" bankTrans.transaction_bill_date <= '"+frmt.format(endDate)+"' " +
 	            		" and totals.banksId = bankCard.banks_cards_id" +

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashTransactionSearch.java,v 1.17 2005/02/21 13:54:58 onsel Exp $
+* @version  $Id: CashUICashTransactionSearch.java,v 1.18 2005/03/01 16:24:38 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -311,36 +311,36 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 	            TurqCashTransaction cashTrans = blSearch.initializeCashTransaction(id);
 	            
 	            
-	            if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()!=EngBLCommon.MODULE_CASH){	                
+	            if(cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue()!=EngBLCommon.MODULE_CASH){	                
 	            	EngUICommon.showMessageBox(this.getShell(),Messages.getString("CashUICashTransactionSearch.7")); //$NON-NLS-1$
 	                return;
 	            }
 	            
 	            boolean updated=false;
-	            if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT)
+	            if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT)
 	            {
 	               updated= new CashUICashCollectTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                
 	            }
-	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT){
+	            else if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT){
 	                
 	                updated=new CashUICashPaymentTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                
 	                
 	            }
-	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_OTHER_COLLECT){
+	            else if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_OTHER_COLLECT){
 	                
 	                updated=new CashUICashOtherCollectTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                
 	                
 	            }
-	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_OTHER_PAYMENT){
+	            else if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_OTHER_PAYMENT){
 	                
 	                updated=new CashUICashOtherPaymentTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                
 	                
 	            }
-	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_TRANSFER_BETWEEN_CARDS){
+	            else if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_TRANSFER_BETWEEN_CARDS){
 	                
 	                updated=new CashUICashTransferBetweenCardsUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                

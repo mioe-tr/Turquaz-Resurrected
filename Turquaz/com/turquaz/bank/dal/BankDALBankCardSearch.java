@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.11 2005/03/01 14:03:38 onsel Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.12 2005/03/01 16:24:42 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -163,7 +163,7 @@ public class BankDALBankCardSearch {
 			{
 				TurqBankAccountingAccount curAccount = (TurqBankAccountingAccount)it.next();
 				
-				if(curAccount.getTurqBankAccountingType().getBankAccoutingTypesId().intValue()==type.intValue())
+				if(curAccount.getTurqBankAccountingType().getId().intValue()==type.intValue())
 				{
 					return curAccount.getTurqAccountingAccount();
 				}

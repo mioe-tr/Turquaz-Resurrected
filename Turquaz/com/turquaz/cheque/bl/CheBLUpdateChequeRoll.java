@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.14 2005/02/28 18:09:26 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.15 2005/03/01 16:24:37 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -106,7 +106,7 @@ public class CheBLUpdateChequeRoll {
              */
             TurqAccountingAccount account = new TurqAccountingAccount();
             
-            account.setAccountingAccountsId(new Integer(-1));
+            account.setId(new Integer(-1));
             new CashBLCashTransactionAdd().saveCashTransaction(cashCard,chequeRoll.getTurqEngineSequence(),EngBLCommon.CASH_CHEQUE_COLLECT,rollDate,Messages.getString("CheBLSaveChequeTransaction.5"),rollNo,totals,account); //$NON-NLS-1$
             
     		
@@ -138,7 +138,7 @@ public class CheBLUpdateChequeRoll {
             chequeRoll.setTurqCurrentCard(curCard);
             
             TurqBanksCard bankCardEmpty = new TurqBanksCard();
-            bankCardEmpty.setBanksCardsId(new Integer(-1));
+            bankCardEmpty.setId(new Integer(-1));
             chequeRoll.setTurqBanksCard(bankCardEmpty);
                
            }
@@ -147,7 +147,7 @@ public class CheBLUpdateChequeRoll {
                chequeRoll.setTurqBanksCard(bankCard);
                
                TurqCurrentCard curCardEmpty = new TurqCurrentCard();
-               curCardEmpty.setCurrentCardsId(new Integer(-1));
+               curCardEmpty.setId(new Integer(-1));
                chequeRoll.setTurqCurrentCard(curCardEmpty);
                
            }
@@ -171,10 +171,10 @@ public class CheBLUpdateChequeRoll {
                {
                   
                    if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
-                    blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                    blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
                 }
                 else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
-                	 blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                	 blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
                 }
                
                
@@ -195,10 +195,10 @@ public class CheBLUpdateChequeRoll {
            {
               
                if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
-                blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+                blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
               }
               else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
-              	blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+              	blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
               }
            }
            

@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupPermissions.java,v 1.10 2005/01/08 13:02:19 onsel Exp $
+* @version  $Id: AdmUIGroupPermissions.java,v 1.11 2005/03/01 16:24:42 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -325,7 +325,7 @@ implements SecureComposite,SearchComposite{
 			if (comboModules.getText().equals("*")) { //$NON-NLS-1$
 				comboModuleComponents.removeAll();
 				TurqModuleComponent modComp = new TurqModuleComponent();
-				modComp.setModuleComponentsId(new Integer(-1));
+				modComp.setId(new Integer(-1));
 				comboModuleComponents.setText("*"); //$NON-NLS-1$
 				comboModuleComponents.add("*"); //$NON-NLS-1$
 				comboModuleComponents.setData("*", modComp); //$NON-NLS-1$
@@ -335,7 +335,7 @@ implements SecureComposite,SearchComposite{
 				comboModuleComponents.removeAll();
 				TurqModule module = (TurqModule) comboModules
 						.getData(comboModules.getText());
-				fillComboModuleComponents(module.getModulesId().intValue());
+				fillComboModuleComponents(module.getId().intValue());
 
 			}
 

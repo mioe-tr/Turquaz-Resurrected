@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.47 2005/02/08 14:17:06 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.48 2005/03/01 16:24:41 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -297,7 +297,7 @@ public class InvUICardUpdateDialog extends Dialog{
     while(it.hasNext()){
      
      cardGroup = (TurqInventoryCardGroup)it.next();
-     registeredGroups.put(cardGroup.getTurqInventoryGroup().getTurqInventoryGroup().getInventoryGroupsId(),cardGroup.getTurqInventoryGroup());
+     registeredGroups.put(cardGroup.getTurqInventoryGroup().getTurqInventoryGroup().getId(),cardGroup.getTurqInventoryGroup());
       
      
      }
@@ -381,7 +381,7 @@ public class InvUICardUpdateDialog extends Dialog{
      cardUnit = (TurqInventoryCardUnit)it.next();
      cardUpdate.deleteObject(cardUnit);				
 	}
-   compInvUICard.saveInvUnits(invCard.getInventoryCardsId());
+   compInvUICard.saveInvUnits(invCard.getId());
    
     }
     
@@ -422,7 +422,7 @@ public class InvUICardUpdateDialog extends Dialog{
      cardUpdate.deleteObject(cardGroup);
      }
    
-    compInvUICard.saveInvGroups(invCard.getInventoryCardsId());
+    compInvUICard.saveInvGroups(invCard.getId());
    
    }
    catch(Exception ex){
@@ -444,7 +444,7 @@ public class InvUICardUpdateDialog extends Dialog{
     
               
      }
-     compInvUICard.saveInvPrices(invCard.getInventoryCardsId());
+     compInvUICard.saveInvPrices(invCard.getId());
 	
    
    

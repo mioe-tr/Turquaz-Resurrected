@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.53 2005/02/06 15:38:53 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.54 2005/03/01 16:24:39 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1370,7 +1370,7 @@ public class BillUIAddBill extends Composite
 							.getText(), txtTotalVat.getBigDecimalValue(),
 					decSpecialVat.getBigDecimalValue(), txtTotalAmount
 							.getBigDecimalValue(), type);
-			saveConsignmentRows(cons.getConsignmentsId());
+			saveConsignmentRows(cons.getId());
 
 			return cons;
 		} catch (Exception ex) {
@@ -1400,7 +1400,7 @@ public class BillUIAddBill extends Composite
 								.booleanValue(),
 								paymentType.booleanValue() ? accountPickerCurAcc.getData() : null,
 								   dateDueDate.getDate());
-				saveGroups(bill.getBillsId());
+				saveGroups(bill.getId());
 				msg.setMessage(Messages.getString("BillUIAddBill.43")); //$NON-NLS-1$
 				msg.open();
 				newForm();

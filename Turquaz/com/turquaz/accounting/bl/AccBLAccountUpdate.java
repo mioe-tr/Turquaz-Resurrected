@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.12 2005/02/19 16:12:32 onsel Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.13 2005/03/01 16:24:38 onsel Exp $
 */
 
 
@@ -52,7 +52,7 @@ public class AccBLAccountUpdate {
 			account.setUpdateDate(new java.sql.Date( cal.getTime().getTime()));
 	
 			account.setTurqAccountingAccountByParentAccount(parentAccount);
-			if(parentAccount.getAccountingAccountsId().intValue()==-1)
+			if(parentAccount.getId().intValue()==-1)
 			{
 				account.setTurqAccountingAccountByTopAccount(account);
 				

@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUISearchMoneyTransaction.java,v 1.13 2005/02/21 16:32:37 onsel Exp $
+* @version  $Id: BankUISearchMoneyTransaction.java,v 1.14 2005/03/01 16:24:40 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -278,37 +278,37 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
           
     			boolean isUpdated = false;
     			TurqBanksTransactionBill transBill = BankBLTransactionUpdate.initializeTransaction((Integer)selection[0].getData()); 
-    			if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_RECIEVE_MONEY)
+    			if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_RECIEVE_MONEY)
     			{
     				isUpdated  = new BankUIMoneyTransferInUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_SEND_MONEY)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_SEND_MONEY)
     			{
     				isUpdated  = new BankUIMoneyTransferOutUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_CASH_DRAW)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_CASH_DRAW)
     			{
     				isUpdated  = new BankUICashFromBankUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_CASH_DEPOSIT)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_CASH_DEPOSIT)
     			{
     				isUpdated  = new BankUICashToBankUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DEPOSIT)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DEPOSIT)
     			{
     				isUpdated  = new BankUIOtherTransInUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DRAW)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DRAW)
     			{
     				isUpdated  = new BankUIOtherTransOutUpdate(getShell(),SWT.NULL,transBill).open();
            
     			}       
-    			else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_BETWEEN_BANKS)
+    			else if(transBill.getTurqBanksTransactionType().getId().intValue()==EngBLCommon.BANK_TRANS_BETWEEN_BANKS)
     			{
     				isUpdated  = new BankUITransferBetweenAccountsUpdate(getShell(),SWT.NULL,transBill).open();
            

@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.16 2005/02/18 18:53:03 onsel Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.17 2005/03/01 16:24:38 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -58,7 +58,7 @@ public class AccBLTransactionAdd {
 				return;
 			}
 			TurqAccountingTransaction trans = new TurqAccountingTransaction();
-			trans.setAccountingTransactionsId(transID);
+			trans.setId(transID);
 		
 			transRow.setTurqAccountingTransaction(trans);
 			
@@ -93,13 +93,13 @@ public class AccBLTransactionAdd {
 		if(docSeqId==null){
 			
 			TurqModule module = new TurqModule();
-			module.setModulesId(new Integer(EngBLCommon.MODULE_ACCOUNTING));
+			module.setId(new Integer(EngBLCommon.MODULE_ACCOUNTING));
 			docSeq.setTurqModule(module);
 			dalTransAdd.save(docSeq);
 		}
 		else
 		{
-			docSeq.setEngineSequencesId(docSeqId);
+			docSeq.setId(docSeqId);
 			
 		}
 		
@@ -119,17 +119,17 @@ public class AccBLTransactionAdd {
 		
 		//Hangi modulde kaydedildigi
 		TurqModule module = new TurqModule();
-		module.setModulesId(new Integer(moduleId));
+		module.setId(new Integer(moduleId));
 		trans.setTurqModule(module);
 		
 		//Muhasebelestirilmemis.. o zaman yevmiye kaydi -1
 		TurqAccountingJournal journal = new TurqAccountingJournal();
-		journal.setAccountingJournalId(new Integer(-1))	;
+		journal.setId(new Integer(-1))	;
 		trans.setTurqAccountingJournal(journal);
 		
 		//Fis tip
 		TurqAccountingTransactionType transType =new TurqAccountingTransactionType();
-		transType.setAccountingTransactionTypesId(new Integer(type));	
+		transType.setId(new Integer(type));	
 		trans.setTurqAccountingTransactionType(transType);
 		
 		trans.setCreatedBy(System.getProperty("user"));
@@ -144,7 +144,7 @@ public class AccBLTransactionAdd {
 			
 		
 			
-		return trans.getAccountingTransactionsId();
+		return trans.getId();
 			
 			
 		}

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.32 2005/02/14 14:33:04 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.33 2005/03/01 16:24:40 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1020,7 +1020,7 @@ implements SecureComposite{
 										paymentType.booleanValue() ? accountPickerCurAcc.getData() : null,
 										 dateDueDate.getDate());
 		
-				saveGroups(bill.getBillsId());
+				saveGroups(bill.getId());
 				msg.setMessage(Messages.getString("BillUIBillFromConsignment.34")); //$NON-NLS-1$
 				msg.open();
 				newForm();

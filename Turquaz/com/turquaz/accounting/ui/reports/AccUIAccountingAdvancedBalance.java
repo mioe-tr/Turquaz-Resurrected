@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.20 2005/02/26 13:21:00 cemdayanik Exp $
+* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.21 2005/03/01 16:24:41 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -394,8 +394,8 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				totalDept=totalDept.add(transDept);
 				
 				
-				parentId = account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId();
-				accountId=account.getAccountingAccountsId();
+				parentId = account.getTurqAccountingAccountByParentAccount().getId();
+				accountId=account.getId();
 				LocateAccountToTable(account);
 	
 				TableTreeItem accountItem=(TableTreeItem)treeItems.get(accountId);
@@ -454,7 +454,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 						accountItem.setText(5,(newremaining.doubleValue() > 0)? cf.format(newremaining):""); //$NON-NLS-1$
 					}
 					parentAcc=parentAcc.getTurqAccountingAccountByParentAccount();
-					parentId=parentAcc.getAccountingAccountsId();
+					parentId=parentAcc.getId();
 				}
 			}
 			
@@ -507,10 +507,10 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 	private void LocateAccountToTable(TurqAccountingAccount account)
 	{
 		//System.out.println("Locate: "+account.getAccountingAccountsId().toString());
-		if (!treeItems.containsKey(account.getAccountingAccountsId()))
+		if (!treeItems.containsKey(account.getId()))
 		{
 			//System.out.println("NOT");
-			Integer parentId=account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId();
+			Integer parentId=account.getTurqAccountingAccountByParentAccount().getId();
 			if (parentId.intValue()!=-1)
 			{
 				TurqAccountingAccount parentAcc=account.getTurqAccountingAccountByParentAccount();
@@ -535,7 +535,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				item.setText(4,"0.00"); //$NON-NLS-1$
 				item.setText(5,"0.00"); //$NON-NLS-1$
 				item.setData(account);	
-				treeItems.put(account.getAccountingAccountsId(),item);
+				treeItems.put(account.getId(),item);
 				//System.out.println("PUT:"+account.getAccountingAccountsId().toString());
 				
 			}
@@ -558,7 +558,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				item.setText(4,"0.00"); //$NON-NLS-1$
 				item.setText(5,"0.00"); //$NON-NLS-1$
 				item.setData(account);	
-				treeItems.put(account.getAccountingAccountsId(),item);	
+				treeItems.put(account.getId(),item);	
 				//System.out.println("PUT:"+account.getAccountingAccountsId().toString());
 			}
 		}

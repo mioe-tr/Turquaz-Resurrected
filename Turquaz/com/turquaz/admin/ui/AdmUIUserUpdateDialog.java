@@ -21,7 +21,7 @@ import java.util.Iterator;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserUpdateDialog.java,v 1.8 2005/01/16 17:00:47 onsel Exp $
+* @version  $Id: AdmUIUserUpdateDialog.java,v 1.9 2005/03/01 16:24:41 onsel Exp $
 */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -134,7 +134,7 @@ public class AdmUIUserUpdateDialog extends org.eclipse.swt.widgets.Dialog {
 			while(it.hasNext()){
 			blUserUpdate.deleteObject(it.next());
 		    }
-			compUserAdd.saveUserGroups(user.getUsersId());
+			compUserAdd.saveUserGroups(user.getId());
 			msg.setMessage(Messages.getString("AdmUIUserUpdateDialog.4")); //$NON-NLS-1$
 			msg.open();
 			dialogShell.close();

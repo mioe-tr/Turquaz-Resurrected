@@ -39,7 +39,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.17 2005/02/21 16:32:37 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.18 2005/03/01 16:24:40 onsel Exp $
  */
 
 public class CashDALCashCard {
@@ -221,8 +221,8 @@ public class CashDALCashCard {
             
             TurqCashTransaction cashTrans =(TurqCashTransaction)session.load(TurqCashTransaction.class, id);
             
-            if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
-                    ||cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
+            if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
+                    ||cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
                 
                 Hibernate.initialize(cashTrans.getTurqEngineSequence().getTurqCurrentTransactions());
             }

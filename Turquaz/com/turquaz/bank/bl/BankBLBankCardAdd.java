@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.11 2005/03/01 14:03:39 onsel Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.12 2005/03/01 16:24:41 onsel Exp $
 */
 
 import com.turquaz.bank.dal.BankDALCommon;
@@ -94,7 +94,7 @@ public class BankBLBankCardAdd {
 			bankAccount.setTurqAccountingAccount((TurqAccountingAccount)accounts.get(type));
 			
 			TurqBankAccountingType accType = new TurqBankAccountingType();
-			accType.setBankAccoutingTypesId(type);
+			accType.setId(type);
 			
 			bankAccount.setTurqBankAccountingType(accType);
 			

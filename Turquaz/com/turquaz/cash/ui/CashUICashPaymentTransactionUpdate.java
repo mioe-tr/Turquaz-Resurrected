@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.12 2005/02/21 10:48:31 onsel Exp $
+* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.13 2005/03/01 16:24:39 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -179,7 +179,7 @@ public class CashUICashPaymentTransactionUpdate extends org.eclipse.swt.widgets.
 	
 	public void postInitGUI()
 	{
-	    if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()!= EngBLCommon.MODULE_CASH)
+	    if(cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue()!= EngBLCommon.MODULE_CASH)
 	    {	    
 	     toolUpdate.setEnabled(false);
 	     tooldelete.setEnabled(false);

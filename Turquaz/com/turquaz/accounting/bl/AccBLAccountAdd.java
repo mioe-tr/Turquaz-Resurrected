@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.19 2005/02/26 11:06:06 cemdayanik Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.20 2005/03/01 16:24:38 onsel Exp $
 */
 
 
@@ -145,7 +145,7 @@ public class AccBLAccountAdd {
 		}
 		else{
 		parentAccount = new TurqAccountingAccount();
-		parentAccount.setAccountingAccountsId(new Integer(-1));
+		parentAccount.setId(new Integer(-1));
 		}
 	
 		account.setAccountName(accountName);
@@ -156,7 +156,7 @@ public class AccBLAccountAdd {
 		account.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
 		
 		account.setTurqAccountingAccountByParentAccount(parentAccount);
-		if(parentAccount.getAccountingAccountsId().intValue()==-1){
+		if(parentAccount.getId().intValue()==-1){
 		 account.setTurqAccountingAccountByTopAccount(parentAccount); 
 		}
 		else{

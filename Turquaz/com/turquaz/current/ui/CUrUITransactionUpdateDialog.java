@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.18 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.19 2005/03/01 16:24:38 onsel Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -215,7 +215,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	    
 	// if it is not cash trasaction 
 	//close 
-	if(transaction.getTurqCurrentTransactionType().getCurrentTransactionTypesId().intValue()!=4){
+	if(transaction.getTurqCurrentTransactionType().getId().intValue()!=4){
 	dialogShell.close();
 	return;
 	}

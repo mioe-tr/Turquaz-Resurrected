@@ -18,7 +18,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.8 2004/11/18 16:12:28 huseyiner Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.9 2005/03/01 16:24:40 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -52,7 +52,7 @@ public class AdmBLGroupAdd {
 
 			dalAdmin.saveObject(group);
 
-			return group.getGroupsId();
+			return group.getId();
 
 		} catch (Exception ex) {
 			throw ex;

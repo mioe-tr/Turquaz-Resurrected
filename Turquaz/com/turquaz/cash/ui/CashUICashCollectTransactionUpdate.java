@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.13 2005/02/21 10:48:33 onsel Exp $
+* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.14 2005/03/01 16:24:39 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -177,7 +177,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	
 	public void postInitGUI(){
 	    
-	    if(cashTrans.getTurqEngineSequence().getTurqModule().getModulesId().intValue()!= EngBLCommon.MODULE_CASH)
+	    if(cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue()!= EngBLCommon.MODULE_CASH)
 	    {	    
 	     toolUpdate.setEnabled(false);
 	     tooldelete.setEnabled(false);

@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 /**
 
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.31 2005/02/11 07:50:27 onsel Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.32 2005/03/01 16:24:37 onsel Exp $
  */
 
 
@@ -57,7 +57,7 @@ public class InvBLCardAdd {
             TurqInventoryCardGroup cardGroup = new TurqInventoryCardGroup();
             TurqInventoryGroup group = (TurqInventoryGroup) grp;
             TurqInventoryCard card = new TurqInventoryCard();
-            card.setInventoryCardsId(cardId);
+            card.setId(cardId);
             cardGroup.setTurqInventoryCard(card);
             cardGroup.setTurqInventoryGroup(group);
 
@@ -82,7 +82,7 @@ public class InvBLCardAdd {
         TurqInventoryCardUnit cardUnit = new TurqInventoryCardUnit();
         TurqInventoryUnit unit = (TurqInventoryUnit) unitObj;
         TurqInventoryCard card = new TurqInventoryCard();
-        card.setInventoryCardsId(cardId);
+        card.setId(cardId);
         cardUnit.setCardUnitsFactor(factor);
         cardUnit.setTurqInventoryCard(card);
         cardUnit.setTurqInventoryUnit(unit);
@@ -157,7 +157,7 @@ public class InvBLCardAdd {
         try {
             if (parent == null) {
                 parent = new TurqInventoryGroup();
-                parent.setInventoryGroupsId(new Integer(-1));
+                parent.setId(new Integer(-1));
 
             }
             TurqInventoryGroup invGroup = new TurqInventoryGroup();
@@ -238,7 +238,7 @@ public class InvBLCardAdd {
             card.setSpecVatForEach(isSpecAmount);
             InvDALCardAdd.saveOrUpdateInvCard(card);
 
-            return card.getInventoryCardsId();
+            return card.getId();
 
         } catch (Exception ex) {
             throw ex;

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.22 2005/02/24 14:17:35 cemdayanik Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.23 2005/03/01 16:24:38 onsel Exp $
 */
 
 
@@ -223,7 +223,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		
 		
 		/*Check if it has a journal entry*/
-		if(accTrans.getTurqAccountingJournal().getAccountingJournalId().intValue()!=-1){
+		if(accTrans.getTurqAccountingJournal().getId().intValue()!=-1){
 			toolUpdate.setEnabled(false);
 			toolDelete.setEnabled(false);		    
 		}
@@ -232,7 +232,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	 * 
 	 */
 		//1- Muhasebe Modulu
-		if(accTrans.getTurqModule().getModulesId().intValue()!=1){
+		if(accTrans.getTurqModule().getId().intValue()!=1){
 		    toolUpdate.setEnabled(false);
 			toolDelete.setEnabled(false);	
 		    
@@ -247,7 +247,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		
 		fillTableAndCombo();
 	
-		Integer trModule=accTrans.getTurqModule().getModulesId();
+		Integer trModule=accTrans.getTurqModule().getId();
 		if (trModule.intValue()!=1){ //1=Transaction, only view is allowed for other modules..
 		}
 	}
@@ -317,7 +317,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	    
 	     deleteTransactionRows();
 	     
-	     compTransactionPayment.saveTransactionRows(accTrans.getAccountingTransactionsId());
+	     compTransactionPayment.saveTransactionRows(accTrans.getId());
 	     
 	     }
 	     catch(Exception ex){

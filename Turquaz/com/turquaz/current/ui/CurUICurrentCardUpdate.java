@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.35 2005/03/01 14:03:38 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.36 2005/03/01 16:24:38 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -352,7 +352,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			while(it.hasNext())
 			{
 				TurqCurrentAccountingAccount curAccount = (TurqCurrentAccountingAccount)it.next();
-			    Integer type = (Integer) curAccount.getTurqCurrentAccountingType().getCurrentAccoutingTypesId();
+			    Integer type = (Integer) curAccount.getTurqCurrentAccountingType().getId();
 			    AccountPicker picker = (AccountPicker)fieldMap.get(type);
 			    picker.setData(curAccount.getTurqAccountingAccount());
 				
@@ -585,9 +585,9 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				compCurCardAdd.getNumDueDays().getIntValue(),currentCard);	
 				
 		deleteRelations();
-		compCurCardAdd.saveContact(currentCard.getCurrentCardsId());
-		compCurCardAdd.savePhones(currentCard.getCurrentCardsId());
-		compCurCardAdd.saveGroups(currentCard.getCurrentCardsId());
+		compCurCardAdd.saveContact(currentCard.getId());
+		compCurCardAdd.savePhones(currentCard.getId());
+		compCurCardAdd.saveGroups(currentCard.getId());
 		
 		EngBLCurrentCards.RefreshContentAsistantMap();
 		 msg.setMessage(Messages.getString("CurUICurrentCardUpdate.26")); //$NON-NLS-1$

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.16 2005/02/22 17:48:04 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.17 2005/03/01 16:24:38 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -611,7 +611,7 @@ public class AccUIInitialTransaction extends Composite implements
 
             deleteTransactionRows();
 
-            saveTransactionRows(accTrans.getAccountingTransactionsId());
+            saveTransactionRows(accTrans.getId());
         }
 
         catch (Exception ex) {

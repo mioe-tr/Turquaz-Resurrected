@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.32 2005/02/16 12:24:56 cemdayanik Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.33 2005/03/01 16:24:38 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -427,7 +427,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				{
 					TurqCurrentTransaction trans = CurBLSearchTransaction.getCurTransByTransId(transId);
 					//nakit hareketi ise izin ver
-					if(trans.getTurqCurrentTransactionType().getCurrentTransactionTypesId().intValue()==EngBLCommon.CURRENT_TRANS_OTHERS)
+					if(trans.getTurqCurrentTransactionType().getId().intValue()==EngBLCommon.CURRENT_TRANS_OTHERS)
 					{
 						boolean updated=new CurUIVoucherUpdate(this.getShell(),SWT.NULL,trans).open();
 						if (updated)

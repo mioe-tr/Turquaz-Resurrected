@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.39 2005/02/22 17:48:04 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.40 2005/03/01 16:24:37 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -415,7 +415,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				comboCurrencyType.setFocus();
 				return false;
    			}
-   			if (baseCurrency.getCurrenciesId()!=exchangeCurrency.getCurrenciesId())
+   			if (baseCurrency.getId()!=exchangeCurrency.getId())
    			{
    				if ((exchangeRatio=AccBLTransactionSearch.getExchangeRatio(baseCurrency,exchangeCurrency,Calendar.getInstance().getTime()))==null)
 				{

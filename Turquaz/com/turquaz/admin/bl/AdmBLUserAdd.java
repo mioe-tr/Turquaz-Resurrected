@@ -19,7 +19,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserAdd.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
+* @version  $Id: AdmBLUserAdd.java,v 1.6 2005/03/01 16:24:40 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -58,7 +58,7 @@ public class AdmBLUserAdd {
 			
 			dalAdmin.saveObject(user);
 			
-			return user.getUsersId();
+			return user.getId();
 			
 			
 			
@@ -72,7 +72,7 @@ public class AdmBLUserAdd {
 		try{
 		
 			TurqUser user = new TurqUser();
-			user.setUsersId(userId);
+			user.setId(userId);
 			TurqUserGroup usergroup = new TurqUserGroup();
 			usergroup.setTurqUser(user);
 			usergroup.setTurqGroup((TurqGroup)group);

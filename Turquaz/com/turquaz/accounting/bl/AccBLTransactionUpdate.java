@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionUpdate.java,v 1.10 2005/02/18 18:53:03 onsel Exp $
+* @version  $Id: AccBLTransactionUpdate.java,v 1.11 2005/03/01 16:24:38 onsel Exp $
 */
 
 import java.sql.Date;
@@ -74,7 +74,7 @@ public class AccBLTransactionUpdate {
 	throws Exception{
 	
 		TurqAccountingTransactionType accTransType = new TurqAccountingTransactionType();
-		accTransType.setAccountingTransactionTypesId(new Integer(transType));
+		accTransType.setId(new Integer(transType));
 		transaction.setTurqAccountingTransactionType(accTransType);
 		transaction.setTransactionsDate(transDate);
 		transaction.setTransactionDocumentNo(docNo);
