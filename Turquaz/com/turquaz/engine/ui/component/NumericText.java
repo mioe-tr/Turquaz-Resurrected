@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: NumericText.java,v 1.15 2005/03/26 15:06:50 onsel Exp $
+ * @version  $Id: NumericText.java,v 1.16 2005/03/29 18:27:44 cemdayanik Exp $
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -100,6 +100,11 @@ public class NumericText extends Composite
 			ex.printStackTrace();
 			return 0;
 		}
+	}
+	
+	public Integer getIntegerValue()
+	{
+		return new Integer(getIntValue());
 	}
 
 	public void addModifyListener(ModifyListener listener)
