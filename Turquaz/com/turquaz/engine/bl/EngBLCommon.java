@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.12 2004/12/29 13:56:19 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.13 2004/12/29 19:22:22 onsel Exp $
 */
 import java.util.List;
 
@@ -75,6 +75,10 @@ public class EngBLCommon {
     
     public final static int MODULE_CASH = 8; //kasa modulu
     
+    
+    
+    public final static boolean INVENTORY_SPEC_VAT_FOR_EACH = true; //OTV birimle hesaplanir
+    public final static boolean INVENTORY_SPEC_VAT_PERCENT = false; //OTV yuzde ile hesaplanir.
     
     
     public final static int CONTENT_ASSIST_ACCOUNTING = 0;
