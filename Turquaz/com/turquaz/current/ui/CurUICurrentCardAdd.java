@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.45 2005/01/02 20:01:12 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.46 2005/01/04 11:13:55 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -50,10 +50,7 @@ import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.NumericText;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.widgets.Label;
-import com.turquaz.current.ui.comp.CurrentPicker;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
-import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
-
 
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.MouseAdapter;

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.17 2005/01/03 19:37:41 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.18 2005/01/04 11:13:55 onsel Exp $
 */
 
 
@@ -251,6 +251,9 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	}
 	
 	public void fillTableAndCombo(){
+	
+	    compTransactionPayment.rowList.removeAll();
+	    
 	Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 	
 	Iterator it = transactionRows.iterator();
@@ -262,9 +265,9 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	
 	if(!transRow.getDeptAmount().toString().equals("0")){ //$NON-NLS-1$
 	    ITableRow row = new AccUITransactionPaymentTableRow(compTransactionPayment.rowList);
-		compTransactionPayment.rowList.addTask(row);
-		row.setDBObject(transRow);
-		compTransactionPayment.rowList.taskChanged(row);
+	    row.setDBObject(transRow);
+	    compTransactionPayment.rowList.addTask(row);
+		
 	}
 	else {
 	compTransactionPayment.getComboCreditor().setText(transRow.getTurqAccountingAccount().getAccountCode()); //$NON-NLS-1$
@@ -273,6 +276,9 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	}
 					
 	}
+//	 add last empty row
+	AccUITransactionPaymentTableRow row2 = new AccUITransactionPaymentTableRow(compTransactionPayment.rowList);
+	compTransactionPayment.rowList.addTask(row2);
 	
 	
 	}

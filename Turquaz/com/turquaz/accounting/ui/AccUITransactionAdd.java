@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.45 2005/01/03 21:33:06 huseyiner Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.46 2005/01/04 11:13:55 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -46,7 +46,6 @@ import com.turquaz.engine.ui.viewers.TableRowList;
 import com.turquaz.engine.ui.viewers.TurquazCellModifier;
 import com.turquaz.engine.ui.viewers.TurquazContentProvider;
 import com.turquaz.engine.ui.viewers.TurquazLabelProvider;
-import com.turquaz.inventory.ui.InvUITransactionTableRow;
 
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CLabel;

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.14 2005/01/03 19:37:41 onsel Exp $
+* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.15 2005/01/04 11:13:55 onsel Exp $
 */
 
 import java.util.Date;
@@ -266,6 +266,10 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	
 	}
 	public void fillTableAndCombo(){
+	
+	compTransactionCollect.rowList.removeAll();    
+	    
+	    
 	Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 	
 	Iterator it = transactionRows.iterator();
@@ -278,9 +282,10 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	if(!transRow.getCreditAmount().toString().equals("0")){ //$NON-NLS-1$
 	
 		ITableRow row = new AccUITransactionCollectTableRow(compTransactionCollect.rowList);
-		compTransactionCollect.rowList.addTask(row);
+		
 		row.setDBObject(transRow);
-		compTransactionCollect.rowList.taskChanged(row);
+		compTransactionCollect.rowList.addTask(row);
+		
 	    
 	    
 	}
@@ -290,6 +295,9 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	}
 					
 	}
+//	 add last empty row
+	AccUITransactionCollectTableRow row2 = new AccUITransactionCollectTableRow(compTransactionCollect.rowList);
+	compTransactionCollect.rowList.addTask(row2);
 	
 	
 	}
