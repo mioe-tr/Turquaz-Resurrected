@@ -20,7 +20,11 @@ import java.sql.*;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngDALConnection.java,v 1.3 2004/08/30 06:38:22 onsel Exp $
+* @version  $Id: EngDALConnection.java,v 1.4 2004/09/25 18:53:34 onsel Exp $
+* 
+* Class for initial database configuration. It creates the necessary
+* bindings according to hibernate.cfg.xml
+* 
 */
 
 public class EngDALConnection {
