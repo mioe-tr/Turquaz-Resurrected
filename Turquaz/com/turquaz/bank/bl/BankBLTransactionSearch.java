@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionSearch.java,v 1.6 2005/02/04 18:53:53 onsel Exp $
+* @version  $Id: BankBLTransactionSearch.java,v 1.7 2005/03/08 13:41:46 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -48,6 +48,7 @@ public class BankBLTransactionSearch {
             throw ex;
         }
     }
+    
     
     //Devreden Toplam
     public static List getDeferredTotal(TurqBanksCard cashCard, Date endDate) throws Exception
