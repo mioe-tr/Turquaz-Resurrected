@@ -24,7 +24,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.8 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.9 2004/11/10 19:29:27 onsel Exp $
 */
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -82,6 +82,7 @@ public class EngUIDatabaseConnectionWizard extends Wizard {
 		props.setProperty("serverAddress",serverAddress);
 		props.setProperty("serverPort",serverPort);
 		props.setProperty("dbName",dbName);
+		props.setProperty("remember_password","false");
 	  
 		FileOutputStream fileout = new FileOutputStream("config/turquaz.properties");
 	    props.save(fileout,"Turquaz Properties File");

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.64 2004/11/10 18:58:26 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.65 2004/11/10 19:29:26 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -81,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.64 2004/11/10 18:58:26 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.65 2004/11/10 19:29:26 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -914,6 +914,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			EngUIMainFrame inst = new EngUIMainFrame(shell, SWT.NULL);
 			shell.setLayout(new org.eclipse.swt.layout.FillLayout());
 			Rectangle shellBounds = shell.computeTrim(0,0,800,580);
+			shell.setImage(SWTResourceManager.getImage("icons/turquaz_paw.gif"));
+			shell.setText("Turquaz");
 			shell.setSize(shellBounds.width, shellBounds.height);
 			shell.addListener(SWT.Close, new Listener() {
 		public void handleEvent(Event e) {
