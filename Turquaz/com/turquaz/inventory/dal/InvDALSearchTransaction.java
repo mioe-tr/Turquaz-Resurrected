@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.3 2004/11/17 10:04:44 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.4 2004/11/17 17:19:04 onsel Exp $
  */
 
 import java.util.Date;
@@ -29,6 +29,7 @@ import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
+
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
@@ -43,20 +44,23 @@ public class InvDALSearchTransaction {
 			throws Exception {
 		try {
 			Session session = EngDALSessionFactory.openSession();
-
-			String query = "Select transaction from TurqInventoryTransaction as transaction where"
-					+ " transaction.turqConsignment.consignmentsDate >= :startDate"
-					+ " and transaction.turqConsignment.consignmentsDate <= :endDate"
-					+ " and transaction.turqConsignment.consignmentsType ="
+  
+                 			
+			String query = "Select distinct transaction from TurqInventoryTransaction as transaction," +
+					 " TurqConsignment as consignment where" +
+					 " consignment.turqEngineSequence = transaction.turqEngineSequence "
+					+ " and consignment.consignmentsDate >= :startDate"
+					+ " and consignment.consignmentsDate <= :endDate"
+					+ " and consignment.consignmentsType ="
 					+ type + "";
 
 			if (curCard != null) {
-				query += " and transaction.turqConsignment.turqCurrentCard = :curCard";
+				query += " and consignment.turqBillConsignmentCommon.turqCurrentCard = :curCard";
 			}
 			if (invCard != null) {
 				query += " and transaction.turqInventoryCard = :invCard";
 			}
-			query += " order by transaction.turqConsignment.consignmentsDate";
+			
 
 			Query q = session.createQuery(query);
 
