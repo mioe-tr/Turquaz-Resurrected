@@ -24,7 +24,7 @@ import com.turquaz.engine.dal.EngDALUserPerms;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.4 2004/09/24 07:27:26 huseyin Exp $
+ * @version $Id: EngBLPermissions.java,v 1.5 2004/09/24 13:25:17 onsel Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
@@ -140,7 +140,7 @@ public class EngBLPermissions {
 
 			}
 			rs.close();
-			rs = dbaccess.getUserPermissions("admin");
+			
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
