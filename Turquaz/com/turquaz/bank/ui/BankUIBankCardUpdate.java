@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.3 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.4 2004/10/22 14:26:54 cem Exp $
 */
 
 
@@ -50,6 +50,14 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.SWT;
 
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a
+* for-profit company or business) then you should purchase
+* a license - please visit www.cloudgarden.com for details.
+*/
 public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	private ToolItem toolDelete;
 	private ToolItem toolUpdate;
