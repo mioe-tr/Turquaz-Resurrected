@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.25 2005/01/16 13:52:48 cemdayanik Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.26 2005/01/16 16:53:48 onsel Exp $
 */
 
 import java.util.Date;
@@ -99,7 +99,7 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
                     SWTResourceManager.registerResourceUser(dialogShell);
                 }
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("AccUITransactionUpdateDialog.9")); //$NON-NLS-1$
 			coolBar1 = new CoolBar(dialogShell,SWT.NULL);
 
 			dialogShell.setSize(666, 425);
