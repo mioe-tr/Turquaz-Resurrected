@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.8 2004/10/18 12:21:24 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.9 2004/10/18 13:16:48 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -159,6 +159,9 @@ decimalSymbol + "][0-9]+)?");
  
  public BigDecimal getBigDecimalValue(){
  	String text = this.text.getText();
+ 	if(text.equals("")){
+ 		return new BigDecimal(0);
+ 	}
  	return new BigDecimal(text);
  	
  	

@@ -24,7 +24,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.3 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.4 2004/10/18 13:16:48 onsel Exp $
 */
 
 
@@ -62,15 +62,11 @@ public class InvBLCardUpdate {
 	 */
 	public void updateInvCard(String invCode, String invSpecialCode,
 			String cardName, String cardDefinition, int minAmount,
-			int maxAmount, int cardVat, int discount, int accountIdBuy,
-			int accountIdSell,TurqInventoryCard card) throws Exception{
+			int maxAmount, int cardVat, int discount,TurqAccountingAccount accountBuy,
+			TurqAccountingAccount accountSell,TurqInventoryCard card) throws Exception{
 		try {
 
 		
-			TurqAccountingAccount accountBuy = new TurqAccountingAccount();
-			TurqAccountingAccount accountSell = new TurqAccountingAccount();
-			accountBuy.setAccountingAccountsId(new Integer(accountIdBuy));
-			accountSell.setAccountingAccountsId(new Integer(accountIdSell));
 
 			card.setCardDefinition(cardDefinition);
 			card.setCardDiscount(discount);

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.39 2004/10/16 15:00:36 cem Exp $
+ * @version $Id: InvUICardAdd.java,v 1.40 2004/10/18 13:16:48 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -51,6 +51,7 @@ import org.eclipse.swt.widgets.Button;
 import com.turquaz.accounting.ui.AccUIDialogInventoryCodeChoose;
 import com.turquaz.accounting.ui.comp.AccUIAccountsTree;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqInventoryUnit;
@@ -1542,8 +1543,8 @@ decimalSymbol + "][0-9]+)?");
 		if (verifyFields()) {
 
 			
-			int accountIdSell = ((Integer) txtInvCardOutAcc.getData()).intValue();
-			int accountIdBuy = ((Integer) txtInvCardInAcc.getData()).intValue();
+			TurqAccountingAccount accountIdSell = (TurqAccountingAccount) txtInvCardOutAcc.getData();
+			TurqAccountingAccount accountIdBuy = (TurqAccountingAccount) txtInvCardOutAcc.getData();
 			try {
 
 				// Save inventory card
