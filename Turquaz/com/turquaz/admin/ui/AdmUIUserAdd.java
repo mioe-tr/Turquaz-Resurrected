@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.9 2004/11/18 09:20:49 huseyiner Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.10 2004/11/26 12:40:14 cemdayanik Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -248,17 +248,18 @@ public class AdmUIUserAdd extends Composite implements SecureComposite {
 		if(txtUsername.getText().trim().length()==0){
 			msg.setMessage(Messages.getString("AdmUIUserAdd.6")); //$NON-NLS-1$
 			msg.open();
+			txtUsername.setFocus();
 			return false;
 			
 		}
 		else if(!txtPassword.getText().equals(txtRePassword.getText())){
 		msg.setMessage(Messages.getString("AdmUIUserAdd.7")); //$NON-NLS-1$
 		msg.open();
+		txtPassword.setText("");
+		txtRePassword.setText("");
+		txtPassword.setFocus();
 		 return false;			
-		}
-		
-		
-		
+		}		
 		return true;
 	}
 	

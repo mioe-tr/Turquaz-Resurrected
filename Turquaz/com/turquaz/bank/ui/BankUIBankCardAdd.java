@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.9 2004/11/25 09:41:36 onsel Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.10 2004/11/26 12:40:14 cemdayanik Exp $
 */
 
 
@@ -219,21 +219,25 @@ private boolean verifyfields()
 		if (txtBankName.getText().trim().equals("")){ //$NON-NLS-1$
 			msg.setMessage(Messages.getString("BankUIBankCardAdd.6")); //$NON-NLS-1$
 			msg.open();
+			txtBankName.setFocus();
 			return false;
 			}
 		else if(txtBankBranchName.getText().trim().equals("")){ //$NON-NLS-1$
 			msg.setMessage(Messages.getString("BankUIBankCardAdd.8")); //$NON-NLS-1$
 			msg.open();
+			txtBankBranchName.setFocus();
 			return false;
 			}
 		else if (txtBankAccountNo.getText().trim().equals("")){ //$NON-NLS-1$
 			msg.setMessage(Messages.getString("BankUIBankCardAdd.5")); //$NON-NLS-1$
 			msg.open();
+			txtBankAccountNo.setFocus();
 			return false;
 			}
 		else if (comboCurrency.getData(comboCurrency.getText())==null){
 			msg.setMessage(Messages.getString("BankUIBankCardAdd.11")); //$NON-NLS-1$
 			msg.open();
+			comboCurrency.setFocus();
 			return false;
 			}
 		else

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.6 2004/11/25 09:41:37 onsel Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.7 2004/11/26 12:40:14 cemdayanik Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -151,6 +151,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		{
 			msg.setMessage(Messages.getString("AdmUIGroupAdd.2")); //$NON-NLS-1$
 			msg.open();
+			txtAdmGroupName.setFocus();
 			return false;
 		}
 		return true;

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.64 2004/11/26 11:05:31 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.65 2004/11/26 12:40:14 cemdayanik Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1483,26 +1483,31 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 		if (txtInvCardName.getText().trim().equals("")) { 		 //$NON-NLS-1$
 			msg.setMessage(Messages.getString("InvUICardAdd.41"));  //$NON-NLS-1$
 			msg.open();
+			txtInvCardName.setFocus();
 			return false;
 		}
 		else if (txtInvCardCode.getText().trim().equals("")) { 		 //$NON-NLS-1$
 			msg.setMessage(Messages.getString("InvUICardAdd.43"));  //$NON-NLS-1$
 			msg.open();
+			txtInvCardCode.setFocus();
 			return false;
 		}
 		else if (txtInvCardInAcc.getData()==null) { 		
 			msg.setMessage(Messages.getString("InvUICardAdd.44"));  //$NON-NLS-1$
 			msg.open();
+			txtInvCardInAcc.setFocus();
 			return false;
 		}
 		else if (txtInvCardOutAcc.getData()==null) { 		
 			msg.setMessage(Messages.getString("InvUICardAdd.45"));  //$NON-NLS-1$
 			msg.open();
+			txtInvCardOutAcc.setFocus();
 			return false;
 		}
 		else if (comboInvCardUnits.getData(comboInvCardUnits.getText())==null){
 			msg.setMessage(Messages.getString("InvUICardAdd.46"));  //$NON-NLS-1$
 			msg.open();
+			comboInvCardUnits.setFocus();
 			return false;
 		}
 		return true;

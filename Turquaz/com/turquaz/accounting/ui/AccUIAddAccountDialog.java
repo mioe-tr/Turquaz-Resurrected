@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.1 2004/11/25 16:40:59 huseyiner Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.2 2004/11/26 12:40:12 cemdayanik Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -133,11 +133,11 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 			toolSave.setToolTipText("Kaydet");
 			toolSave.setImage(SWTResourceManager
 					.getImage("icons/save_edit.gif")); //$NON-NLS-1$
-			toolSave.addSelectionListener(new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
-					toolUpdateWidgetSelected(evt);
-				}
-			});
+					toolSave.addSelectionListener(new SelectionAdapter() {
+						public void widgetSelected(SelectionEvent evt) {
+							toolUpdateWidgetSelected(evt);
+						}
+					});
 
 			final org.eclipse.swt.graphics.Image toolDeleteýmage = new org.eclipse.swt.graphics.Image(
 					Display.getDefault(), getClass().getClassLoader()
