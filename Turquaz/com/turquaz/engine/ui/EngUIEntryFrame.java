@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.42 2005/02/08 10:53:12 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.43 2005/02/08 11:27:40 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -471,6 +471,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			dialog.open();	
 			txtPassword.setText("admin"); //$NON-NLS-1$
 			txtUserName.setText("admin"); //$NON-NLS-1$
+			checkRememberPassword.setSelection(true);
 		}
 		
 		EngConfiguration.refreshConfig();
