@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.2 2004/11/05 09:31:11 onsel Exp $
+* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.3 2004/11/08 09:16:50 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -307,7 +307,7 @@ public class ConUIConsignmentsGroupDialog extends  org.eclipse.swt.widgets.Dialo
 			 btnDelete.setEnabled(false);
 			    btnUpdate.setEnabled(false);
 			    btnGroupAdd.setEnabled(true);
-			    txtGroupName.setText(Messages.getString("CurUIGroupAddDialog.9")); //$NON-NLS-1$
+			    txtGroupName.setText(""); 
 			    txtDescription.setText("");	 //$NON-NLS-1$
 		msg2.setMessage(Messages.getString("CurUIGroupAddDialog.13"));	 //$NON-NLS-1$
 		msg2.open();
