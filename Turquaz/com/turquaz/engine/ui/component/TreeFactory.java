@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.57 2005/01/09 20:10:41 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.58 2005/01/11 11:37:39 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -451,6 +451,16 @@ public final class TreeFactory {
 		root.setExpanded(true);
 		return tree;
 	    
+	}
+	public static Tree createChequesTree(Tree tree){
+		TreeItem root = new TreeItem(tree,SWT.NULL);
+		
+		root.setText(Messages.getString("TreeFactory.56"));  //$NON-NLS-1$
+		TreeItem item;
+		
+		root.setExpanded(true);
+		return tree;
+		
 	}
 
 }
