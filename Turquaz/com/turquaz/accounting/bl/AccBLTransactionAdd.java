@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.8 2004/11/23 19:17:07 huseyiner Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.9 2004/12/03 14:21:24 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -127,7 +127,7 @@ public class AccBLTransactionAdd {
 		trans.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
 		
 		
-		
+	
 		dalTransAdd.save(trans);
 			
 		
