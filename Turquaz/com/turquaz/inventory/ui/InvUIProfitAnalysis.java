@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIProfitAnalysis.java,v 1.5 2004/12/23 14:24:48 onsel Exp $
+* @version  $Id: InvUIProfitAnalysis.java,v 1.6 2004/12/23 15:27:28 onsel Exp $
 */
 
 
@@ -29,9 +29,7 @@ import org.eclipse.swt.layout.GridLayout;
 
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.engine.dal.TurqViewInventoryAmountTotal;
 import com.turquaz.engine.dal.TurqViewInventoryTotal;
-import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurquazDecimalFormat;
 import com.turquaz.inventory.Messages;
