@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.9 2004/10/18 13:16:48 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.10 2004/10/29 14:00:19 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -93,21 +93,19 @@ public class DecimalText extends Composite {
      return;
     }
 
-    String newText = text.substring(0, e.start) + e.text +
-text.substring(e.end);
+    String newText = text.substring(0, e.start) + e.text + text.substring(e.end);
 
     if (newText.equals("")){
      e.doit = true;
      return;
     }
 
-    Pattern realNumberPattern = Pattern.compile("-?[1-9]*[0-9]{1}([" +
-decimalSymbol + "][0-9]+)?");
+    Pattern realNumberPattern = Pattern.compile("-?[0-9]+[0-9]*(([" +decimalSymbol + "][0-9]?[0-9]?)|(["+decimalSymbol+"]))?");
     Matcher matcher = realNumberPattern.matcher(newText);
     boolean valid = matcher.matches();
 
     e.doit = valid;
-
+/*
     if (newText.length() > 2){
      int pos = newText.indexOf('-');
      if (pos != -1 && newText.indexOf('-', pos + 1) != -1){
@@ -138,6 +136,7 @@ decimalSymbol + "][0-9]+)?");
       e.doit = true;
      }
     }
+    */
    }
   
  public void setText(String txt){
