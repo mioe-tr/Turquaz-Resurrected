@@ -20,14 +20,14 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SecureComposite.java,v 1.7 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: SecureComposite.java,v 1.8 2004/11/10 11:48:58 onsel Exp $
 */
 
 
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.7 2004/11/04 16:55:35 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.8 2004/11/10 11:48:58 onsel Exp $
  */
 public interface SecureComposite {
 
@@ -35,7 +35,5 @@ public interface SecureComposite {
 	 public void search();
 	 public void newForm();
 	 public void delete();
-
-
 
 }
