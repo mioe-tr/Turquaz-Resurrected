@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.20 2005/03/14 18:35:24 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.21 2005/03/15 09:24:29 onsel Exp $
  */
 
 import java.util.Date;
@@ -136,6 +136,32 @@ public class CheDALSearch {
 					+ " and currentCard.id =  chequeStatus.currentCardsId "
 					+ " and (chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_IN
 					+" or chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK+")";
+
+			Query q = session.createQuery(query);
+
+			List list = q.list();
+			session.close();
+			return list;
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+
+	}
+	
+	//	Portfoydeki ceklerin listesini getir.
+	public static List getChequesGivenToCurrent() throws Exception {
+		try {
+
+			Session session = EngDALSessionFactory.openSession();
+			TurqViewChequeStatus chequeStatus = null;
+
+			String query = "Select cheque from TurqChequeCheque as cheque, TurqViewChequeStatus as chequeStatus, TurqCurrentCard currentCard "
+					+ "where cheque.id = chequeStatus.chequeChequesId "
+					+ " and currentCard.id =  chequeStatus.currentCardsId "
+					+ " and chequeStatus.chequeTransactionTypesId ="+ EngBLCommon.CHEQUE_TRANS_OUT_CURRENT
+					+ " and cheque.chequesType = "+EngBLCommon.CHEQUE_TYPE_CUSTOMER;
+		
 
 			Query q = session.createQuery(query);
 

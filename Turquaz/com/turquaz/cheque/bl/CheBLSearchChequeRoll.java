@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSearchChequeRoll.java,v 1.8 2005/03/14 18:35:24 onsel Exp $
+* @version  $Id: CheBLSearchChequeRoll.java,v 1.9 2005/03/15 09:24:34 onsel Exp $
 */
 
 import java.util.Date;
@@ -64,6 +64,18 @@ public class CheBLSearchChequeRoll {
             throw ex;
         }
     }
+   
+    public static List getChequesGivenToCurrent()throws Exception {
+        try{
+        
+            return CheDALSearch.getChequesGivenToCurrent();
+        
+        }        
+        catch(Exception ex){
+            throw ex;
+        }
+    }
+    
     public static String getCurrentCardOfCustomerCheque(TurqChequeCheque cheque)throws Exception{
 		try{
 			
