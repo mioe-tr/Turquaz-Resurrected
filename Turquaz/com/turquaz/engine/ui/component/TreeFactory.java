@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.51 2004/12/29 19:12:37 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.52 2004/12/29 19:47:52 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -60,7 +60,7 @@ import com.turquaz.consignment.ui.ConUIAddConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
 import com.turquaz.current.ui.CurUICurrentCardSearch;
-import com.turquaz.current.ui.CurUITransactionAdd;
+
 import com.turquaz.current.ui.CurUITransactionSearch;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLPermissions;

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.17 2004/12/29 13:49:46 cemdayanik Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.18 2004/12/29 19:47:53 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -39,6 +39,7 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SearchComposite;
+import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
 
@@ -342,7 +343,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	
 	TurqCurrentTransaction transaction;
 	TableItem item;
-	
+	TurkishCurrencyFormat cf=new TurkishCurrencyFormat();
 	for(int i=0;i<results.size();i++){
 	
 	transaction = (TurqCurrentTransaction)results.get(i);
@@ -353,8 +354,8 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 								transaction.getTransactionsDocumentNo().toString(),
 								transaction.getTurqCurrentCard().getCardsCurrentCode(),
 							  transaction.getTurqCurrentTransactionType().getTransactionTypeName(),
-							  transaction.getTransactionsTotalDept().toString(),
-							  transaction.getTransactionsTotalCredit().toString()
+							  cf.format(transaction.getTransactionsTotalDept()),
+							  cf.format(transaction.getTransactionsTotalCredit())
 								});
 	
 	} 

@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.22 2004/12/27 10:38:11 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.23 2004/12/29 19:47:52 cemdayanik Exp $
 */
 
 
@@ -185,7 +185,8 @@ public class InvBLCardAdd {
 			int maxAmount, int cardVat, int discount,TurqAccountingAccount accountBuy,
 			TurqAccountingAccount accountSell,int cardSpecialVat, BigDecimal cardSpecialVatEach,
 			TurqAccountingAccount accountVAT, TurqAccountingAccount accountSpecialVAT, 
-			TurqAccountingAccount accountVATSell, TurqAccountingAccount accountSpecialVATSell
+			TurqAccountingAccount accountVATSell, TurqAccountingAccount accountSpecialVATSell,
+			boolean isSpecAmount
 	        ) throws Exception {
 
 		try {			
@@ -210,6 +211,7 @@ public class InvBLCardAdd {
             card.setTurqAccountingAccountByAccountingAccountsIdSpecialVat(accountSpecialVAT);
             card.setTurqAccountingAccountByAccountingAccountsIdSpecialVatSell(accountSpecialVATSell);
             card.setTurqAccountingAccountByAccountingAccountsIdVatSell(accountVATSell);
+            card.setSpecVatForEach(isSpecAmount);
 			cardAdd.saveOrUpdateInvCard(card);
 
 			return card.getInventoryCardsId();

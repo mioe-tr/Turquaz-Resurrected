@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIProfitAnalysis.java,v 1.9 2004/12/29 13:49:46 cemdayanik Exp $
+* @version  $Id: InvUIProfitAnalysis.java,v 1.10 2004/12/29 19:47:53 cemdayanik Exp $
 */
 
 
@@ -178,9 +178,10 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 	        		 amountNow = totals.getTotalAmountIn();
 	        			
 	        		}
-	        		else if(totals.getTotalAmountOut()!=null);
+	        		else if(totals.getTotalAmountOut()!=null)
 	        		{
-	        			amountNow = totals.getTotalAmountOut().multiply(new BigDecimal(-1));
+	        		amountNow = totals.getTotalAmountOut().multiply(new BigDecimal(-1));
+	        	
 	        		}
 	        	}
 	        	
@@ -196,7 +197,10 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 	        		amountIn = totals.getTotalAmountIn();
 	        	}
 	        	totalCost = avgPrice.multiply(amountOut);
-	        	totalPrice = totals.getTotalPriceOut();
+	        	if (totals.getTotalPriceOut()!=null)
+	        	{
+	        		totalPrice = totals.getTotalPriceOut();
+	        	}
 	        	totalProfit = totalPrice.subtract(totalCost);
 	        
 	        	item = new TableItem(tableInvTotals,SWT.NULL);

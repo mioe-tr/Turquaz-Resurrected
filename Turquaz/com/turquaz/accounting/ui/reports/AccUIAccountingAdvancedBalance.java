@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.11 2004/12/28 12:45:16 cemdayanik Exp $
+* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.12 2004/12/29 19:47:52 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -67,6 +68,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SearchComposite;
+import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 
 import org.eclipse.swt.widgets.TableColumn;
 
@@ -297,7 +299,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 
 			Integer parentId,accountId;
 		
-		
+			TurkishCurrencyFormat cf=new TurkishCurrencyFormat();
 			for(int i =0; i< allAccounts.size();i++)
 			{
 				account = (TurqAccountingAccount)((Object[])allAccounts.get(i))[0];
@@ -308,24 +310,24 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				LocateAccountToTable(account);
 				//System.out.println("AccountID" +accountId);
 				TableTreeItem accountItem=(TableTreeItem)treeItems.get(accountId);
-				BigDecimal dept=new BigDecimal(accountItem.getText(2));
-				BigDecimal credit=new BigDecimal(accountItem.getText(3));
+				BigDecimal dept=cf.getBigDecimal(accountItem.getText(2));
+				BigDecimal credit=cf.getBigDecimal(accountItem.getText(3));
 				dept=dept.add(transDept);
 				credit=credit.add(transCredit);
-				accountItem.setText(2,dept.toString());
-				accountItem.setText(3,credit.toString());
-				accountItem.setText(4,dept.subtract(credit).toString());
+				accountItem.setText(2,cf.format(dept));
+				accountItem.setText(3,cf.format(credit));
+				accountItem.setText(4,cf.format(dept.subtract(credit)));
 				TurqAccountingAccount parentAcc=account.getTurqAccountingAccountByParentAccount();
 				while(parentId.intValue()!=-1)
 				{					
 					accountItem=(TableTreeItem)treeItems.get(parentId);
-					dept=new BigDecimal(accountItem.getText(2));
-					credit=new BigDecimal(accountItem.getText(3));
+					dept=cf.getBigDecimal(accountItem.getText(2));
+					credit=cf.getBigDecimal(accountItem.getText(3));
 					dept=dept.add(transDept);
 					credit=credit.add(transCredit);
-					accountItem.setText(2,dept.toString());
-					accountItem.setText(3,credit.toString());
-					accountItem.setText(4,dept.subtract(credit).toString());
+					accountItem.setText(2,cf.format(dept));
+					accountItem.setText(3,cf.format(credit));
+					accountItem.setText(4,cf.format(dept.subtract(credit)));
 					parentAcc=parentAcc.getTurqAccountingAccountByParentAccount();
 					parentId=parentAcc.getAccountingAccountsId();
 				}
@@ -363,9 +365,9 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				TableTreeItem item = new TableTreeItem(parentItem,SWT.NULL);	
 				item.setText(0,account.getAccountCode());
 				item.setText(1,account.getAccountName());
-				item.setText(2,"0");
-				item.setText(3,"0");
-				item.setText(4,"0");
+				item.setText(2,"0.00");
+				item.setText(3,"0.00");
+				item.setText(4,"0.00");
 				item.setData(account);	
 				treeItems.put(account.getAccountingAccountsId(),item);
 				//System.out.println("PUT:"+account.getAccountingAccountsId().toString());
@@ -376,9 +378,9 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				TableTreeItem item = new TableTreeItem(tableTreeAccounts,SWT.NULL);						
 				item.setText(0,account.getAccountCode());
 				item.setText(1,account.getAccountName());
-				item.setText(2,"0");
-				item.setText(3,"0");
-				item.setText(4,"0");
+				item.setText(2,"0.00");
+				item.setText(3,"0.00");
+				item.setText(4,"0.00");
 				item.setData(account);	
 				treeItems.put(account.getAccountingAccountsId(),item);	
 				//System.out.println("PUT:"+account.getAccountingAccountsId().toString());

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.21 2004/12/29 16:37:50 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.22 2004/12/29 19:47:51 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import net.sf.hibernate.property.Getter;
+
 
 import org.eclipse.swt.layout.GridLayout;
 
