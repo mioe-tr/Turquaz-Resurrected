@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupUpdateDialog.java,v 1.2 2005/02/07 14:15:35 onsel Exp $
+* @version  $Id: InvUIGroupUpdateDialog.java,v 1.3 2005/03/14 19:29:49 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -45,7 +45,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import com.turquaz.inventory.bl.InvBLCardAdd;
-import com.turquaz.inventory.bl.InvBLCardUpdate;
+
 
 
 import com.cloudgarden.resource.SWTResourceManager;
@@ -212,12 +212,12 @@ public class InvUIGroupUpdateDialog extends org.eclipse.swt.widgets.Dialog {
     
     private void toolDeleteWidgetSelected(SelectionEvent evt) {
         try{
-            if(EngUICommon.okToDelete(getParent())){
+           /* if(EngUICommon.okToDelete(getParent())){
                 new InvBLCardUpdate().deleteObject(mainGroup) ;
                 EngUICommon.showMessageBox(getParent(),Messages.getString("InvUIGroupUpdateDialog.6"),SWT.ICON_INFORMATION); //$NON-NLS-1$
                 isUpdated = true;
                 dialogShell.close();
-            }
+            }*/
             
         }
         catch(Exception ex)
