@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.13 2005/02/08 18:23:29 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.14 2005/02/08 20:12:18 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -217,12 +217,11 @@ public class InvDALSearchTransaction {
 			{
 				query+=" and :invGroup in (Select gr.turqInventoryGroup from transaction.turqInventoryCard.turqInventoryCardGroups as gr)";
 				
-			}			
+			}	
 
 	
-
+			
 			Query q = session.createQuery(query);
-
 			q.setParameter("startDate", startDate);
 			q.setParameter("endDate", endDate);
 			
