@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.126 2005/02/13 14:24:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.127 2005/02/16 12:24:21 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -94,7 +94,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.126 2005/02/13 14:24:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.127 2005/02/16 12:24:21 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1325,6 +1325,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			    try{
 			        
 				Class c = Class.forName(classname);
+				
 				Composite comp =(Composite)c.getConstructor(new Class[]{Composite.class, int.class})
 				.newInstance(new Object[]{tabfldMain,Integer.valueOf(SWT.NULL+"")}); //$NON-NLS-1$
 				yeni.setControl(comp);
