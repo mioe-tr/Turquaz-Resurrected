@@ -24,7 +24,7 @@ package com.turquaz.engine;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngConfiguration.java,v 1.9 2004/11/26 16:07:56 onsel Exp $
+* @version  $Id: EngConfiguration.java,v 1.10 2004/12/10 01:48:25 onsel Exp $
 */
 import java.io.FileInputStream;
 
@@ -73,6 +73,9 @@ public class EngConfiguration {
 	
 	private String findString(String Key){
 	
+		if(props ==null){
+			return "";
+		}
 	    return props.getProperty(Key);
 	    
 	}

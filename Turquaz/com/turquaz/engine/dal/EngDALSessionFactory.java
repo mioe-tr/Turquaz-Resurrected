@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.17 2004/12/06 09:08:29 huseyiner Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.18 2004/12/10 01:48:25 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -47,16 +47,17 @@ public class EngDALSessionFactory {
 	 */
 	public EngDALSessionFactory(){
 		
-		try{
-			
+		try{		
 		
 			String url = "notSet://";
 			String driver = "noteSet";
 			if (EngConfiguration.getString("dbType").startsWith("Turquaz"))
 			{		
 		
-		 url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
-		  driver = "org.hsqldb.jdbcDriver";
+		 //url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
+		
+		 url =  "jdbc:hsqldb:database/turquaz";		
+		driver = "org.hsqldb.jdbcDriver";
 		}
 			else if (EngConfiguration.getString("dbType").startsWith("Postgresql"))
 			{

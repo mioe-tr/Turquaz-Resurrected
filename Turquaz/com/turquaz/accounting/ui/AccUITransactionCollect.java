@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.23 2004/12/09 23:34:05 onsel Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.24 2004/12/10 01:48:25 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -615,9 +615,10 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
       totalDept =new BigDecimal(0);
     
 		for(int i=0; i<items.length;i++){
-		
-		totalDept = totalDept.add(new BigDecimal(items[i].getText(3)));
-    
+			TurqAccountingTransactionColumn column = (TurqAccountingTransactionColumn)((AccUITransactionCollectTableRow)items[i].getData()).getDBObject();
+		if(column!=null){	
+		totalDept = totalDept.add(column.getDeptAmount());
+		}
 		}
    	
 	}
