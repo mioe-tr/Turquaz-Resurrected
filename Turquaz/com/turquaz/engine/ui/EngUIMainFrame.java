@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.111 2005/01/11 11:37:39 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.112 2005/01/15 11:57:06 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.111 2005/01/11 11:37:39 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.112 2005/01/15 11:57:06 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1429,6 +1429,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			
 			saveFavoritesTree();
 			saveProperties();
+			System.exit(0);
 			
 			}
 			else{
