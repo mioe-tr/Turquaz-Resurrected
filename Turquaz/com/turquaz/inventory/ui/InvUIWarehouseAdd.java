@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseAdd.java,v 1.25 2004/12/09 21:49:08 onsel Exp $
+* @version  $Id: InvUIWarehouseAdd.java,v 1.26 2004/12/29 20:06:19 cemdayanik Exp $
 */
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -330,6 +330,7 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 		txtTelephone.setText(""); //$NON-NLS-1$
 		txtWarehouseAdres.setText(""); //$NON-NLS-1$
 		txtWarehouseCity.setText(""); //$NON-NLS-1$
+		txtWarehouseCode.setText("");
 		
 		
 	}
