@@ -18,12 +18,13 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.72 2004/11/25 14:46:30 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.73 2004/11/25 15:41:25 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream; 
+import java.sql.Savepoint;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -87,7 +88,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.72 2004/11/25 14:46:30 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.73 2004/11/25 15:41:25 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -937,6 +938,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		public void handleEvent(Event e) {
 			
 			saveFavoritesTree();
+			saveProperties();
 			if(EngConfiguration.getString("serverAddress").equals("localhost")){
 			EngDALConnection connection = new EngDALConnection();
 			try{
@@ -1260,7 +1262,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	}
 
 	//Save Options of the user...
-	public void saveProperties(){
+	public static void saveProperties(){
 	    try{
 			FileInputStream input = new FileInputStream("config/turquaz.properties"); //$NON-NLS-1$
 		    Properties props = new Properties();
@@ -1268,6 +1270,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		    input.close();
 		    
 		   // props.put("logo","dfaf");
+		    props.put("logoURL",EngConfiguration.logoURL);
 		    
 		    FileOutputStream output = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
 		    props.save(output,"Turquaz Configuration"); //$NON-NLS-1$
