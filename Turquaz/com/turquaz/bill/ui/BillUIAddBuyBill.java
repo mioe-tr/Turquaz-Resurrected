@@ -18,13 +18,14 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.15 2004/12/24 15:22:36 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.16 2004/12/24 16:17:34 onsel Exp $
  */
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
@@ -1258,6 +1259,21 @@ public class BillUIAddBuyBill extends Composite
 	       public void updateRow(ITableRow row){
 	           
 	           calculateTotals();
+	          
+				
+	           Vector vec = rowList.getTasks();
+	           int index = vec.indexOf(row);
+	           if(index==vec.size()-1){
+	           		if(row.okToSave()){
+	           			
+	                    InvUITransactionTableRow row2 = new InvUITransactionTableRow(rowList,0,tableViewer);
+	                    rowList.addTask(row2);
+	                   
+	           			
+
+	           		}
+	           	
+	           }
 	           
 	      }
 	       public void removeRow(ITableRow row){
