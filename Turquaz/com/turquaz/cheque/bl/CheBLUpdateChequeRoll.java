@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.16 2005/03/02 11:47:45 cemdayanik Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.17 2005/03/02 13:14:32 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -45,7 +45,8 @@ import com.turquaz.engine.dal.TurqCashTransaction;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqChequeChequeInRoll;
 import com.turquaz.engine.dal.TurqChequeRoll;
-import com.turquaz.engine.dal.TurqCurrency;
+
+import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 import com.turquaz.engine.dal.TurqCurrentCard;
 
 public class CheBLUpdateChequeRoll {
@@ -118,12 +119,9 @@ public class CheBLUpdateChequeRoll {
     	}
     }
     
-    public static void updateChequeRollIn(TurqChequeRoll chequeRoll,TurqAccountingAccount rollAccount, TurqCurrentCard curCard,TurqBanksCard bankCard, String rollNo,Date rollDate,List chequeList, int rollType,boolean sumTransTotal)throws Exception{
+    public static void updateChequeRollIn(TurqChequeRoll chequeRoll,TurqAccountingAccount rollAccount, TurqCurrentCard curCard,TurqBanksCard bankCard, String rollNo,Date rollDate,List chequeList, int rollType,boolean sumTransTotal, TurqCurrencyExchangeRate exchangeRate)throws Exception{
         try{
-           
-
-        	  TurqCurrency currency = EngBLCommon.getBaseCurrency();
-        	  BigDecimal exchangeRate = new BigDecimal(1);  
+            
            
         	  emptyCheckRollIn(chequeRoll);
            
@@ -171,10 +169,10 @@ public class CheBLUpdateChequeRoll {
                {
                   
                    if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
-                    blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                    blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo(),exchangeRate );
                 }
                 else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
-                	 blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                	 blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo(),exchangeRate );
                 }
                
                
@@ -195,10 +193,10 @@ public class CheBLUpdateChequeRoll {
            {
               
                if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
-                blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+                blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo(),exchangeRate);
               }
               else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
-              	blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+              	blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo(),exchangeRate);
               }
            }
            

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.5 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.6 2005/03/02 13:14:32 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -206,7 +206,7 @@ public class CashUICashPaymentTransactionAdd extends org.eclipse.swt.widgets.Com
            
            if(verifyFields()){
            
-               
+//          TODO current trans exRate
                blTrans.saveCurrentTransaction((TurqCashCard)txtCashCard.getData(),
                        						  (TurqCurrentCard)txtCurrentAccount.getData(),
                        						  EngBLCommon.CASH_CURRENT_PAYMENT,
@@ -214,7 +214,8 @@ public class CashUICashPaymentTransactionAdd extends org.eclipse.swt.widgets.Com
                        						  curTextTotalAmount.getBigDecimalValue(),
                        						  datePicker.getDate(),
                        						  txtDefinition.getText(),
-                       						  txtDocumentNo.getText().trim()
+                       						  txtDocumentNo.getText().trim(),
+											  EngBLCommon.getBaseCurrencyExchangeRate()
                        						  );
                
                msg.setMessage(Messages.getString("CashUICashPaymentTransactionAdd.1")); //$NON-NLS-1$

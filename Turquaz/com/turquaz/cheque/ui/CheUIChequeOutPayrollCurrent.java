@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.11 2005/02/28 15:57:04 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.12 2005/03/02 13:14:32 cemdayanik Exp $
  */
 
 import java.util.ArrayList;
@@ -314,12 +314,15 @@ public class CheUIChequeOutPayrollCurrent extends
 		try {
 
 			if (verifyFields()) {
-
+//		          TODO cheq trans exRate
 				CheBLSaveChequeTransaction.saveChequeRoll(null,
-						(TurqCurrentCard) currentPicker.getData(), null,
-						txtRollNo.getText().trim(), datePicker1.getDate(),
+						(TurqCurrentCard) currentPicker.getData(),
+						null,
+						txtRollNo.getText().trim(),
+						datePicker1.getDate(),
 						cheques, EngBLCommon.CHEQUE_TRANS_OUT_CURRENT,
-						btnSumTotals.getSelection());
+						btnSumTotals.getSelection(),
+						EngBLCommon.getBaseCurrencyExchangeRate());
 				EngUICommon
 						.showMessageBox(
 								getShell(),

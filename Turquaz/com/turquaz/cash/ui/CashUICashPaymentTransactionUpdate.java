@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.13 2005/03/01 16:24:39 onsel Exp $
+* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.14 2005/03/02 13:14:32 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -259,12 +259,14 @@ public class CashUICashPaymentTransactionUpdate extends org.eclipse.swt.widgets.
 	        if(compTransAdd.verifyFields())
 	        {
 	        	updated=true;
+//	          TODO current trans exRate
 	        	blUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
 	                                (TurqCurrentCard)compTransAdd.getTxtCurrentAccount().getData(),
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),
 	                                compTransAdd.getTxtDefinition().getText(),
-	                                compTransAdd.getTxtDocumentNo().getText());
+	                                compTransAdd.getTxtDocumentNo().getText(),
+									EngBLCommon.getBaseCurrencyExchangeRate());
 	        
 	        	msg.setMessage(Messages.getString("CashUICashPaymentTransactionUpdate.9")); //$NON-NLS-1$
 	        	msg.open();

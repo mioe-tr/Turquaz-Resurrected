@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.8 2005/02/04 13:00:31 onsel Exp $
+* @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.9 2005/03/02 13:14:22 cemdayanik Exp $
 */
 
 import java.util.Iterator;
@@ -32,6 +32,7 @@ import com.turquaz.bank.bl.BankBLTransactionUpdate;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqBanksTransaction;
 import com.turquaz.engine.dal.TurqBanksTransactionBill;
@@ -219,12 +220,14 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog 
 	public void update(){
 	    try{
 	        if(compMoneyTransferIn.verifyFields()){
+//	          TODO current trans exRate
 	        BankBLTransactionUpdate.updateTransactionBill(transBill,(TurqBanksCard)compMoneyTransferIn.getTxtBankCard().getData(),
 	                									 (TurqCurrentCard)compMoneyTransferIn.getCurrentPicker().getData(),
 	                									 compMoneyTransferIn.getCurAmount().getBigDecimalValue(),
 	                									 compMoneyTransferIn.getDatePick().getDate(),
 	                									 compMoneyTransferIn.getTxtDefinition().getText().trim(),
-	                									 compMoneyTransferIn.getTxtDocNo().getText().trim()
+	                									 compMoneyTransferIn.getTxtDocNo().getText().trim(),
+														 EngBLCommon.getBaseCurrencyExchangeRate()
 	        		);
 	        EngUICommon.showMessageBox(getParent(),Messages.getString("BankUIMoneyTransferInUpdate.6")); //$NON-NLS-1$
 	        isUpdated = true;

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.14 2005/03/01 16:24:39 onsel Exp $
+* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.15 2005/03/02 13:14:32 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -259,12 +259,14 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	        
 	        if(compTransAdd.verifyFields()){
 	        updated=true;
+//          TODO current trans exRate
 	        blUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
 	                                (TurqCurrentCard)compTransAdd.getTxtCurrentAccount().getData(),
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),
 	                                compTransAdd.getTxtDefinition().getText(),
-	                                compTransAdd.getTxtDocumentNo().getText());
+	                                compTransAdd.getTxtDocumentNo().getText(),
+									EngBLCommon.getBaseCurrencyExchangeRate());
 	        }
 	        msg.setMessage(Messages.getString("CashUICashCollectTransactionUpdate.5")); //$NON-NLS-1$
 	        msg.open();
