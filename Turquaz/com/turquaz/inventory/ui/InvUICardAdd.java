@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.47 2004/10/27 12:51:22 cem Exp $
+ * @version $Id: InvUICardAdd.java,v 1.48 2004/10/27 13:34:53 cem Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1555,6 +1555,11 @@ decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
 			msg.open();
 			return false;
 		}
+		else if (comboInvCardUnits.getData(comboInvCardUnits.getText())==null){
+			msg.setMessage("Please Select Base Unit in Units"); 
+			msg.open();
+			return false;
+		}
 		return true;
 	}
 
@@ -1567,13 +1572,10 @@ decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
 			try {
 
 				// Save inventory card
-				Integer cardId = blCardAdd.saveInvCard(txtInvCardCode.getText()
-						.trim(), txtInvCardSpecialCode.getText().trim(),
-						txtInvCardName.getText().trim(), txtInvCardDefinition
-								.getText().trim(), txtnumInvCardMin
-								.getIntValue(), txtnumInvCardMax.getIntValue(),
-						txtInvCardVat.getIntValue(), txtInvCardDiscount
-								.getIntValue(), accountIdBuy, accountIdSell
+				Integer cardId = blCardAdd.saveInvCard(txtInvCardCode.getText().trim(), txtInvCardSpecialCode.getText().trim(),
+						txtInvCardName.getText().trim(), txtInvCardDefinition.getText().trim(),
+						 txtnumInvCardMin.getIntValue(), txtnumInvCardMax.getIntValue(),
+						txtInvCardVat.getIntValue(), txtInvCardDiscount.getIntValue(), accountIdBuy, accountIdSell
 
 				);
 
@@ -1588,6 +1590,9 @@ decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
 		         
 		         } catch (Exception ex) {
 				ex.printStackTrace();
+				MessageBox msg=new MessageBox(this.getShell(), SWT.NULL);
+				msg.setMessage(ex.getMessage());
+				msg.open();
 			}
 
 		}
