@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.103 2004/12/23 15:50:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.104 2004/12/27 14:54:28 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -81,6 +81,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
+import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLXmlParser;
 import com.turquaz.engine.ui.component.SearchComposite;
@@ -91,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.103 2004/12/23 15:50:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.104 2004/12/27 14:54:28 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1173,9 +1174,12 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	    tabfldMain.setSelectionForeground(
 	            display.getSystemColor(SWT.COLOR_TITLE_FOREGROUND));
 		
-		
-														   
-		
+		try{
+		EngBLInventoryCards.getInventoryCards();												   
+		}
+		catch(Exception ex){
+		    ex.printStackTrace();
+		}
 	}
 	
 	public void setPopUpMenus(){
