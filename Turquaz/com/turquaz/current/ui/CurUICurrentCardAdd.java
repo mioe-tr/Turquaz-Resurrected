@@ -17,11 +17,14 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.43 2005/01/02 17:54:22 huseyiner Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.44 2005/01/02 18:21:02 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
+
+
+
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
@@ -29,6 +32,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.custom.CLabel;
+
+
+
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;

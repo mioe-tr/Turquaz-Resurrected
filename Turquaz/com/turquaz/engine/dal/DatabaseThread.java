@@ -1,9 +1,8 @@
 package com.turquaz.engine.dal;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 
-import org.hsqldb.Server;
+
+
 
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +22,7 @@ import org.hsqldb.Server;
 
 /**
  * @author Onsel Armagan
- * @version $Id: DatabaseThread.java,v 1.14 2005/01/02 16:46:44 huseyiner Exp $
+ * @version $Id: DatabaseThread.java,v 1.15 2005/01/02 18:21:02 huseyiner Exp $
  */
 
 
