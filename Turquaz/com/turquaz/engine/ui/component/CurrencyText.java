@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.8 2004/12/03 19:19:12 cemdayanik Exp $
+* @version  $Id: CurrencyText.java,v 1.9 2004/12/06 15:19:30 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -140,11 +140,24 @@ public class CurrencyText extends Composite {
     if (valid){
     	text.removeVerifyListener(listener);
     	boolean isLastSeperator=(newText.toCharArray()[newText.length()-1]==decimalSymbol) ? true : false;
+    	int indexPoint=newText.indexOf(".");
+    	boolean isLastZero=false;
+    	boolean addSeperator=false;
+    	if (indexPoint > 0)
+    	{
+    		isLastZero=(newText.toCharArray()[newText.length()-1]=='0') ? true : false;
+    		if (isLastZero)
+    			addSeperator=(indexPoint==newText.length()-2) ? true : false;
+    	}
     	BigDecimal bd=new BigDecimal(newText);
     	TurquazDecimalFormat tdf=new TurquazDecimalFormat();
     	String formatted=tdf.format(bd);
     	if (isLastSeperator)
     		formatted +=",";
+    	if (addSeperator)
+    		formatted+=",";
+    	if (isLastZero)
+    		formatted +="0";
     	text.setText(formatted);
     	String s=textcontrol.substring(0,e.start)+e.text;
         s=s.replaceAll("\\.","");
