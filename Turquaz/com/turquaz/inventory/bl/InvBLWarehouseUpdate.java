@@ -1,14 +1,8 @@
-/*
- * Created on Oct 15, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.bl;
 
 import java.util.Calendar;
 
-import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
@@ -30,7 +24,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseUpdate.java,v 1.5 2004/11/18 16:06:57 huseyiner Exp $
+* @version  $Id: InvBLWarehouseUpdate.java,v 1.6 2004/11/18 16:12:28 huseyiner Exp $
 */
 
 public class InvBLWarehouseUpdate {

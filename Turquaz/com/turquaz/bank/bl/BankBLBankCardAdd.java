@@ -18,10 +18,9 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.4 2004/11/18 10:18:32 huseyiner Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
 */
 
-import com.turquaz.bank.Messages;
 import com.turquaz.bank.dal.BankDALBankCardAdd;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCompany;

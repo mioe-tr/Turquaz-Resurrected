@@ -18,13 +18,12 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardUpdate.java,v 1.4 2004/11/18 10:18:32 huseyiner Exp $
+* @version  $Id: BankBLBankCardUpdate.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
 */
 
 
 import java.util.Calendar;
 
-import com.turquaz.bank.Messages;
 import com.turquaz.bank.dal.BankDALBankCardUpdate;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;

@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.4 2004/11/18 10:18:33 huseyiner Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
 */
 
 import java.util.List;
@@ -27,7 +27,6 @@ import java.util.List;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
-import com.turquaz.bank.Messages;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrency;
 

@@ -19,13 +19,11 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserUpdate.java,v 1.5 2004/11/18 09:54:12 huseyiner Exp $
+* @version  $Id: AdmBLUserUpdate.java,v 1.6 2004/11/18 16:12:28 huseyiner Exp $
 */
 
 import java.util.Calendar;
 
-
-import com.turquaz.admin.Messages;
 import com.turquaz.admin.dal.AdmDALUserUpdate;
 
 import com.turquaz.engine.dal.TurqUser;
