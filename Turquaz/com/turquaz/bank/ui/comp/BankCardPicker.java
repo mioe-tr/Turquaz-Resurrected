@@ -18,7 +18,7 @@ package com.turquaz.bank.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankCardPicker.java,v 1.2 2005/01/31 15:13:03 onsel Exp $
+* @version  $Id: BankCardPicker.java,v 1.3 2005/01/31 17:04:05 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -102,7 +102,7 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite {
                         }
                     
                 });
-				text1.setBackground(SWTResourceManager.getColor(254, 254, 254));
+                text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
 				
 				text1LData.verticalAlignment = GridData.FILL;
 				text1LData.horizontalAlignment = GridData.FILL;
