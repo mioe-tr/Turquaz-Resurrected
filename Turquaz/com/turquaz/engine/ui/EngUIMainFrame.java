@@ -68,7 +68,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.14 2004/09/24 13:51:09 huseyin Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.15 2004/09/25 17:47:52 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -564,6 +564,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	}
 /** Add your pre-init code in here 	*/
 	public void preInitGUI(){
+	 System.setProperty("company","1");
+	 System.setProperty("user","admin");
 	 EngBLPermissions.init();
 		
 	}
@@ -586,8 +588,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		toolDelete.setEnabled(false);
 		toolSearch.setEnabled(false);
 		
-		System.setProperty("company","1");
-		System.setProperty("user","admin");
+		
 		
 		
 		
@@ -611,6 +612,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	* However, if you delete this method it will not be re-created.	*/
 	public static void showGUI(){
 		try {
+			
 			Display display = Display.getDefault();
 			Shell shell = new Shell(display);
 			EngUIMainFrame inst = new EngUIMainFrame(shell, SWT.NULL);
