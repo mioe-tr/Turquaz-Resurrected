@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.12 2004/12/03 13:46:21 onsel Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.13 2004/12/09 23:34:05 onsel Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -54,11 +54,13 @@ import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLUserAdd;
+import com.turquaz.current.ui.CurUICurrentCardAdd;
 
 import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
 import org.eclipse.swt.events.VerifyListener;
@@ -316,7 +318,10 @@ public class AdmUIUserAdd extends Composite implements SecureComposite {
 	}
 	public void newForm(){
 		
-		EngUIMainFrame.newForm();
+		 AdmUIUserAdd  curCard = new AdmUIUserAdd(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
 		
 		
 	}

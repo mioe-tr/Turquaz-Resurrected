@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.9 2004/12/03 13:46:21 onsel Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.10 2004/12/09 23:34:05 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -44,11 +44,13 @@ import org.eclipse.swt.SWT;
 * *************************************
 */
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
+import com.turquaz.current.ui.CurUICurrentCardAdd;
 import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.VerifyListener;
@@ -193,7 +195,10 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		
 	}
 	public void newForm(){
-		EngUIMainFrame.newForm();
+		 AdmUIGroupAdd  curCard = new AdmUIGroupAdd(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
 	}
 	public void delete(){
 		

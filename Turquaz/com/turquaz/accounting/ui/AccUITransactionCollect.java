@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.22 2004/12/09 16:49:19 huseyiner Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.23 2004/12/09 23:34:05 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -545,7 +545,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 	public void search(){
 	}
 	public void newForm(){
-		EngUIMainFrame.newForm();
+		clearFields();
 	}
 	public void delete(){
 	}
