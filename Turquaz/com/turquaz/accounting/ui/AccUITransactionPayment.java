@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.47 2005/03/16 17:09:47 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.48 2005/03/17 10:35:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -103,8 +103,6 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
         //handle the obtaining and disposing of resources
         SWTResourceManager.registerResourceUser(this);
     }
-
-	private AccBLTransactionAdd blTransAdd= new AccBLTransactionAdd();
 	
 	private TurqCurrency baseCurrency;
 	private TurqCurrency exchangeCurrency;
@@ -541,7 +539,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	Map deptAccounts = new HashMap();
 	prepareAccountingMaps(creditAccounts,deptAccounts);
 	
-	blTransAdd.saveAccTransaction(datePickerTransactionDate.getDate(),
+	AccBLTransactionAdd.saveAccTransaction(datePickerTransactionDate.getDate(),
 			txtDocumentNo.getText().trim(),1,1,null,
 			txtDefinition.getText().trim(),exchangeRate,creditAccounts,deptAccounts,false);
 	

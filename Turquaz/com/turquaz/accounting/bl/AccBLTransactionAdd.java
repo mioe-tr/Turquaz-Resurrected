@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.23 2005/03/17 09:30:56 cemdayanik Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.24 2005/03/17 10:35:47 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -28,7 +28,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.turquaz.accounting.dal.AccDALTransactionAdd;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -43,7 +42,6 @@ import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqModule;
 
 public class AccBLTransactionAdd {
-	private AccDALTransactionAdd dalTransAdd = new AccDALTransactionAdd();
 	
 	public AccBLTransactionAdd(){
 		
@@ -53,7 +51,7 @@ public class AccBLTransactionAdd {
 	//Muhasebe fisi kalemlerini kaydet
 	//TODO DONE
 	
-	public void saveAccTransactionRows(Map deptAccounts, Map creditAccounts,
+	public static void saveAccTransactionRows(Map deptAccounts, Map creditAccounts,
 			Integer transId,boolean isSumRows,String definition,TurqCurrencyExchangeRate exchangeRate)throws Exception
 	{
 		Iterator it = deptAccounts.keySet().iterator();
@@ -130,7 +128,7 @@ public class AccBLTransactionAdd {
 	}
 	
 	
-	public void registerAccTransactionRow(TurqAccountingTransactionColumn transRow,
+	public static void registerAccTransactionRow(TurqAccountingTransactionColumn transRow,
 			Integer transID, TurqCurrencyExchangeRate exchangeRate)
 	throws Exception
 	{
@@ -166,7 +164,7 @@ public class AccBLTransactionAdd {
 	}
    
 	//TODO DONE
-   public Integer regAccTransaction(Date date, String documentNo,int type,int moduleId,
+   public static Integer regAccTransaction(Date date, String documentNo,int type,int moduleId,
    		Integer docSeqId, String definition, TurqCurrencyExchangeRate exchangeRate) throws Exception
 	{
 		try{
@@ -240,7 +238,7 @@ public class AccBLTransactionAdd {
 	}
    
    
-   public boolean saveAccTransaction(Date date, String documentNo,int type,int moduleId,
+   public static boolean saveAccTransaction(Date date, String documentNo,int type,int moduleId,
    		Integer docSeqId, String definition, TurqCurrencyExchangeRate exchangeRate,
 		Map creditAccounts, Map deptAccounts, boolean isSumRows) throws Exception
 	{

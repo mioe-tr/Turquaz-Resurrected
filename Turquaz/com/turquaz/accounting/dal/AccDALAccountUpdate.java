@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.14 2005/03/17 09:30:58 cemdayanik Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.15 2005/03/17 10:35:51 cemdayanik Exp $
 */
 
 
@@ -34,7 +34,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 public class AccDALAccountUpdate {
 	
 	
-	public List getSubAccounts (TurqAccountingAccount parentAcc) throws Exception
+	public static List getSubAccounts (TurqAccountingAccount parentAcc) throws Exception
 	{
 		try
 		{
@@ -56,7 +56,7 @@ public class AccDALAccountUpdate {
 		}
 	}
 	
-	public void updateAccountCodeOfSubAccs(TurqAccountingAccount parentAcc,String firstAccCode)throws Exception
+	public static void updateAccountCodeOfSubAccs(TurqAccountingAccount parentAcc,String firstAccCode)throws Exception
 	{
 		try
 		{
@@ -84,7 +84,7 @@ public class AccDALAccountUpdate {
 		}
 	}
 	
-	public List getAccountTransColumns(TurqAccountingAccount account) throws Exception
+	public static List getAccountTransColumns(TurqAccountingAccount account) throws Exception
 	{
 		try
 		{
@@ -105,7 +105,7 @@ public class AccDALAccountUpdate {
 			throw ex;
 		}
 	}
-	public List getTotalDeptAndCredit(TurqAccountingAccount account)throws Exception{
+	public static List getTotalDeptAndCredit(TurqAccountingAccount account)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
 	

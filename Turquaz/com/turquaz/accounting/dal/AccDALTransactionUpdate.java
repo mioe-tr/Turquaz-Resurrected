@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionUpdate.java,v 1.7 2005/03/17 09:30:58 cemdayanik Exp $
+* @version  $Id: AccDALTransactionUpdate.java,v 1.8 2005/03/17 10:35:51 cemdayanik Exp $
 */
 
 
@@ -37,7 +37,7 @@ import com.turquaz.engine.dal.TurqAccountingTransaction;
 public class AccDALTransactionUpdate {
 	
 
-	public void initializeTransactionRows(TurqAccountingTransaction accTrans)throws Exception{
+	public static void initializeTransactionRows(TurqAccountingTransaction accTrans)throws Exception{
 	   try{
 	        
 	       Session session = EngDALSessionFactory.openSession();
@@ -57,7 +57,7 @@ public class AccDALTransactionUpdate {
 	    }
 	    
 	}
-	public TurqAccountingTransaction getInitialTransaction()throws Exception{
+	public static TurqAccountingTransaction getInitialTransaction()throws Exception{
 	    try{
 	        Session session = EngDALSessionFactory.openSession();
 

@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.32 2005/03/17 09:30:58 cemdayanik Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.33 2005/03/17 10:35:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -353,7 +353,7 @@ public class CheBLUpdateChequeRoll {
 	        while(it.hasNext()){
 	        
 	        	TurqAccountingTransaction accTrans = (TurqAccountingTransaction)it.next();
-	        	new AccBLTransactionSearch().removeAccountingTransaction(accTrans);
+	        	AccBLTransactionSearch.removeAccountingTransaction(accTrans);
 	            
 	        }
 	        //Delete roll Account 

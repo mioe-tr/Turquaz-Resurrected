@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.46 2005/03/17 09:30:58 cemdayanik Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.47 2005/03/17 10:35:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -656,7 +656,7 @@ public class CheBLSaveChequeTransaction {
     	
     	//  Save Accounting Transaction
     	//    		TODO cheq exRate
-    	blAccTran.saveAccTransaction(roll.getChequeRollsDate(),
+    	AccBLTransactionAdd.saveAccTransaction(roll.getChequeRollsDate(),
     				roll.getChequeRollNo(), accTransType, roll.getTurqEngineSequence().getTurqModule()
     						.getId().intValue(), roll.getTurqEngineSequence()
     						.getId(), definition,exchangeRate,creditAccountsMap,deptAccountsMap,true);

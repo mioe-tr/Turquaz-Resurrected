@@ -18,11 +18,9 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionAdd.java,v 1.7 2005/03/17 09:30:58 cemdayanik Exp $
+* @version  $Id: AccDALTransactionAdd.java,v 1.8 2005/03/17 10:35:51 cemdayanik Exp $
 */
 
 public class AccDALTransactionAdd {
-
-
 
 }

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.44 2005/03/01 16:24:37 onsel Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.45 2005/03/17 10:35:48 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -82,10 +82,6 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite
 	Menu popup;
 
 	private TableTree tableTreeAccountingPlan;
-
-	private AccBLAccountAdd blAccount = new AccBLAccountAdd();
-
-	private AccBLAccountUpdate blAccountUpdate = new AccBLAccountUpdate();
 
 	private HashMap accountTotals;
 
@@ -323,7 +319,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite
 		try {
 
 			TableTreeItem item;
-			List mainBranches = blAccount.getAccount(parent_id, codeCriteria);
+			List mainBranches = AccBLAccountAdd.getAccount(parent_id, codeCriteria);
 			TurqAccountingAccount account;
 			for (int i = 0; i < mainBranches.size(); i++) {
 
@@ -388,13 +384,13 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite
 			MessageBox msg2 = new MessageBox(this.getShell(), SWT.OK
 					| SWT.CANCEL);
 			try {
-				List accTrans = blAccountUpdate.getAccountTransColumns(account);
+				List accTrans = AccBLAccountUpdate.getAccountTransColumns(account);
 				if (accTrans.size() > 0) {
 					msg.setMessage(Messages.getString("AccUIAccountingPlan.6")); //$NON-NLS-1$
 					msg.open();
 					return;
 				}
-				List subAccs = blAccountUpdate.getSubAccounts(account);
+				List subAccs = AccBLAccountUpdate.getSubAccounts(account);
 				if (subAccs.size() > 0) {
 					msg.setMessage(Messages.getString("AccUIAccountingPlan.5")); //$NON-NLS-1$
 					msg.open();
@@ -404,7 +400,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite
 				int result = msg2.open();
 
 				if (result == SWT.OK) {
-					blAccountUpdate.deleteAccount(account);
+					AccBLAccountUpdate.deleteAccount(account);
 					msg.setMessage(Messages.getString("AccUIAccountUpdate.16")); //$NON-NLS-1$
 					msg.open();
 					EngBLAccountingAccounts.RefreshContentAsistantMap();

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountsTree.java,v 1.11 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: AccUIAccountsTree.java,v 1.12 2005/03/17 10:35:52 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class AccUIAccountsTree{
 	try{
 
 	TreeItem item;
-	List mainBranches = blAccount.getAccount(parent, codeCrit);
+	List mainBranches = AccBLAccountAdd.getAccount(parent, codeCrit);
 	TurqAccountingAccount account;
 	for(int i =0; i< mainBranches.size();i++){
 	
@@ -70,7 +70,7 @@ public class AccUIAccountsTree{
 			
 		
 			TreeItem item;
-			List mainBranches = blAccount.getAccount(parent_id, codeCriteria);
+			List mainBranches = AccBLAccountAdd.getAccount(parent_id, codeCriteria);
 			TurqAccountingAccount account;
 			for(int i =0; i< mainBranches.size();i++){
 			

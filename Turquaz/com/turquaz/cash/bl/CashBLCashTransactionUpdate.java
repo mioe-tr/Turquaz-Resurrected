@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.25 2005/03/17 09:28:36 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.26 2005/03/17 10:35:51 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -327,7 +327,7 @@ public class CashBLCashTransactionUpdate {
             	     * 
             	    */
             	   
-            	   blAccTran.saveAccTransaction(transDate,document_no,
+            	    AccBLTransactionAdd.saveAccTransaction(transDate,document_no,
             	   		accTransType, cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue(),
             	        cashTrans.getTurqEngineSequence().getId(),definition,exchangeRate,
 						creditAccounts,deptAccounts,true);
@@ -489,7 +489,7 @@ try{
     	     * 
     	    */
     	   
-    	   blAccTran.saveAccTransaction(transDate,document_no,accTransType,
+    	    AccBLTransactionAdd.saveAccTransaction(transDate,document_no,accTransType,
     	   		cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue(),
 				cashTrans.getTurqEngineSequence().getId(),definition,exchangeRate,
 				creditAccounts,deptAccounts,true);
@@ -621,7 +621,7 @@ try{
 	 			cashCardWithCredit.getTurqAccountingAccount().getId(),
 				totalAmount,creditAccounts,deptAccounts);
 
-		blAccTran.saveAccTransaction(transDate,document_no, accTransType,
+	 	AccBLTransactionAdd.saveAccTransaction(transDate,document_no, accTransType,
 				cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue(), 
 				cashTrans.getTurqEngineSequence().getId(),
 				definition,exchangeRate,creditAccounts,deptAccounts,true);

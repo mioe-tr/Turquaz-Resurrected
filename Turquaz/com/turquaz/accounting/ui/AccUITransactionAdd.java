@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.65 2005/03/16 17:20:17 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.66 2005/03/17 10:35:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -130,7 +130,6 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	public Text getTxtDocumentNo() {
 		return txtDocumentNo;
 	}
-	private AccBLTransactionAdd blTransAdd = new AccBLTransactionAdd();
 
 	private TurqCurrency baseCurrency;
 	private TurqCurrency exchangeCurrency;
@@ -642,7 +641,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 				
 				prepareAccountingMaps(creditAccounts,deptAccounts);
 				
-				blTransAdd.saveAccTransaction(dateTransactionDate.getDate(),txtDocumentNo.getText().trim(),2,1,null,txtTransDefinition.getText().trim(),exchangeRate,creditAccounts,deptAccounts,false);
+				AccBLTransactionAdd.saveAccTransaction(dateTransactionDate.getDate(),txtDocumentNo.getText().trim(),2,1,null,txtTransDefinition.getText().trim(),exchangeRate,creditAccounts,deptAccounts,false);
 				msg.setMessage(Messages.getString("AccUITransactionAdd.16")); //$NON-NLS-1$
 				msg.open();
 				clearFields();

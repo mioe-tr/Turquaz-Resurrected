@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.27 2005/03/16 17:41:34 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.28 2005/03/17 10:35:47 cemdayanik Exp $
 */
 
 
@@ -309,7 +309,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		 	
 		 	compTransactionPayment.prepareAccountingMaps(creditAccounts,deptAccounts);
 		 	
-		 	blTransUpdate.updateTransaction(accTrans,compTransactionPayment.getTxtDocumentNo().getText().trim(),
+		 	AccBLTransactionUpdate.updateTransaction(accTrans,compTransactionPayment.getTxtDocumentNo().getText().trim(),
 										compTransactionPayment.getDatePickerTransactionDate().getData(),compTransactionPayment.getTxtDefinition().getText().trim(),
 										compTransactionPayment.getExchangeRate(),creditAccounts,deptAccounts,false);
 	
@@ -340,7 +340,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		try{
 		updated=true;
 		
-		new AccBLTransactionSearch().removeAccountingTransaction(accTrans);
+		AccBLTransactionSearch.removeAccountingTransaction(accTrans);
 		
 		msg.setMessage(Messages.getString("AccUITransactionPaymentUpdateDialog.9")); //$NON-NLS-1$
 		msg.open();	

@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.14 2005/02/26 11:06:05 cemdayanik Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.15 2005/03/17 10:35:55 cemdayanik Exp $
 */
 
 import java.util.HashMap;
@@ -42,8 +42,6 @@ public class EngBLAccountingAccounts {
 	
 	static EngBLAccountingAccounts _instance;
 	
-	public AccBLAccountAdd blAccount = new AccBLAccountAdd();
-	
 	public EngBLAccountingAccounts()throws Exception{
 		try{
 		fillAccountList();
@@ -55,11 +53,11 @@ public class EngBLAccountingAccounts {
 	
 	public void fillAccountList()throws Exception{
 		try{
-		 accountList = blAccount.getAllAccounts();
+		 accountList = AccBLAccountAdd.getAllAccounts();
 		 accountListForAccountPickers = AccBLAccountAdd.getAccountsForAccountPickers();
 		 allAccountList=AccBLAccountAdd.getAllAccountsForAccountPickerAll();
 		 
-	     cashAccountList =blAccount.getCashAccounts();
+	     cashAccountList =AccBLAccountAdd.getCashAccounts();
 		 accountMap.clear();
 		 
 		 TurqAccountingAccount account;
@@ -182,7 +180,7 @@ public class EngBLAccountingAccounts {
 			}
 			
 			 
-			return _instance.blAccount.getLeafAccount(accountCode);
+			return AccBLAccountAdd.getLeafAccount(accountCode);
 			
 			
 	        
