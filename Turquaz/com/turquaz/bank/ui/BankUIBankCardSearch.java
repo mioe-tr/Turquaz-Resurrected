@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.5 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.6 2004/10/22 11:51:29 cem Exp $
 */
 
 
@@ -49,6 +49,14 @@ import org.eclipse.swt.events.MouseEvent;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a
+* for-profit company or business) then you should purchase
+* a license - please visit www.cloudgarden.com for details.
+*/
 public class BankUIBankCardSearch extends SecureComposite {
 
 	private CCombo comboCurrency;
