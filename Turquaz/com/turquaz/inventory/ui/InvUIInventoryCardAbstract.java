@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryCardAbstract.java,v 1.9 2005/02/11 18:31:55 cemdayanik Exp $
+* @version  $Id: InvUIInventoryCardAbstract.java,v 1.10 2005/02/11 18:47:27 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -504,13 +504,13 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 			TurqCurrentCard curCard=(TurqCurrentCard)txtCurCard.getData();
 			if (curCard != null) {
 				sqlparam += " and curCard.current_cards_id="+curCard.getCurrentCardsId(); //$NON-NLS-1$
-				parameters.put("curCardName",curCard.getCardsName());
-				parameters.put("curCardCode",curCard.getCardsCurrentCode());
+				parameters.put("curCardName",curCard.getCardsName()); //$NON-NLS-1$
+				parameters.put("curCardCode",curCard.getCardsCurrentCode()); //$NON-NLS-1$
 			}
 			else
 			{
-				parameters.put("curCardName"," - ");
-				parameters.put("curCardCode"," - ");
+				parameters.put("curCardName"," - "); //$NON-NLS-1$ //$NON-NLS-2$
+				parameters.put("curCardCode"," - "); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		
 			TurqInventoryCard invCardStart=(TurqInventoryCard) txtInvCardStart.getData();
