@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLPermissions.java,v 1.15 2005/03/26 15:06:23 onsel Exp $
+ * @version  $Id: EngBLPermissions.java,v 1.16 2005/03/29 14:24:08 cemdayanik Exp $
  */
 import java.util.*;
 import org.apache.log4j.Logger;
@@ -28,7 +28,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 
 /**
  * @author onsel
- * @version $Id: EngBLPermissions.java,v 1.15 2005/03/26 15:06:23 onsel Exp $ Here is the permissions layer. Other classes uses static
+ * @version $Id: EngBLPermissions.java,v 1.16 2005/03/29 14:24:08 cemdayanik Exp $ Here is the permissions layer. Other classes uses static
  *          functions in this class.
  */
 public class EngBLPermissions
@@ -94,7 +94,7 @@ public class EngBLPermissions
 			for (int i = 0; i < list.size(); i++)
 			{
 				comp = (TurqModuleComponent) list.get(i);
-				compMap.put(comp.getComponentsName(), 0 + "");
+				compMap.put(comp.getComponentsName(), "0");
 			}
 			List ls = EngDALUserPerms.getGroupPermissions(username);
 			calculateGroupPerms(ls);
@@ -189,7 +189,7 @@ public class EngBLPermissions
 				TurqUserPermission perms = (TurqUserPermission) list.get(i);
 				module_id = perms.getTurqModule().getId().intValue();
 				module_component_id = perms.getTurqModuleComponent().getId().intValue();
-				perm_level = perms.getUserPermissionsLevel();
+				perm_level = perms.getTurqUserPermissionLevel().getPermissionLevel();
 				if (perm_level > -1 && perm_level < 4)
 				{
 					if (module_id == -1)
@@ -208,9 +208,9 @@ public class EngBLPermissions
 						{
 							List lst = EngDALUserPerms.getModuleComponents(module_id);
 							TurqModuleComponent modComp = null;
-							for (int j = 0; j < list.size(); i++)
+							for (int j = 0; j < lst.size(); j++)
 							{
-								modComp = (TurqModuleComponent) list.get(j);
+								modComp = (TurqModuleComponent) lst.get(j);
 								compMap.put(modComp.getComponentsName(), perm_level + "");
 							}
 						}
@@ -223,7 +223,7 @@ public class EngBLPermissions
 				}
 				else
 				{
-					System.err.println("Permission hatasi: level 1-3 arasý olmalý!");
+					System.err.println("Permission levels should be between 1-3");
 				}
 			}
 		}

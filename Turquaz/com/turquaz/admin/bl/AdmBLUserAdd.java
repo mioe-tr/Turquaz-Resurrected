@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserAdd.java,v 1.9 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLUserAdd.java,v 1.10 2005/03/29 14:24:08 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.List;
@@ -26,13 +26,24 @@ import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqUser;
 import com.turquaz.engine.dal.TurqUserGroup;
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 public class AdmBLUserAdd
 {
-	public AdmBLUserAdd()
-	{
-	}
-
-	public static Integer saveUser(String username, String password, String realname, String description) throws Exception
+	public static void saveUser(String username, String password, String realname, String description, List userGroups) throws Exception
 	{
 		try
 		{
@@ -42,20 +53,28 @@ public class AdmBLUserAdd
 			user.setUsersPassword(password);
 			user.setUsersRealName(realname);
 			user.setUsersDescription(description);
-			user.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
-			user.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-			user.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
-			user.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
+			user.setCreatedBy(System.getProperty("user")); 
+			user.setUpdatedBy(System.getProperty("user")); 
+			user.setUpdateDate(cal.getTime());
+			user.setCreationDate(cal.getTime());
 			EngDALCommon.saveObject(user);
-			return user.getId();
+			AdmBLUserAdd.saveUserGroups(user.getId(),userGroups);
 		}
 		catch (Exception ex)
 		{
 			throw ex;
 		}
 	}
+	
+	public static void saveUserGroups(Integer userId, List userGroups)throws Exception
+	{
+		for(int k=0; k<userGroups.size(); k++)
+		{
+			registerUserGroup(userId,(TurqGroup)userGroups.get(k));
+		}		
+	}
 
-	public static void saveUserGroups(Integer userId, Object group) throws Exception
+	private static void registerUserGroup(Integer userId, TurqGroup group) throws Exception
 	{
 		try
 		{
@@ -65,10 +84,10 @@ public class AdmBLUserAdd
 			TurqUserGroup usergroup = new TurqUserGroup();
 			usergroup.setTurqUser(user);
 			usergroup.setTurqGroup((TurqGroup) group);
-			usergroup.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
-			usergroup.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-			usergroup.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
-			usergroup.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
+			usergroup.setCreatedBy(System.getProperty("user"));
+			usergroup.setUpdatedBy(System.getProperty("user")); 
+			usergroup.setUpdateDate(cal.getTime());
+			usergroup.setCreationDate(cal.getTime());
 			EngDALCommon.saveObject(usergroup);
 		}
 		catch (Exception ex)

@@ -9,17 +9,10 @@ import net.sf.hibernate.expression.Expression;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.12 2005/03/17 15:02:00 onsel Exp $ Database functions for calculating user permissions.
+ * @version $Id: EngDALUserPerms.java,v 1.13 2005/03/29 14:24:08 cemdayanik Exp $ Database functions for calculating user permissions.
  */
 public class EngDALUserPerms
 {
-	/**
-	 * Default Constructor
-	 */
-	public EngDALUserPerms()
-	{
-	}
-
 	/**
 	 * @param username
 	 *             Current user of the system
@@ -203,11 +196,9 @@ public class EngDALUserPerms
 		{
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
-			//	Query q = session.createQuery("from TurqModuleComponent comp "+
-			//			"where comp.moduleComponentsId > -1");
-			Criteria cri = session.createCriteria(TurqModuleComponent.class).add(Expression.gt("id", new Integer(-1))).add(
-					Expression.eq("turqModule.id", new Integer(module_id)));
-			List list = cri.list();
+			String query=" Select modComp from TurqModuleComponent modComp where modComp.turqModule.id="+module_id;
+			Query q = session.createQuery(query);
+			List list = q.list();
 			tx.commit();
 			session.close();
 			return list;
@@ -225,6 +216,25 @@ public class EngDALUserPerms
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "select module from TurqModule as module order by module.id";
+			Query q = session.createQuery(query);
+			List list = q.list();
+			tx.commit();
+			session.close();
+			return list;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static List getUserPermissonLevels() throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			String query = "select permissionlvl from TurqUserPermissionLevel permissionlvl order by permissionlvl.id";
 			Query q = session.createQuery(query);
 			List list = q.list();
 			tx.commit();

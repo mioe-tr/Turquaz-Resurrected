@@ -17,17 +17,16 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUsers.java,v 1.6 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLUsers.java,v 1.7 2005/03/29 14:24:08 cemdayanik Exp $
  */
+import java.util.Iterator;
 import java.util.List;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
+import com.turquaz.engine.dal.TurqUser;
 
 public class AdmBLUsers
 {
-	public AdmBLUsers()
-	{
-	}
-
 	public static List getUsers() throws Exception
 	{
 		try
@@ -37,6 +36,31 @@ public class AdmBLUsers
 		catch (Exception ex)
 		{
 			throw ex;
+		}
+	}
+	
+	public static void deleteUser(TurqUser user)throws Exception
+	{
+		deleteUserGroups(user);
+		deleteUserPermissions(user);
+		EngBLCommon.delete(user);
+	}
+	
+	public static void deleteUserPermissions(TurqUser user)throws Exception
+	{
+		Iterator it=user.getTurqUserPermissions().iterator();
+		while (it.hasNext())
+		{
+			EngBLCommon.delete(it.next());
+		}
+	}
+	
+	public static void deleteUserGroups(TurqUser user)throws Exception
+	{
+		Iterator it=user.getTurqUserGroups().iterator();
+		while (it.hasNext())
+		{
+			EngBLCommon.delete(it.next());
 		}
 	}
 }

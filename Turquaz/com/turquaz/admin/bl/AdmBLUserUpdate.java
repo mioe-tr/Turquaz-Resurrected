@@ -17,19 +17,16 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserUpdate.java,v 1.10 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLUserUpdate.java,v 1.11 2005/03/29 14:24:08 cemdayanik Exp $
  */
 import java.util.Calendar;
+import java.util.List;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqUser;
 
 public class AdmBLUserUpdate
 {
-	public AdmBLUserUpdate()
-	{
-	}
-
-	public static void updateUser(String password, String realname, String description, TurqUser user) throws Exception
+	public static void updateUser(String password, String realname, String description, TurqUser user,List userGroups) throws Exception
 	{
 		try
 		{
@@ -38,24 +35,20 @@ public class AdmBLUserUpdate
 			user.setUsersRealName(realname);
 			user.setUsersDescription(description);
 			user.setUpdateDate(cal.getTime());
-			user.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
+			user.setUpdatedBy(System.getProperty("user"));
 			EngDALCommon.updateObject(user);
+			updateUserGroups(user,userGroups);
+			
 		}
 		catch (Exception ex)
 		{
 			throw ex;
 		}
 	}
-
-	public static void deleteObject(Object obj) throws Exception
+	
+	public static void updateUserGroups(TurqUser user, List userGroups)throws Exception
 	{
-		try
-		{
-			EngDALCommon.deleteObject(obj);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+		AdmBLUsers.deleteUserGroups(user);
+		AdmBLUserAdd.saveUserGroups(user.getId(),userGroups);		
 	}
 }
