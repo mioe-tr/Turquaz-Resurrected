@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.79 2005/03/29 15:57:32 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.80 2005/03/29 17:23:18 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -374,11 +374,11 @@ public class EngBLCommon
 		}
 	}
 
-	public static boolean checkUserPass(String user, String pass) throws Exception
+	public static Boolean checkUserPass(String user, String pass) throws Exception
 	{
 		try
 		{
-			return EngDALCommon.checkUserPass(user, pass);
+			return new Boolean(EngDALCommon.checkUserPass(user, pass));
 		}
 		catch (Exception ex)
 		{
