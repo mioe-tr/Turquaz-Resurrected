@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.9 2004/11/18 11:09:04 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.10 2004/11/18 15:06:35 onsel Exp $
 */
 
 
@@ -98,7 +98,12 @@ public class AccBLAccountAdd {
 		account.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
 		
 		account.setTurqAccountingAccountByParentAccount(parentAccount);
+		if(parentAccount.getAccountingAccountsId().intValue()==-1){
+		 account.setTurqAccountingAccountByTopAccount(parentAccount); 
+		}
+		else{
 		account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
+		}
 		account.setTurqCompany(company);
 	
 		dalAccountAdd.saveOrUpdateAccount(account);
