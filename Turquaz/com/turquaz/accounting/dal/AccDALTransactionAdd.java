@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionAdd.java,v 1.3 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccDALTransactionAdd.java,v 1.4 2004/11/29 13:36:23 onsel Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -54,6 +54,20 @@ public class AccDALTransactionAdd {
 			throw ex;
 		}
 	}	
+	public void update(Object obj)throws Exception{
+		try{
+		Session session = EngDALSessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(obj);
+		session.flush();
+		tx.commit();
+		session.close();
+		
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
 	
 	
 
