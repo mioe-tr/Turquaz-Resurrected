@@ -17,6 +17,9 @@
 package com.turquaz.engine.dal;
 
 import java.util.Properties;
+import java.util.ResourceBundle;
+
+import com.turquaz.engine.EngConfiguration;
 
 import net.sf.hibernate.Session;
 import net.sf.hibernate.SessionFactory;
@@ -25,7 +28,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.3 2004/11/01 14:37:04 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.4 2004/11/03 10:23:57 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -43,14 +46,21 @@ public class EngDALSessionFactory {
 	public EngDALSessionFactory(){
 		try{
 			
+		ResourceBundle config = ResourceBundle.getBundle("config/turquaz");
+		
+		String url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
+		String username = EngConfiguration.getString("dbUsername");
+		String password = EngConfiguration.getString("dbPassword");
+		String driver = "org.postgresql.Driver";
 		
 		Configuration cfg =new Configuration();
-		
+			
 		Properties props = new Properties();
-		props.put("hibernate.connection.url","jdbc:postgresql://kulup.sabanciuniv.edu/turquaz");
-		props.put("hibernate.connection.driver_class","org.postgresql.Driver");
-		props.put("hibernate.connection.username","turquaz");
-		props.put("hibernate.connection.password","turquaz");
+		
+		props.put("hibernate.connection.url",url);
+		props.put("hibernate.connection.driver_class",driver);
+		props.put("hibernate.connection.username",username);
+		props.put("hibernate.connection.password",password);
 		props.put("hibernate.show_sql","true");
 		props.put("hibernate.dialect","net.sf.hibernate.dialect.PostgreSQLDialect");
 		props.put("hibernate.schema","public");
