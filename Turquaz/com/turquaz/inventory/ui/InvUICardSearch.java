@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearch.java,v 1.56 2005/03/30 17:09:59 cemdayanik Exp $
+ * @version  $Id: InvUICardSearch.java,v 1.57 2005/03/30 18:37:44 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -404,8 +404,11 @@ public class InvUICardSearch extends Composite implements SearchComposite
 		tableViewer.removeAll();
 		try
 		{
-			List result = InvBLCardSearch.searchCards(txtInvName.getText().trim(), txtInvCode.getText().trim(),
-					(TurqInventoryGroup) comboInvSubGroup.getData(comboInvSubGroup.getText()));
+			HashMap argMap=new HashMap();
+			argMap.put(InvKeys.INV_CARD_NAME,txtInvName.getText().trim());
+			argMap.put(InvKeys.INV_CARD_CODE, txtInvCode.getText().trim());
+			argMap.put(InvKeys.INV_GROUP,comboInvSubGroup.getData(comboInvSubGroup.getText()));
+			List result =(List)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"searchCards",argMap);
 			int listSize = result.size();
 			for (int i = 0; i < listSize; i++)
 			{

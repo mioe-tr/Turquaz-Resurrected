@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.52 2005/03/30 16:57:47 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.53 2005/03/30 18:37:25 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -138,6 +138,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 		try
 		{
 			EngDALSessionFactory.init();
+			EngBLCommon.getBaseCurrency();
+			EngBLCommon.getBaseCurrencyExchangeRate();
 			String database = EngConfiguration.getString("serverAddress"); //$NON-NLS-1$
 			database = database.trim();
 			if (database == null || database.equals("") || database.equals("localhost") || database.equals("127.0.0.1")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

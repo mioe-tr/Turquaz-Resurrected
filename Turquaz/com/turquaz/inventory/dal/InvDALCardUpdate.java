@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.17 2005/03/30 09:22:04 cemdayanik Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.18 2005/03/30 18:38:09 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -103,6 +103,7 @@ public class InvDALCardUpdate
 				session.delete(list.get(i));
 			}
 			session.flush();
+			session.clear();
 		}
 		catch (Exception ex)
 		{
