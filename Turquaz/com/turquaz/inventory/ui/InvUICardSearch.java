@@ -34,7 +34,7 @@ import java.sql.*;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.2 2004/08/30 19:53:06 onsel Exp $
+ * @version $Id: InvUICardSearch.java,v 1.3 2004/09/22 17:42:38 onsel Exp $
  */
 public class InvUICardSearch extends SecureComposite {
 
@@ -90,6 +90,18 @@ public class InvUICardSearch extends SecureComposite {
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
 		tTable1.fillRandom();
+		
+	}
+	public void save(){
+		
+	}
+	public void delete(){
+		
+	}
+	public void newForm(){
+		
+	}
+	public void search(){
 		
 	}
 
