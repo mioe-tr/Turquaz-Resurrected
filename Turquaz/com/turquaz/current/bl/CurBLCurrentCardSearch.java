@@ -18,9 +18,10 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardSearch.java,v 1.6 2005/01/02 17:35:26 huseyiner Exp $
+* @version  $Id: CurBLCurrentCardSearch.java,v 1.7 2005/02/14 13:57:11 onsel Exp $
 */
 import java.util.List;
+
 
 import com.turquaz.current.dal.CurDALCurrentCardSearch;
 import com.turquaz.engine.dal.TurqCurrentCard;
@@ -91,6 +92,14 @@ public class CurBLCurrentCardSearch {
 	        throw ex;
 	    }
 	    
+	}
+	public TurqCurrentCard initializeCurrentCard(Integer curCardId)throws Exception {
+		try{
+			 return curDALCurrentCardSearch.initializeCurrentCard(curCardId);
+		}
+		catch(Exception ex){
+			throw ex;
+		}
 	}
 	
 

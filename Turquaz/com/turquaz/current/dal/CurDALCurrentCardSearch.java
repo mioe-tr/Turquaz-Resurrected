@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.20 2005/02/14 12:18:25 onsel Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.21 2005/02/14 13:57:11 onsel Exp $
 */
 import java.util.List;
 
@@ -61,16 +61,16 @@ public class CurDALCurrentCardSearch {
 		try{
 			Session session = EngDALSessionFactory.openSession();
 		
-			String query = "Select currentView, currentCard from TurqViewCurrentAmountTotal as currentView," +
-					" TurqCurrentCard as currentCard left join fetch" +
+			String query = "Select currentView, currentCard.cardsCurrentCode, currentCard.cardsName, currentCard.currentCardsId from TurqViewCurrentAmountTotal as currentView," +
+					" TurqCurrentCard as currentCard left join " +
 					" currentCard.turqCurrentCardsGroups as gr where" +
 					" currentCard.currentCardsId=currentView.currentCardsId" +
 					" and currentCard.cardsCurrentCode like '"+currentCode+"%'"+
 					" and currentCard.cardsName like '"+currentName+"%'"+
 					" and currentCard.currentCardsId <> -1";
 			if (cardGroup!=null){
-				query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";
-				//query +=" and gr.turqCurrentGroup = :cardGroup)";//left join fetch" +
+				//query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";
+				query +=" and gr.turqCurrentGroup = :cardGroup";//left join fetch" +
 			}		
 			query += " order by currentCard.cardsCurrentCode";
 			Query q = session.createQuery(query); 	
@@ -80,14 +80,14 @@ public class CurDALCurrentCardSearch {
 			q.setMaxResults(1000);
 			List list = q.list();
 			
-			for (int i =0;i<list.size();i++){				
+		/*	for (int i =0;i<list.size();i++){				
 				TurqCurrentCard curCard= (TurqCurrentCard)((Object[])list.get(i))[1];
 				//Hibernate.initialize(curCard.getTurqCurrentCardsGroups());
 				Hibernate.initialize(curCard.getTurqCurrentContacts());		
 				Hibernate.initialize(curCard.getTurqCurrentCardsPhones());
 
 			}
-			
+		*/	
 			session.close();
 			return list;
 		}
@@ -188,6 +188,21 @@ public class CurDALCurrentCardSearch {
 	    }
 	    
 	
+	}
+	public TurqCurrentCard initializeCurrentCard(Integer curCardId)throws Exception {
+		try{
+			  Session session = EngDALSessionFactory.openSession();
+			 TurqCurrentCard curCard =(TurqCurrentCard) session.load(TurqCurrentCard.class,curCardId);
+			  Hibernate.initialize(curCard.getTurqCurrentCardsPhones());
+			  Hibernate.initialize(curCard.getTurqCurrentContacts());
+			  Hibernate.initialize(curCard.getTurqCurrentCardsGroups());
+			
+			  session.close();
+			  return curCard;
+		}
+		catch(Exception ex){
+			throw ex;
+		}
 	}
 
 }

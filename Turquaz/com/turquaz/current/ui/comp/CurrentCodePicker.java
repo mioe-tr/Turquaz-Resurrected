@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentCodePicker.java,v 1.4 2005/02/11 11:21:57 onsel Exp $
+* @version  $Id: CurrentCodePicker.java,v 1.5 2005/02/14 13:57:11 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -84,6 +84,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
 				text1.setEditable(true);
 				text1.setSize(new org.eclipse.swt.graphics.Point(358,22));
 				GridData text1LData = new GridData();
+				text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
                 text1.addModifyListener(new ModifyListener() {
                     public void modifyText(ModifyEvent evt) {
                       
