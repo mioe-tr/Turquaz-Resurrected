@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.46 2005/03/01 14:03:40 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.47 2005/03/02 09:18:17 onsel Exp $
 */
 
 import java.sql.Statement;
@@ -363,6 +363,7 @@ public class EngBLCommon {
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
+			if(tx!=null)
 			tx.rollback();
 		}
 		
