@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.7 2004/12/22 14:55:18 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.8 2004/12/28 13:06:29 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -52,9 +52,9 @@ public class InvDALSearchTransaction {
 					 " TurqConsignment as consignment where" +
 					 " consignment.turqEngineSequence = transaction.turqEngineSequence "
 					+ " and consignment.consignmentsDate >= :startDate"
-					+ " and consignment.consignmentsDate <= :endDate"
-					+ " and consignment.consignmentsType ="
-					+ type + "";
+					+ " and consignment.consignmentsDate <= :endDate";
+			if (type != 2)
+				query+=" and consignment.consignmentsType ="+ type;
 
 			if (curCard != null) {
 				query += " and consignment.turqBillConsignmentCommon.turqCurrentCard = :curCard";
