@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.11 2005/02/19 20:50:33 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.12 2005/02/21 10:48:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -177,7 +177,7 @@ public class CashBLCashTransactionUpdate {
              
              
              
-             cashTrans.setTurqCashCard(cashCard);
+            
              cashTrans.setTransactionDate(transDate);
              cashTrans.setTransactionDefinition(definition);
              cashTrans.setDocumentNo(document_no);
@@ -189,6 +189,7 @@ public class CashBLCashTransactionUpdate {
               * Create cash Transaction Rows
               */
             	 TurqCashTransactionRow cashTransRow = new TurqCashTransactionRow();
+            	 cashTransRow.setTurqCashCard(cashCard);
             	 cashTransRow.setCreatedBy(System.getProperty("user"));
             	 cashTransRow.setUpdatedBy(System.getProperty("user"));
             	 cashTransRow.setLastModified(new java.sql.Date(cal.getTime().getTime()));
@@ -347,7 +348,6 @@ try{
      
      
      
-     cashTrans.setTurqCashCard(cashCard);
      cashTrans.setTransactionDate(transDate);
      cashTrans.setTransactionDefinition(definition);
      cashTrans.setDocumentNo(document_no);
@@ -359,6 +359,7 @@ try{
       * Create cash Transaction Rows
       */
     	 TurqCashTransactionRow cashTransRow = new TurqCashTransactionRow();
+         cashTransRow.setTurqCashCard(cashCard);
     	 cashTransRow.setCreatedBy(System.getProperty("user"));
     	 cashTransRow.setUpdatedBy(System.getProperty("user"));
     	 cashTransRow.setLastModified(new java.sql.Date(cal.getTime().getTime()));

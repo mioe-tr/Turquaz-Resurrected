@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.12 2005/02/11 07:50:29 onsel Exp $
+* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.13 2005/02/21 10:48:33 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -186,8 +186,10 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	    
 	    compTransAdd.getTxtDocumentNo().setText(cashTrans.getDocumentNo());
 	    compTransAdd.getDatePicker().setDate(cashTrans.getTransactionDate());
-	    compTransAdd.getTxtCashCard().setText(cashTrans.getTurqCashCard().getCashCardName());
-        compTransAdd.getTxtDefinition().setText(cashTrans.getTransactionDefinition());
+	    compTransAdd.getTxtDefinition().setText(cashTrans.getTransactionDefinition());
+	    
+	
+       
 	    
 	   
         try{
@@ -209,13 +211,16 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
         
         
 	    Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+	  
 	    if(it.hasNext()){
 	     
 	        TurqCashTransactionRow row = (TurqCashTransactionRow)it.next();
+	        compTransAdd.getTxtCashCard().setText(row.getTurqCashCard().getCashCardName());
 	        
 	        if(row.getDeptAmount().compareTo(new BigDecimal(0))==1){
 	            
 	            compTransAdd.getCurTextTotalAmount().setText(row.getDeptAmount());
+	         
 	            
 	        }
 	        else
