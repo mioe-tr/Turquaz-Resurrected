@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.18 2005/03/26 15:06:47 onsel Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.19 2005/03/28 19:05:13 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -467,7 +467,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 		{
 			String[] fields = new String[]{"inventory_transactions_id", "transactions_date", "transactions_amount_in",
 					"transactions_total_amount_out", "transactions_total_price", "card_inventory_code", "card_name", "cards_name",
-					"inventory_cards_id", "bill_document_no",};
+					"inventory_cards_id", "bill_document_no"};
 			HibernateQueryResultDataSource ds = new HibernateQueryResultDataSource(list, fields);
 			JasperReport jasperReport = (JasperReport) JRLoader.loadObject("reports/inventory/InventoryCardAbstract.jasper"); //$NON-NLS-1$
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, ds);
