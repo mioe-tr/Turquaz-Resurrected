@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.14 2005/02/16 16:46:41 onsel Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.15 2005/02/17 17:54:41 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -67,6 +67,7 @@ public class CheBLSaveChequeTransaction {
           chequeRoll.setChequeRollsDate(rollDate);
           chequeRoll.setChequeRollNo(rollNo);
           chequeRoll.setTurqChequeTransactionType(type);
+          chequeRoll.setSumChequeAmounts(sumTransTotal);
           
           chequeRoll.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
           chequeRoll.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
@@ -190,6 +191,7 @@ public class CheBLSaveChequeTransaction {
           chequeRoll.setChequeRollsDate(rollDate);
           chequeRoll.setChequeRollNo(rollNo);
           chequeRoll.setTurqChequeTransactionType(type);
+          chequeRoll.setSumChequeAmounts(false);
           
           chequeRoll.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
           chequeRoll.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$

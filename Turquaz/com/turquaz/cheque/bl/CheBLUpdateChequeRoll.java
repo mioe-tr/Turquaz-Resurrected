@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.11 2005/02/17 10:35:59 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.12 2005/02/17 17:54:41 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -73,6 +73,7 @@ public class CheBLUpdateChequeRoll {
            chequeRoll.setLastModified(Calendar.getInstance().getTime());
            chequeRoll.setChequeRollNo(rollNo);
            chequeRoll.setChequeRollsDate(rollDate);
+           chequeRoll.setSumChequeAmounts(sumTransTotal);
           
            if(curCard!=null)
            {
