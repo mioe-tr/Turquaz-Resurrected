@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.33 2004/12/16 16:22:45 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.34 2004/12/17 09:19:23 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1194,11 +1194,15 @@ implements SecureComposite{
 					type =1;
 				}
 			for(int i=0;i<items.length;i++){
-			    TurqInventoryTransaction invTrans = (TurqInventoryTransaction)((InvUITransactionTableRow)items[i].getData()).getDBObject();
+			     
+			    InvUITransactionTableRow row = (InvUITransactionTableRow)items[i].getData();
+			   if(row.okToSave()){
+			    TurqInventoryTransaction invTrans = (TurqInventoryTransaction)row.getDBObject();
+
 			    invTrans.setTurqInventoryWarehous((TurqInventoryWarehous)comboWareHouse.getData(comboWareHouse.getText()));
 				blAddCondignmetn.saveConsignmentRow(invTrans,consignmentID,type,txtDiscountRate.getIntValue());
 				
-						
+			   }
 			}
 		
 			
