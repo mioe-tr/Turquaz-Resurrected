@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardUpdate.java,v 1.17 2005/03/17 15:02:09 onsel Exp $
+ * @version $Id: CurBLCurrentCardUpdate.java,v 1.18 2005/03/23 10:47:32 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -57,6 +57,7 @@ public class CurBLCurrentCardUpdate
 			updateCurrentCardAccounts(session, currentCard, accountingAccounts);
 			updateCurrentCardPhones(session, currentCard, phoneList);
 			updateCurrentCardContact(session, currentCard, contactInfo);
+			updateCurrentCardGroups(session,currentCard,groupList);
 			session.flush();
 			tx.commit();
 			session.close();
@@ -178,7 +179,7 @@ public class CurBLCurrentCardUpdate
 			deleteCurrentCardContact(session, currentCard);
 			deleteCurrentCardGroups(session, currentCard);
 			deleteCurrentCardPhones(session, currentCard);
-			CurDALSearchTransaction.deleteInitialTransactions(session, currentCard);
+			CurDALSearchTransaction.deleteInitialTransactions(currentCard);
 			EngDALCommon.deleteObject(session, currentCard);
 			session.flush();
 			tx.commit();

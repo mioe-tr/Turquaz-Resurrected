@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.45 2005/03/22 08:52:09 onsel Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.46 2005/03/23 10:47:32 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -37,6 +37,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.current.ui.comp.CurrentCodePicker;
 import com.cloudgarden.resource.SWTResourceManager;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentCardUpdate;
@@ -214,6 +216,11 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 			//START >> item
 			item = new MenuItem(popup, SWT.PUSH);
 			item.setText("Cari kart hareketlerini getir");
+			item.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent evt) {
+					itemWidgetSelected(evt);
+				}
+			});
 			//END << item
 			//END << popup
 			//END << tableCurrentCardSearch
@@ -451,5 +458,25 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableCurrentCardSearch, Messages.getString("CurUICurrentCardSearch.4")); //$NON-NLS-1$
+	}
+	
+	private void itemWidgetSelected(SelectionEvent evt) {
+		TableItem[] selection = tableCurrentCardSearch.getSelection();
+		if (selection.length > 0)
+		{
+			try
+			{
+				Integer cardId = (Integer)((ITableRow) selection[0].getData()).getDBObject();
+				if (cardId != null)
+				{
+					TurqCurrentCard card = CurBLCurrentCardSearch.initializeCurrentCard(cardId);
+				    new CurUICurrentCardTransactions(getShell(),SWT.NONE,card).open();
+				}
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+		}
 	}
 }
