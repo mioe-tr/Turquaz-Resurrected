@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUISearchMoneyTransaction.java,v 1.24 2005/04/01 09:43:19 cemdayanik Exp $
+ * @version  $Id: BankUISearchMoneyTransaction.java,v 1.25 2005/04/01 17:04:39 cemdayanik Exp $
  */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -105,7 +105,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 				GridData compSearchLData = new GridData();
 				compSearchLData.horizontalAlignment = GridData.FILL;
 				compSearchLData.grabExcessHorizontalSpace = true;
-				compSearchLData.heightHint = 114;
+				compSearchLData.heightHint = 104;
 				compSearch.setLayoutData(compSearchLData);
 				compSearch.setLayout(compSearchLayout);
 				{
@@ -115,8 +115,8 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 				{
 					txtDocNo = new Text(compSearch, SWT.NONE);
 					GridData txtDocNoLData = new GridData();
-					txtDocNoLData.widthHint = 145;
-					txtDocNoLData.heightHint = 16;
+					txtDocNoLData.widthHint = 150;
+					txtDocNoLData.heightHint = 17;
 					txtDocNo.setLayoutData(txtDocNoLData);
 				}
 				{
@@ -126,8 +126,8 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 				{
 					dateStart = new DatePicker(compSearch, SWT.NONE);
 					GridData dateStartLData = new GridData();
-					dateStartLData.widthHint = 114;
-					dateStartLData.heightHint = 19;
+					dateStartLData.widthHint = 157;
+					dateStartLData.heightHint = 23;
 					dateStart.setLayoutData(dateStartLData);
 				}
 				{
@@ -137,8 +137,8 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 				{
 					dateEnd = new DatePicker(compSearch, SWT.NONE);
 					GridData dateEndLData = new GridData();
-					dateEndLData.widthHint = 112;
-					dateEndLData.heightHint = 17;
+					dateEndLData.widthHint = 157;
+					dateEndLData.heightHint = 23;
 					dateEnd.setLayoutData(dateEndLData);
 				}
 			}
