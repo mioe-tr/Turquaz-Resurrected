@@ -18,11 +18,12 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.28 2005/01/16 16:53:48 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.29 2005/01/31 17:10:27 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
 import java.util.List;
+
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -345,7 +346,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 		try {
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
 
-			if (compAccountCard.verifyFields(true)) {
+			if (compAccountCard.verifyFields(true,account)) {
 				blAccount
 						.updateAccount(account, compAccountCard
 								.getTxtAccAcountName().getText().trim(),
@@ -355,6 +356,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 				msg.setMessage(Messages.getString("AccUIAccountUpdate.14")); //$NON-NLS-1$
 				msg.open();
 				updateOccured = true;
+				compAccountCard.asistant.refreshContentAssistant(0);
 				this.dialogShell.close();
 
 			}
