@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.40 2005/02/06 20:46:46 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.41 2005/02/07 10:41:45 cemdayanik Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,9 +30,7 @@ import java.util.Properties;
 import org.eclipse.core.internal.preferences.Base64;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormLayout;
+
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
@@ -67,8 +65,7 @@ import com.turquaz.engine.dal.DatabaseThread;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Composite;

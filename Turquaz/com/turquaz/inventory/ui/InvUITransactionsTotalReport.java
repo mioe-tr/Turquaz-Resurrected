@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUITransactionsTotalReport.java,v 1.7 2005/02/06 21:07:01 cemdayanik Exp $
+* @version  $Id: InvUITransactionsTotalReport.java,v 1.8 2005/02/07 10:41:46 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -372,7 +372,7 @@ public class InvUITransactionsTotalReport extends  Composite implements SearchCo
 	try {
 		
 		
-			java.util.List groupLst = invBLCardAdd.getInventoryGroups();
+			java.util.List groupLst = InvBLCardAdd.getInventoryGroups();
 			TableItem item = null;
 			TurqInventoryGroup trqInvGroup;
 			for (int i = 0; i < groupLst.size(); i++) {
