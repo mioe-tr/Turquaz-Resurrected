@@ -18,12 +18,11 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.12 2004/12/29 19:47:52 cemdayanik Exp $
+* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.13 2005/01/31 14:44:37 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -203,7 +202,9 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				}
 				{
 					datePickerStart = new DatePicker(compAdvanced, SWT.NONE);
-					datePickerStart.setDate(new Date(cal.getTime().getYear(),0,1));
+					//datePickerStart.setDate(new Date(cal.getTime().getYear(),0,1));
+					cal.set(cal.get(Calendar.YEAR),0,1);
+					datePickerStart.setDate(cal.getTime());
 				}
 				{
 					lblEndDate = new Label(compAdvanced, SWT.NONE);

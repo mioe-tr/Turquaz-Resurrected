@@ -17,13 +17,12 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.36 2005/01/16 13:52:48 cemdayanik Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.37 2005/01/31 14:44:38 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -282,7 +281,9 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
-	dateStartDate.setDate(new Date(cal.getTime().getYear(),0,1));
+	//dateStartDate.setDate(new Date(cal.getTime().getYear(),0,1));
+	cal.set(cal.get(Calendar.YEAR),0,1);
+	dateStartDate.setDate(cal.getTime());
 	fillCombo();
 	
 	

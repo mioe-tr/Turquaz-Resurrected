@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.26 2005/01/16 13:09:50 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.27 2005/01/31 14:44:37 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -322,7 +322,9 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 		comboTransactionsType.add(Messages.getString("InvUITransactionSearch.12")); //$NON-NLS-1$
 		comboTransactionsType.add(Messages.getString("InvUITransactionSearch.13")); //$NON-NLS-1$
 		comboTransactionsType.setText(Messages.getString("InvUITransactionSearch.18")); //$NON-NLS-1$
-		dateStartDate.setDate(new Date(cal.getTime().getYear(),0,1));
+		//dateStartDate.setDate(new Date(cal.getTime().getYear(),0,1));
+		cal.set(cal.get(Calendar.YEAR),0,1);
+		dateStartDate.setDate(cal.getTime());
 		
 	}
 /*

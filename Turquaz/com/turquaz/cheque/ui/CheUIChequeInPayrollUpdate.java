@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.5 2005/01/30 19:30:38 onsel Exp $
+* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.6 2005/01/31 14:44:38 cemdayanik Exp $
 */
 
 import java.util.ArrayList;
@@ -32,7 +32,6 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cheque.Messages;
-import com.turquaz.cheque.bl.CheBLSaveChequeTransaction;
 import com.turquaz.cheque.bl.CheBLUpdateChequeRoll;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqChequeCheque;
