@@ -17,25 +17,24 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.42 2005/01/02 16:46:44 huseyiner Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.43 2005/01/02 17:54:22 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
-import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.custom.CLabel;
-import org.eclipse.swt.custom.VerifyKeyListener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.current.Messages;
+import com.turquaz.accounting.ui.AccUIAddAccountDialog;
 import com.turquaz.accounting.ui.comp.AccountPicker;
 import com.turquaz.current.bl.CurBLCurrentCardAdd;
 import com.turquaz.engine.bl.EngBLCurrentCards;
@@ -1262,12 +1261,32 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 			txtCurrentName.setFocus();
 			return false;
 		}
+		
+		/*
+		 * WARNING !.. do not add another check after this else if  
+		 * add upper instead
+		 */
 		else if(accPickerCustomer.getData()==null){
 			
 			if (accPickerCustomer.getText().trim().length() > 0)
 			{
+				MessageBox newAcc = new MessageBox(this.getShell(),SWT.YES|SWT.NO);
+				
+				newAcc.setMessage("Böyle bir Muhasebe Hesabý yok. Þimdi Oluþturulsun mu?"); 
+				if (newAcc.open() == SWT.YES)
+				{
+					new AccUIAddAccountDialog(this.getShell(),SWT.NULL).open(accPickerCustomer.getText().trim(),txtCurrentName.getText().trim());
+					
+					accPickerCustomer.verifyData();
+					
+					if (accPickerCustomer.getData()!=null)
+					{
+						return true;
+					}
+				}
 				
 			}
+			
 			msg.setMessage(Messages.getString("CurUICurrentCardAdd.31")); //$NON-NLS-1$
 			msg.open();
 			accPickerCustomer.setFocus();

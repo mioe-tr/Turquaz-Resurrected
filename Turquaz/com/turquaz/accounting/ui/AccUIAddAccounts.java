@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.36 2004/12/22 15:30:41 cemdayanik Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.37 2005/01/02 17:54:22 huseyiner Exp $
 */
 
 
@@ -144,7 +144,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
                             
                             if(txtParentAccount.getData()!=null){
                              if(((TurqAccountingAccount)txtParentAccount.getData()).getAccountingAccountsId().intValue()!=-1)
-                                txtAccAccountCode.setText(txtParentAccount.getText().trim()+"."); //$NON-NLS-1$
+                                txtAccAccountCode.setText(txtParentAccount.getText().trim()+" "); //$NON-NLS-1$
                                                    
                             }
                             else{

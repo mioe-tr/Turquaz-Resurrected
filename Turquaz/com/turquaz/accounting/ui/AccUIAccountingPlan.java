@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.34 2004/12/22 15:16:56 cemdayanik Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.35 2005/01/02 17:54:22 huseyiner Exp $
 */
 
 
@@ -166,7 +166,7 @@ SearchComposite{
 				TableTreeItem items[] = tableTreeAccountingPlan.getSelection();
 				if (items.length > 0)
 				{
-					new AccUIAddAccountDialog(getShell(),SWT.NULL,(TurqAccountingAccount)items[0].getData()).open();
+					new AccUIAddAccountDialog(getShell(),SWT.NULL).open((TurqAccountingAccount)items[0].getData());
 					fillTree(-1,""); //$NON-NLS-1$
 				}
 				}
