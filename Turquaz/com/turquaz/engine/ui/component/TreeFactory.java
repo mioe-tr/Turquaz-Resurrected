@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.93 2005/02/24 15:37:55 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.94 2005/02/28 18:08:59 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -40,6 +40,9 @@ import com.turquaz.accounting.ui.reports.AccUIAccountingJournal;
 import com.turquaz.accounting.ui.reports.AccUIAccountingMonthlyBalance;
 import com.turquaz.accounting.ui.reports.AccUISubsidiaryLedger;
 import com.turquaz.admin.ui.AdmUICompanyInfo;
+import com.turquaz.admin.ui.AdmUICurrencyAdd;
+import com.turquaz.admin.ui.AdmUICurrencyExchangeRateAdd;
+import com.turquaz.admin.ui.AdmUICurrencyExchangeRateSearch;
 import com.turquaz.admin.ui.AdmUIGroupAdd;
 import com.turquaz.admin.ui.AdmUIGroupPermissions;
 import com.turquaz.admin.ui.AdmUIGroups;
@@ -529,10 +532,32 @@ public final class TreeFactory {
 			item.setData(AdmUICompanyInfo.class.getName());
 			}
 		
+		TreeItem currencyRoot= new TreeItem(tree,SWT.NULL);
+		currencyRoot.setText(Messages.getString("TreeFactory.41")); //$NON-NLS-1$
+		
+		if(EngBLPermissions.getPermission(AdmUICurrencyAdd.class.getName())>0){
+			item = new TreeItem(currencyRoot,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.108")); //$NON-NLS-1$
+			item.setData(AdmUICurrencyAdd.class.getName());
+			}
+		
+		if(EngBLPermissions.getPermission(AdmUICurrencyExchangeRateAdd.class.getName())>0){
+			item = new TreeItem(currencyRoot,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.109")); //$NON-NLS-1$
+			item.setData(AdmUICurrencyExchangeRateAdd.class.getName());
+			}
+		
+		if(EngBLPermissions.getPermission(AdmUICurrencyExchangeRateSearch.class.getName())>0){
+			item = new TreeItem(currencyRoot,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.110")); //$NON-NLS-1$
+			item.setData(AdmUICurrencyExchangeRateSearch.class.getName());
+			}
+		
 		usersRoot.setExpanded(true);
 		permissionsRoot.setExpanded(true);
 		searchRoot.setExpanded(true);
 		settingsRoot.setExpanded(true);
+		currencyRoot.setExpanded(true);
 		
 		return tree;
 	}
