@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.viewers;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: TurquazTableSorter.java,v 1.7 2005/03/19 13:16:48 cemdayanik Exp $
+ * @version $Id: TurquazTableSorter.java,v 1.8 2005/03/19 18:02:57 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -62,11 +62,23 @@ public class TurquazTableSorter extends ViewerSorter
 			{
 				row1 = (ITableRow) arg1;
 				row2 = (ITableRow) arg2;
+				if (row1.getDBObject()==null && row2.getDBObject()==null)
+					return 0;
+				else if (row1.getDBObject()==null)
+					return 1;
+				else if (row2.getDBObject()==null)
+					return -1;
 			}
 			else
 			{
 				row2 = (ITableRow) arg1;
 				row1 = (ITableRow) arg2;
+				if (row1.getDBObject()==null && row2.getDBObject()==null)
+					return 0;
+				else if (row1.getDBObject()==null)
+					return -1;
+				else if (row2.getDBObject()==null)
+					return 1;
 			}
 			if (columnType == TurquazTableSorter.COLUMN_TYPE_STRING)
 			{
