@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.44 2004/10/22 09:00:41 huseyin Exp $
+ * @version $Id: InvUICardAdd.java,v 1.45 2004/10/22 09:33:27 huseyin Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1365,8 +1365,8 @@ text.substring(e.end);
      return;
     }
 
-    Pattern realNumberPattern = Pattern.compile(Messages.getString("InvUICardAdd.46") + //$NON-NLS-1$
-decimalSymbol + Messages.getString("InvUICardAdd.47")); //$NON-NLS-1$
+    Pattern realNumberPattern = Pattern.compile("-?[1-9]*[0-9]{1}([" + //$NON-NLS-1$
+decimalSymbol + "][0-9]+)?"); //$NON-NLS-1$
     Matcher matcher = realNumberPattern.matcher(newText);
     boolean valid = matcher.matches();
 
