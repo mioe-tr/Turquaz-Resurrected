@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.23 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.24 2005/03/26 10:18:17 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.List;
@@ -127,7 +127,7 @@ public class AccBLAccountAdd
 		}
 	}
 
-	public static void saveAccount(String accountName, String accountCode, Object parent) throws Exception
+	public static TurqAccountingAccount saveAccount(String accountName, String accountCode, Object parent) throws Exception
 	{
 		try
 		{
@@ -159,6 +159,7 @@ public class AccBLAccountAdd
 				account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
 			}
 			EngDALCommon.saveObject(account);
+			return account;
 		}
 		catch (Exception ex)
 		{

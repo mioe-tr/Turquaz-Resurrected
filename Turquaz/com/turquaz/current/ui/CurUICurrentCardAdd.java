@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.55 2005/03/20 18:53:39 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.56 2005/03/26 10:18:17 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,11 +35,14 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.current.Messages;
+import com.turquaz.accounting.ui.AccUIAddAccountDialog;
 import com.turquaz.accounting.ui.comp.AccountPicker;
 import com.turquaz.current.bl.CurBLCurrentCardAdd;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentGroup;
+import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.NumericText;
 import com.turquaz.engine.ui.component.SecureComposite;
@@ -1113,6 +1116,18 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 				msg.open();
 				txtCurrentName.setFocus();
 				return false;
+			}
+			
+			if(accPickerCustomer.getTurqAccountingAccount()==null)
+			{
+			
+				boolean ans =EngUICommon.okToDelete(getShell(),Messages.getString("CurUICurrentCardAdd.26")); //$NON-NLS-1$
+				if(ans)
+				{
+				  TurqAccountingAccount account = new AccUIAddAccountDialog(getShell(),SWT.NONE).open();	
+				  accPickerCustomer.setData(account);
+				}
+				
 			}
 			/*
 			 * WARNING !.. do not add another check after this else if add upper instead

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAddAccounts.java,v 1.43 2005/03/17 15:02:03 onsel Exp $
+ * @version  $Id: AccUIAddAccounts.java,v 1.44 2005/03/26 10:18:17 onsel Exp $
  */
 import java.util.List;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -298,6 +298,42 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 		txtAccAcountName.setText(""); //$NON-NLS-1$
 		txtParentAccount.setFocus();
 		txtParentAccount.setSelection(txtParentAccount.getText().length());
+	}
+	
+	public TurqAccountingAccount saveAccount()
+	{
+		try{
+			if (verifyFields(false, null))
+			{
+				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
+				TurqAccountingAccount parent = (TurqAccountingAccount) txtParentAccount.getData();
+				List accTrans = AccBLAccountUpdate.getAccountTransColumns(parent);
+				if (accTrans.size() > 0)
+				{
+					msg.setMessage(Messages.getString("AccUIAddAccounts.6")); //$NON-NLS-1$
+					msg.open();
+					return null;
+				}
+				String accountName = txtAccAcountName.getText().trim();
+				String accountCode = txtAccAccountCode.getText().trim();
+				TurqAccountingAccount account = AccBLAccountAdd.saveAccount(accountName, accountCode, parent);
+				msg.setMessage(Messages.getString("AccUIAddAccounts.8")); //$NON-NLS-1$
+				msg.open();
+				EngBLAccountingAccounts.RefreshContentAsistantMap();
+				asistant.refreshContentAssistant(0);
+				clearFields();
+				return account;
+			}
+			return null;
+			
+		}
+		catch(Exception ex)
+		{
+			
+			ex.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	public void save()
