@@ -19,6 +19,8 @@ package com.turquaz.engine.dal;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
+import org.eclipse.core.internal.preferences.Base64;
+
 import com.turquaz.engine.EngConfiguration;
 
 import net.sf.hibernate.Session;
@@ -28,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.4 2004/11/03 10:23:57 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.5 2004/11/03 12:08:11 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -51,6 +53,7 @@ public class EngDALSessionFactory {
 		String url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
 		String username = EngConfiguration.getString("dbUsername");
 		String password = EngConfiguration.getString("dbPassword");
+		password = new String(Base64.decode(password.getBytes()));
 		String driver = "org.postgresql.Driver";
 		
 		Configuration cfg =new Configuration();
