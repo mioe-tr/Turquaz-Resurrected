@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author Onsel
- * @version $Id: CheUIReturnFromBankRollUpdate.java,v 1.1 2005/03/09 13:36:41 onsel Exp $
+ * @version $Id: CheUIReturnFromBankRollUpdate.java,v 1.2 2005/03/09 17:19:01 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -157,6 +157,8 @@ public class CheUIReturnFromBankRollUpdate extends
 			compChequeRoll.getToolItemAdd().setEnabled(false);
 			compChequeRoll.getToolItemDelete().setEnabled(false);
 
+			compChequeRoll.getAccountPicker().setData(chequeRoll.getTurqChequeRollAccountingAccount().getTurqAccountingAccount());
+			
 			EngUICommon.centreWindow(dialogShell);
 			TurkishCurrencyFormat cf = new TurkishCurrencyFormat();
 
