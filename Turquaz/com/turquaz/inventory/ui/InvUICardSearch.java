@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.40 2005/01/13 15:12:05 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.41 2005/01/16 08:19:33 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -575,8 +575,9 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 	try{
 	Integer cardId = (Integer)selection[0].getData();
 	TurqInventoryCard card = cardSearch.initializeInventoryCard(cardId);
-	new InvUICardUpdateDialog(this.getShell(),SWT.NULL,card).open();
-	search();
+	boolean updated=new InvUICardUpdateDialog(this.getShell(),SWT.NULL,card).open();
+	if (updated)
+		search();
 	}
 	catch(Exception ex){
 	    ex.printStackTrace();

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.39 2005/01/13 16:22:57 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.40 2005/01/16 08:19:33 cemdayanik Exp $
 */
 import java.util.Iterator;
 
@@ -98,6 +98,7 @@ public class InvUICardUpdateDialog extends Dialog{
 	private Shell dialogShell;
     private TurqInventoryCard invCard;
     private InvBLCardUpdate cardUpdate = new InvBLCardUpdate();
+    private boolean updated=false;
 
 
 	
@@ -110,7 +111,7 @@ public class InvUICardUpdateDialog extends Dialog{
 	* Opens the Dialog Shell.
 	* Auto-generated code - any changes you make will disappear.
 	*/
-	public void open(){
+	public boolean open(){
 		try {
 			preInitGUI();
 	
@@ -206,8 +207,10 @@ public class InvUICardUpdateDialog extends Dialog{
 				if (!display.readAndDispatch())
 					display.sleep();
 			}
+			return updated;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 /** Add your pre-init code in here 	*/
@@ -520,7 +523,7 @@ public class InvUICardUpdateDialog extends Dialog{
     public void update(){
     try {
     if(compInvUICard.verifyFields(false)){
-    
+    updated=true;
     // Update Inventory Card Fields
    TurqAccountingAccount accountIdSell = (TurqAccountingAccount) compInvUICard.getTxtInvCardOutAcc().getData();
    TurqAccountingAccount accountIdBuy = (TurqAccountingAccount) compInvUICard.getTxtInvCardInAcc().getData();
@@ -575,6 +578,7 @@ public class InvUICardUpdateDialog extends Dialog{
 		msg2.open();
 		return;
      }
+     updated=true;
     //First Delete Groups
     deleteInvGroups();
     //delete Units
