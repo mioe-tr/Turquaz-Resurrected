@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.15 2004/12/06 17:21:58 huseyiner Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.16 2004/12/17 20:54:24 onsel Exp $
 */
 
 
@@ -139,6 +139,7 @@ public class AccDALAccountAdd {
 			String query = "from TurqAccountingAccount as accounts " +
 					"where accounts.accountingAccountsId <> -1" +
 					" and accounts.turqAccountingAccountsByParentAccount.size=0" +
+					" and accounts.accountingAccountsId <> -1" +
 					" order by accounts.accountCode";   
 
 			Query q = session.createQuery(query); 

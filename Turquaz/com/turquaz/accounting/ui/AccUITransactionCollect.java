@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.29 2004/12/17 20:17:15 onsel Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.30 2004/12/17 20:54:22 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -301,8 +301,7 @@ public class AccUITransactionCollect extends Composite implements
 					txtTransactionDefinition.setWidth(150);
 				}
 				{
-					tableColumnCreditAmount = new TableColumn(
-							tableTransactionRows, SWT.NONE);
+					tableColumnCreditAmount = new TableColumn(tableTransactionRows, SWT.RIGHT);
 					tableColumnCreditAmount.setText(CREDIT); //$NON-NLS-1$
 					tableColumnCreditAmount.setWidth(100);
 				}

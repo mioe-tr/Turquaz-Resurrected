@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.25 2004/12/17 20:17:15 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.26 2004/12/17 20:54:23 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -279,9 +279,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
                     tableColumnDefinition.setWidth(150);
                 }
 				{
-					tableColumnDeptAmount = new TableColumn(
-						tableTransactionRows,
-						SWT.NONE);
+					tableColumnDeptAmount = new TableColumn(tableTransactionRows, SWT.RIGHT);
 					tableColumnDeptAmount.setText(DEBIT); //$NON-NLS-1$
 					tableColumnDeptAmount.setWidth(100);
 				}
