@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUISearchMoneyTransaction.java,v 1.16 2005/03/07 17:02:03 cemdayanik Exp $
+* @version  $Id: BankUISearchMoneyTransaction.java,v 1.17 2005/03/09 13:04:59 onsel Exp $
 */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -235,8 +235,19 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
             
     			dept = new BigDecimal(0);
     			credit = new BigDecimal(0);
-            
+    			
     			result = (Object[])ls.get(i);
+    			
+    			if(result[5]!=null)
+    			{
+    				dept = (BigDecimal)result[5];
+    			}
+    			if(result[6]!=null)
+    			{
+    				credit = (BigDecimal)result[6];
+    			}
+            
+    			
     			transId = (Integer) result[0];
           
     			transType =result[2].toString();
@@ -252,8 +263,8 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
                     				  docNo,
                     				  transType,
 									  definition,
-									  cf.format(result[5]),
-									  cf.format(result[6])
+									  cf.format(dept),
+									  cf.format(credit)
                     				});
             
             
