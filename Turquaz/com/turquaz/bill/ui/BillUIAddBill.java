@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.33 2004/12/30 13:02:46 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.34 2004/12/30 21:58:12 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -70,6 +70,7 @@ import com.turquaz.consignment.bl.ConBLAddConsignment;
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
+import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqBillGroup;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
@@ -1448,12 +1449,12 @@ public class BillUIAddBill extends Composite
 				Boolean paymentType = (Boolean) comboPaymentType
 						.getData(comboPaymentType.getText());
 
-				Integer billId = blAddBill.saveBill(txtDocumentNo.getText(),
+				TurqBill bill = blAddBill.saveBill(txtDocumentNo.getText(),
 						txtDefinition.getText(), false, dateConsignmentDate
 								.getDate(), cons, type, !paymentType
 								.booleanValue(),
 								paymentType.booleanValue() ? accountPickerCurAcc.getData() : null);
-				saveGroups(billId);
+				saveGroups(bill.getBillsId());
 				msg.setMessage(Messages.getString("BillUIAddBill.43")); //$NON-NLS-1$
 				msg.open();
 				newForm();
