@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.28 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.29 2005/03/23 13:36:29 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -253,7 +253,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 
 	public void fillTableAndCombo()
 	{
-		compTransactionCollect.rowList.removeAll();
+		compTransactionCollect.tableViewer.removeAll();
 		Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 		List transRows = new ArrayList();
 		transRows.addAll(transactionRows);
@@ -264,9 +264,9 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		{
 			transRow = (TurqAccountingTransactionColumn) transRows.get(k);
 			if (!transRow.getCreditAmount().toString().equals("0")) { //$NON-NLS-1$
-				ITableRow row = new AccUITransactionCollectTableRow(compTransactionCollect.rowList);
+				ITableRow row = new AccUITransactionCollectTableRow(compTransactionCollect.tableViewer.getRowList());
 				row.setDBObject(transRow);
-				compTransactionCollect.rowList.addTask(row);
+				compTransactionCollect.tableViewer.addRow(row);
 			}
 			else
 			{
@@ -275,8 +275,8 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 			}
 		}
 		//	 add last empty row
-		AccUITransactionCollectTableRow row2 = new AccUITransactionCollectTableRow(compTransactionCollect.rowList);
-		compTransactionCollect.rowList.addTask(row2);
+		AccUITransactionCollectTableRow row2 = new AccUITransactionCollectTableRow(compTransactionCollect.tableViewer.getRowList());
+		compTransactionCollect.tableViewer.addRow(row2);
 	}
 
 	/** Auto-generated event handler method */

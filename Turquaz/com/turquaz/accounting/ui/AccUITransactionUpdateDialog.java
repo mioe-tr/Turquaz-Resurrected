@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionUpdateDialog.java,v 1.40 2005/03/17 15:02:03 onsel Exp $
+ * @version  $Id: AccUITransactionUpdateDialog.java,v 1.41 2005/03/23 13:36:29 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -248,7 +248,7 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 
 	public void fillTable()
 	{
-		compTransactionAdd.rowList.removeAll();
+		compTransactionAdd.tableViewer.removeAll();
 		Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 		List transRows = new ArrayList();
 		transRows.addAll(transactionRows);
@@ -258,13 +258,13 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		for (int k = 0; k < transRows.size(); k++)
 		{
 			transRow = (TurqAccountingTransactionColumn) transRows.get(k);
-			ITableRow row = new AccUITransactionAddTableRow(compTransactionAdd.rowList);
+			ITableRow row = new AccUITransactionAddTableRow(compTransactionAdd.tableViewer.getRowList());
 			row.setDBObject(transRow);
-			compTransactionAdd.rowList.addTask(row);
+			compTransactionAdd.tableViewer.addRow(row);
 		}
 		// add last empty row
-		AccUITransactionAddTableRow row2 = new AccUITransactionAddTableRow(compTransactionAdd.rowList);
-		compTransactionAdd.rowList.addTask(row2);
+		AccUITransactionAddTableRow row2 = new AccUITransactionAddTableRow(compTransactionAdd.tableViewer.getRowList());
+		compTransactionAdd.tableViewer.addRow(row2);
 	}
 
 	/** Auto-generated event handler method */

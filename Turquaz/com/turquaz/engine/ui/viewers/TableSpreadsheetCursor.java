@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.viewers;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: TableSpreadsheetCursor.java,v 1.12 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: TableSpreadsheetCursor.java,v 1.13 2005/03/23 13:36:30 onsel Exp $
  */
 import org.eclipse.jface.viewers.ICellEditorListener;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -50,11 +50,33 @@ public class TableSpreadsheetCursor extends TableCursor implements ICellEditorLi
 	Table table;
 	boolean activeDelete = true;
 
-	public TableSpreadsheetCursor(Table table, int style, TableViewer viewer, TableRowList rowList, boolean activateDelete)
+	public TableSpreadsheetCursor(Table table, int style, SaveTableViewer viewer,boolean activateDelete)
+	{
+		super(table, style);
+		this.tableViewer = viewer.getViewer();
+		rowList=viewer.getRowList();
+		this.table = table;
+		this.activeDelete = activateDelete;
+		this.addKeyListener(new KeyAdapter()
+		{
+			public void keyReleased(KeyEvent e)
+			{
+				keyReleasedEventMethod(e);
+			}
+		});
+		this.addMouseListener(new MouseAdapter()
+		{
+			public void mouseDoubleClick(MouseEvent arg0)
+			{
+				tableViewer.editElement(getRow().getData(), getColumn());
+			}
+		});
+	}
+	public TableSpreadsheetCursor(Table table, int style,TableViewer viewer, TableRowList roeList,boolean activateDelete)
 	{
 		super(table, style);
 		this.tableViewer = viewer;
-		this.rowList = rowList;
+		this.rowList=roeList;
 		this.table = table;
 		this.activeDelete = activateDelete;
 		this.addKeyListener(new KeyAdapter()
