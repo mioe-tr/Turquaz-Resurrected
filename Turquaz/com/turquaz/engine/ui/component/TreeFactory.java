@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.72 2005/02/04 10:25:54 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.73 2005/02/04 11:23:18 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -53,6 +53,7 @@ import com.turquaz.bank.ui.BankUIBankCardAdd;
 import com.turquaz.bank.ui.BankUIBankCardSearch;
 import com.turquaz.bank.ui.BankUICashFromBank;
 import com.turquaz.bank.ui.BankUICashToBank;
+import com.turquaz.bank.ui.BankUIInitialTransaction;
 import com.turquaz.bank.ui.BankUIMoneyTransferIn;
 import com.turquaz.bank.ui.BankUIMoneyTransferOut;
 import com.turquaz.bank.ui.BankUIOtherTransIn;
@@ -224,6 +225,11 @@ public final class TreeFactory {
 			item = new TreeItem(bankTrans,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.72"));  //$NON-NLS-1$
 			item.setData(BankUIOtherTransOut.class.getName());
+		}
+		if(EngBLPermissions.getPermission(BankUIInitialTransaction.class.getName())>0){
+			item = new TreeItem(bankTrans,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.74"));   //$NON-NLS-1$
+			item.setData(BankUIInitialTransaction.class.getName());
 		}
 		
 		bankTrans.setExpanded(true);

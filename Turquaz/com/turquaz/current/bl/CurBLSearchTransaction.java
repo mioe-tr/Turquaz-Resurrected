@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.15 2005/01/18 13:39:11 onsel Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.16 2005/02/04 11:23:18 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -107,14 +107,14 @@ public class CurBLSearchTransaction {
  		dalUpdate.updateObject(curTrans);
  	
  /*		
-    	accDalUpdate.updateTransaction(curTrans.getTurqAccountingTransaction(),documentNo,transDate,accTransType);		
+    	accDalUpdate.updateTransaction(bankTrans.getTurqAccountingTransaction(),documentNo,transDate,accTransType);		
 		
 //    	Remove transaction rows
-		blAccSearch.removeTransactionRows(curTrans.getTurqAccountingTransaction());
+		blAccSearch.removeTransactionRows(bankTrans.getTurqAccountingTransaction());
 
 //		Save new Transaction Rows		
 		blTransAdd.saveAccountingCashTransactionRows(curCard,isCredit,amount,account,
-				curTrans.getTurqAccountingTransaction().getAccountingTransactionsId());
+				bankTrans.getTurqAccountingTransaction().getAccountingTransactionsId());
 				
 */
 	}
@@ -127,11 +127,11 @@ public class CurBLSearchTransaction {
 		try{
 			
 	/*		//remove accounting transaction rows
-			blAccSearch.removeTransactionRows(curTrans.getTurqAccountingTransaction());
+			blAccSearch.removeTransactionRows(bankTrans.getTurqAccountingTransaction());
 			//remove accounting transaction
-			dalUpdate.deleteObject(curTrans);
+			dalUpdate.deleteObject(bankTrans);
 			
-			dalUpdate.deleteObject(curTrans.getTurqAccountingTransaction());
+			dalUpdate.deleteObject(bankTrans.getTurqAccountingTransaction());
 			
 			//remove currren transaction
 			

@@ -18,13 +18,14 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardUpdate.java,v 1.7 2005/01/17 21:21:26 onsel Exp $
+* @version  $Id: BankBLBankCardUpdate.java,v 1.8 2005/02/04 11:23:18 onsel Exp $
 */
 
 
 import java.util.Calendar;
 
 import com.turquaz.bank.dal.BankDALBankCardUpdate;
+import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -61,10 +62,35 @@ public class BankBLBankCardUpdate {
 			aCard.setTurqAccountingAccount(account);
 			bankDALBankCardUpdate.updateObject(aCard);
 			
+			if(!checkInitialTransaction(aCard))
+			{
+			
+			   BankBLTransactionAdd.saveInitialBankTransaction(aCard);
+			    
+			}
+		
+			
 		}
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean checkInitialTransaction(TurqBanksCard bankCard) throws Exception{
+	   try{
+	       return BankDALCommon.checkInitialTransaction(bankCard);
+	   }
+	   catch(Exception ex)
+	   {
+	       throw ex;
+	   }
+	    
+	    
+	    
+	    
 	}
 	
 	/**

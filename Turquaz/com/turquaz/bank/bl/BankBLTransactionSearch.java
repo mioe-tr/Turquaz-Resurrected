@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionSearch.java,v 1.4 2005/01/30 19:27:24 onsel Exp $
+* @version  $Id: BankBLTransactionSearch.java,v 1.5 2005/02/04 11:23:18 onsel Exp $
 */
 
 import java.util.Date;
@@ -55,6 +55,15 @@ public class BankBLTransactionSearch {
         try{
         
             return BankDALCommon.getDeferredTotal(cashCard,endDate);
+        }
+        catch(Exception ex){
+            throw ex;
+        }
+    }
+    //aC?L?S 	Degerleri
+    public static List getBankInitialTransactions()throws Exception {
+        try{
+          return  BankDALCommon.getBankInitialTransactions();
         }
         catch(Exception ex){
             throw ex;
