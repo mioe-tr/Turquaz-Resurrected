@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.14 2004/12/17 21:49:56 huseyiner Exp $
+* @version  $Id: CurrencyText.java,v 1.15 2004/12/17 21:50:50 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -135,8 +135,6 @@ public class CurrencyText extends Composite {
  	Text control = (Text)e.widget;
     String textcontrol = control.getText();
     e.doit = false;
-    System.out.println(e.start);
-    System.out.println(e.end);
     String newText = textcontrol.substring(0, e.start) + e.text + textcontrol.substring(e.end);
     String tempnewText=newText.replaceAll("\\.","");
     if (tempnewText.equals("") && !tempnewText.equals(newText))
