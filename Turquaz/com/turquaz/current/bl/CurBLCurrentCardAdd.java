@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.7 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.8 2004/11/05 08:45:28 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -56,8 +56,7 @@ public class CurBLCurrentCardAdd {
 								String cardAddress, BigDecimal cardDiscountRate,
 								BigDecimal cardDiscountPayment,	BigDecimal cardCreditLimit,
 								BigDecimal cardRiskLimit, String cardTaxDepartment,
-								String cardTaxNumber, TurqAccountingAccount accCodeIdCustomer,
-								TurqAccountingAccount accCodeIdSupplier) throws Exception {
+								String cardTaxNumber, TurqAccountingAccount accCode) throws Exception {
 		try{
 		
 			TurqCurrentCard currentCard=new TurqCurrentCard();
@@ -71,8 +70,8 @@ public class CurBLCurrentCardAdd {
 			currentCard.setCardsRiskLimit(cardRiskLimit);
 			currentCard.setCardsTaxDepartment(cardTaxDepartment);
 			currentCard.setCardsTaxNumber(cardTaxNumber);
-			currentCard.setTurqAccountingAccountByAccountingCodeIdCustomer(accCodeIdCustomer);
-			currentCard.setTurqAccountingAccountByAccountingCodeIdSupplier(accCodeIdSupplier);
+			currentCard.setTurqAccountingAccount(accCode);
+	
 		
 			TurqCompany company = new TurqCompany();
 			company.setCompaniesId(Integer.valueOf(System.getProperty("company")));

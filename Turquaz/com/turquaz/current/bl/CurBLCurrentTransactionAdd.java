@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.11 2004/11/05 08:45:28 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -194,7 +194,7 @@ public class CurBLCurrentTransactionAdd {
     			transRowCurrent.setDeptAmount(amount);
     			
     			//cari sat?c? muhasebe kodunu da girelim
-    			transRowCurrent.setTurqAccountingAccount(curCard.getTurqAccountingAccountByAccountingCodeIdSupplier());
+    			transRowCurrent.setTurqAccountingAccount(curCard.getTurqAccountingAccount());
     	   			
     		}
     	   //Cari Karttan para tahsil edildiginde
@@ -209,7 +209,7 @@ public class CurBLCurrentTransactionAdd {
     			
     			
     			//cari alici muhasebe kodunu da girelim
-    			transRowCurrent.setTurqAccountingAccount(curCard.getTurqAccountingAccountByAccountingCodeIdCustomer());
+    			transRowCurrent.setTurqAccountingAccount(curCard.getTurqAccountingAccount());
     			
     		
     		}

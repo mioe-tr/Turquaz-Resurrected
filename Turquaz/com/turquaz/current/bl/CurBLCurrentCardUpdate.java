@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardUpdate.java,v 1.6 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurBLCurrentCardUpdate.java,v 1.7 2004/11/05 08:45:28 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -58,8 +58,7 @@ public class CurBLCurrentCardUpdate {
 			String cardAddress, BigDecimal cardDiscountRate,
 			BigDecimal cardDiscountPayment,	BigDecimal cardCreditLimit,
 			BigDecimal cardRiskLimit, String cardTaxDepartment,
-			String cardTaxNumber, TurqAccountingAccount accCodeIdCustomer,
-			TurqAccountingAccount accCodeIdSupplier, TurqCurrentCard currentCard) throws Exception {
+			String cardTaxNumber, TurqAccountingAccount accCode, TurqCurrentCard currentCard) throws Exception {
 		try{
 			currentCard.setCardsCurrentCode(currentCode);
 			currentCard.setCardsName(cardName);
@@ -71,8 +70,7 @@ public class CurBLCurrentCardUpdate {
 			currentCard.setCardsRiskLimit(cardRiskLimit);
 			currentCard.setCardsTaxDepartment(cardTaxDepartment);
 			currentCard.setCardsTaxNumber(cardTaxNumber);
-			currentCard.setTurqAccountingAccountByAccountingCodeIdCustomer(accCodeIdCustomer);
-			currentCard.setTurqAccountingAccountByAccountingCodeIdSupplier(accCodeIdSupplier);
+			currentCard.setTurqAccountingAccount(accCode);
 			currentCard.setUpdatedBy(System.getProperty("user"));
 			currentCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 
