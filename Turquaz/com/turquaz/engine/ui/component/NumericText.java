@@ -19,12 +19,13 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: NumericText.java,v 1.9 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: NumericText.java,v 1.10 2004/11/09 17:19:40 onsel Exp $
 */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.widgets.Composite;
@@ -98,6 +99,9 @@ public class NumericText extends Composite {
   	}
   }
  
+ }
+ public void addModifyListener(ModifyListener listener){
+ 	text.addModifyListener(listener);	
  }
  public void setTextLimit(int a){
  	textLimit = a;
