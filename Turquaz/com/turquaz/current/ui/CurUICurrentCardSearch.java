@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.27 2004/12/29 20:47:29 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.28 2004/12/29 21:18:34 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -96,7 +96,8 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 	private CLabel lblCurrentCode;
 	private Composite compCurrentCardSearch;
 	private EngBLCommon engBLCom=new EngBLCommon();
-	CurBLCurrentCardUpdate blUpdate = new CurBLCurrentCardUpdate();
+	private CurBLCurrentCardUpdate blUpdate = new CurBLCurrentCardUpdate();
+	private CurBLCurrentCardSearch currentSearch=new CurBLCurrentCardSearch();
 	Menu popup;
 	
 	public CurUICurrentCardSearch(Composite parent, int style) {
@@ -310,10 +311,18 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 			if(items.length>0)
 			{
 	   	 		TurqCurrentCard currentCard = (TurqCurrentCard)items[0].getData();
-	        
+	   	 		
 	   	 		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
 				MessageBox msg2 = new MessageBox(this.getShell(),SWT.OK|SWT.CANCEL);
-	
+				
+				List curCardTrans=currentSearch.getTransactions(currentCard);
+				if (curCardTrans.size() > 0)
+				{
+					msg.setMessage(Messages.getString("CurUICurrentCardUpdate.15")); //$NON-NLS-1$
+					msg.open();
+					return;
+				}
+				
 				msg2.setMessage(Messages.getString("CurUICurrentCardUpdate.21")); //$NON-NLS-1$
 				int result = msg2.open();
 	    
@@ -334,7 +343,7 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 	    catch(Exception ex){
 		    MessageBox msg3 = new MessageBox(this.getShell(),SWT.ICON_WARNING);
 			ex.printStackTrace();
-			msg3.setMessage(Messages.getString("CurUICurrentCardSearch.3")); //$NON-NLS-1$
+			msg3.setMessage(ex.getMessage());
 			msg3.open();
 		}
 	

@@ -18,11 +18,12 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardSearch.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: CurBLCurrentCardSearch.java,v 1.4 2004/12/29 21:18:35 cemdayanik Exp $
 */
 import java.util.List;
 
 import com.turquaz.current.dal.CurDALCurrentCardSearch;
+import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 
 public class CurBLCurrentCardSearch {
@@ -44,5 +45,18 @@ public class CurBLCurrentCardSearch {
 			throw ex;
 		}
 	}
+	
+	public List getTransactions(TurqCurrentCard curCard) throws Exception
+	{
+		try
+		{
+			return curDALCurrentCardSearch.getTransactions(curCard);
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}	
+	
 
 }
