@@ -23,7 +23,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.14 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.15 2004/10/27 13:40:03 onsel Exp $
 */
 
 
@@ -219,7 +219,6 @@ public class InvBLCardAdd {
 			card.setTurqAccountingAccountByAccountingAccountsIdBuy(accountBuy);
 			card.setTurqAccountingAccountByAccountingAccountsIdSell(accountSell);
 			card.setTurqCompany(company);
-
 			cardAdd.saveOrUpdateInvCard(card);
 
 			return card.getInventoryCardsId();
