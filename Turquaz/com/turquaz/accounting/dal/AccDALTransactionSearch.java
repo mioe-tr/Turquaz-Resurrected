@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.41 2005/03/29 15:45:04 onsel Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.42 2005/03/31 13:18:37 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -219,6 +219,7 @@ public class AccDALTransactionSearch
 			session.delete("select row from TurqAccountingTransactionColumn as row where" + " row.turqAccountingTransaction.id ="
 					+ transaction.getId().intValue());
 			session.flush();
+			session.clear();
 			
 		}
 		catch (Exception ex)

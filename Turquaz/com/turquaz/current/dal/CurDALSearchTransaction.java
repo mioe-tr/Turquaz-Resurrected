@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALSearchTransaction.java,v 1.27 2005/03/29 15:52:49 cemdayanik Exp $
+ * @version  $Id: CurDALSearchTransaction.java,v 1.28 2005/03/31 13:18:32 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -207,6 +207,7 @@ public class CurDALSearchTransaction
 				session.delete(list.get(i));
 			}
 			session.flush();
+			session.clear();
 		}
 		catch (Exception ex)
 		{
