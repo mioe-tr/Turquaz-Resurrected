@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.66 2004/11/11 18:11:45 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.67 2004/11/18 09:30:28 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -81,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.66 2004/11/11 18:11:45 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.67 2004/11/18 09:30:28 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1064,6 +1064,13 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			toolExportToExcel.setEnabled(false);
 		}
 				
+	}
+	catch(ClassCastException ex){
+		toolNew.setEnabled(false);
+		toolSave.setEnabled(false);
+		toolDelete.setEnabled(false);
+		toolSearch.setEnabled(false);
+		toolExportToExcel.setEnabled(false);
 	}
 	catch(Exception ex)
 				{
