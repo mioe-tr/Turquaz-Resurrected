@@ -32,11 +32,12 @@ import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.InvUICardSearch;
 import com.turquaz.inventory.ui.InvUITransactionAdd;
+import com.turquaz.inventory.ui.InvUIWarehouseAdd;
 
 /**
  * @author onsel
  *
- * @version $Id: InvUITree.java,v 1.3 2004/08/30 19:53:06 onsel Exp $
+ * @version $Id: InvUITree.java,v 1.4 2004/10/13 14:34:34 onsel Exp $
  */
 public class InvUITree extends Tree {
 	
@@ -53,6 +54,9 @@ public class InvUITree extends Tree {
 		item = new TreeItem(root,SWT.NULL);
 		item.setText("Kart Arama");
 		item.setData(InvUICardSearch.class.getName());
+		item = new TreeItem(root,SWT.NULL);
+		item.setText("Add Warehouse");
+		item.setData(InvUIWarehouseAdd.class.getName());
 	  	}
 	
 	
