@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.18 2004/12/29 19:47:53 cemdayanik Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.19 2005/01/02 13:42:07 onsel Exp $
 */
 import java.util.List;
 
@@ -135,18 +135,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					txtCurCardLData.widthHint = 174;
 					txtCurCardLData.heightHint = 20;
 					txtCurCard.setLayoutData(txtCurCardLData);
-					txtCurCard.addModifyListener(new ModifyListener() {
-						public void modifyText(ModifyEvent evt) {
-						    try{
-	                             txtCurCard.setData( EngBLCurrentCards.getCards(txtCurCard.getText().trim()));
-	                                                 
-	                           }
-	                           catch(Exception ex){
-	                               ex.printStackTrace();
-	                           }
-						}
-					});
-				}
+									}
 				{
 					lblTransactionGroup = new CLabel(composite1, SWT.NONE);
 					lblTransactionGroup.setText(Messages.getString("CurUITransactionSearch.1")); //$NON-NLS-1$
@@ -283,27 +272,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	public void postInitGUI(){
 	
 	fillComboTypes();
-	
-//	Content Assistant for Current Code
-	/****************************************************/
-	  TextContentAssistSubjectAdapter adapterCurrent = new TextContentAssistSubjectAdapter(txtCurCard);
-	
-	 final SubjectControlContentAssistant asistantCurrent= new TurquazContentAssistant(adapterCurrent,3);
-	   
-	     adapterCurrent.appendVerifyKeyListener(
-	             new VerifyKeyListener() {
-	                 public void verifyKey(VerifyEvent event) {
 
-	                 // Check for Ctrl+Spacebar
-	                 if (event.stateMask == SWT.CTRL && event.character == ' ') {
-	             
-	                  asistantCurrent.showPossibleCompletions();              
-	                   event.doit = false;
-	                 }
-	              }
-	           });
-	 	
-	  /************************************************************/  
 
 	}
 
