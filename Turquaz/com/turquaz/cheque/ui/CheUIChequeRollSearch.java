@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.8 2005/02/17 08:14:05 onsel Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.9 2005/02/17 08:26:59 onsel Exp $
  */
 
 import java.util.Date;
@@ -231,6 +231,10 @@ public class CheUIChequeRollSearch extends org.eclipse.swt.widgets.Composite
 				comboRollType.setData(type.getTransactionTypsName(), type);
 
 			}
+			
+			dateEndDate.setLastDayOfYear();
+			dateStartDate.setFirstDayOfYear();
+			
 
 		} catch (Exception ex) {
 
