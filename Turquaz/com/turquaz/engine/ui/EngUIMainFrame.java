@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.105 2004/12/27 15:43:15 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.106 2004/12/27 15:47:56 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -93,7 +93,7 @@ import com.turquaz.inventory.dal.InvDALInventoryLedger;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.105 2004/12/27 15:43:15 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.106 2004/12/27 15:47:56 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1178,7 +1178,6 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		try{
 		EngBLInventoryCards.getInventoryCards();	
 		InvDALInventoryLedger dalLEdger = new InvDALInventoryLedger();
-		dalLEdger.getInventoryLedger(null);
 		
 		}
 		catch(Exception ex){
