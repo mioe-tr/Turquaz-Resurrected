@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.3 2004/10/21 07:01:35 onsel Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.4 2004/10/25 10:46:46 onsel Exp $
 */
 
 
@@ -48,12 +48,10 @@ public class AccBLAccountUpdate {
 	 */
 	public AccBLAccountUpdate() {
 	}
-	public void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, int parent)throws Exception{
+	public void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, Object parent)throws Exception{
 	try{
 		
-		TurqAccountingAccount parentAccount = new TurqAccountingAccount();
-	
-		parentAccount.setAccountingAccountsId(new Integer(parent));
+		TurqAccountingAccount parentAccount =(TurqAccountingAccount)parent; 
 		account.setAccountName(accountName);
 		account.setAccountCode(accountCode);
 	
