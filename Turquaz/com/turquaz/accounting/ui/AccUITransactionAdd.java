@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.64 2005/03/16 17:09:32 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.65 2005/03/16 17:20:17 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -636,16 +636,13 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	
 			MessageBox msg=new MessageBox(this.getShell(),SWT.NULL);
 			try
-			{
-				
+			{	
 				Map creditAccounts = new HashMap();
 				Map deptAccounts = new HashMap();
 				
 				prepareAccountingMaps(creditAccounts,deptAccounts);
 				
 				blTransAdd.saveAccTransaction(dateTransactionDate.getDate(),txtDocumentNo.getText().trim(),2,1,null,txtTransDefinition.getText().trim(),exchangeRate,creditAccounts,deptAccounts,false);
-	
-			
 				msg.setMessage(Messages.getString("AccUITransactionAdd.16")); //$NON-NLS-1$
 				msg.open();
 				clearFields();
