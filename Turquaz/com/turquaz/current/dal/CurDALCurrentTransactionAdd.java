@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.9 2005/02/11 08:57:56 onsel Exp $
 */
 import java.util.List;
 
@@ -112,11 +112,11 @@ public class CurDALCurrentTransactionAdd {
 	try{
 		
 		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+	
 		String query = "from TurqCurrentCard as curCard ";		   
 		Query q = session.createQuery(query); 
 		List list = q.list();
-		tx.commit();
+	
 		session.close();
 		return list;
 		
@@ -134,14 +134,12 @@ public class CurDALCurrentTransactionAdd {
 		try{
 			
 			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
+		
 			String query = "from TurqCurrentTransactionType as curCard ";		   
 			Query q = session.createQuery(query); 
 			List list = q.list();
 			
-			
-			
-			tx.commit();
+		
 			session.close();
 			return list;
 			
