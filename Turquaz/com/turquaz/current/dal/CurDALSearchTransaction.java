@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.17 2005/02/17 08:14:04 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.18 2005/02/21 16:37:37 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -158,7 +158,7 @@ public class CurDALSearchTransaction {
 		
 		
 	}
-	public List getCurrentBalances(TurqCurrentCard curCard, TurqCurrentCard curCard2,Date endDate) throws Exception {
+	public static List getCurrentBalances(TurqCurrentCard curCard, TurqCurrentCard curCard2,Date endDate) throws Exception {
 	    try{
 	        
 	    	Session session = EngDALSessionFactory.openSession(); 
