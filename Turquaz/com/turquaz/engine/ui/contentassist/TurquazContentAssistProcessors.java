@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistProcessors.java,v 1.25 2005/02/24 08:38:04 onsel Exp $
+* @version  $Id: TurquazContentAssistProcessors.java,v 1.26 2005/02/26 11:06:06 cemdayanik Exp $
 */
 
 import java.util.ArrayList;
@@ -180,6 +180,15 @@ public class TurquazContentAssistProcessors implements
                    proposed.add(new Proposal(bankCard.getGroupsName(),bankCard.getGroupsDescription()));
                
                }
+           }
+           else if (type==EngBLCommon.CONTENT_ASSIST_MAIN_ACCOUNTS)
+           {
+           		List list = EngBLAccountingAccounts.getMainAccounts();
+           		
+                for (int i = 0; i < list.size(); i++) {
+                    TurqAccountingAccount acc = (TurqAccountingAccount) list.get(i);
+                    proposed.add(new Proposal(acc.getAccountCode(),acc.getAccountName()));
+                }
            }
             proposedCodes = new Proposal[proposed.size()];
             proposed.toArray(proposedCodes);
