@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionAdd.java,v 1.5 2004/12/23 15:49:56 onsel Exp $
+* @version  $Id: AccDALTransactionAdd.java,v 1.6 2005/03/01 10:17:06 cemdayanik Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -30,9 +30,10 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 public class AccDALTransactionAdd {
 
 	public void save(Object obj)throws Exception{
+		Transaction tx =null;
 		try{
 		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		tx = session.beginTransaction();
 		session.save(obj);
 		session.flush();
 		tx.commit();
@@ -40,6 +41,8 @@ public class AccDALTransactionAdd {
 		
 		}
 		catch(Exception ex){
+			if (tx != null)
+				tx.rollback();
 			throw ex;
 		}
 	}	

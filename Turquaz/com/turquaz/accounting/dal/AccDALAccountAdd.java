@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.26 2005/02/26 11:06:06 cemdayanik Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.27 2005/03/01 10:17:06 cemdayanik Exp $
 */
 
 
@@ -36,6 +36,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 public class AccDALAccountAdd {
 	
 	public void saveOrUpdateAccount(TurqAccountingAccount account)throws Exception{
+		Transaction tx=null;
 		try{
 		Session session = EngDALSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -46,6 +47,8 @@ public class AccDALAccountAdd {
 		
 		}
 		catch(Exception ex){
+			if (tx != null)
+				tx.rollback();
 			throw ex;
 		}
 	}
