@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.7 2004/12/23 15:49:56 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.8 2005/01/31 17:51:17 cemdayanik Exp $
 */
 
 
@@ -88,6 +88,33 @@ public class AccDALAccountUpdate {
 			
 		}
 		catch(Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public void updateAccountCodeOfSubAccs(TurqAccountingAccount parentAcc,String firstAccCode)throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			List subAccounts=getSubAccounts(parentAcc);
+			for (int k=0; k<subAccounts.size(); k++)
+			{
+				TurqAccountingAccount subAcc=(TurqAccountingAccount)subAccounts.get(k);
+				String remainingCode=subAcc.getAccountCode().substring(firstAccCode.length());
+				String firstSubAccCode=subAcc.getAccountCode();
+				subAcc.setAccountCode(parentAcc.getAccountCode().concat(remainingCode));
+				session.update(subAcc);
+				updateAccountCodeOfSubAccs(subAcc,firstSubAccCode);			
+				
+			}
+			session.flush();
+			tx.commit();
+			session.close();
+		}
+		catch (Exception ex)
 		{
 			throw ex;
 		}

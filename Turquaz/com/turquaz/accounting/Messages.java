@@ -19,7 +19,7 @@ package com.turquaz.accounting;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: Messages.java,v 1.9 2005/01/26 21:21:02 huseyiner Exp $
+* @version  $Id: Messages.java,v 1.10 2005/01/31 17:51:17 cemdayanik Exp $
 */
 
 import java.util.Locale;
@@ -27,7 +27,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.accounting.messages";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.accounting.messages_tr_TR";//$NON-NLS-1$
 
 	private Messages() {
 	}

@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.10 2005/01/31 17:10:26 cemdayanik Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.11 2005/01/31 17:51:17 cemdayanik Exp $
 */
 
 
@@ -43,7 +43,7 @@ public class AccBLAccountUpdate {
 	{
 		try
 		{
-		
+			String accCode=account.getAccountCode();
 			TurqAccountingAccount parentAccount =(TurqAccountingAccount)parent; 
 			account.setAccountName(accountName);
 			account.setAccountCode(accountCode);
@@ -55,6 +55,8 @@ public class AccBLAccountUpdate {
 			account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());			
 		    	
 			dalAccountUpdate.updateObject(account);		
+			
+			dalAccountUpdate.updateAccountCodeOfSubAccs(account,accCode);
 			EngBLAccountingAccounts.RefreshContentAsistantMap();
 	
 		}
