@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.11 2004/11/26 14:26:03 cemdayanik Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.12 2004/12/03 13:46:21 onsel Exp $
 */
 
 
@@ -34,6 +34,7 @@ import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCurrency;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
 
@@ -302,6 +303,7 @@ private boolean verifyfields()
 	}
 	
 	public void newForm(){
+		EngUIMainFrame.newForm();
 	}
 	
 	public void delete(){

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.8 2004/11/28 16:51:51 huseyiner Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.9 2004/12/03 13:46:21 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -49,6 +49,7 @@ import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
@@ -192,8 +193,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		
 	}
 	public void newForm(){
-		txtAdmGroupName.setText(""); //$NON-NLS-1$
-		txtAdmGroupDesc.setText(""); //$NON-NLS-1$
+		EngUIMainFrame.newForm();
 	}
 	public void delete(){
 		

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.7 2004/12/02 07:46:08 onsel Exp $
+* @version  $Id: AdmUIUsers.java,v 1.8 2004/12/03 13:46:21 onsel Exp $
 */
 import java.util.List;
 
@@ -53,6 +53,7 @@ import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLUsers;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqUser;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.MouseAdapter;
@@ -111,6 +112,7 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 		
 	}
 	public void newForm(){
+		EngUIMainFrame.newForm();
 		
 	}
 	public void search(){

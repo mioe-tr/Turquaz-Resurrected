@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.27 2004/12/02 15:33:54 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.28 2004/12/03 13:46:21 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -27,6 +27,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.layout.GridData;
@@ -491,7 +492,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	}
 	
 	public void newForm(){
-	
+	EngUIMainFrame.newForm();
 	}
 	
 	public void search(){

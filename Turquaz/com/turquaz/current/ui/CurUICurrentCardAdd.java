@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.34 2004/12/01 09:24:48 huseyiner Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.35 2004/12/03 13:46:21 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -38,6 +38,7 @@ import com.turquaz.accounting.ui.comp.AccountPicker;
 import com.turquaz.current.bl.CurBLCurrentCardAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentGroup;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.NumericText;
 import com.turquaz.engine.ui.component.SecureComposite;
@@ -1477,6 +1478,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 	public void delete(){
 	}
 	public void newForm(){
+		EngUIMainFrame.newForm();
 	}
 	
 	

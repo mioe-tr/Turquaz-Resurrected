@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.72 2004/11/28 16:51:50 huseyiner Exp $
+ * @version $Id: InvUICardAdd.java,v 1.73 2004/12/03 13:46:21 onsel Exp $
  */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -28,6 +28,8 @@ import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.accounting.ui.comp.AccountPicker;
 import org.eclipse.jface.viewers.TableViewer;
@@ -1696,7 +1698,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 	}
 
 	public void newForm() {
-		
+		EngUIMainFrame.newForm();
 		
 	}
 

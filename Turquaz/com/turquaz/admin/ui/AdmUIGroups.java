@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroups.java,v 1.6 2004/12/02 07:46:08 onsel Exp $
+* @version  $Id: AdmUIGroups.java,v 1.7 2004/12/03 13:46:21 onsel Exp $
 */
 import java.util.List;
 
@@ -55,6 +55,7 @@ import com.turquaz.admin.bl.AdmBLGroups;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqGroup;
 
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements SecureComposite,SearchComposite {
@@ -110,6 +111,7 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 		
 	}
 	public void newForm(){
+		EngUIMainFrame.newForm();
 		
 	}
 	public void search(){

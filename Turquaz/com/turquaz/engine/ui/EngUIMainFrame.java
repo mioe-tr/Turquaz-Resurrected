@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.88 2004/12/03 12:57:54 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.89 2004/12/03 13:46:21 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -73,7 +73,7 @@ import org.eclipse.swt.widgets.Label;
 
 import org.eclipse.swt.SWT;
 import org.jdom.Element;
-import org.jdom.output.XMLOutputter;
+import org.jdom.output.XMLOutputter; 
 
 import com.turquaz.engine.ui.component.LiveSashForm;
 import org.eclipse.swt.widgets.CoolBar;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.88 2004/12/03 12:57:54 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.89 2004/12/03 13:46:21 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1720,6 +1720,20 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
     
 	    SearchComposite sc = (SearchComposite)tabfldMain.getSelection().getControl();
 		sc.printTable();
+	}
+	public static void newForm(){
+	    try{
+	    
+	    Class c = Class.forName(tabfldMain.getSelection().getControl().getClass().getName());
+	    tabfldMain.getSelection().getControl().dispose();   
+	    Composite comp =(Composite)c.getConstructor(new Class[]{Composite.class, int.class})
+		.newInstance(new Object[]{tabfldMain,Integer.valueOf(SWT.NULL+"")}); //$NON-NLS-1$
+	  	 tabfldMain.getSelection().setControl(comp);	 
+	    }
+	    catch(Exception ex){
+	        ex.printStackTrace();
+	    }
+	    
 	}
 	
 	

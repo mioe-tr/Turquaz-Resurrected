@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.30 2004/12/02 15:33:54 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.31 2004/12/03 13:46:21 onsel Exp $
 */
 
 
@@ -51,6 +51,7 @@ import org.eclipse.swt.events.VerifyEvent;
 
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
@@ -310,6 +311,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 	
 	}
 	public void newForm(){
+	    EngUIMainFrame.newForm();	    
 	}
 
 	/**
