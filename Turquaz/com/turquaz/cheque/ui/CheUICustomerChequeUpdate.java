@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUICustomerChequeUpdate.java,v 1.1 2005/02/15 16:10:08 onsel Exp $
+* @version  $Id: CheUICustomerChequeUpdate.java,v 1.2 2005/02/15 17:15:57 onsel Exp $
 */
 import java.util.Calendar;
 
@@ -323,7 +323,9 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog {
 	
 	private void toolDeleteWidgetSelected(SelectionEvent evt) {
 		try{
-		//	CheBLUpdateCheque.deleteCheque(cheque);
+		CheBLUpdateCheque.deleteCheque(cheque);
+		isUpdated = true;
+		dialogShell.close();
 		}
 		catch(Exception ex)
 		{
