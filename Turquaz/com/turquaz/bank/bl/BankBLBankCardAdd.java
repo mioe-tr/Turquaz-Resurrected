@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: BankBLBankCardAdd.java,v 1.16 2005/03/17 15:02:11 onsel Exp $
+ * @version $Id: BankBLBankCardAdd.java,v 1.17 2005/03/29 15:49:11 onsel Exp $
  */
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -45,8 +45,8 @@ public class BankBLBankCardAdd
 		Transaction tx = session.beginTransaction();
 		try
 		{
-			TurqBanksCard bankCard = registerBankCard(session, bankName, bankBranchName, bankAccountNo, currency, definition, bankCode);
-			saveBankAccountingAccounts(session, bankCard, accountingAccounts);
+			TurqBanksCard bankCard = registerBankCard( bankName, bankBranchName, bankAccountNo, currency, definition, bankCode);
+			saveBankAccountingAccounts(bankCard, accountingAccounts);
 			session.flush();
 			tx.commit();
 			session.close();
@@ -61,7 +61,7 @@ public class BankBLBankCardAdd
 		}
 	}
 
-	public static TurqBanksCard registerBankCard(Session session, String bankName, String bankBranchName, String bankAccountNo,
+	public static TurqBanksCard registerBankCard( String bankName, String bankBranchName, String bankAccountNo,
 			TurqCurrency currency, String definition, String bankCode) throws Exception
 	{
 		TurqBanksCard bankCard = new TurqBanksCard();
@@ -80,7 +80,7 @@ public class BankBLBankCardAdd
 		return bankCard;
 	}
 
-	public static void saveBankAccountingAccounts(Session session, TurqBanksCard bankCard, Map accounts) throws Exception
+	public static void saveBankAccountingAccounts(TurqBanksCard bankCard, Map accounts) throws Exception
 	{
 		Iterator it = accounts.keySet().iterator();
 		while (it.hasNext())

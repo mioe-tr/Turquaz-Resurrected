@@ -17,7 +17,7 @@ package com.turquaz.consignment.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: ConDALAddConsignment.java,v 1.7 2005/03/17 15:02:14 onsel Exp $
+ * @version $Id: ConDALAddConsignment.java,v 1.8 2005/03/29 15:49:11 onsel Exp $
  */
 import net.sf.hibernate.Session;
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -33,10 +33,9 @@ public class ConDALAddConsignment
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			TurqConsignment cons = (TurqConsignment) session.load(TurqConsignment.class, consId);
-			session.flush();
-			session.close();
+			
 			return cons;
 		}
 		catch (Exception ex)
