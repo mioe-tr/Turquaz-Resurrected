@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.17 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.18 2005/01/08 13:02:19 onsel Exp $
 */
 
 
@@ -362,7 +362,7 @@ public class BankUIBankCardSearch extends  Composite implements SearchComposite 
 				item.setData(aBankCard);
 				item.setText(new String[]{aBankCard.getBankName(),aBankCard.getBankBranchName(),aBankCard.getBankAccountNo(),aBankCard.getTurqCurrency().getCurrenciesAbbreviation(),aBankCard.getBankDefinition()});
 			}
-			System.out.println(listBankCards.size());
+
 		}
 		catch(Exception ex){
 			MessageBox msg= new MessageBox(this.getShell(),SWT.NULL);

@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.20 2005/01/05 14:55:28 onsel Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.21 2005/01/08 13:02:19 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -52,7 +52,6 @@ public class CurBLCurrentTransactionAdd {
 			boolean isCredit,BigDecimal amount, BigDecimal totalDiscount, int type,Integer seqDocNo,String definition)throws Exception{
 	  
 	    try{
-			 System.out.println(type);
 			
 			TurqEngineSequence docSeq =new TurqEngineSequence();;	
 			
@@ -92,7 +91,7 @@ public class CurBLCurrentTransactionAdd {
 	        TurqCurrentTransactionType transType = new TurqCurrentTransactionType();
 	        
 	        transType.setCurrentTransactionTypesId(new Integer(type));
-	        System.out.println(type);
+	     
 	        
 	        curTrans.setTurqCurrentTransactionType(transType);	
 	        

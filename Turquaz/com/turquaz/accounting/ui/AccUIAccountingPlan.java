@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.36 2005/01/08 12:09:04 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.37 2005/01/08 13:02:19 onsel Exp $
 */
 
 
@@ -322,8 +322,11 @@ public void fillTree(int parent, String codeCrit){
 		// was, now can be edited
 	//	if(account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId().intValue()!=-1)
 	//	{
-		    new AccUIAccountUpdate(this.getShell(),SWT.NULL,account).open();
-		    fillTree(-1,""); //$NON-NLS-1$
+		   boolean result = new AccUIAccountUpdate(this.getShell(),SWT.NULL,account).open();
+		   if(result) 
+		    {
+		       fillTree(-1,""); //$NON-NLS-1$
+		    }
 	//	}
 		
 		

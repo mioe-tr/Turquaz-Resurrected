@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.16 2004/11/29 19:04:42 onsel Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.17 2005/01/08 13:02:18 onsel Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -258,10 +258,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
      
 		
 	}
-	else {
-		System.out.println("Something went wrong at "+this.getClass().getName()); //$NON-NLS-1$
-		System.out.println("in line 177"); //$NON-NLS-1$
-	}
+	
 
 	
 	*/

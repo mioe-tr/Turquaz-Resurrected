@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.22 2005/01/02 18:21:02 huseyiner Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.23 2005/01/08 13:02:18 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -328,7 +328,6 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 				SWT.NULL).open();
 		if (data != null) {
 
-			System.out.println(data.getClass().getName());
 			TurqCurrentCard curCard = (TurqCurrentCard) data;
 			txtCurrentCard.setText(curCard.getCardsCurrentCode() + " - " //$NON-NLS-1$
 					+ curCard.getCardsName());
@@ -343,7 +342,6 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 				SWT.NULL).open();
 		if (data != null) {
 
-			System.out.println(data.getClass().getName());
 			TurqInventoryCard invCard = (TurqInventoryCard) data;
 			txtInvCard.setText(invCard.getCardInventoryCode() + " - " //$NON-NLS-1$
 					+ invCard.getCardName());

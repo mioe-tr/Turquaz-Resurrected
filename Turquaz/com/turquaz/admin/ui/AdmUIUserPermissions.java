@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.12 2004/12/02 07:46:08 onsel Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.13 2005/01/08 13:02:19 onsel Exp $
  */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -264,7 +264,6 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite
 			}
 
 			java.util.List moduleList = blUserPerms.getModules();
-			System.out.println(moduleList.size());
 			for (int i = 0; i < moduleList.size(); i++) {
 				TurqModule module = (TurqModule) moduleList.get(i);
 				comboModules.setData(module.getModulesName(), module);

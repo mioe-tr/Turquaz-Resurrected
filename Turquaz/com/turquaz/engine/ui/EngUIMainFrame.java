@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.109 2005/01/05 14:55:27 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.110 2005/01/08 13:02:20 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.109 2005/01/05 14:55:27 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.110 2005/01/08 13:02:20 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1070,7 +1070,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			
 				TreeItem selectedItem = (TreeItem)itemRemove.getData();
 				selectedItem.dispose();
-				System.out.println("disposed"); //$NON-NLS-1$
+
 						
 			}
 										

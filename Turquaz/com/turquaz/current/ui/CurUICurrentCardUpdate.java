@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.26 2005/01/07 10:24:05 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.27 2005/01/08 13:02:18 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -307,7 +307,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		
 			
 			if(it.hasNext()){
-				System.out.println(Messages.getString("CurUICurrentCardUpdate.9")); //$NON-NLS-1$
+			    
 				TurqCurrentContact curContact=(TurqCurrentContact)it.next();				
 				compCurCardAdd.getTxtContactWebSite().setText(curContact.getContactsWebSite());
 				compCurCardAdd.getTxtContactName().setText(curContact.getContactsName());
@@ -577,8 +577,6 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 
 			try{
 			ex.printStackTrace();
-			System.out.println(currentCard.getCardsCurrentCode());
-			System.out.println(compCurCardAdd.getTxtCurrentCode().getText().trim());
 		
 			    msg.setMessage(ex.getMessage());
 			    msg.open();

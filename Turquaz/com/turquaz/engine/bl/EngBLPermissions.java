@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLPermissions.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: EngBLPermissions.java,v 1.11 2005/01/08 13:02:19 onsel Exp $
 */
 import java.util.*;
 
@@ -33,7 +33,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
+ * @version $Id: EngBLPermissions.java,v 1.11 2005/01/08 13:02:19 onsel Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
@@ -116,7 +116,6 @@ public class EngBLPermissions {
 		     compMap.put(comp.getComponentsName(),0+"");
 		    }
 		
-		//	System.out.println("Finished filling "+compMap.size());
 		List ls = dbaccess.getGroupPermissions(username);
 		calculateGroupPerms(ls);
 		
