@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.12 2004/12/03 13:46:20 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.13 2004/12/09 20:06:18 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -330,7 +330,7 @@ implements SecureComposite{
 			GridLayout thisLayout = new GridLayout();
 			this.setLayout(thisLayout);
 			thisLayout.numColumns = 2;
-			this.setSize(645, 526);
+			this.setSize(1056, 526);
 			{
 				cTabFolder1 = new CTabFolder(this, SWT.NONE);
 				cTabFolder1.setSize(56, 25);

@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.96 2004/12/09 18:43:00 huseyiner Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.97 2004/12/09 20:06:16 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -90,7 +90,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.96 2004/12/09 18:43:00 huseyiner Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.97 2004/12/09 20:06:16 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1156,6 +1156,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		//Set color for Main tab folder
 		
 		Display display = this.getDisplay();
+		
 	    tabfldMain.setSelectionBackground(
 		         new Color[] {
 		            display.getSystemColor(SWT.COLOR_TITLE_BACKGROUND),
