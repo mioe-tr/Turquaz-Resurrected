@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: NumericText.java,v 1.4 2004/09/28 08:06:30 onsel Exp $
+ * @version $Id: NumericText.java,v 1.5 2004/10/03 10:24:37 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -85,6 +85,16 @@ public class NumericText extends Composite {
           }
 	}
 
+ public int getIntValue(){
+  if(text.getText().length()==0){
+  	return 0;
+  }
+  else {
+  	return Integer.parseInt(text.getText().trim());
+  }
+ 
+ }
+ 
  public void setText(int a){
  	text.setText(a+"");
  }
