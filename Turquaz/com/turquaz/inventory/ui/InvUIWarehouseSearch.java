@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseSearch.java,v 1.11 2004/11/04 14:12:02 ehad Exp $
+* @version  $Id: InvUIWarehouseSearch.java,v 1.12 2004/11/12 08:44:49 onsel Exp $
 */
 
 import java.util.List;
@@ -41,7 +41,9 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.SWT;
 
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
@@ -50,7 +52,7 @@ import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLWarehouseSearch;
 
 
-public class InvUIWarehouseSearch extends  Composite implements SecureComposite {
+public class InvUIWarehouseSearch extends  Composite implements SecureComposite,SearchComposite {
 
 	private TableColumn tableColumnDescription;
 	private TableColumn tableColumnTelephone;
@@ -281,6 +283,11 @@ public class InvUIWarehouseSearch extends  Composite implements SecureComposite 
 		
 		
 		
+		
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableInvUIWarehouses);
 		
 	}
 }

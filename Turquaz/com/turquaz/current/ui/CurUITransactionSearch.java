@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.8 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.9 2004/11/12 08:44:49 onsel Exp $
 */
 import java.util.List;
 
@@ -31,10 +31,12 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 import com.turquaz.current.bl.CurBLSearchTransaction;
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
 import com.turquaz.engine.ui.component.DatePicker;
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 
@@ -62,7 +64,7 @@ import org.eclipse.swt.SWT;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CurUITransactionSearch extends Composite implements SecureComposite {
+public class CurUITransactionSearch extends Composite implements SecureComposite,SearchComposite {
 
 	private CurBLSearchTransaction blSearch = new CurBLSearchTransaction();
 	private CurBLCurrentTransactionAdd blTransAdd = new CurBLCurrentTransactionAdd();
@@ -400,5 +402,10 @@ public class CurUITransactionSearch extends Composite implements SecureComposite
 			msg.open();
 		}
 		}
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableCurrentTransactions);
+		
 	}
 }

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.13 2004/11/06 14:28:26 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.14 2004/11/12 08:44:49 onsel Exp $
 */
 import java.util.List;
 import java.util.Set;
@@ -37,6 +37,7 @@ import org.eclipse.swt.layout.GridData;
 import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLUtils;
 
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentContact;
@@ -46,6 +47,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 /**
@@ -62,7 +65,7 @@ import com.turquaz.engine.ui.component.SecureComposite;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CurUICurrentCardSearch extends  Composite implements SecureComposite {
+public class CurUICurrentCardSearch extends  Composite implements SecureComposite,SearchComposite {
 
 	private CCombo comboTurqGroupName;
 private TableColumn tableColumnCurrentName;
@@ -327,5 +330,10 @@ private TableColumn tableColumnContactName;
 			new CurUICurrentCardUpdate(this.getShell(),SWT.NULL,card).open();
 			search();
 		}
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableCurrentCardSearch);
+		
 	}
 }

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.4 2004/11/04 14:22:05 onsel Exp $
+* @version  $Id: AdmUIUsers.java,v 1.5 2004/11/12 08:44:49 onsel Exp $
 */
 import java.util.List;
 
@@ -50,11 +50,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.TableColumn;
 
 import com.turquaz.admin.bl.AdmBLUsers;
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqUser;
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements SecureComposite {
+public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements SecureComposite,SearchComposite {
 	private Table tableUsers;
 	private TableColumn tableColumnUsername;
 	private TableColumn tableColumnDescription;
@@ -192,6 +194,11 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 		
 	
 	
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableUsers);
+		
 	}
 
 }

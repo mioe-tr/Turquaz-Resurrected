@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroups.java,v 1.3 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: AdmUIGroups.java,v 1.4 2004/11/12 08:44:49 onsel Exp $
 */
 import java.util.List;
 
@@ -51,10 +51,12 @@ import org.eclipse.swt.widgets.TableColumn;
 
 import com.turquaz.admin.bl.AdmBLGroups;
 
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqGroup;
 
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
-public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements SecureComposite {
+public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements SecureComposite,SearchComposite {
 	private Table tableGroups;
 	private TableColumn tableColumnGroupname;
 	private TableColumn tableColumnDescription;
@@ -167,6 +169,11 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 		catch(Exception ex){
 			ex.printStackTrace();
 		}
+		
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableGroups);
 		
 	}
 

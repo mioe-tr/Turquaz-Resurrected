@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.14 2004/11/05 14:18:16 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.15 2004/11/12 08:44:48 onsel Exp $
 */
 
 
@@ -41,7 +41,10 @@ import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLAccountAdd;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.ui.component.SearchComposite;
 
 
 
@@ -61,7 +64,8 @@ import com.cloudgarden.resource.SWTResourceManager;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite {
+public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite implements 
+SearchComposite{
 
 	{
 		//Register as a resource user - SWTResourceManager will
@@ -256,6 +260,11 @@ public void fillTree(int parent, String codeCrit){
 		}
 		
 		
+		
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableTreeAccountingPlan.getTable());
 		
 	}
 }

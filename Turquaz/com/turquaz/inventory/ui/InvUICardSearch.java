@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.19 2004/11/08 14:08:53 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.20 2004/11/12 08:44:49 onsel Exp $
 */
 
 
@@ -32,8 +32,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
+import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 import com.turquaz.inventory.Messages;
@@ -57,7 +59,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.19 2004/11/08 14:08:53 onsel Exp $
+ * @version $Id: InvUICardSearch.java,v 1.20 2004/11/12 08:44:49 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -73,16 +75,9 @@ import org.eclipse.swt.SWT;
 * for any corporate or commercial purpose.
 * *************************************
 */
-/**
-* This code was generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a
-* for-profit company or business) then you should purchase
-* a license - please visit www.cloudgarden.com for details.
-*/
 
 
-public class InvUICardSearch extends  Composite implements SecureComposite {
+public class InvUICardSearch extends  Composite implements SecureComposite,SearchComposite {
 
 	private InvBLCardAdd invBLCardAdd = new InvBLCardAdd();
 	private Composite compInvCardSearch;
@@ -394,5 +389,10 @@ public class InvUICardSearch extends  Composite implements SecureComposite {
 	search();
 	
 	}
+	}
+	public void exportToExcel(){
+		
+		EngBLUtils.Export2Excel(tableSearcResults);
+		
 	}
 }
