@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.15 2005/03/01 16:24:37 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.16 2005/03/02 11:47:45 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -205,8 +205,8 @@ public class CheBLUpdateChequeRoll {
            if(rollType==EngBLCommon.CHEQUE_TRANS_IN)
            {
            	TurqAccountingAccount curAccount = CurBLCurrentCardSearch.getCurrentAccountingAccount(curCard,EngBLCommon.CURRENT_ACC_TYPE_GENERAL);
-           
-           	CheBLSaveChequeTransaction.saveRollAccountingTransactions(rollAccount,curAccount,chequeRoll,totalAmount,currency,exchangeRate);
+//          TODO acc trans exRate
+           	CheBLSaveChequeTransaction.saveRollAccountingTransactions(rollAccount,curAccount,chequeRoll,totalAmount,EngBLCommon.getBaseCurrencyExchangeRate());
            	
            }
            

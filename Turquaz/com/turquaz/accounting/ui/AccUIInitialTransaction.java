@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.17 2005/03/01 16:24:38 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.18 2005/03/02 11:47:44 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -562,12 +562,12 @@ public class AccUIInitialTransaction extends Composite implements
 
                 AccUITransactionAddTableRow row = (AccUITransactionAddTableRow) items[i]
                         .getData();
-
+                //TODO acc trans column exRate
                 if (row.okToSave()) {
                     blTransAdd
                             .saveAccTransactionRow(
                                     (TurqAccountingTransactionColumn) row
-                                            .getDBObject(), transId,EngBLCommon.getBaseCurrency(),new BigDecimal(1));
+                                            .getDBObject(), transId,EngBLCommon.getBaseCurrencyExchangeRate());
                 }
 
             }
@@ -587,10 +587,10 @@ public class AccUIInitialTransaction extends Composite implements
         try {
 
             if (verifyFields()) {
-
+            	//TODO acc trans exRate
                 blTransUpdate.updateTransaction(accTrans, txtDocumentNo
                         .getText().trim(), dateTransactionDate.getData(),
-                        txtTransDefinition.getText().trim(),EngBLCommon.getBaseCurrency());
+                        txtTransDefinition.getText().trim(),EngBLCommon.getBaseCurrencyExchangeRate());
                 updateTransactionRows();
                 msg.setMessage(Messages
                         .getString("AccUITransactionUpdateDialog.2")); //$NON-NLS-1$

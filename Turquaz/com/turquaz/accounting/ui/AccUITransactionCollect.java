@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.44 2005/03/01 16:24:37 onsel Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.45 2005/03/02 11:47:44 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -577,17 +577,18 @@ public class AccUITransactionCollect extends Composite implements
 							.getData());
 			transRow.setTransactionDefinition(Messages
 					.getString("AccUITransactionCollect.9")); //$NON-NLS-1$
-			blTransAdd.saveAccTransactionRow(transRow, transId,(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()), exchangeRatio );
+			//TODO acc trans column exRate
+			blTransAdd.saveAccTransactionRow(transRow, transId,EngBLCommon.getBaseCurrencyExchangeRate() );
 
 			//Save the table rows
 			for (int i = 0; i < items.length; i++) {
 				AccUITransactionCollectTableRow row = (AccUITransactionCollectTableRow) items[i]
 						.getData();
-
+				//TODO acc trans column exRate
 				if (row.okToSave()) 
 				{
 					blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn) row
-											.getDBObject(), transId,(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()), exchangeRatio );
+											.getDBObject(), transId,EngBLCommon.getBaseCurrencyExchangeRate() );
 				}
 			}
 

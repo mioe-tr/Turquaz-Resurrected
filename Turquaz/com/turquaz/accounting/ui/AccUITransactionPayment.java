@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.40 2005/03/01 16:24:37 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.41 2005/03/02 11:47:44 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -559,14 +559,15 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
     transRow.setCreditAmount(totalCredit);
     transRow.setTurqAccountingAccount((TurqAccountingAccount)comboCreditor.getData());
     transRow.setTransactionDefinition(Messages.getString("AccUITransactionPayment.13")); //$NON-NLS-1$
-    blTransAdd.saveAccTransactionRow(transRow,transId,(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()), exchangeRatio);   
+//  TODO acc trans column exRate
+    blTransAdd.saveAccTransactionRow(transRow,transId,EngBLCommon.getBaseCurrencyExchangeRate());   
      
     //Save the table rows    
     for(int i=0; i<items.length;i++){
         AccUITransactionPaymentTableRow row =(AccUITransactionPaymentTableRow)items[i].getData();
-        
+//      TODO acc trans column exRate
         if(row.okToSave()){
-            blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()), exchangeRatio);
+            blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,EngBLCommon.getBaseCurrencyExchangeRate());
         }
     }
     

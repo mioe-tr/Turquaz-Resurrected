@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.19 2005/02/28 18:09:26 onsel Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.20 2005/03/02 11:47:44 cemdayanik Exp $
 */
 
 
@@ -37,6 +37,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingJournal;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqCurrency;
+import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 
 
 public class AccBLTransactionSearch {
@@ -84,6 +85,19 @@ public class AccBLTransactionSearch {
 		try 
 		{
 			return AccDALTransactionSearch.getBaseCurrency();
+
+		} catch (Exception ex) {
+			throw ex;
+
+		}
+	}
+	
+	public static TurqCurrencyExchangeRate getBaseCurrencyExchangeRate() throws Exception
+	{
+
+		try 
+		{
+			return AccDALTransactionSearch.getBaseCurrencyExchangeRate();
 
 		} catch (Exception ex) {
 			throw ex;

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.34 2005/03/01 20:02:02 cemdayanik Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.35 2005/03/02 11:47:44 cemdayanik Exp $
 */
 
 
@@ -48,12 +48,13 @@ import org.eclipse.swt.layout.GridData;
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
 import com.turquaz.accounting.ui.AccUITransactionAdd;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
-import com.turquaz.engine.dal.TurqCurrency;
+
 import com.turquaz.engine.ui.viewers.ITableRow;
 
 
@@ -262,7 +263,8 @@ public void showDialog(TurqAccountingTransaction accTrans){
 	    
 	compTransactionAdd.getTxtDocumentNo().setText(accTrans.getTransactionDocumentNo());
 	compTransactionAdd.getTxtTransDefinition().setText(accTrans.getTransactionDescription());
-	compTransactionAdd.getComboCurrencyType().setText(accTrans.getTurqCurrency().getCurrenciesAbbreviation());
+//	TODO  exRate
+	compTransactionAdd.getComboCurrencyType().setText(accTrans.getTurqCurrencyExchangeRate().getTurqCurrencyByExchangeCurrencyId().getCurrenciesAbbreviation());
 
 	
 	Date date = new Date(accTrans.getTransactionsDate().getTime());
@@ -318,9 +320,10 @@ public void showDialog(TurqAccountingTransaction accTrans){
 			if(compTransactionAdd.verifyFields())
 			{
 				updated=true;
+//				TODO acc trans exRate
 			 blTransUpdate.updateTransaction(accTrans,compTransactionAdd.getTxtDocumentNo().getText().trim(),
 										compTransactionAdd.getDateTransactionDate().getData(),compTransactionAdd.getTxtTransDefinition().getText().trim(),
-										(TurqCurrency)compTransactionAdd.getComboCurrencyType().getData(compTransactionAdd.getComboCurrencyType().getText()));
+										EngBLCommon.getBaseCurrencyExchangeRate());
 			 updateTransactionRows();
 			 msg.setMessage(Messages.getString("AccUITransactionUpdateDialog.2")); //$NON-NLS-1$
 			 msg.open();

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.57 2005/03/01 16:24:38 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.58 2005/03/02 11:47:44 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -548,10 +548,10 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
     		{
    
     			AccUITransactionAddTableRow row =(AccUITransactionAddTableRow)items[i].getData();
-     
+    			//TODO acc trans column exRate
     			if(row.okToSave())
     			{
-    				blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()), exchangeRatio );
+    				blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,EngBLCommon.getBaseCurrencyExchangeRate());
     			}
     
     		}
