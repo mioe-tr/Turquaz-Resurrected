@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.9 2004/10/28 09:48:24 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.10 2004/10/28 10:16:18 onsel Exp $
 */
 
 
@@ -70,6 +70,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite {
 	*/
 	public void initGUI(){
 		try {
+			
 			preInitGUI();
 	
 			tableTreeAccountingPlan = new TableTree(this,SWT.FULL_SELECTION);

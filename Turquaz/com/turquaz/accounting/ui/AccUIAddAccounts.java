@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.14 2004/10/27 08:48:57 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.15 2004/10/28 10:16:18 onsel Exp $
 */
 
 
@@ -321,7 +321,7 @@ public class AccUIAddAccounts extends SecureComposite{
 	protected void txtParentAccountMouseUp(MouseEvent evt){
 	
 	
-	Object[] obj = new AccUISearchAccountsDialog(this.getShell(),SWT.NULL).showDialog("");
+	Object[] obj = new AccUIStaticAccountsDialog(this.getShell(),SWT.NULL).showDialog("");
 		if (obj[0] != null) {
 			txtParentAccount.setData(obj[1]);
 			txtParentAccount.setText(obj[0].toString());
