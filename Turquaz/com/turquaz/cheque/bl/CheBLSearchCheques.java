@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSearchCheques.java,v 1.7 2005/03/08 16:11:37 cemdayanik Exp $
+* @version  $Id: CheBLSearchCheques.java,v 1.8 2005/03/15 14:27:19 onsel Exp $
 */
 
 import java.util.Date;
@@ -37,7 +37,7 @@ public class CheBLSearchCheques {
 	public static List searchCheque(String portfoliNo, TurqCurrentCard curCard, Integer status, Date startEnterDate, Date endEnterDate, Date startDueDate, Date endDueDate)throws Exception {
 		try{
 			
-		return	CheDALSearch.searchCheques(portfoliNo,curCard,status,startEnterDate,endEnterDate,startDueDate,endDueDate);
+		return	CheDALSearch.searchCheque(portfoliNo,curCard,status,startEnterDate,endEnterDate,startDueDate,endDueDate);
 			
 		}
 		catch(Exception ex){

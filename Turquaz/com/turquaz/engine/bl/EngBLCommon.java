@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.59 2005/03/15 13:45:08 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.60 2005/03/15 14:27:18 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -192,22 +192,22 @@ public class EngBLCommon {
 	
 	
 	public final static Integer CHEQUE_STATUS_PORTFOY = new Integer(1);
-	public final static String CHEQUE_STATUS_PORTFOY_STRING = "Portföyde.";
+	public final static String CHEQUE_STATUS_PORTFOY_STRING = Messages.getString("EngBLCommon.12"); //$NON-NLS-1$
 	
 	public final static Integer CHEQUE_STATUS_CURRENT = new Integer(2);
-	public final static String CHEQUE_STATUS_CURRENT_STRING = "Ciro Edildi.";
+	public final static String CHEQUE_STATUS_CURRENT_STRING = Messages.getString("EngBLCommon.13"); //$NON-NLS-1$
 		
 	public final static Integer CHEQUE_STATUS_COLLECTED = new Integer(3);
-	public final static String CHEQUE_STATUS_COLLECTED_STRING = "Tahsil Edildi.";
+	public final static String CHEQUE_STATUS_COLLECTED_STRING = Messages.getString("EngBLCommon.14"); //$NON-NLS-1$
 	
 	public final static Integer CHEQUE_STATUS_RETURN_TO_CURRENT = new Integer(4);
-	public final static String CHEQUE_STATUS_RETURN_TO_CURRENT_STRING = "Cariye ?ade Edildi.";
+	public final static String CHEQUE_STATUS_RETURN_TO_CURRENT_STRING = Messages.getString("EngBLCommon.15"); //$NON-NLS-1$
 	
 	public final static Integer CHEQUE_STATUS_IN_BANK = new Integer(6);
-	public final static String CHEQUE_STATUS_IN_BANK_STRING = "Tahsilde.";
+	public final static String CHEQUE_STATUS_IN_BANK_STRING = Messages.getString("EngBLCommon.16"); //$NON-NLS-1$
 	
 	public final static Integer CHEQUE_STATUS_BOUNCED = new Integer(5);
-	public final static String CHEQUE_STATUS_BOUNCED_STRING = "Kar??l?ks?z.";
+	public final static String CHEQUE_STATUS_BOUNCED_STRING = Messages.getString("EngBLCommon.17"); //$NON-NLS-1$
 	
 	
 	public static Map getChequeStatusMapWithStringKey(){

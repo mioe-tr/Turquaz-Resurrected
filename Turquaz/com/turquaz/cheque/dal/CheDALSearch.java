@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.22 2005/03/15 13:45:10 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.23 2005/03/15 14:27:19 onsel Exp $
  */
 
 import java.util.Date;
@@ -213,7 +213,7 @@ public class CheDALSearch {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List searchCheques(String portfoyNo, TurqCurrentCard curCard,
+	public static List searchCheque(String portfoyNo, TurqCurrentCard curCard,
 			Integer status, Date startEnterDate, Date endEnterDate,
 			Date startDueDate, Date endDueDate) throws Exception {
 		try {
@@ -242,7 +242,7 @@ public class CheDALSearch {
 				query += " and chequeInRolls.turqChequeRoll.turqCurrentCard = :curCard";
 			}
 			if (status != null) {
-				query += " and status.chequeTransactionTypesId = "
+				query += " and status.transactionTypesParent = "
 						+ status.intValue();
 			}
 
