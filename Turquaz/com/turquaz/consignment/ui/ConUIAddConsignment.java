@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.69 2005/03/26 15:06:44 onsel Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.70 2005/03/29 11:47:51 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -476,6 +476,8 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 							txtBillDocumentNoLData.widthHint = 150;
 							txtBillDocumentNoLData.heightHint = 17;
 							txtBillDocumentNo.setLayoutData(txtBillDocumentNoLData);
+							txtBillDocumentNo.setEditable(false);
+							txtBillDocumentNo.setBackground(SWTResourceManager.getColor(255, 255, 255));
 						}
 						{
 							lblDate = new CLabel(compInfoPanel, SWT.LEFT);
@@ -965,6 +967,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 			InvUITransactionTableRow row = new InvUITransactionTableRow(type, tableViewer);
 			tableViewer.addRow(row);
 		}
+		cTabFolder1.setSelection(0);
 	}
 
 	public void fillComboWarehouses()
@@ -1079,9 +1082,9 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		{
 			if (verifyFields())
 			{
-				int type = 0;
-				if (comboConsignmentType.getText().equals(Messages.getString("ConUIAddConsignment.35"))) { //$NON-NLS-1$
-					type = 1;
+				int type = EngBLCommon.COMMON_BUY_INT;
+				if (comboConsignmentType.getText().equals(EngBLCommon.COMMON_SELL_STRING)) { 
+					type=EngBLCommon.COMMON_SELL_INT;
 				}
 				TurqConsignment cons = ConBLAddConsignment.saveConsignment(txtDocumentNo.getText(), txtDefinition.getText(), false,
 						dateConsignmentDate.getDate(), (TurqCurrentCard) txtCurrentCard.getData(), type, EngBLCommon

@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.39 2005/03/17 15:02:11 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.40 2005/03/29 11:47:51 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -131,6 +131,7 @@ public class BankBLTransactionAdd
 					EngBLCommon.BANK_ACC_TYPE_GENERAL);
 			TurqAccountingAccount deptAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCardWithDept,
 					EngBLCommon.BANK_ACC_TYPE_GENERAL);
+		
 			accTransRowDept.setTransactionDefinition(definition);
 			accTransRowDept.setTurqAccountingAccount(creditAccount);
 			accTransRowCredit.setTransactionDefinition(definition);
@@ -413,8 +414,11 @@ public class BankBLTransactionAdd
 			/**
 			 * Save Accounting Transaction
 			 */
-			AccBLTransactionAdd.saveAccTransaction(transDate, docNo, accTransType, seq.getTurqModule().getId().intValue(), seq.getId(),
+			if(currentAccount!=null)
+			{
+				AccBLTransactionAdd.saveAccTransaction(transDate, docNo, accTransType, seq.getTurqModule().getId().intValue(), seq.getId(),
 					definition, exchangeRate, creditAccounts, deptAccounts, true);
+			}
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.41 2005/03/29 07:19:07 onsel Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.42 2005/03/29 11:47:48 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -687,7 +687,7 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 				}
 				
 			//	TurqConsignment consignment = (TurqConsignment) txtConsignment.getData();
-			BillBLAddBill.saveBillFromCons(txtDocumentNo.getText(), txtDefinition.getText(), false, dateBillDate.getDate(), consList,type,dateDueDate.getDate(), getBillGroups(),(TurqCurrentCard)txtCurrentCard.getData(),EngBLCommon.getBaseCurrencyExchangeRate(),txtTotalAmount.getBigDecimalValue(),txtDiscountAmount.getBigDecimalValue());
+			BillBLAddBill.saveBillFromCons(txtBillDocumentNo.getText(), txtDefinition.getText(), false, dateBillDate.getDate(), consList,type,dateDueDate.getDate(), getBillGroups(),(TurqCurrentCard)txtCurrentCard.getData(),EngBLCommon.getBaseCurrencyExchangeRate(),txtTotalAmount.getBigDecimalValue(),txtDiscountAmount.getBigDecimalValue());
 				msg.setMessage(Messages.getString("BillUIBillFromConsignment.34")); //$NON-NLS-1$
 				msg.open();
 				newForm();
@@ -794,7 +794,7 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 				}
 				comboConsignmentType.setText(type);
 				dateConsDate.setDate(cons.getConsignmentsDate());
-				txtDocumentNo.setText(txtDocumentNo.getText()+","+cons.getConsignmentDocumentNo());
+				txtDocumentNo.setText(txtDocumentNo.getText()+cons.getConsignmentDocumentNo());
 			    calculateTotals();
 			}
 			catch (Exception ex)
