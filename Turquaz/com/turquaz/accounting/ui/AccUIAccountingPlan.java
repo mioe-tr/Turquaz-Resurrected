@@ -17,18 +17,21 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.8 2004/10/27 10:57:32 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.9 2004/10/28 09:48:24 onsel Exp $
 */
 
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Color;
@@ -142,18 +145,44 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite {
  */	
 public void fillTree(int parent, String codeCrit){
 	try{
+		
+	Map treeItems = new HashMap();	
 	tableTreeAccountingPlan.removeAll();	
 	TableTreeItem item;
-	List mainBranches = blAccount.getAccount(parent, codeCrit);
+	List mainBranches = blAccount.getAllAccounts();
 	TurqAccountingAccount account;
-	for(int i =0; i< mainBranches.size();i++){
+
+	Integer parentId;
 	
+	
+	
+	for(int i =0; i< mainBranches.size();i++){
 	account = (TurqAccountingAccount)mainBranches.get(i);
-	item = new TableTreeItem(tableTreeAccountingPlan,SWT.NULL);
-	item.setText(0,account.getAccountCode());
-	item.setText(1,account.getAccountName());
-	item.setData(account);	
-	fillBranch(item,account.getAccountingAccountsId().intValue(),"");
+	
+	parentId = account.getTurqAccountingAccount().getAccountingAccountsId();
+	if(parentId.intValue()==-1){
+		item = new TableTreeItem(tableTreeAccountingPlan,SWT.NULL);
+		item.setText(0,account.getAccountCode());
+		item.setText(1,account.getAccountName());
+		item.setData(account);	
+		treeItems.put(account.getAccountingAccountsId(),item);
+		}
+		
+		else{
+			
+		TableTreeItem parentItem = (TableTreeItem)treeItems.get(parentId);
+		if(parentItem == null){
+		   System.out.println(account.getAccountCode()+" "+parentId.intValue());
+		}
+		else{
+		item = new TableTreeItem(parentItem,SWT.NULL);	
+		treeItems.put(account.getAccountingAccountsId(),item);
+		item.setText(0,account.getAccountCode());
+		item.setText(1,account.getAccountName());
+		item.setData(account);	
+		}
+		
+		}
 	
 	}
 	

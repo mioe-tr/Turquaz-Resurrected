@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.5 2004/10/27 07:18:20 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.6 2004/10/28 09:48:24 onsel Exp $
 */
 
 
@@ -53,6 +53,17 @@ public class AccBLAccountAdd {
 		try{
 			
 			return dalAccountAdd.getAccounts(parentid,codeCrit);
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
+	public List getAllAccounts()throws Exception{
+		try{
+			
+			return dalAccountAdd.getAllAccounts();
 			
 		}
 		catch(Exception ex){
