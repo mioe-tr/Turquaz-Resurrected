@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.9 2004/11/17 13:48:04 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.10 2004/11/17 16:21:23 onsel Exp $
 */
 
 
@@ -82,10 +82,10 @@ public class AccDALAccountAdd {
 	}
 	public static TurqAccountingAccount getAccount(String code)throws Exception{
 		try{
-			Session session = EngDALSessionFactory.openSession();
+			Session session =  EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+" and" +
+					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+
 							
 							" and accounts.accountCode ='"+code+"'" +
 							" and accounts.accountingAccountsId <> -1";
