@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIProfitAnalysis.java,v 1.11 2005/02/16 16:14:02 cemdayanik Exp $
+* @version  $Id: InvUIProfitAnalysis.java,v 1.12 2005/02/17 08:14:06 onsel Exp $
 */
 
 
@@ -28,8 +28,6 @@ import java.util.List;
 import org.eclipse.swt.layout.GridLayout;
 
 import com.turquaz.engine.bl.EngBLUtils;
-import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.engine.dal.TurqViewInventoryTotal;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import com.turquaz.inventory.Messages;

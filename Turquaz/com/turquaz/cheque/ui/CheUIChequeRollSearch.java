@@ -18,13 +18,11 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.7 2005/02/16 19:29:40 cemdayanik Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.8 2005/02/17 08:14:05 onsel Exp $
  */
 
 import java.util.Date;
 import java.util.List;
-
-import net.sf.hibernate.Session;
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;

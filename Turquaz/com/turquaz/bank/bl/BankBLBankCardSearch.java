@@ -18,16 +18,12 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardSearch.java,v 1.6 2005/02/16 19:29:39 cemdayanik Exp $
+* @version  $Id: BankBLBankCardSearch.java,v 1.7 2005/02/17 08:14:04 onsel Exp $
 */
 
 import java.util.List;
 
-import net.sf.hibernate.Query;
-import net.sf.hibernate.Session;
-
 import com.turquaz.bank.dal.BankDALBankCardSearch;
-import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
 

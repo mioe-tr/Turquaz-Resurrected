@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.16 2005/02/16 12:24:55 cemdayanik Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.17 2005/02/17 08:14:04 onsel Exp $
 */
 
 import java.util.Date;
@@ -33,7 +33,6 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
-import com.turquaz.engine.dal.TurqInventoryTransaction;
 
 
 /**

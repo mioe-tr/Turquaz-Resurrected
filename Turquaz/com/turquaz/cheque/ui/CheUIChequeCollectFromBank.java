@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeCollectFromBank.java,v 1.2 2005/02/16 16:46:41 onsel Exp $
+* @version  $Id: CheUIChequeCollectFromBank.java,v 1.3 2005/02/17 08:14:06 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.DatePicker;
