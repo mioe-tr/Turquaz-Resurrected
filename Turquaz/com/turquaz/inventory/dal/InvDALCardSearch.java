@@ -36,7 +36,7 @@ import com.turquaz.engine.dal.TurqInventoryGroup;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.7 2004/10/22 11:47:11 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.8 2004/10/22 12:31:29 onsel Exp $
 */
 
 public class InvDALCardSearch {
@@ -54,7 +54,7 @@ public class InvDALCardSearch {
 				String query = "Select distinct invCard from TurqInventoryCard as invCard " +
 								"left join invCard.turqInventoryCardGroups as cardGroup " +
 							   "where invCard.turqCompany.companiesId ="+System.getProperty("company")+" " +
-							   "and invCard.cardName like '"+cardName+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
+							   "and lower(invCard.cardName) like '"+cardName.toLowerCase()+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
 							
 							   	
 				if(invGroup!=null){

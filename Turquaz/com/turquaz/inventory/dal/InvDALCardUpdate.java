@@ -28,14 +28,15 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardUpdate.java,v 1.4 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvDALCardUpdate.java,v 1.5 2004/10/22 12:31:29 onsel Exp $
 */
 
 public class InvDALCardUpdate {
 	public InvDALCardUpdate()
 	{
 			
-	}
+	
+	}	
 	public void updateObject(Object obj)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
@@ -53,6 +54,7 @@ public class InvDALCardUpdate {
 		
 		
 	}
+	
 	public void deleteObject(Object obj)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
