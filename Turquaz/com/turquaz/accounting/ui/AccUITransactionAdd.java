@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.36 2004/12/12 19:34:04 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.37 2004/12/17 20:17:14 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -209,8 +209,8 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 				dateTransactionDate = new DatePicker(this, SWT.NONE);
 				GridData dateTransactionDateLData = new GridData();
 				dateTransactionDateLData.verticalAlignment = GridData.BEGINNING;
-				dateTransactionDateLData.widthHint = 159;
-				dateTransactionDateLData.heightHint = 26;
+				dateTransactionDateLData.widthHint = 170;
+				dateTransactionDateLData.heightHint = 24;
 				dateTransactionDate.setLayoutData(dateTransactionDateLData);
 			}
 			{

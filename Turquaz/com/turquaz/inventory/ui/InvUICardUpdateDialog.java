@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.32 2004/12/09 11:14:37 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.33 2004/12/17 20:17:15 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -124,7 +124,7 @@ public class InvUICardUpdateDialog extends Dialog{
 			compMain = new Composite(dialogShell,SWT.NULL);
 			compInvUICard = new InvUICardAdd(compMain,SWT.NULL);
 	
-			dialogShell.setSize(613, 367);
+			dialogShell.setSize(634, 368);
 	
 			GridData coolBarTopLData = new GridData();
 			coolBarTopLData.horizontalAlignment = GridData.FILL;

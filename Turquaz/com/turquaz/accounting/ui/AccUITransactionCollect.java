@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.28 2004/12/16 16:05:07 huseyiner Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.29 2004/12/17 20:17:15 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -231,12 +231,10 @@ public class AccUITransactionCollect extends Composite implements
 			}
 			{
 				lblTransDefinition = new CLabel(this, SWT.NONE);
-				lblTransDefinition.setText(Messages
-						.getString("AccUITransactionCollect.1")); //$NON-NLS-1$
+				lblTransDefinition.setText(Messages.getString("AccUITransactionCollect.1")); //$NON-NLS-1$
 				GridData lblTransDefinitionLData = new GridData();
-				lblTransDefinitionLData.widthHint = 59;
+				lblTransDefinitionLData.widthHint = 78;
 				lblTransDefinitionLData.heightHint = 19;
-				lblTransDefinitionLData.verticalAlignment = GridData.BEGINNING;
 				lblTransDefinition.setLayoutData(lblTransDefinitionLData);
 			}
 			{

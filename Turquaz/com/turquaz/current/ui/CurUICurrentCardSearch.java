@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.22 2004/12/14 21:07:20 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.23 2004/12/17 20:17:13 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -121,7 +121,7 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 				GridData compCurrentCardSearchLData = new GridData();
 				compCurrentCardSearch.setLayout(compCurrentCardSearchLayout);
 				compCurrentCardSearchLData.widthHint = 380;
-				compCurrentCardSearchLData.heightHint = 80;
+				compCurrentCardSearchLData.heightHint = 90;
 				compCurrentCardSearch.setLayoutData(compCurrentCardSearchLData);
 				{
 					lblCurrentCode = new CLabel(compCurrentCardSearch, SWT.NONE);
@@ -167,16 +167,19 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 					lblTurqGroupName = new CLabel(compCurrentCardSearch, SWT.NONE);
 					lblTurqGroupName.setText(Messages
 						.getString("CurUICurrentCardSearch.2"));
-					lblTurqGroupName
-						.setSize(new org.eclipse.swt.graphics.Point(65, 19));
 					GridData lblTurqGroupNameLData = new GridData();
-					lblTurqGroupNameLData.widthHint = 65;
-					lblTurqGroupNameLData.heightHint = 19;
+					lblTurqGroupNameLData.widthHint = 91;
+					lblTurqGroupNameLData.heightHint = 21;
 					lblTurqGroupName.setLayoutData(lblTurqGroupNameLData);
+					lblTurqGroupName.setSize(91,21);
 				}
 				{
 					comboTurqGroupName = new CCombo(compCurrentCardSearch, SWT.NONE);
 					GridData comboTurqGroupNameLData = new GridData();
+					comboTurqGroupNameLData.widthHint = 150;
+					comboTurqGroupNameLData.heightHint = 29;
+					comboTurqGroupName.setSize(150, 29);
+
 					comboTurqGroupName.setLayoutData(comboTurqGroupNameLData);
 				}
 			}

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.24 2004/12/17 13:15:14 huseyiner Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.25 2004/12/17 20:17:15 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -147,7 +147,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			
 			preInitGUI();
 
-			this.setSize(new org.eclipse.swt.graphics.Point(520,452));
+			this.setSize(544, 451);
 
 
 			
@@ -199,7 +199,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				lblCreditor.setText(Messages
 					.getString("AccUITransactionPayment.2")); //$NON-NLS-1$
 				GridData lblCreditorLData = new GridData();
-				lblCreditorLData.widthHint = 94;
+				lblCreditorLData.widthHint = 105;
 				lblCreditorLData.heightHint = 19;
 				lblCreditor.setLayoutData(lblCreditorLData);
 			}
