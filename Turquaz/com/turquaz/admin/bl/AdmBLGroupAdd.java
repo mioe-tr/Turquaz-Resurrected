@@ -23,14 +23,12 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.2 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.3 2004/11/04 13:32:08 cem Exp $
 */
 
 import java.util.Calendar;
-import java.util.List;
 
 import com.turquaz.admin.dal.AdmDALGroupAdd;
-import com.turquaz.admin.dal.AdmDALUserAdd;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqUser;
