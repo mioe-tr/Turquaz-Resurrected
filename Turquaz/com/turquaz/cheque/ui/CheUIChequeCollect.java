@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeCollect.java,v 1.2 2005/02/22 11:29:46 onsel Exp $
+* @version  $Id: CheUIChequeCollect.java,v 1.3 2005/02/22 13:15:28 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -398,4 +398,5 @@ public class CheUIChequeCollect extends org.eclipse.swt.widgets.Composite implem
 	public void setCashCardPcker(CashCardPicker cashCardPcker) {
 		this.cashCardPcker = cashCardPcker;
 	}
+	
 }
