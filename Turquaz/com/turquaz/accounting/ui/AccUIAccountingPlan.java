@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.5 2004/10/21 17:56:41 huseyin Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.6 2004/10/25 12:51:06 onsel Exp $
 */
 
 
@@ -206,12 +206,11 @@ public void fillTree(int parent, String codeCrit){
 	
 		// it's not an main account
 		// main accounts cannot be edited
-		if(account.getTurqAccountingAccount().getAccountingAccountsId().intValue()!=-1){
+		
 		
 		new AccUIAccountUpdate(this.getShell(),SWT.NULL,account).open();
 		fillTree(-1,"");	
-		}
-				
+	
 		}
 		
 		

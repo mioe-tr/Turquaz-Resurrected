@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.3 2004/10/25 09:08:34 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.4 2004/10/25 12:51:06 onsel Exp $
 */
 
 
@@ -80,11 +80,11 @@ public class AccDALAccountUpdate {
 		try{
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
-	        String query = "from TurqAccountingTransactionColumns as transaction " +
+	        String query = "select sum(transaction.deptAmount), sum(transaction.creditAmount) from TurqAccountingTransactionColumn as transaction " +
 	        		"where transaction.turqAccountingAccount= :account" ;
-					  
-
-			Query q = session.createQuery(query); 
+			
+	        Query q = session.createQuery(query); 
+	        q.setParameter("account",account);
 			List list = q.list();
 			tx.commit();
 			session.close();

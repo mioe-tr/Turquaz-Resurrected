@@ -23,11 +23,12 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.4 2004/10/25 10:46:46 onsel Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.5 2004/10/25 12:51:06 onsel Exp $
 */
 
 
 import java.util.Calendar;
+import java.util.List;
 
 
 import com.turquaz.accounting.dal.AccDALAccountUpdate;
@@ -87,6 +88,19 @@ public class AccBLAccountUpdate {
 		}
 		
 	}
+	
+	public List getTotalDeptAndCredit(Object obj)throws Exception{
+		
+		try{
+		return dalAccountUpdate.getTotalDeptAndCredit((TurqAccountingAccount)obj);
+			
+			
+		}
+		catch(Exception ex){
+		 throw ex;
+		}
+	}
+	
 	
 	
 	
