@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.14 2005/03/02 09:18:18 onsel Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.15 2005/03/02 11:03:24 onsel Exp $
 */
 
 import java.sql.ResultSet;
@@ -163,12 +163,12 @@ public class BankDALBankCardSearch {
 		}
 	}
 	
-	public static TurqAccountingAccount getCurrentAccountingAccount(TurqBanksCard curCard, Integer type)throws Exception{
+	public static TurqAccountingAccount getBankAccountingAccount(TurqBanksCard bankCard, Integer type)throws Exception{
 		try{
 			
 			Session session = EngDALSessionFactory.openSession();
-			session.refresh(curCard);
-			Iterator it = curCard.getTurqBankAccountingAccounts().iterator();
+			session.refresh(bankCard);
+			Iterator it = bankCard.getTurqBankAccountingAccounts().iterator();
 			while(it.hasNext())
 			{
 				TurqBankAccountingAccount curAccount = (TurqBankAccountingAccount)it.next();

@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.15 2005/03/01 18:26:59 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.16 2005/03/02 11:03:23 onsel Exp $
  */
 
 import java.util.Date;
@@ -29,6 +29,7 @@ import net.sf.hibernate.Session;
 
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqChequeChequeInRoll;
@@ -298,6 +299,34 @@ public class CheDALSearch {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	public static TurqAccountingAccount getChequeRollAccountingAccount(TurqChequeCheque cheque, int rollType)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			
+			String query = "Select chequeRoll.turqChequeRollAccountingAccount.turqAccountingAccount from TurqChequeRoll as chequeRoll " +
+					" left join chequeRoll.turqChequeChequeInRolls chequeInRoll " +
+					" where chequeInRoll.turqChequeCheque = :cheque " +
+					" and chequeRoll.turqChequeTransactionType.id ="+rollType;
+			
+			Query q = session.createQuery(query);
+			q.setParameter("cheque",cheque);
+			List list = q.list();
+			session.close();
+			if(list.size()>0)
+			{
+				return (TurqAccountingAccount)list.get(0);
+			}
+			 return null;
+			
+			
+			
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
+		
 	}
 	
 	

@@ -18,13 +18,14 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardSearch.java,v 1.8 2005/03/01 14:03:39 onsel Exp $
+* @version  $Id: BankBLBankCardSearch.java,v 1.9 2005/03/02 11:03:23 onsel Exp $
 */
 
 import java.util.List;
 
 import com.turquaz.bank.dal.BankDALBankCardSearch;
 import com.turquaz.bank.dal.BankDALCommon;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
 
@@ -83,6 +84,14 @@ public class BankBLBankCardSearch {
 	{
 	
 		BankDALCommon.initializeBankCard(bankCard);
+		
+	}
+	public static TurqAccountingAccount getAccountingAccount(TurqBanksCard bankCard, Integer type)throws Exception{
+		
+		
+		return BankDALBankCardSearch.getBankAccountingAccount(bankCard, type);
+		
+		
 		
 	}
 

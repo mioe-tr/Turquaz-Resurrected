@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.24 2005/03/01 16:24:41 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.25 2005/03/02 11:03:23 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -133,8 +133,8 @@ public class BankBLTransactionAdd {
             TurqAccountingTransactionColumn accTransRowDept = new TurqAccountingTransactionColumn();
             TurqAccountingTransactionColumn accTransRowCredit = new TurqAccountingTransactionColumn();
 
-            TurqAccountingAccount creditAccount = BankDALBankCardSearch.getCurrentAccountingAccount(bankCardWithCredit,EngBLCommon.BANK_ACC_TYPE_GENERAL);
-            TurqAccountingAccount deptAccount = BankDALBankCardSearch.getCurrentAccountingAccount(bankCardWithDept,EngBLCommon.BANK_ACC_TYPE_GENERAL);
+            TurqAccountingAccount creditAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCardWithCredit,EngBLCommon.BANK_ACC_TYPE_GENERAL);
+            TurqAccountingAccount deptAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCardWithDept,EngBLCommon.BANK_ACC_TYPE_GENERAL);
             
             
             accTransRowDept.setTransactionDefinition(definition);
@@ -287,7 +287,7 @@ public class BankBLTransactionAdd {
             TurqAccountingTransactionColumn accTransRowBank = new TurqAccountingTransactionColumn();
             TurqAccountingTransactionColumn accTransRowCurrent = new TurqAccountingTransactionColumn();
 
-            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getCurrentAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
+            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
             
             
             accTransRowBank.setTransactionDefinition(definition);
@@ -434,7 +434,7 @@ public class BankBLTransactionAdd {
             TurqAccountingTransactionColumn accTransRowCurrent = new TurqAccountingTransactionColumn();
 
 
-            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getCurrentAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
+            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
             
             
             accTransRowBank.setTransactionDefinition(definition);
@@ -581,7 +581,7 @@ public class BankBLTransactionAdd {
             TurqAccountingTransactionColumn accTransRowCurrent = new TurqAccountingTransactionColumn();
             
 
-            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getCurrentAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
+            TurqAccountingAccount bankAccount = BankDALBankCardSearch.getBankAccountingAccount(bankCard,EngBLCommon.BANK_ACC_TYPE_GENERAL);
             
 
             accTransRowBank.setTransactionDefinition(definition);
