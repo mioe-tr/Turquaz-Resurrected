@@ -18,13 +18,14 @@ package com.turquaz.admin.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserUpdate.java,v 1.7 2004/11/18 19:50:53 huseyiner Exp $
+ * @version $Id: AdmBLUserUpdate.java,v 1.8 2005/03/17 09:11:03 onsel Exp $
  */
 
 import java.util.Calendar;
 
 import com.turquaz.admin.dal.AdmDALUserUpdate;
 
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqUser;
 
 public class AdmBLUserUpdate {
@@ -47,7 +48,7 @@ public class AdmBLUserUpdate {
 			user.setUpdateDate(cal.getTime());
 			user.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 
-			dalAdmin.updateObject(user);
+			EngDALCommon.updateObject(user);
 
 		} catch (Exception ex) {
 			throw ex;
@@ -58,7 +59,7 @@ public class AdmBLUserUpdate {
 	public void deleteObject(Object obj) throws Exception {
 		try {
 
-			dalAdmin.deleteObject(obj);
+			EngDALCommon.deleteObject(obj);
 
 		} catch (Exception ex) {
 			throw ex;

@@ -19,12 +19,13 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupPermissions.java,v 1.7 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: AdmBLGroupPermissions.java,v 1.8 2005/03/17 09:11:03 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
 
 import com.turquaz.admin.dal.AdmDALUserPermissions;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqGroupPermission;
@@ -100,7 +101,7 @@ public class AdmBLGroupPermissions {
 				groupPerm.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 				groupPerm.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 				
-				dalAdminGroupPerms.saveObject(groupPerm);
+				EngDALCommon.saveObject(groupPerm);
 				
 				
 			}
@@ -108,10 +109,11 @@ public class AdmBLGroupPermissions {
 				throw ex;
 			}
 		}
+		
 		public void deleteObject(Object obj)throws Exception {
 			try{
 				
-				dalAdminGroupPerms.deleteObject(obj);			
+				EngDALCommon.deleteObject(obj);			
 				
 			}
 			catch(Exception ex){

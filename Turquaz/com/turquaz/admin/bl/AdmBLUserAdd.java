@@ -19,7 +19,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserAdd.java,v 1.6 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: AdmBLUserAdd.java,v 1.7 2005/03/17 09:11:03 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -56,7 +56,7 @@ public class AdmBLUserAdd {
 		    user.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 			user.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			
-			dalAdmin.saveObject(user);
+			EngDALCommon.saveObject(user);
 			
 			return user.getId();
 			
@@ -82,7 +82,7 @@ public class AdmBLUserAdd {
 		    usergroup.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 			usergroup.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			
-			dalAdmin.saveObject(usergroup);
+			EngDALCommon.saveObject(usergroup);
 			
 		}
 		catch(Exception ex){

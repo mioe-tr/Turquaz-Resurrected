@@ -18,46 +18,15 @@ package com.turquaz.admin.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmDALUserPermissions.java,v 1.3 2004/11/18 09:54:12 huseyiner Exp $
+* @version  $Id: AdmDALUserPermissions.java,v 1.4 2005/03/17 09:11:03 onsel Exp $
 */
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
-import com.turquaz.engine.dal.EngDALSessionFactory;
 
 public class AdmDALUserPermissions {
 	public AdmDALUserPermissions(){
 		
 	}
 	
-	public void saveObject(Object obj)throws Exception {
-	try{
-		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
 
-		session.save(obj);
-		session.flush();
-		tx.commit();
-		session.close();
-	}
-	catch(Exception ex){
-	throw ex;
-	}
-	}
-	public void deleteObject(Object obj)throws Exception {
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-
-			session.delete(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-		}
-		catch(Exception ex){
-		throw ex;
-		}
-		}
 
 }

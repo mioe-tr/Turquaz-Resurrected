@@ -19,54 +19,13 @@ package com.turquaz.admin.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmDALUserUpdate.java,v 1.4 2004/11/18 09:54:12 huseyiner Exp $
+* @version  $Id: AdmDALUserUpdate.java,v 1.5 2005/03/17 09:11:03 onsel Exp $
 */
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
-import com.turquaz.engine.dal.EngDALSessionFactory;
 
 public class AdmDALUserUpdate {
 	public AdmDALUserUpdate(){
 		
 	}
-	public void updateObject(Object obj)throws Exception {
-		try{
-				
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			
-			session.update(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-				
-				
-		}
-		catch(Exception ex){
-		
-			throw ex; 
-		
-		}
-	}
-	public void deleteObject(Object obj)throws Exception {
-		try{
-				
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			
-			session.delete(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-				
-				
-		}
-		catch(Exception ex){
-		
-			throw ex; 
-		
-		}
-	}
+
 }

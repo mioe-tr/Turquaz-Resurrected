@@ -18,17 +18,16 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.10 2005/03/16 11:07:08 cemdayanik Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.11 2005/03/17 09:11:03 onsel Exp $
 */
 
 import java.util.Calendar;
 
-import com.turquaz.admin.dal.AdmDALGroupAdd;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 
 
 public class AdmBLGroupAdd {
-	private AdmDALGroupAdd dalAdmin = new AdmDALGroupAdd();
 	Calendar cal = Calendar.getInstance();
 	public AdmBLGroupAdd(){
 		
@@ -48,7 +47,7 @@ public class AdmBLGroupAdd {
 			group.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 			group.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 
-			dalAdmin.saveObject(group);
+			EngDALCommon.saveObject(group);
 
 			return group.getId();
 

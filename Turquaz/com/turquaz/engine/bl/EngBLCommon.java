@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.65 2005/03/17 08:56:03 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.66 2005/03/17 09:11:02 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -430,7 +430,9 @@ public class EngBLCommon {
 	public static void delete(Object obj) throws Exception {
 		try {
 
+	
 			EngDALCommon.deleteObject(obj);
+
 		} catch (Exception ex) {
 			throw ex;
 		}
