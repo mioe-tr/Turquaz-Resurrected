@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseSearch.java,v 1.16 2004/12/29 20:19:30 cemdayanik Exp $
+* @version  $Id: InvUIWarehouseSearch.java,v 1.17 2005/03/17 11:39:49 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -74,7 +74,6 @@ public class InvUIWarehouseSearch extends  Composite implements SecureComposite,
 		SWTResourceManager.registerResourceUser(this);
 	}
 
-	InvBLWarehouseSearch whBLsearch = new InvBLWarehouseSearch();
 	private CLabel lblWarehouseCity;
 	private TableColumn tableColumnDescription;
 	private TableColumn tableColumnTelephone;
@@ -262,7 +261,7 @@ public class InvUIWarehouseSearch extends  Composite implements SecureComposite,
 	tableInvUIWarehouses.removeAll();
 	TableItem item;
 	TurqInventoryWarehous warehouse;
-	List result = whBLsearch.searchWarehouse(txtWarehouseName.getText().trim(),txtCity.getText().trim());
+	List result = InvBLWarehouseSearch.searchWarehouse(txtWarehouseName.getText().trim(),txtCity.getText().trim());
 	
 	for(int i= 0; i< result.size();i++){
 	item = new TableItem(tableInvUIWarehouses, SWT.NULL);

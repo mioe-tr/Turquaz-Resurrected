@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearchDialog.java,v 1.6 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: InvUICardSearchDialog.java,v 1.7 2005/03/17 11:39:49 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -281,11 +281,11 @@ public class InvUICardSearchDialog extends org.eclipse.swt.widgets.Dialog {
 		List result;
 		try{
 		if(comboInvGroup.getSelectionIndex()==-1){
-		result = cardSearch.searchCards(txtInvName.getText().trim(),txtInvCode.getText().trim(),null);
+		result = InvBLCardSearch.searchCards(txtInvName.getText().trim(),txtInvCode.getText().trim(),null);
 		
 		}
 		else{
-		result = cardSearch.searchCards(txtInvName.getText().trim(),txtInvCode.getText().trim(),(TurqInventoryGroup)comboInvGroup.getData(comboInvGroup.getText()));
+		result = InvBLCardSearch.searchCards(txtInvName.getText().trim(),txtInvCode.getText().trim(),(TurqInventoryGroup)comboInvGroup.getData(comboInvGroup.getText()));
 		
 		}
 		

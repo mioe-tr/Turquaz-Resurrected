@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIProfitAnalysis.java,v 1.12 2005/02/17 08:14:06 onsel Exp $
+* @version  $Id: InvUIProfitAnalysis.java,v 1.13 2005/03/17 11:39:49 cemdayanik Exp $
 */
 
 
@@ -55,7 +55,6 @@ import org.eclipse.swt.layout.GridData;
 */
 public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite implements SearchComposite{
 
-    public InvBLProfitAnalysis blProfit = new InvBLProfitAnalysis(); 
     private Table tableInvTotals;
     private TableColumn tableColumnTotalAmountOut;
     private TableColumn tableColumnInvCardName;
@@ -148,7 +147,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 	    try
 		{
 	    	tableInvTotals.removeAll();
-	        List ls = blProfit.getTransactionTotals(null,null,null);
+	        List ls = InvBLProfitAnalysis.getTransactionTotals(null,null,null);
 	       
 	        TableItem item ; 
 	        

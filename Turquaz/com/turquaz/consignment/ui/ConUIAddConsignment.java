@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.63 2005/03/17 11:13:51 huseyiner Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.64 2005/03/17 11:39:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -77,6 +77,7 @@ import com.turquaz.engine.ui.viewers.TurquazCellModifier;
 import com.turquaz.engine.ui.viewers.TurquazContentProvider;
 import com.turquaz.engine.ui.viewers.TurquazLabelProvider;
 
+import com.turquaz.inventory.bl.InvBLWarehouseSearch;
 import com.turquaz.inventory.ui.InvUITransactionTableRow;
 
 import org.eclipse.swt.widgets.Button;
@@ -1081,7 +1082,7 @@ implements SecureComposite{
 	public void fillComboWarehouses(){
 		try{
 			comboWareHouse.removeAll();
-			List list = EngBLCommon.getInventoryWarehouses();
+			List list = InvBLWarehouseSearch.getInventoryWarehouses();
 			
 			TurqInventoryWarehous warehouse;	
 			for(int i=0;i<list.size();i++){

@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.10 2005/03/17 09:28:38 onsel Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.11 2005/03/17 11:39:49 cemdayanik Exp $
  */
 import java.util.List;
 
@@ -45,13 +45,8 @@ import com.turquaz.engine.dal.TurqInventoryCard;
 * *************************************
 */
 public class InvDALCardUpdate {
-	public InvDALCardUpdate() {
 
-	}
-
-	
-
-	public boolean hasTransactions(TurqInventoryCard card) throws Exception {
+	public static boolean hasTransactions(TurqInventoryCard card) throws Exception {
 		try {
 
 			Session session = EngDALSessionFactory.openSession();

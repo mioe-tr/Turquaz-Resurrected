@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseAdd.java,v 1.26 2004/12/29 20:06:19 cemdayanik Exp $
+* @version  $Id: InvUIWarehouseAdd.java,v 1.27 2005/03/17 11:39:49 cemdayanik Exp $
 */
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -96,8 +96,6 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 	private CLabel lblWareHouseCity;
 	private Text txtWarehouseName;
 	private CLabel lblWarehouseName;
-	
-	InvBLWarehouseAdd whBLAdd = new InvBLWarehouseAdd();
 	
 	public InvUIWarehouseAdd(Composite parent, int style) {
 		super(parent, style);
@@ -338,7 +336,7 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 	try{
 	
 	if(verifyFields()){
-	whBLAdd.saveWarehouse(txtWarehouseName.getText().trim(),txtWarehouseCode.getText().trim(),
+	InvBLWarehouseAdd.saveWarehouse(txtWarehouseName.getText().trim(),txtWarehouseCode.getText().trim(),
 						 txtWarehouseDescription.getText().trim(),
 						 txtWarehouseAdres.getText().trim(),
 						 txtTelephone.getText().trim(),

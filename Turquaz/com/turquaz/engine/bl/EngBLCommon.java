@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.68 2005/03/17 11:13:50 huseyiner Exp $
+ * @version $Id: EngBLCommon.java,v 1.69 2005/03/17 11:39:48 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -400,29 +400,11 @@ public class EngBLCommon {
 
 	}
 
-	public static List getTurqCurrentGroups() throws Exception {
-		try {
-			return EngDALCommon.getTurqCurrentGroups();
-		} catch (Exception ex) {
-			throw ex;
-		}
-	}
-
 	public static boolean checkUserPass(String user, String pass) throws Exception {
 		try {
 
 			return EngDALCommon.checkUserPass(user, pass);
 
-		} catch (Exception ex) {
-			throw ex;
-		}
-	}
-	//TODO what is inventory method doing here? should be removed
-	
-	public static List getInventoryWarehouses() throws Exception {
-		try {
-
-			return EngDALCommon.getInventoryWarehouses();
 		} catch (Exception ex) {
 			throw ex;
 		}

@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALWarehouseUpdate.java,v 1.7 2005/03/17 09:28:38 onsel Exp $
+ * @version $Id: InvDALWarehouseUpdate.java,v 1.8 2005/03/17 11:39:50 cemdayanik Exp $
  */
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class InvDALWarehouseUpdate {
 
 
 
-	public boolean hasTransaction(TurqInventoryWarehous warehouse)
+	public static boolean hasTransaction(TurqInventoryWarehous warehouse)
 			throws Exception {
 		try {
 			Session session = EngDALSessionFactory.openSession();

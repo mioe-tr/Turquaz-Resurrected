@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardSearch.java,v 1.8 2005/02/24 15:37:54 onsel Exp $
+* @version  $Id: CurBLCurrentCardSearch.java,v 1.9 2005/03/17 11:39:49 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -113,6 +113,14 @@ public class CurBLCurrentCardSearch {
 			throw ex;
 		}
 		
+	}
+
+	public static List getTurqCurrentGroups() throws Exception {
+		try {
+			return CurDALCurrentCardSearch.getTurqCurrentGroups();
+		} catch (Exception ex) {
+			throw ex;
+		}
 	}
 	
 

@@ -6,7 +6,6 @@ import java.util.Calendar;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 
-import com.turquaz.inventory.dal.InvDALWarehouseAdd;
 
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -26,17 +25,12 @@ import com.turquaz.inventory.dal.InvDALWarehouseAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseAdd.java,v 1.10 2005/03/17 09:28:37 onsel Exp $
+* @version  $Id: InvBLWarehouseAdd.java,v 1.11 2005/03/17 11:39:48 cemdayanik Exp $
 */
 
 public class InvBLWarehouseAdd {
-	
-	private InvDALWarehouseAdd whDALAdd = new InvDALWarehouseAdd();
-	
-	Calendar cal = Calendar.getInstance();
-	
-	
-	public void saveWarehouse(String whName, String whCode, String whDescription,
+
+	public static void saveWarehouse(String whName, String whCode, String whDescription,
 							String whAddress, String whTelephone,
 							String whCity )throws Exception {
 	  try{
@@ -50,8 +44,10 @@ public class InvBLWarehouseAdd {
 		
 		warehouse.setCreatedBy(System.getProperty("user"));
 		warehouse.setUpdatedBy(System.getProperty("user"));
-		warehouse.setLastModified(new java.sql.Date(cal.getTime().getTime()));
-		warehouse.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
+		
+		Calendar cal=Calendar.getInstance();
+		warehouse.setLastModified(cal.getTime());
+		warehouse.setCreationDate(cal.getTime());
 		
 		EngDALCommon.saveObject(warehouse);	
 

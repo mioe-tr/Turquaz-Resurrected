@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.27 2005/03/02 09:38:09 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.28 2005/03/17 11:39:50 cemdayanik Exp $
 */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -263,6 +263,24 @@ public class CurDALCurrentCardSearch {
 			
 			return null;
 			
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
+
+	public static List getTurqCurrentGroups() throws Exception {
+		try{
+			
+			Session session = EngDALSessionFactory.openSession();
+		
+			String query = "from TurqCurrentGroup as gr ";	
+			Query q = session.createQuery(query); 
+			List list = q.list();
+		
+			session.close();
+			return list;	
 			
 		}
 		catch(Exception ex){

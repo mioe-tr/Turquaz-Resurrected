@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.20 2005/03/11 15:41:35 onsel Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.21 2005/03/17 11:39:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -626,13 +626,13 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			
 					TurqEngineSequence seq = invTrans.getTurqEngineSequence();
 			
-					TurqBill bill = blSearch.getBill(seq);
+					TurqBill bill = InvBLSearchTransaction.getBill(seq);
 					if(bill!=null)
 					{
 					updated = new BillUIBillUpdateDialog(this.getShell(),SWT.NULL,bill).open();
 					}
 					else{
-					TurqConsignment cons = blSearch.getConsignment(seq);
+					TurqConsignment cons = InvBLSearchTransaction.getConsignment(seq);
 					 updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
 					}
 					
@@ -720,7 +720,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			else if (comboTransactionsType.getText().equals(EngBLCommon.COMMON_SELL_STRING))
 				type = EngBLCommon.COMMON_SELL_INT;
 
-			List list = blSearch.searchTransactionsAdvanced(txtInvCardStart.getText().trim(),
+			List list = InvBLSearchTransaction.searchTransactionsAdvanced(txtInvCardStart.getText().trim(),
 					txtInvCardEnd.getText().trim(),txtInvNameStart.getText().trim(),
 					txtInvNameEnd.getText().trim(),(TurqCurrentCard)txtCurCardStart.getData(),
 					(TurqCurrentCard)txtCurCardEnd.getData(),dateStartDate.getDate(),

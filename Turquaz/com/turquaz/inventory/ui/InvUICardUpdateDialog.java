@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.50 2005/03/14 19:29:48 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.51 2005/03/17 11:39:49 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -48,6 +48,7 @@ import org.eclipse.swt.widgets.Dialog;
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLCardSearch;
 import com.turquaz.inventory.bl.InvBLCardUpdate;
+import com.turquaz.inventory.dal.InvDALCardUpdate;
 import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.comp.InvUIPrice;
 import com.turquaz.inventory.ui.comp.InvUIPriceList;
@@ -455,7 +456,7 @@ public class InvUICardUpdateDialog extends Dialog{
     			return;
      
     		// if the inventory card contains transactions 
-    		if(cardUpdate.hasTransactions(invCard))
+    		if(InvDALCardUpdate.hasTransactions(invCard))
     		{
      			MessageBox msg2 = new MessageBox(this.getParent(),SWT.ICON_WARNING);
      			msg2.setMessage(Messages.getString("InvUICardUpdateDialog.8")); //$NON-NLS-1$

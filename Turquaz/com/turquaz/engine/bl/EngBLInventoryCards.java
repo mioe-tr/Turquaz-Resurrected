@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLInventoryCards.java,v 1.7 2005/01/02 15:41:39 onsel Exp $
+ * @version  $Id: EngBLInventoryCards.java,v 1.8 2005/03/17 11:39:48 cemdayanik Exp $
  */
 
 import java.util.List;
@@ -44,15 +44,12 @@ public class EngBLInventoryCards {
 	public void fillInventoryList() throws Exception {
 		try {
 			
-		    cardList = blAccount.getInventoryCards();
-			
+		    cardList = InvBLCardSearch.getInventoryCards();			
 			
 		} catch (Exception ex) {
 			throw ex;
 		}
-
 	}
-
 	/**
 	 * 
 	 * @return
@@ -96,7 +93,7 @@ public class EngBLInventoryCards {
 		try {
 
 
-			return (TurqInventoryCard)blAccount.getInventoryCard(invCode); 
+			return (TurqInventoryCard)InvBLCardSearch.getInventoryCard(invCode); 
 
 		} catch (Exception ex) {
 			throw ex;

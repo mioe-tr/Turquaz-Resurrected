@@ -20,7 +20,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardAdd.java,v 1.20 2005/03/17 09:28:38 onsel Exp $
+* @version  $Id: InvDALCardAdd.java,v 1.21 2005/03/17 11:39:49 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -37,16 +37,7 @@ import com.turquaz.engine.dal.TurqInventoryGroup;
 
 
 public class InvDALCardAdd {
-	
-	
-	public InvDALCardAdd()
-	{
-			
-	}
 
-	
-	
-	
 	public static TurqCurrency getCurrency(String abbrev)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
@@ -122,14 +113,10 @@ public class InvDALCardAdd {
 		}
 		catch(Exception ex){
 			throw ex;
-		}
-			
-		
-		
-		
-		}
+		}	
+	}
 	
-	public List getInventoryUnits()throws Exception{
+	public static List getInventoryUnits()throws Exception{
 		try{
 			
 			Session session = EngDALSessionFactory.openSession();

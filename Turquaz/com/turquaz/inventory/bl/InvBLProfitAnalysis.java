@@ -18,21 +18,14 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLProfitAnalysis.java,v 1.3 2005/02/16 16:14:01 cemdayanik Exp $
+* @version  $Id: InvBLProfitAnalysis.java,v 1.4 2005/03/17 11:39:48 cemdayanik Exp $
 */
-
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.inventory.dal.InvDALProfitAnalysis;
 
 public class InvBLProfitAnalysis {
-    Calendar cal = Calendar.getInstance();
-    InvDALProfitAnalysis dalProfit = new InvDALProfitAnalysis();
-    public InvBLProfitAnalysis(){
-       	
-    }
     
     /**
      * 
@@ -41,12 +34,12 @@ public class InvBLProfitAnalysis {
      * 
      * @return
      */
-    public List getTransactionTotals(TurqInventoryCard invCard, Date startDate, Date endDate)
+    public static List getTransactionTotals(TurqInventoryCard invCard, Date startDate, Date endDate)
     throws Exception
 	{
     	try
 		{        
-    		return dalProfit.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
+    		return InvDALProfitAnalysis.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
 		}
     	catch(Exception ex)
 		{

@@ -19,21 +19,10 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALWarehouseAdd.java,v 1.5 2005/03/17 09:28:38 onsel Exp $
+* @version  $Id: InvDALWarehouseAdd.java,v 1.6 2005/03/17 11:39:49 cemdayanik Exp $
 */
 
 
 public class InvDALWarehouseAdd {
-	public InvDALWarehouseAdd()
-	{
-			
-	}
-	
-
-	
-	
-	
-	
-	
 
 }
