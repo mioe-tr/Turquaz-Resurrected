@@ -18,11 +18,10 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.32 2005/02/25 16:23:41 cemdayanik Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.33 2005/02/25 19:37:23 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
-import java.util.List;
 
 
 import org.eclipse.swt.graphics.Point;
