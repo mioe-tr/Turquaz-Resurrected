@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.54 2005/03/31 16:59:58 huseyiner Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.55 2005/04/05 11:09:17 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -131,6 +131,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 	{
 		super(parent, style);
 		initGUI();
+	
 	}
 
 	private void initGUI()

@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.87 2005/04/02 11:22:25 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.88 2005/04/05 11:09:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -48,6 +48,9 @@ import com.turquaz.inventory.dal.InvDALCardSearch;
 
 public class EngBLCommon
 {
+	
+	public static String VERSION = "0.7.0 Alpha2";
+	
 	
 	public static int BILL_ERR_TOO_MANY_CONS = -1;
 	public static int BILL_SAVED_SUCCESFULLY = 1;
