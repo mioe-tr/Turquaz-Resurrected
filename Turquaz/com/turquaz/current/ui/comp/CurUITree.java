@@ -23,13 +23,14 @@ import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.*;
 
 import com.turquaz.current.ui.CurUICurrentCardAdd;
+import com.turquaz.current.ui.CurUICurrentCardSearch;
 
 
 
 /**
  * @author onsel
  *
- * @version $Id: CurUITree.java,v 1.1 2004/10/19 16:58:57 onsel Exp $
+ * @version $Id: CurUITree.java,v 1.2 2004/10/22 12:42:31 onsel Exp $
  */
 public class CurUITree extends Tree {
 	
@@ -38,8 +39,11 @@ public class CurUITree extends Tree {
 		TreeItem root = new TreeItem(this,SWT.NULL);
 		root.setText("Current");
 		TreeItem item = new TreeItem(root,SWT.NULL);
-		item.setText("Current Card");
+		item.setText("Current Card Add");
 		item.setData(CurUICurrentCardAdd.class.getName());
+		item = new TreeItem(root,SWT.NULL);
+		item.setText("Current Card Search");
+		item.setData(CurUICurrentCardSearch.class.getName());
 	}
 	
 
