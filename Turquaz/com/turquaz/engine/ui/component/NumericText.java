@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: NumericText.java,v 1.3 2004/09/27 13:17:22 onsel Exp $
+ * @version $Id: NumericText.java,v 1.4 2004/09/28 08:06:30 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -52,7 +52,7 @@ public class NumericText extends Composite {
  public NumericText(Composite arg0, int arg1) {
   super(arg0, SWT.NONE);
   text = new Text(this, arg1);
-
+ text.setTextLimit(20);
   addListener(SWT.Resize, new Listener() {
    public void handleEvent(Event e) {
     onResize();
