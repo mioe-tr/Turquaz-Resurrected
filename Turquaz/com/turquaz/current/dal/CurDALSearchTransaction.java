@@ -23,7 +23,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.3 2004/12/09 13:33:38 cemdayanik Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.4 2004/12/20 10:37:14 onsel Exp $
 */
 import java.util.Date;
 import java.util.List;
@@ -94,9 +94,10 @@ public class CurDALSearchTransaction {
 			Session session = EngDALSessionFactory.openSession();
 			
 			String query = "Select transaction from TurqCurrentTransaction as transaction where" +
-			" transaction.currentCardsId= :curCard.currentCardsId";
+			" transaction.turqCurrentCard= :curCard";
 			
 			Query q = session.createQuery(query); 	
+			q.setParameter("curCard",curCard);
 			
 			List list = q.list();
 			session.close();
