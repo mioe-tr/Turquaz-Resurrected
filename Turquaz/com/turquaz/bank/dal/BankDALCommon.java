@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.10 2005/02/04 18:53:53 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.11 2005/02/11 13:17:19 onsel Exp $
  */
 
 import java.sql.ResultSet;
@@ -102,8 +102,7 @@ public class BankDALCommon {
 	        
 	        
 	        Session session = EngDALSessionFactory.openSession();
-	        String query = "select bankTrans.banksTransactionBillsId, " +
-    		" bankTrans.turqBanksTransactionType.transactionTypeName, bankTrans.transactionBillDate, bankTrans.transactionBillNo from TurqBanksTransactionBill as bankTrans " +
+	        String query = "select bankTrans from TurqBanksTransactionBill as bankTrans " +
     		" where bankTrans.transactionBillDate >= :startDate and bankTrans.transactionBillDate <= :endDate" +
     		" and bankTrans.transactionBillNo like '"+docNo+"%'" ;
     
