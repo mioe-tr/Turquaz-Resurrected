@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.9 2005/01/30 19:30:37 onsel Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.10 2005/02/09 09:28:30 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -143,6 +143,8 @@ public class CheBLSaveChequeTransaction {
         }
         
     }
+    
+    
     
 
 }

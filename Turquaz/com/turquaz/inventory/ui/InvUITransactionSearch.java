@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.33 2005/02/08 17:23:47 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.34 2005/02/09 09:28:30 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -61,8 +61,6 @@ import org.eclipse.swt.SWT;
 
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLSearchTransaction;
-
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 /**
