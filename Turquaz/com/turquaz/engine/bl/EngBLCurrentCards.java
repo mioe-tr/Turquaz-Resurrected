@@ -24,7 +24,7 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.1 2004/11/28 17:57:41 huseyiner Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.2 2004/12/06 14:24:40 cemdayanik Exp $
  */
 
 public class EngBLCurrentCards {
@@ -52,7 +52,7 @@ public class EngBLCurrentCards {
 
 			TurqCurrentCard currentCard;
 			for (int i = 0; i < currentList.size(); i++) {
-				currentCard = (TurqCurrentCard) currentList.get(i);
+				currentCard = (TurqCurrentCard)((Object[]) currentList.get(i))[1];
 				cardMap.put(currentCard.getCardsCurrentCode(), currentCard);
 
 			}
