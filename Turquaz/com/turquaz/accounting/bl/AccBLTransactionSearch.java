@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionSearch.java,v 1.27 2005/03/30 16:56:59 onsel Exp $
+ * @version $Id: AccBLTransactionSearch.java,v 1.28 2005/04/01 14:53:09 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.Date;
@@ -98,9 +98,19 @@ public class AccBLTransactionSearch
 			return AccDALTransactionSearch.getCurrencies();	
 		
 	}
-
-
-
+	
+	public static List getAccTransInfo(Integer transId) throws Exception
+	{
+		try
+		{
+			return AccDALTransactionSearch.getAccTransInfo(transId);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
 	//-Muhasebele?tirilmemi? fi?leri getirir...
 	public static List getUnsavedTransactions() throws Exception
 	{

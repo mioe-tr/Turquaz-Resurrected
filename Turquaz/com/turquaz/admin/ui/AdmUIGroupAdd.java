@@ -17,8 +17,9 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupAdd.java,v 1.14 2005/03/26 15:06:50 onsel Exp $
+ * @version  $Id: AdmUIGroupAdd.java,v 1.15 2005/04/01 14:53:07 cemdayanik Exp $
  */
+import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -39,8 +40,10 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
@@ -178,7 +181,11 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		{
 			try
 			{
-				AdmBLGroupAdd.saveGroup(txtAdmGroupName.getText().trim(), txtAdmGroupDesc.getText().trim());
+				HashMap argMap=new HashMap();
+				argMap.put(AdmKeys.ADM_GROUP_NAME,txtAdmGroupName.getText().trim());
+				argMap.put(AdmKeys.ADM_GROUP_DESCRIPTION,txtAdmGroupDesc.getText().trim());
+				
+				EngTXCommon.doTransactionTX(AdmBLGroupAdd.class.getName(),"saveGroup",argMap);
 				messageBox.setMessage(Messages.getString("AdmUIGroupAdd.3")); //$NON-NLS-1$
 				messageBox.open();
 				newForm();

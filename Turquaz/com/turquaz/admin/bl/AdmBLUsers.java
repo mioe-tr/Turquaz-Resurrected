@@ -17,10 +17,12 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUsers.java,v 1.7 2005/03/29 14:24:08 cemdayanik Exp $
+ * @version $Id: AdmBLUsers.java,v 1.8 2005/04/01 14:53:07 cemdayanik Exp $
  */
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqUser;
@@ -39,14 +41,22 @@ public class AdmBLUsers
 		}
 	}
 	
-	public static void deleteUser(TurqUser user)throws Exception
+	public static void deleteUser(HashMap argMap)throws Exception
 	{
-		deleteUserGroups(user);
-		deleteUserPermissions(user);
-		EngBLCommon.delete(user);
+		try
+		{	
+			TurqUser user=(TurqUser)argMap.get(AdmKeys.ADM_USER);
+			deleteUserGroups(user);
+			deleteUserPermissions(user);
+			EngBLCommon.delete(user);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 	
-	public static void deleteUserPermissions(TurqUser user)throws Exception
+	private static void deleteUserPermissions(TurqUser user)throws Exception
 	{
 		Iterator it=user.getTurqUserPermissions().iterator();
 		while (it.hasNext())

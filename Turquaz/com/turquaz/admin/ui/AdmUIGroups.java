@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroups.java,v 1.12 2005/03/26 15:06:50 onsel Exp $
+ * @version  $Id: AdmUIGroups.java,v 1.13 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -44,6 +44,7 @@ import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroups;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqGroup;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 
@@ -160,7 +161,7 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 		try
 		{
 			tableGroups.removeAll();
-			List list = AdmBLGroups.getGroups();
+			List list =(List)EngTXCommon.doSingleTX(AdmBLGroups.class.getName(),"getGroups",null);
 			TurqGroup group;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)

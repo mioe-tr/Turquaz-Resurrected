@@ -17,10 +17,13 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserAdd.java,v 1.10 2005/03/29 14:24:08 cemdayanik Exp $
+ * @version $Id: AdmBLUserAdd.java,v 1.11 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import com.turquaz.admin.AdmKeys;
+import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqUser;
@@ -43,10 +46,16 @@ import com.turquaz.engine.dal.TurqUserGroup;
 */
 public class AdmBLUserAdd
 {
-	public static void saveUser(String username, String password, String realname, String description, List userGroups) throws Exception
+	public static void saveUser(HashMap argMap) throws Exception
 	{
 		try
 		{
+			String username=(String)argMap.get(AdmKeys.ADM_USERNAME);
+			String password=(String)argMap.get(AdmKeys.ADM_PASSWORD);
+			String realname=(String)argMap.get(AdmKeys.ADM_REALNAME);
+			String description=(String)argMap.get(EngKeys.DESCRIPTION);
+			List userGroups=(List)argMap.get(AdmKeys.ADM_USER_GROUPS);
+			
 			Calendar cal = Calendar.getInstance();
 			TurqUser user = new TurqUser();
 			user.setUsername(username);
@@ -89,18 +98,6 @@ public class AdmBLUserAdd
 			usergroup.setUpdateDate(cal.getTime());
 			usergroup.setCreationDate(cal.getTime());
 			EngDALCommon.saveObject(usergroup);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getGroups() throws Exception
-	{
-		try
-		{
-			return EngDALCommon.getGroups();
 		}
 		catch (Exception ex)
 		{

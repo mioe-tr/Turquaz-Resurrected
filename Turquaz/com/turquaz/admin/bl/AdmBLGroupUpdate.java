@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: AdmBLGroupUpdate.java,v 1.6 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLGroupUpdate.java,v 1.7 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.Calendar;
 import com.turquaz.engine.dal.EngDALCommon;
@@ -25,10 +25,6 @@ import com.turquaz.engine.dal.TurqGroup;
 
 public class AdmBLGroupUpdate
 {
-	public AdmBLGroupUpdate()
-	{
-	}
-
 	public static void updateGroup(String name, String description, TurqGroup group) throws Exception
 	{
 		try
@@ -36,22 +32,9 @@ public class AdmBLGroupUpdate
 			Calendar cal = Calendar.getInstance();
 			group.setGroupsName(name);
 			group.setGroupsDescription(description);
-			;
 			group.setUpdateDate(cal.getTime());
 			group.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			EngDALCommon.updateObject(group);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static void deleteObject(Object obj) throws Exception
-	{
-		try
-		{
-			EngDALCommon.deleteObject(obj);
 		}
 		catch (Exception ex)
 		{

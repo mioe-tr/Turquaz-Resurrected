@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserAdd.java,v 1.18 2005/03/29 14:24:08 cemdayanik Exp $
+ * @version  $Id: AdmUIUserAdd.java,v 1.19 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,9 +41,13 @@ import org.eclipse.swt.SWT;
  * legally for any corporate or commercial purpose. *************************************
  */
 import org.eclipse.swt.layout.GridData;
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.admin.Messages;
+import com.turquaz.admin.bl.AdmBLGroups;
 import com.turquaz.admin.bl.AdmBLUserAdd;
+import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqGroup;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CLabel;
@@ -231,7 +235,7 @@ public class AdmUIUserAdd extends Composite implements SecureComposite
 		try
 		{
 			HashMap groupMap = new HashMap();
-			List list = AdmBLUserAdd.getGroups();
+			List list =(List)EngTXCommon.doSingleTX(AdmBLGroups.class.getName(),"getGroups",null);
 			TurqGroup group;
 			for (int i = 0; i < list.size(); i++)
 			{
@@ -276,8 +280,14 @@ public class AdmUIUserAdd extends Composite implements SecureComposite
 		{
 			if (verifyFields())
 			{
-				AdmBLUserAdd.saveUser(txtUsername.getText(), txtPassword.getText(), txtRealName.getText(),
-						txtDescription.getText(), getUserGroups());
+				HashMap argMap=new HashMap();
+				argMap.put(AdmKeys.ADM_USERNAME,txtUsername.getText().trim());
+				argMap.put(AdmKeys.ADM_PASSWORD,txtPassword.getText().trim());
+				argMap.put(AdmKeys.ADM_REALNAME,txtRealName.getText().trim());
+				argMap.put(EngKeys.DESCRIPTION,txtDescription.getText().trim());
+				argMap.put(AdmKeys.ADM_USER_GROUPS,getUserGroups());
+				
+				EngTXCommon.doTransactionTX(AdmBLUserAdd.class.getName(),"saveUser",argMap);
 				EngUICommon.showMessageBox(this.getShell(),Messages.getString("AdmUIUserAdd.11")); //$NON-NLS-1$
 				newForm();
 			}

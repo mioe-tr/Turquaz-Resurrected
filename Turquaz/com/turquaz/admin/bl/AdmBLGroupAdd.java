@@ -17,22 +17,22 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLGroupAdd.java,v 1.13 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLGroupAdd.java,v 1.14 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.Calendar;
+import java.util.HashMap;
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 
 public class AdmBLGroupAdd
 {
-	public AdmBLGroupAdd()
-	{
-	}
-
-	public static Integer saveGroup(String groupname, String description) throws Exception
+	public static Integer saveGroup(HashMap argMap) throws Exception
 	{
 		try
 		{
+			String groupname=(String)argMap.get(AdmKeys.ADM_GROUP_NAME);
+			String description=(String)argMap.get(AdmKeys.ADM_GROUP_DESCRIPTION);
 			Calendar cal = Calendar.getInstance();
 			TurqGroup group = new TurqGroup();
 			group.setGroupsName(groupname);

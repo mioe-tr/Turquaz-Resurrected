@@ -17,17 +17,13 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: AdmBLGroups.java,v 1.5 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: AdmBLGroups.java,v 1.6 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.List;
 import com.turquaz.engine.dal.EngDALCommon;
 
 public class AdmBLGroups
 {
-	public AdmBLGroups()
-	{
-	}
-
 	public static List getGroups() throws Exception
 	{
 		try

@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.42 2005/03/31 13:18:37 onsel Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.43 2005/04/01 14:53:09 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -350,6 +350,31 @@ public class AccDALTransactionSearch
 				TurqAccountingTransaction accTrans = (TurqAccountingTransaction) list.get(i);
 				Hibernate.initialize(accTrans.getTurqAccountingTransactionColumns());
 			}
+			return list;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static List getAccTransInfo(Integer transId) throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.getSession();
+			String query = "Select account.accountName, account.accountCode," + 
+					" topacc.accountName, topacc.accountCode," + 
+					" transColumn.deptAmount,transColumn.creditAmount, " + 
+					" transColumn.transactionDefinition, transColumn.id" + 
+					" from TurqAccountingTransactionColumn transColumn," +
+					" transColumn.turqAccountingAccount as account," +
+					" account.turqAccountingAccountByTopAccount as topacc" +  
+					" where transColumn.turqAccountingTransaction.id=" + transId.intValue() +
+					" order by topacc.accountCode";
+			Query q = session.createQuery(query);
+			
+			List list = q.list();
 			return list;
 		}
 		catch (Exception ex)

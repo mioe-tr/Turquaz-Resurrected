@@ -17,10 +17,12 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserPermissions.java,v 1.10 2005/03/29 14:24:08 cemdayanik Exp $
+ * @version $Id: AdmBLUserPermissions.java,v 1.11 2005/04/01 14:53:07 cemdayanik Exp $
  */
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqModule;
@@ -31,10 +33,15 @@ import com.turquaz.engine.dal.TurqUserPermissionLevel;
 
 public class AdmBLUserPermissions
 {
-	public static void saveUserPermission(TurqUser user, TurqModule module, TurqModuleComponent moduleComp, TurqUserPermissionLevel level) throws Exception
+	public static void saveUserPermission(HashMap argMap) throws Exception
 	{
 		try
 		{
+			TurqUser user=(TurqUser)argMap.get(AdmKeys.ADM_USER);
+			TurqModule module=(TurqModule)argMap.get(AdmKeys.ADM_MODULE);
+			TurqModuleComponent moduleComp=(TurqModuleComponent)argMap.get(AdmKeys.ADM_MODULE_COMP);
+			TurqUserPermissionLevel level=(TurqUserPermissionLevel)argMap.get(AdmKeys.ADM_LEVEL);
+			
 			Calendar cal = Calendar.getInstance();
 			TurqUserPermission userPerm = new TurqUserPermission();
 			userPerm.setTurqUser(user);
@@ -58,30 +65,6 @@ public class AdmBLUserPermissions
 		try
 		{
 			return EngDALUserPerms.getUserPermissions();
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getModuleComponents(int moduleId) throws Exception
-	{
-		try
-		{
-			return EngDALUserPerms.getModuleComponents(moduleId);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getModules() throws Exception
-	{
-		try
-		{
-			return EngDALUserPerms.getModules();
 		}
 		catch (Exception ex)
 		{
