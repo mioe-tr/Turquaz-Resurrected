@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.27 2004/12/14 21:07:18 cemdayanik Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.28 2004/12/15 17:18:13 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -911,6 +911,8 @@ implements SecureComposite{
 		tableViewer.setInput(rowList);
 		 
              cursor = new TableCursor(tableConsignmentRows, SWT.NONE);
+             cursor.setEnabled(true);
+             cursor.setVisible(true);
              cursor
                  .addSelectionListener(new SelectionAdapter() {
                      public void widgetDefaultSelected(
@@ -919,11 +921,12 @@ implements SecureComposite{
                          tableViewer.editElement(cursor
                              .getRow().getData(), cursor
                              .getColumn());
+                         cursor.setVisible(true);
                            
 
                      }
                      public void widgetSelected(
-                         SelectionEvent evt) {
+                       SelectionEvent evt) {
                          int current_row_index = ((InvUITransactionTableRow) cursor
                              .getRow().getData())
                              .getRowIndex();
@@ -936,7 +939,6 @@ implements SecureComposite{
  
                      }
                  });
-             cursor.setEnabled(true);
     		 cursor.addKeyListener(new KeyAdapter(){
     		     public void keyReleased(KeyEvent evt){
     		         

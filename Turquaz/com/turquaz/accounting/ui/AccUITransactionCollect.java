@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.26 2004/12/14 21:07:19 cemdayanik Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.27 2004/12/15 17:18:12 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -350,7 +350,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 	                     tableViewer.editElement(row, 0);
 	                     cursor.setSelection(tableTransactionRows
 	                         .getItemCount() - 1, 0);
-	                     cursor.setVisible(true);
+	                     
 	                    
 	                 }
 	                 else if(evt.keyCode==SWT.DEL){
@@ -380,7 +380,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					public void widgetDefaultSelected(SelectionEvent e) {
 					 
 					    tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
-					
+					   
 					}
 				});
 			 cursor.addMouseListener(new MouseAdapter() {
