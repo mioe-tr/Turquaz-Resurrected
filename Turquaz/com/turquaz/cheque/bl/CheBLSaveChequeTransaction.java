@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.48 2005/03/17 11:59:23 cemdayanik Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.49 2005/03/17 12:25:43 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -55,10 +55,6 @@ import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqModule;
 
 public class CheBLSaveChequeTransaction {
-    
-    public CheBLSaveChequeTransaction(){
-        
-    }
     
     public static void saveChequeRoll(TurqAccountingAccount rollAccount, TurqCurrentCard curCard,TurqBanksCard bankCard, String rollNo,Date rollDate,List chequeList, int rollType, boolean sumTransTotal, TurqCurrencyExchangeRate exchangeRate)throws Exception {
      
