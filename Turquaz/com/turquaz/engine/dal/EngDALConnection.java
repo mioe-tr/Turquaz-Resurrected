@@ -22,7 +22,7 @@ import java.sql.*;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngDALConnection.java,v 1.7 2004/11/03 09:03:09 onsel Exp $
+* @version  $Id: EngDALConnection.java,v 1.8 2004/11/04 17:54:14 cem Exp $
 * 
 * Class for initial database configuration. It creates the necessary
 * bindings according to hibernate.cfg.xml
@@ -35,9 +35,10 @@ public class EngDALConnection {
   private Statement stmt;
 
   public EngDALConnection() {
-	loginUrl = "jdbc:postgresql://" + System.getProperty("Url") + "/"+System.getProperty("dbName");
+	loginUrl =  System.getProperty("Url");
 	loginUser = System.getProperty("dbLogin");
 	loginPass = System.getProperty("dbPass");
+	driver = "org.postgresql.Driver";
   }
   
   public EngDALConnection(String dbType, String userName, String pass, String Url,String dbName) {
