@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.14 2005/02/14 12:18:25 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.15 2005/02/14 15:46:59 onsel Exp $
 */
 
 import java.util.Date;
@@ -202,10 +202,13 @@ public class CurDALSearchTransaction {
 	        Session session = EngDALSessionFactory.openSession();
 	        String query = "Select bankTrans from TurqCurrentTransaction as bankTrans " +
 	        		" where bankTrans.turqCurrentTransactionType.currentTransactionTypesId = "+EngBLCommon.CURRENT_TRANS_INITIAL+
+	        		" and bankTrans.turqCurrentCard = :curCard " +
 	        		" order by bankTrans.turqCurrentCard.cardsCurrentCode";
 	        
+	        
 	    	Query q = session.createQuery(query); 
-	        List list = q.list();
+	        q.setParameter("curCard",curCard);
+	    	List list = q.list();
 	        
 	        for(int i=0;i<list.size();i++){
 	        session.delete(list.get(i));	
