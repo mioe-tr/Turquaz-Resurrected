@@ -17,13 +17,12 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurDALCurrentCardUpdate.java,v 1.15 2005/03/29 15:52:49 cemdayanik Exp $
+ * @version $Id: CurDALCurrentCardUpdate.java,v 1.16 2005/03/29 16:00:56 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;

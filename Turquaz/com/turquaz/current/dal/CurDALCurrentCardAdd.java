@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardAdd.java,v 1.14 2005/03/17 15:02:07 onsel Exp $
+ * @version  $Id: CurDALCurrentCardAdd.java,v 1.15 2005/03/29 16:00:56 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -41,11 +41,10 @@ public class CurDALCurrentCardAdd
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "from TurqCurrentGroup as curGroup ";
 			Query q = session.createQuery(query);
 			List list = q.list();
-			session.close();
 			return list;
 		}
 		catch (Exception ex)
@@ -58,12 +57,11 @@ public class CurDALCurrentCardAdd
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "from TurqCurrentCard as curCard " + "where curCard.cardsCurrentCode =:code";
 			Query q = session.createQuery(query);
 			q.setParameter("code", code);
 			List list = q.list();
-			session.close();
 			if (list.size() > 0)
 			{
 				return true;
@@ -80,11 +78,10 @@ public class CurDALCurrentCardAdd
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "from TurqCurrentCard as curCard " + "where curCard.cardsName ='" + code + "'";
 			Query q = session.createQuery(query);
 			List list = q.list();
-			session.close();
 			if (list.size() > 0)
 			{
 				return true;
