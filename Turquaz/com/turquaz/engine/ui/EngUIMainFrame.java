@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.124 2005/02/13 13:20:08 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.125 2005/02/13 14:00:06 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -94,7 +94,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.124 2005/02/13 13:20:08 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.125 2005/02/13 14:00:06 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -128,7 +128,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	private Composite compModulesHelp;
 	private Tree treeBank;
 	private Tree treeAccounting;
-	private static CTabFolder tabfldMain;
+	public static CTabFolder tabfldMain;
 	private static ToolItem toolSearch;
 	private static ToolItem toolDelete;
 	private static ToolItem toolSave;

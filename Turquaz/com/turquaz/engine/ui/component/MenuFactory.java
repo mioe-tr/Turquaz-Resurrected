@@ -28,7 +28,7 @@ import com.turquaz.engine.ui.EngUIMainFrame;
 
 /**
 * @author   Huseyin Ergun
-* @version  $Id: MenuFactory.java,v 1.1 2005/02/13 11:58:31 huseyiner Exp $
+* @version  $Id: MenuFactory.java,v 1.2 2005/02/13 14:00:06 onsel Exp $
 */
 
 public class MenuFactory {
@@ -52,6 +52,7 @@ public class MenuFactory {
 		currentAccAdd.setData(CurUICurrentCardAdd.class.getName());
 		currentAccAdd.addSelectionListener(new MenuSelectionAdapter());
 		currentAccAdd.setAccelerator(SWT.CTRL | 'g');
+	
 		MenuItem sps =new MenuItem(currentMenu,SWT.SEPARATOR);
 		
 		return menuItem;
