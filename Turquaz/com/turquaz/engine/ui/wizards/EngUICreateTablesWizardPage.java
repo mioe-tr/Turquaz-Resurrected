@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUICreateTablesWizardPage.java,v 1.6 2004/11/19 07:27:41 huseyiner Exp $
+* @version  $Id: EngUICreateTablesWizardPage.java,v 1.7 2004/11/22 21:48:31 huseyiner Exp $
 */
 
 
@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
 import com.turquaz.engine.Messages;
+
 
 public class EngUICreateTablesWizardPage extends WizardPage {
 
@@ -112,7 +113,16 @@ public class EngUICreateTablesWizardPage extends WizardPage {
 	}
 	
 	public boolean checkTables(){
-		return false;
+		EngUIDatabaseTypeWizardPage page1 = ((EngUIDatabaseConnectionWizard)getWizard()).getPage1();
+		 if(page1.getComboDBServer().getText().startsWith("Turquaz"))
+		{
+		 	// no need to create tables
+		return true;
+		}
+		 else {
+		 	// if postgresql
+		 	return false;
+		 }
 	}
 
 	/**

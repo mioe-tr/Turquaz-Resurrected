@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.11 2004/11/20 02:12:42 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.12 2004/11/22 21:48:31 huseyiner Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -50,14 +50,23 @@ public class EngDALSessionFactory {
 		try{
 			
 		
-
-	
+			String url = "notSet://";
+			String driver = "noteSet";
+			if (EngConfiguration.getString("dbType").startsWith("Turquaz"))
+			{		
 		
-		String url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
+		 url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
+		  driver = "org.hsqldb.jdbcDriver";
+		}
+			else if (EngConfiguration.getString("dbType").startsWith("Turquaz"))
+			{
+				url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
+				 driver = "org.postgresql.Driver";
+			}
 		String username = EngConfiguration.getString("dbUsername");
 		String password = EngConfiguration.getString("dbPassword");
 		password = new String(Base64.decode(password.getBytes()));
-		String driver = "org.hsqldb.jdbcDriver";
+		
 		
 		System.setProperty("Url",url);
 		System.setProperty("dbLogin",username);
