@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.35 2005/02/12 14:59:06 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.36 2005/02/17 19:13:51 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -136,7 +136,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
                 compInvTransactionSearch.setLayout(composite1Layout);
 				//START >>  lblInvCard
 				lblInvCard = new CLabel(compInvTransactionSearch, SWT.NONE);
-				lblInvCard.setText("Stok Kodu");
+				lblInvCard.setText(Messages.getString("InvUITransactionSearch.0")); //$NON-NLS-1$
 				//END <<  lblInvCard
                 {
                     txtInvCard = new InventoryPicker(compInvTransactionSearch, SWT.NONE);
