@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.35 2005/01/10 20:25:26 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.36 2005/01/11 20:44:12 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1117,7 +1117,7 @@ public class BillUIAddSellBill extends Composite
 	       editors[8] = new NumericCellEditor(tableConsignmentRows);
 	       editors[9] = new NumericCellEditor(tableConsignmentRows);
 	       editors[10] = new CurrencyCellEditor(tableConsignmentRows);
-	       editors[11] = new NumericCellEditor(tableConsignmentRows);
+	       editors[11] = new CurrencyCellEditor(tableConsignmentRows);
 	       editors[12] = new CurrencyCellEditor(tableConsignmentRows);
 	       editors[13] = new CurrencyCellEditor(tableConsignmentRows);
 	    

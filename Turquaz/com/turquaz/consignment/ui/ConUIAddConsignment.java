@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.50 2005/01/10 18:48:13 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.51 2005/01/11 20:44:13 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -651,7 +651,7 @@ implements SecureComposite{
                                     tableConsignmentRows,
                                     SWT.NONE);
                                 tableColumn10.setText(SPECIAL_VAT_PERCENT);
-                                tableColumn10.setWidth(54);
+                                tableColumn10.setWidth(59);
                             }
                             {
                                 tableColumn11 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
@@ -905,7 +905,7 @@ implements SecureComposite{
        editors[8] = new NumericCellEditor(tableConsignmentRows);
        editors[9] = new NumericCellEditor(tableConsignmentRows);
        editors[10] = new CurrencyCellEditor(tableConsignmentRows);
-       editors[11] = new NumericCellEditor(tableConsignmentRows);
+       editors[11] = new CurrencyCellEditor(tableConsignmentRows);
        editors[12] = new CurrencyCellEditor(tableConsignmentRows);
        editors[13] = new CurrencyCellEditor(tableConsignmentRows);
     
