@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.8 2004/12/28 13:38:59 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.9 2004/12/28 14:37:21 onsel Exp $
 */
 import java.util.List;
 
@@ -32,9 +32,6 @@ public class EngBLCommon {
     
     final static int CASH_CURRENT_PAYMENT = 1; // Kasa Cari Ödeme
     
-    final static int CASH_ACCOUNTING_COLLECT =2; //Kasa Muhasebe Tahsilat
-    
-    final static int CASH_ACCOUNTING_PAYMENT =3; //Kasa Muhasebe Ödeme
     
     
     final static int MODULE_INVENTORY = 0;  //Stok Modulu
