@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardUpdate.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: CurBLCurrentCardUpdate.java,v 1.9 2005/01/07 10:24:05 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -47,8 +47,9 @@ public class CurBLCurrentCardUpdate {
 			String cardAddress, BigDecimal cardDiscountRate,
 			BigDecimal cardDiscountPayment,	BigDecimal cardCreditLimit,
 			BigDecimal cardRiskLimit, String cardTaxDepartment,
-			String cardTaxNumber, TurqAccountingAccount accCode, TurqCurrentCard currentCard) throws Exception {
+			String cardTaxNumber, TurqAccountingAccount accCode,int daysToValue, TurqCurrentCard currentCard) throws Exception {
 		try{
+		    
 			currentCard.setCardsCurrentCode(currentCode);
 			currentCard.setCardsName(cardName);
 			currentCard.setCardsDefinition(cardDefinition);
@@ -56,14 +57,15 @@ public class CurBLCurrentCardUpdate {
 			currentCard.setCardsDiscountRate(cardDiscountRate);
 			currentCard.setCardsDiscountPayment(cardDiscountPayment);
 			currentCard.setCardsCreditLimit(cardCreditLimit);
+			currentCard.setDaysToValue(daysToValue);
 			currentCard.setCardsRiskLimit(cardRiskLimit);
 			currentCard.setCardsTaxDepartment(cardTaxDepartment);
 			currentCard.setCardsTaxNumber(cardTaxNumber);
 			currentCard.setTurqAccountingAccount(accCode);
 			currentCard.setUpdatedBy(System.getProperty("user"));
 			currentCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
-
 			currentUpdate.updateObject(currentCard);	
+	
 		}
 		catch(Exception ex){
 			throw ex;

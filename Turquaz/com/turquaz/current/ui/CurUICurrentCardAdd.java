@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.47 2005/01/07 10:15:52 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.48 2005/01/07 10:24:05 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -229,6 +229,13 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 	public void setNumTxtCountryCode2(NumericText numTxtCountryCode2) {
 		this.numTxtCountryCode2 = numTxtCountryCode2;
 	}
+	
+    public NumericText getNumDueDays() {
+        return numDueDays;
+    }
+    public void setNumDueDays(NumericText numDueDays) {
+        this.numDueDays = numDueDays;
+    }
 	/**
 	 * @return Returns the numTxtNumber.
 	 */
@@ -1311,7 +1318,8 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 							decTxtRiskLimit.getBigDecimalValue(),
 							txtTaxDepartmant.getText().trim(),
 							txtTaxNumber.getText().trim(),
-							(TurqAccountingAccount)accPickerCustomer.getData());	
+							(TurqAccountingAccount)accPickerCustomer.getData(),
+							numDueDays.getIntValue());	
 	savePhones(cardId);
 	saveContact(cardId);
 	saveGroups(cardId);
