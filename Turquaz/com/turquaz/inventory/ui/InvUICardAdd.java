@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.37 2004/10/13 13:10:33 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.38 2004/10/13 14:50:31 cem Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -348,7 +348,7 @@ public class InvUICardAdd extends SecureComposite {
 			tabInvCardGeneral.setControl(compInvCardGeneral);
 			tabInvCardGeneral.setText("General Information");
 	
-			compInvCardGeneral.setSize(new org.eclipse.swt.graphics.Point(625,404));
+			compInvCardGeneral.setSize(new org.eclipse.swt.graphics.Point(641,404));
 	
 			GridData lblInvCardNameLData = new GridData();
 			lblInvCardNameLData.verticalAlignment = GridData.CENTER;
