@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionUpdate.java,v 1.13 2005/03/06 19:33:22 cemdayanik Exp $
+* @version  $Id: AccBLTransactionUpdate.java,v 1.14 2005/03/16 10:49:55 cemdayanik Exp $
 */
 
 import java.sql.Date;
@@ -80,6 +80,7 @@ public class AccBLTransactionUpdate {
 		transaction.setTurqAccountingTransactionType(accTransType);
 		transaction.setTransactionsDate(transDate);
 		transaction.setTransactionDocumentNo(docNo);
+		transaction.setTransactionDescription(definition);
 		transaction.setTurqCurrencyExchangeRate(exchangeRate);
 		transaction.setUpdatedBy(System.getProperty("user"));
 		transaction.setLastModified(new java.sql.Date( cal.getTime().getTime()));
