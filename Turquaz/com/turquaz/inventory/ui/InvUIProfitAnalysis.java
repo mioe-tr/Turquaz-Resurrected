@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIProfitAnalysis.java,v 1.8 2004/12/27 10:38:11 onsel Exp $
+* @version  $Id: InvUIProfitAnalysis.java,v 1.9 2004/12/29 13:49:46 cemdayanik Exp $
 */
 
 
@@ -101,7 +101,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 				{
 					tableColumnTotalAmount = new TableColumn(
 						tableInvTotals,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnTotalAmount.setText(Messages.getString("InvUIProfitAnalysis.1")); //$NON-NLS-1$
 					tableColumnTotalAmount.setWidth(73);
 				}
@@ -111,7 +111,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 					tableColumnAvgPrice.setWidth(97);
 				}
 				{
-					tableColumnTotalAmountOut = new TableColumn(tableInvTotals, SWT.NONE);
+					tableColumnTotalAmountOut = new TableColumn(tableInvTotals, SWT.RIGHT);
 					tableColumnTotalAmountOut.setText(Messages.getString("InvUIProfitAnalysis.3")); //$NON-NLS-1$
 					tableColumnTotalAmountOut.setWidth(77);
 				}

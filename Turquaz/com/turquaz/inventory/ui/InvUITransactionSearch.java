@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.19 2004/12/28 13:06:29 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.20 2004/12/29 13:49:46 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -290,14 +290,14 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 				{
 					tableColumnTotalAmountIn = new TableColumn(
 						tableTransactions,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnTotalAmountIn.setText(Messages.getString("InvUITransactionSearch.7"));  //$NON-NLS-1$
 					tableColumnTotalAmountIn.setWidth(100);
 				}
 				{
 					tableColumnTotalAmountOut = new TableColumn(
 						tableTransactions,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnTotalAmountOut.setText(Messages.getString("InvUITransactionSearch.10"));  //$NON-NLS-1$
 					tableColumnTotalAmountOut.setWidth(100);
 				}

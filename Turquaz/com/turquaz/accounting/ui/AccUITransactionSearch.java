@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.31 2004/12/19 18:20:21 huseyiner Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.32 2004/12/29 13:49:46 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -219,7 +219,7 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 			}
 			tableColumnDocumentNo = new TableColumn(tableTransactions,SWT.NULL);
 			tableColumnTransType = new TableColumn(tableTransactions,SWT.NULL);
-			tableColumnTotalAmount = new TableColumn(tableTransactions,SWT.NULL);
+			tableColumnTotalAmount = new TableColumn(tableTransactions,SWT.RIGHT);
 	
 			this.setSize(new org.eclipse.swt.graphics.Point(646,513));
 

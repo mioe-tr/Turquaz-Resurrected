@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.24 2004/12/23 15:50:12 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.25 2004/12/29 13:49:46 cemdayanik Exp $
 */
 
 import java.util.Iterator;
@@ -219,21 +219,21 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 				{
 					tableColumnTotalCredit = new TableColumn(
 						tableCurrentCardSearch,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnTotalCredit.setText("Toplam Borç");
 					tableColumnTotalCredit.setWidth(120);
 				}
 				{
 					tableColumnTotalDept = new TableColumn(
 						tableCurrentCardSearch,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnTotalDept.setText("Toplam Alacak");
 					tableColumnTotalDept.setWidth(120);
 				}
 				{
 					tableColumnBalance = new TableColumn(
 						tableCurrentCardSearch,
-						SWT.NONE);
+						SWT.RIGHT);
 					tableColumnBalance.setText("Bakiye");
 					tableColumnBalance.setWidth(120);
 				}

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.35 2004/12/25 13:07:32 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.36 2004/12/29 13:49:46 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -252,28 +252,28 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 					{
 						tableColumnAmountIn = new TableColumn(
 							tableSearcResults,
-							SWT.NONE);
+							SWT.RIGHT);
 						tableColumnAmountIn.setText(Messages.getString("InvUICardSearch.5"));  //$NON-NLS-1$
 						tableColumnAmountIn.setWidth(60);
 					}
 					{
 						tableColumnAmountOut = new TableColumn(
 							tableSearcResults,
-							SWT.NONE);
+							SWT.RIGHT);
 						tableColumnAmountOut.setText(Messages.getString("InvUICardSearch.7"));  //$NON-NLS-1$
 						tableColumnAmountOut.setWidth(60);
 					}
 					{
 						tableColumnBalanceAmountIn = new TableColumn(
 							tableSearcResults,
-							SWT.NONE);
+							SWT.RIGHT);
 						tableColumnBalanceAmountIn.setText(Messages.getString("InvUICardSearch.8"));  //$NON-NLS-1$
 						tableColumnBalanceAmountIn.setWidth(69);
 					}
 					{
 						tableColumnBalanceAmountOut = new TableColumn(
 							tableSearcResults,
-							SWT.NONE);
+							SWT.RIGHT);
 						tableColumnBalanceAmountOut.setText(Messages.getString("InvUICardSearch.9"));  //$NON-NLS-1$
 						tableColumnBalanceAmountOut.setWidth(71);
 					}

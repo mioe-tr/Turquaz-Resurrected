@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.18 2004/12/25 08:48:57 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.19 2004/12/29 13:49:46 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -688,13 +688,6 @@ public class BillUIAddSellBill extends Composite
                                 tableColumn4.setWidth(121);
                             }
                             {
-                                tableColumn3 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
-                                tableColumn3.setText(BASE_UNIT);
-                                tableColumn3.setWidth(126);
-                            }
-                            {
                                 tableColumn6 = new TableColumn(
                                     tableConsignmentRows,
                                     SWT.NONE);
@@ -704,7 +697,7 @@ public class BillUIAddSellBill extends Composite
                             {
                                 tableColumn7 = new TableColumn(
                                     tableConsignmentRows,
-                                    SWT.NONE);
+                                    SWT.RIGHT);
                                 tableColumn7.setText(TOTAL_PRICE);
                                 tableColumn7.setWidth(100);
                             }
@@ -737,14 +730,14 @@ public class BillUIAddSellBill extends Composite
                             {
                                 tableColumn11 = new TableColumn(
                                     tableConsignmentRows,
-                                    SWT.NONE);
+                                    SWT.RIGHT);
                                 tableColumn11.setText(SPECIAL_VAT_TOTAL);
                                 tableColumn11.setWidth(101);
                             }
                             {
                                 tableColumn12 = new TableColumn(
                                     tableConsignmentRows,
-                                    SWT.NONE);
+                                    SWT.RIGHT);
                                 tableColumn12.setText(ROW_TOTAL);
                                 tableColumn12.setWidth(114);
                             }
@@ -1127,6 +1120,13 @@ public class BillUIAddSellBill extends Composite
 			 
 	             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer);
 	             cursor.setEnabled(true);
+				{
+					tableColumn3 = new TableColumn(
+						tableConsignmentRows,
+						SWT.NONE);
+					tableColumn3.setText(BASE_UNIT);
+					tableColumn3.setWidth(126);
+				}
 	        	 cursor.addKeyListener(new KeyAdapter(){
 	    		     public void keyReleased(KeyEvent e){
 	    		         
