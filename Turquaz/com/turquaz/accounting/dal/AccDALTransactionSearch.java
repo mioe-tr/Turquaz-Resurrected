@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.8 2004/11/29 13:03:58 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.9 2004/12/04 18:08:41 onsel Exp $
 */
 
 import java.util.Date;
@@ -59,7 +59,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.8 2004/11/29 13:03:58 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.9 2004/12/04 18:08:41 onsel Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -96,7 +96,8 @@ public class AccDALTransactionSearch {
     try{
     	Session session = EngDALSessionFactory.openSession();
 		
-    	String query ="select accTrans from TurqAccountingTransaction as accTrans "+
+    	String query ="select accTrans from TurqAccountingTransaction as accTrans " +
+    			      " left join fetch accTrans.turqAccountingTransactionColumns "+
     				  "where accTrans.transactionDocumentNo like '"+docNo+"%' ";
     	
 		if(startDate!=null){
@@ -133,13 +134,7 @@ public class AccDALTransactionSearch {
 		}
 			
 		List list = q.list();
-		for (int i =0;i<list.size();i++){
-			
-		TurqAccountingTransaction accTrans = (TurqAccountingTransaction)list.get(i);
-		Hibernate.initialize(accTrans.getTurqAccountingTransactionColumns());
-			
-		}
-		
+	
 		session.close();
 		
 		return list;
