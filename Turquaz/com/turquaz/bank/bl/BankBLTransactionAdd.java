@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.21 2005/02/18 16:35:16 cemdayanik Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.22 2005/02/24 15:37:55 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -31,6 +31,7 @@ import com.turquaz.accounting.bl.AccBLTransactionAdd;
 import com.turquaz.bank.Messages;
 import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.cash.bl.CashBLCashTransactionAdd;
+import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 
 import com.turquaz.engine.bl.EngBLCommon;
@@ -433,8 +434,7 @@ public class BankBLTransactionAdd {
                     .getTurqAccountingAccount());
 
             accTransRowCurrent.setTransactionDefinition(definition);
-            accTransRowCurrent.setTurqAccountingAccount(curCard
-                    .getTurqAccountingAccount());
+            accTransRowCurrent.setTurqAccountingAccount(CurBLCurrentCardSearch.getCurrentAccountingAccount(curCard,EngBLCommon.CURRENT_ACC_TYPE_GENERAL));
 
             String currentTransDefinition = ""; //$NON-NLS-1$
 

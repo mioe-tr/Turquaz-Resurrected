@@ -18,12 +18,13 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardSearch.java,v 1.7 2005/02/14 13:57:11 onsel Exp $
+* @version  $Id: CurBLCurrentCardSearch.java,v 1.8 2005/02/24 15:37:54 onsel Exp $
 */
 import java.util.List;
 
 
 import com.turquaz.current.dal.CurDALCurrentCardSearch;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.dal.TurqViewCurrentAmountTotal;
@@ -100,6 +101,18 @@ public class CurBLCurrentCardSearch {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	public static TurqAccountingAccount getCurrentAccountingAccount(TurqCurrentCard curCard, Integer type)throws Exception {
+		try{
+			
+			return CurDALCurrentCardSearch.getCurrentAccountingAccount(curCard, type);
+			
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
 	}
 	
 

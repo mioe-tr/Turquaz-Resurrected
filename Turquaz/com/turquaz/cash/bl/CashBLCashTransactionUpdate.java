@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.13 2005/02/21 13:54:58 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.14 2005/02/24 15:37:55 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -29,6 +29,7 @@ import java.util.Iterator;
 
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
 import com.turquaz.cash.dal.CashDALCashCard;
+import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 
 import com.turquaz.engine.bl.EngBLCommon;
@@ -195,7 +196,7 @@ public class CashBLCashTransactionUpdate {
             	 cashTransRow.setLastModified(new java.sql.Date(cal.getTime().getTime()));
             	 cashTransRow.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
             	 cashTransRow.setTransactionDefinition(definition);
-            	 cashTransRow.setTurqAccountingAccount(current.getTurqAccountingAccount());
+            	 cashTransRow.setTurqAccountingAccount(CurBLCurrentCardSearch.getCurrentAccountingAccount(current,EngBLCommon.CURRENT_ACC_TYPE_GENERAL));
             	 
             	 
             	/*
@@ -208,7 +209,7 @@ public class CashBLCashTransactionUpdate {
             	 accTransRowCash.setTurqAccountingAccount(cashCard.getTurqAccountingAccount());
             	 
             	 accTransRowCurrent.setTransactionDefinition(definition);
-            	 accTransRowCurrent.setTurqAccountingAccount(current.getTurqAccountingAccount());
+            	 accTransRowCurrent.setTurqAccountingAccount(CurBLCurrentCardSearch.getCurrentAccountingAccount(current,EngBLCommon.CURRENT_ACC_TYPE_GENERAL));
             	 
             	 String currentTransDefinition="";
                  
