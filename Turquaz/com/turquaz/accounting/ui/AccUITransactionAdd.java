@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.55 2005/02/22 17:48:02 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.56 2005/02/24 14:17:35 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -52,7 +52,7 @@ import com.turquaz.engine.ui.viewers.TurquazLabelProvider;
 
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CLabel;
-import org.eclipse.swt.custom.TableCursor;
+
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
@@ -147,7 +147,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	private final String DEFINITION         = Messages.getString("AccUITransactionAdd.5"); //$NON-NLS-1$
 	private final String DEPT     			= Messages.getString("AccUITransactionAdd.6"); //$NON-NLS-1$
 	private final String CREDIT 		    = Messages.getString("AccUITransactionAdd.7"); //$NON-NLS-1$
-	TableCursor cursor;
+	public TableSpreadsheetCursor cursor;
 	private List columnList = new ArrayList();
 	private TableItem tableItemBalance;
 	private TableItem tableItemSpace;
