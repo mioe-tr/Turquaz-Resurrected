@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.11 2004/11/18 11:09:04 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.12 2004/11/22 20:36:02 huseyiner Exp $
 */
 
 
@@ -117,7 +117,8 @@ public class AccDALAccountAdd {
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
 					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+
-							" and accounts.accountingAccountsId <> -1" +
+					// was removing accounting plan	
+					//	" and accounts.accountingAccountsId <> -1" +
 							" order by accounts.accountingAccountsId";   
 
 			Query q = session.createQuery(query); 
