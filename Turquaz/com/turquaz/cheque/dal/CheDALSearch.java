@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.13 2005/02/16 19:29:37 cemdayanik Exp $
+ * @version $Id: CheDALSearch.java,v 1.14 2005/02/19 14:00:43 onsel Exp $
  */
 
 import java.util.Date;
@@ -49,8 +49,10 @@ public class CheDALSearch {
 					" chequeRoll.chequeRollsDate, chequeRoll.chequeRollNo," +
 					" chequeRoll.turqChequeTransactionType.transactionTypsName," +
 					" chequeRoll.turqCurrentCard.cardsName, chequeRoll.turqBanksCard.bankCode," +
-					" chequeRoll.turqCurrentCard.currentCardsId,chequeRoll.turqBanksCard.banksCardsId" +
-					" from TurqChequeRoll as chequeRoll "
+					" chequeRoll.turqCurrentCard.currentCardsId,chequeRoll.turqBanksCard.banksCardsId," +
+					" sum(chequesInRolls.turqChequeCheque.chequesAmount)" +
+					" from TurqChequeRoll as chequeRoll" +
+					" left join chequeRoll.turqChequeChequeInRolls as chequesInRolls "
 					+ "where chequeRoll.chequeRollsDate >= :startDate and chequeRoll.chequeRollsDate <=:endDate "
 					+ "and chequeRoll.chequeRollNo like '" + rollNo + "%'";
 
@@ -60,8 +62,13 @@ public class CheDALSearch {
 
 			}
 
-			query += " order by chequeRoll.chequeRollsDate ";
+		
 
+			query += " group by chequeRoll.chequeRollsId,chequeRoll.chequeRollsDate, chequeRoll.chequeRollNo," +
+					" chequeRoll.turqChequeTransactionType.transactionTypsName," +
+					" chequeRoll.turqCurrentCard.cardsName, chequeRoll.turqBanksCard.bankCode," +
+					" chequeRoll.turqCurrentCard.currentCardsId,chequeRoll.turqBanksCard.banksCardsId";
+			query += " order by chequeRoll.chequeRollsDate ";
 			Query q = session.createQuery(query);
 
 			q.setParameter("startDate", startDate); //$NON-NLS-1$
