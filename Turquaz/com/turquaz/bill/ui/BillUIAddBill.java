@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.31 2004/12/29 16:37:50 cemdayanik Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.32 2004/12/30 12:13:41 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1331,6 +1331,25 @@ public class BillUIAddBill extends Composite
 			cursor.setFocus();
 			return false;
 		}
+		boolean isExistEntry=false;
+		TableItem items[] = tableConsignmentRows.getItems();
+		for(int k=0; k<items.length ; k++)
+		{
+			InvUITransactionTableRow row = (InvUITransactionTableRow)items[k].getData();
+			if (row.okToSave())
+			{
+				isExistEntry=true;
+				break;
+			}
+		}
+		if (!isExistEntry)
+		{
+			msg.setMessage(Messages.getString("BillUIAddBill.39")); //$NON-NLS-1$
+			msg.open();
+			return false;
+		}
+		
+		
 		Boolean isCurrent=(Boolean)comboPaymentType.getData(comboPaymentType.getText());
 		if (isCurrent.booleanValue())
 		{
