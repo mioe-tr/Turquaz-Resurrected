@@ -24,7 +24,7 @@ package com.turquaz.engine;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: Messages.java,v 1.6 2004/12/03 15:27:25 onsel Exp $
+ * @version  $Id: Messages.java,v 1.7 2004/12/06 08:54:40 huseyiner Exp $
  */
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -52,7 +52,7 @@ public class Messages {
 	public static String getString(String key) {
 		try {
 			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(
-					BUNDLE_NAME);
+					BUNDLE_NAME /*,Locale.getDefault()*/);
 
 			return RESOURCE_BUNDLE.getString(key);
 		} catch (MissingResourceException e) {
