@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.31 2004/12/03 13:46:21 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.32 2004/12/07 09:06:37 onsel Exp $
 */
 
 
@@ -237,7 +237,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 
 	                 }
 	              }
-	           });
+	      });
 	    
 	    
 	}
