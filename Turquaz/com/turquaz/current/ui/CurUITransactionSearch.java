@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.10 2004/11/12 12:34:27 onsel Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.11 2004/11/18 10:28:59 huseyiner Exp $
 */
 import java.util.List;
 
@@ -177,11 +177,8 @@ public class CurUITransactionSearch extends Composite implements SecureComposite
 				{
 					lblStartDate = new CLabel(composite1, SWT.NONE);
 					lblStartDate.setText(Messages.getString("CurUITransactionSearch.3")); //$NON-NLS-1$
-					lblStartDate.setSize(new org.eclipse.swt.graphics.Point(
-						69,
-						19));
 					GridData lblStartDateLData = new GridData();
-					lblStartDateLData.widthHint = 69;
+					lblStartDateLData.widthHint = 84;
 					lblStartDateLData.heightHint = 19;
 					lblStartDate.setLayoutData(lblStartDateLData);
 				}
