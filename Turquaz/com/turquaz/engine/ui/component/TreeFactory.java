@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.74 2005/02/04 15:59:07 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.75 2005/02/04 16:09:12 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -171,7 +171,7 @@ public final class TreeFactory {
 		
 		if(EngBLPermissions.getPermission(InvUITransactionsTotalReport.class.getName())>0){
 			item = new TreeItem(reports,SWT.NULL);
-			item.setText("Hareket Toplamlar? Raporu");
+			item.setText(Messages.getString("TreeFactory.75")); //$NON-NLS-1$
 			item.setData(InvUITransactionsTotalReport.class.getName());
 			}
 		
