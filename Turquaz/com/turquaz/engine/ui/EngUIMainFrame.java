@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.120 2005/02/08 15:10:58 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.121 2005/02/08 19:22:29 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -93,7 +93,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.120 2005/02/08 15:10:58 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.121 2005/02/08 19:22:29 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1508,9 +1508,21 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 				mapList.put(classname,yeni);
 				
 				//Add To History Tree
+				boolean dontExistInHistory = true;
+				 TreeItem items[] = treeHistory.getItems();
+				  for(int i=0;i<items.length;i++){
+				      if(items[i].getData().equals(classname))
+				      {
+				          dontExistInHistory = false;
+				          break;
+				      }
+				      
+				  }
+				if(dontExistInHistory){
 				TreeItem item = new TreeItem(treeHistory,SWT.NULL);
 				item.setText(Name);
 				item.setData(classname);
+				}
 				
 				
 			    }
