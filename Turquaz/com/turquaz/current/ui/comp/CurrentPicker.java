@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentPicker.java,v 1.3 2005/01/02 20:01:13 onsel Exp $
+* @version  $Id: CurrentPicker.java,v 1.4 2005/01/02 21:51:11 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -89,7 +89,7 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite {
                       
                             try {
                                 
-                               setData2(EngBLCurrentCards.getCards(text1.getText().trim()));
+                               setData2(EngBLCurrentCards.getCurrentCardForContentAssist(text1.getText().trim()));
                           
                                                            
                                 

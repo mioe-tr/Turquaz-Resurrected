@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.107 2004/12/28 09:04:55 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.108 2005/01/02 21:51:11 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.107 2004/12/28 09:04:55 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.108 2005/01/02 21:51:11 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1211,7 +1211,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	            display.getSystemColor(SWT.COLOR_TITLE_FOREGROUND));
 		
 		try{
+		    
 		EngBLInventoryCards.getInventoryCards();	
+		
 		}
 		catch(Exception ex){
 		    ex.printStackTrace();
