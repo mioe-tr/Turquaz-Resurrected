@@ -16,7 +16,7 @@
 
 /**
  * @author onsel
- * @version $Id: InvDALCardAdd.java,v 1.7 2004/10/05 16:24:07 onsel Exp $
+ * @version $Id: InvDALCardAdd.java,v 1.8 2004/10/07 10:12:58 onsel Exp $
  */
 
 package com.turquaz.inventory.dal;
@@ -75,6 +75,16 @@ public class InvDALCardAdd {
 			catch(Exception ex){
 				throw ex;
 			}	
+	}
+	public void saveOrUpdateInventoryGroup(TurqInventoryGroup invGroup)throws Exception{
+		try{
+			
+			
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
 	}
 	public void saveOrUpdateCardUnit(TurqInventoryCardUnit cardUnit)throws Exception{
 		try{
