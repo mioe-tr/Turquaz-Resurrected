@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.44 2005/03/30 17:09:44 cemdayanik Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.45 2005/04/01 06:54:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -252,7 +252,6 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 				Integer transId = (Integer) ((ITableRow) items[0].getData()).getDBObject();
 				if (transId != null)
 				{
-					//TODO these methods should be transactional
 					boolean updated = false;
 					HashMap argMap=new HashMap();
 					argMap.put(EngKeys.TRANS_ID,transId);

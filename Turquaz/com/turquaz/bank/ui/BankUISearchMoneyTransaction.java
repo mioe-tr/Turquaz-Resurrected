@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUISearchMoneyTransaction.java,v 1.22 2005/03/26 15:06:11 onsel Exp $
+ * @version  $Id: BankUISearchMoneyTransaction.java,v 1.23 2005/04/01 06:54:57 cemdayanik Exp $
  */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -217,7 +217,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 
 	public void delete()
 	{
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void exportToExcel()

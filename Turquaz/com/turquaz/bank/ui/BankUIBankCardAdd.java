@@ -17,8 +17,9 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.23 2005/03/26 15:06:12 onsel Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.24 2005/04/01 06:54:57 cemdayanik Exp $
  */
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
@@ -37,8 +38,10 @@ import org.eclipse.swt.custom.CTabItem;
 import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCurrency;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
+import com.turquaz.bank.BankKeys;
 import com.turquaz.bank.Messages;
 import com.turquaz.bank.bl.BankBLBankCardAdd;
 
@@ -412,9 +415,17 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 		{
 			if (verifyfields())
 			{
-				BankBLBankCardAdd.saveBankCard(txtBankName.getText().trim(), txtBankBranchName.getText().trim(), txtBankAccountNo
-						.getText().trim(), (TurqCurrency) (comboCurrency.getData(comboCurrency.getText())), txtDefinition.getText()
-						.trim(), txtBankCode.getText().trim(), createAccountingMap());
+				HashMap argMap=new HashMap();
+				
+				argMap.put(BankKeys.BANK_NAME,txtBankName.getText().trim());
+				argMap.put(BankKeys.BANK_BRANCH_NAME,txtBankBranchName.getText().trim());
+				argMap.put(BankKeys.BANK_ACCOUNT_NO,txtBankAccountNo.getText().trim());
+				argMap.put(BankKeys.BANK_CURRENCY,comboCurrency.getData(comboCurrency.getText()));
+				argMap.put(BankKeys.BANK_DEFINITION,txtDefinition.getText().trim());
+				argMap.put(BankKeys.BANK_CODE,txtBankCode.getText().trim());
+				argMap.put(BankKeys.BANK_ACCOUNTING_ACCOUNTS,createAccountingMap());
+				
+				EngTXCommon.doTransactionTX(BankBLBankCardAdd.class.getName(),"saveBankCard",argMap);
 				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 				msg.setMessage(Messages.getString("BankUIBankCardAdd.17")); //$NON-NLS-1$
 				msg.open();

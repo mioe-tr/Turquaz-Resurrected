@@ -98,7 +98,7 @@ import com.turquaz.engine.Messages;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuFactory.java,v 1.7 2005/03/29 09:56:44 cemdayanik Exp $
+ * @version $Id: MenuFactory.java,v 1.8 2005/04/01 06:54:59 cemdayanik Exp $
  */
 public class MenuFactory
 {
@@ -723,7 +723,6 @@ class MenuSelectionAdapter extends SelectionAdapter
 	 */
 	public void widgetDefaultSelected(SelectionEvent arg0)
 	{
-		// TODO Auto-generated method stub
 		super.widgetDefaultSelected(arg0);
 	}
 

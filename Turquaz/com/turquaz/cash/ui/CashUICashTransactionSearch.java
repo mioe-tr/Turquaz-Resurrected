@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransactionSearch.java,v 1.25 2005/03/31 18:42:19 onsel Exp $
+ * @version  $Id: CashUICashTransactionSearch.java,v 1.26 2005/04/01 06:54:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -218,7 +218,7 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 
 	public void delete()
 	{
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void exportToExcel()

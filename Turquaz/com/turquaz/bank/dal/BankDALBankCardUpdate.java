@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankDALBankCardUpdate.java,v 1.9 2005/03/29 15:45:04 onsel Exp $
+ * @version $Id: BankDALBankCardUpdate.java,v 1.10 2005/04/01 06:54:58 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -34,13 +34,13 @@ public class BankDALBankCardUpdate
 	{
 	}
 
-	public static boolean hasTransaction(TurqBanksCard bankCard) throws Exception
+	public static Boolean hasTransaction(TurqBanksCard bankCard) throws Exception
 	{
 		try
 		{
 			if (bankCard == null)
 			{
-				return true;
+				return new Boolean(true);
 			}
 			Session session = EngDALSessionFactory.getSession();
 			String query = " Select count(bankTrans.id) from TurqBanksTransaction as bankTrans where "
@@ -52,15 +52,14 @@ public class BankDALBankCardUpdate
 		
 			if (ls.size() == 0)
 			{
-				return true;
+				return new Boolean(true);
 			}
 			Integer count = (Integer) ls.get(0);
 			if (count.intValue() == 0)
 			{
-				System.out.println(count);
-				return false;
+				return new Boolean(false);
 			}
-			return true;
+			return new Boolean(true);
 		}
 		catch (Exception ex)
 		{

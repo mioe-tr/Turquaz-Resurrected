@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.24 2005/03/29 18:20:11 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.25 2005/04/01 06:54:58 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -35,25 +35,6 @@ import com.turquaz.engine.dal.TurqBanksTransactionBill;
 
 public class BankDALCommon
 {
-	public BankDALCommon()
-	{
-	}
-
-	public static void initializeBankCard(TurqBanksCard bankCard) throws Exception
-	{
-		try
-		{
-			Session session = EngDALSessionFactory.getSession();
-			session.refresh(bankCard);
-			Hibernate.initialize(bankCard.getTurqBankAccountingAccounts());
-		
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
 	public static List searchBankTransactions(String docNo, Date startDate, Date endDate) throws Exception
 	{
 		try

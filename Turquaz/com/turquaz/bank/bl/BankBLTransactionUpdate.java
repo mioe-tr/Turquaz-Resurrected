@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.31 2005/03/17 15:02:11 onsel Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.32 2005/04/01 06:54:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -74,7 +74,7 @@ public class BankBLTransactionUpdate
 		}
 	}
 
-	//TODO DONE
+	
 	public static void updateTransferBetweenBanks(TurqBanksTransactionBill bankTransBill, TurqBanksCard bankCardWithDept,
 			TurqBanksCard bankCardWithCredit, BigDecimal totalAmount, Date transDate, String definition, String docNo,
 			TurqCurrencyExchangeRate exchangeRate) throws Exception
@@ -179,7 +179,7 @@ public class BankBLTransactionUpdate
 		deptRows.add(amount);
 	}
 
-	//TODO DONE
+	
 	public static void updateCashTransactionBill(TurqBanksTransactionBill bankTransBill, TurqBanksCard bankCard, TurqCashCard cashCard,
 			BigDecimal totalAmount, Date transDate, String definition, String docNo, TurqCurrencyExchangeRate exchangeRate)
 			throws Exception
@@ -283,7 +283,7 @@ public class BankBLTransactionUpdate
 		}
 	}
 
-	//TODO DONE
+	
 	public static void updateOtherTransactionBill(TurqBanksTransactionBill bankTransBill, TurqBanksCard bankCard,
 			TurqAccountingAccount account, BigDecimal totalAmount, Date transDate, String definition, String docNo,
 			TurqCurrencyExchangeRate exchangeRate) throws Exception
@@ -367,7 +367,7 @@ public class BankBLTransactionUpdate
 		}
 	}
 
-	//TODO DONE
+	
 	public static void updateTransactionBill(TurqBanksTransactionBill bankTransBill, TurqBanksCard bankCard, TurqCurrentCard curCard,
 			BigDecimal totalAmount, Date transDate, String definition, String docNo, TurqCurrencyExchangeRate exchangeRate)
 			throws Exception

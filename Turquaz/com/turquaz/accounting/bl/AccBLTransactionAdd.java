@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.26 2005/03/30 16:56:58 onsel Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.27 2005/04/01 06:54:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -46,7 +46,6 @@ public class AccBLTransactionAdd
 	}
 
 	//Muhasebe fisi kalemlerini kaydet
-	//TODO DONE
 	public static void saveAccTransactionRows(Map deptAccounts, Map creditAccounts, Integer transId, boolean isSumRows, String definition,
 			TurqCurrencyExchangeRate exchangeRate) throws Exception
 	{

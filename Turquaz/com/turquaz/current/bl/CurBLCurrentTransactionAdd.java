@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.44 2005/03/31 12:23:36 onsel Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.45 2005/04/01 06:54:59 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -252,7 +252,7 @@ public class CurBLCurrentTransactionAdd
 	 * @param AccTransId
 	 *             Accounting transaction id
 	 */
-	//TODO DONE
+	
 	private static void prepareAccountingMaps(TurqCurrentCard curCard, boolean isCredit, BigDecimal amount, TurqAccountingAccount account,
 			Map deptAccounts, Map creditAccounts) throws Exception
 	{

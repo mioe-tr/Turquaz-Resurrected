@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionUpdate.java,v 1.29 2005/03/31 18:42:19 onsel Exp $
+ * @version $Id: CashBLCashTransactionUpdate.java,v 1.30 2005/04/01 06:54:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -134,7 +134,7 @@ public class CashBLCashTransactionUpdate
 		}
 	}
 
-	//TODO DONE
+	/
 	public static void updateCashTrans(TurqCashTransaction cashTrans, TurqCashCard cashCard, TurqCurrentCard current,
 			BigDecimal totalAmount, Date transDate, String definition, String document_no, TurqCurrencyExchangeRate exchangeRate)
 			throws Exception
@@ -253,7 +253,7 @@ public class CashBLCashTransactionUpdate
 		deptRows.add(amount);
 	}
 
-	//TODO DONE
+	
 	public static void updateOtherTrans(TurqCashTransaction cashTrans, TurqCashCard cashCard, TurqAccountingAccount account,
 			BigDecimal totalAmount, Date transDate, String definition, String document_no, TurqCurrencyExchangeRate exchangeRate)
 			throws Exception
@@ -342,7 +342,7 @@ public class CashBLCashTransactionUpdate
 		}
 	}
 
-	//TODO DONE
+	
 	public static void updateTransBetweenCards(TurqCashTransaction cashTrans, TurqCashCard cashCardWithDebt,
 			TurqCashCard cashCardWithCredit, BigDecimal totalAmount, Date transDate, String definition, String document_no,
 			TurqCurrencyExchangeRate exchangeRate) throws Exception
