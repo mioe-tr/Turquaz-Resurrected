@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SWTCalendarDialog.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: SWTCalendarDialog.java,v 1.5 2004/11/28 11:26:26 onsel Exp $
 */
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
@@ -27,11 +27,28 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.RowLayout;
 import org.vafada.swtcalendar.SWTCalendar;
 import org.vafada.swtcalendar.SWTCalendarListener;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import java.util.Locale;
 
 import java.util.Calendar;
 import java.util.Date;
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 public class SWTCalendarDialog {
     private Shell shell;
     private SWTCalendar swtcal;
@@ -45,7 +62,14 @@ public class SWTCalendarDialog {
         swtcal = new SWTCalendar(shell);
         Locale locale = new Locale("tr","TR");
         swtcal.setLocale(locale);
-    
+        swtcal.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent evt) {
+            if(evt.character==SWT.CR){
+                shell.dispose();
+            }
+            }
+        });
+
     }
 
     public void open() {
