@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardUpdate.java,v 1.22 2005/04/01 06:54:57 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardUpdate.java,v 1.23 2005/04/01 09:43:19 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -323,10 +323,13 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			if (EngUICommon.okToDelete(getParent()))
 			{
-				if (!BankBLBankCardUpdate.hasTransaction(bankCard).booleanValue())
+				HashMap argMap=new HashMap();
+				argMap.put(BankKeys.BANK,bankCard);
+				Boolean hasTx=(Boolean)EngTXCommon.doSingleTX(BankBLBankCardUpdate.class.getName(),"hasTransaction",argMap);
+				if (!hasTx.booleanValue())
 				{
 					updated = true;
-					BankBLBankCardUpdate.deleteBankCard(bankCard);
+					EngTXCommon.doTransactionTX(BankBLBankCardUpdate.class.getName(),"deleteBankCard",argMap);
 					this.dialogShell.close();
 				}
 				else
