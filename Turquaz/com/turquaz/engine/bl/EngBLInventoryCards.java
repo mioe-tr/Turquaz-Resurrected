@@ -17,11 +17,10 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.11 2005/03/30 09:22:04 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.12 2005/03/30 11:15:54 cemdayanik Exp $
  */
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.inventory.bl.InvBLCardSearch;
 
 public class EngBLInventoryCards
@@ -94,7 +93,7 @@ public class EngBLInventoryCards
 	{
 		try
 		{
-			return (TurqInventoryCard) EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCard",new Object[]{invCode});
+			return InvBLCardSearch.getInventoryCard(invCode);
 		}
 		catch (Exception ex)
 		{
