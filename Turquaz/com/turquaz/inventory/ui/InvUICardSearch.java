@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearch.java,v 1.52 2005/03/26 15:06:49 onsel Exp $
+ * @version  $Id: InvUICardSearch.java,v 1.53 2005/03/29 18:52:00 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -34,6 +34,7 @@ import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqViewInventoryTotal;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import com.turquaz.engine.ui.viewers.ITableRow;
@@ -323,7 +324,7 @@ public class InvUICardSearch extends Composite implements SearchComposite
 	{
 		try
 		{
-			List groupList = InvBLCardAdd.getParentInventoryGroups();
+			List groupList =(List)EngTXCommon.searchTX(InvBLCardAdd.class.getName(),"getParentInventoryGroups",null);
 			comboInvMainGroup.add("");
 			for (int k = 0; k < groupList.size(); k++)
 			{
