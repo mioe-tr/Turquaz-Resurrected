@@ -82,7 +82,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.42 2004/10/27 14:17:05 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.43 2004/10/27 14:25:27 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -108,7 +108,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	private Composite compModulesHelp;
 	private Tree treeBank;
 	private Tree treeAccounting;
-	public  static CTabFolder tabfldMain;
+	private static CTabFolder tabfldMain;
 	private static ToolItem toolSearch;
 	private static ToolItem toolDelete;
 	private static ToolItem toolSave;
@@ -1183,7 +1183,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	//save favorite items to the 
 	public static void saveFavoritesTree(){
 		try{
-		System.out.println("ssgsfg");
+		
 		  OutputStream output = null;
           PrintStream out = null;
           output = new FileOutputStream("favorites.xml");
