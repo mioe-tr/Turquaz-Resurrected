@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.34 2004/12/17 09:19:23 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.35 2004/12/17 21:05:20 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -666,16 +666,12 @@ implements SecureComposite{
                             }
 
                             {
-                                tableColumn6 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn6 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn6.setText(UNIT_PRICE);
                                 tableColumn6.setWidth(100);
                             }
                             {
-                                tableColumn7 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn7 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn7.setText(TOTAL_PRICE);
                                 tableColumn7.setWidth(100);
                             }
@@ -687,9 +683,7 @@ implements SecureComposite{
                                 tableColumn8.setWidth(100);
                             }
                             {
-                                tableColumn9 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn9 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn9.setText(VAT_TOTAL);
                                 tableColumn9.setWidth(100);
                             }
@@ -701,16 +695,12 @@ implements SecureComposite{
                                 tableColumn10.setWidth(110);
                             }
                             {
-                                tableColumn11 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn11 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn11.setText(SPECIAL_VAT_TOTAL);
                                 tableColumn11.setWidth(101);
                             }
                             {
-                                tableColumn12 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn12 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn12.setText(ROW_TOTAL);
                                 tableColumn12.setWidth(114);
                             }

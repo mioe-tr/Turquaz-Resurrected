@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.18 2004/12/17 20:54:23 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.19 2004/12/17 21:03:54 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -738,16 +738,12 @@ public class BillUIAddBill extends Composite
                                 tableColumn3.setWidth(126);
                             }
                             {
-                                tableColumn6 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn6 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn6.setText(UNIT_PRICE);
                                 tableColumn6.setWidth(100);
                             }
                             {
-                                tableColumn7 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn7 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn7.setText(TOTAL_PRICE);
                                 tableColumn7.setWidth(100);
                             }
@@ -759,9 +755,7 @@ public class BillUIAddBill extends Composite
                                 tableColumn8.setWidth(100);
                             }
                             {
-                                tableColumn9 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn9 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn9.setText(VAT_TOTAL);
                                 tableColumn9.setWidth(100);
                             }
@@ -773,16 +767,12 @@ public class BillUIAddBill extends Composite
                                 tableColumn10.setWidth(110);
                             }
                             {
-                                tableColumn11 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn11 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn11.setText(SPECIAL_VAT_TOTAL);
                                 tableColumn11.setWidth(101);
                             }
                             {
-                                tableColumn12 = new TableColumn(
-                                    tableConsignmentRows,
-                                    SWT.NONE);
+                                tableColumn12 = new TableColumn(tableConsignmentRows, SWT.RIGHT);
                                 tableColumn12.setText(ROW_TOTAL);
                                 tableColumn12.setWidth(114);
                             }
