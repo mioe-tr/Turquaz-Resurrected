@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.29 2005/03/22 17:50:32 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.30 2005/03/23 10:33:07 onsel Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -274,6 +274,7 @@ public class InvDALSearchTransaction
 			String query = "Select transaction from TurqInventoryTransaction as transaction" + " where transaction.id=" + transId;
 			Query q = session.createQuery(query);
 			List list = q.list();
+			session.close();
 			return (TurqInventoryTransaction) list.get(0);
 		}
 		catch (Exception ex)
@@ -297,7 +298,7 @@ public class InvDALSearchTransaction
 				cons = (TurqConsignment) it.next();
 				ConDALUpdateConsignment.initiliazeConsignment(cons);
 			}
-		
+		    session.close();
 			return cons;
 		}
 		catch (Exception ex)

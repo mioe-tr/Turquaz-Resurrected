@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardUpdate.java,v 1.18 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: InvBLCardUpdate.java,v 1.19 2005/03/23 10:33:03 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -84,7 +84,7 @@ public class InvBLCardUpdate
 	{
 		try
 		{
-			deleteInvCardUnits(session, invCard);
+			deleteInvCardPrices(session, invCard);
 			session.flush();
 			InvBLCardAdd.saveInvCardPrices(session, invCard, invPrices);
 		}
@@ -153,6 +153,12 @@ public class InvBLCardUpdate
 		Transaction tx = session.beginTransaction();
 		try
 		{
+			deleteInvCardAccounts(session,card);
+			deleteInvCardGroups(session,card);
+			deleteInvCardPrices(session,card);
+			deleteInvCardUnits(session,card);
+			InvDALCardUpdate.deleteInitialTransactions(card);
+			EngDALCommon.deleteObject(session,card);
 			session.flush();
 			tx.commit();
 			session.close();
