@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.15 2005/03/19 18:02:58 cemdayanik Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.16 2005/03/22 08:52:08 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
@@ -147,7 +147,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 		columnTypes[5] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[6] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[7] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableInvTotals, columnTypes);
+		tableViewer = new SearchTableViewer(tableInvTotals, columnTypes,true);
 	}
 
 	public void search()

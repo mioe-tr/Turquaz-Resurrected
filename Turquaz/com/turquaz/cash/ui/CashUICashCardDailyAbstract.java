@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: CashUICashCardDailyAbstract.java,v 1.8 2005/03/21 16:39:16 cemdayanik Exp $
+ * @version  $Id: CashUICashCardDailyAbstract.java,v 1.9 2005/03/22 08:52:11 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -195,7 +195,7 @@ public class CashUICashCardDailyAbstract extends org.eclipse.swt.widgets.Composi
 		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableCashTrans, columnTypes);
+		tableViewer = new SearchTableViewer(tableCashTrans, columnTypes, true);
 	}
 	
 	private void tableCashTransMouseDoubleClick(MouseEvent evt)

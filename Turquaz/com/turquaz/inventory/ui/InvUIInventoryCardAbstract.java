@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.16 2005/03/21 15:07:24 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.17 2005/03/22 08:52:08 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -485,7 +485,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 		columnTypes[6] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[7] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[8] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableTransactions, columnTypes);
+		tableViewer = new SearchTableViewer(tableTransactions, columnTypes,true);
 	}
 
 	public void delete()

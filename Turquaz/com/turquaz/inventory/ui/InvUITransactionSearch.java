@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.40 2005/03/19 18:02:58 cemdayanik Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.41 2005/03/22 08:52:08 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -352,7 +352,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[5] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[6] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableTransactions, columnTypes);
+		tableViewer = new SearchTableViewer(tableTransactions, columnTypes,true);
 	}
 
 

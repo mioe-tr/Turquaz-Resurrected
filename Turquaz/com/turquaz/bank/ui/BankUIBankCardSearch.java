@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardSearch.java,v 1.24 2005/03/19 17:40:39 onsel Exp $
+ * @version  $Id: BankUIBankCardSearch.java,v 1.25 2005/03/22 08:52:11 onsel Exp $
  */
 import java.util.List;
 import org.eclipse.swt.widgets.MessageBox;
@@ -271,7 +271,7 @@ public class BankUIBankCardSearch extends Composite implements SearchComposite
 		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_STRING;
-		tableViewer = new SearchTableViewer(tableBankCards,columnTypes);
+		tableViewer = new SearchTableViewer(tableBankCards,columnTypes,true);
 		
 	}
 	private void FillCurrencyCombo() throws Exception

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.44 2005/03/21 15:44:12 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.45 2005/03/22 08:52:09 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -270,7 +270,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableCurrentCardSearch, columnTypes);
+		tableViewer = new SearchTableViewer(tableCurrentCardSearch, columnTypes,true);
 	}
 
 	public void delete()

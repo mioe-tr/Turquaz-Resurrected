@@ -54,7 +54,7 @@ import org.eclipse.swt.layout.GridLayout;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.10 2005/03/21 16:39:16 cemdayanik Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.11 2005/03/22 08:52:11 onsel Exp $
  */
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {
@@ -169,7 +169,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 		columnTypes[0] =TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[1] =TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[2] =TurquazTableSorter.COLUMN_TYPE_STRING;
-		tableViewer = new SearchTableViewer(tableCashCards,columnTypes);
+		tableViewer = new SearchTableViewer(tableCashCards,columnTypes,true);
 		
 	}
 	public void delete()

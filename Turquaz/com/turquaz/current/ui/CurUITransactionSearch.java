@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.39 2005/03/21 16:39:16 cemdayanik Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.40 2005/03/22 08:52:10 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -355,7 +355,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 		columnTypes[5] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[6] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[7] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableCurrentTransactions, columnTypes);
+		tableViewer = new SearchTableViewer(tableCurrentTransactions, columnTypes,true);
 	}
 
 	public void delete()

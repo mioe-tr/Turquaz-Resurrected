@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUISearchMoneyTransaction.java,v 1.19 2005/03/21 17:48:53 cemdayanik Exp $
+ * @version  $Id: BankUISearchMoneyTransaction.java,v 1.20 2005/03/22 08:52:11 onsel Exp $
  */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -210,7 +210,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[5] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableMoneyTrans, columnTypes);
+		tableViewer = new SearchTableViewer(tableMoneyTrans, columnTypes,true);
 	}
 
 	public void delete()

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.49 2005/03/21 19:30:34 onsel Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.50 2005/03/22 08:52:10 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -263,7 +263,7 @@ public class AccUITransactionSearch extends Composite implements SearchComposite
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[5] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableTransactions,columnTypes);
+		tableViewer = new SearchTableViewer(tableTransactions,columnTypes,true);
 	}
 	/** Add your pre-init code in here */
 	public void preInitGUI()

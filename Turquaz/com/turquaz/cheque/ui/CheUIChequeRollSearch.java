@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.22 2005/03/21 17:27:39 cemdayanik Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.23 2005/03/22 08:52:07 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -312,7 +312,7 @@ public class CheUIChequeRollSearch extends org.eclipse.swt.widgets.Composite imp
 		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableChequeRolls, columnTypes);
+		tableViewer = new SearchTableViewer(tableChequeRolls, columnTypes,true);
 	}
 
 	public void delete()

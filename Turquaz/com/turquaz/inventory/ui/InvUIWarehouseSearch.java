@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseSearch.java,v 1.19 2005/03/19 18:02:58 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseSearch.java,v 1.20 2005/03/22 08:52:08 onsel Exp $
  */
 import java.util.List;
 import org.eclipse.swt.layout.GridLayout;
@@ -258,7 +258,7 @@ public class InvUIWarehouseSearch extends Composite implements SecureComposite, 
 		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_STRING;
 		columnTypes[4] = TurquazTableSorter.COLUMN_TYPE_STRING;
-		tableViewer = new SearchTableViewer(tableInvUIWarehouses, columnTypes);
+		tableViewer = new SearchTableViewer(tableInvUIWarehouses, columnTypes,true);
 	}
 
 	public void delete()

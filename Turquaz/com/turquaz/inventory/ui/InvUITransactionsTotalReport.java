@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUITransactionsTotalReport.java,v 1.15 2005/03/21 15:07:39 cemdayanik Exp $
+ * @version  $Id: InvUITransactionsTotalReport.java,v 1.16 2005/03/22 08:52:07 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -376,7 +376,7 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 		columnTypes[10] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[11] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		columnTypes[12] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer = new SearchTableViewer(tableSearcResults, columnTypes);
+		tableViewer = new SearchTableViewer(tableSearcResults, columnTypes,true);
 	}
 
 	public void delete()
