@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashOtherPaymentTransaction.java,v 1.1 2005/02/19 20:10:13 onsel Exp $
+* @version  $Id: CashUICashOtherPaymentTransaction.java,v 1.2 2005/02/19 20:13:45 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -193,7 +193,7 @@ public class CashUICashOtherPaymentTransaction extends org.eclipse.swt.widgets.C
                
                blTrans.saveOtherTransaction((TurqCashCard)txtCashCard.getData(),
                        						  (TurqAccountingAccount)txtAccountingAccount.getData(),
-                       						  EngBLCommon.CASH_CURRENT_PAYMENT,
+                       						  EngBLCommon.CASH_OTHER_PAYMENT,
                        						  null,
                        						  curTextTotalAmount.getBigDecimalValue(),
                        						  datePicker.getDate(),

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.16 2005/02/19 17:18:51 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.17 2005/02/19 20:13:45 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -31,8 +31,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
-import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
