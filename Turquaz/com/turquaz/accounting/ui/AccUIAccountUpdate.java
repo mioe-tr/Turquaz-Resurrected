@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.25 2004/12/17 18:52:00 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.26 2004/12/29 14:22:37 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -299,6 +299,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 
 		compAccountCard.getTxtParentAccount().setText(
 				account.getTurqAccountingAccountByParentAccount().getAccountCode());
+		compAccountCard.getTxtAccAccountCode().setText(account.getAccountCode());
+		compAccountCard.getTxtAccAcountName().setText(account.getAccountName());
 
 		fillBalances();
 
