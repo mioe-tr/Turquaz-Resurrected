@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.69 2005/02/03 16:36:50 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.70 2005/02/03 16:41:46 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -313,7 +313,7 @@ public final class TreeFactory {
 		}
 		if(EngBLPermissions.getPermission(AccUIAccountingMonthlyBalance.class.getName())>0){
 			item = new TreeItem(actionReports,SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.68")); //$NON-NLS-1$
+			item.setText(Messages.getString("TreeFactory.70"));  //$NON-NLS-1$
 			item.setData(AccUIAccountingMonthlyBalance.class.getName());
 		}
 		

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.10 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.11 2005/02/03 16:41:46 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -26,6 +26,7 @@ import org.eclipse.swt.layout.GridLayout;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashTransactionUpdate;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCashCard;
 import com.turquaz.engine.dal.TurqCashTransaction;
 import com.turquaz.engine.dal.TurqCashTransactionRow;
@@ -175,7 +176,14 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	
 	
 	public void postInitGUI(){
-	
+	    
+	    if(cashTrans.getTurqEngineSequence().getEngineSequencesId().intValue()!= EngBLCommon.MODULE_CASH)
+	    {	    
+	     toolUpdate.setEnabled(false);
+	     tooldelete.setEnabled(false);
+	     
+	    }
+	    
 	    compTransAdd.getTxtDocumentNo().setText(cashTrans.getDocumentNo());
 	    compTransAdd.getDatePicker().setDate(cashTrans.getTransactionDate());
 	    compTransAdd.getTxtCashCard().setText(cashTrans.getTurqCashCard().getCashCardName());
@@ -183,6 +191,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	    
 	   
         try{
+            
         TurqCurrentCard curCard = blUpdate.getCurrentCard(cashTrans.getTurqEngineSequence());
         
         if(curCard!=null){
@@ -242,6 +251,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog {
 	public void update(){
 	    try{
 	        MessageBox msg = new MessageBox(this.getParent(),SWT.ICON_INFORMATION);
+	        
 	        if(compTransAdd.verifyFields()){
 	        updated=true;
 	        blUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),

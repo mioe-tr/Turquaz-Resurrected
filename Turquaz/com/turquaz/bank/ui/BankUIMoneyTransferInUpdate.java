@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.6 2005/01/31 18:39:02 onsel Exp $
+* @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.7 2005/02/03 16:41:46 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -235,6 +235,7 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog 
 	    {
 	        ex.printStackTrace();
 	        EngUICommon.showMessageBox(getParent(),ex.getMessage().toString(),SWT.ICON_ERROR);
+	        
 	    }
 	}
 	

@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.26 2005/02/03 11:58:26 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.27 2005/02/03 16:41:46 onsel Exp $
 */
 import java.util.List;
 
@@ -71,9 +71,9 @@ public class EngBLCommon {
     
     public final static int BANK_TRANS_SEND_MONEY =2;    // Giden havale
     
-    public final static int BANK_TRANS_CASH_DRAW =3; // Para Çekme
+    public final static int BANK_TRANS_CASH_DRAW =4; // Para Çekme
     
-    public final static int BANK_TRANS_CASH_DEPOSIT =4; //Para yatirma 
+    public final static int BANK_TRANS_CASH_DEPOSIT =3; //Para yatirma 
     
     
     

@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionUpdate.java,v 1.7 2005/02/03 14:40:20 onsel Exp $
+* @version  $Id: BankBLTransactionUpdate.java,v 1.8 2005/02/03 16:41:46 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -192,7 +192,7 @@ public class BankBLTransactionUpdate {
         /**
          * Save transaction bill
          */
-        BankDALCommon.saveObject(bankTransBill);
+        BankDALCommon.updateObject(bankTransBill);
         
         /**
          * Save transaction row

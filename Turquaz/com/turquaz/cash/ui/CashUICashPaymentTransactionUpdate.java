@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.9 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.10 2005/02/03 16:41:46 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -25,6 +25,7 @@ import java.util.Iterator;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashTransactionUpdate;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCashCard;
 import com.turquaz.engine.dal.TurqCashTransaction;
 import com.turquaz.engine.dal.TurqCashTransactionRow;
@@ -178,6 +179,12 @@ public class CashUICashPaymentTransactionUpdate extends org.eclipse.swt.widgets.
 	
 	public void postInitGUI()
 	{
+	    if(cashTrans.getTurqEngineSequence().getEngineSequencesId().intValue()!= EngBLCommon.MODULE_CASH)
+	    {	    
+	     toolUpdate.setEnabled(false);
+	     tooldelete.setEnabled(false);
+	        
+	    }
 	    compTransAdd.getTxtDocumentNo().setText(cashTrans.getDocumentNo());
 	    compTransAdd.getDatePicker().setDate(cashTrans.getTransactionDate());
 	    compTransAdd.getTxtCashCard().setText(cashTrans.getTurqCashCard().getCashCardName());
