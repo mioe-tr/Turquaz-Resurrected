@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.57 2005/02/06 15:38:53 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.58 2005/02/07 18:49:37 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1053,8 +1053,8 @@ implements SecureComposite{
 		
 		//fill combo type
 		
-			comboConsignmentType.add(Messages.getString("ConUIAddConsignment.29")); //$NON-NLS-1$
-		comboConsignmentType.add(Messages.getString("ConUIAddConsignment.30")); //$NON-NLS-1$
+		comboConsignmentType.add(EngBLCommon.COMMON_BUY_STRING); 
+		comboConsignmentType.add(EngBLCommon.COMMON_SELL_STRING); 
 		
 		//fill WareHouse combo
 		fillComboWarehouses();
@@ -1159,10 +1159,11 @@ implements SecureComposite{
 	public void saveConsignmentRows(Integer consignmentID){
 		try{
 			TableItem items[] = tableConsignmentRows.getItems();
-		     int type =0;
+		     
+			int type =EngBLCommon.COMMON_SELL_INT;
 		    
-				if(comboConsignmentType.getText().equals(Messages.getString("ConUIAddConsignment.34"))){ //$NON-NLS-1$
-					type =1;
+				if(comboConsignmentType.getText().equals(EngBLCommon.COMMON_BUY_STRING)){ //$NON-NLS-1$
+					type =EngBLCommon.COMMON_BUY_INT;
 					
 				}
 			for(int i=0;i<items.length;i++){
