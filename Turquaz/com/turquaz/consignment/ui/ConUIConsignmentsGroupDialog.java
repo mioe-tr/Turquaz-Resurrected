@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.1 2004/11/05 09:30:57 onsel Exp $
+* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.2 2004/11/05 09:31:11 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -47,7 +47,6 @@ import org.eclipse.swt.SWT;
 
 import com.turquaz.consignment.bl.ConBLAddGroups;
 import com.turquaz.current.Messages;
-import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqConsignmentGroup;
 
 
