@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.14 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.15 2005/01/03 19:37:41 onsel Exp $
 */
 
 
@@ -71,6 +71,19 @@ public class AccBLAccountAdd {
 		}
 		
 	}
+	
+	public List getCashAccounts()throws Exception{
+	    try{
+	        
+	        return dalAccountAdd.getCashAccounts();
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	}
+	
 	public void saveAccount(String accountName, String accountCode, Object parent)throws Exception{
 		try{
 		

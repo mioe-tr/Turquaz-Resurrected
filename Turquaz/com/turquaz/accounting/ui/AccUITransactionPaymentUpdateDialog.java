@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.16 2004/12/31 09:12:08 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.17 2005/01/03 19:37:41 onsel Exp $
 */
 
 
@@ -267,7 +267,9 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		compTransactionPayment.rowList.taskChanged(row);
 	}
 	else {
-	compTransactionPayment.getComboCreditor().setText(transRow.getTurqAccountingAccount().getAccountCode()+" "+transRow.getTurqAccountingAccount().getAccountName()); //$NON-NLS-1$
+	compTransactionPayment.getComboCreditor().setText(transRow.getTurqAccountingAccount().getAccountCode()); //$NON-NLS-1$
+	compTransactionPayment.getComboCreditor().setData(transRow.getTurqAccountingAccount()); //$NON-NLS-1$
+	
 	}
 					
 	}
@@ -286,6 +288,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		 updateTransactionRows();
 		 msg.setMessage(Messages.getString("AccUITransactionPaymentUpdateDialog.6")); //$NON-NLS-1$
 		 msg.open();
+		 dialogShell.close();
 		 }
 			
 		}

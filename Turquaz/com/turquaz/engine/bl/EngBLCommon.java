@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.14 2005/01/02 17:35:26 huseyiner Exp $
+* @version  $Id: EngBLCommon.java,v 1.15 2005/01/03 19:37:41 onsel Exp $
 */
 import java.util.List;
 
@@ -86,6 +86,7 @@ public class EngBLCommon {
     public final static int CONTENT_ASSIST_ACCOUNT_LEAVES =2;
     public final static int CONTENT_ASSIST_CURRENT =3;
     public final static int CONTENT_ASSIST_CASH = 4;
+    public final static int CONTENT_ASSIST_ACCOUNTING_CASH =5;
     
     
     public final static int BILL_TRANS_TYPE_BUY=0;

@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.10 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.11 2005/01/03 19:37:41 onsel Exp $
 */
 
 import java.util.HashMap;
@@ -34,6 +34,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 public class EngBLAccountingAccounts {
 	public List accountList;
 	public List accountListForAccountPickers;
+	public List cashAccountList;
 	public HashMap accountMap = new HashMap();
 
 	
@@ -54,6 +55,8 @@ public class EngBLAccountingAccounts {
 		try{
 		 accountList = blAccount.getAllAccounts();
 		 accountListForAccountPickers = blAccount.getAccountsForAccountPickers();
+		 
+	     cashAccountList =blAccount.getCashAccounts();
 		 accountMap.clear();
 		 
 		 TurqAccountingAccount account;
@@ -104,6 +107,22 @@ public class EngBLAccountingAccounts {
 
 		}      
 		return _instance.accountListForAccountPickers;
+		
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+
+	}
+	public static synchronized List getCashAccounts() throws Exception{
+		try{
+		if (_instance == null) {
+              
+			_instance = new EngBLAccountingAccounts();
+			
+
+		}      
+		return _instance.cashAccountList;
 		
 		}
 		catch(Exception ex){
