@@ -17,16 +17,10 @@ import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.engine.bl.EngBLCommon;
-import com.turquaz.engine.dal.TurqBanksCard;
-import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentContact;
 import com.turquaz.engine.dal.TurqCurrentGroup;
-import com.turquaz.engine.ui.component.NumericText;
 import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.custom.CCombo;
 import com.turquaz.engine.ui.component.SecureComposite;
@@ -265,8 +259,8 @@ private TableColumn tableColumnContactName;
  				Set contacts = aCurrentCard.getTurqCurrentContacts();
  				
  				if(contacts.size()>0){
- 				TurqCurrentContact curContact[] =(TurqCurrentContact[]) contacts.toArray();
- 				contactName = curContact[0].getContactsName();
+ 				Object curContact[] = contacts.toArray();
+ 				contactName = ((TurqCurrentContact)curContact[0]).getContactsName();
  				
  				}
  					
@@ -278,10 +272,11 @@ private TableColumn tableColumnContactName;
 	
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			MessageBox msg=new MessageBox(this.getShell(),SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
-			ex.printStackTrace();
+			
 		}
 	}
 	
