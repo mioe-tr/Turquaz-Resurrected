@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.25 2005/01/16 13:52:49 cemdayanik Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.26 2005/01/18 10:51:30 cemdayanik Exp $
 */
 import java.util.Calendar;
 import java.util.Date;
@@ -284,6 +284,8 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	try{
 	List list = blTransAdd.getCurrentTransactionTypes();
 	TurqCurrentTransactionType type ;	
+	comboTransactionGroup.add("Hepsi");
+	comboTransactionGroup.setData("Hepsi",null);
 	for(int i =0;i<list.size();i++){
 
 	type = (TurqCurrentTransactionType)list.get(i);
@@ -291,6 +293,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	comboTransactionGroup.setData(type.getTransactionTypeName(),type);	
 	
 	}
+	comboTransactionGroup.setText("Hepsi");
 		}
 	catch(Exception ex){
 	ex.printStackTrace();
