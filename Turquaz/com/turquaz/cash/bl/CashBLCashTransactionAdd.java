@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionAdd.java,v 1.11 2005/02/03 11:58:26 onsel Exp $
+* @version  $Id: CashBLCashTransactionAdd.java,v 1.12 2005/02/18 15:53:22 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -29,6 +29,7 @@ import java.util.List;
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
 import com.turquaz.cash.dal.CashDALCashCard;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
+import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
@@ -296,8 +297,8 @@ public void saveCashTransaction(TurqCashCard cashCard, TurqEngineSequence seq,in
 	    */
 	   
 	   Integer transId = blAccTran.saveAccTransaction(transDate,document_no,accTransType,seq.getTurqModule().getModulesId().intValue(),seq.getEngineSequencesId(),definition);
-	   blAccTran.saveAccTransactionRow(accTransRowCash,transId);
-	   blAccTran.saveAccTransactionRow(accTransRowCurrent,transId);
+	   blAccTran.saveAccTransactionRow(accTransRowCash,transId,EngConfiguration.getBaseCurrency(),new BigDecimal(1));
+	   blAccTran.saveAccTransactionRow(accTransRowCurrent,transId,EngConfiguration.getBaseCurrency(),new BigDecimal(1));
    
     
    }

@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.14 2005/02/18 13:57:03 cemdayanik Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.15 2005/02/18 15:53:15 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -46,7 +46,8 @@ public class AccBLTransactionAdd {
 	
 	
 	//Muhasebe fisi kalemlerini kaydet
-	public void saveAccTransactionRow(TurqAccountingTransactionColumn transRow, Integer transID)
+	public void saveAccTransactionRow(TurqAccountingTransactionColumn transRow,
+			Integer transID, TurqCurrency currency, BigDecimal exchangeRatio)
 	throws Exception
 	{
 		try
@@ -61,16 +62,14 @@ public class AccBLTransactionAdd {
 		
 			transRow.setTurqAccountingTransaction(trans);
 			
-			TurqCurrency baseCurrency=AccBLTransactionSearch.getBaseCurrency();
-			/*if (currency.getCurrenciesId()==baseCurrency.getCurrenciesId())
-			{
-				transRow.setRowsCreditInBaseCurrency(transRow.getCreditAmount());
-				transRow.setRowsDeptInBaseCurrency(transRow.getDeptAmount());
-			}
-			else
-			{
-				BigDecimal exchangeRatio=
-			}*/
+			
+			transRow.setRowsCreditInBaseCurrency(transRow.getCreditAmount());
+			transRow.setRowsDeptInBaseCurrency(transRow.getDeptAmount());
+			transRow.setTurqCurrency(currency);
+			transRow.setRowsCreditInBaseCurrency(transRow.getCreditAmount().multiply(exchangeRatio));
+			transRow.setRowsDeptInBaseCurrency(transRow.getDeptAmount().multiply(exchangeRatio));
+
+
 			transRow.setCreatedBy(System.getProperty("user"));
 			transRow.setUpdatedBy(System.getProperty("user"));
 		

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.3 2005/02/15 09:21:46 onsel Exp $
+* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.4 2005/02/18 15:53:22 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -249,7 +249,7 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog {
 	        cheque = new TurqChequeCheque();
 	    }
 	    /**
-	     * TODO check below..
+	     * 
 	     */
 	    TurqBanksCard bankCard= (TurqBanksCard)bankPicker.getData();
 	    cheque.setBankBranchName(bankCard.getBankBranchName());
