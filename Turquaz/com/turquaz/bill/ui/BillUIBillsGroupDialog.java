@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillsGroupDialog.java,v 1.4 2004/11/19 20:27:45 huseyiner Exp $
+* @version  $Id: BillUIBillsGroupDialog.java,v 1.5 2005/01/17 10:35:06 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -101,7 +101,7 @@ public class BillUIBillsGroupDialog extends  org.eclipse.swt.widgets.Dialog {
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("BillUIBillsGroupDialog.0")); //$NON-NLS-1$
 			
 	
 			dialogShell.setSize(434, 245);

@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.5 2004/11/12 10:38:11 huseyiner Exp $
+* @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.6 2005/01/17 10:35:06 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -104,7 +104,7 @@ public class ConUIConsignmentsGroupDialog extends  org.eclipse.swt.widgets.Dialo
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("ConUIConsignmentsGroupDialog.0")); //$NON-NLS-1$
 			compGroupAddDialog = new Composite(dialogShell,SWT.NULL);
 			lblGroupName = new CLabel(compGroupAddDialog,SWT.NULL);
 			txtGroupName = new Text(compGroupAddDialog,SWT.BORDER);
