@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvBLSearchTransaction.java,v 1.11 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: InvBLSearchTransaction.java,v 1.12 2005/03/22 17:50:32 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -107,5 +107,9 @@ public class InvBLSearchTransaction
 		{
 			throw ex;
 		}
+	}
+	public static List getInitialTransactions()throws Exception{
+		
+              return InvDALSearchTransaction.getInitialTransactions();		
 	}
 }

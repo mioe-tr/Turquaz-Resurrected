@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.28 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.29 2005/03/22 17:50:32 onsel Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -284,9 +284,10 @@ public class InvDALSearchTransaction
 
 	public static TurqConsignment getConsignment(TurqEngineSequence seq) throws Exception
 	{
+		Session session = null;
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			 session = EngDALSessionFactory.openSession();
 			session.refresh(seq);
 			Hibernate.initialize(seq.getTurqConsignments());
 			Iterator it = seq.getTurqConsignments().iterator();
@@ -296,20 +297,56 @@ public class InvDALSearchTransaction
 				cons = (TurqConsignment) it.next();
 				ConDALUpdateConsignment.initiliazeConsignment(cons);
 			}
-			session.close();
+		
 			return cons;
 		}
 		catch (Exception ex)
 		{
 			throw ex;
 		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+	
+	public static List getInitialTransactions()throws Exception
+	{
+		Session session = null;
+		try
+		{
+		 session = EngDALSessionFactory.openSession();
+		String query = "Select invTrans from TurqInventoryTransaction as invTrans " +
+				" where invTrans.turqInventoryTransactionType.id = "+EngBLCommon.INV_TRANS_INITIAL;
+		 
+		 Query q = session.createQuery(query);
+		 
+		 return q.list();
+		 
+		 
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
 	}
 
 	public static TurqBill getBill(TurqEngineSequence seq) throws Exception
 	{
+		Session session = null;
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+		 session = EngDALSessionFactory.openSession();
 			session.refresh(seq);
 			Hibernate.initialize(seq.getTurqConsignments());
 			Iterator it = seq.getTurqBills().iterator();
@@ -320,12 +357,19 @@ public class InvDALSearchTransaction
 				ConDALUpdateConsignment dalSearchCons = new ConDALUpdateConsignment();
 				BillDALSearchBill.initializeBill(cons);
 			}
-			session.close();
+			
 			return cons;
 		}
 		catch (Exception ex)
 		{
 			throw ex;
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
 		}
 	}
 }
