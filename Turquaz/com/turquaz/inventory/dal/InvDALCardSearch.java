@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardSearch.java,v 1.34 2005/03/17 15:02:05 onsel Exp $
+ * @version $Id: InvDALCardSearch.java,v 1.35 2005/03/18 09:50:27 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -164,7 +164,8 @@ public class InvDALCardSearch
 		try
 		{
 			Session session = EngDALSessionFactory.openSession();
-			String query = "Select invCard.cardInventoryCode,invCard.cardName from TurqInventoryCard as invCard";
+			String query = "Select invCard.cardInventoryCode,invCard.cardName from TurqInventoryCard as invCard" +
+					" order by invCard.cardInventoryCode";
 			Query q = session.createQuery(query);
 			List list = q.list();
 			session.close();
