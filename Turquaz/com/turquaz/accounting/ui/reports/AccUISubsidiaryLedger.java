@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.6 2004/12/19 21:56:12 huseyiner Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.7 2004/12/20 10:33:49 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -40,6 +40,7 @@ import com.cloudgarden.resource.SWTResourceManager;
 
 import org.eclipse.swt.custom.CLabel;
 
+import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -353,7 +354,7 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite 
 				}
 				// total
 				item = new TableItem(tableTransactions, SWT.NULL);
-				item.setText(new String[]{"","",Messages.getString("AccUISubsidiaryLedger.14"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				item.setText(new String[]{"","",Messages.getString("AccUISubsidiaryLedger.14"), //$NON-NLS-1$ 
 				        (balance.compareTo(new BigDecimal(0))<0) ? df.format(balance.multiply(new BigDecimal(-1))): "", //$NON-NLS-1$
 				        (balance.compareTo(new BigDecimal(0))>0) ? df.format(balance): "", //$NON-NLS-1$
 				        (balance.compareTo(new BigDecimal(0))<0) ? df.format(balance.multiply(new BigDecimal(-1))): "", //$NON-NLS-1$

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.7 2004/12/17 21:49:08 huseyiner Exp $
+* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.8 2004/12/20 10:33:49 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -149,13 +149,16 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 				compAdvancedLData1.verticalAlignment = GridData.FILL;
 				compAdvancedLData1.horizontalSpan = 3;
 				compAdvanced.setLayoutData(compAdvancedLData1);
-				compAdvancedLayout.makeColumnsEqualWidth = true;
 				compAdvancedLayout.numColumns = 4;
 				compAdvanced.setLayout(compAdvancedLayout);
 				{
 					checkSubAccounts = new Button(compAdvanced, SWT.CHECK | SWT.LEFT);
 					checkSubAccounts.setText(Messages
 						.getString("AccUIAccountingAdvancedBalance.0")); //$NON-NLS-1$
+						GridData checkSubAccountsLData = new GridData();
+						checkSubAccountsLData.widthHint = 156;
+						checkSubAccountsLData.heightHint = 16;
+						checkSubAccounts.setLayoutData(checkSubAccountsLData);
 						checkSubAccounts
 							.addSelectionListener(new SelectionAdapter() {
 								public void widgetSelected(SelectionEvent evt) {
@@ -172,6 +175,13 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 					checkInitialAccounts = new Button(compAdvanced, SWT.CHECK | SWT.LEFT);
 					checkInitialAccounts.setText(Messages
 						.getString("AccUIAccountingAdvancedBalance.1")); //$NON-NLS-1$
+						GridData checkInitialAccountsLData = new GridData();
+						checkInitialAccountsLData.widthHint = 162;
+						checkInitialAccountsLData.heightHint = 16;
+						checkInitialAccounts.setLayoutData(checkInitialAccountsLData);
+						GridData checkInitialAccountsLData1 = new GridData();
+						checkInitialAccountsLData1.widthHint = 158;
+						checkInitialAccountsLData1.heightHint = 16;
 				}
 				{
 					checkFinalAccounts = new Button(compAdvanced, SWT.CHECK | SWT.LEFT);
@@ -179,6 +189,8 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 						.getString("AccUIAccountingAdvancedBalance.2")); //$NON-NLS-1$
 						GridData checkFinalAccountsLData = new GridData();
 						checkFinalAccountsLData.horizontalSpan = 2;
+						checkFinalAccountsLData.widthHint = 172;
+						checkFinalAccountsLData.heightHint = 16;
 						checkFinalAccounts.setLayoutData(checkFinalAccountsLData);
 				}
 				{

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.16 2004/12/09 21:49:07 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.17 2004/12/20 10:33:49 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -418,10 +418,9 @@ implements SecureComposite{
 								lblConsignmentDate.setText(Messages
 									.getString("BillUIBillFromConsignment.4")); //$NON-NLS-1$
 								GridData lblConsignmentDateLData = new GridData();
-								lblConsignmentDateLData.widthHint = 86;
+								lblConsignmentDateLData.widthHint = 94;
 								lblConsignmentDateLData.heightHint = 18;
-								lblConsignmentDate
-									.setLayoutData(lblConsignmentDateLData);
+								lblConsignmentDate.setLayoutData(lblConsignmentDateLData);
 							}
 							{
 								dateConsDate = new DatePicker(
@@ -583,7 +582,7 @@ implements SecureComposite{
 								lblPaymentType = new CLabel(
 									compInfoPanel,
 									SWT.NONE);
-								lblPaymentType.setText("Ödeme Tipi");
+								lblPaymentType.setText(Messages.getString("BillUIBillFromConsignment.1")); //$NON-NLS-1$
 							}
 							{
 								comboPaymentType = new CCombo(
@@ -903,7 +902,7 @@ implements SecureComposite{
 		MessageBox msg=new MessageBox(this.getShell(),SWT.NULL);
 		if (txtConsignment.getData()==null)
 		{
-			msg.setMessage("Lütfen Ýrsaliye Döküman No Seçiniz!");
+			msg.setMessage(Messages.getString("BillUIBillFromConsignment.12")); //$NON-NLS-1$
 			msg.open();
 			txtConsignment.setFocus();
 			return false;
