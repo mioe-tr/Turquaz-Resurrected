@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.12 2004/11/18 21:28:22 onsel Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.13 2004/11/25 20:17:57 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -43,7 +43,7 @@ import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import com.turquaz.engine.ui.component.DecimalText;
+import com.turquaz.engine.ui.component.CurrencyText;
 import org.eclipse.swt.widgets.Button;
 import com.turquaz.engine.ui.component.TextWithButton;
 import com.turquaz.inventory.Messages;
@@ -78,7 +78,7 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
 	private CLabel invAmount;
 	private NumericText numTxtAmount;
 	private Button btnSpecialButtonEach;
-	private DecimalText numTxtSpecialVatEach;
+	private CurrencyText numTxtSpecialVatEach;
 	private CLabel lblSpecialVatEach;
 	private Button btnSpecialVat;
 	private NumericText numSpecialVat;
@@ -255,7 +255,7 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
 					lblSpecialVatEach.setText(Messages.getString("InvUITransactionAddDialog.5")); //$NON-NLS-1$
 				}
 				{
-					numTxtSpecialVatEach = new DecimalText(composite1, SWT.NONE);
+					numTxtSpecialVatEach = new CurrencyText(composite1, SWT.NONE);
 					GridData numTxtSpecialVatEachLData = new GridData();
 					numTxtSpecialVatEachLData.horizontalAlignment = GridData.FILL;
 					numTxtSpecialVatEachLData.heightHint = 16;

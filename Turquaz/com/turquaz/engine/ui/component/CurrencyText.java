@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DecimalText.java,v 1.12 2004/11/06 14:28:26 onsel Exp $
+* @version  $Id: CurrencyText.java,v 1.1 2004/11/25 20:17:57 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
@@ -46,11 +46,11 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 
 
-public class DecimalText extends Composite {
+public class CurrencyText extends Composite {
  private Text text;
  public int textLimit;
 
- public DecimalText(Composite arg0, int arg1) {
+ public CurrencyText(Composite arg0, int arg1) {
   super(arg0, SWT.NONE);
   text = new Text(this, arg1);
   textLimit =20;

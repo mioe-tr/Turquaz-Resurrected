@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionRowAddDialog.java,v 1.9 2004/11/25 19:27:00 huseyiner Exp $
+* @version  $Id: AccUITransactionRowAddDialog.java,v 1.10 2004/11/25 20:17:58 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -37,7 +37,7 @@ import org.eclipse.swt.custom.CCombo;
 
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
-import com.turquaz.engine.ui.component.DecimalText;
+import com.turquaz.engine.ui.component.CurrencyText;
 import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Composite;
@@ -66,7 +66,7 @@ import org.eclipse.swt.widgets.Text;
 public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog {
 	private Button btnOk;
 	private Button btnCancel;
-	private DecimalText decTextAmount;
+	private CurrencyText decTextAmount;
 	private CLabel lblTransactionDefinition;
 	private Text txtTransactionDefinition;
 	private CLabel lblAmount;
@@ -117,7 +117,7 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 			lbDeptOrCredit = new CLabel(dialogShell,SWT.NULL);
 			comboDeptOrCredit = new CCombo(dialogShell,SWT.READ_ONLY);
 			lblAmount = new CLabel(dialogShell,SWT.NULL);
-			decTextAmount = new DecimalText(dialogShell,SWT.NULL);
+			decTextAmount = new CurrencyText(dialogShell,SWT.NULL);
 
 			
 	

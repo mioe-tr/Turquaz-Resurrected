@@ -24,7 +24,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TTableCellEditorDecimalText.java,v 1.3 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: TTableCellEditorDecimalText.java,v 1.4 2004/11/25 20:17:57 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -46,7 +46,7 @@ import de.kupzog.ktable.KTable;
  */
 public class TTableCellEditorDecimalText extends TTableCellEditor {
 
-	private DecimalText m_Text;
+	private CurrencyText m_Text;
 	
 
 	public void open(KTable table, int col, int row, Rectangle rect) {
@@ -68,7 +68,7 @@ public class TTableCellEditorDecimalText extends TTableCellEditor {
 
 
 	protected Control createControl() {
-		m_Text = new DecimalText(m_Table, SWT.NONE);
+		m_Text = new CurrencyText(m_Table, SWT.NONE);
 		m_Text.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				try {
