@@ -1,9 +1,4 @@
-/*
- * Created on Oct 13, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.dal;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALWarehouseAdd.java,v 1.3 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: InvDALWarehouseAdd.java,v 1.4 2004/12/20 18:27:57 huseyiner Exp $
 */
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
