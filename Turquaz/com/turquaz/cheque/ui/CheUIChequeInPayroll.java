@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayroll.java,v 1.12 2005/02/11 14:04:43 onsel Exp $
+* @version  $Id: CheUIChequeInPayroll.java,v 1.13 2005/02/15 09:21:46 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -153,7 +153,7 @@ public class CheUIChequeInPayroll extends org.eclipse.swt.widgets.Composite impl
                 {
                     btnSumTotals = new Button(compInfoPanel, SWT.CHECK
                         | SWT.LEFT);
-                    btnSumTotals.setText("Cari Hareketleri Topla ");
+                    btnSumTotals.setText(Messages.getString("CheUIChequeInPayroll.14")); //$NON-NLS-1$
                 }
             }
             {

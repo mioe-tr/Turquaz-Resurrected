@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollBankUpdate.java,v 1.1 2005/02/11 14:58:32 onsel Exp $
+* @version  $Id: CheUIChequeOutPayrollBankUpdate.java,v 1.2 2005/02/15 09:21:46 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -215,7 +215,7 @@ public class CheUIChequeOutPayrollBankUpdate extends org.eclipse.swt.widgets.Dia
 	        {
 	          if(compChequeRoll.getTableCheques().getItemCount()>0)
 	          {
-	          	 EngUICommon.showMessageBox(getParent(),"Çek bulunan bordrolar? silemezsiniz!",SWT.ICON_WARNING); 
+	          	 EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIChequeOutPayrollBankUpdate.0"),SWT.ICON_WARNING);  //$NON-NLS-1$
 	             return;
 	          }
 	            CheBLUpdateChequeRoll.deleteChequeRollIn(chequeRoll);

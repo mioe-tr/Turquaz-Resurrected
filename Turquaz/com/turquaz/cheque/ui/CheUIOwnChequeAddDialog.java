@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.2 2005/02/01 19:28:05 onsel Exp $
+* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.3 2005/02/15 09:21:46 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -227,13 +227,13 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog {
 	{
 	    if(bankPicker.getData()==null)
 	    {
-	        EngUICommon.showMessageBox(getParent(),"Lütfen Banka Kart? Giriniz!!",SWT.ICON_WARNING);
+	        EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIOwnChequeAddDialog.0"),SWT.ICON_WARNING); //$NON-NLS-1$
 	        bankPicker.setFocus();
 	        return false;
 	    }
 	    else if(curText.getBigDecimalValue().compareTo(new BigDecimal(0))<1)
 	    {
-	       EngUICommon.showMessageBox(getParent(),"Lütfen Tutar Giriniz!",SWT.ICON_WARNING);
+	       EngUICommon.showMessageBox(getParent(),Messages.getString("CheUIOwnChequeAddDialog.3"),SWT.ICON_WARNING); //$NON-NLS-1$
 	        curText.setFocus();
 	        return false;
 	    }

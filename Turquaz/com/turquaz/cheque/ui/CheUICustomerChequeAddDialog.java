@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUICustomerChequeAddDialog.java,v 1.7 2005/02/14 11:32:40 onsel Exp $
+* @version  $Id: CheUICustomerChequeAddDialog.java,v 1.8 2005/02/15 09:21:46 onsel Exp $
 */
 import java.util.Calendar;
 
@@ -188,7 +188,7 @@ public class CheUICustomerChequeAddDialog extends org.eclipse.swt.widgets.Dialog
             }
 			//START >>  lblBankAccount
 			lblBankAccount = new CLabel(dialogShell, SWT.NONE);
-			lblBankAccount.setText("Hesap No");
+			lblBankAccount.setText(Messages.getString("CheUICustomerChequeAddDialog.12")); //$NON-NLS-1$
 			//END <<  lblBankAccount
 			//START >>  txtBankAccountNO
 			txtBankAccountNO = new Text(dialogShell, SWT.NONE);
