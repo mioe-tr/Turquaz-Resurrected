@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.12 2004/12/24 14:40:27 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.13 2004/12/24 15:22:36 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1103,6 +1103,11 @@ public class BillUIAddSellBill extends Composite
 		});
 
 	    createTableViewer();
+		for(int i=0;i<10;i++){
+//			enter empty table rows.
+	      InvUITransactionTableRow row = new InvUITransactionTableRow(rowList,1,tableViewer);
+	      rowList.addTask(row);
+		}
 	    
 	    //fill combo ware houses
 	    fillComboWarehouses();

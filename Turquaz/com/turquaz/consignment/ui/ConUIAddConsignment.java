@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.40 2004/12/24 14:40:28 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.41 2004/12/24 15:22:36 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1168,6 +1168,7 @@ implements SecureComposite{
       rowList.addTask(row);
 	}
 	}
+	
 	
 	public void fillComboWarehouses(){
 		try{
