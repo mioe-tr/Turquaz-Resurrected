@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.43 2004/12/24 18:31:37 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.44 2004/12/25 08:48:57 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1372,7 +1372,7 @@ implements SecureComposite{
 	}
 	
 	
-    generalTotal = subTotal.add(totalVAT).add(totalSpecVAT).subtract(discountTotal).setScale(2, BigDecimal.ROUND_DOWN); //$NON-NLS-1$
+    generalTotal = subTotal.add(totalVAT).add(totalSpecVAT);
     
     txtDiscountAmount.setText(discountTotal.toString());    
 	txtSubTotal.setText(subTotal.toString());
