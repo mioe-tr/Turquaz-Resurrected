@@ -1,4 +1,5 @@
-package com.turquaz.cash.ui.comp;
+
+package com.turquaz.bank.ui.comp;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -17,7 +18,7 @@ package com.turquaz.cash.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CashCardPicker.java,v 1.2 2005/01/26 15:26:20 onsel Exp $
+* @version  $Id: BankCardPicker.java,v 1.1 2005/01/26 15:26:20 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -52,7 +53,7 @@ import com.cloudgarden.resource.SWTResourceManager;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CashCardPicker extends org.eclipse.swt.widgets.Composite {
+public class BankCardPicker extends org.eclipse.swt.widgets.Composite {
 
 	{
 		//Register as a resource user - SWTResourceManager will
@@ -62,7 +63,7 @@ public class CashCardPicker extends org.eclipse.swt.widgets.Composite {
 
 	private String filter="";
 	private Text text1;
-	public CashCardPicker(Composite parent, int style) {
+	public BankCardPicker(Composite parent, int style) {
 		super(parent, style);
 		initGUI(); 
 	}
@@ -135,7 +136,7 @@ public class CashCardPicker extends org.eclipse.swt.widgets.Composite {
 	public void postInitGUI(){
 	    TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 	    
-	 	asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_CASH);
+	 	asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_BANK);
 	   
 	     adapter.appendVerifyKeyListener(
 	             new VerifyKeyListener() {
