@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.7 2004/11/25 20:00:57 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.8 2004/11/29 13:03:58 onsel Exp $
 */
 
 import java.util.Date;
@@ -59,7 +59,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.7 2004/11/25 20:00:57 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.8 2004/11/29 13:03:58 onsel Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -208,6 +208,33 @@ public class AccDALTransactionSearch {
 		}
 		
 		
+	}
+	public List getUnsavedTransactions()throws Exception {
+	    try{
+	        Session session = EngDALSessionFactory.openSession();
+	        String query ="select accTrans from TurqAccountingTransaction as accTrans "+
+	                      "where accTrans.turqAccountingJournal.accountingJournalId = -1";
+	        
+	        Query q = session.createQuery(query); 
+			
+	        List list = q.list();		
+	       
+			for (int i =0;i<list.size();i++){
+				
+			TurqAccountingTransaction accTrans = (TurqAccountingTransaction)list.get(i);
+			Hibernate.initialize(accTrans.getTurqAccountingTransactionColumns());
+				
+			}
+	        
+	        session.close();
+			
+			return list;	
+	        
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 	
 	

@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.6 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.7 2004/11/29 13:03:58 onsel Exp $
 */
 
 
@@ -97,6 +97,20 @@ public class AccBLTransactionSearch {
 			
 		}
 		
+	}
+	
+	//-Muhasebele?tirilmemi? fi?leri getirir...
+	public List getUnsavedTransactions()throws Exception{
+	    try{
+	        
+	      return dalTransSearch.getUnsavedTransactions();   
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	    
 	}
 	
 	
