@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.1 2004/11/11 16:40:25 huseyiner Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.2 2004/11/11 16:51:45 huseyiner Exp $
  */
 
 import java.util.Date;
@@ -43,9 +43,7 @@ public class InvDALSearchTransaction {
 			Session session = EngDALSessionFactory.openSession();
 
 			String query = "Select transaction from TurqInventoryTransaction as transaction where"
-					+ " transaction.turqCompany.companiesId ="
-					+ System.getProperty("company")
-					+ " and transaction.turqConsignment.consignmentsDate >= :startDate"
+					+ " transaction.turqConsignment.consignmentsDate >= :startDate"
 					+ " and transaction.turqConsignment.consignmentsDate <= :endDate"
 					+ " and transaction.turqConsignment.consignmentsType ="
 					+ type + "";
