@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.30 2005/03/23 10:33:07 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.31 2005/03/25 16:13:18 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -350,16 +350,16 @@ public class InvDALSearchTransaction
 		 session = EngDALSessionFactory.openSession();
 			session.refresh(seq);
 			Hibernate.initialize(seq.getTurqConsignments());
-			Iterator it = seq.getTurqBills().iterator();
-			TurqBill cons = null;
+			Iterator it = seq.getTurqBillInEngineSequences().iterator();
+			TurqBill bill=null;
 			if (it.hasNext())
 			{
-				cons = (TurqBill) it.next();
-				ConDALUpdateConsignment dalSearchCons = new ConDALUpdateConsignment();
-				BillDALSearchBill.initializeBill(cons);
+				bill=(TurqBill)it.next();
+				BillDALSearchBill.initializeBill(bill);
 			}
-			
-			return cons;
+			session.close();
+			return bill;
+
 		}
 		catch (Exception ex)
 		{
