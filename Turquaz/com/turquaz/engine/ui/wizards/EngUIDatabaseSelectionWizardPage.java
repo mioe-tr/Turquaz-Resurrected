@@ -24,7 +24,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.11 2004/11/19 20:34:03 huseyiner Exp $
+* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.12 2004/11/20 02:12:43 onsel Exp $
 */
 import java.sql.ResultSet;
 
@@ -161,7 +161,9 @@ public class EngUIDatabaseSelectionWizardPage extends WizardPage {
 	}
 	
 	public void fillCombo(){
+	   	
 		comboDatabases.removeAll();
+		 comboDatabases.add("turquaz");
 		if(connection!=null){
 			try{
 			ResultSet rs = connection.getResultSet("SELECT d.datname as name FROM pg_database d where d.datistemplate ='false'"); //$NON-NLS-1$

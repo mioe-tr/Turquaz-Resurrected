@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.10 2004/11/08 14:08:53 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.11 2004/11/20 02:12:42 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -53,11 +53,11 @@ public class EngDALSessionFactory {
 
 	
 		
-		String url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
+		String url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
 		String username = EngConfiguration.getString("dbUsername");
 		String password = EngConfiguration.getString("dbPassword");
 		password = new String(Base64.decode(password.getBytes()));
-		String driver = "org.postgresql.Driver";
+		String driver = "org.hsqldb.jdbcDriver";
 		
 		System.setProperty("Url",url);
 		System.setProperty("dbLogin",username);

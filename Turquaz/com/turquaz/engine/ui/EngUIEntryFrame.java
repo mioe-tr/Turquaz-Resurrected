@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.19 2004/11/19 09:02:01 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.20 2004/11/20 02:12:42 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,6 +59,7 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.dal.DatabaseThread;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 import org.eclipse.swt.widgets.Label;
@@ -133,6 +134,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	private void initGUI() {
 		try {
 		    
+		    DatabaseThread dbThread = new DatabaseThread();
+		    dbThread.start();
 		    
 		  
 			GridLayout thisLayout = new GridLayout();
