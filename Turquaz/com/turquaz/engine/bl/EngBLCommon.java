@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.82 2005/03/30 16:56:52 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.83 2005/03/30 20:01:29 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -25,6 +25,7 @@ import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -400,6 +401,20 @@ public class EngBLCommon
 		}
 	}
 	
+	public static void delete(HashMap argMap) throws Exception
+	{
+		try
+		{
+			Iterator it=argMap.values().iterator();
+			while(it.hasNext())
+				EngBLCommon.delete(it.next());
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
 	public static void save(Object obj) throws Exception
 	{
 		try
@@ -417,6 +432,20 @@ public class EngBLCommon
 		try
 		{
 			EngDALCommon.updateObject(obj);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static void update(HashMap argMap) throws Exception
+	{
+		try
+		{
+			Iterator it=argMap.values().iterator();
+			while(it.hasNext())
+				update(it.next());
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.36 2005/03/29 18:20:12 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.37 2005/03/30 20:02:02 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -305,7 +305,8 @@ public class InvDALSearchTransaction
 		{
 			session = EngDALSessionFactory.getSession();
 			String query = "Select invTrans from TurqInventoryTransaction as invTrans "
-					+ " where invTrans.turqInventoryTransactionType.id = " + EngBLCommon.INV_TRANS_INITIAL;
+					+ " where invTrans.turqInventoryTransactionType.id = " + EngBLCommon.INV_TRANS_INITIAL+
+					" order by invTrans.turqInventoryCard.cardInventoryCode";
 			Query q = session.createQuery(query);
 			return q.list();
 		}

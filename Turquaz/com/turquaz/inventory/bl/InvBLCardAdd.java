@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.48 2005/03/30 17:09:39 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.49 2005/03/30 20:01:50 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -395,6 +395,28 @@ public class InvBLCardAdd
 			invUnit.setLastModified(cal.getTime());
 			invUnit.setCreationDate(cal.getTime());
 			EngDALCommon.saveObject(invUnit);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static void updateInvGroup(HashMap argMap) throws Exception
+	{
+		try
+		{
+			String groupName=(String)argMap.get(InvKeys.INV_GROUP_NAME);
+			String groupDescription=(String)argMap.get(InvKeys.INV_GROUP_DESCRIPTION);
+			TurqInventoryGroup invGroup=(TurqInventoryGroup)argMap.get(InvKeys.INV_GROUP);
+			invGroup.setGroupsName(groupName);
+			invGroup.setGroupsDescription(groupDescription);
+			invGroup.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
+			invGroup.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
+			Calendar cal = Calendar.getInstance();
+			invGroup.setLastModified(cal.getTime());
+			invGroup.setCreationDate(cal.getTime());
+			EngDALCommon.updateObject(invGroup);
 		}
 		catch (Exception ex)
 		{

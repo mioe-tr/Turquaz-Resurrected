@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.19 2005/03/30 17:09:45 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.20 2005/03/30 20:01:51 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -277,7 +277,7 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog
 					msg.open();
 					return;
 				}
-				EngBLCommon.delete(warehouse);
+				EngTXCommon.doTransactionTX(EngBLCommon.class.getName(),"delete",argMap);
 				msg.setMessage(Messages.getString("InvUIWarehouseUpdate.6")); //$NON-NLS-1$
 				msg.open();
 				this.dialogShell.dispose();
