@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.13 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.14 2005/02/03 16:36:50 cemdayanik Exp $
 */
 
 
@@ -152,12 +152,12 @@ public class AccBLTransactionSearch {
 	    }
 	}
 	
-	public List getTransactions(boolean initialAccounts, boolean finalAccounts, 
+	public List getTransactions(Object firstAccount, Object secondAccount,boolean initialAccounts, boolean finalAccounts, 
 			 Date startDate, Date endDate)throws Exception
 	{
 		try{
 			
-			return dalTransSearch.getTransactions(initialAccounts, finalAccounts,
+			return dalTransSearch.getTransactions(firstAccount,secondAccount,initialAccounts, finalAccounts,
 					 startDate, endDate);
 		}
 		catch(Exception ex){

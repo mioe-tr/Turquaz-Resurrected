@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.68 2005/02/03 14:40:20 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.69 2005/02/03 16:36:50 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -38,6 +38,7 @@ import com.turquaz.accounting.ui.reports.AccUIAccountingAdvancedBalance;
 
 import com.turquaz.accounting.ui.reports.AccUIAccountingGeneralLedger;
 import com.turquaz.accounting.ui.reports.AccUIAccountingJournal;
+import com.turquaz.accounting.ui.reports.AccUIAccountingMonthlyBalance;
 import com.turquaz.accounting.ui.reports.AccUISubsidiaryLedger;
 import com.turquaz.admin.ui.AdmUICompanyInfo;
 import com.turquaz.admin.ui.AdmUIGroupAdd;
@@ -309,7 +310,12 @@ public final class TreeFactory {
 			item = new TreeItem(actionReports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.29")); //$NON-NLS-1$
 			item.setData(AccUIAccountingAdvancedBalance.class.getName());
-			}
+		}
+		if(EngBLPermissions.getPermission(AccUIAccountingMonthlyBalance.class.getName())>0){
+			item = new TreeItem(actionReports,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.68")); //$NON-NLS-1$
+			item.setData(AccUIAccountingMonthlyBalance.class.getName());
+		}
 		
 		books.setExpanded(true);
 		root.setExpanded(true);
