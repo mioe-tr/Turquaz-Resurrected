@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.10 2004/11/27 15:24:23 onsel Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.11 2004/12/01 18:10:43 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -435,6 +435,10 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 
 		EngBLUtils.Export2Excel(tableTransactions);
 
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableTransactions,"Stok Hareketleri");
+	    
 	}
 
 }

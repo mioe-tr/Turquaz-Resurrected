@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.25 2004/11/28 17:57:41 huseyiner Exp $
+* @version  $Id: InvUICardSearch.java,v 1.26 2004/12/01 18:10:43 onsel Exp $
 */
 
 import java.util.List;
@@ -379,5 +379,9 @@ public class InvUICardSearch extends  Composite implements SecureComposite,Searc
 		
 		EngBLUtils.Export2Excel(tableSearcResults);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableSearcResults,"Cari Kartlar");
+	    
 	}
 }

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseSearch.java,v 1.14 2004/11/26 16:41:55 huseyiner Exp $
+* @version  $Id: InvUIWarehouseSearch.java,v 1.15 2004/12/01 18:10:43 onsel Exp $
 */
 
 import java.util.List;
@@ -334,5 +334,9 @@ public class InvUIWarehouseSearch extends  Composite implements SecureComposite,
 		
 		EngBLUtils.Export2Excel(tableInvUIWarehouses);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableInvUIWarehouses,"Depolar");
+	    
 	}
 }

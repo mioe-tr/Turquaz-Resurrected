@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.13 2004/11/26 14:26:03 cemdayanik Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.14 2004/12/01 18:10:43 onsel Exp $
 */
 
 
@@ -380,5 +380,9 @@ public class BankUIBankCardSearch extends  Composite implements SecureComposite,
 			new BankUIBankCardUpdate(this.getShell(),SWT.NULL,card).open();
 		search();
 		}
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableBankCards,"Banka Kartlar?");
+	    
 	}
 }
