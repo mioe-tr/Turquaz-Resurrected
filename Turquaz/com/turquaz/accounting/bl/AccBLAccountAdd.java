@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.17 2005/02/23 09:29:59 cemdayanik Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.18 2005/02/25 11:53:42 cemdayanik Exp $
 */
 
 
@@ -64,6 +64,18 @@ public class AccBLAccountAdd {
 		try{
 			
 			return dalAccountAdd.getAllAccounts();
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
+	
+	public static List getAllAccountsWithSum()throws Exception{
+		try{
+			
+			return AccDALAccountAdd.getAllAccountsWithSum();
 			
 		}
 		catch(Exception ex){
