@@ -68,7 +68,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.12 2004/09/24 07:05:38 huseyin Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.13 2004/09/24 07:27:26 huseyin Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -190,7 +190,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			lblSeperatorLData.grabExcessHorizontalSpace = false;
 			lblSeperatorLData.grabExcessVerticalSpace = false;
 			lblSeperator.setLayoutData(lblSeperatorLData);
-			lblSeperator.setText(getExternalizedString("label1")); //$NON-NLS-1$
+			lblSeperator.setText("label1");
 	
 			GridData compMainLData = new GridData();
 			compMainLData.verticalAlignment = GridData.FILL;
@@ -216,7 +216,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			lblSeperatorLeftLData.grabExcessHorizontalSpace = false;
 			lblSeperatorLeftLData.grabExcessVerticalSpace = true;
 			lblSeperatorLeft.setLayoutData(lblSeperatorLeftLData);
-			lblSeperatorLeft.setText(getExternalizedString("label2")); //$NON-NLS-1$
+			lblSeperatorLeft.setText("label2");
 			lblSeperatorLeft.setSize(new org.eclipse.swt.graphics.Point(2,327));
 	
 			GridData compMainInLData = new GridData();
@@ -533,12 +533,12 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	
 			getShell().setMenuBar(menuMain);
 	
-			mitFile.setText(getExternalizedString("&File")); //$NON-NLS-1$
+			mitFile.setText("&File");
 	
-			mitEdit.setText(getExternalizedString("&Edit")); //$NON-NLS-1$
+			mitEdit.setText("&Edit");
 	
 			mitHelp.setEnabled(true);
-			mitHelp.setText(getExternalizedString("&Help")); //$NON-NLS-1$
+			mitHelp.setText("&Help");
 			addDisposeListener(new DisposeListener() {
 				public void widgetDisposed(DisposeEvent e) {
 					comboModuleSelectionbackground.dispose();
