@@ -18,7 +18,7 @@ package com.turquaz.bank.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankCardPicker.java,v 1.5 2005/02/11 11:21:57 onsel Exp $
+* @version  $Id: BankCardPicker.java,v 1.6 2005/03/02 12:58:47 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -34,6 +34,8 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 
+import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.bank.bl.BankBLBankCardSearch;
 import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
@@ -64,6 +66,8 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite {
 
 	private String filter="";
 	private Text text1;
+	private AccountPicker accountPicker =null;
+	private Integer pickerAccountType =null;
 	public BankCardPicker(Composite parent, int style) {
 		super(parent, style);
 		initGUI(); 
@@ -170,11 +174,27 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite {
 		super.setData(obj);
 		if(obj==null)
 		{
-		    text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
+		    text1.setBackground(SWTResourceManager.getColor(255,150, 150));
+		  
+		    if(accountPicker!=null){
+		    accountPicker.setData(null);
+		  }
 		}
 		else
 		{
 		    text1.setBackground(SWTResourceManager.getColor(198,255,198));
+		    if(accountPicker!=null)
+            {
+             try{
+             	
+             	accountPicker.setData(BankBLBankCardSearch.getAccountingAccount((TurqBanksCard)obj,pickerAccountType));
+             	
+             }
+             catch(Exception ex){
+             	ex.printStackTrace();
+             }
+            	
+            }
 		}
 		
 	}
@@ -190,5 +210,9 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite {
 	    
 	}
 
+	public void setAccountPicker(AccountPicker picker, Integer Type){
+		accountPicker = picker;
+		pickerAccountType = Type;
+	}
 	
 }
