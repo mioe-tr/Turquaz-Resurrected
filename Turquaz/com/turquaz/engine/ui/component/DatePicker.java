@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DatePicker.java,v 1.16 2005/01/18 12:16:37 onsel Exp $
+* @version  $Id: DatePicker.java,v 1.17 2005/02/06 10:04:35 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.EngConfiguration;
@@ -202,10 +202,10 @@ public class DatePicker extends org.eclipse.swt.widgets.Composite {
 
               }
           }
-          cal.open();	
+          cal.open();
+          }
 	
-	
-	
-	
+	public Object getData(){
+	    return getDate();
 	}
 }

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.37 2005/01/31 14:44:38 cemdayanik Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.38 2005/02/06 10:04:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -185,12 +185,9 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 				{
 					dateStartDate = new DatePicker(compAccTransactionSearch, SWT.NONE);
 					GridData dateStartDateLData = new GridData();
-					dateStartDateLData.widthHint = 174;
-					dateStartDateLData.heightHint = 24;
+					dateStartDateLData.widthHint = 134;
+					dateStartDateLData.heightHint = 22;
 					dateStartDate.setLayoutData(dateStartDateLData);
-					dateStartDate.setSize(new org.eclipse.swt.graphics.Point(
-						174,
-						24));
 					dateStartDate.layout();
 				}
 				{
@@ -203,12 +200,9 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 				{
 					dateEndDate = new DatePicker(compAccTransactionSearch, SWT.NONE);
 					GridData dateEndDateLData = new GridData();
-					dateEndDateLData.widthHint = 173;
-					dateEndDateLData.heightHint = 25;
+					dateEndDateLData.widthHint = 119;
+					dateEndDateLData.heightHint = 21;
 					dateEndDate.setLayoutData(dateEndDateLData);
-					dateEndDate.setSize(new org.eclipse.swt.graphics.Point(
-						173,
-						25));
 					dateEndDate.layout();
 				}
 				compAccTransactionSearch.layout();
@@ -394,7 +388,7 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 	
 	List result = blTransSearch.searchAccTransaction(txtDocumentNo.getText().trim(),
 												comboTransType.getData(comboTransType.getText()),
-												dateStartDate.getData(),dateEndDate.getData());
+												dateStartDate.getDate(),dateEndDate.getDate());
 	
 	TableItem item;
 	

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.3 2005/02/04 13:06:35 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.4 2005/02/06 10:04:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -289,7 +289,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 						tableTransactions,
 						SWT.NONE);
 					tableColumnInventoryCode.setText(Messages.getString("InvUIInventoryTransactionReport.11")); //$NON-NLS-1$
-					tableColumnInventoryCode.setWidth(108);
+					tableColumnInventoryCode.setWidth(109);
 				}
 				{
 					tableColumnTotalAmountIn = new TableColumn(
