@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.6 2004/11/04 13:49:28 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.7 2004/11/04 13:54:31 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -59,7 +59,6 @@ public class EngDALSessionFactory {
 		System.setProperty("Url",url);
 		System.setProperty("dbLogin",username);
 		System.setProperty("dbPass",password);
-		
 		
 		
 		Configuration cfg =new Configuration();
