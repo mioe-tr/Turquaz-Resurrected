@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.27 2005/02/06 20:46:46 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.28 2005/02/07 10:40:30 onsel Exp $
 */
 
 
@@ -27,6 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 
 
+import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryCard;
@@ -156,9 +157,15 @@ public class InvBLCardAdd {
 		
 		
 	}
-	public void saveInvGroup(String groupName, String groupDescription)
+	public void saveInvGroup(String groupName, String groupDescription, TurqInventoryGroup parent)
 			throws Exception {
 		try {
+		    if(parent==null)
+		    {
+		     parent = new TurqInventoryGroup();
+		     parent.setInventoryGroupsId(new Integer(-1));
+		    
+		    }
 			TurqInventoryGroup invGroup = new TurqInventoryGroup();
 			invGroup.setGroupsName(groupName);
 			invGroup.setGroupsDescription(groupDescription);

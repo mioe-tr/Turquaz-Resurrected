@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupAddDialog.java,v 1.18 2005/02/06 21:19:46 onsel Exp $
+* @version  $Id: InvUIGroupAddDialog.java,v 1.19 2005/02/07 10:40:30 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -337,7 +337,7 @@ public class InvUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 	    }
 	    else{
 	    
-	    blCardAdd.saveInvGroup(txtGroupName.getText().trim(),txtDescription.getText().trim());
+	    blCardAdd.saveInvGroup(txtGroupName.getText().trim(),txtDescription.getText().trim(),null);
 	    msg.setMessage(Messages.getString("InvUIGroupAddDialog.9")); //$NON-NLS-1$
 	    txtGroupName.setText(""); //$NON-NLS-1$
 	    txtDescription.setText(""); //$NON-NLS-1$

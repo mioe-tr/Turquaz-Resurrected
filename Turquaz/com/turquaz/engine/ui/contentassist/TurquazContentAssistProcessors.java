@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistProcessors.java,v 1.23 2005/01/30 19:41:06 onsel Exp $
+* @version  $Id: TurquazContentAssistProcessors.java,v 1.24 2005/02/07 10:40:32 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -42,9 +42,11 @@ import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLInventoryCards;
+import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCashCard;
+import com.turquaz.engine.dal.TurqInventoryGroup;
 
 
 public class TurquazContentAssistProcessors implements
@@ -163,6 +165,18 @@ public class TurquazContentAssistProcessors implements
                   TurqBanksCard bankCard = ((TurqBanksCard) list.get(i));
                    
                    proposed.add(new Proposal(bankCard.getBankCode(),bankCard.getBankName()+"-"+bankCard.getBankBranchName()+"-"+bankCard.getBankAccountNo()));
+               
+               }
+           }
+           else if(type==EngBLCommon.CONTENT_ASSIST_INVENTORY_GROUPS){
+               
+               List list = EngBLInventoryGroups.getInvGroups();
+
+               
+               for (int i = 0; i < list.size(); i++) {
+                  TurqInventoryGroup bankCard = ((TurqInventoryGroup) list.get(i));
+                   
+                   proposed.add(new Proposal(bankCard.getGroupsName(),bankCard.getGroupsDescription()));
                
                }
            }
