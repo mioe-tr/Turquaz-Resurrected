@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.40 2005/02/18 15:53:15 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.41 2005/02/18 18:53:04 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -685,6 +685,18 @@ public class AccUITransactionCollect extends Composite implements
 		return comboDeptor;
 	}
 
+	/**
+	 * @return Returns the comboCurrencyType.
+	 */
+	public CCombo getComboCurrencyType() {
+		return comboCurrencyType;
+	}
+	/**
+	 * @param comboCurrencyType The comboCurrencyType to set.
+	 */
+	public void setComboCurrencyType(CCombo comboCurrencyType) {
+		this.comboCurrencyType = comboCurrencyType;
+	}
 	/**
 	 * @return Returns the datePickerTransactionDate.
 	 */

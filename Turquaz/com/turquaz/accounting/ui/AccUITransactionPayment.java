@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.36 2005/02/18 15:53:15 cemdayanik Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.37 2005/02/18 18:53:03 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -681,6 +681,18 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	 */
 	public Text getTxtDocumentNo() {
 		return txtDocumentNo;
+	}
+	/**
+	 * @return Returns the comboCurrencyType.
+	 */
+	public CCombo getComboCurrencyType() {
+		return comboCurrencyType;
+	}
+	/**
+	 * @param comboCurrencyType The comboCurrencyType to set.
+	 */
+	public void setComboCurrencyType(CCombo comboCurrencyType) {
+		this.comboCurrencyType = comboCurrencyType;
 	}
 	/**
 	 * @return Returns the comboCreditor.

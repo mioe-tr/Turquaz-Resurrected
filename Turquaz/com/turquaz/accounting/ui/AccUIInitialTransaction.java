@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.14 2005/02/18 16:35:16 cemdayanik Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.15 2005/02/18 18:53:03 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -590,7 +590,7 @@ public class AccUIInitialTransaction extends Composite implements
 
                 blTransUpdate.updateTransaction(accTrans, txtDocumentNo
                         .getText().trim(), dateTransactionDate.getData(),
-                        txtTransDefinition.getText().trim());
+                        txtTransDefinition.getText().trim(),EngBLCommon.getBaseCurrency());
                 updateTransactionRows();
                 msg.setMessage(Messages
                         .getString("AccUITransactionUpdateDialog.2")); //$NON-NLS-1$

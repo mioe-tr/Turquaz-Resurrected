@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.15 2005/02/18 15:53:15 cemdayanik Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.16 2005/02/18 18:53:03 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -112,6 +112,10 @@ public class AccBLTransactionAdd {
 		trans.setTransactionDescription(definition);
 		trans.setTransactionsDate(new java.sql.Date(date.getTime()));
 		
+		/**
+		 * TODO Will Change in next version
+		 */
+		trans.setTurqCurrency(EngBLCommon.getBaseCurrency());
 		
 		//Hangi modulde kaydedildigi
 		TurqModule module = new TurqModule();
