@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.23 2004/12/17 20:17:14 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.24 2004/12/29 19:12:37 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -25,7 +25,6 @@ import java.util.Iterator;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;

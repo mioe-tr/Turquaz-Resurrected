@@ -18,11 +18,10 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.6 2004/12/22 14:55:18 onsel Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.7 2004/12/29 19:12:37 onsel Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
