@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.10 2004/12/20 09:59:25 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.11 2004/12/20 16:43:01 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1200,6 +1200,7 @@ public class BillUIAddSellBill extends Composite
 	                     //any character
 	                     else if((e.keyCode<0x10000 || e.character!='\0') && e.keyCode>0x1f && e.keyCode!=127 
 	         					|| e.keyCode==0x00 && (e.stateMask==0 || e.stateMask==SWT.SHIFT)){
+	                         if(cursor.getRow()!=null){
 	                         tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
 	                         if(tableViewer.getCellEditors()[cursor.getColumn()] instanceof TextCellEditor){
 	                             
@@ -1213,6 +1214,7 @@ public class BillUIAddSellBill extends Composite
 	     						    ((Text)editor.getControl()).setSelection(1);
 	     						}
 	                             
+	                         }
 	                         }
 	                     }
 	    		         

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.32 2004/12/20 10:05:05 onsel Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.33 2004/12/20 16:43:01 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -393,6 +393,7 @@ public class AccUITransactionCollect extends Composite implements
                 //any character
                 else if((e.keyCode<0x10000 || e.character!='\0') && e.keyCode>0x1f && e.keyCode!=127 
     					|| e.keyCode==0x00 && (e.stateMask==0 || e.stateMask==SWT.SHIFT)){
+                    if(cursor.getRow()!=null){
                     tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
                     if(tableViewer.getCellEditors()[cursor.getColumn()] instanceof TextCellEditor){
                         
@@ -407,6 +408,7 @@ public class AccUITransactionCollect extends Composite implements
 						}
                         
                     }
+                }
                 }
 
 			}
