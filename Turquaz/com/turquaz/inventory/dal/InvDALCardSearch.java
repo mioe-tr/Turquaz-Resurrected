@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.19 2005/01/02 15:41:39 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.20 2005/01/08 13:22:45 onsel Exp $
 */
 import java.util.List;
 
@@ -66,7 +66,7 @@ public class InvDALCardSearch {
 					q.setParameter("invGroup",invGroup);
 				}
 				
-				//q.setMaxResults(1000);
+				q.setMaxResults(1000);
 			
 				List list = q.list();
 			
