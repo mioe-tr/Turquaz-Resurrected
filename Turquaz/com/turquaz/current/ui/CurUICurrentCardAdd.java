@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.41 2005/01/02 13:42:07 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.42 2005/01/02 16:46:44 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -1263,6 +1263,11 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 			return false;
 		}
 		else if(accPickerCustomer.getData()==null){
+			
+			if (accPickerCustomer.getText().trim().length() > 0)
+			{
+				
+			}
 			msg.setMessage(Messages.getString("CurUICurrentCardAdd.31")); //$NON-NLS-1$
 			msg.open();
 			accPickerCustomer.setFocus();

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.28 2005/01/02 13:42:07 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.29 2005/01/02 16:46:44 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -708,6 +708,13 @@ public class BillUIAddSellBill extends Composite
                                 tableColumn4.setText(TRANS_AMOUNT_IN_BASE_UNIT);
                                 tableColumn4.setWidth(121);
                             }
+							{
+								tableColumn3 = new TableColumn(
+									tableConsignmentRows,
+									SWT.NONE);
+								tableColumn3.setText(BASE_UNIT);
+								tableColumn3.setWidth(126);
+							}
                             {
                                 tableColumn6 = new TableColumn(
                                     tableConsignmentRows,
@@ -1126,13 +1133,6 @@ public class BillUIAddSellBill extends Composite
 			 
 	             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer);
 	             cursor.setEnabled(true);
-				{
-					tableColumn3 = new TableColumn(
-						tableConsignmentRows,
-						SWT.NONE);
-					tableColumn3.setText(BASE_UNIT);
-					tableColumn3.setWidth(126);
-				}
 	        	 cursor.addKeyListener(new KeyAdapter(){
 	    		     public void keyReleased(KeyEvent e){
 	    		         
