@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.53 2004/12/29 21:55:15 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.54 2004/12/29 22:32:53 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -59,6 +59,7 @@ import com.turquaz.cash.ui.CashUICashPaymentTransactionAdd;
 import com.turquaz.cash.ui.CashUICashTransactionSearch;
 import com.turquaz.consignment.ui.ConUIAddConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
+import com.turquaz.current.ui.CurUICurrentCardAbstract;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
 import com.turquaz.current.ui.CurUICurrentCardSearch;
 import com.turquaz.current.ui.CurUITransactionSearch;
@@ -264,6 +265,11 @@ public final class TreeFactory {
 		item = new TreeItem(root,SWT.NULL);
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.18")); //$NON-NLS-1$
 		item.setData(CurUICurrentCardSearch.class.getName());
+		}
+		if(EngBLPermissions.getPermission(CurUICurrentCardAbstract.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText("Cari Kart Ekstresi");
+			item.setData(CurUICurrentCardAbstract.class.getName());
 		}
 	/*	if(EngBLPermissions.getPermission(CurUITransactionAdd.class.getName())>0){
 		item = new TreeItem(root,SWT.NULL);
