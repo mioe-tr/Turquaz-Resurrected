@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.91 2004/12/06 11:51:09 huseyiner Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.92 2004/12/08 18:22:45 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.91 2004/12/06 11:51:09 huseyiner Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.92 2004/12/08 18:22:45 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1376,6 +1376,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 				{
 					//if the tab is already open
 					tabfldMain.setSelection((CTabItem)mapList.get(classname));
+					arrangeIcons();
 				}
 				else
 				{	
