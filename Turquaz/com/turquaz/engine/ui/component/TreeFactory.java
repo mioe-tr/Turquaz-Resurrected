@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.71 2005/02/03 18:53:19 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.72 2005/02/04 10:25:54 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -85,6 +85,7 @@ import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.InvUICardSearch;
 
 import com.turquaz.inventory.ui.InvUIInventoryLedger;
+import com.turquaz.inventory.ui.InvUIInventoryTransactionReport;
 import com.turquaz.inventory.ui.InvUIProfitAnalysis;
 import com.turquaz.inventory.ui.InvUITransactionSearch;
 import com.turquaz.inventory.ui.InvUIWarehouseAdd;
@@ -157,6 +158,11 @@ public final class TreeFactory {
 			item = new TreeItem(reports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.19"));  //$NON-NLS-1$
 			item.setData(InvUIInventoryLedger.class.getName());
+			}
+		if(EngBLPermissions.getPermission(InvUIInventoryTransactionReport.class.getName())>0){
+			item = new TreeItem(reports,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.73")); //$NON-NLS-1$
+			item.setData(InvUIInventoryTransactionReport.class.getName());
 			}
 		
 		
