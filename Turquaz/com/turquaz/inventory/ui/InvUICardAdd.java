@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.83 2004/12/17 14:54:48 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.84 2004/12/17 16:07:49 cemdayanik Exp $
  */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -619,8 +619,8 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 					compInvCardAddSecondaryUnitsLayout.horizontalSpacing = 5;
 					compInvCardAddSecondaryUnitsLayout.verticalSpacing = 5;
 					GridData compInvCardAddSecondaryUnitsLData = new GridData();
-					compInvCardAddSecondaryUnitsLData.widthHint = 361;
-					compInvCardAddSecondaryUnitsLData.heightHint = 124;
+					compInvCardAddSecondaryUnitsLData.widthHint = 414;
+					compInvCardAddSecondaryUnitsLData.heightHint = 126;
 					compInvCardAddSecondaryUnitsLData.horizontalSpan = 2;
 					compInvCardAddSecondaryUnits.setLayoutData(compInvCardAddSecondaryUnitsLData);
 					compInvCardAddSecondaryUnits
