@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.22 2004/11/27 19:16:32 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.23 2004/12/10 12:58:45 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Shell;
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLAccountUpdate;
 import com.turquaz.accounting.ui.AccUIAddAccounts;
+import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
@@ -368,7 +369,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 		try {
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
 
-			if (compAccountCard.verifyFields()) {
+			if (compAccountCard.verifyFields(true)) {
 				blAccount
 						.updateAccount(account, compAccountCard
 								.getTxtAccAcountName().getText().trim(),
@@ -398,6 +399,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog {
 				blAccount.deleteAccount(account);
 				msg.setMessage(Messages.getString("AccUIAccountUpdate.16")); //$NON-NLS-1$
 				msg.open();
+				EngBLAccountingAccounts.RefreshContentAsistantMap();
 				this.dialogShell.close();
 				this.dialogShell.dispose();
 			}

@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.3 2004/11/27 19:16:33 onsel Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.4 2004/12/10 12:58:45 onsel Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -244,7 +244,7 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 		try {
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
 
-			if (compAccountCard.verifyFields()) {
+			if (compAccountCard.verifyFields(false)) {
 				compAccountCard.save();
 				
 				this.dialogShell.close();
