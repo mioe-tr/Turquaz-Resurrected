@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentPicker.java,v 1.1 2005/01/02 12:23:09 onsel Exp $
+* @version  $Id: CurrentPicker.java,v 1.2 2005/01/02 17:27:25 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -35,7 +35,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
-import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
 import com.cloudgarden.resource.SWTResourceManager;
@@ -162,8 +161,6 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite {
 	
 	public void setData(Object obj){
 		super.setData(obj);
-		TurqAccountingAccount account = (TurqAccountingAccount)obj;
-		text1.setText(account.getAccountCode());
 		
 	}
 	public void setData2(Object obj){
