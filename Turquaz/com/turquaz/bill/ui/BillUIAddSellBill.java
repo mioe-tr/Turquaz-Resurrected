@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.39 2005/01/13 15:12:02 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.40 2005/01/13 15:49:59 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -38,6 +38,7 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 
+import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.CurrencyText;
 import org.eclipse.swt.custom.CCombo;
@@ -1410,7 +1411,8 @@ public class BillUIAddSellBill extends Composite
 				
 				if(answer == SWT.YES)
 				{
-				    EngBLUtils.printBill(bill);
+					boolean result = EngUICommon.okToDelete(getShell(),"Bakiye Faturada Gösterilsin mi?");
+					EngBLUtils.printBill(bill,result);
 				    
 				}
 				
