@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.18 2005/03/02 13:14:34 cemdayanik Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.19 2005/03/03 21:04:08 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -86,6 +86,8 @@ public class CurBLCurrentCardAdd {
 					EngBLCommon.getBaseCurrencyExchangeRate()); //$NON-NLS-1$ //$NON-NLS-2$
 			
 			saveCurrentAccountingAccounts(currentCard,accountingAccounts);
+			
+			//new CurBLCurrentTransactionAdd().saveInitialTransaction(currentCard);
 			
 			return currentCard.getId();
 		}

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.37 2005/03/02 19:30:49 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.38 2005/03/03 21:04:07 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -509,7 +509,13 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				
 				currentUpdate.deleteObject(it.next());
 			}
-		new CurBLSearchTransaction().deleteInitialTransactions(currentCard);
+			it = currentCard.getTurqCurrentAccountingAccounts().iterator();
+			while(it.hasNext())
+			{
+				currentUpdate.deleteObject(it.next());
+			}
+		
+			new CurBLSearchTransaction().deleteInitialTransactions(currentCard);
 			
 	}
 	catch(Exception ex ){

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DatePicker.java,v 1.19 2005/02/19 12:23:44 onsel Exp $
+* @version  $Id: DatePicker.java,v 1.20 2005/03/03 21:04:07 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.EngConfiguration;
@@ -209,7 +209,12 @@ public class DatePicker extends org.eclipse.swt.widgets.Composite {
 	    return getDate();
 	}
 	
-	
+	public static Date getFirstDayOfYear()
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.set(cal.get(Calendar.YEAR),0,1);
+	    return cal.getTime();
+	}
 	
 	public void setFirstDayOfYear(){
 
