@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALUpdate.java,v 1.3 2005/02/15 16:10:09 onsel Exp $
+* @version  $Id: CheDALUpdate.java,v 1.4 2005/02/15 19:03:38 onsel Exp $
 */
 
 
@@ -35,7 +35,9 @@ public class CheDALUpdate {
 			
 		     Session session = EngDALSessionFactory.openSession();
 		     TurqChequeCheque cheque = (TurqChequeCheque)session.load(TurqChequeCheque.class,chequeId);
-			return cheque;
+		     session.close();
+		     return cheque;
+			
 			
 		}
 		catch(Exception ex){

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.9 2005/02/11 14:58:33 onsel Exp $
+* @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.10 2005/02/15 19:03:38 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -353,8 +353,8 @@ public class CheUIChequeOutPayrollCurrent extends org.eclipse.swt.widgets.Compos
          /**
           * TODO update Dialog
           */
-            
-       //  cheque = new CheUICustomerChequeAddDialog(getShell(),SWT.NULL).open((TurqChequeCheque)selection[0].getData());
+        	  cheque = (TurqChequeCheque)selection[0].getData();
+         cheque = new CheUIOwnChequeAddDialog(getShell(),SWT.NULL).open(cheque);
          if(cheque!=null){
             
              selection[0].setData(cheque);
