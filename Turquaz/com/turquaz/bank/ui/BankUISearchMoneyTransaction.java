@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUISearchMoneyTransaction.java,v 1.8 2005/02/03 17:44:09 onsel Exp $
+* @version  $Id: BankUISearchMoneyTransaction.java,v 1.9 2005/02/03 19:22:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -317,6 +317,17 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
            isUpdated  = new BankUICashToBankUpdate(getShell(),SWT.NULL,transBill).open();
            
        }
+       else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DEPOSIT)
+       {
+           isUpdated  = new BankUIOtherTransInUpdate(getShell(),SWT.NULL,transBill).open();
+           
+       }
+       else if(transBill.getTurqBanksTransactionType().getBankTransactionTypesId().intValue()==EngBLCommon.BANK_TRANS_OTHER_DRAW)
+       {
+           isUpdated  = new BankUIOtherTransOutUpdate(getShell(),SWT.NULL,transBill).open();
+           
+       }
+       
        
        if(isUpdated){
        search();
