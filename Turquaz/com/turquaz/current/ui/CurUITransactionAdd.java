@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.22 2004/12/03 18:55:34 onsel Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.23 2004/12/08 17:47:02 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 
@@ -296,8 +296,6 @@ public class CurUITransactionAdd extends Composite implements SecureComposite{
                  }
               }
 	});
-
-
 	
 	}
 	
