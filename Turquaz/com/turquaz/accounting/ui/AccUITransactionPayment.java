@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.49 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.50 2005/03/19 10:50:33 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -500,7 +500,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			//Save the table rows
 			for (int i = 0; i < items.length; i++)
 			{
-				AccUITransactionCollectTableRow row = (AccUITransactionCollectTableRow) items[i].getData();
+				AccUITransactionPaymentTableRow row = (AccUITransactionPaymentTableRow) items[i].getData();
 				if (row.okToSave())
 				{
 					TurqAccountingTransactionColumn transColumn = (TurqAccountingTransactionColumn) row.getDBObject();
