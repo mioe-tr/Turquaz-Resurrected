@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.43 2005/01/16 16:30:05 cemdayanik Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.44 2005/01/16 18:33:19 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -542,9 +542,7 @@ public class BillUIAddSellBill extends Composite
                                 lblDate.setLayoutData(lblDateLData);
                             }
                             {
-                                dateConsignmentDate = new DatePicker(
-                                    compInfoPanel,
-                                    SWT.EMBEDDED);
+                                dateConsignmentDate = new DatePicker(compInfoPanel, SWT.NONE);
                                 GridData dateConsignmentDateLData = new GridData();
                                 dateConsignmentDateLData.widthHint = 113;
                                 dateConsignmentDateLData.heightHint = 20;

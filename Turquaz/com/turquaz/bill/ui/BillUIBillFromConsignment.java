@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.28 2005/01/16 16:30:05 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.29 2005/01/16 18:33:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -435,8 +435,8 @@ implements SecureComposite{
 									SWT.NONE);
 								GridData dateConsDateLData = new GridData();
 								dateConsDate.setEnabled(false);
-								dateConsDateLData.widthHint = 113;
-								dateConsDateLData.heightHint = 29;
+								dateConsDateLData.widthHint = 118;
+								dateConsDateLData.heightHint = 25;
 								dateConsDate.setLayoutData(dateConsDateLData);
 							}
 							{
