@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.119 2005/02/08 09:56:21 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.120 2005/02/08 15:10:58 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -93,7 +93,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.119 2005/02/08 09:56:21 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.120 2005/02/08 15:10:58 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -233,6 +233,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
                 lblActiveModulLData.grabExcessHorizontalSpace = true;
                 lblActiveModulLData.horizontalAlignment = GridData.FILL;
                 lblActiveModulLData.heightHint = 26;
+                lblActiveModulLData.horizontalIndent = 10;
                 lblActiveModul.setLayoutData(lblActiveModulLData);
             }
 			compModulesTree = new Composite(compModulesTab,SWT.NULL);
@@ -583,6 +584,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			compModulesHelpLayout.verticalSpacing = 0;
 			compModulesHelp.layout();
 			GridLayout compModulesTabLayout = new GridLayout();
+			compModulesTab.setBackground(SWTResourceManager.getColor(128, 128, 128));
 			compModulesTab.setLayout(compModulesTabLayout);
 			compModulesTabLayout.marginWidth = 0;
 			compModulesTabLayout.makeColumnsEqualWidth = true;
