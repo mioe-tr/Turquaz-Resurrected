@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.4 2004/11/19 07:20:54 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.5 2004/11/22 20:53:46 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -670,7 +670,7 @@ implements SecureComposite{
 								lblDiscountAmount = new CLabel(
 									compTotalsPanel,
 									SWT.NONE);
-								lblDiscountAmount.setText(Messages.getString("BillUIAddBill.25"));  //$NON-NLS-1$
+								lblDiscountAmount.setText(Messages.getString("BillUIAddBill.1"));  //$NON-NLS-1$
 								GridData lblDiscountAmountLData = new GridData();
 								lblDiscountAmountLData.widthHint = 105;
 								lblDiscountAmountLData.heightHint = 19;
