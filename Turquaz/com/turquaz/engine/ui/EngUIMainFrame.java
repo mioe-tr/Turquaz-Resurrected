@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.94 2004/12/09 14:54:19 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.95 2004/12/09 17:26:25 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -90,7 +90,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.94 2004/12/09 14:54:19 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.95 2004/12/09 17:26:25 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -887,6 +887,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
                                     tabfldMenu.setSelection(item);
                                     sashMainHorizontal
                                         .setMaximizedControl(null);
+                                
+                                    
 
                                 }
 
@@ -1186,15 +1188,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		
 		
 		
-		//SET POP UP Menus for trees
-			
-		treeAccounting.setMenu(popupTreeAddFavorites);
-		treeAdmin.setMenu(popupTreeAddFavorites);
-		treeBank.setMenu(popupTreeAddFavorites);
-		treeInventory.setMenu(popupTreeAddFavorites);
-		treeConsignment.setMenu(popupTreeAddFavorites);
-		treeCurrent.setMenu(popupTreeAddFavorites);
-		treeFavorites.setMenu(popupTreeRemoveFavorites);
+		setPopUpMenus();
 		
 		
 		//Set color for Main tab folder
@@ -1214,6 +1208,21 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		
 														   
 		
+	}
+	
+	public void setPopUpMenus(){
+//		SET POP UP Menus for trees
+		
+	treeAccounting.setMenu(popupTreeAddFavorites);
+	treeAdmin.setMenu(popupTreeAddFavorites);
+	treeBank.setMenu(popupTreeAddFavorites);
+	treeInventory.setMenu(popupTreeAddFavorites);
+	treeConsignment.setMenu(popupTreeAddFavorites);
+	treeCurrent.setMenu(popupTreeAddFavorites);
+	treeFavorites.setMenu(popupTreeRemoveFavorites);
+	treeBill.setMenu(popupTreeAddFavorites);
+	
+	
 	}
 	
 	public void addKeyEventInventory(Tree tree)
