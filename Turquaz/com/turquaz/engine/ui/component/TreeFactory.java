@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.73 2005/02/04 11:23:18 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.74 2005/02/04 15:59:07 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -89,6 +89,7 @@ import com.turquaz.inventory.ui.InvUIInventoryLedger;
 import com.turquaz.inventory.ui.InvUIInventoryTransactionReport;
 import com.turquaz.inventory.ui.InvUIProfitAnalysis;
 import com.turquaz.inventory.ui.InvUITransactionSearch;
+import com.turquaz.inventory.ui.InvUITransactionsTotalReport;
 import com.turquaz.inventory.ui.InvUIWarehouseAdd;
 import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 
@@ -155,15 +156,23 @@ public final class TreeFactory {
 			item.setText(Messages.getString("TreeFactory.44"));  //$NON-NLS-1$
 			item.setData(InvUIProfitAnalysis.class.getName());
 			}
+		
 		if(EngBLPermissions.getPermission(InvUIInventoryLedger.class.getName())>0){
 			item = new TreeItem(reports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.19"));  //$NON-NLS-1$
 			item.setData(InvUIInventoryLedger.class.getName());
 			}
+		
 		if(EngBLPermissions.getPermission(InvUIInventoryTransactionReport.class.getName())>0){
 			item = new TreeItem(reports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.73")); //$NON-NLS-1$
 			item.setData(InvUIInventoryTransactionReport.class.getName());
+			}
+		
+		if(EngBLPermissions.getPermission(InvUITransactionsTotalReport.class.getName())>0){
+			item = new TreeItem(reports,SWT.NULL);
+			item.setText("Hareket Toplamlar? Raporu");
+			item.setData(InvUITransactionsTotalReport.class.getName());
 			}
 		
 		
