@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionSearch.java,v 1.7 2005/02/03 11:58:26 onsel Exp $
+* @version  $Id: CashBLCashTransactionSearch.java,v 1.8 2005/02/06 11:47:17 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -35,11 +35,11 @@ public class CashBLCashTransactionSearch {
         
     }
     
-   public List searchCashTransactions(TurqCashCard cashCard, Date startDate, Date endDate)throws Exception{
+   public List searchCashTransactions(TurqCashCard cashCard, Date startDate, Date endDate, String definition)throws Exception{
        try{
            
            
-           return dalCash.searchCashTransaction(cashCard,startDate,endDate);
+           return dalCash.searchCashTransaction(cashCard,startDate,endDate, definition);
            
            
        }
