@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.13 2005/02/18 15:53:15 cemdayanik Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.14 2005/02/18 16:35:16 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -34,7 +34,8 @@ import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import com.turquaz.engine.EngConfiguration;
+
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -566,7 +567,7 @@ public class AccUIInitialTransaction extends Composite implements
                     blTransAdd
                             .saveAccTransactionRow(
                                     (TurqAccountingTransactionColumn) row
-                                            .getDBObject(), transId,EngConfiguration.getBaseCurrency(),new BigDecimal(1));
+                                            .getDBObject(), transId,EngBLCommon.getBaseCurrency(),new BigDecimal(1));
                 }
 
             }

@@ -19,13 +19,15 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.37 2005/02/16 16:46:40 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.38 2005/02/18 16:35:15 cemdayanik Exp $
 */
 
 import java.util.List;
 
+import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.dal.EngDALCommon;
+import com.turquaz.engine.dal.TurqCurrency;
 
 
 public class EngBLCommon {
@@ -172,11 +174,26 @@ public class EngBLCommon {
     
     public final static int TABLE_ROW_COUNT = 10;
     
+    private static TurqCurrency baseCurrency=null;
     
+    public static TurqCurrency getBaseCurrency()
+    {
+    	try
+		{
+    		if (baseCurrency==null)
+    			baseCurrency=AccBLTransactionSearch.getBaseCurrency();
+    		return baseCurrency;
+		}
+    	catch(Exception ex)
+		{
+    		ex.printStackTrace();
+    		return null;
+		}
+    }
     
 	public EngBLCommon()
 	{
-		
+	
 	}
 	private EngDALCommon engDALCom=new EngDALCommon();
 	
