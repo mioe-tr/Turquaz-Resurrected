@@ -24,7 +24,7 @@ package com.turquaz.engine;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngConfiguration.java,v 1.7 2004/11/25 15:41:26 cemdayanik Exp $
+* @version  $Id: EngConfiguration.java,v 1.8 2004/11/25 16:40:59 huseyiner Exp $
 */
 import java.io.FileInputStream;
 
@@ -40,7 +40,7 @@ import java.util.Properties;
 public class EngConfiguration {
 	private static final String filename = "config/turquaz.properties";//$NON-NLS-1$
     private Properties props ;
-    public static String logoURL;
+    public static String logoURL ="";
 	
 
 	private static EngConfiguration _instance;
