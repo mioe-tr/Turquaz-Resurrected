@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.28 2005/03/01 10:59:54 cemdayanik Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.29 2005/03/01 17:33:27 onsel Exp $
 */
 
 
@@ -117,7 +117,7 @@ public class AccDALAccountAdd {
 					
 					// was removing accounting plan	
 					//	" and accounts.accountingAccountsId <> -1" +
-							" order by accounts.accountingAccountsId";   
+							" order by accounts.id";   
 
 			Query q = session.createQuery(query); 
 			List list = q.list();
@@ -165,7 +165,7 @@ public class AccDALAccountAdd {
 	        Session session = EngDALSessionFactory.openSession();
 		
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.accountingAccountsId <> -1" +
+					"where accounts.id <> -1" +
 					" and accounts.turqAccountingAccountsByParentAccount.size=0" +
 					
 					" order by accounts.accountCode";   
@@ -191,7 +191,7 @@ public class AccDALAccountAdd {
 	        Session session = EngDALSessionFactory.openSession();
 		
 			String query = "Select account from TurqAccountingAccount as account " +
-					"where account.accountingAccountsId <> -1" +
+					"where account.id<> -1" +
 					//" and account.turqAccountingAccountsByParentAccount.accountingAccountsId=-1" +
 					
 					" order by account.accountCode";   
@@ -274,7 +274,7 @@ public class AccDALAccountAdd {
 	        Session session = EngDALSessionFactory.openSession();
 		
 			String query = "Select accounts.accountCode, accounts.accountName from TurqAccountingAccount as accounts " +
-					"where accounts.accountingAccountsId <> -1" +
+					"where accounts.id <> -1" +
 					" and accounts.turqAccountingAccountsByParentAccount.size=0" +
 					" and accounts.accountCode like '100%'" +
 					" order by accounts.accountCode";   

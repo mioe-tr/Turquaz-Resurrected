@@ -12,7 +12,7 @@ import net.sf.hibernate.expression.Expression;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.8 2004/12/23 15:50:12 onsel Exp $
+ * @version $Id: EngDALUserPerms.java,v 1.9 2005/03/01 17:33:28 onsel Exp $
  * 
  * Database functions for calculating user permissions.
  * 
@@ -209,7 +209,7 @@ public class EngDALUserPerms {
 			//	Query q = session.createQuery("from TurqModuleComponent comp "+
 			//			"where comp.moduleComponentsId > -1");
 			Criteria cri = session.createCriteria(TurqModuleComponent.class)
-					.add(Expression.gt("moduleComponentsId", new Integer(-1)));
+					.add(Expression.gt("id", new Integer(-1)));
 			List list = cri.list();
 			tx.commit();
 			session.close();
