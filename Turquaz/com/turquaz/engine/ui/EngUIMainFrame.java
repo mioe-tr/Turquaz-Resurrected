@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.129 2005/02/26 11:55:21 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.130 2005/02/28 10:16:00 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -95,7 +95,7 @@ import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.129 2005/02/26 11:55:21 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.130 2005/02/28 10:16:00 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1330,6 +1330,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
    public static void openBrowserTab(){
    	CTabItem yeni = new CTabItem (tabfldMain,SWT.NULL );
 	yeni.setText(Messages.getString("EngUIMainFrame.14"));  //$NON-NLS-1$
+	yeni.setImage(SWTResourceManager.getImage("/icons/world.gif"));
 	BrowserPanel panel = new BrowserPanel(tabfldMain,true,false);
      yeni.setControl(panel);
      tabfldMain.setSelection(yeni);

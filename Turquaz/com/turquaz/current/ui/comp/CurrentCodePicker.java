@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentCodePicker.java,v 1.5 2005/02/14 13:57:11 onsel Exp $
+* @version  $Id: CurrentCodePicker.java,v 1.6 2005/02/28 10:15:59 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -32,8 +32,12 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
+import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
 import com.cloudgarden.resource.SWTResourceManager;
@@ -61,6 +65,8 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
 
 	private String filter="";
 	private Text text1;
+	private AccountPicker accountPicker =null;
+	private Integer pickerAccountType =null;
 	public CurrentCodePicker(Composite parent, int style) {
 		super(parent, style);
 		initGUI();
@@ -91,7 +97,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
                             try {
                                 
                                setData2(EngBLCurrentCards.getCards(text1.getText().trim()));
-                          
+                               
                                                            
                                 
                             } catch (Exception ex) {
@@ -102,7 +108,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
                     
                 });
                
-				
+			
 				text1LData.verticalAlignment = GridData.FILL;
 				text1LData.horizontalAlignment = GridData.FILL;
 				text1LData.grabExcessHorizontalSpace = true;
@@ -173,8 +179,24 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
 		else
 		{
 		    text1.setBackground(SWTResourceManager.getColor(198,255,198));
+		    if(accountPicker!=null)
+            {
+             try{
+             	
+             	accountPicker.setData(CurBLCurrentCardSearch.getCurrentAccountingAccount((TurqCurrentCard)obj,pickerAccountType));
+             	
+             }
+             catch(Exception ex){
+             	ex.printStackTrace();
+             }
+            	
+            }
 		}
 		
+	}
+	public void setAccountPicker(AccountPicker picker, Integer Type){
+		accountPicker = picker;
+		pickerAccountType = Type;
 	}
 
 	
