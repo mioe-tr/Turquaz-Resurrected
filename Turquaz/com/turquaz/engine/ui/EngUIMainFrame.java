@@ -18,8 +18,9 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.135 2005/03/26 15:06:44 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.136 2005/03/26 16:17:30 onsel Exp $
  */
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -82,7 +83,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.135 2005/03/26 15:06:44 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.136 2005/03/26 16:17:30 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1163,7 +1164,24 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 	{
 		try
 		{
-			EngBLXmlParser xmlParser = new EngBLXmlParser("favorites.xml"); //$NON-NLS-1$
+			File prop_dir = new File(System.getProperty("user.home")+"/.turquaz");
+			if(!prop_dir.exists())
+			{
+				prop_dir.mkdir();
+			}
+			File file = new File(System.getProperty("user.home")+"/.turquaz/favorites.xml");
+			if (!file.exists())
+			{
+				XMLOutputter outputter = new XMLOutputter();
+				OutputStream output = null;
+				output = new FileOutputStream(System.getProperty("user.home")+"/.turquaz/favorites.xml"); //$NON-NLS-1$
+				Element root = new Element("tree");
+				outputter.output(root, output);
+				output.close();
+			}
+			
+			
+			EngBLXmlParser xmlParser = new EngBLXmlParser(System.getProperty("user.home")+"/.turquaz/favorites.xml"); //$NON-NLS-1$
 			Map treeInfo = xmlParser.createMap();
 			Iterator it = treeInfo.keySet().iterator();
 			String text = ""; //$NON-NLS-1$
@@ -1619,7 +1637,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 		{
 			XMLOutputter outputter = new XMLOutputter();
 			OutputStream output = null;
-			output = new FileOutputStream("favorites.xml"); //$NON-NLS-1$
+			output = new FileOutputStream(System.getProperty("user.home")+"/.turquaz/favorites.xml"); //$NON-NLS-1$
 			TreeItem items[] = treeFavorites.getItems();
 			Element root = new Element("tree"); //$NON-NLS-1$
 			Element treeItem;
