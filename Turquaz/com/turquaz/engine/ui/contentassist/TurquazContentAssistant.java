@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistant.java,v 1.11 2005/03/09 10:08:11 onsel Exp $
+* @version  $Id: TurquazContentAssistant.java,v 1.12 2005/03/10 13:44:10 onsel Exp $
 */
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +35,11 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+
+import com.cloudgarden.resource.SWTResourceManager;
 
 public class TurquazContentAssistant extends SubjectControlContentAssistant{
     TurquazContentAssistProcessors processor = null;
@@ -47,6 +50,9 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
         
         processor = new TurquazContentAssistProcessors(type);
         
+        Color bgColor = SWTResourceManager.getColor(255,255,255);
+        this.setProposalSelectorBackground(bgColor);
+       
         this.setContentAssistProcessor(processor,
                 IDocument.DEFAULT_CONTENT_TYPE);
         this.enableAutoActivation(true);
@@ -66,10 +72,17 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
                     }
                 });
 
+       if(!adapter.getControl().isDisposed())
+       {
         this.install(adapter);
         installCueLabelProvider(adapter);
+       
+       }
+     
 
     }  
+    
+ 
     public int findIndex(String text){
 
      if(processor == null){
@@ -114,11 +127,6 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
     	
     	
     	return new ArrayList();
-    	
-    	
-    	
-    	
-    	
     }
     
     public void refreshContentAssistant(int type){

@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.26 2005/03/09 17:19:01 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.27 2005/03/10 13:44:10 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -146,7 +146,7 @@ public class CheBLUpdateChequeRoll {
         try{
             
            
-        	  emptyCheckRollIn(chequeRoll);
+        	 emptyCheckRollIn(chequeRoll);
            
            chequeRoll.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
            chequeRoll.setLastModified(Calendar.getInstance().getTime());
@@ -266,9 +266,14 @@ public class CheBLUpdateChequeRoll {
            {
                      
            	CheBLSaveChequeTransaction. saveRollAccountingTransactions(rollAccount,null,chequeRoll,totalAmount,EngBLCommon.getBaseCurrencyExchangeRate(),Messages.getString("CheBLUpdateChequeRoll.10") +chequeRoll.getChequeRollNo()); //$NON-NLS-1$
-            
+                      	
+           }
            
-           	
+           else if(rollType==EngBLCommon.CHEQUE_TRANS_RETURN_FROM_CURRENT)
+           {
+                     
+           	CheBLSaveChequeTransaction. saveRollAccountingTransactions(rollAccount,null,chequeRoll,totalAmount,EngBLCommon.getBaseCurrencyExchangeRate(),Messages.getString("CheBLUpdateChequeRoll.0") +chequeRoll.getChequeRollNo());  //$NON-NLS-1$
+                      	
            }
           
            

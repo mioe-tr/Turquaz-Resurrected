@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistProcessors.java,v 1.27 2005/03/09 10:08:11 onsel Exp $
+* @version  $Id: TurquazContentAssistProcessors.java,v 1.28 2005/03/10 13:44:10 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -354,10 +354,8 @@ public class TurquazContentAssistProcessors implements
     public IContextInformation[] computeContextInformation(
             IContentAssistSubjectControl viewer, int offset) {
 
-        System.out.println("info");
-        ContextInformation info = new ContextInformation("111", "deneme");
-
-        return new ContextInformation[] { info };
+       
+        return new ContextInformation[] { };
 
     }
 

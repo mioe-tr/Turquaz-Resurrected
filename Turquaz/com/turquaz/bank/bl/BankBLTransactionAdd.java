@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.30 2005/03/09 13:04:59 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.31 2005/03/10 13:44:11 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -164,7 +164,7 @@ public class BankBLTransactionAdd {
             accTransRowDept.setCreditAmount(new BigDecimal(0));
             
             
-            String accounting_definition ="Banka Virman. "+definition;
+            String accounting_definition ="Banka Virman- "+definition;
 
             Integer transId = blAccTran.saveAccTransaction(transDate, docNo,
                     accTransType,
