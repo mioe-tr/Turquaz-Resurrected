@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.28 2005/02/03 18:53:19 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.29 2005/02/04 15:26:27 onsel Exp $
 */
 import java.util.List;
 
@@ -129,6 +129,11 @@ public class EngBLCommon {
     public final static int CONSIGNMENT_TRANS_TYPE_BUY=0;
     public final static int CONSIGNMENT_TRANS_TYPE_SELL=1;
     public final static int CONSIGNMENT_TRANS_TYPE_ALL=2;
+    
+    
+    public final static int INVENTORY_TRANS_INITIAL = 0;    
+    public final static int INVENTORY_TRANS_CONSIGNMENT =1;
+    
     
     public final static int TABLE_ROW_COUNT = 10;
     
