@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALSearchTransaction.java,v 1.24 2005/03/23 10:47:31 onsel Exp $
+ * @version  $Id: CurDALSearchTransaction.java,v 1.25 2005/03/24 11:40:51 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -131,6 +131,7 @@ public class CurDALSearchTransaction
 			throw ex;
 		}
 	}
+
 
 	public static List getCurrentBalances(TurqCurrentCard curCard, TurqCurrentCard curCard2, Date endDate) throws Exception
 	{
