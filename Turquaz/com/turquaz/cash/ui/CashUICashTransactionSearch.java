@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashTransactionSearch.java,v 1.15 2005/02/06 14:32:01 onsel Exp $
+* @version  $Id: CashUICashTransactionSearch.java,v 1.16 2005/02/19 20:50:32 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -333,6 +333,18 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT){
 	                
 	                updated=new CashUICashPaymentTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
+	                
+	                
+	            }
+	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_OTHER_COLLECT){
+	                
+	                updated=new CashUICashOtherCollectTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
+	                
+	                
+	            }
+	            else if(cashTrans.getTurqCashTransactionType().getCashTransactionTypesId().intValue()==EngBLCommon.CASH_OTHER_PAYMENT){
+	                
+	                updated=new CashUICashOtherPaymentTransactionUpdate(this.getShell(),SWT.NULL,cashTrans).open();
 	                
 	                
 	            }
