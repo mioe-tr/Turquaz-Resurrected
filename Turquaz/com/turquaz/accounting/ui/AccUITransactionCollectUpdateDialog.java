@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.10 2004/11/25 14:59:48 huseyiner Exp $
+* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.11 2004/11/29 15:55:15 onsel Exp $
 */
 
 import java.util.Date;
@@ -224,6 +224,22 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		    toolDelete.setEnabled(true);
 		    toolUpdate.setEnabled(true); 
 		}   
+		
+	/*Check if it has a journal entry*/
+		if(accTrans.getTurqAccountingJournal().getAccountingJournalId().intValue()!=-1){
+			toolUpdate.setEnabled(false);
+			toolDelete.setEnabled(false);		    
+		}
+	
+	/* Check if it is entered from accountingmodule
+	 * 
+	 */
+		//1- Muhasebe Modulu
+		if(accTrans.getTurqModule().getModulesId().intValue()!=1){
+		    toolUpdate.setEnabled(false);
+			toolDelete.setEnabled(false);	
+		    
+		}
 	    
 	compTransactionCollect.getTxtDocumentNo().setText(accTrans.getTransactionDocumentNo());
 	Date date = new Date(accTrans.getTransactionsDate().getTime());
