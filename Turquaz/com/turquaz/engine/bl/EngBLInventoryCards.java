@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.13 2005/03/30 18:38:08 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.14 2005/04/05 12:29:25 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -91,6 +91,25 @@ public class EngBLInventoryCards
 			throw ex;
 		}
 	}
+	public static TurqInventoryCard getInvFromCardName(String cardName) throws Exception
+	{
+		try
+		{
+			if (_instance == null)
+			{
+				_instance = new EngBLInventoryCards();
+			}
+			HashMap argMap=new HashMap();
+			argMap.put(InvKeys.INV_CARD_NAME,cardName);
+			
+			
+			return  (TurqInventoryCard)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCardFromName",argMap);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 
 	public TurqInventoryCard getCard(String invCode) throws Exception
 	{
@@ -105,6 +124,7 @@ public class EngBLInventoryCards
 			throw ex;
 		}
 	}
+	
 
 	public static void RefreshContentAsistantMap() throws Exception
 	{

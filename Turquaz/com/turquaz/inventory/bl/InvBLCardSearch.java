@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.18 2005/03/30 18:37:27 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.19 2005/04/05 12:29:30 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -157,6 +157,18 @@ public class InvBLCardSearch
 		{
 			String invCode=(String)argMap.get(InvKeys.INV_CARD_CODE);
 			return InvDALCardSearch.getInventoryCard(invCode);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	public static TurqInventoryCard getInventoryCardFromName(HashMap argMap) throws Exception
+	{
+		try
+		{
+			String invCode=(String)argMap.get(InvKeys.INV_CARD_NAME);
+			return InvDALCardSearch.getInventoryCardFromName(invCode);
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.88 2005/04/05 11:09:17 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.89 2005/04/05 12:29:23 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -264,6 +264,10 @@ public class EngBLCommon
 	public final static int CONTENT_ASSIST_BANK = 7;
 	public final static int CONTENT_ASSIST_INVENTORY_GROUPS = 8;
 	public final static int CONTENT_ASSIST_MAIN_ACCOUNTS = 9;
+	public final static int CONTENT_ASSIST_INVENTORY_NAME = 10;
+	
+	
+	
 	public final static int BILL_TRANS_TYPE_BUY = 0;
 	public final static int BILL_TRANS_TYPE_SELL = 1;
 	public final static int BILL_TRANS_TYPE_ALL = 2;

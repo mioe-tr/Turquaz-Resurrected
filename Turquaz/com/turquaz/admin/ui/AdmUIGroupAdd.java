@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupAdd.java,v 1.15 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version  $Id: AdmUIGroupAdd.java,v 1.16 2005/04/05 12:29:34 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -215,5 +215,19 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 
 	public void delete()
 	{
+	}
+	/**
+	 * @return Returns the txtAdmGroupDesc.
+	 */
+	public Text getTxtAdmGroupDesc()
+	{
+		return txtAdmGroupDesc;
+	}
+	/**
+	 * @return Returns the txtAdmGroupName.
+	 */
+	public Text getTxtAdmGroupName()
+	{
+		return txtAdmGroupName;
 	}
 }
