@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.16 2004/11/29 18:49:17 huseyiner Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.17 2004/12/02 15:33:55 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -55,8 +55,6 @@ import org.eclipse.swt.SWT;
 /**
 *		Tahsil Fisi 
 */
-import org.eclipse.swt.events.TraverseListener;
-import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 /**
@@ -453,6 +451,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
     transRow.setCreditAmount(new BigDecimal(0));
     transRow.setDeptAmount(totalDept);
     transRow.setTurqAccountingAccount((TurqAccountingAccount)comboDeptor.getData(comboDeptor.getText()));
+    transRow.setTransactionDefinition("Kasa - Borç");
     blTransAdd.saveAccTransactionRow(transRow,transId);   
      
     //Save the table rows    

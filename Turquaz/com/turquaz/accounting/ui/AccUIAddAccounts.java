@@ -19,12 +19,11 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.29 2004/11/27 19:16:33 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.30 2004/12/02 15:33:54 onsel Exp $
 */
 
 
 
-import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -53,7 +52,6 @@ import org.eclipse.swt.events.VerifyEvent;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.ui.component.SecureComposite;
-import com.turquaz.engine.ui.contentassist.TurquazContentAssistProcessors;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
 

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.19 2004/12/01 09:27:20 onsel Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.20 2004/12/02 15:33:55 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -51,7 +51,6 @@ import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
-import com.turquaz.accounting.ui.comp.DynamicAccountPicker;
 
 
 /**

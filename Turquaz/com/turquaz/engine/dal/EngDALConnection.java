@@ -22,7 +22,7 @@ import java.sql.*;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngDALConnection.java,v 1.11 2004/11/22 21:48:31 huseyiner Exp $
+* @version  $Id: EngDALConnection.java,v 1.12 2004/12/02 15:33:55 onsel Exp $
 * 
 * Class for initial database configuration. It creates the necessary
 * bindings according to hibernate.cfg.xml
@@ -150,9 +150,7 @@ public class EngDALConnection {
     while (in.available() !=0){
    
     	sql = in.readLine();
-    	if(sql.trim().startsWith("SELECT"));{
-    	    stmt.execute(sql);
-    	}
+    	sql +=";";
      
     }
     in.close();

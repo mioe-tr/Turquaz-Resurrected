@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.41 2004/11/30 08:42:52 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.42 2004/12/02 15:33:54 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -46,7 +46,6 @@ import com.turquaz.admin.ui.AdmUIUserPermissions;
 import com.turquaz.admin.ui.AdmUIUsers;
 import com.turquaz.bank.ui.BankUIBankCardAdd;
 import com.turquaz.bank.ui.BankUIBankCardSearch;
-import com.turquaz.bill.ui.BillUIAddBill;
 import com.turquaz.bill.ui.BillUIAddBuyBill;
 import com.turquaz.bill.ui.BillUIAddSellBill;
 import com.turquaz.bill.ui.BillUIBillFromConsignment;

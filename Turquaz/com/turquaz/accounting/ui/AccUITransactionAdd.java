@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.26 2004/11/28 16:51:51 huseyiner Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.27 2004/12/02 15:33:54 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -44,8 +44,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.SWT;
 import com.cloudgarden.resource.SWTResourceManager;
-import org.eclipse.swt.events.TraverseListener;
-import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 /**

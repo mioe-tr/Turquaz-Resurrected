@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionRowAddDialog.java,v 1.13 2004/11/28 11:18:47 onsel Exp $
+* @version  $Id: AccUITransactionRowAddDialog.java,v 1.14 2004/12/02 15:33:54 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -321,7 +321,6 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 	
 	if(verifyFields()){
 	transactionRow = new TurqAccountingTransactionColumn();
-	
 	transactionRow.setTurqAccountingAccount((TurqAccountingAccount)accountPicker.getData());	
 	transactionRow.setTransactionDefinition(txtTransactionDefinition.getText().trim());
 	if(comboDeptOrCredit.getText().equals(Messages.getString("AccUITransactionRowAddDialog.6"))){ //$NON-NLS-1$

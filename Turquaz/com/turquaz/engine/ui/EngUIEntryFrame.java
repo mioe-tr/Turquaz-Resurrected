@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.25 2004/11/26 16:41:56 huseyiner Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.26 2004/12/02 15:33:54 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -138,11 +138,11 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 
 	private void initGUI() {
 		try {
-			  preInitGui();
+			 
 		    DatabaseThread dbThread = new DatabaseThread();
 		    dbThread.start();
 		    
-		  
+		    preInitGui();
 			GridLayout thisLayout = new GridLayout();
 			this.addKeyListener(new KeyAdapter() {
 				public void keyReleased(KeyEvent evt) {
