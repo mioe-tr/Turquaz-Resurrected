@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.64 2005/03/29 11:47:47 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.65 2005/03/29 13:13:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -395,6 +395,8 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 								txtBillDocumentNoLData.widthHint = 150;
 								txtBillDocumentNoLData.heightHint = 17;
 								txtConsignmentDocumentNo.setLayoutData(txtBillDocumentNoLData);
+								txtConsignmentDocumentNo.setEnabled(false);
+								txtConsignmentDocumentNo.setBackground(SWTResourceManager.getColor(255,255,255));
 							}
 							{
 								lblWareHouse = new CLabel(compInfoPanel, SWT.NONE);
