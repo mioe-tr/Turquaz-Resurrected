@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.31 2004/10/09 11:59:43 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.32 2004/10/11 07:49:00 onsel Exp $
  */
 
 import org.eclipse.swt.widgets.Shell;
@@ -1343,8 +1343,7 @@ public class InvUICardAdd extends SecureComposite {
 		if (verifyFields()) {
 
 			InvBLCardAdd blCardAdd = new InvBLCardAdd();
-			int accountIdSell = ((Integer) txtInvCardOutAcc.getData())
-					.intValue();
+			int accountIdSell = ((Integer) txtInvCardOutAcc.getData()).intValue();
 			int accountIdBuy = ((Integer) txtInvCardInAcc.getData()).intValue();
 			try {
 
