@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.9 2004/12/09 23:34:05 onsel Exp $
+* @version  $Id: AdmUIUsers.java,v 1.10 2004/12/14 21:07:19 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -51,10 +51,10 @@ import org.eclipse.swt.widgets.TableColumn;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLUsers;
-import com.turquaz.current.ui.CurUICurrentCardAdd;
+
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqUser;
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.SecureComposite;
 

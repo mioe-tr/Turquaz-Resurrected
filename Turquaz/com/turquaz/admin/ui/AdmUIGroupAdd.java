@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.10 2004/12/09 23:34:05 onsel Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.11 2004/12/14 21:07:19 cemdayanik Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -50,8 +50,7 @@ import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
-import com.turquaz.current.ui.CurUICurrentCardAdd;
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;

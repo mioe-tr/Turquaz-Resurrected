@@ -24,9 +24,9 @@ package com.turquaz.engine;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: Messages.java,v 1.7 2004/12/06 08:54:40 huseyiner Exp $
+ * @version  $Id: Messages.java,v 1.8 2004/12/14 21:07:19 cemdayanik Exp $
  */
-import java.util.Locale;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 

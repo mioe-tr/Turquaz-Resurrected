@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.29 2004/12/10 01:48:25 onsel Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.30 2004/12/14 21:07:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -48,7 +48,7 @@ import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
 import com.turquaz.engine.dal.TurqAccountingTransactionType;
-import com.turquaz.engine.dal.TurqViewAccTransTotalAmount;
+
 
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SearchComposite;

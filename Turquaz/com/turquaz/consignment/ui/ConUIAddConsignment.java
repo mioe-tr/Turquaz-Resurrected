@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.26 2004/12/14 17:13:59 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.27 2004/12/14 21:07:18 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -61,7 +61,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
 import org.eclipse.swt.widgets.TableColumn;
 import com.cloudgarden.resource.SWTResourceManager;
-import com.turquaz.accounting.ui.AccUITransactionAddTableRow;
+
 import com.turquaz.consignment.Messages;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
 import com.turquaz.consignment.bl.ConBLAddGroups;
@@ -82,7 +82,7 @@ import com.turquaz.engine.ui.viewers.TableRowList;
 import com.turquaz.engine.ui.viewers.TurquazCellModifier;
 import com.turquaz.engine.ui.viewers.TurquazContentProvider;
 import com.turquaz.engine.ui.viewers.TurquazLabelProvider;
-import com.turquaz.inventory.ui.InvUITransactionAddDialog;
+
 import com.turquaz.inventory.ui.InvUITransactionTableRow;
 
 import org.eclipse.swt.widgets.Button;

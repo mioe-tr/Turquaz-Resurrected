@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.13 2004/12/09 23:34:05 onsel Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.14 2004/12/14 21:07:19 cemdayanik Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -54,10 +54,10 @@ import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLUserAdd;
-import com.turquaz.current.ui.CurUICurrentCardAdd;
+
 
 import com.turquaz.engine.dal.TurqGroup;
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;

@@ -23,9 +23,9 @@ package com.turquaz.current;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.5 2004/12/03 15:27:25 onsel Exp $
+* @version  $Id: Messages.java,v 1.6 2004/12/14 21:07:19 cemdayanik Exp $
 */
-import java.util.Locale;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.6 2004/12/12 15:09:33 cemdayanik Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.7 2004/12/14 21:07:09 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -41,7 +41,7 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.VerifyEvent;
 
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.NumericText;
 import com.turquaz.engine.ui.component.CurrencyText;
@@ -57,7 +57,7 @@ import com.turquaz.bill.Messages;
 import com.turquaz.bill.bl.BillBLAddBill;
 import com.turquaz.bill.bl.BillBLAddGroups;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
-import com.turquaz.current.ui.CurUICurrentCardAdd;
+
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.dal.TurqBillGroup;

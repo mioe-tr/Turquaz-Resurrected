@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardAdd.java,v 1.14 2004/12/09 21:49:08 onsel Exp $
+* @version  $Id: BankUIBankCardAdd.java,v 1.15 2004/12/14 21:07:21 cemdayanik Exp $
 */
 
 
@@ -35,13 +35,13 @@ import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCurrency;
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
 
 import com.turquaz.bank.Messages;
 import com.turquaz.bank.bl.BankBLBankCardAdd;
-import com.turquaz.current.ui.CurUICurrentCardAdd;
+
 
 
 /**

@@ -17,9 +17,9 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.21 2004/12/09 17:12:17 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.22 2004/12/14 21:07:20 cemdayanik Exp $
 */
-import java.math.BigDecimal;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;

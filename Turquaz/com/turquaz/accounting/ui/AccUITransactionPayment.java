@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.22 2004/12/11 20:02:16 cemdayanik Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.23 2004/12/14 21:07:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -51,7 +51,7 @@ import com.turquaz.accounting.bl.AccBLAccountAdd;
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
-import com.turquaz.engine.ui.EngUIMainFrame;
+
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.editors.AccountingCellEditor;
