@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.11 2004/12/28 17:00:49 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.12 2004/12/29 13:56:19 onsel Exp $
 */
 import java.util.List;
 
@@ -74,6 +74,15 @@ public class EngBLCommon {
     public final static int MODULE_BILL = 7; //fatura modulu
     
     public final static int MODULE_CASH = 8; //kasa modulu
+    
+    
+    
+    public final static int CONTENT_ASSIST_ACCOUNTING = 0;
+    public final static int CONTENT_ASSIST_INVENTORY = 1;
+    public final static int CONTENT_ASSIST_ACCOUNT_LEAVES =2;
+    public final static int CONTENT_ASSIST_CURRENT =3;
+    public final static int CONTENT_ASSIST_CASH = 4;
+    
     
     
     
