@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.24 2004/11/18 08:36:13 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.25 2004/11/18 09:15:20 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -526,8 +526,9 @@ public class InvUICardUpdateDialog extends Dialog{
     }
     
     public void delete(){
+    	MessageBox msg=new MessageBox(this.getParent(),SWT.YES|SWT.NO);
       try{
-      MessageBox msg=new MessageBox(this.getParent(),SWT.YES|SWT.NO);
+      
       msg.setMessage(Messages.getString("InvUICardUpdateDialog.7")); //$NON-NLS-1$
       if (msg.open()==SWT.NO)
        return;
@@ -548,7 +549,13 @@ public class InvUICardUpdateDialog extends Dialog{
            
     }
     catch(Exception ex){
-    ex.printStackTrace();
+    	
+    ex.printStackTrace();	
+    msg = new MessageBox(this.getParent(),SWT.ICON_ERROR);	
+    msg.setMessage(ex.getMessage());
+    msg.open();
+    dialogShell.close();
+ 
     
     }
     

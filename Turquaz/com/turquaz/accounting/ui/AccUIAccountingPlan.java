@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.17 2004/11/18 07:33:12 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.18 2004/11/18 09:15:19 onsel Exp $
 */
 
 
@@ -31,8 +31,7 @@ import java.util.Map;
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
+
 import org.eclipse.swt.widgets.TableColumn;
 
 import org.eclipse.swt.events.DisposeEvent;
@@ -50,7 +49,7 @@ import org.eclipse.swt.events.MouseEvent;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.TableSorter;
+
 
 
 
