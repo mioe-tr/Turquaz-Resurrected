@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.20 2004/12/29 16:31:01 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.21 2004/12/29 16:37:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -955,7 +955,7 @@ implements SecureComposite{
 		{
 			if (accountPickerCurAcc.getData()==null)
 			{
-				msg.setMessage("Kasa hesab? seçmelisiniz!");
+				msg.setMessage(Messages.getString("BillUIBillFromConsignment.36")); //$NON-NLS-1$
 				msg.open();
 				accountPickerCurAcc.setFocus();
 				return false;

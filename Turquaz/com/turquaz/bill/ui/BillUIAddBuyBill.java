@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.22 2004/12/29 16:31:01 cemdayanik Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.23 2004/12/29 16:37:50 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -644,7 +644,7 @@ public class BillUIAddBuyBill extends Composite
 								lblCashAccount = new CLabel(
 									compInfoPanel,
 									SWT.NONE);
-								lblCashAccount.setText("Kasa Hesab?");
+								lblCashAccount.setText(Messages.getString("BillUIAddBuyBill.4")); //$NON-NLS-1$
 							}
 							{
 								accountPickerCurAcc = new AccountPicker(
@@ -1322,7 +1322,7 @@ public class BillUIAddBuyBill extends Composite
 		MessageBox msg = new MessageBox(this.getShell(), SWT.ICON_WARNING);
 
 		if (txtCurrentCard.getData() == null) {
-			msg.setMessage(Messages.getString("BillUIAddBuyBill.14")); //$NON-NLS-1$
+			msg.setMessage(""); //$NON-NLS-1$
 			msg.open();
 			txtCurrentCard.setFocus();
 			return false;
@@ -1340,7 +1340,7 @@ public class BillUIAddBuyBill extends Composite
 		{
 			if (accountPickerCurAcc.getData()==null)
 			{
-				msg.setMessage("Kasa hesab? seçmelisiniz!");
+				msg.setMessage(Messages.getString("BillUIAddBuyBill.15")); //$NON-NLS-1$
 				msg.open();
 				accountPickerCurAcc.setFocus();
 				return false;
