@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.8 2005/02/08 14:05:08 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.9 2005/02/08 14:45:29 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -141,7 +141,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 				GridLayout composite1Layout = new GridLayout();
 				composite1Layout.numColumns = 4;
 				GridData composite1LData = new GridData();
-				composite1LData.heightHint = 126;
+				composite1LData.heightHint = 118;
 				composite1LData.grabExcessHorizontalSpace = true;
 				composite1LData.horizontalAlignment = GridData.FILL;
 				compInvTransactionSearch.setLayoutData(composite1LData);

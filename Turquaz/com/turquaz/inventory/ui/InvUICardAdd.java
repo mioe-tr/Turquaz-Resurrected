@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.102 2005/02/08 09:31:59 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.103 2005/02/08 14:45:29 cemdayanik Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -121,7 +121,6 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 	private TableColumn tableColumnPriceType;
 
 	private Button btnUpdateUnits;
-
 	private Button btnInvCardGroupsPre;
 
 	private Button btnInvCardPricesNext;
