@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.68 2004/11/27 13:30:26 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.69 2004/11/27 13:34:24 cemdayanik Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -440,7 +440,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 					lblInvCardDiscountLData.widthHint = 61;
 					lblInvCardDiscountLData.heightHint = 19;
 					lblInvCardDiscount.setLayoutData(lblInvCardDiscountLData);
-					lblInvCardDiscount.setText(Messages.getString("InvUICardAdd.12")); //$NON-NLS-1$
+					lblInvCardDiscount.setText("Ýskonto"); //$NON-NLS-1$
 				}
 				{
 					txtInvCardDiscount = new NumericText(
