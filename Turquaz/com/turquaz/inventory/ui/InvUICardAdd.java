@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.84 2004/12/17 16:07:49 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.85 2004/12/19 21:55:55 huseyiner Exp $
  */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -1191,7 +1191,8 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 						lblInvCardNameLData.widthHint = 96;
 						lblInvCardNameLData.heightHint = 20;
 						lblInvCardName.setLayoutData(lblInvCardNameLData);
-						lblInvCardName.setText("Stok Cinsi"); //$NON-NLS-1$
+						lblInvCardName.setText(Messages
+								.getString("InvUICardAdd.47")); //$NON-NLS-1$
 						lblInvCardName
 							.setSize(new org.eclipse.swt.graphics.Point(96, 20));
 					}

@@ -1,9 +1,4 @@
-/*
- * Created on Nov 1, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,20 +18,15 @@ package com.turquaz.current;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.6 2004/12/14 21:07:19 cemdayanik Exp $
+* @version  $Id: Messages.java,v 1.7 2004/12/19 21:55:54 huseyiner Exp $
 */
 
+import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.current.messages_tr_TR";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.current.messages";//$NON-NLS-1$
 
 	private Messages() {
 	}
@@ -45,7 +35,7 @@ public class Messages {
 		// TODO Auto-generated method stub
 		try {
 			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
-			.getBundle(BUNDLE_NAME);
+			.getBundle(BUNDLE_NAME, Locale.getDefault());
 			
 			return RESOURCE_BUNDLE.getString(key);
 		} catch (MissingResourceException e) {

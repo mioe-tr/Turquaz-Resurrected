@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.100 2004/12/11 16:41:12 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.101 2004/12/19 21:55:55 huseyiner Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.100 2004/12/11 16:41:12 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.101 2004/12/19 21:55:55 huseyiner Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -487,7 +487,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
             }
             {
                 btnAdmin = new Button(compModulesHelp, SWT.PUSH | SWT.FLAT | SWT.CENTER);
-                btnAdmin.setText("Ayarlar"); //$NON-NLS-1$
+                btnAdmin.setText(Messages.getString("EngUIMainFrame.3")); //$NON-NLS-1$
                 GridData btnAdminLData = new GridData();
                 btnAdmin.addMouseListener(new MouseAdapter() {
                     public void mouseUp(MouseEvent evt) {

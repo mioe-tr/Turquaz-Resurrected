@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.44 2004/12/16 16:31:09 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.45 2004/12/19 21:56:12 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -209,7 +209,7 @@ public final class TreeFactory {
 		}
 		if(EngBLPermissions.getPermission(AccUISubsidiaryLedger.class.getName())>0){
 			item = new TreeItem(books,SWT.NULL);
-			item.setText("Muavin Defter"); 
+			item.setText(Messages.getString("TreeFactory.43"));  //$NON-NLS-1$
 			item.setData(AccUISubsidiaryLedger.class.getName());
 			}
 		

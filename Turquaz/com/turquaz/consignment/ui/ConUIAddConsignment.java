@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.36 2004/12/17 21:49:50 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.37 2004/12/19 21:55:55 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -492,7 +492,7 @@ implements SecureComposite{
 								lblBillDocumentNo = new CLabel(compInfoPanel, SWT.LEFT);
 								lblBillDocumentNo.setText(Messages.getString("ConUIAddConsignment.4")); //$NON-NLS-1$
 								GridData lblBillDocumentNoLData = new GridData();
-								lblBillDocumentNoLData.widthHint = 93;
+								lblBillDocumentNoLData.widthHint = 109;
 								lblBillDocumentNoLData.heightHint = 19;
 								lblBillDocumentNo.setLayoutData(lblBillDocumentNoLData);
 							}
@@ -582,7 +582,7 @@ implements SecureComposite{
                                 lblWareHouse = new CLabel(
                                     compInfoPanel,
                                     SWT.NONE);
-                                lblWareHouse.setText("Depo");
+                                lblWareHouse.setText(Messages.getString("ConUIAddConsignment.34")); //$NON-NLS-1$
                                 GridData lblWareHouseLData = new GridData();
                                 lblWareHouseLData.widthHint = 36;
                                 lblWareHouseLData.heightHint = 19;
