@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardAdd.java,v 1.26 2005/03/29 15:44:19 cemdayanik Exp $
+ * @version $Id: InvDALCardAdd.java,v 1.27 2005/03/30 17:10:39 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Hibernate;
@@ -47,22 +47,6 @@ public class InvDALCardAdd
 			{
 				return ((TurqCurrency) list.get(0));
 			}
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getInventoryGroups() throws Exception
-	{
-		try
-		{
-			Session session = EngDALSessionFactory.getSession();
-			String query = "from TurqInventoryGroup as invGroup " + " where invGroup.turqInventoryGroup.id <> -1";
-			Query q = session.createQuery(query);
-			List list = q.list();
-			return list;
 		}
 		catch (Exception ex)
 		{

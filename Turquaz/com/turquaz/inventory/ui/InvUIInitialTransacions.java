@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUIInitialTransacions.java,v 1.4 2005/03/26 15:06:49 onsel Exp $
+ * @version $Id: InvUIInitialTransacions.java,v 1.5 2005/03/30 17:10:05 cemdayanik Exp $
  */
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -33,12 +33,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.SWT;
+import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.editors.CurrencyCellEditor;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.ITableRowListViewer;
 import com.turquaz.engine.ui.viewers.SaveTableViewer;
 import com.turquaz.inventory.bl.InvBLSearchTransaction;
-import com.turquaz.inventory.bl.InvBLUpdateTransaction;
 
 public class InvUIInitialTransacions extends org.eclipse.swt.widgets.Composite
 {
@@ -156,7 +157,7 @@ public class InvUIInitialTransacions extends org.eclipse.swt.widgets.Composite
 	{
 		try
 		{
-			List ls = InvBLSearchTransaction.getInitialTransactions();
+			List ls = (List)EngTXCommon.doSingleTX(InvBLSearchTransaction.class.getName(),"getInitialTransactions",null);
 			for (int i = 0; i < ls.size(); i++)
 			{
 				InvUIInitialTransactionTableRow tableRow = new InvUIInitialTransactionTableRow();
@@ -194,7 +195,7 @@ public class InvUIInitialTransacions extends org.eclipse.swt.widgets.Composite
 			{
 				try
 				{
-					InvBLUpdateTransaction.updateObject(row.getDBObject());
+					EngBLCommon.update(row.getDBObject());
 				}
 				catch (Exception ex)
 				{

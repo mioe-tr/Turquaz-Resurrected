@@ -17,13 +17,15 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.16 2005/03/30 09:21:45 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.17 2005/03/30 17:09:41 cemdayanik Exp $
  */
+import java.util.HashMap;
 import java.util.List;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqViewInventoryAmountTotal;
+import com.turquaz.inventory.InvKeys;
 import com.turquaz.inventory.dal.InvDALCardSearch;
 
 public class InvBLCardSearch
@@ -89,13 +91,12 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static TurqInventoryCard initializeInventoryCard(Integer cardId,Boolean initialize) throws Exception
+	public static TurqInventoryCard initializeInventoryCardById(HashMap argMap) throws Exception
 	{
 		try
 		{
+			Integer cardId=(Integer)argMap.get(InvKeys.INV_CARD_ID);
 			TurqInventoryCard card=InvDALCardSearch.initializeInventoryCard(cardId);
-			if (initialize.booleanValue())
-				initializeInventoryCard(card);
 			return card;
 		}
 		catch (Exception ex)
@@ -104,10 +105,11 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static void initializeInventoryCard(TurqInventoryCard invCard) throws Exception
+	public static void initializeInventoryCard(HashMap argMap) throws Exception
 	{
 		try
 		{
+			TurqInventoryCard invCard=(TurqInventoryCard)argMap.get(InvKeys.INV_CARD);
 			InvDALCardSearch.initializeInventoryCard(invCard);
 		}
 		catch (Exception ex)
@@ -116,22 +118,11 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static TurqInventoryCard getTurqInvCardById(Integer cardId) throws Exception
+	public static TurqViewInventoryAmountTotal getView(HashMap argMap) throws Exception
 	{
 		try
 		{
-			return InvDALCardSearch.getTurqInvCardById(cardId);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static TurqViewInventoryAmountTotal getView(TurqInventoryCard invCard) throws Exception
-	{
-		try
-		{
+			TurqInventoryCard invCard=(TurqInventoryCard)argMap.get(InvKeys.INV_CARD);
 			return InvDALCardSearch.getView(invCard);
 		}
 		catch (Exception ex)
@@ -145,18 +136,6 @@ public class InvBLCardSearch
 		try
 		{
 			return InvDALCardSearch.getInventoryCards();
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getAllInventoryCards() throws Exception
-	{
-		try
-		{
-			return InvDALCardSearch.getAllInventoryCards();
 		}
 		catch (Exception ex)
 		{

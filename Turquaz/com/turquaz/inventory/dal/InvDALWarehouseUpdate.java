@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALWarehouseUpdate.java,v 1.10 2005/03/29 15:44:19 cemdayanik Exp $
+ * @version $Id: InvDALWarehouseUpdate.java,v 1.11 2005/03/30 17:10:42 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -27,7 +27,7 @@ import com.turquaz.engine.dal.TurqInventoryWarehous;
 
 public class InvDALWarehouseUpdate
 {
-	public static boolean hasTransaction(TurqInventoryWarehous warehouse) throws Exception
+	public static Boolean hasTransaction(TurqInventoryWarehous warehouse) throws Exception
 	{
 		try
 		{
@@ -39,11 +39,11 @@ public class InvDALWarehouseUpdate
 			List list = q.list();
 			if (list.size() > 0)
 			{
-				return true;
+				return new Boolean(true);
 			}
 			else
 			{
-				return false;
+				return new Boolean(false);
 			}
 		}
 		catch (Exception ex)

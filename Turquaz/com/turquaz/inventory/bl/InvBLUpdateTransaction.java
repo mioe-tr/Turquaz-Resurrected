@@ -15,16 +15,10 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvBLUpdateTransaction.java,v 1.2 2005/03/26 15:06:15 onsel Exp $
+ * @version $Id: InvBLUpdateTransaction.java,v 1.3 2005/03/30 17:09:41 cemdayanik Exp $
  */
 package com.turquaz.inventory.bl;
 
-import com.turquaz.engine.dal.EngDALCommon;
-
 public class InvBLUpdateTransaction
 {
-	public static void updateObject(Object obj) throws Exception
-	{
-		EngDALCommon.updateObject(obj);
-	}
 }

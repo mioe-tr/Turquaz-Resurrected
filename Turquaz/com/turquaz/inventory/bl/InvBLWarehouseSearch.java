@@ -1,6 +1,8 @@
 package com.turquaz.inventory.bl;
 
+import java.util.HashMap;
 import java.util.List;
+import com.turquaz.inventory.InvKeys;
 import com.turquaz.inventory.dal.InvDALWarehouseSearch;
 
 /************************************************************************/
@@ -20,14 +22,16 @@ import com.turquaz.inventory.dal.InvDALWarehouseSearch;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLWarehouseSearch.java,v 1.7 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: InvBLWarehouseSearch.java,v 1.8 2005/03/30 17:09:43 cemdayanik Exp $
  */
 public class InvBLWarehouseSearch
 {
-	public static List searchWarehouse(String name, String city) throws Exception
+	public static List searchWarehouse(HashMap argMap) throws Exception
 	{
 		try
 		{
+			String name=(String)argMap.get(InvKeys.INV_WAREHOUSE_NAME);
+			String city=(String)argMap.get(InvKeys.INV_WAREHOUSE_CITY);
 			return InvDALWarehouseSearch.searchWarehouse(name, city);
 		}
 		catch (Exception ex)
