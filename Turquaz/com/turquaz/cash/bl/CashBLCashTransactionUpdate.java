@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.6 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.7 2005/02/03 11:58:26 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -64,6 +64,31 @@ public class CashBLCashTransactionUpdate {
         
         
     }
+    public void deleteOnlyCashTransaction(TurqCashTransaction cashTrans) throws Exception{
+        try
+        {
+            //delete cash Transaction rows...
+            Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+            while(it.hasNext()){
+                
+                dalCash.delete(it.next());
+                
+            }
+            
+                
+            
+            dalCash.delete(cashTrans);
+            
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        
+        
+        
+    }
+    
     public void deleteCashTrans(TurqCashTransaction cashTrans)throws Exception{
         try{
             

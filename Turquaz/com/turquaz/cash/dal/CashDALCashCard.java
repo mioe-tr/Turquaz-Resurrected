@@ -43,7 +43,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.12 2005/01/30 19:41:05 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.13 2005/02/03 11:58:26 onsel Exp $
  */
 
 public class CashDALCashCard {
@@ -231,6 +231,28 @@ public class CashDALCashCard {
             
             session.close();
             return cashTrans;
+            
+            
+            
+        }
+        catch(Exception ex){
+            throw ex;
+        }
+        
+        
+    }
+    public void initiliazeCashTrans(TurqCashTransaction cashTrans)throws Exception{
+        try{
+            
+            Session session = EngDALSessionFactory.openSession();
+            
+            session.refresh(cashTrans);
+       
+           
+                
+            Hibernate.initialize(cashTrans.getTurqCashTransactionRows()); 
+            
+            session.close();
             
             
             

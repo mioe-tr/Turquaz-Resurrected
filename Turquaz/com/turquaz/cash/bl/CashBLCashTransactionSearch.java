@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionSearch.java,v 1.6 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CashBLCashTransactionSearch.java,v 1.7 2005/02/03 11:58:26 onsel Exp $
 */
 
 import java.util.Date;
@@ -53,6 +53,19 @@ public class CashBLCashTransactionSearch {
        try{
                     
            return dalCash.initiliazeCashTrans(id);
+           
+           
+       }
+       catch(Exception ex){
+           throw ex;
+       }
+   }
+   
+   public void initializeCashTransaction(TurqCashTransaction cashTrans)throws Exception
+   {
+       try{
+                    
+       dalCash.initiliazeCashTrans(cashTrans);
            
            
        }
