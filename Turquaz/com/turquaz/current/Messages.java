@@ -18,7 +18,7 @@ package com.turquaz.current;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.8 2004/12/23 15:50:12 onsel Exp $
+* @version  $Id: Messages.java,v 1.9 2005/01/05 15:21:34 onsel Exp $
 */
 
 import java.util.Locale;
@@ -26,7 +26,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.current.messages";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.current.messages_tr_TR";//$NON-NLS-1$
 
 	private Messages() {
 	}

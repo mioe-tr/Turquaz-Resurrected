@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.7 2005/01/05 14:55:27 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.8 2005/01/05 15:21:34 onsel Exp $
 */
 
 import java.util.Date;
@@ -131,7 +131,7 @@ public class CurDALSearchTransaction {
 	        
 	    	Session session = EngDALSessionFactory.openSession(); 
 	    	String query = "Select sum(transaction.transactionsTotalDept),sum(transaction.transactionsTotalCredit) from TurqCurrentTransaction as transaction where" +
-			" transaction.turqCurrentCard= :curCard" +
+			" transaction.turqCurrentCard= :curCard and" +
 			" transaction.transactionsDate < :endDate";
 	    
 	    	Query q = session.createQuery(query); 
