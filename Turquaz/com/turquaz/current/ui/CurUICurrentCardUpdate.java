@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.34 2005/02/24 15:37:54 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.35 2005/03/01 14:03:38 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -355,8 +355,6 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			    Integer type = (Integer) curAccount.getTurqCurrentAccountingType().getCurrentAccoutingTypesId();
 			    AccountPicker picker = (AccountPicker)fieldMap.get(type);
 			    picker.setData(curAccount.getTurqAccountingAccount());
-			
-				
 				
 			
 				

@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardUpdate.java,v 1.10 2005/02/24 15:37:54 onsel Exp $
+* @version  $Id: CurBLCurrentCardUpdate.java,v 1.11 2005/03/01 14:03:40 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -81,8 +81,10 @@ public class CurBLCurrentCardUpdate {
 	public void updateAccounts(TurqCurrentCard curCard, Map accounts)throws Exception{
 		
 		Iterator it = curCard.getTurqCurrentAccountingAccounts().iterator();
-		currentUpdate.deleteObject(it.next());
 		
+		while(it.hasNext()){
+			currentUpdate.deleteObject(it.next());
+		}
 		new CurBLCurrentCardAdd().saveCurrentAccountingAccounts(curCard,accounts);
 		
 		

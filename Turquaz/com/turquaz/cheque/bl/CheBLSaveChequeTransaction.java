@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.19 2005/02/28 17:58:01 onsel Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.20 2005/03/01 14:03:40 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -190,6 +190,7 @@ public class CheBLSaveChequeTransaction {
          	saveRollAccountingTransactions(rollAccount,curAccount,chequeRoll,totalAmount,currency,exchangeRate);
          	
          }
+        
           
        /*   if(bankCard!=null&&sumTransTotal)
           {

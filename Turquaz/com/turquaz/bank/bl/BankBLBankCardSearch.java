@@ -18,12 +18,13 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardSearch.java,v 1.7 2005/02/17 08:14:04 onsel Exp $
+* @version  $Id: BankBLBankCardSearch.java,v 1.8 2005/03/01 14:03:39 onsel Exp $
 */
 
 import java.util.List;
 
 import com.turquaz.bank.dal.BankDALBankCardSearch;
+import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
 
@@ -77,6 +78,12 @@ public class BankBLBankCardSearch {
 		{
 			throw ex;
 		}
+	}
+	public static void initializeBankCard(TurqBanksCard bankCard)throws Exception
+	{
+	
+		BankDALCommon.initializeBankCard(bankCard);
+		
 	}
 
 }
