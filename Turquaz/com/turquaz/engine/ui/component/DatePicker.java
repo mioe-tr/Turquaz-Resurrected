@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DatePicker.java,v 1.20 2005/03/03 21:04:07 onsel Exp $
+* @version  $Id: DatePicker.java,v 1.21 2005/03/08 13:16:18 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.EngConfiguration;
@@ -213,6 +213,12 @@ public class DatePicker extends org.eclipse.swt.widgets.Composite {
 	{
 		Calendar cal = Calendar.getInstance();
 		cal.set(cal.get(Calendar.YEAR),0,1);
+	    return cal.getTime();
+	}
+	public static Date getLastDayOfYear()
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.set(cal.get(Calendar.YEAR),11,31);
 	    return cal.getTime();
 	}
 	

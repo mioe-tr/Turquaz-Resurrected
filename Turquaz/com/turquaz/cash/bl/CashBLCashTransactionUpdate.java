@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.21 2005/03/07 17:02:04 cemdayanik Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.22 2005/03/08 13:16:19 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -265,10 +265,10 @@ public class CashBLCashTransactionUpdate {
                     accTransRowCurrent.setDeptAmount(new BigDecimal(0));
                     accTransRowCurrent.setCreditAmount(totalAmount);
                     
-                    cashTransRow.setDeptAmountInForeignCurrency(new BigDecimal(0));
-                    cashTransRow.setDeptAmount(new BigDecimal(0));
-                    cashTransRow.setCreditAmountInForeignCurrency(totalAmount);
-                    cashTransRow.setCreditAmount(totalAmount.multiply(exchangeRate.getExchangeRatio()).setScale(2,EngBLCommon.ROUNDING_METHOD));
+                    cashTransRow.setCreditAmountInForeignCurrency(new BigDecimal(0));
+                    cashTransRow.setCreditAmount(new BigDecimal(0));
+                    cashTransRow.setDeptAmountInForeignCurrency(totalAmount);
+                    cashTransRow.setDeptAmount(totalAmount.multiply(exchangeRate.getExchangeRatio()).setScale(2,EngBLCommon.ROUNDING_METHOD));
                     
                     accTransType = EngBLCommon.ACCOUNTING_TRANS_COLLECT;
                     currentTransType = EngBLCommon.CURRENT_TRANS_CREDIT;
@@ -288,10 +288,10 @@ public class CashBLCashTransactionUpdate {
                      accTransRowCurrent.setDeptAmount(totalAmount);
                      accTransRowCurrent.setCreditAmount(new BigDecimal(0));
                      
-                     cashTransRow.setDeptAmountInForeignCurrency(totalAmount);
-                     cashTransRow.setDeptAmount(totalAmount.multiply(exchangeRate.getExchangeRatio()).setScale(2,EngBLCommon.ROUNDING_METHOD));
-                     cashTransRow.setCreditAmountInForeignCurrency(new BigDecimal(0));
-                     cashTransRow.setCreditAmount(new BigDecimal(0));
+                     cashTransRow.setCreditAmountInForeignCurrency(totalAmount);
+                     cashTransRow.setCreditAmount(totalAmount.multiply(exchangeRate.getExchangeRatio()).setScale(2,EngBLCommon.ROUNDING_METHOD));
+                     cashTransRow.setDeptAmountInForeignCurrency(new BigDecimal(0));
+                     cashTransRow.setDeptAmount(new BigDecimal(0));
                               
                      accTransType = EngBLCommon.ACCOUNTING_TRANS_PAYMENT;
                      currentTransType = EngBLCommon.CURRENT_TRANS_DEBIT;
