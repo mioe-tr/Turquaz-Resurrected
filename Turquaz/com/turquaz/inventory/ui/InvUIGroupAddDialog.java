@@ -18,8 +18,9 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupAddDialog.java,v 1.11 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: InvUIGroupAddDialog.java,v 1.12 2004/11/18 10:03:17 huseyiner Exp $
 */
+
 import java.util.Calendar;
 import java.util.List;
 

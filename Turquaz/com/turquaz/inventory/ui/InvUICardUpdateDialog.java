@@ -18,10 +18,9 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.25 2004/11/18 09:15:20 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.26 2004/11/18 10:03:17 huseyiner Exp $
 */
 import java.util.Iterator;
-
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -64,9 +63,6 @@ import com.turquaz.engine.ui.component.NumericText;
 
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
-
-
 
 /**
 * This code was generated using CloudGarden's Jigloo

@@ -18,9 +18,8 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.20 2004/11/12 08:44:49 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.21 2004/11/18 10:03:17 huseyiner Exp $
 */
-
 
 import java.util.List;
 
@@ -55,12 +54,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.SWT;
 
-
-/**
- * 
- * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.20 2004/11/12 08:44:49 onsel Exp $
- */
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial

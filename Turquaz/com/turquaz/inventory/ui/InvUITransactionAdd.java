@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAdd.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: InvUITransactionAdd.java,v 1.11 2004/11/18 10:03:17 huseyiner Exp $
 */
 
 import org.eclipse.swt.widgets.Shell;
@@ -39,11 +39,6 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.inventory.Messages;
 
-/**
- * 
- * @author onsel
- * @version $Id: InvUITransactionAdd.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
- */
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
