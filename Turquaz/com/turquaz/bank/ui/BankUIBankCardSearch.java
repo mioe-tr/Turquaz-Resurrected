@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.8 2004/11/03 13:28:20 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.9 2004/11/10 10:54:09 onsel Exp $
 */
 
 
@@ -256,6 +256,7 @@ public class BankUIBankCardSearch extends  Composite implements SecureComposite 
 			tableColumnBankBrancName.setText("Branch Name");
 			tableColumnBankBrancName.setWidth(120);
 	
+			
 			tableColumnAccountNo.setText("Account No");
 			tableColumnAccountNo.setWidth(120);
 	
