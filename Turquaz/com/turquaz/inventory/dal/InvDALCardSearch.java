@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.28 2005/03/01 16:24:38 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.29 2005/03/01 17:48:45 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -48,9 +48,9 @@ public class InvDALCardSearch {
 			
 				Session session = EngDALSessionFactory.openSession();
 				
-				String query = "Select invView, invCard.cardInventoryCode, invCard.cardName, invCard.inventoryCardsId from TurqViewInventoryTotal as invView," +
+				String query = "Select invView, invCard.cardInventoryCode, invCard.cardName, invCard.id from TurqViewInventoryTotal as invView," +
 						" TurqInventoryCard as invCard" +						
-						" where invCard.inventoryCardsId = invView.inventoryCardsId and " +
+						" where invCard.id = invView.inventoryCardsId and " +
 						" invCard.cardName like '"+cardName+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
 					
 				
@@ -89,9 +89,9 @@ public class InvDALCardSearch {
 			
 				Session session = EngDALSessionFactory.openSession();
 				
-				String query = "Select invView, invCard.cardInventoryCode, invCard.cardName, invCard.inventoryCardsId from TurqViewInventoryTotal as invView," +
+				String query = "Select invView, invCard.cardInventoryCode, invCard.cardName, invCard.id from TurqViewInventoryTotal as invView," +
 						" TurqInventoryCard as invCard" +						
-						" where invCard.inventoryCardsId = invView.inventoryCardsId";
+						" where invCard.id = invView.inventoryCardsId";
 					
 				if (!cardNameStart.equals("") && !cardNameEnd.equals(""))
 				{
