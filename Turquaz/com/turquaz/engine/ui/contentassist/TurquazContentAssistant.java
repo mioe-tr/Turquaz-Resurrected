@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: TurquazContentAssistant.java,v 1.12 2005/03/10 13:44:10 onsel Exp $
+* @version  $Id: TurquazContentAssistant.java,v 1.13 2005/03/16 11:44:20 cemdayanik Exp $
 */
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +154,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant{
         adapter.setContentAssistCueProvider(labelProvider);
     }
 
-    private static final DefaultInformationControl.IInformationPresenter presenter = new DefaultInformationControl.IInformationPresenter() {
+    public static final DefaultInformationControl.IInformationPresenter presenter = new DefaultInformationControl.IInformationPresenter() {
         public String updatePresentation(Display display, String infoText,
                 TextPresentation presentation, int maxWidth, int maxHeight) {
 

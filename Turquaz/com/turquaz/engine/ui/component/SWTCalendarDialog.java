@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SWTCalendarDialog.java,v 1.7 2005/01/14 11:28:50 onsel Exp $
+* @version  $Id: SWTCalendarDialog.java,v 1.8 2005/03/16 11:44:17 cemdayanik Exp $
 */
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
@@ -53,7 +53,7 @@ import java.util.Date;
 * *************************************
 */
 public class SWTCalendarDialog {
-    private Shell shell;
+    public Shell shell;
     private SWTCalendar swtcal;
     private Display display;
  

@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: NumericText.java,v 1.12 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: NumericText.java,v 1.13 2005/03/16 11:44:17 cemdayanik Exp $
 */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -88,7 +88,7 @@ public class NumericText extends Composite {
   if(text.getText().trim().length()==0){
   	return 0;
   }
-  else {
+
   	try{
   		int a = Integer.parseInt(text.getText().trim());
   	return a;
@@ -97,7 +97,7 @@ public class NumericText extends Composite {
   		ex.printStackTrace();
   		return 0;
   	}
-  }
+
  
  }
  public void addModifyListener(ModifyListener listener){

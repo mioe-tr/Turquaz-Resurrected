@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.viewers;
 
 /**
 * @author  Onsel
-* @version  $Id: TableSpreadsheetCursor.java,v 1.10 2005/03/11 10:00:49 cemdayanik Exp $
+* @version  $Id: TableSpreadsheetCursor.java,v 1.11 2005/03/16 11:44:20 cemdayanik Exp $
 */
 
 
@@ -173,10 +173,8 @@ public class TableSpreadsheetCursor extends TableCursor implements ICellEditorLi
 	       if(msg.open()==SWT.OK){
 	           return true;
 	       }
-	       else
-	       {
-	           return false;
-	       }
+	      return false;
+
 	       
 	       
 	}

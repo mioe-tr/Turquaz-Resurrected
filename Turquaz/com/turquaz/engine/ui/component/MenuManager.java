@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuManager.java,v 1.6 2005/02/16 17:40:21 huseyiner Exp $
+ * @version $Id: MenuManager.java,v 1.7 2005/03/16 11:44:17 cemdayanik Exp $
  */
 
 import org.eclipse.swt.SWT;
@@ -227,7 +227,7 @@ public class MenuManager {
 			}
 		}
 
-		MenuItem seperator = new MenuItem(menuEdit, SWT.SEPARATOR);
+		new MenuItem(menuEdit, SWT.SEPARATOR);
 
 		MenuItem mitGoToRightTab = new MenuItem(menuEdit, SWT.PUSH);
 		mitGoToRightTab.setText(Messages.getString("MenuManager.1")); //$NON-NLS-1$
