@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.17 2005/03/29 18:20:11 onsel Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.18 2005/03/29 18:53:38 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.List;
@@ -106,7 +106,7 @@ public class AccBLAccountUpdate
 		}
 	}
 
-	public static void deleteAccount(Object obj) throws Exception
+	public static void deleteAccount(TurqAccountingAccount obj) throws Exception
 	{
 		try
 		{

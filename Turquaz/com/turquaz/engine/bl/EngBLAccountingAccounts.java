@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.16 2005/03/17 15:02:08 onsel Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.17 2005/03/29 18:53:39 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -49,6 +49,7 @@ public class EngBLAccountingAccounts
 	{
 		try
 		{
+			
 			accountList = AccBLAccountAdd.getAllAccounts();
 			accountListForAccountPickers = AccBLAccountAdd.getAccountsForAccountPickers();
 			allAccountList = AccBLAccountAdd.getAllAccountsForAccountPickerAll();

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAddMainAccount.java,v 1.3 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: AccUIAddMainAccount.java,v 1.4 2005/03/29 18:53:39 onsel Exp $
  */
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.widgets.Shell;
@@ -31,8 +31,6 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.SWT;
 import com.turquaz.accounting.Messages;
-import com.turquaz.accounting.bl.AccBLAccountAdd;
-import com.turquaz.accounting.bl.AccBLAccountUpdate;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -74,8 +72,6 @@ public class AccUIAddMainAccount extends Composite implements SecureComposite
 	/**
 	 * @return Returns the txtParentAccount.
 	 */
-	private AccBLAccountAdd blAccountAdd = new AccBLAccountAdd();
-	private AccBLAccountUpdate blAccountUpdate = new AccBLAccountUpdate();
 	private CLabel cLabel1;
 	private Text txtAccAcountName;
 	private Text txtAccountGroup;
