@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.83 2005/03/30 20:01:29 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.84 2005/03/31 08:34:21 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -465,8 +465,7 @@ public class EngBLCommon
 			for (int i = 0; i < bills.size(); i++)
 			{
 				Object[] result = (Object[]) bills.get(i);
-				TurqBill bill = BillDALSearchBill.getBillByBillId((Integer) result[0]);
-				BillDALSearchBill.initializeBill(bill);
+				TurqBill bill = BillDALSearchBill.initializeBillById((Integer) result[0]);
 				BillBLUpdateBill.deleteAccountingTransactions(bill);
 				//XXX this method should be checked..
 				//BillBLAddBill.saveAccountingTransaction(bill, null);
