@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.100 2005/03/17 15:02:06 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.101 2005/03/19 14:54:17 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -99,6 +99,7 @@ import com.turquaz.inventory.ui.InvUIInventoryCardAbstract;
 import com.turquaz.inventory.ui.InvUIInventoryGroupAdd;
 import com.turquaz.inventory.ui.InvUIInventoryLedger;
 import com.turquaz.inventory.ui.InvUIInventoryTransactionReport;
+import com.turquaz.inventory.ui.InvUIOtherTransactionIn;
 import com.turquaz.inventory.ui.InvUIProfitAnalysis;
 import com.turquaz.inventory.ui.InvUITransactionSearch;
 import com.turquaz.inventory.ui.InvUITransactionsTotalReport;
@@ -124,6 +125,18 @@ public final class TreeFactory
 			item.setText(com.turquaz.engine.Messages.getString("TreeFactory.4")); //$NON-NLS-1$
 			item.setData(InvUIWarehouseAdd.class.getName());
 		}
+		
+		TreeItem transRoot = new TreeItem(tree,SWT.NULL);
+		transRoot.setText("Stok Hareketleri");
+		if (EngBLPermissions.getPermission(InvUIOtherTransactionIn.class.getName()) > 0)
+		{
+			item = new TreeItem(transRoot, SWT.NULL);
+			item.setText("Stok Giri? Hareketi"); 
+			item.setData(InvUIOtherTransactionIn.class.getName());
+		}
+		
+		
+		
 		TreeItem searchRoot = new TreeItem(tree, SWT.NULL);
 		searchRoot.setText(Messages.getString("TreeFactory.6")); //$NON-NLS-1$
 		if (EngBLPermissions.getPermission(InvUICardSearch.class.getName()) > 0)

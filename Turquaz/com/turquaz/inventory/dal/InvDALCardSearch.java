@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardSearch.java,v 1.35 2005/03/18 09:50:27 cemdayanik Exp $
+ * @version $Id: InvDALCardSearch.java,v 1.36 2005/03/19 14:54:17 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -265,6 +265,7 @@ public class InvDALCardSearch
 			Hibernate.initialize(invCard.getTurqInventoryCardGroups());
 			Hibernate.initialize(invCard.getTurqInventoryPrices());
 			Hibernate.initialize(invCard.getTurqInventoryCardUnits());
+			Hibernate.initialize(invCard.getTurqInventoryAccountingAccounts());
 			session.flush();
 			session.close();
 			return invCard;
