@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.31 2005/01/16 13:52:49 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.32 2005/01/17 10:52:30 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -127,7 +127,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("CurUICurrentCardUpdate.1")); //$NON-NLS-1$
 			
 			{
 				coolBarTop = new CoolBar(dialogShell, SWT.NONE);

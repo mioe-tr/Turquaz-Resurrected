@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.14 2004/11/26 16:41:55 huseyiner Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.15 2005/01/17 10:52:30 onsel Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Point;
@@ -102,7 +102,7 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog {
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("InvUIWarehouseUpdate.1")); //$NON-NLS-1$
 			coolBarInvUIWarehouse = new CoolBar(dialogShell, SWT.NULL);
 			coolWarehouseUpdate = new CoolItem(coolBarInvUIWarehouse, SWT.NULL);
 			toolWarehouseUpdate = new ToolBar(coolBarInvUIWarehouse, SWT.NULL);

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIUnitAddDialog.java,v 1.17 2004/12/17 14:36:19 cemdayanik Exp $
+* @version  $Id: InvUIUnitAddDialog.java,v 1.18 2005/01/17 10:52:30 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -109,7 +109,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog {
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("InvUIUnitAddDialog.10")); //$NON-NLS-1$
 		
 			dialogShell.setSize(new org.eclipse.swt.graphics.Point(252,229));
 	

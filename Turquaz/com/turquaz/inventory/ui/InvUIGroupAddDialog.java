@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupAddDialog.java,v 1.16 2004/12/17 20:17:15 onsel Exp $
+* @version  $Id: InvUIGroupAddDialog.java,v 1.17 2005/01/17 10:52:30 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -109,7 +109,7 @@ public class InvUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("InvUIGroupAddDialog.7")); //$NON-NLS-1$
 			compGroupAddDialog = new Composite(dialogShell,SWT.NULL);
 			lblGroupName = new CLabel(compGroupAddDialog,SWT.NULL);
 			txtGroupName = new Text(compGroupAddDialog,SWT.BORDER);

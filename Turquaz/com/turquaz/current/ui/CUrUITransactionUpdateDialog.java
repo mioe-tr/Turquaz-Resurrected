@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.17 2005/01/08 13:02:18 onsel Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.18 2005/01/17 10:52:30 onsel Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -105,7 +105,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 					SWTResourceManager.registerResourceUser(dialogShell);
 				}
 
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("CUrUITransactionUpdateDialog.3")); //$NON-NLS-1$
 			coolBar1 = new CoolBar(dialogShell,SWT.NULL);
 			coolItem1 = new CoolItem(coolBar1,SWT.NULL);
 			toolBar1 = new ToolBar(coolBar1,SWT.NULL);

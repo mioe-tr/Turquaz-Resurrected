@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.41 2005/01/16 13:52:49 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.42 2005/01/17 10:52:30 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -117,7 +117,7 @@ public class InvUICardUpdateDialog extends Dialog{
 	
 			Shell parent = getParent();
 			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
-			dialogShell.setText(getText());
+			dialogShell.setText(Messages.getString("InvUICardUpdateDialog.10")); //$NON-NLS-1$
 			coolBarTop = new CoolBar(dialogShell,SWT.NULL);
 			coolTop = new CoolItem(coolBarTop,SWT.DROP_DOWN);
 			toolBarTop = new ToolBar(coolBarTop,SWT.SHADOW_OUT);
