@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.103 2005/03/22 15:37:37 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.104 2005/03/22 19:17:44 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -95,6 +95,7 @@ import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.InvUICardSearch;
 import com.turquaz.inventory.ui.InvUIGroupingPlan;
+import com.turquaz.inventory.ui.InvUIInitialTransacions;
 import com.turquaz.inventory.ui.InvUIInventoryCardAbstract;
 import com.turquaz.inventory.ui.InvUIInventoryGroupAdd;
 import com.turquaz.inventory.ui.InvUIInventoryLedger;
@@ -141,6 +142,10 @@ public final class TreeFactory
 			item.setText(Messages.getString("TreeFactory.117"));   //$NON-NLS-1$
 			item.setData(InvUIOtherTransactionOut.class.getName());
 		}
+		    item = new TreeItem(transRoot, SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.118"));   //$NON-NLS-1$
+			item.setData(InvUIInitialTransacions.class.getName());
+		
 		
 		
 		

@@ -16,7 +16,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUIInitialTransacions.java,v 1.2 2005/03/22 17:50:32 onsel Exp $
+ * @version $Id: InvUIInitialTransacions.java,v 1.3 2005/03/22 19:17:46 onsel Exp $
  */
 import java.util.List;
 import org.eclipse.jface.viewers.CellEditor;
@@ -105,7 +105,7 @@ public class InvUIInitialTransacions extends org.eclipse.swt.widgets.Composite
 			thisLayout.verticalSpacing = 0;
 			this.setSize(534, 364);
 			//START >> tableInitialTransactions
-			tableInitialTransactions = new Table(this, SWT.NONE);
+			tableInitialTransactions = new Table(this, SWT.FULL_SELECTION | SWT.HIDE_SELECTION);
 			GridData tableInitialTransactionsLData = new GridData();
 			tableInitialTransactions.setLinesVisible(true);
 			tableInitialTransactions.setHeaderVisible(true);
