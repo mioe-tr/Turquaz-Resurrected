@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.13 2004/11/18 09:54:07 huseyiner Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.14 2004/11/18 11:36:15 onsel Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;
@@ -37,6 +37,7 @@ import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLSearchTransaction;
 import com.turquaz.current.ui.CurUITransactionAdd;
+import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
@@ -189,6 +190,18 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 /** Add your post-init code in here 	*/
 	public void postInitGUI(){
 	try{
+	    
+		toolUpdate.setEnabled(false);
+		toolDelete.setEnabled(false);
+		    
+		if(EngBLPermissions.getPermission(compTransactionAdd.getClass().getName())==2){
+		    toolUpdate.setEnabled(true); 
+		}
+		else if(EngBLPermissions.getPermission(compTransactionAdd.getClass().getName())==3){
+		    toolDelete.setEnabled(true);
+		    toolUpdate.setEnabled(true); 
+		}    
+	    
 	// if it is not cash trasaction 
 	//close 
 	if(transaction.getTurqCurrentTransactionType().getCurrentTransactionTypesId().intValue()!=4){

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.26 2004/11/18 10:03:17 huseyiner Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.27 2004/11/18 11:36:15 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -204,6 +204,18 @@ public class InvUICardUpdateDialog extends Dialog{
 
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
+	    
+		toolUpdate.setEnabled(false);
+		toolDelete.setEnabled(false);
+		    
+		if(EngBLPermissions.getPermission(compInvUICard.getClass().getName())==2){
+		    toolUpdate.setEnabled(true); 
+		}
+		else if(EngBLPermissions.getPermission(compInvUICard.getClass().getName())==3){
+		    toolDelete.setEnabled(true);
+		    toolUpdate.setEnabled(true); 
+		}    
+	    
 	
 	Point parentLocation =this.getParent().getLocation();
 	Point parentSize = this.getParent().getSize();	

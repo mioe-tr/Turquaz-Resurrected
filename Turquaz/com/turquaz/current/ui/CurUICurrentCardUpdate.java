@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.18 2004/11/05 08:45:28 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.19 2004/11/18 11:36:15 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -38,6 +38,7 @@ import com.turquaz.current.bl.CurBLCurrentCardUpdate;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
 import org.eclipse.swt.layout.GridData;
 
+import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentCardsGroup;
@@ -234,6 +235,18 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
 		try{
+			toolUpdate.setEnabled(false);
+			toolDelete.setEnabled(false);
+			    
+			if(EngBLPermissions.getPermission(compCurCardAdd.getClass().getName())==2){
+			    toolUpdate.setEnabled(true); 
+			}
+			else if(EngBLPermissions.getPermission(compCurCardAdd.getClass().getName())==3){
+			    toolDelete.setEnabled(true);
+			    toolUpdate.setEnabled(true); 
+			}
+		    
+		    
 			compCurCardAdd.getTxtCurrentCode().setText(currentCard.getCardsCurrentCode());
 			compCurCardAdd.getTxtCurrentName().setText(currentCard.getCardsName());
 			compCurCardAdd.getTxtCardDefinition().setText(currentCard.getCardsDefinition());
