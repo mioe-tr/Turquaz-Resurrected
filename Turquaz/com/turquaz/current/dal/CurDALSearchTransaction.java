@@ -18,11 +18,12 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.10 2005/01/13 04:46:03 cemdayanik Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.11 2005/01/18 13:39:11 onsel Exp $
 */
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
@@ -53,12 +54,13 @@ public class CurDALSearchTransaction {
 		
 	}
 	public List searchTransaction(TurqCurrentCard curCard, TurqCurrentTransactionType type,
-			String docNo , Date startDate, Date endDate)throws Exception{
+			String docNo ,String definition, Date startDate, Date endDate)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
 			
 			String query = "Select transaction from TurqCurrentTransaction as transaction where" +
-			" transaction.transactionsDocumentNo like '"+docNo+"%'"+
+			" transaction.transactionsDocumentNo like '"+docNo+"%'" +
+			" and transaction.transactionsDefinition like '"+definition.toUpperCase(Locale.getDefault())+"%'"+
 			" and transaction.transactionsDate >= :startDate " +
 			" and transaction.transactionsDate <= :endDate";
 			

@@ -18,12 +18,13 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.22 2005/01/14 13:57:15 onsel Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.23 2005/01/18 13:39:11 onsel Exp $
 */
 import java.math.BigDecimal;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
 
@@ -72,7 +73,7 @@ public class CurBLCurrentTransactionAdd {
 			curTrans.setTransactionsDate(transDate);
 			curTrans.setTransactionsDocumentNo(documentNo);
 			curTrans.setTransactionsTotalDiscount(totalDiscount);
-			curTrans.setTransactionsDefinition(definition);
+			curTrans.setTransactionsDefinition(definition.toUpperCase(Locale.getDefault()));
 			curTrans.setTurqEngineSequence(docSeq);
 		
 			if(isCredit){
