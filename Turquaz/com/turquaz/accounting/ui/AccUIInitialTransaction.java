@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.15 2005/02/18 18:53:03 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.16 2005/02/22 17:48:04 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -648,7 +648,7 @@ public class AccUIInitialTransaction extends Composite implements
         for (int i = 0; i < items.length; i++) {
             TurqAccountingTransactionColumn column = (TurqAccountingTransactionColumn) ((AccUITransactionAddTableRow) items[i]
                     .getData()).getDBObject();
-            if (column != null) {
+            if (column != null&&((AccUITransactionAddTableRow) items[i].getData()).okToSave()) {
                 totalCredit = totalCredit.add(column.getCreditAmount());
                 totalDept = totalDept.add(column.getDeptAmount());
             }

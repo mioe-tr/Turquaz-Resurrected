@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.54 2005/02/21 16:47:46 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.55 2005/02/22 17:48:02 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -618,7 +618,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
     
 		for(int i=0; i<items.length;i++){
 		TurqAccountingTransactionColumn column = (TurqAccountingTransactionColumn)((AccUITransactionAddTableRow)items[i].getData()).getDBObject();
-		if(column!=null)
+		if(column!=null&&((AccUITransactionAddTableRow)items[i].getData()).okToSave())
 		{
 			totalCredit =totalCredit.add(column.getCreditAmount());
 		totalDept = totalDept.add(column.getDeptAmount());
