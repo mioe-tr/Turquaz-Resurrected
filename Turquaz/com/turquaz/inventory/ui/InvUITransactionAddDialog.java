@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.18 2004/12/08 16:25:59 cemdayanik Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.19 2004/12/11 18:45:13 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -57,6 +57,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 import com.turquaz.inventory.Messages;
+import com.turquaz.inventory.bl.InvBLCardSearch;
 
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
@@ -400,7 +401,10 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
 	}
 	
 	public void fillComboUnits(TurqInventoryCard invCard){
+		try{
 		comboUnitType.removeAll();		
+		InvBLCardSearch blCardSearch=new InvBLCardSearch();
+		blCardSearch.initializeInventoryCard(invCard);
 		Iterator it = invCard.getTurqInventoryCardUnits().iterator();
 		
 		while(it.hasNext()){
@@ -416,6 +420,14 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
 		
 		if(comboUnitType.getItemCount()>0){
 			comboUnitType.setText(comboUnitType.getItem(0));
+		} 
+		}
+		catch(Exception ex)
+		{
+			MessageBox msg=new MessageBox(this.getParent(), SWT.NULL);
+			msg.setMessage(ex.getMessage());
+			msg.open();
+			
 		}
 		
 		
