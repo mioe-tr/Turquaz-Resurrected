@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.15 2004/12/15 21:04:03 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.16 2004/12/16 15:29:16 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -58,7 +58,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.15 2004/12/15 21:04:03 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.16 2004/12/16 15:29:16 cemdayanik Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -238,18 +238,18 @@ public class AccDALTransactionSearch {
 	}
 	
 	public List getTransactions(boolean initialAccounts, boolean finalAccounts, 
-			boolean subAccounts, Date startDate, Date endDate)throws Exception{
+			 Date startDate, Date endDate)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
 			
-	    	String query ="select accounts, transColumns from TurqAccountingAccount accounts," +	 
+	    	String query ="select accounts, sum(transColumns.deptAmount)," +
+	    			" sum(transColumns.creditAmount) from TurqAccountingAccount accounts,"+	 
 					" TurqAccountingTransaction as accTrans,"+
-					" TurqAccountingTransactionColumn as transColumns" +
-	
+					" TurqAccountingTransactionColumn as transColumns" +	
 	    			" where transColumns.turqAccountingTransaction.accountingTransactionsId=accTrans.accountingTransactionsId" +
-	    			" and accounts.accountingAccountsId=transColumns.turqAccountingAccount.accountingAccountsId" +
-	    			" order by accounts.accountingAccountsId";
-	  
+	    			" and accounts.accountingAccountsId=transColumns.turqAccountingAccount.accountingAccountsId";
+
+	    			
 			if(startDate!=null){
 			
 			query += " and accTrans.transactionsDate >= :startDate";
@@ -259,10 +259,15 @@ public class AccDALTransactionSearch {
 			query += " and accTrans.transactionsDate <= :endDate";	
 			}
 	    	
-			/*if(!initialAccounts){
+			if(!initialAccounts){
 				query += " and accTrans.turqAccountingTransactionType <>"+new Integer(3);
-			}*/
-	    	
+			}
+	    	query +=" group by accounts.accountingAccountsId,accounts.accountName," +
+			" accounts.accountCode, accounts.createdBy, accounts.creationDate," +
+			" accounts.updatedBy, accounts.updateDate," +
+			" accounts.turqAccountingAccountByParentAccount," +
+			" accounts.turqAccountingAccountByTopAccount" +
+			" order by accounts.accountingAccountsId";
 			Query q = session.createQuery(query); 
 			
 			if(startDate!=null){
