@@ -54,7 +54,7 @@ import org.eclipse.swt.layout.GridLayout;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.9 2005/03/18 19:44:32 onsel Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.10 2005/03/21 16:39:16 cemdayanik Exp $
  */
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {
@@ -67,7 +67,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 	private Table tableCashCards;
 	private AccountPicker accountPicker;
 	private Text txtCardCode;
-	SearchTableViewer tableViewer = null;
+	private SearchTableViewer tableViewer = null;
 
 	public CashUICashCardSearch(org.eclipse.swt.widgets.Composite parent, int style)
 	{
@@ -150,11 +150,17 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 			}
 			createTableViewer();
 			this.layout();
+			PostInitGui();
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void PostInitGui()
+	{
+		createTableViewer();
 	}
 
 	public void createTableViewer()
@@ -168,7 +174,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 	}
 	public void delete()
 	{
-		// TODO Auto-generated method stub
+		// TODO should be implemented..
 	}
 
 	public void exportToExcel()
@@ -208,8 +214,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 		if (selection.length > 0)
 		{
 			TableItem item = selection[0];
-			ITableRow row = (ITableRow)item.getData();
-			
+			ITableRow row = (ITableRow)item.getData();			
 			new CashUICashCardUpdate(this.getShell(), SWT.NULL, (TurqCashCard)row.getDBObject()).open();
 			search();
 		}

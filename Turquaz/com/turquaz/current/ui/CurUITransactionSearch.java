@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.38 2005/03/21 15:44:13 cemdayanik Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.39 2005/03/21 16:39:16 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -360,7 +360,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 
 	public void delete()
 	{
-		//should be implemented..
+		//TODO should be implemented..
 	}
 
 	public void newForm()
