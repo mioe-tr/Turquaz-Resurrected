@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.112 2005/01/15 11:57:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.113 2005/01/17 14:55:01 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.112 2005/01/15 11:57:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.113 2005/01/17 14:55:01 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -842,6 +842,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			compMainInRightLayout.makeColumnsEqualWidth = true;
 			compMainInRightLayout.verticalSpacing = 0;
 			compMainInRightLayout.marginHeight = 0;
+			compMainInRightLayout.marginWidth = 0;
 			compMainInRight.layout();
 			sashMainVertical.setLayout(null);
             {
