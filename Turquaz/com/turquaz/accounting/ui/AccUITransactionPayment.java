@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.53 2005/03/30 16:57:07 onsel Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.54 2005/04/01 16:26:00 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -172,8 +172,8 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			{
 				datePickerTransactionDate = new DatePicker(this, SWT.NONE);
 				GridData datePickerTransactionDateLData = new GridData();
-				datePickerTransactionDateLData.widthHint = 150;
-				datePickerTransactionDateLData.heightHint = 22;
+				datePickerTransactionDateLData.widthHint = 157;
+				datePickerTransactionDateLData.heightHint = 23;
 				datePickerTransactionDate.setLayoutData(datePickerTransactionDateLData);
 			}
 			{
@@ -191,6 +191,17 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				comboCreditorLData.heightHint = 17;
 				comboCreditor.setLayoutData(comboCreditorLData);
 			}
+			//START >> lblCurrency
+			lblCurrency = new CLabel(this, SWT.NONE);
+			lblCurrency.setText(Messages.getString("AccUITransactionPayment.5")); //$NON-NLS-1$
+			//END << lblCurrency
+			//START >> comboCurrencyType
+			comboCurrencyType = new CCombo(this, SWT.NONE);
+			GridData comboCurrencyTypeLData = new GridData();
+			comboCurrencyTypeLData.widthHint = 135;
+			comboCurrencyTypeLData.heightHint = 17;
+			comboCurrencyType.setLayoutData(comboCurrencyTypeLData);
+			//END << comboCurrencyType
 			{
 				lblDefinition = new CLabel(this, SWT.NONE);
 				lblDefinition.setText(Messages.getString("AccUITransactionPayment.3")); //$NON-NLS-1$
@@ -210,20 +221,10 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 					}
 				});
 				txtDefinitionLData.verticalAlignment = GridData.FILL;
-				txtDefinitionLData.horizontalAlignment = GridData.FILL;
+				txtDefinitionLData.horizontalSpan = 3;
+				txtDefinitionLData.widthHint = 355;
 				txtDefinition.setLayoutData(txtDefinitionLData);
 			}
-			//START >> lblCurrency
-			lblCurrency = new CLabel(this, SWT.NONE);
-			lblCurrency.setText(Messages.getString("AccUITransactionPayment.5")); //$NON-NLS-1$
-			//END << lblCurrency
-			//START >> comboCurrencyType
-			comboCurrencyType = new CCombo(this, SWT.NONE);
-			GridData comboCurrencyTypeLData = new GridData();
-			comboCurrencyTypeLData.widthHint = 130;
-			comboCurrencyTypeLData.heightHint = 17;
-			comboCurrencyType.setLayoutData(comboCurrencyTypeLData);
-			//END << comboCurrencyType
 			{
 				tableTransactionRows = new Table(this, SWT.FULL_SELECTION | SWT.HIDE_SELECTION | SWT.BORDER);
 				tableTransactionRows.setHeaderVisible(true);
