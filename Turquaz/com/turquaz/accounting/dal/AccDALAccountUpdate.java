@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountUpdate.java,v 1.4 2004/10/25 12:51:06 onsel Exp $
+* @version  $Id: AccDALAccountUpdate.java,v 1.5 2004/10/27 10:55:00 onsel Exp $
 */
 
 
@@ -76,6 +76,8 @@ public class AccDALAccountUpdate {
 				throw ex;
 			}
 	}
+	
+	
 	public List getTotalDeptAndCredit(TurqAccountingAccount account)throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();

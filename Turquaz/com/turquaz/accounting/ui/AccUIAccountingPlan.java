@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.7 2004/10/27 10:55:00 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.8 2004/10/27 10:57:32 onsel Exp $
 */
 
 
@@ -209,8 +209,7 @@ public void fillTree(int parent, String codeCrit){
 		
 		items[0].setText(0,account.getAccountCode());
 		items[0].setText(1,account.getAccountName());
-		items[0].setData(account);
-	    
+		items[0].setData(account); 
 	    
 	    
 		}
