@@ -24,7 +24,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIPriceList.java,v 1.4 2004/11/04 14:12:02 ehad Exp $
+* @version  $Id: InvUIPriceList.java,v 1.5 2004/12/04 20:14:27 cemdayanik Exp $
 */
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,6 +34,21 @@ import java.util.Vector;
 import com.turquaz.inventory.Messages;
 
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 public class InvUIPriceList {
 
 

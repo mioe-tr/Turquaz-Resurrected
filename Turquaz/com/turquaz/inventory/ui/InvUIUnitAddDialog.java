@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIUnitAddDialog.java,v 1.14 2004/11/26 14:26:03 cemdayanik Exp $
+* @version  $Id: InvUIUnitAddDialog.java,v 1.15 2004/12/04 20:14:27 cemdayanik Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -424,6 +424,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog {
 	    txtUnitName.setText(""); //$NON-NLS-1$
 	    fillTable();
 	    msg.open();	    
+	    txtUnitName.setFocus();
 	    }		
 		
 		}

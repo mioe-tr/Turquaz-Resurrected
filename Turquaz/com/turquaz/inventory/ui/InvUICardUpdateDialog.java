@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.30 2004/11/25 14:59:48 huseyiner Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.31 2004/12/04 20:14:27 cemdayanik Exp $
 */
 import java.util.Iterator;
 
@@ -532,6 +532,7 @@ public class InvUICardUpdateDialog extends Dialog{
 	MessageBox msg = new MessageBox(this.getParent(),SWT.NULL);
 	msg.setMessage(Messages.getString("InvUICardUpdateDialog.5"));	 //$NON-NLS-1$
 	msg.open();	
+	this.dialogShell.close();
 	}
 	}
 		catch(Exception ex){

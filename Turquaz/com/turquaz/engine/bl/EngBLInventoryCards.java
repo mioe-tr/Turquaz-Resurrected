@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLInventoryCards.java,v 1.3 2004/11/28 17:57:41 huseyiner Exp $
+ * @version  $Id: EngBLInventoryCards.java,v 1.4 2004/12/04 20:14:27 cemdayanik Exp $
  */
 
 import java.util.HashMap;
@@ -51,7 +51,7 @@ public class EngBLInventoryCards {
 
 			TurqInventoryCard invCard;
 			for (int i = 0; i < cardList.size(); i++) {
-				invCard = (TurqInventoryCard) cardList.get(i);
+				invCard = (TurqInventoryCard)((Object[]) cardList.get(i))[1];
 				cardMap.put(invCard.getCardInventoryCode(), invCard);
 
 			}

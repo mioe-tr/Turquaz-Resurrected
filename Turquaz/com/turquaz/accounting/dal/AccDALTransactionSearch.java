@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.9 2004/12/04 18:08:41 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.10 2004/12/04 20:14:27 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -59,7 +59,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.9 2004/12/04 18:08:41 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.10 2004/12/04 20:14:27 cemdayanik Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -134,7 +134,6 @@ public class AccDALTransactionSearch {
 		}
 			
 		List list = q.list();
-	
 		session.close();
 		
 		return list;

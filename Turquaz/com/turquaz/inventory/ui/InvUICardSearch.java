@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.28 2004/12/03 19:41:01 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.29 2004/12/04 20:14:27 cemdayanik Exp $
 */
 
 import java.util.Iterator;
@@ -436,7 +436,8 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 	TableItem item;
 	int listSize = result.size();
 	for(int i =0; i<listSize;i++){
-	TurqInventoryCard card = (TurqInventoryCard)result.get(i);
+	Object[] objs=(Object[])result.get(i);
+	TurqInventoryCard card = (TurqInventoryCard)objs[1];
 	item = new TableItem(tableSearcResults,SWT.NULL);
 	item.setData(card);
 	item.setText(new String[]{card.getCardInventoryCode(),card.getCardName()});
