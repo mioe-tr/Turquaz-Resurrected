@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.18 2005/03/02 11:47:44 cemdayanik Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.19 2005/03/11 10:00:46 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -395,7 +395,7 @@ public class AccUIInitialTransaction extends Composite implements
         createTableViewer();
         // create a TableCursor to navigate around the table
         cursor = new TableSpreadsheetCursor(tableTransactionColumns, SWT.NONE,
-                tableViewer, rowList);
+                tableViewer, rowList,true);
         cursor.setEnabled(true);
 
         cursor.addSelectionListener(new SelectionAdapter() {

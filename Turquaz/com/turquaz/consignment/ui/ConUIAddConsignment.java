@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.60 2005/03/09 10:08:13 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.61 2005/03/11 10:00:51 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -926,7 +926,7 @@ implements SecureComposite{
 		
 		tableViewer.setInput(rowList);
 
-             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer,rowList);
+             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer,rowList,true);
              cursor.setEnabled(true);
         	 
         	 

@@ -20,7 +20,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardAdd.java,v 1.17 2005/03/01 17:48:45 cemdayanik Exp $
+* @version  $Id: InvDALCardAdd.java,v 1.18 2005/03/11 10:00:50 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -32,6 +32,7 @@ import net.sf.hibernate.Transaction;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
 import com.turquaz.engine.dal.TurqCurrency;
+import com.turquaz.engine.dal.TurqInventoryAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryCardGroup;
 import com.turquaz.engine.dal.TurqInventoryCardUnit;
@@ -129,6 +130,22 @@ public class InvDALCardAdd {
 			Transaction tx = session.beginTransaction();
 						
 			session.saveOrUpdate(price);
+			session.flush();
+			tx.commit();
+			session.close();
+			
+			}
+			catch(Exception ex){
+				throw ex;
+			}	
+	}
+	
+	public static void saveInvAccount(TurqInventoryAccountingAccount invAcc)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+						
+			session.saveOrUpdate(invAcc);
 			session.flush();
 			tx.commit();
 			session.close();

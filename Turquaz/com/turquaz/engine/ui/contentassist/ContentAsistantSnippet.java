@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 
 /**
 * @author  Onsel
-* @version  $Id: ContentAsistantSnippet.java,v 1.4 2005/01/30 19:41:06 onsel Exp $
+* @version  $Id: ContentAsistantSnippet.java,v 1.5 2005/03/11 10:00:52 cemdayanik Exp $
 */
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -163,6 +163,7 @@ public class ContentAsistantSnippet extends org.eclipse.swt.widgets.Composite {
 	                   event.doit = false;
 
 	                 }
+	                
 	              }
 	           });
 	 	

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.44 2005/03/07 17:02:03 cemdayanik Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.45 2005/03/11 10:00:46 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -496,7 +496,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 		tableViewer.setInput(rowList);
 		
 		 // create a TableCursor to navigate around the table
-		 cursor = new TableSpreadsheetCursor(tableTransactionRows, SWT.NONE,tableViewer,rowList);
+		 cursor = new TableSpreadsheetCursor(tableTransactionRows, SWT.NONE,tableViewer,rowList,true);
          cursor.setEnabled(true);
 		 
 		 cursor.addSelectionListener(new SelectionAdapter() {

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.50 2005/03/09 10:08:11 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.51 2005/03/11 10:00:47 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1172,7 +1172,7 @@ public class BillUIAddBuyBill extends Composite
 			
 			tableViewer.setInput(rowList);
 			 
-	             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer,rowList);
+	             cursor = new TableSpreadsheetCursor(tableConsignmentRows, SWT.NONE,tableViewer,rowList, true);
 	             cursor.setEnabled(true);
 
 	             cursor.addSelectionListener(new SelectionAdapter() {
