@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.19 2005/02/21 16:47:50 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.20 2005/02/21 19:12:35 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -348,7 +348,8 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite 
 			for (int k=0; k < balances.size(); k++)
 			{
 				Object[] balanceArr=(Object[])balances.get(k);
-				balanceList.put((String)balanceArr[0],((BigDecimal)balanceArr[2]).subtract(((BigDecimal)balanceArr[1])));
+				//balanceList.put((String)balanceArr[0],((BigDecimal)balanceArr[2]).subtract(((BigDecimal)balanceArr[1])));
+				balanceList.put((String)balanceArr[0],balanceArr);
 			}
 			parameters.put("balanceList",balanceList); //$NON-NLS-1$
 			
