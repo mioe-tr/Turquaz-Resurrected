@@ -1,9 +1,4 @@
-/*
- * Created on 15.Eki.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.bank.dal;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,9 +18,8 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardUpdate.java,v 1.2 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: BankDALBankCardUpdate.java,v 1.3 2004/11/18 10:18:33 huseyiner Exp $
 */
-
 
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;

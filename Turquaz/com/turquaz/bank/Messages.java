@@ -1,5 +1,6 @@
 
-package com.turquaz.bank.bl;
+package com.turquaz.bank;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -17,30 +18,28 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 
 /**
-* @author  Ceday
-* @version  $Id: BankBLBankCardSearch.java,v 1.4 2004/11/18 10:18:32 huseyiner Exp $
+* @author  Huseyin Ergun
+* @version  $Id: Messages.java,v 1.1 2004/11/18 10:18:32 huseyiner Exp $
 */
 
-import java.util.List;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
-import com.turquaz.bank.dal.BankDALBankCardSearch;
-import com.turquaz.engine.dal.TurqCurrency;
+public class Messages {
+	private static final String BUNDLE_NAME = "com.turquaz.bank.messages_tr_TR";//$NON-NLS-1$
 
+	private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
+			.getBundle(BUNDLE_NAME);
 
-public class BankBLBankCardSearch {
-	public BankBLBankCardSearch(){
-	}
-	private BankDALBankCardSearch bankDALBankCardSearch=new BankDALBankCardSearch();
-	
-	public List searchBankCards(String bankName, String bankBranchName, String bankAccountNo, TurqCurrency currency)
-	throws Exception{
-		try{
-		return bankDALBankCardSearch.searchBankCards(bankName,bankBranchName,bankAccountNo,currency);
-		}
-		catch(Exception ex){
-			throw ex;
-		}
-		
+	private Messages() {
 	}
 
+	public static String getString(String key) {
+		// TODO Auto-generated method stub
+		try {
+			return RESOURCE_BUNDLE.getString(key);
+		} catch (MissingResourceException e) {
+			return '!' + key + '!';
+		}
+	}
 }
