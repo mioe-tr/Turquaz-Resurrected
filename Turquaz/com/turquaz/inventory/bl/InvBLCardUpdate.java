@@ -1,9 +1,4 @@
-/*
- * Created on Oct 12, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.inventory.bl;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.6 2004/11/08 12:10:51 onsel Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.7 2004/11/11 16:40:25 huseyiner Exp $
 */
 
 
