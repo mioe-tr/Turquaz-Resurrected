@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUITransactionsTotalReport.java,v 1.3 2005/02/04 16:47:38 cemdayanik Exp $
+* @version  $Id: InvUITransactionsTotalReport.java,v 1.4 2005/02/04 19:40:31 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -64,7 +64,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import com.turquaz.inventory.ui.comp.InventoryPicker;
-import com.turquaz.current.ui.comp.CurrentPicker;
 import com.turquaz.current.ui.comp.CurrentCodePicker;
 /**
 * This code was generated using CloudGarden's Jigloo
