@@ -1,0 +1,11 @@
+#Turquaz Configuration
+#Thu Nov 18 12:49:57 EET 2004
+serverPort=5432
+dbType=Postgresql RDBM
+username=admin
+serverAddress=kulup.sabanciuniv.edu
+dbName=turquaz
+dbUsername=turquaz
+password=YWRtaW4\=
+remember_password=true
+dbPassword=YWRtaW4xouytrew
