@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.15 2004/11/26 14:26:03 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.16 2004/12/02 07:46:09 onsel Exp $
 */
 import java.util.List;
 import java.util.Set;
@@ -343,5 +343,9 @@ private TableColumn tableColumnContactName;
 		
 		EngBLUtils.Export2Excel(tableCurrentCardSearch);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableCurrentCardSearch,"Cari Kartlar");
+	    
 	}
 }

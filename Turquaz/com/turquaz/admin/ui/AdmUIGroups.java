@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroups.java,v 1.5 2004/11/18 09:20:49 huseyiner Exp $
+* @version  $Id: AdmUIGroups.java,v 1.6 2004/12/02 07:46:08 onsel Exp $
 */
 import java.util.List;
 
@@ -176,6 +176,10 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 		
 		EngBLUtils.Export2Excel(tableGroups);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableGroups,"Kullan?c? Gruplar?");
+	    
 	}
 
 }

@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.11 2004/11/25 09:41:37 onsel Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.12 2004/12/02 07:46:08 onsel Exp $
  */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -488,6 +488,10 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite
 
 		EngBLUtils.Export2Excel(tableUserPermissions);
 
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableUserPermissions,"Kullan?c? ?zinleri");
+	    
 	}
 
 }

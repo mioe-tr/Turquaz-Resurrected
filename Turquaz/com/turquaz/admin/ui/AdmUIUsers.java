@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.6 2004/11/18 09:20:49 huseyiner Exp $
+* @version  $Id: AdmUIUsers.java,v 1.7 2004/12/02 07:46:08 onsel Exp $
 */
 import java.util.List;
 
@@ -200,6 +200,10 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 		
 		EngBLUtils.Export2Excel(tableUsers);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableUsers,"Kullan?c?lar");
+	    
 	}
 
 }

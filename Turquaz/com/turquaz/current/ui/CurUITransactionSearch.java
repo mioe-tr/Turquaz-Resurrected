@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.11 2004/11/18 10:28:59 huseyiner Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.12 2004/12/02 07:46:08 onsel Exp $
 */
 import java.util.List;
 
@@ -406,5 +406,9 @@ public class CurUITransactionSearch extends Composite implements SecureComposite
 		
 		EngBLUtils.Export2Excel(tableCurrentTransactions);
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableCurrentTransactions,"Cari Hareketler");
+	    
 	}
 }

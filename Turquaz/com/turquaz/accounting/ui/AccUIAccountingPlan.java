@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.26 2004/11/29 19:17:33 huseyiner Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.27 2004/12/02 07:46:08 onsel Exp $
 */
 
 
@@ -326,6 +326,11 @@ public void fillTree(int parent, String codeCrit){
 		
 		EngBLUtils.Export2Excel(tableTreeAccountingPlan.getTable());
 		
+	}
+	
+	public void printTable(){
+	    EngBLUtils.printTable(tableTreeAccountingPlan.getTable(),"Muhasebe Plan?");
+	    
 	}
 	
 	public void delete(){

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.20 2004/11/25 20:00:57 cemdayanik Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.21 2004/12/02 07:46:08 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -370,7 +370,10 @@ public class AccUITransactionSearch extends  Composite implements SecureComposit
 	public void newForm(){
 	
 	}
-
+	public void printTable(){
+	    EngBLUtils.printTable(tableTransactions,"Muhasebe Fi?leri");
+	    
+	}
 
 	/** Auto-generated event handler method */
 	protected void tableTransactionsMouseDoubleClick(MouseEvent evt){

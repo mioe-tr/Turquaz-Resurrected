@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupPermissions.java,v 1.8 2004/11/25 09:41:37 onsel Exp $
+* @version  $Id: AdmUIGroupPermissions.java,v 1.9 2004/12/02 07:46:08 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -502,6 +502,10 @@ implements SecureComposite,SearchComposite{
 		
 		
 		
+	}
+	public void printTable(){
+	    EngBLUtils.printTable(tableGroupPermissions,"Grup ?zinleri");
+	    
 	}
 	public void search(){
 		
