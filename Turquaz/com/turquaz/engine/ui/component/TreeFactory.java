@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.35 2004/11/27 13:30:26 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.36 2004/11/29 11:05:32 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.TreeItem;
 
 import com.turquaz.accounting.ui.AccUIAccountingPlan;
 import com.turquaz.accounting.ui.AccUIAddAccounts;
+import com.turquaz.accounting.ui.AccUIInitialTransaction;
 import com.turquaz.accounting.ui.AccUITransactionAdd;
 import com.turquaz.accounting.ui.AccUITransactionCollect;
 import com.turquaz.accounting.ui.AccUITransactionPayment;
@@ -167,6 +168,11 @@ public final class TreeFactory {
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.13")); //$NON-NLS-1$
 		item.setData(AccUITransactionCollect.class.getName());	
 		}
+		if(EngBLPermissions.getPermission(AccUITransactionSearch.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.40"));  //$NON-NLS-1$
+			item.setData(AccUIInitialTransaction.class.getName());
+		}
 		if(EngBLPermissions.getPermission(AccUITransactionPayment.class.getName())>0){
 		item = new TreeItem(root,SWT.NULL);
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.14")); //$NON-NLS-1$
@@ -177,6 +183,7 @@ public final class TreeFactory {
 		item.setText(com.turquaz.engine.Messages.getString("TreeFactory.15")); //$NON-NLS-1$
 		item.setData(AccUITransactionSearch.class.getName());
 		}
+		
 		
 		TreeItem books = new TreeItem(tree,SWT.NULL);
 		
