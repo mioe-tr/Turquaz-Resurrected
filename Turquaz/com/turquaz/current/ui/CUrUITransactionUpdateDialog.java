@@ -17,12 +17,8 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.11 2004/11/12 12:34:27 onsel Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.12 2004/11/18 09:29:00 huseyiner Exp $
 */
-
-
-
-import java.util.List;
 
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
@@ -42,8 +38,6 @@ import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLSearchTransaction;
 import com.turquaz.current.ui.CurUITransactionAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqAccountingTransaction;
-import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 
