@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.48 2005/03/18 19:44:27 onsel Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.49 2005/03/21 19:30:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -351,7 +351,7 @@ public class AccUITransactionSearch extends Composite implements SearchComposite
 	{
 		try
 		{
-			tableTransactions.removeAll();
+			tableViewer.removeAll();
 			List result = AccBLTransactionSearch.searchAccTransaction(txtDocumentNo.getText().trim(), dateStartDate.getDate(),
 					dateEndDate.getDate(), btnAccTrans.getSelection(), btnCollect.getSelection(), btnPayment.getSelection());
 		

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.133 2005/03/17 19:01:00 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.134 2005/03/21 19:30:32 onsel Exp $
  */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -81,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.133 2005/03/17 19:01:00 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.134 2005/03/21 19:30:32 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1158,6 +1158,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 
 	public void fillFavoritesTree()
 	{
+		try{
 		EngBLXmlParser xmlParser = new EngBLXmlParser("favorites.xml"); //$NON-NLS-1$
 		Map treeInfo = xmlParser.createMap();
 		Iterator it = treeInfo.keySet().iterator();
@@ -1171,6 +1172,11 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 			treeItem = new TreeItem(treeFavorites, SWT.NULL);
 			treeItem.setText(text);
 			treeItem.setData(className);
+		}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
 		}
 	}
 
@@ -1199,6 +1205,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 					{
 						saveFavoritesTree();
 						saveProperties();
+						EngUITableProperties.saveToFile();
 						System.exit(0);
 					}
 					else
