@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuManager.java,v 1.8 2005/03/17 15:02:06 onsel Exp $
+ * @version $Id: MenuManager.java,v 1.9 2005/03/17 19:01:02 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabItem;
@@ -109,7 +109,7 @@ public class MenuManager
 			});
 		}
 		MenuItem mitView = new MenuItem(menuEdit, SWT.CASCADE);
-		mitView.setText(Messages.getString("EngUIMainFrame.14")); //$NON-NLS-1$
+		mitView.setText(Messages.getString("MenuManager.7"));  //$NON-NLS-1$
 		{
 			Menu menuView = new Menu(mitView);
 			mitView.setMenu(menuView);

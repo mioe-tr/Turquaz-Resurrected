@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.132 2005/03/17 15:02:10 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.133 2005/03/17 19:01:00 onsel Exp $
  */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -81,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.132 2005/03/17 15:02:10 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.133 2005/03/17 19:01:00 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -943,6 +943,14 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 		{
 			public void handleEvent(Event event)
 			{
+				if(treeFavorites.getSelection().length==0)
+				{
+//					if it has childeren then do not show menu
+					event.doit = false;
+					popupTreeAddFavorites.setVisible(false);
+					itemRemove.setData(null);
+					return;
+				}
 				TreeItem selectedItem = treeFavorites.getSelection()[0];
 				if (selectedItem.getItemCount() > 0)
 				{
@@ -1522,6 +1530,10 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 	/** Auto-generated event handler method */
 	protected void treeFavoritesMouseDoubleClick()
 	{
+		if(treeFavorites.getSelection().length==0)
+		{
+			return;
+		}
 		TreeItem item = treeFavorites.getSelection()[0];
 		if (item.getItemCount() == 0)
 		{
