@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.6 2004/11/12 19:51:32 onsel Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.7 2004/11/16 19:09:35 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -80,9 +80,10 @@ public class AccBLTransactionAdd {
 	{
 		try{
 			
-		TurqEngineSequence docSeq =new TurqEngineSequence();;	
+		TurqEngineSequence docSeq =new TurqEngineSequence();	
 		
 		if(docSeqId==null){
+			
 			dalTransAdd.save(docSeq);
 		}
 		else
