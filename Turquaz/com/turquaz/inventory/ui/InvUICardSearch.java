@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearch.java,v 1.49 2005/03/19 18:02:59 cemdayanik Exp $
+ * @version  $Id: InvUICardSearch.java,v 1.50 2005/03/21 17:27:41 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -297,7 +297,6 @@ public class InvUICardSearch extends Composite implements SearchComposite
 		columnTypes[7] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
 		tableViewer = new SearchTableViewer(tableSearcResults, columnTypes);
 	}
-
 
 	private void comboInvMainGroupWidgetSelected(SelectionEvent evt)
 	{
