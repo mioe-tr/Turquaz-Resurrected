@@ -18,16 +18,14 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardSearch.java,v 1.9 2005/01/10 21:04:09 cemdayanik Exp $
+* @version  $Id: InvBLCardSearch.java,v 1.10 2005/01/11 10:53:37 cemdayanik Exp $
 */
 
 import java.util.Calendar;
 import java.util.List;
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
 
-import com.turquaz.engine.dal.EngDALSessionFactory;
+
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqViewInventoryAmountTotal;

@@ -1,4 +1,20 @@
 package com.turquaz.accounting.ui.reports;
+/************************************************************************/
+/* TURQUAZ: Higly Modular Accounting/ERP Program                        */
+/* ============================================                         */
+/* Copyright (c) 2004 by Turquaz Software Development Group			    */
+/*																		*/
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License, or    */
+/* (at your option) any later version.       							*/
+/* 																		*/
+/* This program is distributed in the hope that it will be useful,		*/
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of		*/
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
+/* GNU General Public License for more details.         				*/
+/************************************************************************/
+
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -171,14 +187,11 @@ public class AccUIAccountingJournal extends org.eclipse.swt.widgets.Composite {
 			parameters.put("sqlparam",sqlparam);		 //$NON-NLS-1$
 			parameters.put("beginDate",dformat2.format(datePickerBeginDate.getDate())); //$NON-NLS-1$
 			parameters.put("endDate",dformat2.format(datePickerEndDate.getDate())); //$NON-NLS-1$
-			//parameters.put("imageUrl", "C:\\eclipse3\\workspace\\Turquaz\\icons\\sample.gif");
 
 			parameters.put("column1header",Messages.getString("AccUIAccountingJournal.22")); //$NON-NLS-1$ //$NON-NLS-2$
 			parameters.put("column2header",Messages.getString("AccUIAccountingJournal.24")); //$NON-NLS-1$ //$NON-NLS-2$
 			EngDALConnection db=new EngDALConnection();
 			db.connect();
-			//JasperReport jasperReport = JasperManager.loadReport("reports/accounting/AccountingJournal.jasper"); //$NON-NLS-1$
-			//final JasperPrint jasperPrint = JasperManager.fillReport(jasperReport,parameters,db.getCon());
 			
 			JasperReport jasperReport =(JasperReport)JRLoader.loadObject("reports/accounting/AccountingJournal.jasper"); 
 	    	final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,db.getCon());
