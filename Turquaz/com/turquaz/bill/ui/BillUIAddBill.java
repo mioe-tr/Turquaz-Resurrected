@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.2 2004/11/18 18:28:33 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.3 2004/11/18 20:35:13 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -847,10 +847,10 @@ implements SecureComposite{
 		HashMap groupMap = new HashMap(); 
 		
 		
-		TurqConsignmentGroup curGroup;
+		TurqBillGroup curGroup;
 		
 		for(int i=0; i<list.size();i++){
-		curGroup = (TurqConsignmentGroup)list.get(i);
+		curGroup = (TurqBillGroup)list.get(i);
 		groupMap.put(curGroup.getGroupsName(),curGroup);
 		}
 		
@@ -1097,4 +1097,6 @@ implements SecureComposite{
     public void setCheckIsOpen(Button checkIsOpen) {
         this.checkIsOpen = checkIsOpen;
     }
+    
+	
 }
