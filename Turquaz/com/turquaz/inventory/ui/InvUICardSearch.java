@@ -28,13 +28,12 @@ import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.component.TTable;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
-import java.sql.*;
 
 
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.4 2004/09/24 13:51:09 huseyin Exp $
+ * @version $Id: InvUICardSearch.java,v 1.5 2004/09/30 13:16:54 huseyin Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
