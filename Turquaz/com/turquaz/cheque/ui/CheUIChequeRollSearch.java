@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.15 2005/03/08 16:24:24 cemdayanik Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.16 2005/03/09 13:36:40 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -305,6 +305,11 @@ public class CheUIChequeRollSearch extends org.eclipse.swt.widgets.Composite
 				else if (roll.getTurqChequeTransactionType()
 						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_CURRENT) {
 					isUpdated = new CheUIChequeCollectUpdate(
+							updateShell, SWT.NULL, roll).open();
+				}
+				else if (roll.getTurqChequeTransactionType()
+						.getId().intValue() == EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK) {
+					isUpdated = new CheUIReturnFromBankRollUpdate(
 							updateShell, SWT.NULL, roll).open();
 				}
 				

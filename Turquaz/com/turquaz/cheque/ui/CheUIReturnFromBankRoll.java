@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIReturnFromBankRoll.java,v 1.4 2005/03/09 10:45:37 onsel Exp $
+* @version  $Id: CheUIReturnFromBankRoll.java,v 1.5 2005/03/09 13:36:41 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -354,6 +354,18 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
 		this.toolItemDelete = toolItemDelete;
 	}
   
+	/**
+	 * @return Returns the accountPicker.
+	 */
+	public AccountPicker getAccountPicker() {
+		return accountPicker;
+	}
+	/**
+	 * @param accountPicker The accountPicker to set.
+	 */
+	public void setAccountPicker(AccountPicker accountPicker) {
+		this.accountPicker = accountPicker;
+	}
     public DatePicker getDatePicker1() {
         return datePicker1;
     }
