@@ -43,7 +43,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.13 2005/02/03 11:58:26 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.14 2005/02/06 11:12:52 cemdayanik Exp $
  */
 
 public class CashDALCashCard {
@@ -308,7 +308,6 @@ public class CashDALCashCard {
             		" cashTrans.transaction_date <= '"+frmt.format(endDate)+"' " +
             		" and cashTrans.cash_cards_id = cashCard.cash_cards_id";
           
-            System.out.println(query);
 
             Statement stmt = session.connection().createStatement();
             ResultSet rs = stmt.executeQuery(query);
