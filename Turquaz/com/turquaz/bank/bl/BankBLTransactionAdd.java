@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionAdd.java,v 1.6 2005/01/30 19:27:24 onsel Exp $
+* @version  $Id: BankBLTransactionAdd.java,v 1.7 2005/01/31 18:39:02 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -122,8 +122,8 @@ public class BankBLTransactionAdd {
             accTransRowCurrent.setDeptAmount(new BigDecimal(0));
             accTransRowCurrent.setCreditAmount(totalAmount);
             
-            transRow.setDeptAmount(new BigDecimal(0));
-            transRow.setCreditAmount(totalAmount);
+            transRow.setDeptAmount(totalAmount);
+            transRow.setCreditAmount(new BigDecimal(0));
             
           
             currentTransType = EngBLCommon.CURRENT_TRANS_CREDIT;
@@ -142,8 +142,8 @@ public class BankBLTransactionAdd {
              accTransRowCurrent.setDeptAmount(totalAmount);
              accTransRowCurrent.setCreditAmount(new BigDecimal(0));
              
-             transRow.setDeptAmount(totalAmount);
-             transRow.setCreditAmount(new BigDecimal(0));
+             transRow.setDeptAmount(new BigDecimal(0));
+             transRow.setCreditAmount(totalAmount);
                       
              currentTransType = EngBLCommon.CURRENT_TRANS_DEBIT;
              currentTransDefinition = curCard.getCardsName()+" 'e Havale";
