@@ -1,3 +1,7 @@
+
+
+package com.turquaz.inventory.dal;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,12 +19,9 @@
 /************************************************************************/
 
 /**
- * @author onsel
- * @version $Id: InvDALCardAdd.java,v 1.10 2004/10/16 15:00:36 cem Exp $
- */
-
-package com.turquaz.inventory.dal;
-
+* @author  Onsel Armagan
+* @version  $Id: InvDALCardAdd.java,v 1.11 2004/11/04 14:04:38 ehad Exp $
+*/
 import java.util.List;
 
 import net.sf.hibernate.Query;

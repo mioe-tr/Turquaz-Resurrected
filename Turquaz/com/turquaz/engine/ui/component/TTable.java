@@ -1,4 +1,7 @@
 
+
+package com.turquaz.engine.ui.component;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,8 +18,10 @@
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
-package com.turquaz.engine.ui.component;
-
+/**
+* @author  Onsel Armagan
+* @version  $Id: TTable.java,v 1.4 2004/11/04 14:04:38 ehad Exp $
+*/
 import org.eclipse.swt.widgets.*;
 
 import de.kupzog.ktable.*;
@@ -25,7 +30,7 @@ import java.sql.*;
 /**
  * @author onsel
  *
- * @version $Id: TTable.java,v 1.3 2004/10/21 07:20:19 onsel Exp $
+ * @version $Id: TTable.java,v 1.4 2004/11/04 14:04:38 ehad Exp $
  */
 public class TTable extends KTable{
 	

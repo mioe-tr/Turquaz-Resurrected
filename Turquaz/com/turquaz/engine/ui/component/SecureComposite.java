@@ -1,4 +1,7 @@
 
+
+package com.turquaz.engine.ui.component;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,8 +18,10 @@
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
-package com.turquaz.engine.ui.component;
-
+/**
+* @author  Onsel Armagan
+* @version  $Id: SecureComposite.java,v 1.6 2004/11/04 14:04:38 ehad Exp $
+*/
 import org.eclipse.swt.widgets.Composite;
 
 import com.turquaz.engine.bl.EngBLPermissions;
@@ -24,7 +29,7 @@ import com.turquaz.engine.bl.EngBLPermissions;
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.5 2004/10/30 12:21:59 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.6 2004/11/04 14:04:38 ehad Exp $
  */
 public interface SecureComposite {
 

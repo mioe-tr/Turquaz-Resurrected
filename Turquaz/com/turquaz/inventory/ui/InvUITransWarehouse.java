@@ -16,6 +16,10 @@ package com.turquaz.inventory.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: InvUITransWarehouse.java,v 1.9 2004/11/04 14:06:46 ehad Exp $
+*/
 
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;

@@ -6,18 +6,6 @@
  */
 package com.turquaz.inventory.dal;
 
-import java.util.List;
-
-import net.sf.hibernate.Hibernate;
-import net.sf.hibernate.Query;
-import net.sf.hibernate.Session;
-
-
-import com.turquaz.engine.dal.EngDALSessionFactory;
-import com.turquaz.engine.dal.TurqInventoryCard;
-
-import com.turquaz.engine.dal.TurqInventoryGroup;
-
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -36,8 +24,21 @@ import com.turquaz.engine.dal.TurqInventoryGroup;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.8 2004/10/22 12:31:29 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.9 2004/11/04 14:04:38 ehad Exp $
 */
+import java.util.List;
+
+import net.sf.hibernate.Hibernate;
+import net.sf.hibernate.Query;
+import net.sf.hibernate.Session;
+
+
+import com.turquaz.engine.dal.EngDALSessionFactory;
+import com.turquaz.engine.dal.TurqInventoryCard;
+
+import com.turquaz.engine.dal.TurqInventoryGroup;
+
+
 
 public class InvDALCardSearch {
 

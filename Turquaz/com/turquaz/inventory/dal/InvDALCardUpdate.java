@@ -6,10 +6,6 @@
  */
 package com.turquaz.inventory.dal;
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
-import com.turquaz.engine.dal.EngDALSessionFactory;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -28,8 +24,13 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardUpdate.java,v 1.5 2004/10/22 12:31:29 onsel Exp $
+* @version  $Id: InvDALCardUpdate.java,v 1.6 2004/11/04 14:04:38 ehad Exp $
 */
+import net.sf.hibernate.Session;
+import net.sf.hibernate.Transaction;
+
+import com.turquaz.engine.dal.EngDALSessionFactory;
+
 
 public class InvDALCardUpdate {
 	public InvDALCardUpdate()

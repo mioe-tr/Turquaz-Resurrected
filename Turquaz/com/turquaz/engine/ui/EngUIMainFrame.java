@@ -16,6 +16,10 @@ package com.turquaz.engine.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: EngUIMainFrame.java,v 1.50 2004/11/04 14:04:38 ehad Exp $
+*/
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -77,7 +81,7 @@ import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.49 2004/11/04 11:59:48 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.50 2004/11/04 14:04:38 ehad Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 /**

@@ -16,6 +16,10 @@ package com.turquaz.inventory.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: InvUITransactionAdd.java,v 1.9 2004/11/04 14:06:46 ehad Exp $
+*/
 
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
@@ -39,7 +43,7 @@ import com.turquaz.inventory.Messages;
 /**
  * 
  * @author onsel
- * @version $Id: InvUITransactionAdd.java,v 1.8 2004/10/30 12:21:59 onsel Exp $
+ * @version $Id: InvUITransactionAdd.java,v 1.9 2004/11/04 14:06:46 ehad Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo

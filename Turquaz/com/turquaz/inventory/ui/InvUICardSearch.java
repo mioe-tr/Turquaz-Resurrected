@@ -16,6 +16,10 @@ package com.turquaz.inventory.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: InvUICardSearch.java,v 1.18 2004/11/04 14:06:46 ehad Exp $
+*/
 
 
 import java.util.List;
@@ -53,7 +57,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.17 2004/10/30 13:49:04 onsel Exp $
+ * @version $Id: InvUICardSearch.java,v 1.18 2004/11/04 14:06:46 ehad Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
