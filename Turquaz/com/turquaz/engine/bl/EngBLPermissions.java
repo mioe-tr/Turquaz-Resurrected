@@ -29,7 +29,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.8 2004/10/21 07:01:36 onsel Exp $
+ * @version $Id: EngBLPermissions.java,v 1.9 2004/10/28 06:28:26 onsel Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
@@ -101,7 +101,6 @@ public class EngBLPermissions {
 		try {
 			compMap = new HashMap();
 					
-			
 			
 			
 			dbaccess = new EngDALUserPerms();
