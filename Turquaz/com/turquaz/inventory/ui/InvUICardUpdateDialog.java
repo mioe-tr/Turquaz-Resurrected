@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.31 2004/12/04 20:14:27 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.32 2004/12/09 11:14:37 cemdayanik Exp $
 */
 import java.util.Iterator;
 
@@ -512,7 +512,7 @@ public class InvUICardUpdateDialog extends Dialog{
     
     public void update(){
     try {
-    if(compInvUICard.verifyFields()){
+    if(compInvUICard.verifyFields(false)){
     
     // Update Inventory Card Fields
    TurqAccountingAccount accountIdSell = (TurqAccountingAccount) compInvUICard.getTxtInvCardOutAcc().getData();

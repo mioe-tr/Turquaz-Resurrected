@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.36 2004/12/08 20:07:36 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.37 2004/12/09 11:14:37 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -1406,7 +1406,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 		 this.dispose();
 	}
 	
-	public boolean verifyFields()throws Exception{
+	public boolean verifyFields(boolean save)throws Exception{
 	try{
 		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
 	 
@@ -1416,7 +1416,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 			txtCurrentCode.setFocus();
 			return false;
 		} 
-		else if (EngBLCurrentCards.getCards(txtCurrentCode.getText().trim()) != null)
+		else if (save && EngBLCurrentCards.getCards(txtCurrentCode.getText().trim()) != null)
 		{
 			msg.setMessage("Daha önce varolan bir cari kart kodu giremezsiniz!");
 			msg.open();
@@ -1448,7 +1448,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 	
 	public void save(){
 	try{
-	if(verifyFields())
+	if(verifyFields(true))
 	{
 	
 	Integer cardId = currentAdd.saveCurrentCard(txtCurrentCode.getText().trim(),
