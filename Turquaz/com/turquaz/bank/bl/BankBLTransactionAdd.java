@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.13 2005/02/04 16:18:29 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.14 2005/02/04 18:53:53 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -117,6 +117,7 @@ public class BankBLTransactionAdd {
             transRowCredit.setTurqBanksTransactionBill(bankTransBill);
             transRowDebit.setTurqBanksTransactionBill(bankTransBill);
             BankDALCommon.saveObject(transRowCredit);
+            BankDALCommon.saveObject(transRowDebit);
 
 
         } catch (Exception ex) {

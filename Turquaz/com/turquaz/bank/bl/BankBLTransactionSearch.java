@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionSearch.java,v 1.5 2005/02/04 11:23:18 onsel Exp $
+* @version  $Id: BankBLTransactionSearch.java,v 1.6 2005/02/04 18:53:53 onsel Exp $
 */
 
 import java.util.Date;
@@ -28,9 +28,9 @@ import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
 
 public class BankBLTransactionSearch {
-    public static List searchtransaction(TurqBanksCard bankCard, String docNo, Date startDate, Date endDate)throws Exception{
+    public static List searchtransaction( String docNo, Date startDate, Date endDate)throws Exception{
         try{
-            return BankDALCommon.searchBankTransactions(bankCard,docNo,startDate, endDate);
+            return BankDALCommon.searchBankTransactions(docNo,startDate, endDate);
             
         }
         catch(Exception ex)
