@@ -16,6 +16,10 @@ package com.turquaz.admin.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: AdmUIPermPanel.java,v 1.9 2004/11/04 13:28:07 ehad Exp $
+*/
 
 
 
@@ -55,7 +59,7 @@ import com.turquaz.engine.ui.component.SecureComposite;
  * 
  * @author onsel
  *
- *@version $Id: AdmUIPermPanel.java,v 1.8 2004/10/30 12:22:00 onsel Exp $
+ *@version $Id: AdmUIPermPanel.java,v 1.9 2004/11/04 13:28:07 ehad Exp $
  */
 
 

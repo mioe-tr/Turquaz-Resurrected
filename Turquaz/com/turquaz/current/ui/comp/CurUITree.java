@@ -1,4 +1,7 @@
 
+
+package com.turquaz.current.ui.comp;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,8 +18,10 @@
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
-package com.turquaz.current.ui.comp;
-
+/**
+* @author  Onsel Armagan
+* @version  $Id: CurUITree.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
+*/
 
 
 import org.eclipse.swt.widgets.*;
@@ -30,7 +35,7 @@ import com.turquaz.current.ui.CurUICurrentCardSearch;
 /**
  * @author onsel
  *
- * @version $Id: CurUITree.java,v 1.2 2004/10/22 12:42:31 onsel Exp $
+ * @version $Id: CurUITree.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
  */
 public class CurUITree extends Tree {
 	

@@ -17,6 +17,10 @@ package com.turquaz.admin.ui.comp;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: AdmUITree.java,v 1.5 2004/11/04 13:28:07 ehad Exp $
+*/
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.*;
@@ -26,7 +30,7 @@ import com.turquaz.admin.ui.AdmUIPermPanel;
 
 /**
  * @author onsel
- * @version $Id: AdmUITree.java,v 1.4 2004/10/16 15:14:12 onsel Exp $
+ * @version $Id: AdmUITree.java,v 1.5 2004/11/04 13:28:07 ehad Exp $
  */
 public class AdmUITree extends Tree {
 	private TreeItem root;

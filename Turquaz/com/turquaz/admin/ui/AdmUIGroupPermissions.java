@@ -16,6 +16,10 @@ package com.turquaz.admin.ui;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: AdmUIGroupPermissions.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
+*/
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;

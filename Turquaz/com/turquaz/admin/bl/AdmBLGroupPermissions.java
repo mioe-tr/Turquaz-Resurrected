@@ -22,6 +22,10 @@ package com.turquaz.admin.bl;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+/**
+* @author  Onsel Armagan
+* @version  $Id: AdmBLGroupPermissions.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
+*/
 import java.util.Calendar;
 import java.util.List;
 

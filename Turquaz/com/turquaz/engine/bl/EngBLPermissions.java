@@ -1,3 +1,6 @@
+
+package com.turquaz.engine.bl;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -14,9 +17,10 @@
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
-package com.turquaz.engine.bl;
-
-
+/**
+* @author  Onsel Armagan
+* @version  $Id: EngBLPermissions.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
+*/
 import java.util.*;
 
 
@@ -29,7 +33,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.9 2004/10/28 06:28:26 onsel Exp $
+ * @version $Id: EngBLPermissions.java,v 1.10 2004/11/04 13:28:07 ehad Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
