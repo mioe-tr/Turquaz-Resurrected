@@ -23,13 +23,16 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionUpdate.java,v 1.2 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccDALTransactionUpdate.java,v 1.3 2004/12/07 19:39:37 onsel Exp $
 */
 
+
+import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
+import com.turquaz.engine.dal.TurqAccountingTransaction;
 
 /**
  * @author onsel
@@ -75,6 +78,26 @@ public class AccDALTransactionUpdate {
 			catch(Exception ex){
 				throw ex;
 			}
+	}
+	public void initializeTransactionRows(TurqAccountingTransaction accTrans)throws Exception{
+	   try{
+	        
+	       Session session = EngDALSessionFactory.openSession();
+		   Transaction tx = session.beginTransaction();
+		   
+		   session.refresh(accTrans);
+		   Hibernate.initialize(accTrans.getTurqAccountingTransactionColumns());
+			
+			session.flush();
+			tx.commit();
+			session.close(); 
+	        
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
 	}
 	
 

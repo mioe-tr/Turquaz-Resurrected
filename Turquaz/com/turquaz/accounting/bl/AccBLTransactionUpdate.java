@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionUpdate.java,v 1.6 2004/11/23 19:17:05 huseyiner Exp $
+* @version  $Id: AccBLTransactionUpdate.java,v 1.7 2004/12/07 19:39:37 onsel Exp $
 */
 
 import java.sql.Date;
@@ -99,6 +99,14 @@ public class AccBLTransactionUpdate {
 			throw ex;
 		}
 		
+	}
+	public void initiliazeTransactionRows(TurqAccountingTransaction trans)throws Exception{
+	    try{
+	        dalTransUpdate.initializeTransactionRows(trans);
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 	
 	

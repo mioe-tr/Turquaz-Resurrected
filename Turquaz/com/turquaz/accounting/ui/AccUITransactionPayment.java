@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.16 2004/12/07 17:24:31 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.17 2004/12/07 19:39:37 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -232,8 +232,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				txtDefinition.setLayoutData(txtDefinitionLData);
 			}
 			{
-				tableTransactionRows = new Table(this, SWT.FULL_SELECTION
-					| SWT.BORDER);
+				tableTransactionRows = new Table(this, SWT.FULL_SELECTION | SWT.HIDE_SELECTION | SWT.BORDER);
 				tableTransactionRows.setHeaderVisible(true);
 				tableTransactionRows.setLinesVisible(true);
 				tableTransactionRows
@@ -417,13 +416,14 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
                     
                  }
                  else if(evt.keyCode==SWT.DEL){
-                    ITableRow row = (ITableRow)cursor.getRow().getData();
-                     if(row!=null){
+                     if(cursor.getRow()!=null){
+                         ITableRow row = (ITableRow)cursor.getRow().getData();
                          rowList.removeTask(row);
                          int itemCount =tableTransactionRows.getItemCount();
                         if(itemCount>0){
                             cursor.setSelection(itemCount-1,0);
                         }
+                     
                      }
                     
                     
