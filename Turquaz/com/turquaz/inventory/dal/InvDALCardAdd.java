@@ -20,7 +20,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardAdd.java,v 1.12 2004/12/06 17:21:58 huseyiner Exp $
+* @version  $Id: InvDALCardAdd.java,v 1.13 2005/01/11 18:33:41 onsel Exp $
 */
 import java.util.List;
 
@@ -170,10 +170,11 @@ public class InvDALCardAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqCurrency as currency " +
-			"where currency.currenciesAbbreviation ='"+abbrev+"'";		   
+			"where currency.currenciesAbbreviation =:abbrev";		   
 	   
 
 	Query q = session.createQuery(query); 
+	q.setParameter("abbrev",abbrev);
 	List list = q.list();
 	tx.commit();
 	session.close();

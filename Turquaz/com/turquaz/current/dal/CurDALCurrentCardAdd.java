@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardAdd.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: CurDALCurrentCardAdd.java,v 1.9 2005/01/11 18:33:38 onsel Exp $
 */
 import java.util.List;
 
@@ -123,8 +123,9 @@ public class CurDALCurrentCardAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqCurrentCard as curCard " +
-					"where curCard.cardsCurrentCode ='"+code+"'" ;		   
+					"where curCard.cardsCurrentCode =:code" ;		   
 			Query q = session.createQuery(query); 
+			q.setParameter("code",code);
 			List list = q.list();
 			tx.commit();
 			session.close();
