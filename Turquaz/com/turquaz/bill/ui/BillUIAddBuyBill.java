@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.11 2004/12/17 21:49:49 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.12 2004/12/20 09:59:24 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1015,7 +1015,20 @@ public class BillUIAddBuyBill extends Composite
 			ex.printStackTrace();
 		}
 	}
-
+	public boolean okToDelete(){
+	    
+	    MessageBox msg = new MessageBox(this.getShell(),SWT.ICON_WARNING|SWT.OK|SWT.CANCEL);
+	       msg.setMessage(Messages.getString("BillUIAddBill.34"));  //$NON-NLS-1$
+	       if(msg.open()==SWT.OK){
+	           return true;
+	       }
+	       else
+	       {
+	           return false;
+	       }
+	       
+	       
+	}
 	public void fillGroupsTable() {
 
 		try {
@@ -1151,12 +1164,14 @@ public class BillUIAddBuyBill extends Composite
 	                     else if(e.keyCode==SWT.DEL){
 	                       
 	                         if(cursor.getRow()!=null){
+	                             if(okToDelete()){
 	                             ITableRow row = (ITableRow)cursor.getRow().getData();
 	                             rowList.removeTask(row);
 	                             int itemCount =tableConsignmentRows.getItemCount();
 	                            if(itemCount>0){
 	                                cursor.setSelection(itemCount-1,0);
 	                            }
+	                             }
 	                         }
 	                        
 	                        
