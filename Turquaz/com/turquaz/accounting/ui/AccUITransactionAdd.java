@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.12 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.13 2004/10/29 11:04:09 cem Exp $
 */
 
 import java.math.BigDecimal;
@@ -380,7 +380,7 @@ public class AccUITransactionAdd extends SecureComposite {
 	return false;
 	}
 	else if(tableTransactionColumns.getItems().length==0){
-	msg.setMessage("You hava to add rows to table!");
+	msg.setMessage("You have to add rows to table!");
 	
 	msg.open();
 	
