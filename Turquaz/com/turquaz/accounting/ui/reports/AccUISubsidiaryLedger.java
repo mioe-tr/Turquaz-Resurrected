@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.16 2005/02/18 19:09:50 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.17 2005/02/19 17:18:52 cemdayanik Exp $
  */
 
 import java.text.NumberFormat;
@@ -304,8 +304,8 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite 
 				" and accounts.accounting_accounts_id="+account.getAccountingAccountsId().intValue()+ //$NON-NLS-1$
 				" and transColumns.accounting_transactions_id=trans.accounting_transactions_id"+ //$NON-NLS-1$
 				" and trans.transactions_date >="+"'"+dformat.format(dateStartDate.getDate())+"'"+ //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				" and trans.transactions_date <="+"'"+dformat.format(dateEndDate.getDate())+"'"+ //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				" order by accounts.accounting_accounts_id,trans.transactions_date"; //$NON-NLS-1$
+				" and trans.transactions_date <="+"'"+dformat.format(dateEndDate.getDate())+"'"+//$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				" order by accounts.accounting_accounts_id,trans.transactions_date";//$NON-NLS-1$
 			}
 			else
 			{
