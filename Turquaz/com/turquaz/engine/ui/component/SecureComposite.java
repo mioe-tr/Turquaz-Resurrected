@@ -20,20 +20,20 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SecureComposite.java,v 1.8 2004/11/10 11:48:58 onsel Exp $
+* @version  $Id: SecureComposite.java,v 1.9 2004/12/03 12:57:54 onsel Exp $
 */
 
 
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.8 2004/11/10 11:48:58 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.9 2004/12/03 12:57:54 onsel Exp $
  */
 public interface SecureComposite {
 
 	 public void save();
-	 public void search();
+
 	 public void newForm();
-	 public void delete();
+	
 
 }

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.28 2004/12/03 11:35:12 huseyiner Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.29 2004/12/03 12:57:54 onsel Exp $
 */
 
 
@@ -58,7 +58,6 @@ import org.eclipse.swt.events.MouseEvent;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 
 
@@ -81,7 +80,7 @@ import com.cloudgarden.resource.SWTResourceManager;
 * *************************************
 */
 public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite implements 
-SearchComposite, SecureComposite{
+SearchComposite{
 
 	{
 		//Register as a resource user - SWTResourceManager will

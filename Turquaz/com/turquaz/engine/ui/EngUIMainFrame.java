@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.87 2004/12/03 10:03:00 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.88 2004/12/03 12:57:54 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.87 2004/12/03 10:03:00 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.88 2004/12/03 12:57:54 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1437,46 +1437,46 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 					{
 						toolNew.setEnabled(true);
 						toolSave.setEnabled(true);
-						toolDelete.setEnabled(true);
-						toolSearch.setEnabled(true);
+					
+					
 					}
 					else if (level==2){
 						toolNew.setEnabled(true);
 						toolSave.setEnabled(true);
-						toolDelete.setEnabled(false);
-						toolSearch.setEnabled(true);
+						
+						
 					}
 					else if(level==1){
 						toolNew.setEnabled(true);
 						toolSave.setEnabled(false);
-						toolDelete.setEnabled(false);
-						toolSearch.setEnabled(true);
+						
 					}
 					else 
 					{
-						toolNew.setEnabled(false);
-						toolSave.setEnabled(false);
-						toolDelete.setEnabled(false);
-						toolSearch.setEnabled(false);
+					    toolNew.setEnabled(false);
+						toolSave.setEnabled(false);					
 				
 					}
 		    }
-		 else{
-		 	toolNew.setEnabled(false);
+		else{
+		     
+		    toolNew.setEnabled(false);
 			toolSave.setEnabled(false);
-			toolDelete.setEnabled(false);
-			toolSearch.setEnabled(false);  
+					
 		}
 		if(tabfldMain.getSelection().getControl() instanceof SearchComposite){
 			
 			toolExportToExcel.setEnabled(true);
 		    toolPrint.setEnabled(true);
-			
+		    toolDelete.setEnabled(true);
+		    toolSearch.setEnabled(true);
 			
 		}
 		else{
 			toolExportToExcel.setEnabled(false);
 			toolPrint.setEnabled(false);
+			toolDelete.setEnabled(false);
+			toolSearch.setEnabled(false);
 		}
 				
 	}
@@ -1568,16 +1568,16 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	/** Auto-generated event handler method */
 	protected void toolDeleteWidgetSelected(SelectionEvent evt){
 		Composite c = (Composite)tabfldMain.getSelection().getControl();
-		if(c instanceof SecureComposite){
-		((SecureComposite)c).delete();
+		if(c instanceof SearchComposite){
+		((SearchComposite)c).delete();
 		}
 	}
 
 	/** Auto-generated event handler method */
 	protected void toolSearchWidgetSelected(SelectionEvent evt){
 		Composite c = (Composite)tabfldMain.getSelection().getControl();
-		if(c instanceof SecureComposite){
-		((SecureComposite)c).search();
+		if(c instanceof SearchComposite){
+		((SearchComposite)c).search();
 		}
 	}
 

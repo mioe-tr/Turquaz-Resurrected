@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.21 2004/12/02 07:46:08 onsel Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.22 2004/12/03 12:57:54 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -71,7 +71,7 @@ import org.eclipse.swt.SWT;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class AccUITransactionSearch extends  Composite implements SecureComposite,SearchComposite {
+public class AccUITransactionSearch extends  Composite implements SearchComposite {
 
 	{
 		//Register as a resource user - SWTResourceManager will
