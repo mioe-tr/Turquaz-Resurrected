@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.67 2004/11/18 09:30:28 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.68 2004/11/18 11:09:04 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -81,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.67 2004/11/18 09:30:28 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.68 2004/11/18 11:09:04 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1024,9 +1024,11 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	
 	private static void arrangeIcons(){
 		try{
-		SecureComposite c = (SecureComposite)tabfldMain.getSelection().getControl();
-		int level =EngBLPermissions.getPermission(c.getClass().getName());
-					System.out.println(level);
+		   if(tabfldMain.getSelection().getControl() instanceof SecureComposite){
+		    
+		   SecureComposite c = (SecureComposite)tabfldMain.getSelection().getControl();
+		   int level =EngBLPermissions.getPermission(c.getClass().getName());
+		 			System.out.println(level);
 					if(level==3)
 					{
 						toolNew.setEnabled(true);
@@ -1054,6 +1056,13 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 						toolSearch.setEnabled(false);
 				
 					}
+		    }
+		 else{
+		 	toolNew.setEnabled(false);
+			toolSave.setEnabled(false);
+			toolDelete.setEnabled(false);
+			toolSearch.setEnabled(false);  
+		}
 		if(tabfldMain.getSelection().getControl() instanceof SearchComposite){
 			
 			toolExportToExcel.setEnabled(true);
