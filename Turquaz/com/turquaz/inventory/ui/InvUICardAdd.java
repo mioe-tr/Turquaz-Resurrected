@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.115 2005/03/30 09:21:46 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.116 2005/03/30 11:23:35 onsel Exp $
  */
 import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.CellEditor;
@@ -1222,7 +1222,7 @@ public class InvUICardAdd extends Composite implements SecureComposite
 				txtInvCardCode.setFocus();
 				return false;
 			}
-			else if (save && EngTXCommon.doSingleTX(EngBLInventoryCards.class.getName(),"getInvCard",new Object[]{txtInvCardCode.getText().trim()}) != null)
+			else if (save && EngBLInventoryCards.getInvCard(txtInvCardCode.getText().trim()) != null)
 			{
 				msg.setMessage(Messages.getString("InvUICardAdd.2")); //$NON-NLS-1$
 				msg.open();
@@ -1263,14 +1263,13 @@ public class InvUICardAdd extends Composite implements SecureComposite
 			try
 			{
 				// Save inventory card
-				Object[] argList=new Object[]{txtInvCardCode.getText().trim(), txtInvCardName.getText().trim(),
+				InvBLCardAdd.saveInventoryCard(txtInvCardCode.getText().trim(), txtInvCardName.getText().trim(),
 						txtInvCardDefinition.getText().trim(), txtnumInvCardMin.getIntegerValue(), txtnumInvCardMax.getIntegerValue(), txtInvCardVat.getIntegerValue()
 						, txtInvCardDiscount.getIntegerValue(), numTextSpecailVATPercent.getIntegerValue(),
 						decTextSpecialVatAmount.getBigDecimalValue(), new Boolean(radioSpecialVatAmount.getSelection()), compInvCardGroups
 								.getRegisteredGroups(),//invGroups
 						getInvUnits(), //invUnits
-						getInvPrices(), getInvAccounts()};
-				EngTXCommon.doTransactionTX(InvBLCardAdd.class.getName(),"saveInventoryCard",argList);
+						getInvPrices(), getInvAccounts());
 				txtInvCardCode.asistant.refreshContentAssistant(1);
 				EngTXCommon.doSingleTX(EngBLInventoryCards.class.getName(),"RefreshContentAsistantMap",null);
 				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);

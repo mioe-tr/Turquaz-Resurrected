@@ -17,12 +17,10 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.46 2005/03/29 18:52:00 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.47 2005/03/30 11:23:35 onsel Exp $
  */
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -305,8 +303,8 @@ public class InvBLCardAdd
 	}
 
 	public static void saveInventoryCard(String invCode, String cardName, String cardDefinition, Integer minAmount, Integer maxAmount,
-			Integer cardVat, Integer discount, Integer cardSpecialVat, BigDecimal cardSpecialVatEach, Boolean isSpecAmount, HashMap invGroups,
-			ArrayList invCardUnits, ArrayList invPrices, ArrayList invAccounts) throws Exception
+			Integer cardVat, Integer discount, Integer cardSpecialVat, BigDecimal cardSpecialVatEach, Boolean isSpecAmount, Map invGroups,
+			List invCardUnits, List invPrices, List invAccounts) throws Exception
 	{
 		try
 		{
