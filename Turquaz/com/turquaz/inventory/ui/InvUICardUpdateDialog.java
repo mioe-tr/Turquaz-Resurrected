@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.33 2004/12/17 20:17:15 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.34 2004/12/27 09:55:45 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -517,13 +517,20 @@ public class InvUICardUpdateDialog extends Dialog{
     // Update Inventory Card Fields
    TurqAccountingAccount accountIdSell = (TurqAccountingAccount) compInvUICard.getTxtInvCardOutAcc().getData();
    TurqAccountingAccount accountIdBuy = (TurqAccountingAccount) compInvUICard.getTxtInvCardInAcc().getData();
-       
+   TurqAccountingAccount accountIdVAt = (TurqAccountingAccount) compInvUICard.getAccountPickerVAT().getData();
+	TurqAccountingAccount accountIdSpecialVAT = (TurqAccountingAccount) compInvUICard.getAccountPickerSpecVAT().getData();
+	
+	TurqAccountingAccount accountIdVAtSell = (TurqAccountingAccount) compInvUICard.getAccountPickerVATSell().getData();
+	TurqAccountingAccount accountIdSpecialVATSell = (TurqAccountingAccount) compInvUICard.getAccountPickerSpecVatSell().getData();
+	  
     cardUpdate.updateInvCard(compInvUICard.getTxtInvCardCode().getText()
 						.trim(), compInvUICard.getTxtInvCardName().getText().trim(), compInvUICard.getTxtInvCardDefinition().getText().trim(),
 						 compInvUICard.getTxtnumInvCardMin().getIntValue(),compInvUICard.getTxtnumInvCardMax().getIntValue(),
 						compInvUICard.getTxtInvCardVat().getIntValue(), compInvUICard.getTxtInvCardDiscount().getIntValue(), accountIdBuy, accountIdSell,
 						compInvUICard.getNumTextSpecailVATPercent().getIntValue()
-						,compInvUICard.getDecTextSpecialVatAmount().getBigDecimalValue(),invCard);	
+						,compInvUICard.getDecTextSpecialVatAmount().getBigDecimalValue(),invCard,
+						accountIdVAt,accountIdSpecialVAT,
+						accountIdVAtSell,accountIdSpecialVATSell);	
 	
 	 //Update Inventory Groups			
 	updateInvUnits();
