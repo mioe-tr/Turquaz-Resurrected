@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.121 2005/02/08 19:22:29 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.122 2005/02/09 17:45:01 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -93,7 +93,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.121 2005/02/08 19:22:29 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.122 2005/02/09 17:45:01 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -827,6 +827,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
             {
                 tabfldMain = new CTabFolder(compMainInRight, SWT.CLOSE | SWT.BORDER);
                 GridData tabfldMainLData = new GridData();
+                tabfldMain.setSimple(false);
                 tabfldMainLData.verticalAlignment = GridData.FILL;
                 tabfldMainLData.horizontalAlignment = GridData.FILL;
                 tabfldMainLData.grabExcessVerticalSpace = true;

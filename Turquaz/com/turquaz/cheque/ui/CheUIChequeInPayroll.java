@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayroll.java,v 1.10 2005/01/30 19:30:38 onsel Exp $
+* @version  $Id: CheUIChequeInPayroll.java,v 1.11 2005/02/09 17:45:00 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -284,7 +284,7 @@ public class CheUIChequeInPayroll extends org.eclipse.swt.widgets.Composite impl
             
         }
         
-        CheBLSaveChequeTransaction.saveChequeRoll((TurqCurrentCard)currentPicker.getData(),null,txtRollNo.getText().trim(),datePicker1.getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_IN,btnSumTotals.getSelection());
+        CheBLSaveChequeTransaction.saveChequeRoll(null,(TurqCurrentCard)currentPicker.getData(),null,txtRollNo.getText().trim(),datePicker1.getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_IN,btnSumTotals.getSelection());
         EngUICommon.showMessageBox(getShell(),Messages.getString("CheUIChequeInPayroll.13"),SWT.ICON_INFORMATION); //$NON-NLS-1$
         newForm();
         }

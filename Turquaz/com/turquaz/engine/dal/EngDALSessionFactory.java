@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.37 2005/02/09 10:04:13 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.38 2005/02/09 17:45:00 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -40,6 +40,7 @@ import net.sf.hibernate.cfg.Configuration;
 public class EngDALSessionFactory {
 	static EngDALSessionFactory _instance;
 	public SessionFactory factory;
+	public Session session;
 	
 	/**
 	 * Default Constructor
@@ -95,6 +96,7 @@ public class EngDALSessionFactory {
 		cfg.addProperties(props);
 		
 		factory = cfg.buildSessionFactory();
+		session = factory.openSession();
 		
 		}
 		catch(Exception ex){
@@ -127,8 +129,11 @@ public class EngDALSessionFactory {
 			_instance = new EngDALSessionFactory();
 
 		}
-
-		return _instance.factory.openSession();
+        if(!_instance.session.isOpen())
+        {
+		_instance.session = _instance.factory.openSession();
+        }
+        return _instance.session;
 		}
 		catch(Exception ex){
 			throw ex;

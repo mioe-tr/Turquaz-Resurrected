@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.33 2005/02/07 11:59:07 cemdayanik Exp $
+* @version  $Id: EngBLCommon.java,v 1.34 2005/02/09 17:45:01 onsel Exp $
 */
 import java.util.List;
 
@@ -97,6 +97,8 @@ public class EngBLCommon {
     public final static int BANK_TRANS_OTHER_DEPOSIT =6; // Diger Borc Hareketi
     
     public final static int BANK_TRANS_BETWEEN_BANKS = 7; //Virman
+    
+    public final static int BANK_TRANS_CHEQUE_DEPOSIT = 8; //Banka Cek girisi
     
     
     
