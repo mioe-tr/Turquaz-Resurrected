@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.76 2005/02/04 17:44:29 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.77 2005/02/04 19:00:13 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -63,6 +63,7 @@ import com.turquaz.bank.ui.BankUITransferBetweenAccounts;
 import com.turquaz.bill.ui.BillUIAddBuyBill;
 import com.turquaz.bill.ui.BillUIAddSellBill;
 import com.turquaz.bill.ui.BillUIBillFromConsignment;
+import com.turquaz.bill.ui.BillUIBillReport;
 import com.turquaz.bill.ui.BillUIBillSearch;
 import com.turquaz.cash.ui.CashUICashCardAbstract;
 import com.turquaz.cash.ui.CashUICashCardAdd;
@@ -506,7 +507,17 @@ public final class TreeFactory {
 			item.setText(Messages.getString("TreeFactory.42"));  //$NON-NLS-1$
 			item.setData(BillUIAddSellBill.class.getName());
 			}
+		TreeItem reports=new TreeItem(root,SWT.NULL);
+		reports.setText(Messages.getString("TreeFactory.77")); //$NON-NLS-1$
+		
+		if(EngBLPermissions.getPermission(BillUIBillReport.class.getName())>0){
+			item = new TreeItem(reports,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.78")); //$NON-NLS-1$
+			item.setData(BillUIBillReport.class.getName());
+			}
+		
 		root.setExpanded(true);
+		reports.setExpanded(true);
 		return tree;
 		
 	}
