@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.8 2004/11/04 13:16:30 ehad Exp $
+* @version  $Id: AccountPicker.java,v 1.9 2004/11/05 14:18:16 onsel Exp $
 */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 
+import com.turquaz.accounting.ui.AccUISearchAccountsDialog;
 import com.turquaz.accounting.ui.AccUIStaticAccountsDialog;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 

@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.7 2004/10/28 09:48:24 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.8 2004/11/05 14:18:16 onsel Exp $
 */
 
 
@@ -61,7 +61,7 @@ public class AccDALAccountAdd {
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
 					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+" and" +
-							" accounts.turqAccountingAccount.accountingAccountsId ="+parentid+"" +
+							" accounts.turqAccountingAccountByParentAccount.accountingAccountsId ="+parentid+"" +
 							" and accounts.accountCode like '"+codeCriteria+"%'" +
 							" and accounts.accountingAccountsId <> -1" +
 							" order by accounts.accountCode";   

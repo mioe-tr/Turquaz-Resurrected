@@ -23,7 +23,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIStaticAccountsTree.java,v 1.3 2004/11/04 13:16:30 ehad Exp $
+* @version  $Id: AccUIStaticAccountsTree.java,v 1.4 2004/11/05 14:18:16 onsel Exp $
 */
 
 import java.util.HashMap;
@@ -61,7 +61,7 @@ public class AccUIStaticAccountsTree {
 		
 		for(int i=0;i<accountsList.size();i++){
 		account = (TurqAccountingAccount)accountsList.get(i);
-		parentId = account.getTurqAccountingAccount().getAccountingAccountsId();
+		parentId = account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId();
 		
 		if(parentId.intValue()==-1){
 		item = new TreeItem(tree,SWT.NULL);

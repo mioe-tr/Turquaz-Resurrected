@@ -24,7 +24,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.4 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.5 2004/11/05 14:18:16 onsel Exp $
 */
 
 import java.util.List;
@@ -78,7 +78,9 @@ public class EngBLAccountingAccounts {
 			_instance = new EngBLAccountingAccounts();
 
 		}
-
+        //Not really static 
+		_instance.fillAccountList();
+		 
 		return _instance.accountList;
 		}
 		catch(Exception ex){
