@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.28 2005/01/02 13:42:07 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.29 2005/01/03 00:00:04 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -487,8 +487,8 @@ public class BillUIAddBuyBill extends Composite
                                 GridData txtCurrentCardLData = new GridData();
                                
                                 txtCurrentCard.setBackground(SWTResourceManager.getColor(255,255,255));
-                                txtCurrentCardLData.widthHint = 114;
-                                txtCurrentCardLData.heightHint = 14;
+                                txtCurrentCardLData.widthHint = 219;
+                                txtCurrentCardLData.heightHint = 15;
                                 txtCurrentCard.setLayoutData(txtCurrentCardLData);
                             }
                             {
