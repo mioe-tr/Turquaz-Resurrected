@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.3 2005/02/09 17:45:00 onsel Exp $
+* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.4 2005/02/11 14:58:32 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -325,6 +325,42 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
     }
     
     
+	/**
+	 * @return Returns the btnSumTotals.
+	 */
+	public Button getBtnSumTotals() {
+		return btnSumTotals;
+	}
+	/**
+	 * @param btnSumTotals The btnSumTotals to set.
+	 */
+	public void setBtnSumTotals(Button btnSumTotals) {
+		this.btnSumTotals = btnSumTotals;
+	}
+	/**
+	 * @return Returns the toolItemAdd.
+	 */
+	public ToolItem getToolItemAdd() {
+		return toolItemAdd;
+	}
+	/**
+	 * @param toolItemAdd The toolItemAdd to set.
+	 */
+	public void setToolItemAdd(ToolItem toolItemAdd) {
+		this.toolItemAdd = toolItemAdd;
+	}
+	/**
+	 * @return Returns the toolItemDelete.
+	 */
+	public ToolItem getToolItemDelete() {
+		return toolItemDelete;
+	}
+	/**
+	 * @param toolItemDelete The toolItemDelete to set.
+	 */
+	public void setToolItemDelete(ToolItem toolItemDelete) {
+		this.toolItemDelete = toolItemDelete;
+	}
     public BankCardPicker getBankCardPicker() {
         return bankCardPicker;
     }

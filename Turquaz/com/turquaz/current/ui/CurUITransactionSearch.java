@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.30 2005/02/11 07:50:29 onsel Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.31 2005/02/11 14:58:33 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -374,7 +374,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	}
 	item = new TableItem(tableCurrentTransactions,SWT.NULL);
 	item = new TableItem(tableCurrentTransactions,SWT.NULL);
-	item.setText(new String[]{"","","","","---TOPLAM---",cf.format(totalDept),cf.format(totalCredit)});
+	item.setText(new String[]{"","","","","","---TOPLAM---",cf.format(totalDept),cf.format(totalCredit)});
 	
 	
      	

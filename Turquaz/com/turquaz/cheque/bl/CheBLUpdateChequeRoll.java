@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.7 2005/02/11 14:04:43 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.8 2005/02/11 14:58:33 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -58,6 +58,7 @@ public class CheBLUpdateChequeRoll {
            
                    
            emptyCheckRollIn(chequeRoll);
+           
            chequeRoll.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
            chequeRoll.setLastModified(Calendar.getInstance().getTime());
            
@@ -97,12 +98,20 @@ public class CheBLUpdateChequeRoll {
                //save current transaction...
                if(curCard!=null&&!sumTransTotal)
                {
-                   blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                  
+                   if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
+                    blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                }
+                else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
+                	 blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,cheque.getChequesAmount(),new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Portföy No:"+cheque.getChequesPortfolioNo() );
+                }
+               
+               
                }
                if(bankCard!=null&&!sumTransTotal)
                {
                 
-               BankBLTransactionAdd.saveChequeTransaction(bankCard,chequeRoll.getTurqEngineSequence(),cheque.getChequesAmount(),rollDate,"Çek No:"+cheque.getChequesNo(),rollNo);
+               BankBLTransactionAdd.saveChequeTransaction(bankCard,chequeRoll.getTurqEngineSequence(),cheque.getChequesAmount(),rollDate,"Çek Portfoy No:"+cheque.getChequesPortfolioNo(),rollNo);
                
                }
                totalAmount = totalAmount.add(cheque.getChequesAmount());
@@ -112,8 +121,13 @@ public class CheBLUpdateChequeRoll {
            } 
            if(curCard!=null&&sumTransTotal)
            {
-               blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
-               
+              
+               if(rollType == EngBLCommon.CHEQUE_TRANS_IN){
+                blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,true,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+              }
+              else if(rollType == EngBLCommon.CHEQUE_TRANS_OUT_CURRENT){
+              	blCurrent.saveCurrentTransaction(curCard,rollDate,rollNo,false,totalAmount,new BigDecimal(0),EngBLCommon.CURRENT_TRANS_CHEQUE,chequeRoll.getTurqEngineSequence().getEngineSequencesId(),"Çek Bordro No:"+chequeRoll.getChequeRollNo());
+              }
            }
            if(bankCard!=null&&sumTransTotal)
            {
