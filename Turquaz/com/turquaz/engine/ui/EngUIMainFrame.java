@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.53 2004/11/05 11:00:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.54 2004/11/05 11:02:45 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -80,10 +80,10 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.53 2004/11/05 11:00:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.54 2004/11/05 11:02:45 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
-import org.eclipse.swt.custom.CTabFolderAdapter;
+
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
@@ -208,7 +208,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			toolSave = new ToolItem(toolbarMainTop,SWT.PUSH);
 			toolDelete = new ToolItem(toolbarMainTop,SWT.PUSH);
 			toolSearch = new ToolItem(toolbarMainTop,SWT.PUSH);
-			tabfldMain = new CTabFolder(compMainInRight,SWT.BORDER);
+			tabfldMain = new CTabFolder(compMainInRight, SWT.CLOSE | SWT.BORDER);
 	
 			this.setSize(new org.eclipse.swt.graphics.Point(800,600));
 			this.addPaintListener( new PaintListener() {
@@ -595,11 +595,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			coolbarRightTop.setLayout(null);
 	
 			GridData tabfldMainLData = new GridData();
-			tabfldMain.addCTabFolderListener(new CTabFolderAdapter() {
-				public void itemClosed(CTabFolderEvent evt) {
-
-				}
-			});
+			
 			tabfldMainLData.verticalAlignment = GridData.FILL;
 			tabfldMainLData.horizontalAlignment = GridData.FILL;
 			tabfldMainLData.widthHint = -1;
@@ -612,6 +608,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			tabfldMain.setLayoutData(tabfldMainLData);
 			tabfldMain.setSize(new org.eclipse.swt.graphics.Point(381,511));
 			tabfldMain.addCTabFolder2Listener(new CTabFolder2Adapter() {
+				public void close(CTabFolderEvent evt) {
+					tabfldMainItemClosed(evt);
+				}
 				public void itemClosed(CTabFolderEvent evt) {
 					tabfldMainItemClosed(evt);
 				}
