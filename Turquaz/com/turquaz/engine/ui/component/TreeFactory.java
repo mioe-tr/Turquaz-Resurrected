@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.16 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.17 2004/11/05 13:29:32 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -31,6 +31,7 @@ import com.turquaz.accounting.ui.AccUITransactionAdd;
 import com.turquaz.accounting.ui.AccUITransactionCollect;
 import com.turquaz.accounting.ui.AccUITransactionPayment;
 import com.turquaz.accounting.ui.AccUITransactionSearch;
+import com.turquaz.accounting.ui.reports.AccUIAccountingBalance;
 import com.turquaz.accounting.ui.reports.AccUIAccountingJournal;
 import com.turquaz.admin.ui.AdmUIGroupAdd;
 import com.turquaz.admin.ui.AdmUIGroupPermissions;
@@ -121,7 +122,9 @@ public final class TreeFactory {
 		item = new TreeItem(report,SWT.NULL);
 		item.setText("Yevmiye Defteri");
 		item.setData(AccUIAccountingJournal.class.getName());
-	
+		item = new TreeItem(report,SWT.NULL);
+		item.setText("Mizan");
+		item.setData(AccUIAccountingBalance.class.getName());
 		
 		
 		return tree;
