@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.40 2005/02/19 20:13:45 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.41 2005/02/21 10:10:43 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -60,6 +60,9 @@ public class EngBLCommon {
     public final static int CASH_OTHER_COLLECT = 2; //Kasa Diger Tahsilat
     
     public final static int CASH_OTHER_PAYMENT = 3; // Kasa Diger Ödeme
+    
+    public final static int CASH_TRANSFER_BETWEEN_CARDS = 4; // Virman
+    
     
     
     
