@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.4 2004/09/27 16:47:47 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.5 2004/10/02 16:24:45 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -48,10 +48,12 @@ import org.eclipse.swt.widgets.Text;
 
 public class DecimalText extends Composite {
  private Text text;
+ public int textLimit;
 
  public DecimalText(Composite arg0, int arg1) {
   super(arg0, SWT.NONE);
   text = new Text(this, arg1);
+  textLimit =20;
   text.setTextLimit(20);
 
   addListener(SWT.Resize, new Listener() {
@@ -72,6 +74,13 @@ public class DecimalText extends Composite {
 	}
 });
 
+ }
+ public void setTextLimit(int a){
+ 	textLimit = a;
+ 	text.setTextLimit(a);
+ }
+ public int getTextLimit(){
+ 	return textLimit;
  }
  protected void text3VerifyText(VerifyEvent e){
  	char decimalSymbol =',';

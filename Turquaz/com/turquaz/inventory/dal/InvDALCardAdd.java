@@ -16,7 +16,7 @@
 
 /**
  * @author onsel
- * @version $Id: InvDALCardAdd.java,v 1.2 2004/09/27 16:47:47 onsel Exp $
+ * @version $Id: InvDALCardAdd.java,v 1.3 2004/10/02 16:24:45 onsel Exp $
  */
 
 package com.turquaz.inventory.dal;
@@ -38,7 +38,6 @@ public class InvDALCardAdd {
 	public InvDALCardAdd()
 	{
 			
-		
 	}
 	
 	public List getInventoryGroups()throws Exception{
