@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.4 2005/02/18 15:53:22 cemdayanik Exp $
+* @version  $Id: CheUIOwnChequeAddDialog.java,v 1.5 2005/02/19 13:24:39 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -102,9 +102,8 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog {
 			dialogShell.setLayout(dialogShellLayout);
 			dialogShellLayout.numColumns = 2;
 			dialogShell.layout();
-			dialogShell.setText(Messages.getString("CheUICustomerChequeAddDialog.3")); //$NON-NLS-1$
+			dialogShell.setText(Messages.getString("CheUIOwnChequeAddDialog.5")); //$NON-NLS-1$
 			dialogShell.pack();
-			dialogShell.setText(Messages.getString("CheUICustomerChequeAddDialog.1")); //$NON-NLS-1$
 			dialogShell.setSize(507, 303);
             {
                 toolBar1 = new ToolBar(dialogShell, SWT.NONE);
