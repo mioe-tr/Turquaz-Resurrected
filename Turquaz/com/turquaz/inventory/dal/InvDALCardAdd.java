@@ -20,7 +20,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardAdd.java,v 1.13 2005/01/11 18:33:41 onsel Exp $
+* @version  $Id: InvDALCardAdd.java,v 1.14 2005/02/04 13:06:36 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -48,7 +48,7 @@ public class InvDALCardAdd {
 			
 	}
 
-	public void saveOrUpdateInvCard(TurqInventoryCard invCard)throws Exception{
+	public static void saveOrUpdateInvCard(TurqInventoryCard invCard)throws Exception{
 		try{
 		Session session = EngDALSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();

@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.24 2005/01/10 21:04:10 cemdayanik Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.25 2005/02/04 13:06:35 cemdayanik Exp $
 */
 
 
@@ -212,7 +212,7 @@ public class InvBLCardAdd {
             card.setTurqAccountingAccountByAccountingAccountsIdSpecialVatSell(accountSpecialVATSell);
             card.setTurqAccountingAccountByAccountingAccountsIdVatSell(accountVATSell);
             card.setSpecVatForEach(isSpecAmount);
-			cardAdd.saveOrUpdateInvCard(card);
+            InvDALCardAdd.saveOrUpdateInvCard(card);
 
 			return card.getInventoryCardsId();
 

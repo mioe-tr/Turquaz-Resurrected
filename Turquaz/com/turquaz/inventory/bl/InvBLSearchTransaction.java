@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: InvBLSearchTransaction.java,v 1.3 2004/12/20 18:27:57 huseyiner Exp $
+* @version  $Id: InvBLSearchTransaction.java,v 1.4 2005/02/04 13:06:35 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -30,6 +30,7 @@ import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqInventoryCard;
+import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.inventory.dal.InvDALSearchTransaction;
 
 public class InvBLSearchTransaction {
@@ -43,6 +44,21 @@ public class InvBLSearchTransaction {
 		try{
 			
 			return dalSearch.searchTransactions(card,invCard,startDate,endDate,type);
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
+	
+	public List searchTransactionsAdvanced(String invCardCode, String invCardName, 
+			TurqCurrentCard curCardStart, TurqCurrentCard curCardEnd, 
+			Date startDate,Date endDate, int type, TurqInventoryGroup invGroup)throws Exception{
+		try{
+			
+			return dalSearch.searchTransactionsAdvanced(invCardCode,invCardName,curCardStart,curCardEnd,
+					startDate,endDate,type,invGroup);
 			
 		}
 		catch(Exception ex){
