@@ -19,27 +19,28 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.32 2005/02/07 11:30:51 cemdayanik Exp $
+* @version  $Id: EngBLCommon.java,v 1.33 2005/02/07 11:59:07 cemdayanik Exp $
 */
 import java.util.List;
 
+import com.turquaz.engine.Messages;
 import com.turquaz.engine.dal.EngDALCommon;
 
 
 public class EngBLCommon {
 	
-	public final static Integer COMMON_BUY_INT=new Integer(0);
+	public final static int COMMON_BUY_INT=0;
 	
-	public final static Integer COMMON_SELL_INT=new Integer(1);
+	public final static int COMMON_SELL_INT=1;
 	
-	public final static Integer COMMON_ALL_INT=new Integer(2);
+	public final static int COMMON_ALL_INT=2;
 	
 	
-	public final static String COMMON_BUY_STRING="Al??";
+	public final static String COMMON_BUY_STRING=Messages.getString("EngBLCommon.0"); //$NON-NLS-1$
 	
-	public final static String COMMON_SELL_STRING="Sat??";
+	public final static String COMMON_SELL_STRING=Messages.getString("EngBLCommon.1"); //$NON-NLS-1$
 	
-	public final static String COMMON_ALL_STRING="Hepsi";
+	public final static String COMMON_ALL_STRING=Messages.getString("EngBLCommon.2"); //$NON-NLS-1$
 	
 	
 	

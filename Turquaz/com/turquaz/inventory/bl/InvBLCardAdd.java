@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.28 2005/02/07 10:40:30 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.29 2005/02/07 11:59:07 cemdayanik Exp $
 */
 
 
@@ -26,8 +26,6 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
-
-import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryCard;
