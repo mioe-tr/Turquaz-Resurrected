@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.6 2005/01/31 18:39:02 onsel Exp $
+* @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.7 2005/02/04 13:00:31 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -157,7 +157,6 @@ public class BankUIMoneyTransferOutUpdate extends org.eclipse.swt.widgets.Dialog
 	    
 	   compMoneyTransferIn.getTxtDocNo().setText(transBill.getTransactionBillNo());
 	   compMoneyTransferIn.getTxtDefinition().setText(transBill.getTransactionBillDefinition());
-	   compMoneyTransferIn.getTxtBankCard().setText(transBill.getTurqBanksCard().getBankCode());
 	   compMoneyTransferIn.getDatePick().setDate(transBill.getTransactionBillDate());
 	  
 	   Iterator it = transBill.getTurqBanksTransactions().iterator();
@@ -165,8 +164,9 @@ public class BankUIMoneyTransferOutUpdate extends org.eclipse.swt.widgets.Dialog
 	   if(it.hasNext())
 	   {
 	       TurqBanksTransaction bankTrans = (TurqBanksTransaction)it.next();
-	      
-	       compMoneyTransferIn.getCurAmount().setText(bankTrans.getCreditAmount());
+	     
+	       compMoneyTransferIn.getTxtBankCard().setText(bankTrans.getTurqBanksCard().getBankCode());
+	 	   compMoneyTransferIn.getCurAmount().setText(bankTrans.getCreditAmount());
 	       if(bankTrans.getCreditAmount().compareTo(bankTrans.getDeptAmount())<1)
 	       {
 	           compMoneyTransferIn.getCurAmount().setText(bankTrans.getDeptAmount());          
