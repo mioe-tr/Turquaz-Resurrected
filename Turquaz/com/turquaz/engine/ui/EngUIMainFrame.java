@@ -14,7 +14,7 @@ import org.eclipse.swt.SWT;
 
 /**
 * @author  Onsel Armagan
-* @version  $id$
+* @version  $Id: EngUIMainFrame.java,v 1.4 2004/08/25 07:46:41 onsel Exp $
 */
 public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	private MenuItem aboutMenuItem;
