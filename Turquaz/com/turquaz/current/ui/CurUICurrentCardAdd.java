@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.33 2004/11/29 19:04:43 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.34 2004/12/01 09:24:48 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -49,7 +49,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Table;
-import com.turquaz.accounting.ui.comp.DynamicAccountPicker;
 import org.eclipse.swt.widgets.Composite;
 
 
