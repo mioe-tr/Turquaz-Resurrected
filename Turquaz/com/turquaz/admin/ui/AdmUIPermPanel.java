@@ -42,7 +42,7 @@ import org.eclipse.swt.SWT;
  * 
  * @author onsel
  *
- *@version $Id: AdmUIPermPanel.java,v 1.3 2004/09/22 07:23:39 onsel Exp $
+ *@version $Id: AdmUIPermPanel.java,v 1.4 2004/09/23 10:18:01 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -142,7 +142,7 @@ public class AdmUIPermPanel extends org.eclipse.swt.widgets.Composite {
 	
 			tableTreeItem2.setText("Stok");
 	
-			tableTreeItem3.setText("Stok Kartý ");
+			tableTreeItem3.setText("Stok Kart? ");
 	
 			tableTreeItem4.setText("Okuma");
 	
