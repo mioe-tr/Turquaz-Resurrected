@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.21 2004/11/25 09:41:37 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.22 2004/11/25 14:46:30 cemdayanik Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,9 +56,11 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 
+import com.turquaz.accounting.ui.reports.AccUIAccountingBalance;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.DatabaseThread;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
@@ -276,6 +278,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			    	props.remove("password"); //$NON-NLS-1$
 			    	props.put("remember_password","false"); //$NON-NLS-1$ //$NON-NLS-2$
 			    }
+		
 			   
 			    input.close();
 			    

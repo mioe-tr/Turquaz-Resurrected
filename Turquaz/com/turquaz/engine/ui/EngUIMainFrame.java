@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.71 2004/11/25 14:33:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.72 2004/11/25 14:46:30 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -87,7 +87,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.71 2004/11/25 14:33:12 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.72 2004/11/25 14:46:30 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -935,6 +935,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			shell.setSize(shellBounds.width, shellBounds.height);
 			shell.addListener(SWT.Close, new Listener() {
 		public void handleEvent(Event e) {
+			
 			saveFavoritesTree();
 			if(EngConfiguration.getString("serverAddress").equals("localhost")){
 			EngDALConnection connection = new EngDALConnection();
