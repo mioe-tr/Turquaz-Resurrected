@@ -1,6 +1,5 @@
 package com.turquaz.engine.bl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
@@ -24,14 +23,12 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.3 2004/12/08 20:07:35 cemdayanik Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.4 2005/01/02 17:17:10 onsel Exp $
  */
 
 public class EngBLCurrentCards {
 
 	public List currentList;
-
-	public HashMap cardMap = new HashMap();
 
 	static EngBLCurrentCards _instance;
 
@@ -47,15 +44,9 @@ public class EngBLCurrentCards {
 
 	public void fillCurrentCards() throws Exception {
 		try {
-			currentList = blCurrentCards.searchCurrentCard("", "", null);
-			cardMap.clear();
-
-			TurqCurrentCard currentCard;
-			for (int i = 0; i < currentList.size(); i++) {
-				currentCard = (TurqCurrentCard)((Object[]) currentList.get(i))[1];
-				cardMap.put(currentCard.getCardsCurrentCode(), currentCard);
-
-			}
+		    
+			currentList = blCurrentCards.getCurrentCards();
+			
 		} catch (Exception ex) {
 			throw ex;
 		}
@@ -89,13 +80,24 @@ public class EngBLCurrentCards {
 
 			}
 
-			return (TurqCurrentCard) _instance.cardMap.get(currentCode);
+			return (TurqCurrentCard) _instance.getCurrentCard(currentCode);
 
 		}
 		catch (Exception ex) 
 		{
 			throw ex;
 		}
+	}
+	
+	public TurqCurrentCard getCurrentCard(String currentCode)throws Exception {
+	 try{
+	     
+	     return blCurrentCards.getCurrentCard(currentCode);
+	 }
+	 catch(Exception ex){
+	     throw ex;
+	 }
+	    
 	}
 	public static void RefreshContentAsistantMap()throws Exception
 	{

@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardSearch.java,v 1.4 2004/12/29 21:18:35 cemdayanik Exp $
+* @version  $Id: CurBLCurrentCardSearch.java,v 1.5 2005/01/02 17:17:10 onsel Exp $
 */
 import java.util.List;
 
@@ -57,6 +57,27 @@ public class CurBLCurrentCardSearch {
 			throw ex;
 		}
 	}	
+	
+	public List getCurrentCards()throws Exception {
+	    try{
+	        
+	        return curDALCurrentCardSearch.getCurrentCards();
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	}
+	public TurqCurrentCard getCurrentCard(String cardCode)throws Exception{
+	    try{
+	        return curDALCurrentCardSearch.getCurrentCard(cardCode);
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	}
 	
 
 }
