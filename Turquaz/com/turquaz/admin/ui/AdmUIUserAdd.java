@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.6 2004/11/04 13:35:28 onsel Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.7 2004/11/04 14:22:05 onsel Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +26,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.graphics.Point;
@@ -242,6 +243,22 @@ public class AdmUIUserAdd extends Composite implements SecureComposite {
 	}
 	
 	public boolean verifyFields(){
+		
+		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
+		if(txtUsername.getText().trim().length()==0){
+			msg.setMessage("Please Enter an Username");
+			msg.open();
+			return false;
+			
+		}
+		else if(!txtPassword.getText().equals(txtRePassword.getText())){
+		msg.setMessage("Passwords should be same!..");
+		msg.open();
+		 return false;			
+		}
+		
+		
+		
 		return true;
 	}
 	

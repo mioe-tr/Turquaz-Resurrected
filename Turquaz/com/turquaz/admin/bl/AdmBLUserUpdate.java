@@ -23,7 +23,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserUpdate.java,v 1.2 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmBLUserUpdate.java,v 1.3 2004/11/04 14:22:05 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -66,5 +66,17 @@ public class AdmBLUserUpdate {
 	}
 	
 	}
+	public void deleteObject(Object obj)throws Exception{
+		try{
+		
+			dalAdmin.deleteObject(obj);
+			
+				
+		}
+		catch(Exception ex){
+				throw ex;
+		}
+		
+		}
 
 }

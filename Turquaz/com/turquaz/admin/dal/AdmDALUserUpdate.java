@@ -23,7 +23,7 @@ package com.turquaz.admin.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmDALUserUpdate.java,v 1.2 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmDALUserUpdate.java,v 1.3 2004/11/04 14:22:05 onsel Exp $
 */
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
@@ -59,5 +59,23 @@ public class AdmDALUserUpdate {
 		
 		}
 	}
-
+	public void deleteObject(Object obj)throws Exception {
+		try{
+				
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			
+			session.delete(obj);
+			session.flush();
+			tx.commit();
+			session.close();
+				
+				
+		}
+		catch(Exception ex){
+		
+			throw ex; 
+		
+		}
+	}
 }

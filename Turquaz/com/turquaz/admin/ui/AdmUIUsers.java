@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUsers.java,v 1.3 2004/11/04 13:35:28 onsel Exp $
+* @version  $Id: AdmUIUsers.java,v 1.4 2004/11/04 14:22:05 onsel Exp $
 */
 import java.util.List;
 
@@ -185,7 +185,7 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 	TableItem items[] = tableUsers.getSelection();
 	if(items.length>0){
 	new AdmUIUserUpdateDialog(this.getShell(),SWT.NULL,(TurqUser)items[0].getData()).open();	
-	
+	fillTable();
 	
 	}
 		
