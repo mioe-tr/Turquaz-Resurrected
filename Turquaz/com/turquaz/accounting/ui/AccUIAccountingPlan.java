@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.38 2005/02/03 17:35:21 cemdayanik Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.39 2005/02/03 17:43:39 cemdayanik Exp $
 */
 
 
@@ -233,7 +233,20 @@ public void fillTree(int parent, String codeCrit){
 	parentId = account.getTurqAccountingAccountByParentAccount().getAccountingAccountsId();
 	
 	if(parentId.intValue()==-1){
-		item = new TableTreeItem(tableTreeAccountingPlan,SWT.NULL);
+		
+		TableTreeItem[] parentItems=tableTreeAccountingPlan.getItems();
+		String accId=account.getAccountCode();
+		int k;
+		for(k=0; k<parentItems.length; k++)
+		{
+			TableTreeItem pItem=parentItems[k];
+			if (pItem.getText(0).equals("HESAP PLANI"))
+				continue;
+			if (accId.compareTo(pItem.getText(0)) < 0)
+					break;
+		}
+		
+		item = new TableTreeItem(tableTreeAccountingPlan,SWT.NULL,k);
 		item.setText(0,account.getAccountCode());
 		item.setText(1,account.getAccountName());
 		
