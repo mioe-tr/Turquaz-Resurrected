@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.22 2004/12/20 16:43:01 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.23 2004/12/22 10:20:50 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -658,8 +658,8 @@ public class BillUIAddBill extends Composite
                                     SWT.NONE);
                                 lblWareHouse.setText(Messages.getString("BillUIAddBill.33")); //$NON-NLS-1$
                                 GridData lblWareHouseLData = new GridData();
-                                lblWareHouseLData.widthHint = 52;
-                                lblWareHouseLData.heightHint = 19;
+                                lblWareHouseLData.widthHint = 80;
+                                lblWareHouseLData.heightHint = 16;
                                 lblWareHouse.setLayoutData(lblWareHouseLData);
                             }
                             {

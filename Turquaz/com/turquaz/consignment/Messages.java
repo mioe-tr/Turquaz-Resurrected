@@ -19,7 +19,7 @@ package com.turquaz.consignment;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: Messages.java,v 1.5 2004/12/19 21:56:12 huseyiner Exp $
+* @version  $Id: Messages.java,v 1.6 2004/12/22 10:20:50 onsel Exp $
 */
 
 import java.util.Locale;
@@ -27,7 +27,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.consignment.messages";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.consignment.messages_tr_TR";//$NON-NLS-1$
 
 	private Messages() {
 	}

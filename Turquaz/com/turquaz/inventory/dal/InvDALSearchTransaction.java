@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.5 2004/12/20 18:27:57 huseyiner Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.6 2004/12/22 10:20:50 onsel Exp $
  */
 
 import java.util.Date;
@@ -29,7 +29,6 @@ import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
-import com.turquaz.consignment.dal.ConDALSearchConsignment;
 import com.turquaz.consignment.dal.ConDALUpdateConsignment;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
@@ -51,7 +50,7 @@ public class InvDALSearchTransaction {
 			Session session = EngDALSessionFactory.openSession();
   
                  			
-			String query = "Select distinct transaction from TurqInventoryTransaction as transaction," +
+			String query = "Select distinct transaction, consignment.consignmentsDate from TurqInventoryTransaction as transaction," +
 					 " TurqConsignment as consignment where" +
 					 " consignment.turqEngineSequence = transaction.turqEngineSequence "
 					+ " and consignment.consignmentsDate >= :startDate"
@@ -79,17 +78,8 @@ public class InvDALSearchTransaction {
 				q.setParameter("invCard", invCard);
 			}
 
-			List list = q.list();
 			
-			for (int i =0;i<list.size();i++){
-				
-			TurqInventoryTransaction invTrans = (TurqInventoryTransaction)list.get(i);
-			Hibernate.initialize(invTrans.getTurqEngineSequence().getTurqConsignments());
-			
-			
-			}
-			
-
+              List list = q.list();
 			session.close();
 			return list;
 
