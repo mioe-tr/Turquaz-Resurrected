@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.46 2005/03/17 15:02:10 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.47 2005/03/25 18:10:34 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -326,6 +326,9 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 	{
 		try
 		{
+			DatabaseThread thread = new DatabaseThread();
+			thread.start();
+			
 			FileInputStream input = new FileInputStream("config/turquaz.properties"); //$NON-NLS-1$
 			Properties props = new Properties();
 			props.load(input);

@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.42 2005/03/25 16:12:32 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.43 2005/03/25 18:10:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -296,6 +296,8 @@ public class InvBLCardAdd
 			invTrans.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			invTrans.setLastModified(cal.getTime());
 			invTrans.setCreationDate(cal.getTime());	
+			
+			invTrans.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
 			
 			EngDALCommon.saveObject(session,invTrans);
 			

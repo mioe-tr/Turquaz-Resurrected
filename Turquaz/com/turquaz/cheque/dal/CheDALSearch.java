@@ -17,7 +17,7 @@ package com.turquaz.cheque.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.29 2005/03/19 09:49:40 cemdayanik Exp $
+ * @version $Id: CheDALSearch.java,v 1.30 2005/03/25 18:10:34 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -120,9 +120,7 @@ public class CheDALSearch
 			String query = "Select cheque from TurqChequeCheque as cheque, TurqViewChequeStatus as chequeStatus, TurqCurrentCard currentCard "
 					+ "where cheque.id = chequeStatus.chequeChequesId "
 					+ " and currentCard.id =  chequeStatus.currentCardsId "
-					+ " and (chequeStatus.chequeTransactionTypesId ="
-					+ EngBLCommon.CHEQUE_TRANS_IN
-					+ " or chequeStatus.chequeTransactionTypesId =" + EngBLCommon.CHEQUE_TRANS_RETURN_FROM_BANK_TO_PORTFOY + ")";
+					+ " and chequeStatus.transactionTypesParent =" +EngBLCommon.CHEQUE_STATUS_PORTFOY;
 			Query q = session.createQuery(query);
 			List list = q.list();
 			session.close();
