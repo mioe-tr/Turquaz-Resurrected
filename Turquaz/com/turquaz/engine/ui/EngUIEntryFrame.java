@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.34 2004/12/20 16:57:00 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.35 2004/12/27 15:43:15 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -425,6 +425,9 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	comboLanguage.setData(Messages.getString("EngUIEntryFrame.19"),new Integer(2)); //$NON-NLS-1$
 
 	comboLanguage.setText(Messages.getString("EngUIEntryFrame.20")); //$NON-NLS-1$
+	
+	
+	
 	}
 	public Text getTxtPassword() {
 		return txtPassword;
