@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.8 2005/02/15 09:21:46 onsel Exp $
+* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.9 2005/02/17 10:35:59 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -244,9 +244,7 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog {
 	            {
 	                chequeList.add(compChequeRoll.getTableCheques().getItem(i).getData());
 	                
-	            }
-	            
-	           
+	            }   
 	           
 	            
 	           CheBLUpdateChequeRoll.updateChequeRollIn(chequeRoll,(TurqCurrentCard)compChequeRoll.getCurrentPicker().getData(),null,compChequeRoll.getTxtRollNo().getText().trim(),compChequeRoll.getDatePicker1().getDate(),chequeList,EngBLCommon.CHEQUE_TRANS_IN,compChequeRoll.getBtnSumTotals().getSelection());
