@@ -24,13 +24,14 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.12 2004/12/06 17:21:58 huseyiner Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.13 2004/12/09 21:35:05 onsel Exp $
 */
 import java.util.List;
 
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
+import net.sf.hibernate.Transaction;
 
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -53,8 +54,7 @@ public class InvDALCardSearch {
 				Session session = EngDALSessionFactory.openSession();
 				
 				String query = "Select invView, invCard from TurqViewInventoryAmountTotal as invView," +
-						" TurqInventoryCard as invCard" +
-						" left join fetch invCard.turqInventoryCardUnits" +
+						" TurqInventoryCard as invCard" +						
 						" where invCard.inventoryCardsId = invView.inventoryCardsId and " +
 						" lower(invCard.cardName) like '"+cardName.toLowerCase()+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
 							
@@ -71,16 +71,7 @@ public class InvDALCardSearch {
 				}
 			
 				List list = q.list();
-				
-				for (int i =0;i<list.size();i++){
-				
-				Object[] objs=(Object[])list.get(i);
-				TurqInventoryCard invCard = (TurqInventoryCard)objs[1];
-				Hibernate.initialize(invCard.getTurqInventoryCardGroups());
-				Hibernate.initialize(invCard.getTurqInventoryPrices());
-				
-				}	
-				
+			
 			    session.close();
 			
 				return list;	
@@ -90,6 +81,26 @@ public class InvDALCardSearch {
 				throw ex;
 			}
 					
+	}
+	public void initializeInventoryCard(TurqInventoryCard invCard )throws Exception{
+	    try{
+	        Session session = EngDALSessionFactory.openSession();
+	        Transaction tx = session.beginTransaction();
+	        
+	        session.refresh(invCard);
+	        Hibernate.initialize(invCard.getTurqInventoryCardGroups());
+			Hibernate.initialize(invCard.getTurqInventoryPrices());
+			Hibernate.initialize(invCard.getTurqInventoryCardUnits());
+	        
+	        
+	        tx.commit();
+	        session.flush();
+	        session.close();
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 	
 	

@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.97 2004/12/09 20:06:16 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.98 2004/12/09 21:35:05 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -79,6 +79,7 @@ import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.CoolItem;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.Messages;
+import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLXmlParser;
 import com.turquaz.engine.dal.EngDALConnection;
@@ -90,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.97 2004/12/09 20:06:16 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.98 2004/12/09 21:35:05 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -189,6 +190,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	public EngUIMainFrame(Composite parent, int style) {
 		super(parent, style);
 		initGUI();
+		
+		
+		
 	}
 
 	/**
@@ -974,6 +978,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			});
 	
 			postInitGUI();
+//			initialize accounts			
+			EngBLAccountingAccounts.getAccounts();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1151,6 +1158,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		
 		
 		setPopUpMenus();
+		
+		
 		
 		
 		//Set color for Main tab folder

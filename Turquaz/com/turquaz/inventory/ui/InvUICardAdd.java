@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.80 2004/12/09 11:14:36 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.81 2004/12/09 21:35:04 onsel Exp $
  */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -1342,9 +1342,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 		//Content Assistant for Inventory Code
 		/****************************************************/
 		  TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(txtInvCardCode);
-		    
-		
-		  asistant = new TurquazContentAssistant(adapter,1);
+		   asistant = new TurquazContentAssistant(adapter,1);
 		     adapter.appendVerifyKeyListener(
 		             new VerifyKeyListener() {
 		                 public void verifyKey(VerifyEvent event) {

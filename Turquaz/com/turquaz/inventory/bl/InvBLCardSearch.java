@@ -23,12 +23,13 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardSearch.java,v 1.3 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvBLCardSearch.java,v 1.4 2004/12/09 21:35:05 onsel Exp $
 */
 
 import java.util.Calendar;
 import java.util.List;
 
+import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 
 import com.turquaz.inventory.dal.InvDALCardSearch;
@@ -53,6 +54,16 @@ public class InvBLCardSearch {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	public void initializeInventoryCard(TurqInventoryCard invCard)throws Exception{
+	    try{
+	        
+	        cardSearch.initializeInventoryCard(invCard);
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 	
 	
