@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardUpdate.java,v 1.23 2005/04/01 09:43:19 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardUpdate.java,v 1.24 2005/04/01 10:49:00 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -245,8 +245,11 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 		catch (Exception ex)
 		{
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
-			msg.setMessage(ex.getMessage());
-			msg.open();
+			if (ex.getMessage()!=null)
+			{
+				msg.setMessage(ex.getMessage());
+				msg.open();
+			}
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
@@ -259,7 +262,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			CCombo comboCurrency = compBankCard.getComboCurrency();
 			comboCurrency.removeAll();
-			List currencies = EngBLCommon.getCurrencies();
+			List currencies = (List)EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

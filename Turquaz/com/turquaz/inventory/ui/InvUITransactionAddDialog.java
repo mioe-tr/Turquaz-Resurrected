@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionAddDialog.java,v 1.29 2005/03/30 17:10:03 cemdayanik Exp $
+ * @version  $Id: InvUITransactionAddDialog.java,v 1.30 2005/04/01 10:49:00 cemdayanik Exp $
  */
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -348,7 +348,7 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			comboCurrency.removeAll();
-			List currencies = EngBLCommon.getCurrencies();
+			List currencies = (List)EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			TurqCurrency currency;
 			for (int i = 0; i < currencies.size(); i++)
 			{

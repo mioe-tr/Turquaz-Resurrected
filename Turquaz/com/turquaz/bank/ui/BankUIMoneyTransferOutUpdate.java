@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.12 2005/04/01 09:43:19 cemdayanik Exp $
+ * @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.13 2005/04/01 10:49:00 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -82,7 +82,7 @@ public class BankUIMoneyTransferOutUpdate extends org.eclipse.swt.widgets.Dialog
 			dialogShell.layout();
 			dialogShell.pack();
 			dialogShell.setText(Messages.getString("BankUIMoneyTransferOutUpdate.0")); //$NON-NLS-1$
-			dialogShell.setSize(548, 642);
+			dialogShell.setSize(526, 296);
 			{
 				toolBar1 = new ToolBar(dialogShell, SWT.NONE);
 				GridData toolBar1LData = new GridData();

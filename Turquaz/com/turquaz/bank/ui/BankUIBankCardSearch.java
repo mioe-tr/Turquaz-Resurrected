@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardSearch.java,v 1.27 2005/04/01 06:54:57 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardSearch.java,v 1.28 2005/04/01 10:49:00 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -289,7 +289,7 @@ public class BankUIBankCardSearch extends Composite implements SearchComposite
 		{
 			comboCurrency.removeAll();
 			comboCurrency.setText(""); //$NON-NLS-1$
-			List currencies = EngBLCommon.getCurrencies();
+			List currencies =(List)EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

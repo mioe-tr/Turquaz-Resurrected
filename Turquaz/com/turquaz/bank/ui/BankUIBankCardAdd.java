@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.24 2005/04/01 06:54:57 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.25 2005/04/01 10:49:00 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -342,34 +342,13 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			return true;
 	}
 
-	private void clearFields()
-	{
-		try
-		{
-			txtBankName.setText(""); //$NON-NLS-1$
-			txtBankBranchName.setText(""); //$NON-NLS-1$
-			txtBankAccountNo.setText(""); //$NON-NLS-1$
-			txtDefinition.setText(""); //$NON-NLS-1$
-			comboCurrency.setText(Messages.getString("BankUIBankCardAdd.15")); //$NON-NLS-1$
-		}
-		catch (Exception ex)
-		{
-			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
-			msg.setMessage(ex.getMessage());
-			msg.open();
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
-		}
-	}
-
 	private void FillCurrencyCombo() throws Exception
 	{
 		try
 		{
 			comboCurrency.removeAll();
 			comboCurrency.setText(Messages.getString("BankUIBankCardAdd.16")); //$NON-NLS-1$
-			List currencies = EngBLCommon.getCurrencies();
+			List currencies = (List) EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);
@@ -429,7 +408,7 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 				msg.setMessage(Messages.getString("BankUIBankCardAdd.17")); //$NON-NLS-1$
 				msg.open();
-				clearFields();
+				newForm();
 				EngBLBankCards.RefreshContentAsistantMap();
 			}
 		}
