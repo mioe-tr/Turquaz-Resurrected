@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.70 2005/02/03 16:41:46 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.71 2005/02/03 18:53:19 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -55,6 +55,8 @@ import com.turquaz.bank.ui.BankUICashFromBank;
 import com.turquaz.bank.ui.BankUICashToBank;
 import com.turquaz.bank.ui.BankUIMoneyTransferIn;
 import com.turquaz.bank.ui.BankUIMoneyTransferOut;
+import com.turquaz.bank.ui.BankUIOtherTransIn;
+import com.turquaz.bank.ui.BankUIOtherTransOut;
 import com.turquaz.bank.ui.BankUISearchMoneyTransaction;
 import com.turquaz.bill.ui.BillUIAddBuyBill;
 import com.turquaz.bill.ui.BillUIAddSellBill;
@@ -206,6 +208,16 @@ public final class TreeFactory {
 			item = new TreeItem(bankTrans,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.69"));  //$NON-NLS-1$
 			item.setData(BankUICashToBank.class.getName());
+		}
+		if(EngBLPermissions.getPermission(BankUIOtherTransIn.class.getName())>0){
+			item = new TreeItem(bankTrans,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.71"));  //$NON-NLS-1$
+			item.setData(BankUIOtherTransIn.class.getName());
+		}
+		if(EngBLPermissions.getPermission(BankUIOtherTransOut.class.getName())>0){
+			item = new TreeItem(bankTrans,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.72"));  //$NON-NLS-1$
+			item.setData(BankUIOtherTransOut.class.getName());
 		}
 		
 		bankTrans.setExpanded(true);
