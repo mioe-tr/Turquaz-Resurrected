@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIReturnFromGivenCheques.java,v 1.2 2005/03/15 19:49:30 onsel Exp $
+* @version  $Id: CheUIReturnFromGivenCheques.java,v 1.3 2005/03/16 09:53:56 cemdayanik Exp $
 */
 
 import java.util.ArrayList;
@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Table;
-import com.turquaz.accounting.ui.comp.AccountPicker;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 

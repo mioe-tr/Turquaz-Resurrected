@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.35 2005/03/12 11:18:16 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.36 2005/03/16 09:53:39 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -994,7 +994,7 @@ implements SecureComposite{
 	     
 				Boolean paymentType = (Boolean)comboPaymentType.getData(comboPaymentType.getText());
 	     
-				TurqBill bill =blAddBill.saveBill(txtDocumentNo.getText(),
+				TurqBill bill =blAddBill.saveBillFromCons(txtDocumentNo.getText(),
 										txtDefinition.getText(),
 										false,
 										dateBillDate.getDate(),

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.61 2005/03/12 17:17:59 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.62 2005/03/16 09:53:39 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1323,7 +1323,7 @@ public class BillUIAddBill extends Composite
 				Boolean paymentType = (Boolean) comboPaymentType
 						.getData(comboPaymentType.getText());
 
-				blAddBill.saveBill(txtConsignmentDocumentNo.getText(),txtDefinition.getText(), false, dateConsignmentDate.getDate(),type,!paymentType.booleanValue(),(TurqCurrentCard)txtCurrentCard.getData(),null,dateDueDate.getDate(),txtDiscountAmount.getBigDecimalValue(), txtDocumentNo.getText(), txtTotalVat.getBigDecimalValue(),decSpecialVat.getBigDecimalValue(), txtTotalAmount.getBigDecimalValue(),EngBLCommon.getBaseCurrencyExchangeRate(),getBillGroups(),getInventoryTransactions());
+				blAddBill.saveBillFromBill(txtConsignmentDocumentNo.getText(),txtDefinition.getText(), false, dateConsignmentDate.getDate(),type,!paymentType.booleanValue(),(TurqCurrentCard)txtCurrentCard.getData(),null,dateDueDate.getDate(),txtDiscountAmount.getBigDecimalValue(), txtDocumentNo.getText(), txtTotalVat.getBigDecimalValue(),decSpecialVat.getBigDecimalValue(), txtTotalAmount.getBigDecimalValue(),EngBLCommon.getBaseCurrencyExchangeRate(),getBillGroups(),getInventoryTransactions());
 				
 				msg.setMessage(Messages.getString("BillUIAddBill.43")); //$NON-NLS-1$
 				msg.open();
