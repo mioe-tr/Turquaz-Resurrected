@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.19 2005/02/25 18:57:54 cemdayanik Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.20 2005/03/01 17:53:50 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -59,7 +59,7 @@ public class CurDALSearchTransaction {
 		try{
 			Session session = EngDALSessionFactory.openSession();
 			
-			String query = "Select transaction.currentTransactionsId," +
+			String query = "Select transaction.id," +
 			" transaction.transactionsDate," +
 			" transaction.transactionsDocumentNo," +
 			" curCard.cardsCurrentCode, curCard.cardsName, transType.transactionTypeName," +
@@ -113,7 +113,7 @@ public class CurDALSearchTransaction {
 		{
 			Session session = EngDALSessionFactory.openSession();
 			String query = "Select transaction from TurqCurrentTransaction as transaction" +
-					" where transaction.currentTransactionsId="+transId;
+					" where transaction.id="+transId;
 			
 			Query q = session.createQuery(query);
 	
@@ -218,7 +218,7 @@ public class CurDALSearchTransaction {
 	        
 	        Session session = EngDALSessionFactory.openSession();
 	        String query = "Select bankTrans from TurqCurrentTransaction as bankTrans " +
-	        		" where bankTrans.turqCurrentTransactionType.currentTransactionTypesId = "+EngBLCommon.CURRENT_TRANS_INITIAL+
+	        		" where bankTrans.turqCurrentTransactionType.id = "+EngBLCommon.CURRENT_TRANS_INITIAL+
 	        		" order by bankTrans.turqCurrentCard.cardsCurrentCode";
 	        
 	    	Query q = session.createQuery(query); 
@@ -238,7 +238,7 @@ public class CurDALSearchTransaction {
 	        
 	        Session session = EngDALSessionFactory.openSession();
 	        String query = "Select bankTrans from TurqCurrentTransaction as bankTrans " +
-	        		" where bankTrans.turqCurrentTransactionType.currentTransactionTypesId = "+EngBLCommon.CURRENT_TRANS_INITIAL+
+	        		" where bankTrans.turqCurrentTransactionType.id = "+EngBLCommon.CURRENT_TRANS_INITIAL+
 	        		" and bankTrans.turqCurrentCard = :curCard " +
 	        		" order by bankTrans.turqCurrentCard.cardsCurrentCode";
 	        
