@@ -18,11 +18,11 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.16 2004/11/30 08:42:52 onsel Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.17 2004/12/03 08:51:45 onsel Exp $
 */
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
+
 import java.util.Iterator;
 import java.util.List;
 

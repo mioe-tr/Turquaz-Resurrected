@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.13 2004/11/22 21:48:31 huseyiner Exp $
+* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.14 2004/12/03 08:51:46 onsel Exp $
 */
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -82,7 +82,7 @@ public class EngUIDatabaseConnectionWizard extends Wizard {
 		props.setProperty("remember_password","false"); //$NON-NLS-1$ //$NON-NLS-2$
 	  
 		FileOutputStream fileout = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
-	    props.save(fileout,"Turquaz Properties File"); //$NON-NLS-1$
+	    props.store(fileout,"Turquaz Properties File"); //$NON-NLS-1$
 		
 		
 	  if(page4.getButtonYes().getSelection()){

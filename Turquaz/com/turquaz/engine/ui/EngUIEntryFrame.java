@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.26 2004/12/02 15:33:54 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.27 2004/12/03 08:51:45 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -314,7 +314,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			    input.close();
 			    
 			    FileOutputStream output = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
-			    props.save(output,"Turquaz Configuration"); //$NON-NLS-1$
+			    props.store(output,"Turquaz Configuration"); //$NON-NLS-1$
 			    
 			    System.setProperty("user",txtUserName.getText()); //$NON-NLS-1$
 			    System.setProperty("company","0"); //$NON-NLS-1$ //$NON-NLS-2$

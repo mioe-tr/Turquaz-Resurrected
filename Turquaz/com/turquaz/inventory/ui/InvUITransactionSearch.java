@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.11 2004/12/01 18:10:43 onsel Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.12 2004/12/03 08:51:45 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -45,8 +45,6 @@ import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TextWithButton;
 import com.turquaz.engine.ui.component.DatePicker;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.events.KeyAdapter;
-import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.VerifyKeyListener;

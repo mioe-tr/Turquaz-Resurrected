@@ -16,13 +16,15 @@ package com.turquaz.engine.dal;
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.sql.*;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngDALConnection.java,v 1.12 2004/12/02 15:33:55 onsel Exp $
+* @version  $Id: EngDALConnection.java,v 1.13 2004/12/03 08:51:45 onsel Exp $
 * 
 * Class for initial database configuration. It creates the necessary
 * bindings according to hibernate.cfg.xml
@@ -145,11 +147,14 @@ public class EngDALConnection {
                               // DataInputStream
    DataInputStream in = new DataInputStream(fstream);
 
+   BufferedReader d = new BufferedReader(
+           new InputStreamReader(in));
+   
     // Continue to read lines while
     // there are still some left to read
     while (in.available() !=0){
    
-    	sql = in.readLine();
+    	sql = d.readLine();
     	sql +=";";
      
     }
@@ -184,11 +189,13 @@ public class EngDALConnection {
                                 // DataInputStream
      DataInputStream in = new DataInputStream(fstream);
 
+     BufferedReader d = new BufferedReader(
+             new InputStreamReader(in));
       // Continue to read lines while
       // there are still some left to read
       while (in.available() !=0){
      
-      	sql = sql + in.readLine()+ "\n";
+      	sql = sql + d.readLine()+ "\n";
        
       }
       in.close();

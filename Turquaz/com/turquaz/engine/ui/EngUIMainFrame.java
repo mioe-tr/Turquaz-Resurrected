@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.85 2004/12/02 08:25:46 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.86 2004/12/03 08:51:45 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -31,7 +31,7 @@ import java.util.Properties;
 
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.TabItem;
+
 
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.events.DisposeEvent;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.85 2004/12/02 08:25:46 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.86 2004/12/03 08:51:45 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1654,7 +1654,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		   props.put("logoURL",EngConfiguration.logoURL); //$NON-NLS-1$
 		    
 		    FileOutputStream output = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
-		    props.save(output,"Turquaz Configuration"); //$NON-NLS-1$
+		    props.store(output,"Turquaz Configuration"); //$NON-NLS-1$
 		    
 		    output.flush();
 		    output.close();

@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseAdd.java,v 1.21 2004/11/28 16:51:51 huseyiner Exp $
+* @version  $Id: InvUIWarehouseAdd.java,v 1.22 2004/12/03 08:51:45 onsel Exp $
 */
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -35,11 +35,6 @@ import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.bl.InvBLWarehouseAdd;
 
-
-
-
-import org.eclipse.swt.events.TraverseListener;
-import org.eclipse.swt.events.TraverseEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 /**
