@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.21 2004/11/08 12:10:51 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.22 2004/11/08 19:40:25 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -66,6 +66,21 @@ import org.eclipse.swt.events.SelectionEvent;
 
 
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 public class InvUICardUpdateDialog extends Dialog{
 	private InvUICardAdd compInvUICard;
 	private Composite compMain;
