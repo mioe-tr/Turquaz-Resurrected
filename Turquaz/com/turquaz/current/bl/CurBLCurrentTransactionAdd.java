@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.38 2005/03/16 15:23:19 cemdayanik Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.39 2005/03/16 19:52:32 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -294,7 +294,7 @@ public class CurBLCurrentTransactionAdd {
 	  		//Cari Karta para verildiginde
 	  		//Kasaya alacak hareketi 
 		 	 //Cari kartin satici muhasebe hesabina borc hareketi 
-    		if(isCredit)
+    		if(!isCredit)
     		{    		
     			List creditRows=(List)creditAccounts.get(accountId);
     			if (creditRows==null)
