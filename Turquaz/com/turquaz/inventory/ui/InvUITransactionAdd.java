@@ -34,11 +34,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import com.turquaz.engine.ui.component.SecureComposite;
+import com.turquaz.inventory.Messages;
 
 /**
  * 
  * @author onsel
- * @version $Id: InvUITransactionAdd.java,v 1.6 2004/10/21 07:01:36 onsel Exp $
+ * @version $Id: InvUITransactionAdd.java,v 1.7 2004/10/22 09:00:41 huseyin Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -99,7 +100,7 @@ public class InvUITransactionAdd extends SecureComposite {
 			lblInvTransCardLData.grabExcessHorizontalSpace = false;
 			lblInvTransCardLData.grabExcessVerticalSpace = false;
 			lblInvTransCard.setLayoutData(lblInvTransCardLData);
-			lblInvTransCard.setText("Inventory Card");
+			lblInvTransCard.setText(Messages.getString("InvUITransactionAdd.0")); //$NON-NLS-1$
 			GridLayout lblInvTransCardLayout = new GridLayout(1, true);
 			lblInvTransCard.setLayout(lblInvTransCardLayout);
 			lblInvTransCardLayout.marginWidth = 5;
@@ -133,7 +134,7 @@ public class InvUITransactionAdd extends SecureComposite {
 			lblInvTransTypeLData.grabExcessHorizontalSpace = false;
 			lblInvTransTypeLData.grabExcessVerticalSpace = false;
 			lblInvTransType.setLayoutData(lblInvTransTypeLData);
-			lblInvTransType.setText("Transaction Type");
+			lblInvTransType.setText(Messages.getString("InvUITransactionAdd.1")); //$NON-NLS-1$
 	
 			GridData combpInvTransTypeLData = new GridData();
 			combpInvTransTypeLData.verticalAlignment = GridData.CENTER;
@@ -158,7 +159,7 @@ public class InvUITransactionAdd extends SecureComposite {
 			lblInvTransAmountLData.grabExcessHorizontalSpace = false;
 			lblInvTransAmountLData.grabExcessVerticalSpace = false;
 			lblInvTransAmount.setLayoutData(lblInvTransAmountLData);
-			lblInvTransAmount.setText("Amount");
+			lblInvTransAmount.setText(Messages.getString("InvUITransactionAdd.2")); //$NON-NLS-1$
 	
 			GridData txtNumInvTransAmountLData = new GridData();
 			txtNumInvTransAmountLData.verticalAlignment = GridData.CENTER;
@@ -195,7 +196,7 @@ public class InvUITransactionAdd extends SecureComposite {
 			lblInvTransWhSelectLData.grabExcessHorizontalSpace = false;
 			lblInvTransWhSelectLData.grabExcessVerticalSpace = false;
 			lblInvTransWhSelect.setLayoutData(lblInvTransWhSelectLData);
-			lblInvTransWhSelect.setText("Warehouse");
+			lblInvTransWhSelect.setText(Messages.getString("InvUITransactionAdd.3")); //$NON-NLS-1$
 	
 			GridData comboInvTransWhSelectLData = new GridData();
 			comboInvTransWhSelectLData.verticalAlignment = GridData.CENTER;
