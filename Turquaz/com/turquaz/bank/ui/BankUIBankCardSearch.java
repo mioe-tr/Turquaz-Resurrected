@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.7 2004/10/30 12:21:59 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.8 2004/11/03 13:28:20 onsel Exp $
 */
 
 
@@ -310,11 +310,6 @@ public class BankUIBankCardSearch extends  Composite implements SecureComposite 
 		}
 	}
 
-	/** Auto-generated main method */
-	public static void main(String[] args){
-		showGUI();
-	}
-	
 	public void delete(){
 	}
 	

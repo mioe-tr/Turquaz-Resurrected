@@ -77,7 +77,7 @@ import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.47 2004/11/02 17:17:45 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.48 2004/11/03 13:28:20 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 /**
@@ -1206,10 +1206,6 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	protected void rootWidgetDisposed(DisposeEvent evt){
 		this.dispose();
 	}
-	/** Auto-generated main method */
-	public static void main(String[] args){
-		showGUI2();
-	}
-
+	
 	
 }
