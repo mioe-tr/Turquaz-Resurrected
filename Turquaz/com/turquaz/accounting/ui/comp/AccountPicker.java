@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.13 2004/11/27 13:30:27 cemdayanik Exp $
+* @version  $Id: AccountPicker.java,v 1.14 2004/11/27 14:24:47 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -141,7 +141,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 	public void postInitGUI(){
 	    TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 	    
-	 	final SubjectControlContentAssistant asistant= TurquazContentAssistant.createContentAssistant(adapter,"accounting");
+	 	final SubjectControlContentAssistant asistant= new TurquazContentAssistant(adapter,0);
 	   
 	     adapter.appendVerifyKeyListener(
 	             new VerifyKeyListener() {

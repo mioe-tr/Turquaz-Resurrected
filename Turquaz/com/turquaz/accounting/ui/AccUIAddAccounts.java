@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.27 2004/11/27 13:30:26 cemdayanik Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.28 2004/11/27 14:24:47 onsel Exp $
 */
 
 
@@ -217,10 +217,11 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
 	}
 
 	/** Add your post-init code in here 	*/
-	public void postInitGUI(){
-	    TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(txtParentAccount);
+	 TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(txtParentAccount);
 	    
-	 	final SubjectControlContentAssistant asistant= TurquazContentAssistant.createContentAssistant(adapter,"accounting");
+	 final TurquazContentAssistant asistant= new TurquazContentAssistant(adapter,0);
+	   
+	public void postInitGUI(){
 	   
 	     adapter.appendVerifyKeyListener(
 	             new VerifyKeyListener() {
@@ -287,7 +288,7 @@ public class AccUIAddAccounts extends  Composite implements SecureComposite{
     msg.setMessage(Messages.getString("AccUIAddAccounts.8")); //$NON-NLS-1$
     msg.open();
     
-    TurquazContentAssistProcessors.fillProposalArray("accounting");
+   asistant.refreshContentAssistant(0);
     
     clearFields();
 	}
