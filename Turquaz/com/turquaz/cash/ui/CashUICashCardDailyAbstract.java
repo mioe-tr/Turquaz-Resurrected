@@ -17,12 +17,15 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: CashUICashCardDailyAbstract.java,v 1.5 2005/03/01 18:14:14 onsel Exp $
+* @version  $Id: CashUICashCardDailyAbstract.java,v 1.6 2005/03/14 15:36:59 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
+
 import java.util.Date;
+
 import java.util.List;
+
 
 import org.eclipse.swt.layout.GridLayout;
 
@@ -321,6 +324,8 @@ public class CashUICashCardDailyAbstract extends org.eclipse.swt.widgets.Composi
      }
          
      }
+     
 
-    }
+    } 
+	
 }
