@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.10 2004/12/27 09:55:27 onsel Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.11 2004/12/27 10:38:11 onsel Exp $
 */
 
 
@@ -80,10 +80,10 @@ public class InvBLCardUpdate {
 		
 			card.setTurqAccountingAccountByAccountingAccountsIdBuy(accountBuy);
 			card.setTurqAccountingAccountByAccountingAccountsIdSell(accountSell);
-		    card.setTurqAccountingAccountByAccountingAccountsIdSpecialVAT(accountSpecialVAT);
-		    card.setTurqAccountingAccountByAccountingAccountsIdVAT(accountVAT);
-            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVATSell(accountSpecialVATSell);
-            card.setTurqAccountingAccountByAccountingAccountsIdVATSell(accountVATSell);
+		    card.setTurqAccountingAccountByAccountingAccountsIdSpecialVat(accountSpecialVAT);
+		    card.setTurqAccountingAccountByAccountingAccountsIdVat(accountVAT);
+            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVatSell(accountSpecialVATSell);
+            card.setTurqAccountingAccountByAccountingAccountsIdVatSell(accountVATSell);
             
 		    
 			cardUpdate.updateObject(card);

@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.21 2004/12/27 09:55:27 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.22 2004/12/27 10:38:11 onsel Exp $
 */
 
 
@@ -206,10 +206,10 @@ public class InvBLCardAdd {
 			card.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			card.setTurqAccountingAccountByAccountingAccountsIdBuy(accountBuy);
 			card.setTurqAccountingAccountByAccountingAccountsIdSell(accountSell);
-            card.setTurqAccountingAccountByAccountingAccountsIdVAT(accountVAT);
-            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVAT(accountSpecialVAT);
-            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVATSell(accountSpecialVATSell);
-            card.setTurqAccountingAccountByAccountingAccountsIdVATSell(accountVATSell);
+            card.setTurqAccountingAccountByAccountingAccountsIdVat(accountVAT);
+            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVat(accountSpecialVAT);
+            card.setTurqAccountingAccountByAccountingAccountsIdSpecialVatSell(accountSpecialVATSell);
+            card.setTurqAccountingAccountByAccountingAccountsIdVatSell(accountVATSell);
 			cardAdd.saveOrUpdateInvCard(card);
 
 			return card.getInventoryCardsId();
