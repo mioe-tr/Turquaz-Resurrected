@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.21 2005/01/08 14:01:38 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.22 2005/01/10 12:00:40 onsel Exp $
 */
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class InvDALCardSearch {
 							   	
 				if(invGroup!=null){
 					
-					query +="and :invGroup in (Select myGroup.turqInventoryGroup From invCard.turqCardGroups as myGroup)" ;
+					query +="and :invGroup in (Select myGroup.turqInventoryGroup From invCard.turqInventoryCardGroups as myGroup)" ;
 					
 				}
 				   
