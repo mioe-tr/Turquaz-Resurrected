@@ -18,10 +18,11 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.7 2004/12/06 19:52:59 huseyiner Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.8 2005/01/17 21:21:27 onsel Exp $
 */
 
 import com.turquaz.bank.dal.BankDALBankCardAdd;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
 
@@ -37,7 +38,7 @@ public class BankBLBankCardAdd {
 	
 	Calendar cal=Calendar.getInstance();
 	
-	public void saveBankCard(String bankName, String bankBranchName, String bankAccountNo, TurqCurrency currency, String definition )
+	public void saveBankCard(String bankName, String bankBranchName, String bankAccountNo, TurqCurrency currency, String definition, String bankCode, TurqAccountingAccount account )
 	throws Exception
 	{
 		try
@@ -48,6 +49,8 @@ public class BankBLBankCardAdd {
 			bankCard.setBankAccountNo(bankAccountNo);
 			bankCard.setTurqCurrency(currency);
 			bankCard.setBankDefinition(definition);
+			bankCard.setBankCode(bankCode);
+			bankCard.setTurqAccountingAccount(account);
 			bankCard.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
 			bankCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			bankCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
