@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.38 2005/03/03 21:04:07 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.39 2005/03/08 10:59:19 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -470,7 +470,8 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			if(result==SWT.OK)
 			{	 		
 				updated=true;
-				deleteRelations();			
+				deleteRelations();		
+				new CurBLSearchTransaction().deleteInitialTransactions(currentCard);
 				currentUpdate.deleteObject(currentCard);			
 				msg.setMessage(Messages.getString("CurUICurrentCardUpdate.22")); //$NON-NLS-1$
 				msg.open();			
@@ -509,13 +510,22 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				
 				currentUpdate.deleteObject(it.next());
 			}
+			
 			it = currentCard.getTurqCurrentAccountingAccounts().iterator();
+			
 			while(it.hasNext())
 			{
-				currentUpdate.deleteObject(it.next());
+				try{
+				TurqCurrentAccountingAccount crac = (TurqCurrentAccountingAccount)it.next();
+				currentUpdate.deleteObject(crac);
+				}
+				catch(Exception ex)
+				{
+					ex.printStackTrace();
+				}
 			}
 		
-			new CurBLSearchTransaction().deleteInitialTransactions(currentCard);
+		
 			
 	}
 	catch(Exception ex ){
@@ -556,6 +566,8 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			
 		if(verifyFields()){	
 		updated=true;
+		deleteRelations();
+		
 		currentUpdate.updateCurrentCard(compCurCardAdd.getTxtCurrentCode().getText().trim(),
 				compCurCardAdd.getTxtCurrentName().getText().trim(),
 				compCurCardAdd.getTxtCardDefinition().getText().trim(),
@@ -569,7 +581,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				compCurCardAdd.createAccountingMap(),
 				compCurCardAdd.getNumDueDays().getIntValue(),currentCard);	
 				
-		deleteRelations();
+		
 		compCurCardAdd.saveContact(currentCard.getId());
 		compCurCardAdd.savePhones(currentCard.getId());
 		compCurCardAdd.saveGroups(currentCard.getId());

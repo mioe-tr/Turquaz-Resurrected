@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.28 2005/03/06 19:33:25 cemdayanik Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.29 2005/03/08 10:59:19 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -210,6 +210,7 @@ public class BankBLTransactionAdd {
                     .getString("BankBLTransactionAdd.0")); //$NON-NLS-1$
             bankTransBill.setTransactionBillNo(""); //$NON-NLS-1$
             bankTransBill.setTurqBanksTransactionType(transType);
+           
 
             bankTransBill.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
             bankTransBill.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
@@ -227,9 +228,12 @@ public class BankBLTransactionAdd {
             transRow.setCreationDate(Calendar.getInstance().getTime());
           
             transRow.setTurqBanksCard(bankCard);
-
+            	
+            transRow.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
             transRow.setDeptAmount(new BigDecimal(0));
             transRow.setCreditAmount(new BigDecimal(0));
+            transRow.setDeptAmountInForeignCurrency(new BigDecimal(0));
+            transRow.setCreditAmountInForeignCurrency(new BigDecimal(0));
 
             /**
              * Save transaction bill
