@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.48 2005/01/07 10:24:05 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.49 2005/01/13 14:10:18 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -65,6 +65,7 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
+
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
@@ -1010,9 +1011,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 					lblCreditLimit.setText(Messages.getString("CurUICurrentCardAdd.10")); //$NON-NLS-1$
 				}
 				{
-					decTxtCreditLimit = new CurrencyText(
-						compCurrentGeneralInfo,
-						SWT.NONE);
+					decTxtCreditLimit = new CurrencyText(compCurrentGeneralInfo, SWT.NONE);
 					GridData decTxtCreditLimitLData = new GridData();
 					decTxtCreditLimitLData.widthHint = 167;
 					decTxtCreditLimitLData.heightHint = 21;

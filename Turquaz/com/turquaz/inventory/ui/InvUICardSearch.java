@@ -18,12 +18,11 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.38 2005/01/13 04:46:03 cemdayanik Exp $
+* @version  $Id: InvUICardSearch.java,v 1.39 2005/01/13 14:10:19 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.swt.widgets.MessageBox;
