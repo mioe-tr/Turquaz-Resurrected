@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.57 2004/11/18 08:36:12 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.58 2004/11/18 21:24:45 huseyiner Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1563,6 +1563,10 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 				// Save the price list now.
 		        saveInvPrices(cardId);
 		        
+		    	MessageBox msg=new MessageBox(this.getShell(), SWT.NULL);
+				msg.setMessage(Messages.getString("InvUICardAdd.36")); //$NON-NLS-1$
+				msg.open();
+				
 		        clearFields();
 		        	         
 		         } catch (Exception ex) {
