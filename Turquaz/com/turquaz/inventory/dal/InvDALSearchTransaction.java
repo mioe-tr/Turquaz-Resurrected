@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.10 2005/02/07 11:59:23 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.11 2005/02/07 18:49:48 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -121,6 +121,7 @@ public class InvDALSearchTransaction {
 				query += " and transaction.turqInventoryCard = :invCardEnd";
 			}
 			
+			query +=" order by transaction.turqInventoryCard";
 
 			Query q = session.createQuery(query);
 
