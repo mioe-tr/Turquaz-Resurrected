@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.55 2004/12/29 22:35:52 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.56 2005/01/04 18:08:21 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -39,6 +39,7 @@ import com.turquaz.accounting.ui.reports.AccUIAccountingAdvancedBalance;
 import com.turquaz.accounting.ui.reports.AccUIAccountingGeneralLedger;
 import com.turquaz.accounting.ui.reports.AccUIAccountingJournal;
 import com.turquaz.accounting.ui.reports.AccUISubsidiaryLedger;
+import com.turquaz.admin.ui.AdmUICompanyInfo;
 import com.turquaz.admin.ui.AdmUIGroupAdd;
 import com.turquaz.admin.ui.AdmUIGroupPermissions;
 import com.turquaz.admin.ui.AdmUIGroups;
@@ -323,6 +324,11 @@ public final class TreeFactory {
 		item.setText(Messages.getString("TreeFactory.22")); //$NON-NLS-1$
 		item.setData(AdmUIGroupPermissions.class.getName());
 		}
+		if(EngBLPermissions.getPermission(AdmUICompanyInfo.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.54"));  //$NON-NLS-1$
+			item.setData(AdmUICompanyInfo.class.getName());
+			}
 		root.setExpanded(true);
 		return tree;
 	}
