@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.11 2005/02/08 11:31:10 cemdayanik Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.12 2005/03/15 15:46:11 cemdayanik Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -168,7 +168,7 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 	 * Opens the Dialog Shell. Auto-generated code - any changes you make will
 	 * disappear.
 	 */
-	public void open(String accCode,String accName) {
+	public void open() {
 		try {
 			preInitGUI();
 
@@ -237,8 +237,6 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 			compAccountCard.layout();
 			
 			postInitGUI();
-			compAccountCard.getTxtAccAccountCode().setText(accCode);
-			compAccountCard.getTxtAccAcountName().setText(accName);
 			
 			dialogShell.layout();
 			dialogShell.open();

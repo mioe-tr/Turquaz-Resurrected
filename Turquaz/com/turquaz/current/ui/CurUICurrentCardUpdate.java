@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.40 2005/03/15 14:24:00 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.41 2005/03/15 15:46:12 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -493,11 +493,6 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				&&currentAdd.isCurrentCodePresent(compCurCardAdd.getTxtCurrentCode().getText().trim())){
 			
 			msg.setMessage(Messages.getString("CurUICurrentCardUpdate.23")); //$NON-NLS-1$
-			msg.open();
-			return false;
-		}
-		else if(compCurCardAdd.getAccPickerCustomer().getData()==null){
-			msg.setMessage(Messages.getString("CurUICurrentCardUpdate.24")); //$NON-NLS-1$
 			msg.open();
 			return false;
 		}

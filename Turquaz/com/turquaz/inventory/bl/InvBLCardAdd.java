@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 /**
 
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.35 2005/03/15 14:24:00 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.36 2005/03/15 15:46:11 cemdayanik Exp $
  */
 
 
@@ -249,6 +249,8 @@ public class InvBLCardAdd {
 			TurqInventoryCard card=registerInventoryCard(session,invCode,cardName,cardDefinition,
 					minAmount,maxAmount,cardVat,discount,cardSpecialVat,cardSpecialVatEach,
 					isSpecAmount);
+			
+			session.flush();
 			
 			saveInvCardGroups(session,card,invGroups);
 			saveInvCardUnits(session,card,invCardUnits);
