@@ -19,7 +19,7 @@ import org.eclipse.swt.events.*;
 
 
 /**
- * A hyperlink text label.
+ * A hyperlink text info.
  * <p>
  * This control displays a line of text (with an optional underline) which can
  * be clicked to send a Selection event. Colors for the text and underline in
@@ -40,7 +40,7 @@ import org.eclipse.swt.events.*;
  * 
  * @author Stefan Zeiger (szeiger@novocode.com)
  * @since Mar 2, 2004
- * @version $Id: Hyperlink.java,v 1.1 2004/11/29 12:10:15 onsel Exp $
+ * @version $Id: Hyperlink.java,v 1.2 2004/12/07 12:19:14 onsel Exp $
  */
 
 public final class Hyperlink extends Canvas
