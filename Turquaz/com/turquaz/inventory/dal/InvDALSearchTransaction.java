@@ -18,18 +18,20 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.2 2004/11/11 16:51:45 huseyiner Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.3 2004/11/17 10:04:44 onsel Exp $
  */
 
 import java.util.Date;
 import java.util.List;
 
+import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryCard;
+import com.turquaz.engine.dal.TurqInventoryTransaction;
 
 public class InvDALSearchTransaction {
 	public InvDALSearchTransaction() {
@@ -69,6 +71,15 @@ public class InvDALSearchTransaction {
 			}
 
 			List list = q.list();
+			
+			for (int i =0;i<list.size();i++){
+				
+			TurqInventoryTransaction invTrans = (TurqInventoryTransaction)list.get(i);
+			Hibernate.initialize(invTrans.getTurqEngineSequence().getTurqConsignments());
+			
+			
+			}
+			
 
 			session.close();
 			return list;
