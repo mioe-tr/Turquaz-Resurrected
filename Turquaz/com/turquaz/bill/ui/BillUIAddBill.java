@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.65 2005/03/17 11:59:24 cemdayanik Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.66 2005/03/17 12:19:21 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -386,9 +386,6 @@ public class BillUIAddBill extends Composite
 
 	private CLabel lblCurrentCard;
 
-	BillBLAddGroups blAddGroup = new BillBLAddGroups();
-
-	BillBLAddBill blAddBill = new BillBLAddBill();
 
 	ConBLAddConsignment blAddConsignment = new ConBLAddConsignment();
 	
@@ -1033,7 +1030,7 @@ public class BillUIAddBill extends Composite
 		try {
 
 			//Fill Group Table
-			List list = blAddGroup.getBillGroups();
+			List list = BillBLAddGroups.getBillGroups();
 			HashMap groupMap = new HashMap();
 
 			TurqBillGroup curGroup;
@@ -1322,7 +1319,7 @@ public class BillUIAddBill extends Composite
 				Boolean paymentType = (Boolean) comboPaymentType
 						.getData(comboPaymentType.getText());
 
-				blAddBill.saveBillFromBill(txtConsignmentDocumentNo.getText(),txtDefinition.getText(), false, dateConsignmentDate.getDate(),type,!paymentType.booleanValue(),(TurqCurrentCard)txtCurrentCard.getData(),null,dateDueDate.getDate(),txtDiscountAmount.getBigDecimalValue(), txtDocumentNo.getText(), txtTotalVat.getBigDecimalValue(),decSpecialVat.getBigDecimalValue(), txtTotalAmount.getBigDecimalValue(),EngBLCommon.getBaseCurrencyExchangeRate(),getBillGroups(),getInventoryTransactions());
+				BillBLAddBill.saveBillFromBill(txtConsignmentDocumentNo.getText(),txtDefinition.getText(), false, dateConsignmentDate.getDate(),type,!paymentType.booleanValue(),(TurqCurrentCard)txtCurrentCard.getData(),null,dateDueDate.getDate(),txtDiscountAmount.getBigDecimalValue(), txtDocumentNo.getText(), txtTotalVat.getBigDecimalValue(),decSpecialVat.getBigDecimalValue(), txtTotalAmount.getBigDecimalValue(),EngBLCommon.getBaseCurrencyExchangeRate(),getBillGroups(),getInventoryTransactions());
 				
 				msg.setMessage(Messages.getString("BillUIAddBill.43")); //$NON-NLS-1$
 				msg.open();
