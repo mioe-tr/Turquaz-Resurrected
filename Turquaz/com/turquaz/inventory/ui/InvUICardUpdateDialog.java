@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.36 2004/12/29 19:47:53 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.37 2005/01/11 13:24:15 cemdayanik Exp $
 */
 import java.util.Iterator;
 
@@ -568,7 +568,7 @@ public class InvUICardUpdateDialog extends Dialog{
      if(cardUpdate.hasTransactions(invCard))
      {
      	MessageBox msg2 = new MessageBox(this.getParent(),SWT.ICON_WARNING);
-    	msg2.setMessage("Inventory card contains transactions and \ncan not be deleted. Delete them first. ");  //$NON-NLS-1$
+    	msg2.setMessage(Messages.getString("InvUICardUpdateDialog.8")); //$NON-NLS-1$
 		msg2.open();
 		return;
      }
