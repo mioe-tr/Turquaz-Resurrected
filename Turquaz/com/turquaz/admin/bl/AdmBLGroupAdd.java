@@ -18,18 +18,16 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.9 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.10 2005/03/16 11:07:08 cemdayanik Exp $
 */
 
 import java.util.Calendar;
 
 import com.turquaz.admin.dal.AdmDALGroupAdd;
-import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
 
 
 public class AdmBLGroupAdd {
-	private EngDALCommon dalCommon = new EngDALCommon();
 	private AdmDALGroupAdd dalAdmin = new AdmDALGroupAdd();
 	Calendar cal = Calendar.getInstance();
 	public AdmBLGroupAdd(){
