@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.13 2004/12/03 13:12:27 onsel Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.14 2004/12/09 18:43:00 huseyiner Exp $
 */
 import java.util.List;
 
@@ -177,7 +177,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					lblStartDate = new CLabel(composite1, SWT.NONE);
 					lblStartDate.setText(Messages.getString("CurUITransactionSearch.3")); //$NON-NLS-1$
 					GridData lblStartDateLData = new GridData();
-					lblStartDateLData.widthHint = 84;
+					lblStartDateLData.widthHint = 98;
 					lblStartDateLData.heightHint = 19;
 					lblStartDate.setLayoutData(lblStartDateLData);
 				}
@@ -194,11 +194,8 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				{
 					lblEndDate = new CLabel(composite1, SWT.NONE);
 					lblEndDate.setText(Messages.getString("CurUITransactionSearch.4")); //$NON-NLS-1$
-					lblEndDate.setSize(new org.eclipse.swt.graphics.Point(
-						82,
-						18));
 					GridData lblEndDateLData = new GridData();
-					lblEndDateLData.widthHint = 82;
+					lblEndDateLData.widthHint = 94;
 					lblEndDateLData.heightHint = 18;
 					lblEndDate.setLayoutData(lblEndDateLData);
 				}
