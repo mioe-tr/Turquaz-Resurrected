@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.93 2005/01/02 20:01:11 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.94 2005/01/04 15:48:59 cemdayanik Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -69,7 +69,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.turquaz.engine.ui.component.NumericText;
-import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
+
 
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Table;

@@ -1,4 +1,20 @@
 package com.turquaz.accounting.ui.reports;
+/************************************************************************/
+/* TURQUAZ: Higly Modular Accounting/ERP Program                        */
+/* ============================================                         */
+/* Copyright (c) 2004 by Turquaz Software Development Group			    */
+/*																		*/
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License, or    */
+/* (at your option) any later version.       							*/
+/* 																		*/
+/* This program is distributed in the hope that it will be useful,		*/
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of		*/
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
+/* GNU General Public License for more details.         				*/
+/************************************************************************/
+
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -8,9 +24,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import net.sf.jasperreports.engine.JasperManager;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 
 
@@ -155,8 +172,11 @@ public class AccUIAccountingGeneralLedger extends org.eclipse.swt.widgets.Compos
             parameters.put("formatter",formatter); //$NON-NLS-1$
 			EngDALConnection db=new EngDALConnection();
 			db.connect();
-			JasperReport jasperReport = JasperManager.loadReport("reports/accounting/AccountingGeneralLedger.jasper"); //$NON-NLS-1$
-			final JasperPrint jasperPrint = JasperManager.fillReport(jasperReport,parameters,db.getCon());
+			//JasperReport jasperReport = JasperManager.loadReport("reports/accounting/AccountingGeneralLedger.jasper"); //$NON-NLS-1$
+			//final JasperPrint jasperPrint = JasperManager.fillReport(jasperReport,parameters,db.getCon());
+			JasperReport jasperReport =(JasperReport)JRLoader.loadObject("reports/accounting/AccountingGeneralLedger.jasper"); 
+	    	final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,db.getCon());
+			
 			
 			reportViewer.getReportViewer().setDocument(jasperPrint);
 			

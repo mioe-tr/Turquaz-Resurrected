@@ -17,10 +17,9 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InventoryPicker.java,v 1.4 2005/01/02 20:01:11 onsel Exp $
+* @version  $Id: InventoryPicker.java,v 1.5 2005/01/04 15:49:00 cemdayanik Exp $
 */
 
-import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
