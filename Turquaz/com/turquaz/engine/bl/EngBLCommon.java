@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.18 2005/01/09 20:10:41 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.19 2005/01/13 13:34:35 onsel Exp $
 */
 import java.util.List;
 
@@ -160,5 +160,6 @@ public class EngBLCommon {
 	        throw ex;
 	    }
 	}
+	
 
 }
