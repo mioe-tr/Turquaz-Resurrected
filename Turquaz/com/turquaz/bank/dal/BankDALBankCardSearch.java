@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.8 2005/02/16 16:41:04 cemdayanik Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.9 2005/02/16 19:29:41 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -92,6 +92,31 @@ public class BankDALBankCardSearch {
 
 			session.close();
 			return (TurqBanksCard)list.get(0);
+
+		} 
+		catch (Exception ex) 
+		{
+			throw ex;
+		}
+	}
+	
+	public static List getBankCards()
+	throws Exception
+	{
+		try 
+		{
+			Session session = EngDALSessionFactory.openSession();
+
+			String query = "Select bankCard from TurqBanksCard as bankCard" +
+					" where bankCard.banksCardsId <> -1";
+
+
+			Query q = session.createQuery(query);
+
+			List list = q.list();
+
+			session.close();
+			return list;
 
 		} 
 		catch (Exception ex) 

@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Ceday
-* @version  $Id: BankBLBankCardSearch.java,v 1.5 2005/02/16 16:41:04 cemdayanik Exp $
+* @version  $Id: BankBLBankCardSearch.java,v 1.6 2005/02/16 19:29:39 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -49,6 +49,19 @@ public class BankBLBankCardSearch {
 		try
 		{
 			return bankDALBankCardSearch.searchBankCards(bankName,bankBranchName,bankAccountNo,currency);
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}		
+	}
+	
+	public static List getBankCards()
+	throws Exception
+	{
+		try
+		{
+			return BankDALBankCardSearch.getBankCards();
 		}
 		catch(Exception ex)
 		{

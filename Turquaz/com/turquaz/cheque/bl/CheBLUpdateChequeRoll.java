@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.9 2005/02/16 16:46:41 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.10 2005/02/16 19:29:39 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -45,6 +45,18 @@ public class CheBLUpdateChequeRoll {
         try{
             
            CheDALUpdate.initializeChequeRoll(chequeRoll); 
+            
+            
+        }
+        catch(Exception ex){
+            throw ex;
+        }
+    }
+    
+    public static TurqChequeRoll initializeChequeRoll(Integer chequeRollId)throws Exception {
+        try{
+            
+            return CheDALUpdate.initializeChequeRoll(chequeRollId); 
             
             
         }

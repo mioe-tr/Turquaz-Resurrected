@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.12 2005/02/16 16:46:41 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.13 2005/02/16 19:29:37 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -45,7 +45,12 @@ public class CheDALSearch {
 
 			Session session = EngDALSessionFactory.openSession();
 
-			String query = "select chequeRoll from TurqChequeRoll as chequeRoll "
+			String query = "select chequeRoll.chequeRollsId, " +
+					" chequeRoll.chequeRollsDate, chequeRoll.chequeRollNo," +
+					" chequeRoll.turqChequeTransactionType.transactionTypsName," +
+					" chequeRoll.turqCurrentCard.cardsName, chequeRoll.turqBanksCard.bankCode," +
+					" chequeRoll.turqCurrentCard.currentCardsId,chequeRoll.turqBanksCard.banksCardsId" +
+					" from TurqChequeRoll as chequeRoll "
 					+ "where chequeRoll.chequeRollsDate >= :startDate and chequeRoll.chequeRollsDate <=:endDate "
 					+ "and chequeRoll.chequeRollNo like '" + rollNo + "%'";
 

@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALUpdate.java,v 1.4 2005/02/15 19:03:38 onsel Exp $
+* @version  $Id: CheDALUpdate.java,v 1.5 2005/02/16 19:29:38 cemdayanik Exp $
 */
 
 
@@ -62,6 +62,24 @@ public class CheDALUpdate {
             throw ex;
         }
     }
+    
+    public static TurqChequeRoll initializeChequeRoll(Integer chequeRollId)throws Exception {
+        try{
+            
+            Session session = EngDALSessionFactory.openSession();
+            
+            TurqChequeRoll cheqRoll=(TurqChequeRoll)session.load(TurqChequeRoll.class,chequeRollId);
+
+            
+            session.close();
+            
+            return cheqRoll;
+        }
+        catch(Exception ex){
+            throw ex;
+        }
+    }
+    
     public static void initChequeRolls(TurqChequeCheque cheque) throws Exception {
     	try{
     		Session session = EngDALSessionFactory.openSession();
