@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Ceday
- * @version $Id: BankDALCommon.java,v 1.1 2005/01/26 19:19:19 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.2 2005/01/26 19:59:38 onsel Exp $
  */
 
 import java.util.Date;
@@ -98,7 +98,7 @@ public class BankDALCommon {
 	        TurqBanksTransactionBill trans = (TurqBanksTransactionBill)session.load(TurqBanksTransactionBill.class,transId);
 	         
 	        Hibernate.initialize(trans.getTurqBanksTransactions());
-	        
+	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCurrentTransactions());
 	        session.close();
 	        return trans;
 	        
