@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.13 2005/01/17 21:20:30 onsel Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.14 2005/02/03 14:40:18 onsel Exp $
 */
 
 
@@ -205,7 +205,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				}
 			});
 			Rectangle bounds = dialogShell.computeTrim(0, 0, 486,208);
-			dialogShell.setSize(bounds.width, bounds.height);
+			dialogShell.setSize(523, 338);
 			postInitGUI();
 			dialogShell.open();
 			Display display = dialogShell.getDisplay();

@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.6 2005/01/30 19:27:24 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.7 2005/02/03 14:40:20 onsel Exp $
  */
 
 import java.sql.ResultSet;
@@ -140,6 +140,7 @@ public class BankDALCommon {
 	        Hibernate.initialize(trans.getTurqBanksTransactions());
 	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCurrentTransactions());
 	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqAccountingTransactions());
+	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCashTransactions());
 	        session.close();
 	        return trans;
 	        
@@ -160,6 +161,7 @@ public class BankDALCommon {
 	        Hibernate.initialize(trans.getTurqBanksTransactions());
 	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCurrentTransactions());
 	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqAccountingTransactions());
+	        Hibernate.initialize(trans.getTurqEngineSequence().getTurqCashTransactions());
 	        session.close();
 	  
 	        

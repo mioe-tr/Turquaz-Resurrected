@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: BankBLTransactionAdd.java,v 1.8 2005/02/03 11:58:27 onsel Exp $
+* @version  $Id: BankBLTransactionAdd.java,v 1.9 2005/02/03 14:40:20 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -42,7 +42,9 @@ import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqModule;
 
+
 public class BankBLTransactionAdd {
+    
     
     public static void saveCashTransaction(TurqBanksCard bankCard, TurqCashCard cashCard, 
             								int type, TurqEngineSequence seq,
