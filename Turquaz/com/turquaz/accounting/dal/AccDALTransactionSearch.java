@@ -23,7 +23,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.14 2004/12/12 15:09:34 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.15 2004/12/15 21:04:03 cemdayanik Exp $
 */
 
 import java.util.Date;
@@ -58,7 +58,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.14 2004/12/12 15:09:34 cemdayanik Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.15 2004/12/15 21:04:03 cemdayanik Exp $
 */
 public class AccDALTransactionSearch {
 	
@@ -237,6 +237,55 @@ public class AccDALTransactionSearch {
 	    }
 	}
 	
+	public List getTransactions(boolean initialAccounts, boolean finalAccounts, 
+			boolean subAccounts, Date startDate, Date endDate)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			
+	    	String query ="select accounts, transColumns from TurqAccountingAccount accounts," +	 
+					" TurqAccountingTransaction as accTrans,"+
+					" TurqAccountingTransactionColumn as transColumns" +
 	
+	    			" where transColumns.turqAccountingTransaction.accountingTransactionsId=accTrans.accountingTransactionsId" +
+	    			" and accounts.accountingAccountsId=transColumns.turqAccountingAccount.accountingAccountsId" +
+	    			" order by accounts.accountingAccountsId";
+	  
+			if(startDate!=null){
+			
+			query += " and accTrans.transactionsDate >= :startDate";
+			}
+			
+			if(endDate !=null){
+			query += " and accTrans.transactionsDate <= :endDate";	
+			}
+	    	
+			/*if(!initialAccounts){
+				query += " and accTrans.turqAccountingTransactionType <>"+new Integer(3);
+			}*/
+	    	
+			Query q = session.createQuery(query); 
+			
+			if(startDate!=null){
+				java.sql.Date sqlDate = new java.sql.Date(startDate.getTime());
+				q.setParameter("startDate",sqlDate);
+				}
+				
+			if(endDate !=null){
+					java.sql.Date sqlDate = new java.sql.Date(endDate.getTime());
+					q.setParameter("endDate",sqlDate);
+			}
 
+				
+			List list = q.list();
+			session.close();
+			
+			return list;
+
+			
+
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
 }
