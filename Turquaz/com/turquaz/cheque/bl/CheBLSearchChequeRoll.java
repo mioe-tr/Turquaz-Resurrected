@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSearchChequeRoll.java,v 1.3 2005/01/30 19:30:37 onsel Exp $
+* @version  $Id: CheBLSearchChequeRoll.java,v 1.4 2005/02/08 17:41:24 onsel Exp $
 */
 
 import java.util.Date;
@@ -47,6 +47,16 @@ public class CheBLSearchChequeRoll {
             throw ex;
         }
         
+    }
+    public static List getChequesInPortfolio()throws Exception {
+        try{
+        
+            return CheDALSearch.getChequesInPortfolio();
+        
+        }        
+        catch(Exception ex){
+            throw ex;
+        }
     }
 
 }

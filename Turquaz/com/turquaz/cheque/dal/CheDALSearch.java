@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALSearch.java,v 1.3 2005/01/30 19:30:38 onsel Exp $
+* @version  $Id: CheDALSearch.java,v 1.4 2005/02/08 17:41:24 onsel Exp $
 */
 
 import java.util.Date;
@@ -27,8 +27,10 @@ import java.util.List;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqChequeTransactionType;
+import com.turquaz.engine.dal.TurqViewChequeStatus;
 
 public class CheDALSearch {
 
@@ -81,5 +83,37 @@ public class CheDALSearch {
         catch(Exception ex){
             throw ex;
         }
+    }
+    
+    //Portfoydeki ceklerin listesini getir.
+    public static List getChequesInPortfolio()throws Exception{
+        try{
+            
+            Session session = EngDALSessionFactory.openSession(); 
+            TurqViewChequeStatus chequeStatus = null;
+   
+            
+            String query = "Select cheque, currentCard.cardsName from TurqChequeCheque as cheque, TurqViewChequeStatus as chequeStatus, TurqCurrentCard currentCard " +
+            		"where cheque.chequeChequesId = chequeStatus.chequeChequesId " +
+            		" currentCard.currentCardsId =  chequeStatus.currentCardId " +
+            		" and chequeStatus.chequeTransactionTypesId ="+EngBLCommon.CHEQUE_TRANS_IN;
+            
+            
+            
+            
+            Query q = session.createQuery(query);    
+            
+            
+            List list = q.list();
+			session.close();
+			return list;
+            
+            
+            
+        }
+        catch(Exception ex){
+            throw ex;
+        }
+        
     }
 }
