@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupAddDialog.java,v 1.10 2004/11/04 14:06:46 ehad Exp $
+* @version  $Id: InvUIGroupAddDialog.java,v 1.11 2004/11/04 16:55:35 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -32,7 +32,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.graphics.Color;
+
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 

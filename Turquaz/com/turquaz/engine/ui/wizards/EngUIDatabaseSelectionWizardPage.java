@@ -24,7 +24,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.7 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.8 2004/11/04 16:55:35 onsel Exp $
 */
 import java.sql.ResultSet;
 
@@ -33,8 +33,7 @@ import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
+
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -42,7 +41,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
+
 
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.dal.EngDALConnection;

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.7 2004/11/04 14:22:05 onsel Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.8 2004/11/04 16:55:35 onsel Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -53,8 +53,7 @@ import org.eclipse.swt.layout.GridData;
 
 
 import com.turquaz.admin.bl.AdmBLUserAdd;
-import com.turquaz.current.ui.CurUITransactionAdd;
-import com.turquaz.engine.dal.TurqCurrentGroup;
+
 import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CLabel;

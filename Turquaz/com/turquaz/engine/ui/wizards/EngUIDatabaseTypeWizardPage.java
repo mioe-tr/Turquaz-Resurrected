@@ -24,10 +24,10 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.4 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.5 2004/11/04 16:55:35 onsel Exp $
 */
 
-import org.eclipse.jface.wizard.IWizardPage;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;

@@ -23,7 +23,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.3 2004/11/04 13:32:08 cem Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -31,8 +31,7 @@ import java.util.Calendar;
 import com.turquaz.admin.dal.AdmDALGroupAdd;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
-import com.turquaz.engine.dal.TurqUser;
-import com.turquaz.engine.dal.TurqUserGroup;
+
 
 /**
  * @author huseyin

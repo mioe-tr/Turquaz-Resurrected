@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.15 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: TreeFactory.java,v 1.16 2004/11/04 16:55:35 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -35,7 +35,7 @@ import com.turquaz.accounting.ui.reports.AccUIAccountingJournal;
 import com.turquaz.admin.ui.AdmUIGroupAdd;
 import com.turquaz.admin.ui.AdmUIGroupPermissions;
 import com.turquaz.admin.ui.AdmUIGroups;
-import com.turquaz.admin.ui.AdmUIPermPanel;
+
 import com.turquaz.admin.ui.AdmUIUserAdd;
 import com.turquaz.admin.ui.AdmUIUserPermissions;
 import com.turquaz.admin.ui.AdmUIUsers;

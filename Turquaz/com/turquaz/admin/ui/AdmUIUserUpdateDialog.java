@@ -21,15 +21,13 @@ import java.util.Iterator;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserUpdateDialog.java,v 1.4 2004/11/04 14:22:05 onsel Exp $
+* @version  $Id: AdmUIUserUpdateDialog.java,v 1.5 2004/11/04 16:55:35 onsel Exp $
 */
 
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
+
 import org.eclipse.swt.SWT;
 
 

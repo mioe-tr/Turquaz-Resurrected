@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIPermPanel.java,v 1.9 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmUIPermPanel.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
 */
 
 
@@ -38,7 +38,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.custom.TableTreeItem;
 import org.eclipse.swt.SWT;
 
-import com.turquaz.engine.ui.component.SecureComposite;
+
 
 
 /**
@@ -59,7 +59,7 @@ import com.turquaz.engine.ui.component.SecureComposite;
  * 
  * @author onsel
  *
- *@version $Id: AdmUIPermPanel.java,v 1.9 2004/11/04 13:28:07 ehad Exp $
+ *@version $Id: AdmUIPermPanel.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
  */
 
 

@@ -23,12 +23,11 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUsers.java,v 1.2 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmBLUsers.java,v 1.3 2004/11/04 16:55:35 onsel Exp $
 */
 
 import java.util.List;
 
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 
 /**

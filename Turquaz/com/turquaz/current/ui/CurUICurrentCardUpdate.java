@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.16 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.17 2004/11/04 16:55:35 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -50,8 +50,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.CoolItem;
 import org.eclipse.swt.widgets.CoolBar;
 
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
+
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 

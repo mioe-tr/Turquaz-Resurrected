@@ -24,24 +24,22 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseConnectionInfoWizardPage.java,v 1.3 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: EngUIDatabaseConnectionInfoWizardPage.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CCombo;
+
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import com.turquaz.engine.dal.EngDALConnection;
 
 public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage {
 

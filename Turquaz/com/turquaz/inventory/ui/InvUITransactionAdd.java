@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAdd.java,v 1.9 2004/11/04 14:06:46 ehad Exp $
+* @version  $Id: InvUITransactionAdd.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
 */
 
 import org.eclipse.swt.widgets.Shell;
@@ -31,7 +31,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 
-import org.eclipse.swt.layout.FillLayout;
 
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.widgets.Label;
@@ -43,7 +42,7 @@ import com.turquaz.inventory.Messages;
 /**
  * 
  * @author onsel
- * @version $Id: InvUITransactionAdd.java,v 1.9 2004/11/04 14:06:46 ehad Exp $
+ * @version $Id: InvUITransactionAdd.java,v 1.10 2004/11/04 16:55:35 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo

@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.6 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.7 2004/11/04 16:55:35 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -32,12 +32,11 @@ import java.util.List;
 
 import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
-import com.turquaz.accounting.dal.AccDALTransactionUpdate;
+
 import com.turquaz.current.dal.CurDALSearchTransaction;
 import com.turquaz.current.dal.CurDALTransactionUpdate;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqAccountingTransaction;
-import com.turquaz.engine.dal.TurqAccountingTransactionType;
+
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;

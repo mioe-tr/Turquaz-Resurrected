@@ -18,13 +18,12 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SWTCalendarDialog.java,v 1.3 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: SWTCalendarDialog.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
+
 import org.eclipse.swt.layout.RowLayout;
 import org.vafada.swtcalendar.SWTCalendar;
 import org.vafada.swtcalendar.SWTCalendarListener;

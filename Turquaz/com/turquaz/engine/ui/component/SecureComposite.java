@@ -20,16 +20,14 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: SecureComposite.java,v 1.6 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: SecureComposite.java,v 1.7 2004/11/04 16:55:35 onsel Exp $
 */
-import org.eclipse.swt.widgets.Composite;
 
-import com.turquaz.engine.bl.EngBLPermissions;
 
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.6 2004/11/04 14:04:38 ehad Exp $
+ * @version $Id: SecureComposite.java,v 1.7 2004/11/04 16:55:35 onsel Exp $
  */
 public interface SecureComposite {
 

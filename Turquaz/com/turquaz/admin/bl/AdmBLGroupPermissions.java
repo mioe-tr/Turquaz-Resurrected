@@ -24,7 +24,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupPermissions.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmBLGroupPermissions.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -35,8 +35,7 @@ import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModule;
 import com.turquaz.engine.dal.TurqModuleComponent;
-import com.turquaz.engine.dal.TurqUser;
-import com.turquaz.engine.dal.TurqUserPermission;
+
 
 
 /**

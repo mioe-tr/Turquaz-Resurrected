@@ -23,14 +23,14 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserUpdate.java,v 1.3 2004/11/04 14:22:05 onsel Exp $
+* @version  $Id: AdmBLUserUpdate.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 
 import java.util.Calendar;
 
-import com.turquaz.admin.dal.AdmDALUserAdd;
+
 import com.turquaz.admin.dal.AdmDALUserUpdate;
-import com.turquaz.engine.dal.EngDALCommon;
+
 import com.turquaz.engine.dal.TurqUser;
 
 

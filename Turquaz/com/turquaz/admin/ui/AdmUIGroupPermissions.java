@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupPermissions.java,v 1.3 2004/11/04 13:28:07 ehad Exp $
+* @version  $Id: AdmUIGroupPermissions.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -54,8 +54,7 @@ import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModule;
 import com.turquaz.engine.dal.TurqModuleComponent;
-import com.turquaz.engine.dal.TurqUser;
-import com.turquaz.engine.dal.TurqUserPermission;
+
 import com.turquaz.engine.ui.component.SecureComposite;
 
 import org.eclipse.swt.events.SelectionAdapter;

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.8 2004/11/04 14:42:38 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.9 2004/11/04 16:55:35 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -129,7 +129,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			});
 			this.setLayout(thisLayout);
 			thisLayout.numColumns = 2;
-			this.setSize(417, 145);
+			this.setSize(418, 127);
 			{
 				lblUserName = new CLabel(this, SWT.NONE);
 				lblUserName.setText("Username");
