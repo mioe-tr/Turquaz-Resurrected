@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.77 2004/11/27 13:30:27 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.78 2004/11/27 13:42:23 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -90,7 +90,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.77 2004/11/27 13:30:27 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.78 2004/11/27 13:42:23 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -846,7 +846,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
 		StackLayout compo4layout =(StackLayout)compModulesTree.getLayout();
-		compo4layout.topControl = treeInventory;
+		compo4layout.topControl = treeAccounting;
 		sashMainHorizontal.setWeights(new int[]{25,75});
 	    
 	    comboModuleSelection.add(Messages.getString("EngUIMainFrame.31")); //$NON-NLS-1$
