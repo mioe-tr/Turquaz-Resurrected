@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.27 2004/12/08 10:20:00 onsel Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.28 2004/12/08 15:52:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -395,13 +395,13 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 	
 	int listSize = result.size();
 	for(int i =0; i<listSize;i++){
-	TurqAccountingTransaction accTrans = (TurqAccountingTransaction)result.get(i);
-	item = new TableItem(tableTransactions,SWT.NULL);
-	item.setData(accTrans);	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); //$NON-NLS-1$
-    BigDecimal total = new BigDecimal(0);
-	String transDate =formatter.format(accTrans.getTransactionsDate());
-	item.setText(new String[]{accTrans.getTurqAccountingTransactionType().getTypesName(),
+		TurqAccountingTransaction accTrans = (TurqAccountingTransaction)result.get(i);
+		item = new TableItem(tableTransactions,SWT.NULL);
+		item.setData(accTrans);	
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); //$NON-NLS-1$
+		BigDecimal total = new BigDecimal(0);
+		String transDate =formatter.format(accTrans.getTransactionsDate());
+		item.setText(new String[]{accTrans.getTurqAccountingTransactionType().getTypesName(),
 					accTrans.getTransactionDocumentNo(),transDate,total.toString(),accTrans.getTransactionDescription()}); //$NON-NLS-1$
 	
 	}
