@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.52 2005/02/18 15:53:15 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.53 2005/02/18 18:39:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -700,5 +700,18 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	 */
 	public void setTxtTransDefinition(Text txtTransDefinition) {
 		this.txtTransDefinition = txtTransDefinition;
+	}
+	
+	/**
+	 * @return Returns the comboCurrencyType.
+	 */
+	public CCombo getComboCurrencyType() {
+		return comboCurrencyType;
+	}
+	/**
+	 * @param comboCurrencyType The comboCurrencyType to set.
+	 */
+	public void setComboCurrencyType(CCombo comboCurrencyType) {
+		this.comboCurrencyType = comboCurrencyType;
 	}
 }
