@@ -18,13 +18,11 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.63 2004/11/10 18:56:16 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.64 2004/11/10 18:58:26 onsel Exp $
 */
 
 import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.nio.charset.Charset;
+import java.io.OutputStream; 
 import java.util.Iterator;
 import java.util.Map;
 
@@ -83,7 +81,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.63 2004/11/10 18:56:16 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.64 2004/11/10 18:58:26 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1214,7 +1212,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
           
           TreeItem items[] = treeFavorites.getItems();
           
-         Element root = new Element("tree");        
+          Element root = new Element("tree");        
          
       
          Element treeItem;
