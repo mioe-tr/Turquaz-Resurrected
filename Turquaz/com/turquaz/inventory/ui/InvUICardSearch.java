@@ -53,7 +53,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.11 2004/10/11 14:25:19 onsel Exp $
+ * @version $Id: InvUICardSearch.java,v 1.12 2004/10/13 13:10:33 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -208,7 +208,7 @@ public class InvUICardSearch extends SecureComposite {
 			comboInvGroupLData.verticalAlignment = GridData.CENTER;
 			comboInvGroupLData.horizontalAlignment = GridData.BEGINNING;
 			comboInvGroupLData.widthHint = 119;
-			comboInvGroupLData.heightHint = 14;
+			comboInvGroupLData.heightHint = 16;
 			comboInvGroupLData.horizontalIndent = 0;
 			comboInvGroupLData.horizontalSpan = 1;
 			comboInvGroupLData.verticalSpan = 1;
@@ -388,7 +388,7 @@ public class InvUICardSearch extends SecureComposite {
 	
 	TurqInventoryCard card = (TurqInventoryCard)selection[0].getData();
 	new InvUICardUpdateDialog(this.getShell(),SWT.NULL,card).open();
-	
+	search();
 	
 	}
 	}
