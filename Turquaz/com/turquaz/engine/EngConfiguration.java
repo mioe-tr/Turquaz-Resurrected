@@ -24,7 +24,7 @@ package com.turquaz.engine;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngConfiguration.java,v 1.8 2004/11/25 16:40:59 huseyiner Exp $
+* @version  $Id: EngConfiguration.java,v 1.9 2004/11/26 16:07:56 onsel Exp $
 */
 import java.io.FileInputStream;
 
@@ -51,6 +51,9 @@ public class EngConfiguration {
 	   props = new Properties();
 	   props.load(fis);
 	   logoURL=props.getProperty("logoURL");
+	   if(logoURL ==null){
+	       logoURL ="";
+	   }
 	    
 	    }
 	    catch(Exception ex){
