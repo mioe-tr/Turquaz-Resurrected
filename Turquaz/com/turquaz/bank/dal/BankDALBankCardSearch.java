@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.15 2005/03/02 11:03:24 onsel Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.16 2005/03/17 11:13:51 huseyiner Exp $
 */
 
 import java.sql.ResultSet;
@@ -44,7 +44,7 @@ public class BankDALBankCardSearch {
 	
 	}
 	
-	public List searchBankCards(String bankName, String bankBranchName, String bankAccountNo, TurqCurrency currency)
+	public static List searchBankCards(String bankName, String bankBranchName, String bankAccountNo, TurqCurrency currency)
 	throws Exception
 	{
 		try

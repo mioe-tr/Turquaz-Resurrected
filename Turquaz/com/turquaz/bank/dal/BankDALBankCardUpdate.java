@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardUpdate.java,v 1.6 2005/03/17 09:31:16 cemdayanik Exp $
+* @version  $Id: BankDALBankCardUpdate.java,v 1.7 2005/03/17 11:13:51 huseyiner Exp $
 */
 
 import java.util.List;
@@ -35,7 +35,7 @@ import com.turquaz.engine.dal.TurqBanksTransactionBill;
 public class BankDALBankCardUpdate {
 	public BankDALBankCardUpdate(){
 	}
-	public boolean hasTransaction(TurqBanksCard bankCard)throws Exception {
+	public static boolean hasTransaction(TurqBanksCard bankCard)throws Exception {
 		try{
 			if(bankCard ==null)
 			{
@@ -78,7 +78,7 @@ public class BankDALBankCardUpdate {
 		
 		
 	}
-	public void deleteInitialTransaction(TurqBanksCard bankCard)throws Exception {
+	public static  void deleteInitialTransaction(TurqBanksCard bankCard)throws Exception {
 		try{
 	        
 	        Session session = EngDALSessionFactory.openSession();

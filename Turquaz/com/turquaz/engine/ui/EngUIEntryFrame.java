@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.44 2005/03/07 19:47:13 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.45 2005/03/17 11:13:50 huseyiner Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -96,7 +96,6 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	private Text txtPassword;
 	private CLabel lblPassword;
 	private Label lblSeperator;
-	private EngBLCommon blCommon = new EngBLCommon();
 	boolean guiReady = false;
 
 	/**
@@ -441,7 +440,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	    
 		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
 		try{
-		if(blCommon.checkUserPass(txtUserName.getText(),txtPassword.getText())){
+		if(EngBLCommon.checkUserPass(txtUserName.getText(),txtPassword.getText())){
 		
 			showMainFrame();
 			

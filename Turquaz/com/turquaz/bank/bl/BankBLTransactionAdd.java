@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.36 2005/03/17 10:35:52 cemdayanik Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.37 2005/03/17 11:13:50 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -700,14 +700,6 @@ public class BankBLTransactionAdd {
             throw ex;
         }
 
-    }
-
-    private static void saveTransactionRow() throws Exception {
-        try {
-
-        } catch (Exception ex) {
-            throw ex;
-        }
     }
 
 }

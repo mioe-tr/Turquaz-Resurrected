@@ -18,10 +18,9 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.14 2005/03/17 09:31:16 cemdayanik Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.15 2005/03/17 11:13:50 huseyiner Exp $
 */
 
-import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -41,9 +40,7 @@ public class BankBLBankCardAdd {
 	public BankBLBankCardAdd()
 	{
 	}
-	
-	private BankDALCommon bankCardDALAdd=new BankDALCommon();
-	
+		
 	public static void saveBankCard(String bankName, String bankBranchName, 
 			String bankAccountNo, TurqCurrency currency, String definition, 
 			String bankCode, Map accountingAccounts)

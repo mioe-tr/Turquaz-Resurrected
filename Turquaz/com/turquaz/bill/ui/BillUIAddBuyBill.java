@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.53 2005/03/16 09:53:38 cemdayanik Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.54 2005/03/17 11:13:51 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -995,11 +995,11 @@ public class BillUIAddBuyBill extends Composite
 
 	}
 	
-	private EngBLCommon blCommon = new EngBLCommon();
+
 	public void fillComboWarehouses(){
 		try{
 			comboWareHouse.removeAll();
-			List list = blCommon.getInventoryWarehouses();
+			List list = EngBLCommon.getInventoryWarehouses();
 			
 			TurqInventoryWarehous warehouse;	
 			for(int i=0;i<list.size();i++){

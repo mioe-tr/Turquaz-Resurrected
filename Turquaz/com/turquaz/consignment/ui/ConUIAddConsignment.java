@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.62 2005/03/12 17:17:59 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.63 2005/03/17 11:13:51 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -316,7 +316,6 @@ implements SecureComposite{
 	private CLabel lblCurrentCard;
 	ConBLAddGroups blAddGroup = new ConBLAddGroups();
 	ConBLAddConsignment blAddCondignmetn = new ConBLAddConsignment();
-	private EngBLCommon blCommon = new EngBLCommon();
 	public TableViewer tableViewer;
 	
 	/**
@@ -1082,7 +1081,7 @@ implements SecureComposite{
 	public void fillComboWarehouses(){
 		try{
 			comboWareHouse.removeAll();
-			List list = blCommon.getInventoryWarehouses();
+			List list = EngBLCommon.getInventoryWarehouses();
 			
 			TurqInventoryWarehous warehouse;	
 			for(int i=0;i<list.size();i++){

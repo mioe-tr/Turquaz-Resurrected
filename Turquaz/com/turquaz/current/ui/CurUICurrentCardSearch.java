@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.38 2005/02/25 17:18:18 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.39 2005/03/17 11:13:50 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -101,7 +101,6 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 	private CurrentCodePicker txtCurrentCode;
 	private CLabel lblCurrentCode;
 	private Composite compCurrentCardSearch;
-	private EngBLCommon engBLCom=new EngBLCommon();
 	private CurBLCurrentCardUpdate blUpdate = new CurBLCurrentCardUpdate();
 	private CurBLCurrentCardSearch currentSearch=new CurBLCurrentCardSearch();
 
@@ -269,7 +268,7 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 
 			comboTurqGroupName.removeAll();
 			comboTurqGroupName.setText(""); //$NON-NLS-1$
-			List groups=engBLCom.getTurqCurrentGroups();
+			List groups=EngBLCommon.getTurqCurrentGroups();
 			for(int k=0; k<groups.size(); k++){
 				TurqCurrentGroup group=(TurqCurrentGroup)groups.get(k);
 				comboTurqGroupName.add(group.getGroupsName());
