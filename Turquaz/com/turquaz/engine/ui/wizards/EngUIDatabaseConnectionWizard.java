@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.14 2004/12/03 08:51:46 onsel Exp $
+* @version  $Id: EngUIDatabaseConnectionWizard.java,v 1.15 2005/02/08 10:53:12 onsel Exp $
 */
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -29,8 +29,6 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 
-import com.turquaz.engine.Messages;
-import com.turquaz.engine.dal.EngDALConnection;
 public class EngUIDatabaseConnectionWizard extends Wizard {
     
 	private EngUIDatabaseTypeWizardPage page1;
@@ -83,29 +81,10 @@ public class EngUIDatabaseConnectionWizard extends Wizard {
 	  
 		FileOutputStream fileout = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
 	    props.store(fileout,"Turquaz Properties File"); //$NON-NLS-1$
-		
-		
-	  if(page4.getButtonYes().getSelection()){
-	
-			EngDALConnection conn = new EngDALConnection(dbType,username,password,
-														serverAddress+":"+serverPort); 
-			conn.connect();
-			
-			conn.createTables();
-			msg.setMessage(Messages.getString("EngUIDatabaseConnectionWizard.11")); //$NON-NLS-1$
-			msg.open();
-			
-			
-		}
-		
+		fileout.flush();
+		fileout.close();
 		
 	  
-	  else{
-			
-		System.exit(-1);		
-			
-		
-	  }
 			
 		
 		return true;

@@ -24,7 +24,7 @@ import java.sql.*;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngDALConnection.java,v 1.14 2004/12/08 19:44:28 huseyiner Exp $
+* @version  $Id: EngDALConnection.java,v 1.15 2005/02/08 10:53:12 onsel Exp $
 * 
 * Class for initial database configuration. It creates the necessary
 * bindings according to hibernate.cfg.xml
@@ -77,7 +77,7 @@ public class EngDALConnection {
   	{ 
   	
   	driver = "org.hsqldb.jdbcDriver";
-  	 loginUrl = "jdbc:hsqldb:hsql://" +Url ;
+  	 loginUrl =  "jdbc:hsqldb:database/turquaz";	
      //loginUrl = "jdbc:postgresql://" + Url + "/";
      // loginUrl = "jdbc:mysql://10.90.19.52/turquaz";
 	 loginUser = userName;

@@ -19,7 +19,7 @@ package com.turquaz.engine;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngConfiguration.java,v 1.12 2005/01/18 12:16:30 onsel Exp $
+* @version  $Id: EngConfiguration.java,v 1.13 2005/02/08 10:53:12 onsel Exp $
 */
 import java.io.FileInputStream;
 
@@ -89,6 +89,9 @@ public class EngConfiguration {
 		}
 	    
 	  _instance.currentDate = d;;
+	}
+	public static void refreshConfig(){
+	    _instance = new EngConfiguration();
 	}
 	
 }
