@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.29 2004/11/19 20:40:30 ehad Exp $
+* @version  $Id: TreeFactory.java,v 1.30 2004/11/22 21:54:05 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -64,7 +64,9 @@ import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 public final class TreeFactory {
 	
 	public static Tree createInventoryTree(Tree tree){
+		
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(com.turquaz.engine.Messages.getString("TreeFactory.0"));  //$NON-NLS-1$
 		
 		TreeItem item;
@@ -103,6 +105,7 @@ public final class TreeFactory {
 	
 	public static Tree createBankTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(com.turquaz.engine.Messages.getString("TreeFactory.6")); //$NON-NLS-1$
 		
 		TreeItem item;
@@ -123,6 +126,7 @@ public final class TreeFactory {
 	
 	public static Tree createAccountingTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(com.turquaz.engine.Messages.getString("TreeFactory.9")); //$NON-NLS-1$
 		
 		TreeItem item;
@@ -158,6 +162,7 @@ public final class TreeFactory {
 		}
 		
 		TreeItem report = new TreeItem(tree,SWT.NULL);
+		report.setExpanded(true);
 		report.setText(Messages.getString("TreeFactory.32")); //$NON-NLS-1$
 		
 		if(EngBLPermissions.getPermission(AccUIAccountingJournal.class.getName())>0){
@@ -182,6 +187,7 @@ public final class TreeFactory {
 	}
 	public static Tree createCurrentTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(com.turquaz.engine.Messages.getString("TreeFactory.16")); //$NON-NLS-1$
 		
 		TreeItem item;
@@ -210,6 +216,7 @@ public final class TreeFactory {
 	}
 	public static Tree createAdminTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(com.turquaz.engine.Messages.getString("TreeFactory.21")); //$NON-NLS-1$
 		
 		TreeItem item;
@@ -248,6 +255,7 @@ public final class TreeFactory {
 	}
 	public static Tree createConsignmetTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(Messages.getString("TreeFactory.31")); //$NON-NLS-1$
 		
 		TreeItem item;
@@ -266,6 +274,7 @@ public final class TreeFactory {
 	}
 	public static Tree createBillTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
+		root.setExpanded(true);
 		root.setText(Messages.getString("TreeFactory.36")); //$NON-NLS-1$
 		
 		TreeItem item;
