@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.26 2005/02/11 11:21:58 onsel Exp $
+* @version  $Id: AccountPicker.java,v 1.27 2005/02/19 20:10:13 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -94,7 +94,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 				text1.setEditable(true);
 				text1.setSize(new org.eclipse.swt.graphics.Point(358,22));
 				GridData text1LData = new GridData();
-				text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+				 text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
                 text1.addModifyListener(new ModifyListener() {
                     public void modifyText(ModifyEvent evt) {
                       
