@@ -17,13 +17,12 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.36 2005/02/14 13:57:11 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.37 2005/02/14 15:13:36 onsel Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
@@ -49,7 +48,6 @@ import com.turquaz.engine.bl.EngBLUtils;
 
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentCardsGroup;
-import com.turquaz.engine.dal.TurqCurrentContact;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.dal.TurqViewCurrentAmountTotal;
 

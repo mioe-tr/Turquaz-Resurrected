@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.17 2005/02/08 11:31:11 cemdayanik Exp $
+* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.18 2005/02/14 15:13:36 onsel Exp $
 */
 
 import java.util.Date;
@@ -221,13 +221,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	}
 	/** Add your pre-init code in here 	*/
 	public void preInitGUI(){
-	    try{
-	        blTransUpdate.initiliazeTransactionRows(accTrans);
-	        
-	    }
-	    catch(Exception ex){
-	        ex.printStackTrace();
-	    }
+	    
 	}
 
 	/** Add your post-init code in here 	*/

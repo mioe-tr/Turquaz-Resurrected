@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.28 2005/02/08 11:31:11 cemdayanik Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.29 2005/02/14 15:13:36 onsel Exp $
 */
 
 import java.util.Date;
@@ -241,7 +241,7 @@ public void showDialog(TurqAccountingTransaction accTrans){
 			toolDelete.setEnabled(false);		    
 		}
 	try{
-		blTransUpdate.initiliazeTransactionRows(accTrans);
+		
 	/* Check if it is entered from accountingmodule
 	 * 
 	 */
