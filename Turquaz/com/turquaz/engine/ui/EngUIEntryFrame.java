@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.37 2005/01/18 12:16:37 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.38 2005/01/18 13:00:42 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -89,8 +89,6 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	}
 
 	private CLabel lblUserName;
-	private DatePicker datePicker;
-	private CLabel lblWorkingDate;
 	private Text txtUserName;
 	private CCombo comboLanguage;
 	private CLabel lblLanguage;
@@ -243,17 +241,6 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 				comboLanguageLData.heightHint = 16;
 				comboLanguage.setLayoutData(comboLanguageLData);
 			}
-            {
-                lblWorkingDate = new CLabel(this, SWT.NONE);
-                lblWorkingDate.setText(Messages.getString("EngUIEntryFrame.10")); //$NON-NLS-1$
-            }
-            {
-                datePicker = new DatePicker(this, SWT.NONE);
-                GridData datePickerLData = new GridData();
-                datePickerLData.widthHint = 123;
-                datePickerLData.heightHint = 19;
-                datePicker.setLayoutData(datePickerLData);
-            }
 			
 
 			{
@@ -462,8 +449,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
 		try{
 		if(blCommon.checkUserPass(txtUserName.getText(),txtPassword.getText())){
-			
-		     EngConfiguration.setCurrentDate(datePicker.getDate());
+		
 			showSplashScreen();
 			
 			

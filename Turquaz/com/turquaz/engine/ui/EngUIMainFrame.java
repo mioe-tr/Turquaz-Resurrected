@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.114 2005/01/17 21:20:27 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.115 2005/01/18 13:00:41 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.114 2005/01/17 21:20:27 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.115 2005/01/18 13:00:41 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -135,6 +135,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 	private Composite compMainInRight;
 	private static Tree treeFavorites;
 	private CLabel lblFavoritesTab;
+	private MenuItem menuItemPreferences;
+	private Menu menuEdit;
 	private Label label2;
 	private Button btnCheque;
 	private Tree treeCheques;
@@ -986,8 +988,23 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
             }
 
 			mitEdit.setText(Messages.getString("EngUIMainFrame.21")); //$NON-NLS-1$
-            
-	
+            {
+                menuEdit = new Menu(mitEdit);
+                mitEdit.setMenu(menuEdit);
+                {
+                    menuItemPreferences = new MenuItem(menuEdit, SWT.PUSH);
+                    menuItemPreferences.setText("Özellikler");
+                    menuItemPreferences
+                        .addSelectionListener(new SelectionAdapter() {
+                        public void widgetSelected(SelectionEvent evt) {
+                           
+                            new EngUIPreferences(getShell(),SWT.NULL).open();   
+                        
+                        }
+                        });
+                }
+            }
+
 			mitHelp.setEnabled(true);
 			mitHelp.setText(Messages.getString("EngUIMainFrame.22")); //$NON-NLS-1$
             {
