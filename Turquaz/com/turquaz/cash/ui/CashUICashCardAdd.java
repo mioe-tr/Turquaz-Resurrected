@@ -18,7 +18,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCardAdd.java,v 1.8 2005/01/30 19:34:25 onsel Exp $
+* @version  $Id: CashUICashCardAdd.java,v 1.9 2005/02/06 10:55:22 onsel Exp $
 */
 import org.eclipse.swt.layout.GridLayout;
 
@@ -33,6 +33,7 @@ import com.turquaz.accounting.ui.comp.CashAccountPicker;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 
+import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.ui.component.SecureComposite;
 
@@ -130,9 +131,11 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
                blCardAdd.saveCashCard(txtCardCode.getText().trim(),
                        				  txtDefinition.getText().trim(),
                        				  (TurqAccountingAccount)accountPicker.getData());
-                    
+                
+               
                msg.setMessage(Messages.getString("CashUICashCardAdd.3")); //$NON-NLS-1$
                msg.open();
+               EngBLCashCards.RefreshContentAsistantMap();
                newForm();
            }
            
