@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.9 2004/11/28 17:57:41 huseyiner Exp $
+* @version  $Id: BillUIAddBill.java,v 1.10 2004/11/28 19:29:19 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -418,9 +418,7 @@ implements SecureComposite{
 									.setLayoutData(lblCurrentCardLData1);
 							}
 							{
-								txtCurrentCard = new Text(
-									compInfoPanel,
-									SWT.MULTI);
+								txtCurrentCard = new Text(compInfoPanel, SWT.SINGLE);
 								GridData txtCurrentCardLData = new GridData();
 								txtCurrentCard
 									.addModifyListener(new ModifyListener() {
