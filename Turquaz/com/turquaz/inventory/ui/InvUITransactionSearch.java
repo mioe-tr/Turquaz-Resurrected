@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.23 2005/01/08 13:02:18 onsel Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.24 2005/01/16 08:25:06 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -305,8 +305,9 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 			TurqEngineSequence seq = invTrans.getTurqEngineSequence();
 			
 			TurqConsignment cons = blSearch.getConsignment(seq);
-			new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
-			search();
+			boolean updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
+			if (updated)
+				search();
 		}
 		}
 		catch (Exception ex)
