@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.7 2004/12/03 19:12:53 cemdayanik Exp $
+* @version  $Id: CurrencyText.java,v 1.8 2004/12/03 19:19:12 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -185,8 +185,8 @@ public class CurrencyText extends Composite {
  }
  public String getText(){
  	String formatted=text.getText(); 	
- 	formatted=formatted.replace('.','\0');
- 	return formatted.replace(',','.');
+ 	formatted=formatted.replaceAll("\\.","");
+ 	return formatted.replaceAll(",",".");
  }
  public void selectAll(){
  	text.selectAll();
