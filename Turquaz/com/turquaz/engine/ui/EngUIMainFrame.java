@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.86 2004/12/03 08:51:45 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.87 2004/12/03 10:03:00 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.86 2004/12/03 08:51:45 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.87 2004/12/03 10:03:00 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1476,7 +1476,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		}
 		else{
 			toolExportToExcel.setEnabled(false);
-			toolPrint.setEnabled(true);
+			toolPrint.setEnabled(false);
 		}
 				
 	}
@@ -1539,6 +1539,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			toolDelete.setEnabled(false);
 			toolSearch.setEnabled(false);
 			toolExportToExcel.setEnabled(false);
+			toolPrint.setEnabled(false);
 		}
 		mapList.remove(((CTabItem)evt.item).getControl().getClass().getName());
 		
