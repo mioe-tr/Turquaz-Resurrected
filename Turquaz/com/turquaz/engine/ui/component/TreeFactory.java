@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.38 2004/11/29 13:03:58 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.39 2004/11/29 18:49:12 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -190,7 +190,7 @@ public final class TreeFactory {
 		
 		if(EngBLPermissions.getPermission(AccUITransactionSearch.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
-			item.setText("Muhasebele?tirme");
+			item.setText(Messages.getString("TreeFactory.41")); //$NON-NLS-1$
 			item.setData(AccUISaveJournal.class.getName());
 		}
 		

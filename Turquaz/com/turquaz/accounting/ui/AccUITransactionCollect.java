@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.15 2004/11/28 16:51:51 huseyiner Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.16 2004/11/29 18:49:17 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -126,7 +126,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					.getString("AccUITransactionCollect.0")); //$NON-NLS-1$
 				GridData lbldocumentNoLData = new GridData();
 				lbldocumentNoLData.verticalAlignment = GridData.BEGINNING;
-				lbldocumentNoLData.widthHint = 49;
+				lbldocumentNoLData.widthHint = 79;
 				lbldocumentNoLData.heightHint = 19;
 				lbldocumentNo.setLayoutData(lbldocumentNoLData);
 			}
@@ -162,7 +162,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 				lblDeptor.setText(Messages
 					.getString("AccUITransactionCollect.2")); //$NON-NLS-1$
 				GridData lblDeptorLData = new GridData();
-				lblDeptorLData.widthHint = 78;
+				lblDeptorLData.widthHint = 105;
 				lblDeptorLData.heightHint = 22;
 				lblDeptor.setLayoutData(lblDeptorLData);
 			}
