@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.7 2004/11/26 12:40:14 cemdayanik Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.8 2004/11/28 16:51:51 huseyiner Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -50,6 +50,8 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
 import com.turquaz.engine.ui.component.SecureComposite;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.events.VerifyEvent;
 public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements SecureComposite{
 	private CLabel lblAdmGroupName;
 	private Text txtAdmGroupName;
@@ -134,6 +136,15 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 			{
 				txtAdmGroupDesc = new Text(this, SWT.MULTI | SWT.V_SCROLL);
 				GridData txtAdmGroupDescLData = new GridData();
+				txtAdmGroupDesc.addVerifyListener(new VerifyListener() {
+					public void verifyText(VerifyEvent evt) {
+						if (evt.keyCode == SWT.TAB) {
+							txtAdmGroupName.setFocus();
+							evt.doit = false;
+							
+						}
+					}
+				});
 				txtAdmGroupDescLData.widthHint = 239;
 				txtAdmGroupDescLData.heightHint = 55;
 				txtAdmGroupDesc.setLayoutData(txtAdmGroupDescLData);

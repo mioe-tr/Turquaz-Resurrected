@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIUserAdd.java,v 1.10 2004/11/26 12:40:14 cemdayanik Exp $
+* @version  $Id: AdmUIUserAdd.java,v 1.11 2004/11/28 16:51:51 huseyiner Exp $
 */
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +61,8 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.events.VerifyEvent;
 public class AdmUIUserAdd extends Composite implements SecureComposite {
 	private CLabel lblUsername;
 	private Text txtUsername;
@@ -183,6 +185,14 @@ public class AdmUIUserAdd extends Composite implements SecureComposite {
 			{
 				txtDescription = new Text(this, SWT.MULTI | SWT.V_SCROLL);
 				GridData txtDescriptionLData = new GridData();
+				txtDescription.addVerifyListener(new VerifyListener() {
+					public void verifyText(VerifyEvent evt) {
+						if (evt.keyCode == SWT.TAB) {
+							registeredGroups.setFocus();
+							evt.doit = false;
+						}
+					}
+				});
 				txtDescriptionLData.horizontalAlignment = GridData.FILL;
 				txtDescriptionLData.heightHint = 59;
 				txtDescription.setLayoutData(txtDescriptionLData);

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.14 2004/11/27 13:30:26 cemdayanik Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.15 2004/11/28 16:51:51 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -55,6 +55,10 @@ import org.eclipse.swt.SWT;
 /**
 *		Tahsil Fisi 
 */
+import org.eclipse.swt.events.TraverseListener;
+import org.eclipse.swt.events.TraverseEvent;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.events.VerifyEvent;
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
@@ -186,6 +190,15 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					| SWT.WRAP
 					| SWT.V_SCROLL);
 				GridData txtTransDefinitionLData = new GridData();
+				txtTransDefinition.addVerifyListener(new VerifyListener() {
+					public void verifyText(VerifyEvent evt) {
+						if (evt.character == SWT.TAB) {
+							btnAddTransactionRow.setFocus();
+							evt.doit = false;
+						}
+					}
+				});
+
 				txtTransDefinitionLData.widthHint = 184;
 				txtTransDefinitionLData.heightHint = 19;
 				txtTransDefinition.setLayoutData(txtTransDefinitionLData);
