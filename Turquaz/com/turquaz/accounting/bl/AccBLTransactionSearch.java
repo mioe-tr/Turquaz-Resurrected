@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.11 2004/12/16 16:05:07 huseyiner Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.12 2004/12/17 13:15:15 huseyiner Exp $
 */
 
 
@@ -69,7 +69,15 @@ public class AccBLTransactionSearch {
 			throw ex;
 		}		
 }
-	
+	public Object[] getAccTransactionBalance(TurqAccountingAccount acc,Object startDate, Object endDate)throws Exception{
+		try{
+			
+			return dalTransSearch.getAccTransactionBalance(acc,startDate,endDate);					
+		}
+		catch(Exception ex){
+			throw ex;
+		}		
+}
 	public List getTransactionTypes()throws Exception{
 		try{
 			
