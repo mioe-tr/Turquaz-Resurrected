@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.118 2005/03/30 18:37:45 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.119 2005/04/06 07:34:49 huseyiner Exp $
  */
 import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.CellEditor;
@@ -434,7 +434,7 @@ public class InvUICardAdd extends Composite implements SecureComposite
 					comboInvCardUnitsLData.widthHint = 104;
 					comboInvCardUnitsLData.heightHint = 18;
 					comboInvCardUnits.setLayoutData(comboInvCardUnitsLData);
-					comboInvCardUnits.setText(Messages.getString("InvUICardAdd.17")); //$NON-NLS-1$
+
 					comboInvCardUnits.setBackground(SWTResourceManager.getColor(255, 255, 255));
 				}
 				{
@@ -1188,6 +1188,11 @@ public class InvUICardAdd extends Composite implements SecureComposite
 			{
 				trqInvUnit = (TurqInventoryUnit) unitLst.get(i);
 				comboInvCardUnits.add(trqInvUnit.getUnitsName());
+				//set first inventory unit default
+				if (i == 0)
+				{
+					comboInvCardUnits.setText(trqInvUnit.getUnitsName());
+				}
 				comboInvCardUnits.setData(trqInvUnit.getUnitsName(), trqInvUnit);
 				item = new TableItem(tableInvCardAddAllUnits, SWT.NULL);
 				item.setText(trqInvUnit.getUnitsName());
