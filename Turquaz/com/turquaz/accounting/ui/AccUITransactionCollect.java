@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.30 2004/12/17 20:54:22 onsel Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.31 2004/12/17 21:39:41 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -51,6 +51,7 @@ import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.editors.AccountingCellEditor;
 import com.turquaz.engine.ui.editors.CurrencyCellEditor;
+import com.turquaz.engine.ui.editors.NumericCellEditor;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.TableRowList;
 import com.turquaz.engine.ui.viewers.TurquazCellModifier;
@@ -359,9 +360,9 @@ public class AccUITransactionCollect extends Composite implements
 		cursor = new TableCursor(tableTransactionRows, SWT.NONE);
 		cursor.setEnabled(true);
 		cursor.addKeyListener(new KeyAdapter() {
-			public void keyReleased(KeyEvent evt) {
+			public void keyReleased(KeyEvent e) {
 
-				if (evt.keyCode == SWT.INSERT) {
+				if (e.keyCode == SWT.INSERT) {
 					AccUITransactionCollectTableRow row = new AccUITransactionCollectTableRow(
 							rowList);
 					rowList.addTask(row);
@@ -369,7 +370,7 @@ public class AccUITransactionCollect extends Composite implements
 					cursor.setSelection(
 							tableTransactionRows.getItemCount() - 1, 0);
 
-				} else if (evt.keyCode == SWT.DEL) {
+				} else if (e.keyCode == SWT.DEL) {
 					if (cursor.getRow() != null) {
 						ITableRow row = (ITableRow) cursor.getRow().getData();
 						rowList.removeTask(row);
@@ -381,6 +382,30 @@ public class AccUITransactionCollect extends Composite implements
 					}
 
 				}
+				 // F2 edit
+                else if(e.keyCode == 16777227 && e.stateMask == 0){
+                    tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
+
+				// any character
+				} 
+                //any character
+                else if((e.keyCode<0x10000 || e.character!='\0') && e.keyCode>0x1f && e.keyCode!=127 
+    					|| e.keyCode==0x00 && (e.stateMask==0 || e.stateMask==SWT.SHIFT)){
+                    tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
+                    if(tableViewer.getCellEditors()[cursor.getColumn()] instanceof TextCellEditor){
+                        
+                        TextCellEditor editor = ((TextCellEditor)tableViewer.getCellEditors()[cursor.getColumn()]);
+                        ((Text)editor.getControl()).setText(""+e.character);
+						if(tableViewer.getCellEditors()[cursor.getColumn()] instanceof CurrencyCellEditor 
+						 || tableViewer.getCellEditors()[cursor.getColumn()] instanceof NumericCellEditor ){
+						    
+						}
+						else{
+						    ((Text)editor.getControl()).setSelection(1);
+						}
+                        
+                    }
+                }
 
 			}
 		});
