@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALUpdate.java,v 1.6 2005/02/22 13:15:28 onsel Exp $
+* @version  $Id: CheDALUpdate.java,v 1.7 2005/02/28 17:58:01 onsel Exp $
 */
 
 
@@ -44,6 +44,7 @@ public class CheDALUpdate {
 			throw ex;
 		}
 	}
+	
     public static void initializeChequeRoll(TurqChequeRoll chequeRoll)throws Exception {
         try{
             
@@ -54,6 +55,7 @@ public class CheDALUpdate {
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqCurrentTransactions());
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqBanksTransactionBills());
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqCashTransactions());
+            Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqAccountingTransactions());
             
             session.close();
             
