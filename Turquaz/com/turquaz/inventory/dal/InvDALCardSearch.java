@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.25 2005/02/01 15:25:46 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.26 2005/02/06 19:17:20 cemdayanik Exp $
 */
 import java.util.List;
 
@@ -59,6 +59,72 @@ public class InvDALCardSearch {
 				if(invGroup!=null){
 					
 					query +="and :invGroup in (Select myGroup.turqInventoryGroup From invCard.turqInventoryCardGroups as myGroup)" ;
+					
+				}
+				query += " order by invCard.cardInventoryCode";
+				   
+				Query q = session.createQuery(query); 
+				if(invGroup!=null){
+					q.setParameter("invGroup",invGroup);
+				}
+				
+				
+				q.setMaxResults(1000);
+			
+				List list = q.list();
+			
+			    session.close();
+			
+				return list;	
+				
+			}
+			catch(Exception ex){
+				throw ex;
+			}
+					
+	}
+	
+	public List searchInventoryCardsAdvanced(String cardCodeStart, String cardCodeEnd,
+			String cardNameStart,String cardNameEnd, TurqInventoryGroup invGroup)throws Exception{
+		try{
+			
+				Session session = EngDALSessionFactory.openSession();
+				
+				String query = "Select invView, invCard.cardInventoryCode, invCard.cardName, invCard.inventoryCardsId from TurqViewInventoryTotal as invView," +
+						" TurqInventoryCard as invCard" +						
+						" where invCard.inventoryCardsId = invView.inventoryCardsId";
+					
+				if (!cardNameStart.equals("") && !cardNameEnd.equals(""))
+				{
+					query +=" and invCard.cardName >= '"+cardNameStart+"'";
+					query +=" and invCard.cardName <= '"+cardNameEnd+"'";
+					
+				}
+				else if (!cardNameStart.equals(""))
+				{
+					query += " and invCard.cardName like '"+cardNameStart+"%'";
+				}
+				else if (!cardNameEnd.equals(""))
+				{
+					query += " and invCard.cardName like '"+cardNameEnd+"%'";
+				}
+				
+				if (!cardCodeStart.equals("") && !cardCodeEnd.equals(""))
+				{
+					query+=" and invCard.cardInventoryCode >= '"+cardCodeStart+"'";
+					query+=" and invCard.cardInventoryCode <= '"+cardCodeEnd+"'";
+				}
+				else if (!cardCodeStart.equals(""))
+				{
+					query+=" and invCard.cardInventoryCode like '"+cardCodeStart+"%'";
+				}
+				else if (!cardCodeEnd.equals(""))
+				{
+					query+=" and invCard.cardInventoryCode like '"+cardCodeEnd+"%'";
+				}
+				if(invGroup!=null){
+					
+					query +=" and :invGroup in (Select myGroup.turqInventoryGroup From invCard.turqInventoryCardGroups as myGroup)" ;
 					
 				}
 				query += " order by invCard.cardInventoryCode";

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.43 2005/02/06 15:38:52 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.44 2005/02/06 19:17:20 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -61,7 +61,6 @@ import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqInventoryPrice;
 import com.turquaz.engine.dal.TurqInventoryUnit;
 import com.turquaz.engine.ui.component.CurrencyText;
-import com.turquaz.engine.ui.component.NumericText;
 
 
 import org.eclipse.swt.events.SelectionAdapter;

@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardSearch.java,v 1.10 2005/01/11 10:53:37 cemdayanik Exp $
+* @version  $Id: InvBLCardSearch.java,v 1.11 2005/02/06 19:17:20 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -53,6 +53,20 @@ public class InvBLCardSearch {
 			throw ex;
 		}
 	}
+	
+	public List searchCardsAdvanced(String cardCodeStart, String cardCodeEnd,
+			String cardNameStart,String cardNameEnd, TurqInventoryGroup group)throws Exception{
+		try{
+		
+			return cardSearch.searchInventoryCardsAdvanced(cardCodeStart,cardCodeEnd,cardNameStart,cardNameEnd,
+					group);
+		}
+		
+		catch(Exception ex){
+			throw ex;
+		}
+	}
+	
 	public TurqInventoryCard initializeInventoryCard(Integer cardId)throws Exception{
 	    try{
 	        
