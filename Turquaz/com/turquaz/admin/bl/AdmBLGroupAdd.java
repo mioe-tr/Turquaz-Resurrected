@@ -1,9 +1,4 @@
-/*
- * Created on 03.Kas.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.admin.bl;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.5 2004/11/10 08:03:58 onsel Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.6 2004/11/10 08:04:40 onsel Exp $
 */
 
 import java.util.Calendar;
