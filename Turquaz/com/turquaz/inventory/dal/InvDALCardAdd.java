@@ -16,7 +16,7 @@
 
 /**
  * @author onsel
- * @version $Id: InvDALCardAdd.java,v 1.5 2004/10/05 07:21:54 onsel Exp $
+ * @version $Id: InvDALCardAdd.java,v 1.6 2004/10/05 11:10:57 onsel Exp $
  */
 
 package com.turquaz.inventory.dal;
@@ -30,6 +30,9 @@ import net.sf.hibernate.Transaction;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
+import com.turquaz.engine.dal.TurqInventoryCardGroup;
+import com.turquaz.engine.dal.TurqInventoryCardUnit;
+import com.turquaz.engine.dal.TurqInventoryGroup;
 
 
 
@@ -55,6 +58,35 @@ public class InvDALCardAdd {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	
+	public void saveOrUpdateCardGroup(TurqInventoryCardGroup cardGroup)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			session.saveOrUpdate(cardGroup);
+			session.flush();
+			tx.commit();
+			session.close();
+			
+			}
+			catch(Exception ex){
+				throw ex;
+			}	
+	}
+	public void saveOrUpdateCardUnit(TurqInventoryCardUnit cardUnit)throws Exception{
+		try{
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			session.saveOrUpdate(cardUnit);
+			session.flush();
+			tx.commit();
+			session.close();
+			
+			}
+			catch(Exception ex){
+				throw ex;
+			}	
 	}
 	
 	public void registerGroup()throws Exception{
