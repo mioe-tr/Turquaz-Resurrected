@@ -19,14 +19,13 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: InvBLSearchTransaction.java,v 1.1 2004/11/11 16:40:25 huseyiner Exp $
+* @version  $Id: InvBLSearchTransaction.java,v 1.2 2004/11/12 08:57:23 onsel Exp $
 */
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.turquaz.consignment.dal.ConDALSearchConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.inventory.dal.InvDALSearchTransaction;
