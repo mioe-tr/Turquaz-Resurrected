@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.80 2005/03/29 17:23:18 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.81 2005/03/30 14:35:26 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -391,6 +391,30 @@ public class EngBLCommon
 		try
 		{
 			EngDALCommon.deleteObject(obj);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static void save(Object obj) throws Exception
+	{
+		try
+		{
+			EngDALCommon.saveObject(obj);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static void update(Object obj) throws Exception
+	{
+		try
+		{
+			EngDALCommon.updateObject(obj);
 		}
 		catch (Exception ex)
 		{
