@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.31 2005/02/07 18:49:45 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.32 2005/02/08 13:44:45 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -84,6 +84,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 	private Table tableTransactions;
 
 	private TableColumn tableColumnTotalAmountOut;
+	private TableColumn tableColumnInventoryName;
 	private TableColumn tableColumnTotalPriceIn;
 
 	private TableColumn tableColumnInventoryCode;
@@ -260,6 +261,13 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 					tableColumnInventoryCode.setWidth(108);
 				}
 				{
+					tableColumnInventoryName = new TableColumn(
+						tableTransactions,
+						SWT.NONE);
+					tableColumnInventoryName.setText(Messages.getString("InvUITransactionSearch.19")); //$NON-NLS-1$
+					tableColumnInventoryName.setWidth(100);
+				}
+				{
 					tableColumnTotalAmountIn = new TableColumn(
 						tableTransactions,
 						SWT.RIGHT);
@@ -374,6 +382,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 				Date transDate = (Date)result[1];
 				item.setText(new String[] {
 								DatePicker.formatter.format(transDate),
+								transactions.getTurqInventoryCard().getCardInventoryCode(),
 								transactions.getTurqInventoryCard().getCardName(),
 								cf.format(transactions.getTransactionsAmountIn())+"", //$NON-NLS-1$
 								cf.format(priceIn),
