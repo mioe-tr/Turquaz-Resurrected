@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.24 2005/03/26 10:18:17 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.25 2005/03/29 18:20:11 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.List;
@@ -31,11 +31,11 @@ public class AccBLAccountAdd
 	{
 	}
 
-	public static List getAccount(int parentid, String codeCrit) throws Exception
+	public static List getAccount(Integer parentid, String codeCrit) throws Exception
 	{
 		try
 		{
-			return AccDALAccountAdd.getAccounts(parentid, codeCrit);
+			return AccDALAccountAdd.getAccounts(parentid.intValue(), codeCrit);
 		}
 		catch (Exception ex)
 		{

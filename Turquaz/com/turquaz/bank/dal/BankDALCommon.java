@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.23 2005/03/29 15:57:32 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.24 2005/03/29 18:20:11 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -174,7 +174,7 @@ public class BankDALCommon
 			q.setParameter("endDate", endDate);
 			q.setParameter("cashCard", cashCard);
 			List ls = q.list();
-			session.close();
+			
 			return ls;
 		}
 		catch (Exception ex)
@@ -192,7 +192,6 @@ public class BankDALCommon
 					+ " where bankTrans.turqBanksTransactionBill.turqBanksTransactionType.id =" + EngBLCommon.BANK_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			List ls = q.list();
-			session.close();
 			return ls;
 		}
 		catch (Exception ex)

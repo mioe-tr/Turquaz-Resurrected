@@ -32,7 +32,7 @@ import net.sf.hibernate.Session;
 
 /**
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.25 2005/03/29 15:45:04 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.26 2005/03/29 18:20:13 onsel Exp $
  */
 public class CashDALCashCard
 {
@@ -172,7 +172,7 @@ public class CashDALCashCard
 			if (it.hasNext())
 			{
 				TurqCurrentTransaction curTrans = (TurqCurrentTransaction) it.next();
-				session.close();
+			
 				return curTrans.getTurqCurrentCard();
 			}
 			

@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.35 2005/03/29 15:44:19 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.36 2005/03/29 18:20:12 onsel Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -295,13 +295,7 @@ public class InvDALSearchTransaction
 		{
 			throw ex;
 		}
-		finally
-		{
-			if (session != null)
-			{
-				session.close();
-			}
-		}
+		
 	}
 
 	public static List getInitialTransactions() throws Exception
@@ -342,12 +336,6 @@ public class InvDALSearchTransaction
 		{
 			throw ex;
 		}
-		finally
-		{
-			if (session != null)
-			{
-				session.close();
-			}
-		}
+		
 	}
 }

@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.16 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.17 2005/03/29 18:20:11 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.List;
@@ -32,13 +32,13 @@ public class AccBLAccountUpdate
 	{
 	}
 
-	public static void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, Object parent)
+	public static void updateAccount(TurqAccountingAccount account, String accountName, String accountCode, TurqAccountingAccount parent)
 			throws Exception
 	{
 		try
 		{
 			String accCode = account.getAccountCode();
-			TurqAccountingAccount parentAccount = (TurqAccountingAccount) parent;
+			TurqAccountingAccount parentAccount = parent;
 			account.setAccountName(accountName);
 			account.setAccountCode(accountCode);
 			account.setUpdatedBy(System.getProperty("user"));
