@@ -74,7 +74,7 @@ import com.turquaz.inventory.ui.InvUITransactionAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.26 2004/10/15 08:19:42 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.27 2004/10/15 08:29:00 onsel Exp $
 */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -928,7 +928,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 
 	/** Auto-generated event handler method */
 	protected void treeBankMouseDoubleClick(MouseEvent evt){
-	TreeItem item = treeAdmin.getSelection()[0];
+		TreeItem item = treeBank.getSelection()[0];
 		if(item.getItemCount()==0){
 			openNewTab(item.getText(),item.getData().toString());
 		}
