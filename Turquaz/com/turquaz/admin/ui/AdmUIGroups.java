@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroups.java,v 1.4 2004/11/12 08:44:49 onsel Exp $
+* @version  $Id: AdmUIGroups.java,v 1.5 2004/11/18 09:20:49 huseyiner Exp $
 */
 import java.util.List;
 
@@ -49,6 +49,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroups;
 
 import com.turquaz.engine.bl.EngBLUtils;
@@ -132,14 +133,14 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 				tableGroups.setLayoutData(tableUsersLData);
 				{
 					tableColumnGroupname = new TableColumn(tableGroups, SWT.NONE);
-					tableColumnGroupname.setText("Group Name");
+					tableColumnGroupname.setText(Messages.getString("AdmUIGroups.0")); //$NON-NLS-1$
 					tableColumnGroupname.setWidth(112);
 				}
 				{
 					tableColumnDescription = new TableColumn(
 						tableGroups,
 						SWT.NONE);
-					tableColumnDescription.setText("Description");
+					tableColumnDescription.setText(Messages.getString("AdmUIGroups.1")); //$NON-NLS-1$
 					tableColumnDescription.setWidth(200);
 				}
 			}

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.23 2004/11/05 08:45:28 onsel Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.24 2004/11/18 09:20:49 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -979,7 +979,7 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 			lblAccountingCodeCustomerLData.widthHint = 117;
 			lblAccountingCodeCustomerLData.heightHint = 18;
 			lblAccountingCodeCustomer.setLayoutData(lblAccountingCodeCustomerLData);
-			lblAccountingCodeCustomer.setText("Muhasebe Hesab?"); //$NON-NLS-1$
+			lblAccountingCodeCustomer.setText(Messages.getString("CurUICurrentCardAdd.13")); //$NON-NLS-1$
 
 			GridData accPickerCustomerLData = new GridData();
 			accPickerCustomerLData.verticalAlignment = GridData.CENTER;
