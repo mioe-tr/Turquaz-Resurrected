@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.84 2004/12/02 07:46:09 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.85 2004/12/02 08:25:46 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.84 2004/12/02 07:46:09 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.85 2004/12/02 08:25:46 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -707,7 +707,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
                         }
                         {
                             toolPrint = new ToolItem(toolbarMainTop, SWT.NONE);
-                            toolPrint.setText("&Yazd?r");
+                            toolPrint.setText(Messages.getString("EngUIMainFrame.19")); //$NON-NLS-1$
+                            toolPrint.setImage(SWTResourceManager.getImage("icons/Print16.gif"));
                             toolPrint
                                 .addSelectionListener(new SelectionAdapter() {
                                 public void widgetSelected(SelectionEvent evt) {
@@ -935,6 +936,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
                 {
                     mitExit = new MenuItem(menuFile, SWT.PUSH);
                     mitExit.setText(Messages.getString("EngUIMainFrame.36")); //$NON-NLS-1$
+                    mitExit.setImage(SWTResourceManager.getImage("icons/Exit16.gif"));
                     mitExit.addSelectionListener(new SelectionAdapter() {
                         public void widgetSelected(SelectionEvent evt) {
                         System.exit(-1);   
