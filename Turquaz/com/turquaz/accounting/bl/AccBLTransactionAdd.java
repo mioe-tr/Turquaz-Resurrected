@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.28 2005/04/01 19:00:49 onsel Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.29 2005/04/06 12:25:45 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -176,6 +176,12 @@ public class AccBLTransactionAdd
 	{
 		try
 		{
+			
+		 if(creditAccounts.size()==0||deptAccounts.size()==0)
+		 {
+		 	return false;
+		 }
+			
 			TurqEngineSequence docSeq = new TurqEngineSequence();
 			if (docSeqId == null)
 			{

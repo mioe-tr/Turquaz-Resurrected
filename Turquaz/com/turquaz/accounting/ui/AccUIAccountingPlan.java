@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.53 2005/03/30 16:57:07 onsel Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.54 2005/04/06 12:25:46 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -416,7 +416,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite imple
 				Logger loger = Logger.getLogger(this.getClass());
 				loger.error("Exception Caught", ex);
 				ex.printStackTrace();
-				msg3.setMessage(ex.getMessage());
+				msg3.setMessage("Hata Olustu");
 				msg3.open();
 			}
 		}

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAddAccounts.java,v 1.50 2005/04/01 16:25:59 cemdayanik Exp $
+ * @version  $Id: AccUIAddAccounts.java,v 1.51 2005/04/06 12:25:46 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -412,7 +412,7 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
-			msg.setMessage(ex.getMessage());
+			msg.setMessage("Hata Olustu");
 			msg.open();
 		}
 	}

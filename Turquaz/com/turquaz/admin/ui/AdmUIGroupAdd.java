@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupAdd.java,v 1.16 2005/04/05 12:29:34 onsel Exp $
+ * @version  $Id: AdmUIGroupAdd.java,v 1.17 2005/04/06 12:25:46 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -195,7 +195,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 				Logger loger = Logger.getLogger(this.getClass());
 				loger.error("Exception Caught", ex);
 				ex.printStackTrace();
-				messageBox.setMessage(ex.getMessage());
+				messageBox.setMessage("Hata Olustu!");
 				messageBox.open();
 			}
 		}

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.13 2005/03/31 18:42:19 onsel Exp $
+ * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.14 2005/04/06 12:25:46 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -282,7 +282,7 @@ public class CashUICashPaymentTransactionAdd extends org.eclipse.swt.widgets.Com
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
-			msg.setMessage(ex.getMessage());
+			msg.setMessage("Hata Olustu!!");
 			msg.open();
 		}
 	}

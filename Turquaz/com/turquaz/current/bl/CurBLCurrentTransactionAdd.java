@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.45 2005/04/01 06:54:59 cemdayanik Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.46 2005/04/06 12:25:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -258,9 +258,18 @@ public class CurBLCurrentTransactionAdd
 	{
 		try
 		{
+			deptAccounts.clear();
+			creditAccounts.clear();
+			
+			
 			Integer accountId = account.getId();
 			Integer currentAccountId = CurBLCurrentCardSearch.getCurrentAccountingAccount(curCard, EngBLCommon.CURRENT_ACC_TYPE_GENERAL)
 					.getId();
+			if(currentAccountId == null)
+			{
+				return;
+			}
+			
 			//Cari Karta para verildiginde
 			//Kasaya alacak hareketi
 			//Cari kartin satici muhasebe hesabina borc hareketi

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.21 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.22 2005/04/06 12:25:46 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -432,7 +432,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
-			msg2.setMessage(ex.getMessage());
+			msg2.setMessage("Hata Olustu!");
 			msg2.open();
 		}
 	}
