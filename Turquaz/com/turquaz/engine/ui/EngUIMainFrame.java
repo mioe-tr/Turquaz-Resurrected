@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.60 2004/11/10 12:22:53 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.61 2004/11/10 14:55:32 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -80,7 +80,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.60 2004/11/10 12:22:53 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.61 2004/11/10 14:55:32 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -602,7 +602,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			{
 				toolExportToExcel = new ToolItem(toolbarMainTop, SWT.NONE);
 				toolExportToExcel.setText("Export");
-				toolExportToExcel.setImage(SWTResourceManager.getImage("icons/ExportX24.gif"));
+				toolExportToExcel.setImage(SWTResourceManager.getImage("icons/excel.jpeg"));
 				toolExportToExcel.addSelectionListener(new SelectionAdapter() {
 					public void widgetSelected(SelectionEvent evt) {
 						exportToExcel();
