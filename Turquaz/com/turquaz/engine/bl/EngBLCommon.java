@@ -24,7 +24,7 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.5 2004/11/09 18:36:50 onsel Exp $
+* @version  $Id: EngBLCommon.java,v 1.6 2004/12/03 15:27:25 onsel Exp $
 */
 import java.util.List;
 
@@ -81,6 +81,16 @@ public class EngBLCommon {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	public static void delete(Object obj)throws Exception{
+	    try{
+	        
+	        EngDALCommon common =new EngDALCommon();
+	        common.delete(obj);
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	}
 
 }

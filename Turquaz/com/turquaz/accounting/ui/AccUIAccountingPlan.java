@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.29 2004/12/03 12:57:54 onsel Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.30 2004/12/03 15:27:25 onsel Exp $
 */
 
 
@@ -354,8 +354,8 @@ public void fillTree(int parent, String codeCrit){
 
 		} catch (Exception ex) {
 			MessageBox msg3 = new MessageBox(this.getShell(), SWT.ICON_WARNING);
-			msg.setMessage(Messages.getString("AccUIAccountingPlan.5")); //$NON-NLS-1$
-			msg.open();
+			msg3.setMessage(Messages.getString("AccUIAccountingPlan.5")); //$NON-NLS-1$
+			msg3.open();
 			
 			ex.printStackTrace();
 

@@ -24,7 +24,7 @@ package com.turquaz.inventory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: Messages.java,v 1.5 2004/11/26 16:41:56 huseyiner Exp $
+* @version  $Id: Messages.java,v 1.6 2004/12/03 15:27:26 onsel Exp $
 */
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
 
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.inventory.messages";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.inventory.messages_tr_TR";//$NON-NLS-1$
 
 	
 	private Messages() {
@@ -42,7 +42,7 @@ public class Messages {
 		// TODO Auto-generated method stub
 		try {
 			 final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
-			.getBundle(BUNDLE_NAME,Locale.getDefault());
+			.getBundle(BUNDLE_NAME);
 			
 			return RESOURCE_BUNDLE.getString(key);
 		} catch (MissingResourceException e) {
