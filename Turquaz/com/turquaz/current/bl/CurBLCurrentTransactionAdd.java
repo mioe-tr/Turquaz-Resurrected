@@ -1,9 +1,4 @@
-/*
- * Created on Oct 26, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.current.bl;
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -23,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.16 2004/11/23 19:17:10 huseyiner Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.17 2004/11/25 09:23:01 huseyiner Exp $
 */
 import java.math.BigDecimal;
 
@@ -139,6 +134,9 @@ public class CurBLCurrentTransactionAdd {
         if(type == 4){
           
           int accTransactionType = 1; //0-Tahsil, 1-Tediye, 2-Mahsup
+          // 0 = collect
+          // 1 = payment
+          // 2 = general transaction
     	  //Cari Karta para verildiginde
 		  //Kasaya alacak hareketi (Tediye fisi) 
 	
@@ -159,16 +157,23 @@ public class CurBLCurrentTransactionAdd {
          AccBLTransactionAdd blAcc = new AccBLTransactionAdd();
         
          //4-Cari modulu id si.. 
+         // current module id
          TurqEngineSequence seq= new TurqEngineSequence();
+         TurqModule module = new TurqModule();
+         module.setModulesId(new Integer(4));
+         seq.setTurqModule(module);
+         
          dalCurrentTrans.saveObject(seq);
          
          Integer transId = blAcc.saveAccTransaction(transDate,documentNo,accTransactionType,4,seq.getEngineSequencesId(),"cari "+DatePicker.formatter.format(transDate) +" " + documentNo);
          
          //muhasebe fisi kalemlerini de ekleyelim.. 
+         // add accounting bill rows
          saveAccountingCashTransactionRows(curCard,isCredit,amount,account,transId);           
          
          
         //Simdi Cari Hareketi Kaydedebiliriz. 
+         // insert current transactions
        	TurqCurrentTransaction curTrans = new TurqCurrentTransaction();
  		
  		curTrans.setTransactionsDate(transDate);
