@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.56 2004/11/06 12:22:11 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.57 2004/11/06 12:31:53 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -79,7 +79,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.56 2004/11/06 12:22:11 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.57 2004/11/06 12:31:53 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -107,7 +107,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		//handle the obtaining and disposing of resources
 		SWTResourceManager.registerResourceUser(this);
 	}
-
+  
 	private Tree treeCurrent;
 	private Label label1;
 	private Composite composite1;

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.13 2004/11/06 12:26:01 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.14 2004/11/06 12:31:53 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -268,10 +268,6 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			WizardDialog dialog = new WizardDialog(this.getShell(),wizard);
 			dialog.open();	
 		}
-		
-		
-		
-		System.out.println(NewTurkishCurrencyFormat.formatBD(new BigDecimal("134141134134134.13")));
 		
 		
 		EngDALSessionFactory.init();
