@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.54 2005/01/13 16:22:55 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.55 2005/01/28 11:14:47 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1098,7 +1098,7 @@ implements SecureComposite{
 		Object data = new CurUICurrentCardSearchDialog(this.getShell(),SWT.NULL).open();
 	    if(data!=null){
 	    
-	    System.out.println(data.getClass().getName());
+	  
 		TurqCurrentCard curCard = (TurqCurrentCard)data;
 	    txtCurrentCard.setText(curCard.getCardsCurrentCode()+" - "+curCard.getCardsName()); //$NON-NLS-1$
 		txtCurrentCard.setData(curCard);

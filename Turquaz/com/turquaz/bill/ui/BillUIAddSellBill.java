@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.45 2005/01/18 12:00:44 cemdayanik Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.46 2005/01/28 11:14:46 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1200,7 +1200,6 @@ public class BillUIAddSellBill extends Composite
 				SWT.NULL).open();
 		if (data != null) {
 
-			//System.out.println(data.getClass().getName());
 			TurqCurrentCard curCard = (TurqCurrentCard) data;
 			txtCurrentCard.setText(curCard.getCardsCurrentCode()
 					+ " - " + curCard.getCardsName()); //$NON-NLS-1$
