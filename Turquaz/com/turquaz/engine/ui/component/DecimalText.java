@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.5 2004/10/02 16:24:45 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.6 2004/10/05 16:24:07 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -83,7 +83,7 @@ public class DecimalText extends Composite {
  	return textLimit;
  }
  protected void text3VerifyText(VerifyEvent e){
- 	char decimalSymbol =',';
+ 	char decimalSymbol ='.';
  	int numberOfDecimals =2;
  	Text control = (Text)e.widget;
     String text = control.getText();
