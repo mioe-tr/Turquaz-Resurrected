@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALSave.java,v 1.6 2005/01/30 19:30:38 onsel Exp $
+* @version  $Id: CheDALSave.java,v 1.7 2005/03/03 19:31:47 onsel Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -73,7 +73,7 @@ public class CheDALSave {
             session.update(obj);
             
             tx.commit();
-          //  session.flush();
+            session.flush();
             session.close();
             
             
@@ -93,6 +93,7 @@ public class CheDALSave {
             Session session = EngDALSessionFactory.openSession();
          Transaction tx = session.beginTransaction();
             session.delete(obj);
+            session.flush();
           tx.commit();
          
            session.close();
@@ -104,4 +105,26 @@ public class CheDALSave {
             throw ex;
         }
     } 
+    public static void deleteRollAccountingAccount(Integer rollId)throws Exception
+	{
+    	try{
+    		
+    		 Session session = EngDALSessionFactory.openSession();
+             Transaction tx = session.beginTransaction();
+           //  session.delete();
+             
+             
+                session.flush();
+              tx.commit();
+             
+               session.close();
+                
+    		
+    		
+    	}
+    	catch(Exception ex)
+		{
+    		throw ex;
+		}
+	}
 }

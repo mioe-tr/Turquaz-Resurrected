@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALUpdate.java,v 1.7 2005/02/28 17:58:01 onsel Exp $
+* @version  $Id: CheDALUpdate.java,v 1.8 2005/03/03 19:31:47 onsel Exp $
 */
 
 
@@ -56,7 +56,7 @@ public class CheDALUpdate {
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqBanksTransactionBills());
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqCashTransactions());
             Hibernate.initialize(chequeRoll.getTurqEngineSequence().getTurqAccountingTransactions());
-            
+            chequeRoll.getTurqChequeRollAccountingAccount();
             session.close();
             
             

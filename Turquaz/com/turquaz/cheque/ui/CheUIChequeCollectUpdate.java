@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectUpdate.java,v 1.1 2005/02/22 13:15:28 onsel Exp $
+ * @version $Id: CheUIChequeCollectUpdate.java,v 1.2 2005/03/03 19:31:47 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -216,7 +216,8 @@ public class CheUIChequeCollectUpdate extends
 	private void toolUpdateWidgetSelected(SelectionEvent evt) {
 		
 		try{
-	        if(compChequeRoll.verifyFields()){ 
+	        if(compChequeRoll.verifyFields())
+	        { 
 	            List chequeList = new ArrayList();
 	            int count = compChequeRoll.getTableCheques().getItemCount();
 	            for(int i=0;i<count;i++)
