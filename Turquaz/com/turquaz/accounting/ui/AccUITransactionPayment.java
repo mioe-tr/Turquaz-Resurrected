@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.27 2004/12/17 21:39:41 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.28 2004/12/20 10:05:05 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -383,6 +383,20 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	}
 		
 	}
+   public boolean okToDelete(){
+	    
+	    MessageBox msg = new MessageBox(this.getShell(),SWT.ICON_WARNING|SWT.OK|SWT.CANCEL);
+	       msg.setMessage(Messages.getString("AccUITransactionAdd.8"));   //$NON-NLS-1$
+	       if(msg.open()==SWT.OK){
+	           return true;
+	       }
+	       else
+	       {
+	           return false;
+	       }
+	       
+	       
+	}
    public void createTableViewer(){
        columnList.add(ACCOUNT_CODE);
        columnList.add(ACCOUNT_NAME);
@@ -425,12 +439,14 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
                  }
                  else if(e.keyCode==SWT.DEL){
                      if(cursor.getRow()!=null){
+                         if(okToDelete()){
                          ITableRow row = (ITableRow)cursor.getRow().getData();
                          rowList.removeTask(row);
                          int itemCount =tableTransactionRows.getItemCount();
                         if(itemCount>0){
                             cursor.setSelection(itemCount-1,0);
                         }
+                         }
                      
                      }
                     
