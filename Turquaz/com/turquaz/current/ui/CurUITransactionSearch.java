@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.44 2005/03/31 15:33:26 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.45 2005/04/02 11:22:26 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -423,7 +423,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					}
 					else if (type == EngBLCommon.CURRENT_TRANS_BILL)
 					{
-						Integer bankTransId = (Integer)EngTXCommon.doSingleTX( EngBLCommon.class.getName(),"getBill",argMap);
+						Integer bankTransId = (Integer)EngTXCommon.doSingleTX( EngBLCommon.class.getName(),"getBillofCurrentTrans",argMap);
 						if (bankTransId != null)
 						{
 							updated = BillUIBillSearch.updateBill(bankTransId, getShell());

@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.86 2005/04/01 09:29:12 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.87 2005/04/02 11:22:25 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -326,11 +326,19 @@ public class EngBLCommon
 		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
 		return EngDALCommon.getCheqeuTransaction(seq);
 	}
+	
 	public static Integer getBill(HashMap argMap) throws Exception
 	{
 		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
 		return EngDALCommon.getBill(seq);
 	}
+	public static Integer getBillofCurrentTrans(HashMap argMap) throws Exception
+	{
+		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
+		return EngDALCommon.getBillOfCurrentTrans(seq);
+	}
+	
+	
 
 	public static Integer getCashTransaction(HashMap argMap) throws Exception
 	{
