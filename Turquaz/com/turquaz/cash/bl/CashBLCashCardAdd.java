@@ -1,7 +1,11 @@
 package com.turquaz.cash.bl;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import com.turquaz.accounting.AccKeys;
+import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.dal.CashDALCashCard;
+import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCashCard;
@@ -23,20 +27,21 @@ import com.turquaz.engine.dal.TurqCashCard;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.6 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: CashBLCashCardAdd.java,v 1.7 2005/03/31 18:42:19 onsel Exp $
  */
 public class CashBLCashCardAdd
 {
 	CashDALCashCard dalCash = new CashDALCashCard();
 
-	public CashBLCashCardAdd()
-	{
-	}
 
-	public static void saveCashCard(String name, String definition, TurqAccountingAccount cashAccount) throws Exception
+	public static void saveCashCard(HashMap argMap ) throws Exception
 	{
-		try
-		{
+		
+		
+		 String name = (String) argMap.get(CashKeys.CASH_CARD_NAME);
+		 String definition = (String) argMap.get(EngKeys.DEFINITION);
+		 TurqAccountingAccount cashAccount =(TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
+		 
 			Calendar cal = Calendar.getInstance();
 			TurqCashCard cashCard = new TurqCashCard();
 			cashCard.setCashCardName(name);
@@ -47,10 +52,7 @@ public class CashBLCashCardAdd
 			cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			cashCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			EngDALCommon.saveObject(cashCard);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+			
+	
 	}
 }
