@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.26 2004/11/27 13:09:45 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.27 2004/11/27 13:30:26 cemdayanik Exp $
 */
 
 
@@ -44,7 +44,7 @@ import org.eclipse.swt.SWT;
 
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLAccountAdd;
-import org.eclipse.swt.events.MouseAdapter;
+
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;

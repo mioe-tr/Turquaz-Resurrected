@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.76 2004/11/27 12:36:53 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.77 2004/11/27 13:30:27 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -46,7 +46,7 @@ import org.eclipse.swt.custom.CTabFolderEvent;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.KeyListener;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -90,7 +90,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.76 2004/11/27 12:36:53 cemdayanik Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.77 2004/11/27 13:30:27 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 

@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DatePicker.java,v 1.10 2004/11/25 21:20:37 onsel Exp $
+* @version  $Id: DatePicker.java,v 1.11 2004/11/27 13:30:26 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 import java.text.ParseException;
@@ -28,12 +28,10 @@ import java.util.Date;
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.graphics.Color;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
+
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;

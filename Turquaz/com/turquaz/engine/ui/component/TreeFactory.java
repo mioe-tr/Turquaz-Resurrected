@@ -19,11 +19,10 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.34 2004/11/27 12:36:53 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.35 2004/11/27 13:30:26 cemdayanik Exp $
 */
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.KeyEvent;
-import org.eclipse.swt.events.KeyListener;
+
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 

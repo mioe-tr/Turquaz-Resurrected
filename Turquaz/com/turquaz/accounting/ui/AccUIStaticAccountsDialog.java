@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIStaticAccountsDialog.java,v 1.5 2004/11/26 14:26:04 cemdayanik Exp $
+* @version  $Id: AccUIStaticAccountsDialog.java,v 1.6 2004/11/27 13:30:26 cemdayanik Exp $
 */
 
 
@@ -38,7 +38,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.graphics.Color;
+
 import com.turquaz.accounting.bl.AccBLAccountAdd;
 
 import com.cloudgarden.resource.SWTResourceManager;

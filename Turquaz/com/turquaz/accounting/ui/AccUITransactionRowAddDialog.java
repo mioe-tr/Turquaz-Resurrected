@@ -17,13 +17,13 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionRowAddDialog.java,v 1.11 2004/11/26 12:40:12 cemdayanik Exp $
+* @version  $Id: AccUITransactionRowAddDialog.java,v 1.12 2004/11/27 13:30:26 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
+
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;

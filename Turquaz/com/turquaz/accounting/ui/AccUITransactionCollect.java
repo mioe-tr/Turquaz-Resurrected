@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.13 2004/11/25 19:27:00 huseyiner Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.14 2004/11/27 13:30:26 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -28,8 +28,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.layout.GridData;

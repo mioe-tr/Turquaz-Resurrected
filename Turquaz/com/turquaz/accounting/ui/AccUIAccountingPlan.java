@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAccountingPlan.java,v 1.24 2004/11/25 16:40:59 huseyiner Exp $
+* @version  $Id: AccUIAccountingPlan.java,v 1.25 2004/11/27 13:30:26 cemdayanik Exp $
 */
 
 
@@ -36,7 +36,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.TreeItem;
+
+
 
 import org.eclipse.swt.widgets.TableColumn;
 

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUIGroupAddDialog.java,v 1.8 2004/11/26 14:26:03 cemdayanik Exp $
+* @version  $Id: CurUIGroupAddDialog.java,v 1.9 2004/11/27 13:30:26 cemdayanik Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -33,7 +33,7 @@ import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.graphics.Color;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableColumn;

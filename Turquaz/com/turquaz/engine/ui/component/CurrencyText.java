@@ -19,12 +19,11 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrencyText.java,v 1.3 2004/11/27 09:19:52 cemdayanik Exp $
+* @version  $Id: CurrencyText.java,v 1.4 2004/11/27 13:30:26 cemdayanik Exp $
 */
-import java.awt.Cursor;
+
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.text.NumberFormat;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
