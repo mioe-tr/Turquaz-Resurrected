@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
 * @author  Onsel
-* @version  $Id: CheDALSearch.java,v 1.7 2005/02/13 19:39:06 onsel Exp $
+* @version  $Id: CheDALSearch.java,v 1.8 2005/02/14 10:09:43 onsel Exp $
 */
 
 import java.util.Date;
@@ -72,6 +72,7 @@ public class CheDALSearch {
             throw ex;
         }
     }
+    
     public static List getTransactionTypes()throws Exception {
         try{
             Session session = EngDALSessionFactory.openSession(); 
@@ -85,6 +86,7 @@ public class CheDALSearch {
             throw ex;
         }
     }
+    
     
     //Portfoydeki ceklerin listesini getir.
     public static List getChequesInPortfolio()throws Exception{
@@ -117,6 +119,7 @@ public class CheDALSearch {
         }
         
     }
+    
     /**
      * 
      * @param portfoyNo
@@ -139,7 +142,10 @@ public class CheDALSearch {
          
           
            
-            String query = "Select cheque from TurqChequeCheque as cheque" +
+            String query = "Select cheque.chequeChequesId, cheque.chequesPortfolioNo,chequeInRolls.turqChequeRoll.chequeRollsDate," +
+            		" chequeInRolls.turqChequeRoll.turqCurrentCard.cardsName, cheque.chequesDueDate,status.chequeTransactionTypesId," +
+            		" cheque.chequesAmount" +
+            		" from TurqChequeCheque as cheque" +
             		" left join cheque.turqChequeChequeInRolls as chequeInRolls ," +
             		" TurqViewChequeStatus as status " +
             		" where cheque.chequesPortfolioNo like '"+portfoyNo+"%'" +
