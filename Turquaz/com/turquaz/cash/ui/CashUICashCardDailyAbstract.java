@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: CashUICashCardDailyAbstract.java,v 1.1 2005/02/06 11:09:26 cemdayanik Exp $
+* @version  $Id: CashUICashCardDailyAbstract.java,v 1.2 2005/02/06 11:11:34 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -204,7 +204,7 @@ public class CashUICashCardDailyAbstract extends org.eclipse.swt.widgets.Composi
      if(verifyFields())
      {
      try{
-        
+     tableCashTrans.removeAll();
       TurkishCurrencyFormat cf = new TurkishCurrencyFormat();   
       TableItem item = new TableItem(tableCashTrans,SWT.NULL);   
       

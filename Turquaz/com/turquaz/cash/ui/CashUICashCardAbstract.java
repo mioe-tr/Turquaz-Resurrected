@@ -17,12 +17,14 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCardAbstract.java,v 1.6 2005/01/30 19:34:52 onsel Exp $
+* @version  $Id: CashUICashCardAbstract.java,v 1.7 2005/02/06 11:11:34 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+
+import javax.swing.text.TabExpander;
 
 import org.eclipse.swt.layout.GridLayout;
 
@@ -219,7 +221,7 @@ public class CashUICashCardAbstract extends org.eclipse.swt.widgets.Composite im
      if(verifyFields())
      {
      try{
-        
+      tableCashTrans.removeAll();
       TurkishCurrencyFormat cf = new TurkishCurrencyFormat();   
       TableItem item = new TableItem(tableCashTrans,SWT.NULL);   
       
