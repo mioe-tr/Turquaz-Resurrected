@@ -18,7 +18,7 @@ package com.turquaz.cheque.ui;
 
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.12 2005/03/02 13:14:32 cemdayanik Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.13 2005/03/03 10:42:22 onsel Exp $
  */
 
 import java.util.ArrayList;
@@ -130,7 +130,7 @@ public class CheUIChequeOutPayrollCurrent extends
 				GridData compInfoPanelLData = new GridData();
 				compInfoPanelLData.grabExcessHorizontalSpace = true;
 				compInfoPanelLData.horizontalAlignment = GridData.FILL;
-				compInfoPanelLData.heightHint = 103;
+				compInfoPanelLData.heightHint = 111;
 				compInfoPanel.setLayoutData(compInfoPanelLData);
 				compInfoPanelLayout.numColumns = 2;
 				compInfoPanel.setLayout(compInfoPanelLayout);
@@ -279,6 +279,7 @@ public class CheUIChequeOutPayrollCurrent extends
 					tableColumnAmount.setWidth(100);
 				}
 			}
+			
 			this.layout();
 		} catch (Exception e) {
 			e.printStackTrace();
