@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.32 2004/11/23 15:29:30 huseyiner Exp $
+* @version  $Id: TreeFactory.java,v 1.33 2004/11/23 19:16:51 huseyiner Exp $
 */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -180,7 +180,7 @@ public final class TreeFactory {
 		}
 		
 		TreeItem actionReports = new TreeItem(tree,SWT.NULL);
-		actionReports.setText("Durum Raporlarý"); 
+		actionReports.setText(Messages.getString("TreeFactory.39"));  //$NON-NLS-1$
 		
 		if(EngBLPermissions.getPermission(AccUIAccountingBalance.class.getName())>0){
 			item = new TreeItem(actionReports,SWT.NULL);

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.9 2004/11/18 11:36:15 onsel Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.10 2004/11/23 19:16:40 huseyiner Exp $
 */
 
 
@@ -204,6 +204,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		}
 	    
 		compTransactionPayment.getTxtDocumentNo().setText(accTrans.getTransactionDocumentNo());
+		compTransactionPayment.getTxtDefinition().setText(accTrans.getTransactionDescription());
 		Date date = new Date(accTrans.getTransactionsDate().getTime());
 		compTransactionPayment.getDatePickerTransactionDate().setDate(date);
 		
@@ -247,7 +248,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		try{
 		 if(compTransactionPayment.verifyFields()){
 		 blTransUpdate.updateTransaction(accTrans,compTransactionPayment.getTxtDocumentNo().getText().trim(),
-										compTransactionPayment.getDatePickerTransactionDate().getData());
+										compTransactionPayment.getDatePickerTransactionDate().getData(),compTransactionPayment.getTxtDefinition().getText().trim());
 		 updateTransactionRows();
 		 msg.setMessage(Messages.getString("AccUITransactionPaymentUpdateDialog.6")); //$NON-NLS-1$
 		 msg.open();

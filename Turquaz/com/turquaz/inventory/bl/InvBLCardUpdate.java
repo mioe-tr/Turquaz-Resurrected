@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.8 2004/11/18 16:06:56 huseyiner Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.9 2004/11/23 19:16:39 huseyiner Exp $
 */
 
 
@@ -56,8 +56,7 @@ public class InvBLCardUpdate {
 	 * @param card
 	 * @throws Exception
 	 */
-	public void updateInvCard(String invCode, String invSpecialCode,
-			String cardName, String cardDefinition, int minAmount,
+	public void updateInvCard(String invCode, String cardName, String cardDefinition, int minAmount,
 			int maxAmount, int cardVat, int discount,TurqAccountingAccount accountBuy,
 			TurqAccountingAccount accountSell,int cardSpecialVat, BigDecimal cardSpecialVatEach,
 			TurqInventoryCard card) throws Exception{
@@ -71,7 +70,6 @@ public class InvBLCardUpdate {
 			card.setCardMaximumAmount(maxAmount);
 			card.setCardMinimumAmount(minAmount);
 			card.setCardName(cardName);
-			card.setCardSpecialCode(invSpecialCode);
 			card.setCardVat(cardVat);
 			card.setCardSpecialVat(cardSpecialVat);
 			card.setCardSpecialVatEach(cardSpecialVatEach);

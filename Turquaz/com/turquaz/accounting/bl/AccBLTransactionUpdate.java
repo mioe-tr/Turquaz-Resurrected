@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionUpdate.java,v 1.5 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccBLTransactionUpdate.java,v 1.6 2004/11/23 19:17:05 huseyiner Exp $
 */
 
 import java.sql.Date;
@@ -49,7 +49,7 @@ public class AccBLTransactionUpdate {
 		
 	}
 	
-	public void updateTransaction(TurqAccountingTransaction transaction,String docNo, Object transDate)
+	public void updateTransaction(TurqAccountingTransaction transaction,String docNo, Object transDate, String definition)
 	throws Exception{
 	
 		Date date = new Date(((java.util.Date)transDate).getTime());
@@ -67,7 +67,7 @@ public class AccBLTransactionUpdate {
 	
 	}
 	public void updateTransaction(TurqAccountingTransaction transaction,String docNo, java.util.Date transDate,
-				int transType)
+				int transType, String definition)
 	throws Exception{
 	
 		TurqAccountingTransactionType accTransType = new TurqAccountingTransactionType();

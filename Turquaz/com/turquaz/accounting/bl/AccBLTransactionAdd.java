@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.7 2004/11/16 19:09:35 onsel Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.8 2004/11/23 19:17:07 huseyiner Exp $
 */
 
 import java.util.Calendar;
@@ -76,7 +76,7 @@ public class AccBLTransactionAdd {
 	}
 	}
 	
-	public Integer saveAccTransaction(Date date, String documentNo,int type,int moduleId,Integer docSeqId) throws Exception
+	public Integer saveAccTransaction(Date date, String documentNo,int type,int moduleId,Integer docSeqId, String definition) throws Exception
 	{
 		try{
 			
@@ -84,11 +84,15 @@ public class AccBLTransactionAdd {
 		
 		if(docSeqId==null){
 			
+			TurqModule module = new TurqModule();
+			module.setModulesId(new Integer(1));
+			docSeq.setTurqModule(module);
 			dalTransAdd.save(docSeq);
 		}
 		else
 		{
 			docSeq.setEngineSequencesId(docSeqId);
+			
 		}
 		
 		
@@ -97,6 +101,7 @@ public class AccBLTransactionAdd {
 		
 		
 		trans.setTransactionDocumentNo(documentNo);
+		trans.setTransactionDescription(definition);
 		trans.setTransactionsDate(new java.sql.Date(date.getTime()));
 		
 		
