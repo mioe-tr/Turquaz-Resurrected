@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.19 2005/02/26 11:06:06 cemdayanik Exp $
+* @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.20 2005/02/26 13:21:00 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -77,7 +77,6 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.widgets.Label;
-import com.turquaz.accounting.ui.comp.AccountPicker;
 public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Composite implements SearchComposite {
 	private TableColumn tableColumnTotalCredit;
 	private Button radioUseRemainder;
