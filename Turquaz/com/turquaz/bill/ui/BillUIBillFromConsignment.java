@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.14 2004/12/03 13:46:20 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.15 2004/12/03 16:06:48 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -902,6 +902,14 @@ implements SecureComposite{
 	
 	
 	public boolean verifyFields(){
+		MessageBox msg=new MessageBox(this.getShell(),SWT.NULL);
+		if (txtConsignment.getData()==null)
+		{
+			msg.setMessage("Lütfen Ýrsaliye Döküman No Seçiniz!");
+			msg.open();
+			txtConsignment.setFocus();
+			return false;
+		}
 		return true;
 	}
 	
