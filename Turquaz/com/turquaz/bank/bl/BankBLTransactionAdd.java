@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.32 2005/03/15 14:24:00 cemdayanik Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.33 2005/03/16 13:58:55 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -171,8 +171,8 @@ public class BankBLTransactionAdd {
                     seq.getTurqModule().getId().intValue(), seq
                             .getId(), accounting_definition, exchangeRate);
 
-            blAccTran.saveAccTransactionRow(accTransRowCredit, transId,exchangeRate);
-            blAccTran.saveAccTransactionRow(accTransRowDept, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowCredit, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowDept, transId,exchangeRate);
             
             
             
@@ -397,8 +397,8 @@ public class BankBLTransactionAdd {
                     seq.getTurqModule().getId().intValue(), seq
                             .getId(), definition,exchangeRate);
 
-            blAccTran.saveAccTransactionRow(accTransRowBank, transId,exchangeRate);
-            blAccTran.saveAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowBank, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
 
         } catch (Exception ex) {
             throw ex;
@@ -548,8 +548,8 @@ public class BankBLTransactionAdd {
                     seq.getTurqModule().getId().intValue(), seq
                             .getId(), definition,exchangeRate);
 
-            blAccTran.saveAccTransactionRow(accTransRowBank, transId,exchangeRate);
-            blAccTran.saveAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowBank, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
 
         } catch (Exception ex) {
             throw ex;
@@ -686,8 +686,8 @@ public class BankBLTransactionAdd {
                     seq.getTurqModule().getId().intValue(), seq
                             .getId(), definition,exchangeRate);
 
-            blAccTran.saveAccTransactionRow(accTransRowBank, transId,exchangeRate);
-            blAccTran.saveAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowBank, transId,exchangeRate);
+            blAccTran.registerAccTransactionRow(accTransRowCurrent, transId,exchangeRate);
         } catch (Exception ex) {
             throw ex;
         }

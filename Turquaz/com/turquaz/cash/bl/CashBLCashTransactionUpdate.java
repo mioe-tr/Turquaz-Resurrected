@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.22 2005/03/08 13:16:19 onsel Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.23 2005/03/16 13:58:55 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -344,8 +344,8 @@ public class CashBLCashTransactionUpdate {
             	           										   cashTrans.getTurqEngineSequence().getId(),
 																   definition,exchangeRate);
 
-            	   blAccTran.saveAccTransactionRow(accTransRowCash,transId,exchangeRate);
-            	   blAccTran.saveAccTransactionRow(accTransRowCurrent,transId,exchangeRate);         
+            	   blAccTran.registerAccTransactionRow(accTransRowCash,transId,exchangeRate);
+            	   blAccTran.registerAccTransactionRow(accTransRowCurrent,transId,exchangeRate);         
             
             
         }
@@ -503,8 +503,8 @@ try{
     	           										   cashTrans.getTurqEngineSequence().getId(),
 														   definition,exchangeRate);
 
-    	   blAccTran.saveAccTransactionRow(accTransRowCash,transId,exchangeRate);
-    	   blAccTran.saveAccTransactionRow(accTransRowCurrent,transId,exchangeRate);         
+    	   blAccTran.registerAccTransactionRow(accTransRowCash,transId,exchangeRate);
+    	   blAccTran.registerAccTransactionRow(accTransRowCurrent,transId,exchangeRate);         
     
     
 }
@@ -660,9 +660,9 @@ try{
 						.getId().intValue(), cashTrans.getTurqEngineSequence()
 						.getId(), definition,exchangeRate);
 
-		blAccTran.saveAccTransactionRow(accTransCashWithDept, transId,
+		blAccTran.registerAccTransactionRow(accTransCashWithDept, transId,
 				exchangeRate);
-		blAccTran.saveAccTransactionRow(accTransCashWithCredit, transId,
+		blAccTran.registerAccTransactionRow(accTransCashWithCredit, transId,
 				exchangeRate);
     
 }

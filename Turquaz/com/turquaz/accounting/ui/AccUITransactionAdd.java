@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.62 2005/03/11 10:00:46 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.63 2005/03/16 13:58:55 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -569,7 +569,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
     
     			if(row.okToSave())
     			{
-    				blTransAdd.saveAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,exchangeRate);
+    				blTransAdd.registerAccTransactionRow((TurqAccountingTransactionColumn)row.getDBObject(),transId,exchangeRate);
     			}
     
     		}

@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.35 2005/03/15 15:46:12 cemdayanik Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.36 2005/03/16 13:58:55 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 
@@ -372,8 +372,8 @@ public class CurBLCurrentTransactionAdd {
          transRowCash.setTransactionDefinition(definition);
          transRowCurrent.setTransactionDefinition(definition);
 
-         blAcc.saveAccTransactionRow(transRowCash,AccTransId,exchangeRate);
-         blAcc.saveAccTransactionRow(transRowCurrent,AccTransId,exchangeRate);
+         blAcc.registerAccTransactionRow(transRowCash,AccTransId,exchangeRate);
+         blAcc.registerAccTransactionRow(transRowCurrent,AccTransId,exchangeRate);
        
 		}
 		

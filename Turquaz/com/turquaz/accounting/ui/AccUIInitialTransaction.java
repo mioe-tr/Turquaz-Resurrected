@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.19 2005/03/11 10:00:46 cemdayanik Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.20 2005/03/16 13:58:55 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -565,7 +565,7 @@ public class AccUIInitialTransaction extends Composite implements
                 //TODO acc trans column exRate
                 if (row.okToSave()) {
                     blTransAdd
-                            .saveAccTransactionRow(
+                            .registerAccTransactionRow(
                                     (TurqAccountingTransactionColumn) row
                                             .getDBObject(), transId,EngBLCommon.getBaseCurrencyExchangeRate());
                 }
