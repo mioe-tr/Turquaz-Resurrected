@@ -17,10 +17,11 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollBank.java,v 1.12 2005/03/26 15:06:16 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollBank.java,v 1.13 2005/04/01 15:15:25 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
@@ -29,8 +30,12 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Table;
+import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.CurrencyTextAdvanced;
+import com.turquaz.bank.BankKeys;
 import com.turquaz.bank.ui.comp.BankCardPicker;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.custom.CLabel;
@@ -47,6 +52,7 @@ import org.eclipse.swt.widgets.Text;
 import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
+import com.turquaz.cheque.CheKeys;
 import com.turquaz.cheque.Messages;
 import com.turquaz.cheque.bl.CheBLSaveChequeTransaction;
 import com.turquaz.engine.ui.component.SecureComposite;
@@ -292,9 +298,19 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
 			if (verifyFields())
 			{
 				//	          TODO cheq trans exRate
-				CheBLSaveChequeTransaction.saveChequeRoll(accountPicker.getTurqAccountingAccount(), null, bankCardPicker.getTurqBank(),
-						txtRollNo.getText().trim(), datePicker1.getDate(), cheques, EngBLCommon.CHEQUE_TRANS_OUT_BANK.intValue(),
-						btnSumTotals.getSelection(), EngBLCommon.getBaseCurrencyExchangeRate());
+				
+				HashMap argMap = new HashMap();
+				argMap.put(AccKeys.ACC_ACCOUNT,accountPicker.getTurqAccountingAccount());
+				argMap.put(BankKeys.BANK,bankCardPicker.getTurqBank());
+				argMap.put(EngKeys.DOCUMENT_NO,txtRollNo.getText().trim());
+				argMap.put(EngKeys.DATE,datePicker1.getDate());
+				argMap.put(CheKeys.CHE_CHEQUE_LIST,cheques);
+				argMap.put(EngKeys.TYPE, EngBLCommon.CHEQUE_TRANS_OUT_BANK);
+				argMap.put(CheKeys.CHE_SUM_TRANS,new Boolean(btnSumTotals.getSelection()));
+				argMap.put(EngKeys.EXCHANGE_RATE, EngBLCommon.getBaseCurrencyExchangeRate());
+				
+				EngTXCommon.doTransactionTX(CheBLSaveChequeTransaction.class.getName(),"saveChequeRoll",argMap);
+							
 				EngUICommon.showMessageBox(getShell(), Messages.getString("CheUIChequeInPayroll.13"), SWT.ICON_INFORMATION); //$NON-NLS-1$
 				newForm();
 			}
