@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIPriceChooseDialog.java,v 1.2 2004/11/18 10:03:17 huseyiner Exp $
+* @version  $Id: InvUIPriceChooseDialog.java,v 1.3 2004/11/25 18:57:00 cemdayanik Exp $
 */
 
 import java.util.Iterator;
@@ -38,6 +38,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.TableColumn;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryPrice;
+import com.turquaz.inventory.Messages;
 
 
 /**
@@ -102,21 +103,21 @@ public class InvUIPriceChooseDialog extends org.eclipse.swt.widgets.Dialog {
 					tableColumnPriceType = new TableColumn(
 						tableInvPrices,
 						SWT.NONE);
-					tableColumnPriceType.setText("Fiyat Tipi");
+					tableColumnPriceType.setText(Messages.getString("InvUIPriceChooseDialog.0")); //$NON-NLS-1$
 					tableColumnPriceType.setWidth(78);
 				}
 				{
 					tableColumnAmount = new TableColumn(
 						tableInvPrices,
 						SWT.NONE);
-					tableColumnAmount.setText("Miktar");
+					tableColumnAmount.setText(Messages.getString("InvUIPriceChooseDialog.1")); //$NON-NLS-1$
 					tableColumnAmount.setWidth(100);
 				}
 				{
 					tableColumnCurrency = new TableColumn(
 						tableInvPrices,
 						SWT.NONE);
-					tableColumnCurrency.setText("Para Birimi");
+					tableColumnCurrency.setText(Messages.getString("InvUIPriceChooseDialog.2")); //$NON-NLS-1$
 					tableColumnCurrency.setWidth(87);
 				}
 			}
@@ -145,13 +146,13 @@ public class InvUIPriceChooseDialog extends org.eclipse.swt.widgets.Dialog {
 		while(it.hasNext()){
 		price = (TurqInventoryPrice)it.next();
 		item = new TableItem(tableInvPrices,SWT.NULL);
-		String type ="";
+		String type =""; //$NON-NLS-1$
 		if(price.isPricesType()){
-			type = "Al??";
+			type = Messages.getString("InvUIPriceChooseDialog.4"); //$NON-NLS-1$
 			
 		}
 		else{
-			type= "Sat??";
+			type= Messages.getString("InvUIPriceChooseDialog.5"); //$NON-NLS-1$
 		}
 		item.setText(new String[]{type,
 				price.getPricesAmount().toString(),
