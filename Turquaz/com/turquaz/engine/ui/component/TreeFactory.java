@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.90 2005/02/19 20:27:16 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.91 2005/02/21 13:54:58 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -74,6 +74,7 @@ import com.turquaz.cash.ui.CashUICashOtherCollectTransaction;
 import com.turquaz.cash.ui.CashUICashOtherPaymentTransaction;
 import com.turquaz.cash.ui.CashUICashPaymentTransactionAdd;
 import com.turquaz.cash.ui.CashUICashTransactionSearch;
+import com.turquaz.cash.ui.CashUICashTransferBetweenCards;
 import com.turquaz.cheque.ui.CheUIChequeCollectFromBank;
 import com.turquaz.cheque.ui.CheUIChequeInPayroll;
 import com.turquaz.cheque.ui.CheUIChequeOutPayrollBank;
@@ -638,6 +639,11 @@ public final class TreeFactory {
 			item = new TreeItem(transRoot,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.105"));   //$NON-NLS-1$
 			item.setData(CashUICashOtherPaymentTransaction.class.getName());
+	   }
+		   if(EngBLPermissions.getPermission(CashUICashTransferBetweenCards.class.getName())>0){
+			item = new TreeItem(transRoot,SWT.NULL);
+			item.setText("Kasa Virman");  
+			item.setData(CashUICashTransferBetweenCards.class.getName());
 	   }
 		   
 		    TreeItem searchRoot = new TreeItem(tree,SWT.NULL);

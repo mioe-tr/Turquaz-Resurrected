@@ -43,7 +43,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.15 2005/02/06 11:47:17 cemdayanik Exp $
+ * @version $Id: CashDALCashCard.java,v 1.16 2005/02/21 13:54:58 onsel Exp $
  */
 
 public class CashDALCashCard {
@@ -180,20 +180,21 @@ public class CashDALCashCard {
             
             Session session = EngDALSessionFactory.openSession();
             
-            String query = "select cashTrans.cashTransactionsId, cashTrans.turqCashCard.cashCardName, " +
+            String query = "select distinct cashTrans.cashTransactionsId," +
             		" cashTrans.turqCashTransactionType.cashTransationTypeName, sum(transRow.deptAmount),sum(transRow.creditAmount),cashTrans.transactionDate, cashTrans.transactionDefinition from TurqCashTransaction as cashTrans" +
             		" left join cashTrans.turqCashTransactionRows as transRow " +
             		" where cashTrans.transactionDate >= :startDate and cashTrans.transactionDate <= :endDate " ;
+            		
             
              if(cashCard!=null){
-                 query+=" and cashTrans.turqCashCard = :cashCard ";
+                 query+=" and transRow.turqCashCard = :cashCard ";
              }
              if(!definition.equals(""))
              {
              	query+=" and cashTrans.transactionDefinition like '"+definition+"%'";
              }
             		
-            query +=" group by cashTrans.cashTransactionsId, cashTrans.turqCashCard.cashCardName, cashTrans.turqCashTransactionType.cashTransationTypeName, cashTrans.transactionDate,cashTrans.transactionDefinition";
+            query +=" group by cashTrans.cashTransactionsId, cashTrans.turqCashTransactionType.cashTransationTypeName, cashTrans.transactionDate,cashTrans.transactionDefinition";
             query += " order by cashTrans.transactionDate";
             Query q = session.createQuery(query);
             q.setParameter("startDate",startdate);
