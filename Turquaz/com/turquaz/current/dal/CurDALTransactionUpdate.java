@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALTransactionUpdate.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: CurDALTransactionUpdate.java,v 1.4 2005/02/21 20:08:41 onsel Exp $
 */
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
@@ -44,6 +44,8 @@ public class CurDALTransactionUpdate {
 		
 		
 	}
+	
+	
 	
 	public void saveObject(Object obj)throws Exception {
 		try{

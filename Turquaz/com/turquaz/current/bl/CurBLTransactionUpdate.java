@@ -2,6 +2,7 @@
 package com.turquaz.current.bl;
 
 import com.turquaz.current.dal.CurDALCurrentCardUpdate;
+import com.turquaz.engine.dal.TurqCurrentTransaction;
 
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -21,7 +22,7 @@ import com.turquaz.current.dal.CurDALCurrentCardUpdate;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.5 2005/01/14 12:59:35 onsel Exp $
+* @version  $Id: CurBLTransactionUpdate.java,v 1.6 2005/02/21 20:08:40 onsel Exp $
 */
 
 public class CurBLTransactionUpdate {
@@ -31,6 +32,7 @@ public class CurBLTransactionUpdate {
     public static void updateTrans(Object trans)throws Exception{
         try{
             
+        	
           dalUpdate.updateObject(trans);  
             
             
@@ -49,6 +51,14 @@ public class CurBLTransactionUpdate {
         catch(Exception ex){
             throw ex;
         }
+    }
+    public static void initCurTrans(TurqCurrentTransaction curTrans)throws Exception {
+    	try{
+    		dalUpdate.initCurrentTrans(curTrans);
+    	}
+    	catch(Exception ex){
+    		throw ex;
+    	}
     }
     
 }
