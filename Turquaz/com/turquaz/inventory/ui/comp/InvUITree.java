@@ -38,22 +38,22 @@ import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 /**
  * @author onsel
  *
- * @version $Id: InvUITree.java,v 1.5 2004/10/13 16:36:13 onsel Exp $
+ * @version $Id: InvUITree.java,v 1.6 2004/10/16 07:17:22 onsel Exp $
  */
 public class InvUITree extends Tree {
 	
 	public InvUITree(org.eclipse.swt.widgets.Composite comp, int style){
 		super(comp,style);
 		TreeItem root = new TreeItem(this,SWT.NULL);
-		root.setText("Stok");
+		root.setText("Inventory");
 		TreeItem item = new TreeItem(root,SWT.NULL);
-		item.setText("Stok Kartý");
+		item.setText("Inventory Card");
 		item.setData(InvUICardAdd.class.getName());
 		item = new TreeItem(root,SWT.NULL);
-		item.setText("Stok Hareketi");
+		item.setText("Inventory Transaction");
 		item.setData(InvUITransactionAdd.class.getName());
 		item = new TreeItem(root,SWT.NULL);
-		item.setText("Kart Arama");
+		item.setText("Inventory Search");
 		item.setData(InvUICardSearch.class.getName());
 		item = new TreeItem(root,SWT.NULL);
 		item.setText("Add Warehouse");

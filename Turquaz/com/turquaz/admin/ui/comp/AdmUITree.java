@@ -26,15 +26,15 @@ import com.turquaz.admin.ui.AdmUIPermPanel;
 
 /**
  * @author onsel
- * @version $Id: AdmUITree.java,v 1.2 2004/08/30 19:46:25 onsel Exp $
+ * @version $Id: AdmUITree.java,v 1.3 2004/10/16 07:17:22 onsel Exp $
  */
 public class AdmUITree extends Tree {
 	public AdmUITree(Composite comp, int style){
 		super(comp,style);
 		TreeItem root = new TreeItem(this,SWT.NULL);
-		root.setText("Yönetici");
+		root.setText("Administrator");
 		TreeItem item = new TreeItem(root,SWT.NULL);
-		item.setText("Kullanýcý Ýzinleri");
+		item.setText("User Permissions");
 		item.setData(AdmUIPermPanel.class.getName());
 	}
 	
