@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryCardAbstract.java,v 1.12 2005/02/19 21:16:49 cemdayanik Exp $
+* @version  $Id: InvUIInventoryCardAbstract.java,v 1.13 2005/02/28 09:37:26 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -99,6 +99,8 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 	private Table tableTransactions;
 
 	private TableColumn tableColumnTotalAmountOut;
+	private TableColumn tableColumnRemainPrice;
+	private TableColumn tableColumnRemainAmount;
 	private TableColumn tableColumnInventoryName;
 	private ViewerComposite viewer;
 	private CTabItem tabItemTable;
@@ -349,6 +351,20 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 								.getString("InvUITransactionSearch.11")); //$NON-NLS-1$
 							tableColumnTotalPriceOut.setWidth(100);
 						}
+						//START >>  tableColumnRemainAmount
+						tableColumnRemainAmount = new TableColumn(
+							tableTransactions,
+							SWT.RIGHT);
+						tableColumnRemainAmount.setText("Bak. Mik.");
+						tableColumnRemainAmount.setWidth(100);
+						//END <<  tableColumnRemainAmount
+						//START >>  tableColumnRemainPrice
+						tableColumnRemainPrice = new TableColumn(
+							tableTransactions,
+							SWT.RIGHT);
+						tableColumnRemainPrice.setText("Bak. Tutar\u0131");
+						tableColumnRemainPrice.setWidth(100);
+						//END <<  tableColumnRemainPrice
 					}
 				}
 				{
@@ -466,10 +482,13 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 						DatePicker.formatter.format(transDate),
 						invCode,
 						invName,
-						cf.format(inAmount)+"", //$NON-NLS-1$								
+						cf.format(inAmount), //$NON-NLS-1$								
 						cf.format(priceIn),
-						cf.format(outAmount)+"", //$NON-NLS-1$
-						cf.format(priceOut)});
+						cf.format(outAmount), //$NON-NLS-1$
+						cf.format(priceOut),
+						cf.format(inAmount.subtract(outAmount)),
+						cf.format(priceIn.subtract(priceOut))});
+		
 			}
 			if (list.size() > 0)
 				GenerateJasper(type,list);
