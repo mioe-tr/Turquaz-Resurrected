@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.31 2005/03/29 16:00:56 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.32 2005/04/02 10:38:05 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -44,10 +44,6 @@ import com.turquaz.engine.dal.TurqViewCurrentAmountTotal;
  */
 public class CurDALCurrentCardSearch
 {
-	public CurDALCurrentCardSearch()
-	{
-	}
-
 	public static List searchCurrentCards(String currentCode, String currentName, TurqCurrentGroup cardGroup) throws Exception
 	{
 		try
