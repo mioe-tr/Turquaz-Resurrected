@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.42 2004/10/21 10:46:49 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.43 2004/10/21 17:56:41 huseyin Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1531,7 +1531,16 @@ decimalSymbol + "][0-9]+)?");
 	}
 
 	public boolean verifyFields() {
-
+		
+		MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
+		//If inventory name is not given
+		if (txtInvCardName.getText().trim().equals("")) {
+		
+		msg.setMessage("Please Fill Inventory Name!");
+		msg.open();
+		return false;
+		}
+		
 		return true;
 	}
 
