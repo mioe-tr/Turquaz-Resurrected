@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.20 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.21 2005/03/21 17:48:51 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -136,7 +136,6 @@ public class BankDALCommon
 					+ bankCard.getId().intValue() + " and bankTrans.transaction_bill_date >= '" + frmt.format(startDate) + "' and "
 					+ " bankTrans.transaction_bill_date <= '" + frmt.format(endDate) + "' " + " and totals.banksId = bankCard.id"
 					+ " and type.id = bankTrans.banks_transaction_types_id" + " order by bankTrans.transaction_bill_date";
-			System.out.println(query);
 			Statement stmt = session.connection().createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			Object[] result;
