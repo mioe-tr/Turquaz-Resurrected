@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.31 2005/01/18 12:00:44 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.32 2005/02/14 14:33:04 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1112,12 +1112,25 @@ implements SecureComposite{
     tableConsignmentRows.removeAll(); 
     	
 	while(it.hasNext()){
+		/**
+		 * TODO Amount In is wrong....
+		 */
+		
+		
     	invTrans = (TurqInventoryTransaction)it.next();
+    	
+    	BigDecimal amount = invTrans.getTransactionsAmountIn();
+    	if(amount.compareTo(new BigDecimal(0))<1)
+    	{
+    		amount = invTrans.getTransactionsTotalAmountOut();
+    	}
+    	
+    	
     	item = new TableItem(tableConsignmentRows,SWT.NULL);
     	item.setData(invTrans);
     	item.setText(new String[]{invTrans.getTurqInventoryCard().getCardInventoryCode(),
 				   invTrans.getTurqInventoryCard().getCardName(),
-				   invTrans.getTransactionsAmountIn()+"", //$NON-NLS-1$
+				    amount+"", //$NON-NLS-1$
 				   invTrans.getTurqInventoryUnit().getUnitsName(),
 				   invTrans.getTransactionsUnitPrice().toString(),
 				   invTrans.getTransactionsTotalPrice().toString(),
