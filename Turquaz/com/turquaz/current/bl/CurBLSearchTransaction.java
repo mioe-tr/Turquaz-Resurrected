@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.12 2005/01/05 14:55:28 onsel Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.13 2005/01/09 20:10:41 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -154,6 +154,18 @@ public class CurBLSearchTransaction {
 	        throw ex;
 	    }
 	    
+	    
+	}
+	public List getInitialTransactions()throws Exception{
+	    try{
+	        
+	        return dalSearch.getInitialTransactions();
+	        
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
 	    
 	}
 	

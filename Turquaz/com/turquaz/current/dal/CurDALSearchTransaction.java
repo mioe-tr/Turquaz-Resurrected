@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.8 2005/01/05 15:21:34 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.9 2005/01/09 20:10:39 onsel Exp $
 */
 
 import java.util.Date;
@@ -27,6 +27,7 @@ import java.util.List;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
@@ -153,6 +154,26 @@ public class CurDALSearchTransaction {
 	    
 	    
 	    
+	}
+	public List getInitialTransactions()throws Exception {
+	    try{
+	        
+	        Session session = EngDALSessionFactory.openSession();
+	        String query = "Select curTrans from TurqCurrentTransaction as curTrans " +
+	        		" where curTrans.turqCurrentTransactionType.currentTransactionTypesId = "+EngBLCommon.CURRENT_TRANS_INITIAL+
+	        		" order by curTrans.turqCurrentCard.cardsCurrentCode";
+	        
+	    	Query q = session.createQuery(query); 
+	        List list = q.list();
+	    	session.close();
+	    	return list;
+	    	
+	        
+	    }
+	    catch(Exception ex){
+	        
+	        throw ex;
+	    }
 	}
 	
 	

@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.48 2005/01/07 14:36:29 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.49 2005/01/09 20:10:41 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -966,6 +966,10 @@ implements SecureComposite{
 
      				// any character
      				} 
+                     else if(e.stateMask == SWT.CTRL){
+                         tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
+
+                     }
                      //any character
                      else if((e.keyCode<0x10000 || e.character!='\0') && e.keyCode>0x1f && e.keyCode!=127 
          					|| e.keyCode==0x00 && (e.stateMask==0 || e.stateMask==SWT.SHIFT)){
