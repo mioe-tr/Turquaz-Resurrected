@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.33 2004/12/18 07:23:30 onsel Exp $
+* @version  $Id: InvUICardSearch.java,v 1.34 2004/12/19 18:20:21 huseyiner Exp $
 */
 
 import java.util.Iterator;
@@ -123,12 +123,10 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 					compInvCardSearchPanel = new Composite(compInvCardSearch, SWT.NONE);
 					GridLayout compInvCardSearchPanelLayout = new GridLayout();
 					compInvCardSearchPanelLayout.numColumns = 4;
-					compInvCardSearchPanel
-						.setSize(new org.eclipse.swt.graphics.Point(563, 84));
 					GridData compInvCardSearchPanelLData = new GridData();
 					compInvCardSearchPanel.setLayout(compInvCardSearchPanelLayout);
 					compInvCardSearchPanelLData.horizontalAlignment = GridData.FILL;
-					compInvCardSearchPanelLData.heightHint = 84;
+					compInvCardSearchPanelLData.heightHint = 71;
 					compInvCardSearchPanelLData.grabExcessHorizontalSpace = true;
 					compInvCardSearchPanel.setLayoutData(compInvCardSearchPanelLData);
 					{
