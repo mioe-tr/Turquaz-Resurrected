@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.25 2004/11/18 21:24:45 huseyiner Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.26 2004/11/19 07:20:54 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -42,7 +42,7 @@ import com.turquaz.engine.ui.component.NumericText;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.widgets.Label;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
-import com.turquaz.inventory.ui.InvUICardAdd;
+
 
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.MouseAdapter;

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.3 2004/11/18 20:35:13 onsel Exp $
+* @version  $Id: BillUIAddBill.java,v 1.4 2004/11/19 07:20:54 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -55,7 +55,7 @@ import com.turquaz.consignment.bl.ConBLAddConsignment;
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.dal.TurqBillGroup;
 import com.turquaz.engine.dal.TurqConsignment;
-import com.turquaz.engine.dal.TurqConsignmentGroup;
+
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
 
