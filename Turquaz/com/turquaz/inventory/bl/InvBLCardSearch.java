@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardSearch.java,v 1.6 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: InvBLCardSearch.java,v 1.7 2005/01/02 15:41:39 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -65,6 +65,7 @@ public class InvBLCardSearch {
 	public TurqViewInventoryAmountTotal getView (TurqInventoryCard invCard)throws Exception
 	{
 		try{
+		    
 			return cardSearch.getView(invCard);
 			
 		}
@@ -72,6 +73,30 @@ public class InvBLCardSearch {
 		{
 			throw ex;
 		}
+	}
+	public List getInventoryCards()throws Exception {
+	    try{
+	        return cardSearch.getInventoryCards();
+	        
+	    }
+	    catch(Exception ex){
+	        
+	        throw ex;
+	    }
+	    
+	    
+	}
+	public TurqInventoryCard getInventoryCard(String invCode)throws Exception {
+	    try{
+	        return cardSearch.getInventoryCard(invCode);
+	        
+	    }
+	    catch(Exception ex){
+	        
+	        throw ex;
+	    }
+	    
+	    
 	}
 	
 	

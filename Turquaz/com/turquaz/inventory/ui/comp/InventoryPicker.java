@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InventoryPicker.java,v 1.1 2005/01/02 12:23:09 onsel Exp $
+* @version  $Id: InventoryPicker.java,v 1.2 2005/01/02 15:41:38 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -91,7 +91,7 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite {
                       
                             try {
                                 
-                               setData2(EngBLInventoryCards.getCard(text1.getText().trim()));
+                               setData2(EngBLInventoryCards.getInvCard(text1.getText().trim()));
                           
                                                            
                                 

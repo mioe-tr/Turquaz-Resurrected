@@ -19,19 +19,16 @@ package com.turquaz.engine.bl;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLInventoryCards.java,v 1.6 2004/12/08 20:07:35 cemdayanik Exp $
+ * @version  $Id: EngBLInventoryCards.java,v 1.7 2005/01/02 15:41:39 onsel Exp $
  */
 
-import java.util.HashMap;
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.inventory.bl.InvBLCardSearch;
 
 public class EngBLInventoryCards {
 	public List cardList;
-
-	public HashMap cardMap = new HashMap();
-
+	
 	static EngBLInventoryCards _instance;
 
 	private InvBLCardSearch blAccount = new InvBLCardSearch();
@@ -46,15 +43,10 @@ public class EngBLInventoryCards {
 
 	public void fillInventoryList() throws Exception {
 		try {
-			cardList = blAccount.searchCards("", "", null);
-			cardMap.clear();
-
-			TurqInventoryCard invCard;
-			for (int i = 0; i < cardList.size(); i++) {
-				invCard = (TurqInventoryCard)((Object[]) cardList.get(i))[1];
-				cardMap.put(invCard.getCardInventoryCode(), invCard);
-
-			}
+			
+		    cardList = blAccount.getInventoryCards();
+			
+			
 		} catch (Exception ex) {
 			throw ex;
 		}
@@ -82,23 +74,34 @@ public class EngBLInventoryCards {
 
 	}
 
-	public static TurqInventoryCard getCard(String accountCode)
+	public static TurqInventoryCard getInvCard(String accountCode)
 			throws Exception {
 		try {
-
 			if (_instance == null) {
 
 				_instance = new EngBLInventoryCards();
 
 			}
 
-			return (TurqInventoryCard) _instance.cardMap.get(accountCode);
+			return _instance.getCard(accountCode);
+
 
 		} catch (Exception ex) {
 			throw ex;
 		}
 	}
 	
+	
+	public TurqInventoryCard getCard(String invCode)throws Exception{
+		try {
+
+
+			return (TurqInventoryCard)blAccount.getInventoryCard(invCode); 
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+	}
 	public static void RefreshContentAsistantMap()throws Exception
 	{
 		try

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.90 2005/01/02 13:42:07 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.91 2005/01/02 15:41:38 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1589,7 +1589,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 			txtInvCardCode.setFocus();
 			return false;
 		}
-		else if (save && EngBLInventoryCards.getCard(txtInvCardCode.getText().trim())!= null)
+		else if (save && EngBLInventoryCards.getInvCard(txtInvCardCode.getText().trim())!= null)
 		{
 			msg.setMessage(Messages.getString("InvUICardAdd.2")); //$NON-NLS-1$
 			msg.open();
