@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel
-* @version  $Id: CurrencyText.java,v 1.24 2005/01/30 19:41:04 onsel Exp $
+* @version  $Id: CurrencyText.java,v 1.25 2005/02/23 18:53:46 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -195,6 +195,7 @@ public class CurrencyText extends Composite {
     Pattern realNumberPattern = Pattern.compile("-?[0-9]+[0-9]*([" +decimalSymbol + "][0-9]{0,"+numberOfDecimal+"})?");
     Matcher matcher = realNumberPattern.matcher(newText);
     boolean valid = matcher.matches();
+  
     
 
     if (valid){
