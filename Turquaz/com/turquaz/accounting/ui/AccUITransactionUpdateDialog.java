@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.13 2004/11/18 11:36:15 onsel Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.14 2004/11/18 16:06:57 huseyiner Exp $
 */
 
 import java.util.Date;
@@ -126,9 +126,9 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
             }
 	
 			coolItem1.setControl(toolBar1);
-			coolItem1.setSize(new org.eclipse.swt.graphics.Point(88,23));
-			coolItem1.setPreferredSize(new org.eclipse.swt.graphics.Point(88,23));
-			coolItem1.setMinimumSize(new org.eclipse.swt.graphics.Point(88,23));
+			coolItem1.setSize(45, 51);
+			coolItem1.setPreferredSize(new org.eclipse.swt.graphics.Point(45, 51));
+			coolItem1.setMinimumSize(new org.eclipse.swt.graphics.Point(45, 51));
 	
 	
 			toolUpdate.setText(Messages.getString("AccUITransactionUpdateDialog.0")); //$NON-NLS-1$

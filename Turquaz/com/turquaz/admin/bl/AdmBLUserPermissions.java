@@ -19,13 +19,12 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserPermissions.java,v 1.5 2004/11/18 09:54:12 huseyiner Exp $
+* @version  $Id: AdmBLUserPermissions.java,v 1.6 2004/11/18 16:06:57 huseyiner Exp $
 */
 
 import java.util.Calendar;
 import java.util.List;
 
-import com.turquaz.admin.Messages;
 import com.turquaz.admin.dal.AdmDALUserPermissions;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqModule;

@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.7 2004/11/11 16:40:25 huseyiner Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.8 2004/11/18 16:06:56 huseyiner Exp $
 */
 
 
@@ -106,6 +106,17 @@ public class InvBLCardUpdate {
 			throw ex;
 		}
 		
+	}
+	public boolean hasTransactions (TurqInventoryCard card) throws Exception{
+		
+		try{	
+			
+		return cardUpdate.hasTransactions(card);
+		
+		}
+		catch(Exception ex){
+			throw ex;
+		}
 	}
 	
 	

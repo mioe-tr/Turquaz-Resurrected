@@ -8,6 +8,7 @@ package com.turquaz.inventory.bl;
 
 import java.util.Calendar;
 
+import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
@@ -29,7 +30,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseUpdate.java,v 1.4 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvBLWarehouseUpdate.java,v 1.5 2004/11/18 16:06:57 huseyiner Exp $
 */
 
 public class InvBLWarehouseUpdate {
@@ -72,7 +73,17 @@ public class InvBLWarehouseUpdate {
 		}
 		
 	}
-
+	public boolean hasTransactions (TurqInventoryWarehous warehouse) throws Exception{
+		
+		try{	
+			
+		return whDALUpdate.hasTransaction(warehouse);
+		
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+	}
 	
 
 }

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.27 2004/11/18 11:36:15 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.28 2004/11/18 16:06:57 huseyiner Exp $
 */
 import java.util.Iterator;
 
@@ -540,6 +540,15 @@ public class InvUICardUpdateDialog extends Dialog{
       msg.setMessage(Messages.getString("InvUICardUpdateDialog.7")); //$NON-NLS-1$
       if (msg.open()==SWT.NO)
        return;
+     
+     // if the inventory card contains transactions 
+     if(cardUpdate.hasTransactions(invCard))
+     {
+     	MessageBox msg2 = new MessageBox(this.getParent(),SWT.ICON_WARNING);
+    	msg2.setMessage("Inventory card contains transactions and \ncan not be deleted. Delete them first. ");  //$NON-NLS-1$
+		msg2.open();
+		return;
+     }
     //First Delete Groups
     deleteInvGroups();
     //delete Units
@@ -547,7 +556,7 @@ public class InvUICardUpdateDialog extends Dialog{
     // delete Prices
     deletePrices();
     // delete invCard
- 
+    
     cardUpdate.deleteObject(invCard);
     msg = new MessageBox(this.getParent(),SWT.NULL);
 	msg.setMessage(Messages.getString("InvUICardUpdateDialog.6"));	 //$NON-NLS-1$
