@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.71 2005/03/17 15:02:09 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.72 2005/03/19 11:50:57 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -142,6 +142,17 @@ public class EngBLCommon
 	// modulu
 	public final static int MODULE_CHEQUE = 9; //cek
 	// modulu
+	
+	
+	public final static int INV_TRANS_INITIAL = 0; 
+	
+	public final static int INV_TRANS_BUY_SELL =1;
+	
+	public final static int INV_TRANS_OTHER = 2;
+	
+	public final static int INV_TRANS_MANUFACTURING = 3;
+	
+	
 	public final static Integer CHEQUE_TRANS_IN = new Integer(0); //Cek
 	// Giris
 	// Bordrosu
