@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.20 2004/11/23 19:16:41 huseyiner Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.21 2004/11/23 22:10:37 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -256,6 +256,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 					btnRemoveTransactionRowLData.heightHint = 23;
 					btnRemoveTransactionRow.setLayoutData(btnRemoveTransactionRowLData);
 				}
+				composite1.layout();
 			}
 			{
 				tableTransactionColumns = new Table(this, SWT.FULL_SELECTION

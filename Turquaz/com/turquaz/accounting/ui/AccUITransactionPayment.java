@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.10 2004/11/23 19:16:40 huseyiner Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.11 2004/11/23 22:10:38 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -483,6 +483,8 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	protected void btnAddTransactionRowMouseUp(MouseEvent evt){
 	//1 - Tediye Fisi
 	Object o = new AccUITransactionRowAddDialog(this.getShell(),SWT.NULL,1).showDialog();
+	if(o != null)
+	{
 	TurqAccountingTransactionColumn accTransRow = (TurqAccountingTransactionColumn) o;
 
 	TableItem item = new TableItem(
@@ -494,7 +496,8 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				.getAccountCode(),
 			accTransRow.getTurqAccountingAccount()
 				.getAccountName(),
-			accTransRow.getCreditAmount().toString() });
+			accTransRow.getDeptAmount().toString() });
+	}
 	
 	}
     
