@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.89 2005/04/05 12:29:23 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.90 2005/04/06 12:09:07 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -43,6 +43,7 @@ import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqModule;
+import com.turquaz.engine.dal.TurqSetting;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.inventory.dal.InvDALCardSearch;
 
@@ -50,7 +51,7 @@ public class EngBLCommon
 {
 	
 	public static String VERSION = "0.7.0 Alpha2";
-	
+	public static String DATABASE_VERSION="0.7.1";
 	
 	public static int BILL_ERR_TOO_MANY_CONS = -1;
 	public static int BILL_SAVED_SUCCESFULLY = 1;
@@ -421,6 +422,11 @@ public class EngBLCommon
 		{
 			throw ex;
 		}
+	}
+	
+	public static TurqSetting getTurqSetting()throws Exception
+	{
+		return EngDALCommon.getTurqSetting();
 	}
 
 	public static Boolean checkUserPass(HashMap argMap) throws Exception
