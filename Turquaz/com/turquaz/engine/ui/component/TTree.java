@@ -1,4 +1,3 @@
-
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -16,23 +15,17 @@ package com.turquaz.engine.ui.component;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: TTree.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
-*/
+ * @author Onsel Armagan
+ * @version $Id: TTree.java,v 1.4 2005/03/17 15:02:06 onsel Exp $
+ */
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 
-
-public class TTree extends Tree {
-	
-	public TTree(Composite comp, int style){
-	
-		super(comp,style);	
-	
+public class TTree extends Tree
+{
+	public TTree(Composite comp, int style)
+	{
+		super(comp, style);
 	}
-	
-	
-
 }

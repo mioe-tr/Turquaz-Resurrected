@@ -1,5 +1,3 @@
-
-
 package com.turquaz.inventory.ui.comp;
 
 /************************************************************************/
@@ -17,16 +15,12 @@ package com.turquaz.inventory.ui.comp;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: InvUITree.java,v 1.9 2004/11/04 14:12:02 ehad Exp $
-*/
-
-
+ * @author  Onsel Armagan
+ * @version  $Id: InvUITree.java,v 1.10 2005/03/17 15:02:08 onsel Exp $
+ */
 import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.*;
-
 import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.InvUICardSearch;
@@ -36,32 +30,29 @@ import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 
 /**
  * @author onsel
- *
- * @version $Id: InvUITree.java,v 1.9 2004/11/04 14:12:02 ehad Exp $
+ * @version $Id: InvUITree.java,v 1.10 2005/03/17 15:02:08 onsel Exp $
  */
-public class InvUITree extends Tree {
-	
-	public InvUITree(org.eclipse.swt.widgets.Composite comp, int style){
-		super(comp,style);
-		TreeItem root = new TreeItem(this,SWT.NULL);
+public class InvUITree extends Tree
+{
+	public InvUITree(org.eclipse.swt.widgets.Composite comp, int style)
+	{
+		super(comp, style);
+		TreeItem root = new TreeItem(this, SWT.NULL);
 		root.setText(Messages.getString("InvUITree.0")); //$NON-NLS-1$
-		TreeItem item = new TreeItem(root,SWT.NULL);
+		TreeItem item = new TreeItem(root, SWT.NULL);
 		item.setText(Messages.getString("InvUITree.1")); //$NON-NLS-1$
 		item.setData(InvUICardAdd.class.getName());
-		item = new TreeItem(root,SWT.NULL);
+		item = new TreeItem(root, SWT.NULL);
 		item.setText(Messages.getString("InvUITree.2")); //$NON-NLS-1$
 		item.setData(InvUITransactionAdd.class.getName());
-		item = new TreeItem(root,SWT.NULL);
+		item = new TreeItem(root, SWT.NULL);
 		item.setText(Messages.getString("InvUITree.3")); //$NON-NLS-1$
 		item.setData(InvUICardSearch.class.getName());
-		item = new TreeItem(root,SWT.NULL);
+		item = new TreeItem(root, SWT.NULL);
 		item.setText(Messages.getString("InvUITree.4")); //$NON-NLS-1$
 		item.setData(InvUIWarehouseAdd.class.getName());
-		item = new TreeItem(root,SWT.NULL);
+		item = new TreeItem(root, SWT.NULL);
 		item.setText(Messages.getString("InvUITree.5")); //$NON-NLS-1$
 		item.setData(InvUIWarehouseSearch.class.getName());
-	  	}
-	
-	
-
+	}
 }

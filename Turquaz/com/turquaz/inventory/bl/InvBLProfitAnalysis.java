@@ -1,5 +1,5 @@
-
 package com.turquaz.inventory.bl;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,36 +15,31 @@ package com.turquaz.inventory.bl;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: InvBLProfitAnalysis.java,v 1.4 2005/03/17 11:39:48 cemdayanik Exp $
-*/
+ * @author Onsel Armagan
+ * @version $Id: InvBLProfitAnalysis.java,v 1.5 2005/03/17 15:02:12 onsel Exp $
+ */
 import java.util.Date;
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.inventory.dal.InvDALProfitAnalysis;
 
-public class InvBLProfitAnalysis {
-    
-    /**
-     * 
-     * @param type 
-     * 0 - Ortalama deger
-     * 
-     * @return
-     */
-    public static List getTransactionTotals(TurqInventoryCard invCard, Date startDate, Date endDate)
-    throws Exception
+public class InvBLProfitAnalysis
+{
+	/**
+	 * @param type
+	 *             0 - Ortalama deger
+	 * @return
+	 */
+	public static List getTransactionTotals(TurqInventoryCard invCard, Date startDate, Date endDate) throws Exception
 	{
-    	try
-		{        
-    		return InvDALProfitAnalysis.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
-		}
-    	catch(Exception ex)
+		try
 		{
-    		throw ex;
+			return InvDALProfitAnalysis.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
 		}
-    }
-
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 }

@@ -1,4 +1,3 @@
-
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -16,28 +15,29 @@ package com.turquaz.engine.ui.component;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: TurqShell.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
-*/
+ * @author Onsel Armagan
+ * @version $Id: TurqShell.java,v 1.4 2005/03/17 15:02:06 onsel Exp $
+ */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-
 import com.turquaz.engine.ui.EngUIMainFrame;
 
-public class TurqShell extends Shell {
-
-	public TurqShell(){
+public class TurqShell extends Shell
+{
+	public TurqShell()
+	{
 		super();
 	}
-	public TurqShell(Display d){
+
+	public TurqShell(Display d)
+	{
 		super(d);
 	}
-	public void dispose(){
+
+	public void dispose()
+	{
 		EngUIMainFrame.saveFavoritesTree();
 		super.dispose();
 	}
-	
-	
 }

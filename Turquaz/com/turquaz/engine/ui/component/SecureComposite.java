@@ -1,5 +1,3 @@
-
-
 package com.turquaz.engine.ui.component;
 
 /************************************************************************/
@@ -17,23 +15,17 @@ package com.turquaz.engine.ui.component;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: SecureComposite.java,v 1.9 2004/12/03 12:57:54 onsel Exp $
-*/
-
-
+ * @author  Onsel Armagan
+ * @version  $Id: SecureComposite.java,v 1.10 2005/03/17 15:02:06 onsel Exp $
+ */
 /**
  * @author onsel
- *
- * @version $Id: SecureComposite.java,v 1.9 2004/12/03 12:57:54 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.10 2005/03/17 15:02:06 onsel Exp $
  */
-public interface SecureComposite {
+public interface SecureComposite
+{
+	public void save();
 
-	 public void save();
-
-	 public void newForm();
-	
-
+	public void newForm();
 }

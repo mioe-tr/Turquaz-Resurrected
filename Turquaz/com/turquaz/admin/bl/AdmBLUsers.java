@@ -1,4 +1,3 @@
-
 package com.turquaz.admin.bl;
 
 /************************************************************************/
@@ -16,30 +15,28 @@ package com.turquaz.admin.bl;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: AdmBLUsers.java,v 1.5 2005/03/17 10:22:59 onsel Exp $
-*/
-
+ * @author Onsel Armagan
+ * @version $Id: AdmBLUsers.java,v 1.6 2005/03/17 15:02:05 onsel Exp $
+ */
 import java.util.List;
-
 import com.turquaz.engine.dal.EngDALCommon;
 
-public class AdmBLUsers {
-	public AdmBLUsers(){
-		
+public class AdmBLUsers
+{
+	public AdmBLUsers()
+	{
 	}
-	
-	public static List getUsers()throws Exception{
-		try{
-			
+
+	public static List getUsers() throws Exception
+	{
+		try
+		{
 			return EngDALCommon.getUsers();
-			
 		}
-		catch(Exception ex){
+		catch (Exception ex)
+		{
 			throw ex;
 		}
 	}
-
 }

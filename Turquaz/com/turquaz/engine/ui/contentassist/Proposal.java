@@ -1,5 +1,5 @@
-
 package com.turquaz.engine.ui.contentassist;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,18 +15,18 @@ package com.turquaz.engine.ui.contentassist;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel
-* @version  $Id: Proposal.java,v 1.3 2005/01/30 19:41:05 onsel Exp $
-*/
-public class Proposal {
-	 String text ="";
-     String info ="";
-     public Proposal(String text,String label){
-         this.text = text;
-         this.info = label;
-         
-     }
-	
+ * @author Onsel
+ * @version $Id: Proposal.java,v 1.4 2005/03/17 15:02:08 onsel Exp $
+ */
+public class Proposal
+{
+	String text = "";
+	String info = "";
+
+	public Proposal(String text, String label)
+	{
+		this.text = text;
+		this.info = label;
+	}
 }

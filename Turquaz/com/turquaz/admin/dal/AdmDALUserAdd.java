@@ -1,4 +1,3 @@
-
 package com.turquaz.admin.dal;
 
 /************************************************************************/
@@ -16,18 +15,13 @@ package com.turquaz.admin.dal;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: AdmDALUserAdd.java,v 1.4 2005/03/17 09:11:03 onsel Exp $
-*/
-
-
-public class AdmDALUserAdd {
-	
-	public AdmDALUserAdd(){
-		
+ * @author Onsel Armagan
+ * @version $Id: AdmDALUserAdd.java,v 1.5 2005/03/17 15:02:06 onsel Exp $
+ */
+public class AdmDALUserAdd
+{
+	public AdmDALUserAdd()
+	{
 	}
-		
-
 }

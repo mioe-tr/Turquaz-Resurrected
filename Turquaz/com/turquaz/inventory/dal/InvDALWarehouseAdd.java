@@ -1,4 +1,3 @@
-
 package com.turquaz.inventory.dal;
 
 /************************************************************************/
@@ -16,13 +15,10 @@ package com.turquaz.inventory.dal;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: InvDALWarehouseAdd.java,v 1.6 2005/03/17 11:39:49 cemdayanik Exp $
-*/
-
-
-public class InvDALWarehouseAdd {
-
+ * @author Onsel Armagan
+ * @version $Id: InvDALWarehouseAdd.java,v 1.7 2005/03/17 15:02:05 onsel Exp $
+ */
+public class InvDALWarehouseAdd
+{
 }

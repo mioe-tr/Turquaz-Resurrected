@@ -1,4 +1,3 @@
-
 package com.turquaz.inventory.ui.comp;
 
 /************************************************************************/
@@ -16,34 +15,30 @@ package com.turquaz.inventory.ui.comp;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: IPriceListViewer.java,v 1.3 2004/12/23 15:49:55 onsel Exp $
-*/
-public interface IPriceListViewer {
+ * @author Onsel Armagan
+ * @version $Id: IPriceListViewer.java,v 1.4 2005/03/17 15:02:08 onsel Exp $
+ */
+public interface IPriceListViewer
+{
 	/**
-	 * Update the view to reflect the fact that a task was added 
-	 * to the task list
+	 * Update the view to reflect the fact that a task was added to the task list
 	 * 
 	 * @param task
 	 */
 	public void addPrice(InvUIPrice price);
-	
+
 	/**
-	 * Update the view to reflect the fact that a task was removed 
-	 * from the task list
+	 * Update the view to reflect the fact that a task was removed from the task list
 	 * 
 	 * @param task
 	 */
 	public void removePrice(InvUIPrice price);
-	
+
 	/**
-	 * Update the view to reflect the fact that one of the tasks
-	 * was modified 
+	 * Update the view to reflect the fact that one of the tasks was modified
 	 * 
 	 * @param task
 	 */
 	public void updatePrice(InvUIPrice price);
-
 }

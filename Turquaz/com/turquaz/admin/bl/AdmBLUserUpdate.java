@@ -15,55 +15,47 @@ package com.turquaz.admin.bl;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserUpdate.java,v 1.9 2005/03/17 10:22:59 onsel Exp $
+ * @version $Id: AdmBLUserUpdate.java,v 1.10 2005/03/17 15:02:05 onsel Exp $
  */
-
 import java.util.Calendar;
-
-
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqUser;
 
-public class AdmBLUserUpdate {
-	
-	
-
-	public AdmBLUserUpdate() {
-
+public class AdmBLUserUpdate
+{
+	public AdmBLUserUpdate()
+	{
 	}
 
-	public static void updateUser(String password, String realname,
-			String description, TurqUser user) throws Exception {
-		try {
+	public static void updateUser(String password, String realname, String description, TurqUser user) throws Exception
+	{
+		try
+		{
 			Calendar cal = Calendar.getInstance();
-			
 			user.setUsersPassword(password);
 			user.setUsersRealName(realname);
 			user.setUsersDescription(description);
-
 			user.setUpdateDate(cal.getTime());
 			user.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-
 			EngDALCommon.updateObject(user);
-
-		} catch (Exception ex) {
+		}
+		catch (Exception ex)
+		{
 			throw ex;
 		}
-
 	}
 
-	public static void deleteObject(Object obj) throws Exception {
-		try {
-
+	public static void deleteObject(Object obj) throws Exception
+	{
+		try
+		{
 			EngDALCommon.deleteObject(obj);
-
-		} catch (Exception ex) {
+		}
+		catch (Exception ex)
+		{
 			throw ex;
 		}
-
 	}
-
 }

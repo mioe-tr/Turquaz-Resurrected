@@ -1,4 +1,3 @@
-
 package com.turquaz.admin;
 
 /************************************************************************/
@@ -16,31 +15,31 @@ package com.turquaz.admin;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Huseyin Ergun
-* @version  $Id: Messages.java,v 1.9 2005/01/26 21:21:02 huseyiner Exp $
-*/
-
-
+ * @author Huseyin Ergun
+ * @version $Id: Messages.java,v 1.10 2005/03/17 15:02:06 onsel Exp $
+ */
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.admin.messages";//$NON-NLS-1$
+public class Messages
+{
+	private static final String BUNDLE_NAME = "com.turquaz.admin.messages"; //$NON-NLS-1$
 
-	private Messages() {
+	private Messages()
+	{
 	}
 
-	public static String getString(String key) {
-		
-		try {
-			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle
-			.getBundle(BUNDLE_NAME,Locale.getDefault());
-			
+	public static String getString(String key)
+	{
+		try
+		{
+			final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
 			return RESOURCE_BUNDLE.getString(key);
-		} catch (MissingResourceException e) {
+		}
+		catch (MissingResourceException e)
+		{
 			return '!' + key + '!';
 		}
 	}

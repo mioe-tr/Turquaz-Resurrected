@@ -1,8 +1,6 @@
-
 package com.turquaz.cash.bl;
 
 import java.util.Calendar;
-
 import com.turquaz.cash.dal.CashDALCashCard;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -23,44 +21,36 @@ import com.turquaz.engine.dal.TurqCashCard;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
- * 
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.5 2005/03/17 11:46:04 onsel Exp $
- *
+ * @version $Id: CashBLCashCardAdd.java,v 1.6 2005/03/17 15:02:12 onsel Exp $
  */
-public class CashBLCashCardAdd {
-   
-    CashDALCashCard dalCash = new CashDALCashCard();
-    
-    public CashBLCashCardAdd(){
-        
-    }
-    public static void saveCashCard(String name, String definition, TurqAccountingAccount cashAccount)throws Exception {
-        try{
-            
-        	Calendar cal=Calendar.getInstance();
-          TurqCashCard cashCard = new TurqCashCard();
-          
-          cashCard.setCashCardName(name);
-          cashCard.setCashCardDefinition(definition);
-          cashCard.setTurqAccountingAccount(cashAccount);
-          cashCard.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
-          cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-          cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
-          cashCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
-          EngDALCommon.saveObject(cashCard);   
-          
-          
-        }
-        catch(Exception ex){
-            
-            throw ex;
-            
-        }
-        
-        
-        
-    }
+public class CashBLCashCardAdd
+{
+	CashDALCashCard dalCash = new CashDALCashCard();
+
+	public CashBLCashCardAdd()
+	{
+	}
+
+	public static void saveCashCard(String name, String definition, TurqAccountingAccount cashAccount) throws Exception
+	{
+		try
+		{
+			Calendar cal = Calendar.getInstance();
+			TurqCashCard cashCard = new TurqCashCard();
+			cashCard.setCashCardName(name);
+			cashCard.setCashCardDefinition(definition);
+			cashCard.setTurqAccountingAccount(cashAccount);
+			cashCard.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
+			cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
+			cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
+			cashCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
+			EngDALCommon.saveObject(cashCard);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 }

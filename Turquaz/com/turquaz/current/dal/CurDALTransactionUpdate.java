@@ -1,5 +1,5 @@
-
 package com.turquaz.current.dal;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -15,13 +15,10 @@ package com.turquaz.current.dal;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: CurDALTransactionUpdate.java,v 1.5 2005/03/17 09:30:59 cemdayanik Exp $
-*/
-
-public class CurDALTransactionUpdate {
-
-
+ * @author Onsel Armagan
+ * @version $Id: CurDALTransactionUpdate.java,v 1.6 2005/03/17 15:02:07 onsel Exp $
+ */
+public class CurDALTransactionUpdate
+{
 }

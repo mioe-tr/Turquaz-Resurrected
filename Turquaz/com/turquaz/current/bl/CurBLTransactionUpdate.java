@@ -1,4 +1,3 @@
-
 package com.turquaz.current.bl;
 
 import com.turquaz.current.dal.CurDALCurrentCardUpdate;
@@ -20,43 +19,45 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
 /* GNU General Public License for more details.         				*/
 /************************************************************************/
-
 /**
-* @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.9 2005/03/17 11:46:04 onsel Exp $
-*/
+ * @author Onsel Armagan
+ * @version $Id: CurBLTransactionUpdate.java,v 1.10 2005/03/17 15:02:09 onsel Exp $
+ */
+public class CurBLTransactionUpdate
+{
+	public static void updateTrans(Object trans) throws Exception
+	{
+		try
+		{
+			EngDALCommon.updateObject(trans);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 
-public class CurBLTransactionUpdate {
+	public static void delete(Object obj) throws Exception
+	{
+		try
+		{
+			EngDALCommon.deleteObject(obj);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 
-    
-    public static void updateTrans(Object trans)throws Exception{
-        try{
-            
-        	EngDALCommon.updateObject(trans);  
-            
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        
-    }
-    public static void delete(Object obj)throws Exception{
-        try{
-        	EngDALCommon.deleteObject(obj);
-            
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-    }
-    public static void initCurTrans(TurqCurrentTransaction curTrans)throws Exception {
-    	try{
-    		CurDALCurrentCardUpdate.initCurrentTrans(curTrans);
-    	}
-    	catch(Exception ex){
-    		throw ex;
-    	}
-    }
-    
+	public static void initCurTrans(TurqCurrentTransaction curTrans) throws Exception
+	{
+		try
+		{
+			CurDALCurrentCardUpdate.initCurrentTrans(curTrans);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 }
