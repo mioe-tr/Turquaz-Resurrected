@@ -17,7 +17,7 @@
 package com.turquaz.engine.dal;
 
 import java.util.Properties;
-import java.util.ResourceBundle;
+
 
 import org.eclipse.core.internal.preferences.Base64;
 
@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.9 2004/11/08 12:10:51 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.10 2004/11/08 14:08:53 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml

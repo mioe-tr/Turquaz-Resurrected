@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.18 2004/11/04 14:06:46 ehad Exp $
+* @version  $Id: InvUICardSearch.java,v 1.19 2004/11/08 14:08:53 onsel Exp $
 */
 
 
@@ -57,7 +57,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.18 2004/11/04 14:06:46 ehad Exp $
+ * @version $Id: InvUICardSearch.java,v 1.19 2004/11/08 14:08:53 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -346,7 +346,6 @@ public class InvUICardSearch extends  Composite implements SecureComposite {
 	
 	}
 	
-	System.out.println(result.size());
 	}
 	catch(Exception ex){
 	ex.printStackTrace();
