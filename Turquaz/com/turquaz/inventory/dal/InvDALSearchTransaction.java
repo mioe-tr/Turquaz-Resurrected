@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.12 2005/02/08 14:05:08 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.13 2005/02/08 18:23:29 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -153,7 +153,8 @@ public class InvDALSearchTransaction {
 		}
 	}
 	
-	public List searchTransactionsAdvanced(String invCardCode, String invCardName, 
+	public List searchTransactionsAdvanced(String invCardCodeStart,String invCardCodeEnd,
+			String invCardNameStart,String invCardNameEnd, 
 			TurqCurrentCard curCardStart, TurqCurrentCard curCardEnd, 
 			Date startDate,Date endDate, int type, TurqInventoryGroup invGroup)throws Exception{
 		try
@@ -168,15 +169,33 @@ public class InvDALSearchTransaction {
 				query+=" and consignment.consignmentsType ="+ type;
 			
 
-			if (!invCardCode.equals(""))
+			if (!invCardCodeStart.equals("") && !invCardCodeEnd.equals(""))
 			{
-				query += " and transaction.turqInventoryCard.cardInventoryCode like '"+invCardCode+"%'";
+				query +="  and transaction.turqInventoryCard.cardInventoryCode >= '"+invCardCodeStart+"'";
+				query +="  and transaction.turqInventoryCard.cardInventoryCode <= '"+invCardCodeEnd+"'";
+			}
+			else if (!invCardCodeStart.equals(""))
+			{
+				query += " and transaction.turqInventoryCard.cardInventoryCode like '"+invCardCodeStart+"%'";
+			}
+			else if (!invCardCodeEnd.equals(""))
+			{
+				query += " and transaction.turqInventoryCard.cardInventoryCode like '"+invCardCodeEnd+"%'";
 			}
 			
 			
-			if(!invCardName.equals(""))
+			if(!invCardNameStart.equals("") && !invCardNameEnd.equals(""))
 			{
-				query+=" and transaction.turqInventoryCard.cardName like '"+invCardName+"%'";
+				query+=" and transaction.turqInventoryCard.cardName >= '"+invCardNameStart+"'";
+				query+=" and transaction.turqInventoryCard.cardName <= '"+invCardNameEnd+"'";
+			}
+			else if (!invCardNameStart.equals(""))
+			{
+				query+=" and transaction.turqInventoryCard.cardName like '"+invCardNameStart+"%'";
+			}
+			else if (!invCardNameEnd.equals(""))
+			{
+				query+=" and transaction.turqInventoryCard.cardName like '"+invCardNameEnd+"%'";
 			}
 			
 			
