@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.15 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.16 2005/03/30 09:21:45 cemdayanik Exp $
  */
 import java.util.List;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -89,11 +89,14 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static TurqInventoryCard initializeInventoryCard(Integer cardId) throws Exception
+	public static TurqInventoryCard initializeInventoryCard(Integer cardId,Boolean initialize) throws Exception
 	{
 		try
 		{
-			return InvDALCardSearch.initializeInventoryCard(cardId);
+			TurqInventoryCard card=InvDALCardSearch.initializeInventoryCard(cardId);
+			if (initialize.booleanValue())
+				initializeInventoryCard(card);
+			return card;
 		}
 		catch (Exception ex)
 		{

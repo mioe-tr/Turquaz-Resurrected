@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.37 2005/03/29 18:20:13 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.38 2005/03/30 09:22:03 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import org.apache.log4j.Logger;
@@ -340,7 +340,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 				
 				msg.setMessage(Messages.getString("AccUIAccountUpdate.16")); //$NON-NLS-1$
 				msg.open();
-				EngTXCommon.searchTX(EngBLAccountingAccounts.class.getName(),"RefreshContentAsistantMap",null);
+				EngTXCommon.doSingleTX(EngBLAccountingAccounts.class.getName(),"RefreshContentAsistantMap",null);
 
 				updateOccured = true;
 				this.dialogShell.close();

@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUITransactionsTotalReport.java,v 1.17 2005/03/26 15:06:47 onsel Exp $
+ * @version  $Id: InvUITransactionsTotalReport.java,v 1.18 2005/03/30 09:21:45 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -391,12 +391,12 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 			if (items.length > 0)
 			{
 				Integer cardId = (Integer) ((ITableRow) items[0].getData()).getDBObject();
-				TurqInventoryCard invCard = InvBLCardSearch.initializeInventoryCard(cardId);
+				TurqInventoryCard invCard = InvBLCardSearch.initializeInventoryCard(cardId,new Boolean(false));
 				msg.setMessage(Messages.getString("InvUICardUpdateDialog.7")); //$NON-NLS-1$
 				if (msg.open() == SWT.NO)
 					return;
 				// if the inventory card contains transactions
-				if (InvDALCardUpdate.hasTransactions(invCard))
+				if (InvDALCardUpdate.hasTransactions(invCard).booleanValue())
 				{
 					MessageBox msg2 = new MessageBox(this.getShell(), SWT.ICON_WARNING);
 					msg2.setMessage("Inventory card contains transactions and \ncan not be deleted. Delete them first. "); //$NON-NLS-1$
@@ -549,7 +549,7 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 			try
 			{
 				Integer cardId = (Integer) ((ITableRow) selection[0].getData()).getDBObject();
-				TurqInventoryCard card = InvBLCardSearch.initializeInventoryCard(cardId);
+				TurqInventoryCard card = InvBLCardSearch.initializeInventoryCard(cardId,new Boolean(false));
 				boolean updated = new InvUICardUpdateDialog(this.getShell(), SWT.NULL, card).open();
 				if (updated)
 					search();

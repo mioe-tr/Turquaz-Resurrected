@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.16 2005/03/29 15:44:19 cemdayanik Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.17 2005/03/30 09:22:04 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -35,7 +35,7 @@ import com.turquaz.engine.dal.TurqInventoryCard;
  */
 public class InvDALCardUpdate
 {
-	public static boolean hasTransactions(TurqInventoryCard card) throws Exception
+	public static Boolean hasTransactions(TurqInventoryCard card) throws Exception
 	{
 		try
 		{
@@ -48,11 +48,11 @@ public class InvDALCardUpdate
 			List list = q.list();
 			if (list.size() > 0)
 			{
-				return true;
+				return new Boolean(true);
 			}
 			else
 			{
-				return false;
+				return new Boolean(false);
 			}
 		}
 		catch (Exception ex)

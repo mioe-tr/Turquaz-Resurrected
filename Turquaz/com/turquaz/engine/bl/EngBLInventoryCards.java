@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.10 2005/03/29 18:52:00 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.11 2005/03/30 09:22:04 cemdayanik Exp $
  */
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
@@ -94,7 +94,7 @@ public class EngBLInventoryCards
 	{
 		try
 		{
-			return (TurqInventoryCard) EngTXCommon.searchTX(InvBLCardSearch.class.getName(),"getInventoryCard",new Object[]{invCode});
+			return (TurqInventoryCard) EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCard",new Object[]{invCode});
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.49 2005/03/29 17:23:18 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.50 2005/03/30 09:21:44 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -374,7 +374,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 		MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 		try
 		{
-			Boolean result = (Boolean)EngTXCommon.searchTX(EngBLCommon.class.getName(),"checkUserPass",new Object[]{txtUserName.getText(), txtPassword.getText()});
+			Boolean result = (Boolean)EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"checkUserPass",new Object[]{txtUserName.getText(), txtPassword.getText()});
 			if (result.booleanValue())
 			{
 				showMainFrame();
