@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.77 2005/03/28 09:32:41 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.78 2005/03/29 15:52:49 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -456,8 +456,7 @@ public class EngBLCommon
 		try
 		{
 			List ls = InvDALCardSearch.getInventoryCardsAndAccounts();
-			Session session = EngDALSessionFactory.openSession();
-			tx = session.beginTransaction();
+			Session session = EngDALSessionFactory.getSession();
 			Statement stmt = session.connection().createStatement();
 			String query = "";
 			int i = 0;
@@ -490,9 +489,8 @@ public class EngBLCommon
 				stmt.execute(query);
 				key++;
 			}
-			tx.commit();
 			session.flush();
-			session.close();
+
 		}
 		catch (Exception ex)
 		{

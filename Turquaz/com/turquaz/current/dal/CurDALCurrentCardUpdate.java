@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurDALCurrentCardUpdate.java,v 1.14 2005/03/17 15:02:06 onsel Exp $
+ * @version $Id: CurDALCurrentCardUpdate.java,v 1.15 2005/03/29 15:52:49 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Hibernate;
@@ -39,11 +39,10 @@ public class CurDALCurrentCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "from TurqCurrentGroup as curGroup ";
 			Query q = session.createQuery(query);
 			List list = q.list();
-			session.close();
 			return list;
 		}
 		catch (Exception ex)
@@ -56,7 +55,7 @@ public class CurDALCurrentCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "select sum(trans.transactionsTotalDept),sum(trans.transactionsTotalCredit)"
 					+ " from TurqCurrentTransaction as trans "
 					+ "where trans.turqCurrentCard = :curCard and trans.turqCurrentTransactionType = :transType ";
@@ -64,33 +63,7 @@ public class CurDALCurrentCardUpdate
 			q.setParameter("transType", type);
 			q.setParameter("curCard", card);
 			List list = q.list();
-			session.close();
 			return list;
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static void deleteObject(Session session, Object obj) throws Exception
-	{
-		try
-		{
-			//TODO All methods should send a session here
-			if (session == null)
-			{
-				session = EngDALSessionFactory.openSession();
-				Transaction tx = session.beginTransaction();
-				session.delete(obj);
-				session.flush();
-				tx.commit();
-				session.close();
-			}
-			else
-			{
-				session.delete(obj);
-			}
 		}
 		catch (Exception ex)
 		{
@@ -102,11 +75,10 @@ public class CurDALCurrentCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			session.refresh(curTrans);
 			Hibernate.initialize(curTrans.getTurqEngineSequence().getTurqAccountingTransactions());
 			session.flush();
-			session.close();
 		}
 		catch (Exception ex)
 		{
