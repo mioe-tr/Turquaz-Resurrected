@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.16 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.17 2005/03/11 15:41:36 onsel Exp $
 */
 
 
@@ -333,10 +333,22 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		try{
 		    if(EngUICommon.okToDelete(getParent()))
 		    {
-			updated=true;
-			bankBLBankCardUpdate.deleteObject(bankCard);
-			this.dialogShell.close();
+		   
+		    	if(!bankBLBankCardUpdate.hasTransaction(bankCard))
+		    	{
+		    		updated=true;
+		    		bankBLBankCardUpdate.deleteBankCard(bankCard);
+		    		this.dialogShell.close();
+		    	}
+		    	else{
+		    		MessageBox msg=new MessageBox(this.getParent(),SWT.NULL);
+					msg.setMessage(Messages.getString("BankUIBankCardUpdate.4")); //$NON-NLS-1$
+					msg.open();	
+		    	}
 		    }
+		  
+		    
+		    
 		}
 		catch(Exception ex){
 			MessageBox msg=new MessageBox(this.getParent(),SWT.NULL);

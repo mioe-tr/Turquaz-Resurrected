@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.36 2005/02/17 19:13:51 onsel Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.37 2005/03/11 15:41:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -34,11 +34,13 @@ import org.eclipse.swt.widgets.TableItem;
 
 import org.eclipse.swt.widgets.Composite;
 
+import com.turquaz.bill.ui.BillUIBillUpdateDialog;
 import com.turquaz.consignment.ui.ConUIConsignmentUpdateDialog;
 
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 
+import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
@@ -307,12 +309,22 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 				Integer transId = (Integer)items[0].getData();
 				if (transId != null)
 				{
+					boolean updated =false;
 					TurqInventoryTransaction invTrans=InvBLSearchTransaction.getInvTransByTransId(transId);
 			
 					TurqEngineSequence seq = invTrans.getTurqEngineSequence();
 			
+					TurqBill bill = blSearch.getBill(seq);
+					if(bill!=null)
+					{
+					updated = new BillUIBillUpdateDialog(this.getShell(),SWT.NULL,bill).open();
+					}
+					else{
 					TurqConsignment cons = blSearch.getConsignment(seq);
-					boolean updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
+					 updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
+					}
+					
+					
 					if (updated)
 						search();
 				}

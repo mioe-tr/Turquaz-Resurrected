@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.23 2005/03/01 18:27:39 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.24 2005/03/11 15:41:36 onsel Exp $
  */
 
 import java.util.Date;
@@ -29,10 +29,12 @@ import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
+import com.turquaz.bill.dal.BillDALSearchBill;
 import com.turquaz.consignment.dal.ConDALUpdateConsignment;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
+import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
@@ -351,6 +353,30 @@ public class InvDALSearchTransaction {
 				 cons = (TurqConsignment)it.next();
 				ConDALUpdateConsignment dalSearchCons = new ConDALUpdateConsignment();
 				dalSearchCons.initiliazeConsignment(cons);
+			}
+			session.close();
+			return cons;
+
+		} catch (Exception ex) {
+			throw ex;
+		}
+	}
+
+	public TurqBill getBill(TurqEngineSequence seq) throws Exception
+	{
+		try {
+			Session session = EngDALSessionFactory.openSession();
+			session.refresh(seq);
+			
+			Hibernate.initialize(seq.getTurqConsignments());
+			Iterator it = seq.getTurqBills().iterator();
+			
+			TurqBill cons = null;
+			if (it.hasNext())
+			{
+				 cons = (TurqBill)it.next();
+				ConDALUpdateConsignment dalSearchCons = new ConDALUpdateConsignment();
+				new BillDALSearchBill().initializeBill(cons);
 			}
 			session.close();
 			return cons;

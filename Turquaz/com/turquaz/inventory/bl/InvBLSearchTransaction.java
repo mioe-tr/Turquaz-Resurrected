@@ -19,13 +19,14 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: InvBLSearchTransaction.java,v 1.8 2005/02/19 17:18:50 cemdayanik Exp $
+* @version  $Id: InvBLSearchTransaction.java,v 1.9 2005/03/11 15:41:35 onsel Exp $
 */
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
@@ -101,6 +102,17 @@ public class InvBLSearchTransaction {
 		try {
 			
 			return dalSearch.getConsignment(seq);
+		}
+		
+		catch (Exception ex) {
+			throw ex;
+		}
+	}
+	public TurqBill getBill(TurqEngineSequence seq) throws Exception
+	{
+		try {
+			
+			return dalSearch.getBill(seq);
 		}
 		
 		catch (Exception ex) {

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.19 2005/02/21 10:49:05 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.20 2005/03/11 15:41:35 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -42,12 +42,14 @@ import org.eclipse.swt.widgets.TableItem;
 
 import org.eclipse.swt.widgets.Composite;
 
+import com.turquaz.bill.ui.BillUIBillUpdateDialog;
 import com.turquaz.consignment.ui.ConUIConsignmentUpdateDialog;
 
 
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 
+import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
@@ -619,13 +621,24 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			
 			Integer transId = (Integer)items[0].getData();
 			if (transId != null)
-			{
-				TurqInventoryTransaction invTrans=InvBLSearchTransaction.getInvTransByTransId(transId);
-				TurqEngineSequence seq = invTrans.getTurqEngineSequence();			
-				TurqConsignment cons = blSearch.getConsignment(seq);
-				boolean updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
-				if (updated)
-					search();
+			{boolean updated =false;
+			TurqInventoryTransaction invTrans=InvBLSearchTransaction.getInvTransByTransId(transId);
+			
+					TurqEngineSequence seq = invTrans.getTurqEngineSequence();
+			
+					TurqBill bill = blSearch.getBill(seq);
+					if(bill!=null)
+					{
+					updated = new BillUIBillUpdateDialog(this.getShell(),SWT.NULL,bill).open();
+					}
+					else{
+					TurqConsignment cons = blSearch.getConsignment(seq);
+					 updated=new ConUIConsignmentUpdateDialog(this.getShell(),SWT.NULL,cons).open();
+					}
+					
+					
+					if (updated)
+						search();
 			}
 		}
 		}

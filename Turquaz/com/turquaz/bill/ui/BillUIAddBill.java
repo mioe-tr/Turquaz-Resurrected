@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.56 2005/03/11 10:00:47 cemdayanik Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.57 2005/03/11 15:41:35 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -115,7 +115,7 @@ public class BillUIAddBill extends Composite
 		return compRegisterGroup;
 	}
 
-	/**
+	/** 
 	 * @param compRegisterGroup
 	 *            The compRegisterGroup to set.
 	 */
