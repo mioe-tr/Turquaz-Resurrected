@@ -24,7 +24,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.11 2004/12/04 20:14:27 cemdayanik Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.12 2004/12/06 17:21:58 huseyiner Exp $
 */
 import java.util.List;
 
@@ -55,8 +55,8 @@ public class InvDALCardSearch {
 				String query = "Select invView, invCard from TurqViewInventoryAmountTotal as invView," +
 						" TurqInventoryCard as invCard" +
 						" left join fetch invCard.turqInventoryCardUnits" +
-						" where invCard.inventoryCardsId = invView.inventoryCardsId and invCard.turqCompany.companiesId ="+System.getProperty("company")+" " +
-						" and lower(invCard.cardName) like '"+cardName.toLowerCase()+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
+						" where invCard.inventoryCardsId = invView.inventoryCardsId and " +
+						" lower(invCard.cardName) like '"+cardName.toLowerCase()+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
 							
 							   	
 				if(invGroup!=null){

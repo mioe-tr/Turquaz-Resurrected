@@ -24,7 +24,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALWarehouseSearch.java,v 1.4 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: InvDALWarehouseSearch.java,v 1.5 2004/12/06 17:21:58 huseyiner Exp $
 */
 import java.util.List;
 
@@ -47,8 +47,7 @@ public class InvDALWarehouseSearch {
 			
 			String query = "Select wh from TurqInventoryWarehous as wh " +
 							
-						   "where wh.turqCompany.companiesId ="+System.getProperty("company")+" " +
-						   "and wh.warehousesName like '"+name+"%' and wh.warehousesCity like '"+city+"%' ";
+						   "where wh.warehousesName like '"+name+"%' and wh.warehousesCity like '"+city+"%' ";
 			  	
 			Query q = session.createQuery(query); 
 					

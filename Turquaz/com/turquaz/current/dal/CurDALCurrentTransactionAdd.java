@@ -23,7 +23,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.6 2004/11/26 20:23:55 cemdayanik Exp $
+* @version  $Id: CurDALCurrentTransactionAdd.java,v 1.7 2004/12/06 17:21:58 huseyiner Exp $
 */
 import java.util.List;
 
@@ -118,8 +118,7 @@ public class CurDALCurrentTransactionAdd {
 		
 		Session session = EngDALSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		String query = "from TurqCurrentCard as curCard " +
-				"where curCard.turqCompany.companiesId ="+System.getProperty("company");		   
+		String query = "from TurqCurrentCard as curCard ";		   
 		Query q = session.createQuery(query); 
 		List list = q.list();
 		tx.commit();
@@ -141,8 +140,7 @@ public class CurDALCurrentTransactionAdd {
 			
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
-			String query = "from TurqCurrentTransactionType as curCard " +
-					"where curCard.turqCompany.companiesId ="+System.getProperty("company");		   
+			String query = "from TurqCurrentTransactionType as curCard ";		   
 			Query q = session.createQuery(query); 
 			List list = q.list();
 			

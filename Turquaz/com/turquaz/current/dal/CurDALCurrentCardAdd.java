@@ -23,7 +23,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardAdd.java,v 1.5 2004/11/25 19:09:14 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardAdd.java,v 1.6 2004/12/06 17:21:57 huseyiner Exp $
 */
 import java.util.List;
 
@@ -115,8 +115,7 @@ public class CurDALCurrentCardAdd {
 	try{
 		Session session = EngDALSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		String query = "from TurqCurrentGroup as curGroup " +
-				"where curGroup.turqCompany.companiesId ="+System.getProperty("company");		   
+		String query = "from TurqCurrentGroup as curGroup " ;		   
 		Query q = session.createQuery(query); 
 		List list = q.list();
 		tx.commit();
@@ -134,8 +133,7 @@ public class CurDALCurrentCardAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqCurrentCard as curCard " +
-					"where curCard.turqCompany.companiesId ="+System.getProperty("company")+
-					" and curCard.cardsCurrentCode ='"+code+"'" ;		   
+					"where curCard.cardsCurrentCode ='"+code+"'" ;		   
 			Query q = session.createQuery(query); 
 			List list = q.list();
 			tx.commit();
@@ -157,8 +155,7 @@ public class CurDALCurrentCardAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqCurrentCard as curCard " +
-					"where curCard.turqCompany.companiesId ="+System.getProperty("company")+
-					" and curCard.cardsName ='"+code+"'" ;		   
+					"where curCard.cardsName ='"+code+"'" ;		   
 			Query q = session.createQuery(query); 
 			List list = q.list();
 			tx.commit();

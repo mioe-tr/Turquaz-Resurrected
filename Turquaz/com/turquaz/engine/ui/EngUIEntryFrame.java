@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.29 2004/12/06 09:08:28 huseyiner Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.30 2004/12/06 17:21:59 huseyiner Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -343,7 +343,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			    props.store(output,"Turquaz Configuration"); //$NON-NLS-1$
 			    
 			    System.setProperty("user",txtUserName.getText()); //$NON-NLS-1$
-			    System.setProperty("company","0"); //$NON-NLS-1$ //$NON-NLS-2$
+
 			    if (((Integer)comboLanguage.getData(comboLanguage.getText())).intValue() ==1)
 			    {
 			    	Locale.setDefault(new Locale("tr","TR")); //$NON-NLS-1$ //$NON-NLS-2$

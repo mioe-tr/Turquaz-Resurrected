@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.8 2004/11/05 08:45:28 onsel Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.9 2004/12/06 17:21:57 huseyiner Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -71,17 +71,12 @@ public class CurBLCurrentCardAdd {
 			currentCard.setCardsTaxDepartment(cardTaxDepartment);
 			currentCard.setCardsTaxNumber(cardTaxNumber);
 			currentCard.setTurqAccountingAccount(accCode);
-	
-		
-			TurqCompany company = new TurqCompany();
-			company.setCompaniesId(Integer.valueOf(System.getProperty("company")));
 		
 			currentCard.setCreatedBy(System.getProperty("user"));
 			currentCard.setUpdatedBy(System.getProperty("user"));
 			currentCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			currentCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 		
-			currentCard.setTurqCompany(company);
 			currentAdd.saveObject(currentCard);	
 			return currentCard.getCurrentCardsId();
 		}
@@ -195,9 +190,7 @@ throws Exception {
 try {
 	
 TurqCurrentGroup curGroup = new TurqCurrentGroup();
-TurqCompany company = new TurqCompany();	
-company.setCompaniesId(Integer.valueOf(System.getProperty("company")));
-curGroup.setTurqCompany(company);
+
 curGroup.setGroupsName(groupName);
 curGroup.setGroupsDescription(groupDescription);
 

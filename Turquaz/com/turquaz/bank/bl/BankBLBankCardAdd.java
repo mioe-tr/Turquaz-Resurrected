@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BankBLBankCardAdd.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
+* @version  $Id: BankBLBankCardAdd.java,v 1.6 2004/12/06 17:21:59 huseyiner Exp $
 */
 
 import com.turquaz.bank.dal.BankDALBankCardAdd;
@@ -48,16 +48,12 @@ public class BankBLBankCardAdd {
 			bankCard.setBankBranchName(bankBranchName);
 			bankCard.setBankAccountNo(bankAccountNo);
 			bankCard.setTurqCurrency(currency);
-			
-			TurqCompany company = new TurqCompany();
-			company.setCompaniesId(Integer.valueOf(System.getProperty("company"))); //$NON-NLS-1$
-			
+	
 			bankCard.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
 			bankCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			bankCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			bankCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			
-			bankCard.setTurqCompany(company);
 			bankCardDALAdd.saveObject(bankCard);	
 			
 		}

@@ -23,7 +23,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.10 2004/12/05 17:21:48 cemdayanik Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.11 2004/12/06 17:21:58 huseyiner Exp $
 */
 import java.util.List;
 
@@ -75,7 +75,6 @@ public class CurDALCurrentCardSearch {
 					" currentCard.currentCardsId=currentView.currentCardsId" +
 					" and currentCard.cardsCurrentCode like '"+currentCode+"%'"+
 					" and currentCard.cardsName like '"+currentName+"%'"+
-					" and currentCard.turqCompany.companiesId ="+System.getProperty("company")+
 					" and currentCard.currentCardsId <> -1";
 			if (cardGroup!=null){
 				query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";

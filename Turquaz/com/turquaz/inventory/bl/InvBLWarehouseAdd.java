@@ -31,7 +31,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseAdd.java,v 1.5 2004/11/26 16:41:57 huseyiner Exp $
+* @version  $Id: InvBLWarehouseAdd.java,v 1.6 2004/12/06 17:21:57 huseyiner Exp $
 */
 
 public class InvBLWarehouseAdd {
@@ -52,15 +52,12 @@ public class InvBLWarehouseAdd {
 		warehouse.setWarehousesTelephone(whTelephone);
 		warehouse.setWarehousesDescription(whDescription);
 		warehouse.setWarehousesCode(whName);
-		TurqCompany company = new TurqCompany();
-		company.setCompaniesId(Integer.valueOf(System.getProperty("company")));
 		
 		warehouse.setCreatedBy(System.getProperty("user"));
 		warehouse.setUpdatedBy(System.getProperty("user"));
 		warehouse.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 		warehouse.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 		
-		warehouse.setTurqCompany(company);
 		whDALAdd.saveObject(warehouse);	
 		//sfbk?msfbthth?ksmf?b
 			

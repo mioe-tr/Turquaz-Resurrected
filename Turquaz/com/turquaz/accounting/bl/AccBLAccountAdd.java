@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.11 2004/11/27 19:16:32 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.12 2004/12/06 17:21:58 huseyiner Exp $
 */
 
 
@@ -96,9 +96,6 @@ public class AccBLAccountAdd {
 		parentAccount = new TurqAccountingAccount();
 		parentAccount.setAccountingAccountsId(new Integer(-1));
 		}
-		
-		TurqCompany company = new TurqCompany();
-		company.setCompaniesId(Integer.valueOf(System.getProperty("company")));
 	
 		account.setAccountName(accountName);
 		account.setAccountCode(accountCode);
@@ -114,7 +111,6 @@ public class AccBLAccountAdd {
 		else{
 		account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
 		}
-		account.setTurqCompany(company);
 	
 		dalAccountAdd.saveOrUpdateAccount(account);
 		}

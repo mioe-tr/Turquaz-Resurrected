@@ -20,7 +20,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardAdd.java,v 1.11 2004/11/04 14:04:38 ehad Exp $
+* @version  $Id: InvDALCardAdd.java,v 1.12 2004/12/06 17:21:58 huseyiner Exp $
 */
 import java.util.List;
 
@@ -197,8 +197,7 @@ public class InvDALCardAdd {
 		
 		Session session = EngDALSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		String query = "from TurqInventoryGroup as invGroup " +
-				"where invGroup.turqCompany.companiesId ="+System.getProperty("company");		   
+		String query = "from TurqInventoryGroup as invGroup ";		   
 		   
 
 		Query q = session.createQuery(query); 
@@ -223,8 +222,7 @@ public class InvDALCardAdd {
 			
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
-			String query = "from TurqInventoryUnit as invUnit " +
-					"where invUnit.turqCompany.companiesId ="+System.getProperty("company");		   
+			String query = "from TurqInventoryUnit as invUnit " ;		   
 			   
 
 			Query q = session.createQuery(query); 

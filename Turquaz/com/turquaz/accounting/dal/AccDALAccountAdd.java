@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.14 2004/11/27 19:16:33 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.15 2004/12/06 17:21:58 huseyiner Exp $
 */
 
 
@@ -60,8 +60,7 @@ public class AccDALAccountAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+" and" +
-							" accounts.turqAccountingAccountByParentAccount.accountingAccountsId ="+parentid+"" +
+					"where  accounts.turqAccountingAccountByParentAccount.accountingAccountsId ="+parentid+"" +
 							" and accounts.accountCode like '"+codeCriteria+"%'" +
 							" and accounts.accountingAccountsId <> -1" +
 							" order by accounts.accountingAccountsId";   
@@ -85,9 +84,7 @@ public class AccDALAccountAdd {
 			Session session =  EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+
-							
-							" and accounts.accountCode ='"+code+"'" +
+					"where accounts.accountCode ='"+code+"'" +
 							" and accounts.accountingAccountsId <> -1";
 						
 
@@ -117,7 +114,7 @@ public class AccDALAccountAdd {
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+
+					
 					// was removing accounting plan	
 					//	" and accounts.accountingAccountsId <> -1" +
 							" order by accounts.accountingAccountsId";   
@@ -140,8 +137,7 @@ public class AccDALAccountAdd {
 	        Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "from TurqAccountingAccount as accounts " +
-					"where accounts.turqCompany.companiesId ="+System.getProperty("company")+
-					" and accounts.accountingAccountsId <> -1" +
+					"where accounts.accountingAccountsId <> -1" +
 					" and accounts.turqAccountingAccountsByParentAccount.size=0" +
 					" order by accounts.accountCode";   
 

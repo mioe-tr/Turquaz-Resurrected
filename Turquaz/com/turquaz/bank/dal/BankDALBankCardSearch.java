@@ -19,7 +19,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardSearch.java,v 1.5 2004/11/18 16:12:28 huseyiner Exp $
+* @version  $Id: BankDALBankCardSearch.java,v 1.6 2004/12/06 17:21:58 huseyiner Exp $
 */
 
 import java.util.List;
@@ -43,8 +43,7 @@ public class BankDALBankCardSearch {
 		Session session = EngDALSessionFactory.openSession();
 		
 		String query = "Select bankCard from TurqBanksCard as bankCard where" + //$NON-NLS-1$
-				" bankCard.turqCompany.companiesId ="+System.getProperty("company")+ //$NON-NLS-1$ //$NON-NLS-2$
-		" and bankCard.bankName like '"+bankName+"%' and bankCard.bankBranchName like '"+bankBranchName+"%' "+ //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		" bankCard.bankName like '"+bankName+"%' and bankCard.bankBranchName like '"+bankBranchName+"%' "+ //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		" and bankCard.bankAccountNo like '"+bankAccountNo+"%'"; //$NON-NLS-1$ //$NON-NLS-2$
 		
 		if (currency!=null){
