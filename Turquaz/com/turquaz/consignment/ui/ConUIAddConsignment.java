@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.29 2004/12/15 19:55:34 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.30 2004/12/16 10:33:18 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -52,7 +52,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyAdapter;
-import org.eclipse.swt.custom.TableCursor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.TableViewer;
@@ -993,6 +992,10 @@ implements SecureComposite{
                      }
                      public void widgetSelected(
                        SelectionEvent evt) {
+                         
+                         tableConsignmentRows.setSelection(new TableItem[] {cursor.getRow() });
+                    	 
+                         
                          int current_row_index = ((InvUITransactionTableRow) cursor
                              .getRow().getData())
                              .getRowIndex();
@@ -1000,8 +1003,7 @@ implements SecureComposite{
                              last_row_index = current_row_index;
                              updateComboBoxEditor();
                          }
-                         cursor.redraw();
-                        
+                         cursor.redraw();                     
                          
  
                      }
