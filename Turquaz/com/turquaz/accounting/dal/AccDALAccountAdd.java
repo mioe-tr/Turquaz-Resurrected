@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.27 2005/03/01 10:17:06 cemdayanik Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.28 2005/03/01 10:59:54 cemdayanik Exp $
 */
 
 
@@ -39,7 +39,7 @@ public class AccDALAccountAdd {
 		Transaction tx=null;
 		try{
 		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		tx = session.beginTransaction();
 		session.saveOrUpdate(account);
 		session.flush();
 		tx.commit();
