@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUISearchAccountsDialog.java,v 1.10 2004/10/28 06:28:26 onsel Exp $
+* @version  $Id: AccUISearchAccountsDialog.java,v 1.11 2004/11/25 14:59:48 huseyiner Exp $
 */
 
 
@@ -43,9 +43,16 @@ import com.turquaz.accounting.bl.AccBLAccountAdd;
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a
-* for-profit company or business) then you should purchase
-* a license - please visit www.cloudgarden.com for details.
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
 */
 public class AccUISearchAccountsDialog extends org.eclipse.swt.widgets.Dialog {
 	private Composite composite1;

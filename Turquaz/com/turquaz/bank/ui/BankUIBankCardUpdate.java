@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardUpdate.java,v 1.7 2004/11/25 09:41:36 onsel Exp $
+* @version  $Id: BankUIBankCardUpdate.java,v 1.8 2004/11/25 14:59:48 huseyiner Exp $
 */
 
 
@@ -72,6 +72,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	private TurqBanksCard bankCard;
 	private BankBLBankCardUpdate bankBLBankCardUpdate=new BankBLBankCardUpdate();
 	private EngBLCommon engBLCommon= new EngBLCommon();
+	private ToolItem toolCancel;
 	private BankUIBankCardAdd compBankCard;
 	private ToolItem toolDelete;
 	private ToolItem toolUpdate;
@@ -131,9 +132,9 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 							toolUpdate = new ToolItem(toolBar1, SWT.NONE);
 							toolUpdate.setEnabled(true);
 							toolUpdate.setText(Messages
-								.getString("BankUIBankCardUpdate.0"));
+								.getString("BankUIBankCardUpdate.0")); //$NON-NLS-1$
 							toolUpdate.setImage(SWTResourceManager
-								.getImage("icons/save_edit.gif"));
+								.getImage("icons/save_edit.gif")); //$NON-NLS-1$
 							toolUpdate
 								.addSelectionListener(new SelectionAdapter() {
 								public void widgetSelected(SelectionEvent evt) {
@@ -145,13 +146,23 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog {
 							toolDelete = new ToolItem(toolBar1, SWT.NONE);
 							toolDelete.setEnabled(false);
 							toolDelete.setText(Messages
-								.getString("BankUIBankCardUpdate.1"));
-							toolDelete.setImage(SWTResourceManager
-								.getImage("icons/delete_edit.gif"));
+								.getString("BankUIBankCardUpdate.1")); //$NON-NLS-1$
+							toolDelete.setImage(SWTResourceManager.getImage("icons/Delete16.gif")); //$NON-NLS-1$
 							toolDelete
 								.addSelectionListener(new SelectionAdapter() {
 								public void widgetSelected(SelectionEvent evt) {
 									toolDeleteWidgetSelected(evt);
+								}
+								});
+						}
+						{
+							toolCancel = new ToolItem(toolBar1, SWT.NONE);
+							toolCancel.setText(Messages.getString("BankUIBankCardUpdate.5")); //$NON-NLS-1$
+							toolCancel.setImage(SWTResourceManager.getImage("icons/cancel.jpg")); //$NON-NLS-1$
+							toolCancel
+								.addSelectionListener(new SelectionAdapter() {
+								public void widgetSelected(SelectionEvent evt) {
+									dialogShell.close();
 								}
 								});
 						}

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIAddBill.java,v 1.6 2004/11/25 12:15:28 huseyiner Exp $
+* @version  $Id: BillUIAddBill.java,v 1.7 2004/11/25 14:59:48 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -586,7 +586,7 @@ implements SecureComposite{
 								lblPaymentType = new Label(
 									compInfoPanel,
 									SWT.NONE);
-								lblPaymentType.setText("Ödeme Tipi");
+								lblPaymentType.setText(Messages.getString("BillUIAddBill.12")); //$NON-NLS-1$
 							}
 							{
 								comboPaymentType = new CCombo(
@@ -937,11 +937,11 @@ implements SecureComposite{
 		comboConsignmentType.add(Messages.getString("BillUIAddBill.33"));  //$NON-NLS-1$
 		comboConsignmentType.add(Messages.getString("BillUIAddBill.34"));  //$NON-NLS-1$
 		
-		comboPaymentType.add("Cari");
-		comboPaymentType.setData("Cari",new Boolean(false));
-		comboPaymentType.add("Nakit");
-		comboPaymentType.setData("Nakit",new Boolean(true));
-		comboPaymentType.setText("Cari");
+		comboPaymentType.add(Messages.getString("BillUIAddBill.13")); //$NON-NLS-1$
+		comboPaymentType.setData(Messages.getString("BillUIAddBill.14"),new Boolean(false)); //$NON-NLS-1$
+		comboPaymentType.add(Messages.getString("BillUIAddBill.25")); //$NON-NLS-1$
+		comboPaymentType.setData(Messages.getString("BillUIAddBill.30"),new Boolean(true)); //$NON-NLS-1$
+		comboPaymentType.setText(Messages.getString("BillUIAddBill.35")); //$NON-NLS-1$
 	}
 	
 	
