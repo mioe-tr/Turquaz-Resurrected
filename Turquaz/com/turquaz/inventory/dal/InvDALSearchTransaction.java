@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.17 2005/02/19 17:18:52 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.18 2005/02/19 18:44:46 onsel Exp $
  */
 
 import java.util.Date;
@@ -110,7 +110,11 @@ public class InvDALSearchTransaction {
 			String query = "Select transaction.inventoryTransactionsId,transaction.transactionsDate,transaction.transactionsAmountIn," +
 			"transaction.transactionsTotalAmountOut, transaction.transactionsTotalPrice," +
 			" transaction.turqInventoryCard.cardInventoryCode, " +
-			" transaction.turqInventoryCard.cardName from TurqInventoryTransaction as transaction," +
+			" transaction.turqInventoryCard.cardName," +
+			" consignment.turqBillConsignmentCommon.turqCurrentCard.cardsName," +
+			" transaction.turqInventoryCard.inventoryCardsId," +
+			" consignment.turqBillConsignmentCommon.billDocumentNo " +
+			"  from TurqInventoryTransaction as transaction," +
 			 " TurqConsignment as consignment where" +
 			 " consignment.turqEngineSequence = transaction.turqEngineSequence "
 			+ " and consignment.consignmentsDate >= :startDate"
