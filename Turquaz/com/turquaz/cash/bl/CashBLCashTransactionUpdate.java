@@ -18,7 +18,7 @@ package com.turquaz.cash.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CashBLCashTransactionUpdate.java,v 1.20 2005/03/06 19:33:25 cemdayanik Exp $
+* @version  $Id: CashBLCashTransactionUpdate.java,v 1.21 2005/03/07 17:02:04 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -369,7 +369,7 @@ try{
     
         
    //delete current Transactions..      
- 
+		
         Iterator it = cashTrans.getTurqEngineSequence().getTurqCurrentTransactions().iterator();
         while(it.hasNext()){
             

@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUIMoneyTransferIn.java,v 1.8 2005/03/06 19:33:22 cemdayanik Exp $
+* @version  $Id: BankUIMoneyTransferIn.java,v 1.9 2005/03/07 17:02:02 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -167,7 +167,7 @@ public class BankUIMoneyTransferIn extends org.eclipse.swt.widgets.Composite imp
             }
 			//START >>  lblCurrency
 			lblCurrency = new CLabel(this, SWT.NONE);
-			lblCurrency.setText("Para Birimi");
+			lblCurrency.setText(Messages.getString("BankUIMoneyTransferIn.10")); //$NON-NLS-1$
 			//END <<  lblCurrency
 			//START >>  comboCurrencyType
 			comboCurrencyType = new CCombo(this, SWT.NONE);
@@ -259,7 +259,7 @@ public class BankUIMoneyTransferIn extends org.eclipse.swt.widgets.Composite imp
     		}
     		else if ((exchangeCurrency=(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()))==null)
     		{
-    			EngUICommon.showMessageBox(getShell(),"Para birimi seçmelisiniz!",SWT.ICON_WARNING);
+    			EngUICommon.showMessageBox(getShell(),Messages.getString("BankUIMoneyTransferIn.11"),SWT.ICON_WARNING); //$NON-NLS-1$
         		comboCurrencyType.setFocus();
         		return false;
     		}
@@ -269,7 +269,7 @@ public class BankUIMoneyTransferIn extends org.eclipse.swt.widgets.Composite imp
 						exchangeCurrency,datePick.getDate());
 				if (exchangeRate == null)
 				{
-					EngUICommon.showMessageBox(getShell(),"Günlük kur tan?mlamal?s?n?z!",SWT.ICON_WARNING);
+					EngUICommon.showMessageBox(getShell(),Messages.getString("BankUIMoneyTransferIn.12"),SWT.ICON_WARNING); //$NON-NLS-1$
 					return false;	
 			
 				}

@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUISearchMoneyTransaction.java,v 1.15 2005/03/06 19:33:22 cemdayanik Exp $
+* @version  $Id: BankUISearchMoneyTransaction.java,v 1.16 2005/03/07 17:02:03 cemdayanik Exp $
 */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -176,17 +176,17 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 				tableColumnDefintion = new TableColumn(
 					tableMoneyTrans,
 					SWT.NONE);
-				tableColumnDefintion.setText("Aç\u0131klama");
+				tableColumnDefintion.setText(Messages.getString("BankUISearchMoneyTransaction.1")); //$NON-NLS-1$
 				tableColumnDefintion.setWidth(150);
 				//END <<  tableColumnDefintion
 				//START >>  tableColumnDeptAmount
 				tableColumnDeptAmount = new TableColumn(tableMoneyTrans, SWT.RIGHT);
-				tableColumnDeptAmount.setText("Borç ");
+				tableColumnDeptAmount.setText(Messages.getString("BankUISearchMoneyTransaction.6")); //$NON-NLS-1$
 				tableColumnDeptAmount.setWidth(85);
 				//END <<  tableColumnDeptAmount
 				//START >>  tableColumnCreditAmount
 				tableColumnCreditAmount = new TableColumn(tableMoneyTrans, SWT.RIGHT);
-				tableColumnCreditAmount.setText("Alacak");
+				tableColumnCreditAmount.setText(Messages.getString("BankUISearchMoneyTransaction.8")); //$NON-NLS-1$
 				tableColumnCreditAmount.setWidth(85);
 				//END <<  tableColumnCreditAmount
             }

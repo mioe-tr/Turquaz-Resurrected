@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashOtherCollectTransaction.java,v 1.4 2005/03/06 19:33:24 cemdayanik Exp $
+* @version  $Id: CashUICashOtherCollectTransaction.java,v 1.5 2005/03/07 17:02:03 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -168,7 +168,7 @@ public class CashUICashOtherCollectTransaction extends org.eclipse.swt.widgets.C
             }
 			//START >>  lblCurrency
 			lblCurrency = new CLabel(this, SWT.NONE);
-			lblCurrency.setText("Para Birimi");
+			lblCurrency.setText(Messages.getString("CashUICashOtherCollectTransaction.1")); //$NON-NLS-1$
 			//END <<  lblCurrency
 			//START >>  comboCurrencyType
 			comboCurrencyType = new CCombo(this, SWT.NONE);
@@ -289,7 +289,7 @@ public class CashUICashOtherCollectTransaction extends org.eclipse.swt.widgets.C
     		}
     		else if ((exchangeCurrency=(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()))==null)
     		{
-    			msg.setMessage("Para birimi seçmelisiniz!");
+    			msg.setMessage(Messages.getString("CashUICashOtherCollectTransaction.2")); //$NON-NLS-1$
     			msg.open();
     			comboCurrencyType.setFocus();
     			return false;
@@ -300,7 +300,7 @@ public class CashUICashOtherCollectTransaction extends org.eclipse.swt.widgets.C
 					exchangeCurrency,datePicker.getDate());
     			if (exchangeRate == null)
     			{
-    				msg.setMessage("Günlük de?i?im oran? tan?mlamal?s?n?z!");
+    				msg.setMessage(Messages.getString("CashUICashOtherCollectTransaction.3")); //$NON-NLS-1$
     				msg.open();
 					return false;	
 		

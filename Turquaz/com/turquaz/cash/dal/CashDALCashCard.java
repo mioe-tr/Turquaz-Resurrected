@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
@@ -39,7 +38,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.20 2005/03/06 19:33:25 cemdayanik Exp $
+ * @version $Id: CashDALCashCard.java,v 1.21 2005/03/07 17:02:04 cemdayanik Exp $
  */
 
 public class CashDALCashCard {
@@ -220,12 +219,8 @@ public class CashDALCashCard {
             
             TurqCashTransaction cashTrans =(TurqCashTransaction)session.load(TurqCashTransaction.class, id);
             
-            if(cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_COLLECT
-                    ||cashTrans.getTurqCashTransactionType().getId().intValue()==EngBLCommon.CASH_CURRENT_PAYMENT ){
-                
-                Hibernate.initialize(cashTrans.getTurqEngineSequence().getTurqCurrentTransactions());
-            }
-                
+
+            Hibernate.initialize(cashTrans.getTurqEngineSequence().getTurqCurrentTransactions());   
             Hibernate.initialize(cashTrans.getTurqCashTransactionRows());
             Hibernate.initialize(cashTrans.getTurqEngineSequence().getTurqAccountingTransactions());
             

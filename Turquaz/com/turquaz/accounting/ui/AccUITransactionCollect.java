@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.47 2005/03/06 19:33:23 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.48 2005/03/07 17:02:03 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -517,7 +517,7 @@ public class AccUITransactionCollect extends Composite implements
 							exchangeCurrency,datePickerTransactionDate.getDate());
 					if (exchangeRate == null)
 					{
-						msg.setMessage("Günlük kur tan?mlamal?s?n?z!");
+						msg.setMessage(Messages.getString("AccUITransactionCollect.11")); //$NON-NLS-1$
 						msg.open();
 						return false;	
 				
