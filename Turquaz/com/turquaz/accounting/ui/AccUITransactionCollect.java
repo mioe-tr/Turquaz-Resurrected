@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.37 2005/01/13 15:12:05 onsel Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.38 2005/02/07 18:39:33 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -99,8 +99,6 @@ public class AccUITransactionCollect extends Composite implements
 	private CashAccountPicker comboDeptor;
 
 	private TableItem item;
-
-	private CLabel lblTableWarning;
 
 	private TableColumn txtTransactionDefinition;
 
@@ -248,18 +246,6 @@ public class AccUITransactionCollect extends Composite implements
 				txtTransDefinitionLData.widthHint = 184;
 				txtTransDefinitionLData.heightHint = 19;
 				txtTransDefinition.setLayoutData(txtTransDefinitionLData);
-			}
-			{
-				lblTableWarning = new CLabel(this, SWT.NONE);
-				lblTableWarning.setText(Messages
-						.getString("AccUITransactionCollect.10")); //$NON-NLS-1$
-				lblTableWarning.setFont(SWTResourceManager.getFont(
-						"Tahoma", 8, 1, false, false)); //$NON-NLS-1$
-				GridData lblTableWarningLData = new GridData();
-				lblTableWarningLData.horizontalSpan = 4;
-				lblTableWarningLData.widthHint = 425;
-				lblTableWarningLData.heightHint = 19;
-				lblTableWarning.setLayoutData(lblTableWarningLData);
 			}
 			{
 				tableTransactionRows = new Table(this, SWT.FULL_SELECTION
