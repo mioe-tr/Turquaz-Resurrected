@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.12 2004/11/18 09:29:00 huseyiner Exp $
+* @version  $Id: CUrUITransactionUpdateDialog.java,v 1.13 2004/11/18 09:54:07 huseyiner Exp $
 */
 
 import org.eclipse.swt.graphics.Rectangle;

@@ -18,11 +18,12 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupAdd.java,v 1.6 2004/11/10 08:04:40 onsel Exp $
+* @version  $Id: AdmBLGroupAdd.java,v 1.7 2004/11/18 09:54:12 huseyiner Exp $
 */
 
 import java.util.Calendar;
 
+import com.turquaz.admin.Messages;
 import com.turquaz.admin.dal.AdmDALGroupAdd;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqGroup;
@@ -45,8 +46,8 @@ public class AdmBLGroupAdd {
 			group.setGroupsName(groupname);
 			group.setGroupsDescription(description);
 
-			group.setCreatedBy(System.getProperty("user"));
-			group.setUpdatedBy(System.getProperty("user"));
+			group.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
+			group.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			group.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 			group.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 

@@ -1,10 +1,6 @@
-/*
- * Created on 03.Kas.2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.admin.dal;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -22,20 +18,15 @@ package com.turquaz.admin.dal;
 /************************************************************************/
 
 /**
-* @author  Onsel Armagan
-* @version  $Id: AdmDALGroupAdd.java,v 1.2 2004/11/04 13:28:07 ehad Exp $
+* @author  Huseyin Ergun
+* @version  $Id: AdmDALGroupAdd.java,v 1.3 2004/11/18 09:54:12 huseyiner Exp $
 */
+
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
 
-/**
- * @author huseyin
- * 
- * TODO To change the template for this generated type comment go to Window -
- * Preferences - Java - Code Style - Code Templates
- */
 public class AdmDALGroupAdd {
 
 	public AdmDALGroupAdd() {

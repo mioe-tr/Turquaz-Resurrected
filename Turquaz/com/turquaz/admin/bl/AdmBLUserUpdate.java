@@ -1,10 +1,6 @@
-/*
- * Created on Nov 3, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.admin.bl;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -23,23 +19,17 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUserUpdate.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: AdmBLUserUpdate.java,v 1.5 2004/11/18 09:54:12 huseyiner Exp $
 */
 
 import java.util.Calendar;
 
 
+import com.turquaz.admin.Messages;
 import com.turquaz.admin.dal.AdmDALUserUpdate;
 
 import com.turquaz.engine.dal.TurqUser;
 
-
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class AdmBLUserUpdate {
 	private AdmDALUserUpdate dalAdmin = new AdmDALUserUpdate();
 	Calendar cal = Calendar.getInstance();
@@ -56,7 +46,7 @@ public class AdmBLUserUpdate {
 		user.setUsersDescription(description);
 		
 		user.setUpdateDate(cal.getTime());
-		user.setUpdatedBy(System.getProperty("user"));
+		user.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 		
 		dalAdmin.updateObject(user);
 			

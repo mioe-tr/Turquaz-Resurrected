@@ -1,10 +1,6 @@
-/*
- * Created on Nov 3, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.admin.bl;
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -23,19 +19,13 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLUsers.java,v 1.3 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: AdmBLUsers.java,v 1.4 2004/11/18 09:54:12 huseyiner Exp $
 */
 
 import java.util.List;
 
 import com.turquaz.engine.dal.EngDALCommon;
 
-/**
- * @author onsel
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class AdmBLUsers {
 	private EngDALCommon dalCommon = new EngDALCommon();
 	public AdmBLUsers(){

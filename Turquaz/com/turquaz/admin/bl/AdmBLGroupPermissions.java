@@ -24,11 +24,12 @@ package com.turquaz.admin.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmBLGroupPermissions.java,v 1.4 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: AdmBLGroupPermissions.java,v 1.5 2004/11/18 09:54:12 huseyiner Exp $
 */
 import java.util.Calendar;
 import java.util.List;
 
+import com.turquaz.admin.Messages;
 import com.turquaz.admin.dal.AdmDALUserPermissions;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqGroup;
@@ -105,8 +106,8 @@ public class AdmBLGroupPermissions {
 				groupPerm.setTurqModuleComponent((TurqModuleComponent)moduleComp);
 				groupPerm.setGroupPermissionsLevel(level);
 				
-				groupPerm.setCreatedBy(System.getProperty("user"));
-				groupPerm.setUpdatedBy(System.getProperty("user"));
+				groupPerm.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
+				groupPerm.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 				groupPerm.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));
 				groupPerm.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 				
