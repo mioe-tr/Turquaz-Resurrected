@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLProfitAnalysis.java,v 1.2 2004/12/21 11:29:30 onsel Exp $
+* @version  $Id: InvBLProfitAnalysis.java,v 1.3 2005/02/16 16:14:01 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -41,23 +41,17 @@ public class InvBLProfitAnalysis {
      * 
      * @return
      */
-    public List getTransactionTotals(int type,TurqInventoryCard invCard, Date startDate, Date endDate)throws Exception{
-     try{
-      
-     
-     if(type == 0){
-         
-         return dalProfit.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
-         
-     }
-     
-     else{ 
-        return null;
-       }
-     }
-     catch(Exception ex){
-         throw ex;
-     }
+    public List getTransactionTotals(TurqInventoryCard invCard, Date startDate, Date endDate)
+    throws Exception
+	{
+    	try
+		{        
+    		return dalProfit.getInventoryTotalsAccordingToAvarage(invCard, startDate, endDate);
+		}
+    	catch(Exception ex)
+		{
+    		throw ex;
+		}
     }
 
 }
