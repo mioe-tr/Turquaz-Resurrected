@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.6 2004/12/22 10:20:50 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.7 2004/12/22 14:55:18 onsel Exp $
  */
 
 import java.util.Date;
@@ -36,8 +36,6 @@ import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqEngineSequence;
 import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.engine.dal.TurqInventoryTransaction;
-
 public class InvDALSearchTransaction {
 	public InvDALSearchTransaction() {
 
