@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUISearchAccountsDialog.java,v 1.7 2004/10/25 10:46:46 onsel Exp $
+* @version  $Id: AccUISearchAccountsDialog.java,v 1.8 2004/10/27 11:19:37 onsel Exp $
 */
 
 
@@ -173,7 +173,7 @@ public class AccUISearchAccountsDialog extends org.eclipse.swt.widgets.Dialog {
     
     dialogShell.setLocation(location_X,location_Y);
     AccUIAccountsTree treeFactory = new AccUIAccountsTree();
-	accountTree = treeFactory.fillTree(-1,"",accountTree);
+	accountTree = treeFactory.fillTree(-1,filter,accountTree);
 			
 	
 	}
