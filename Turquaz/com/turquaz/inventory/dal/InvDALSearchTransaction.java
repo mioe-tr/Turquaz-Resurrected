@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.15 2005/02/11 18:31:56 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.16 2005/02/12 14:59:06 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -50,12 +50,23 @@ public class InvDALSearchTransaction {
 		try {
 			Session session = EngDALSessionFactory.openSession();
   
-                 			
-			String query = "Select transaction, consignment.consignmentsDate from TurqInventoryTransaction as transaction," +
+			String query = "Select transaction.inventoryTransactionsId,transaction.transactionsDate,transaction.transactionsAmountIn," +
+			"transaction.transactionsTotalAmountOut, transaction.transactionsTotalPrice," +
+			" transaction.turqInventoryCard.cardInventoryCode, " +
+			" transaction.turqInventoryCard.cardName from TurqInventoryTransaction as transaction," +
+			 " TurqConsignment as consignment where" +
+			 " consignment.turqEngineSequence = transaction.turqEngineSequence "
+			+ " and consignment.consignmentsDate >= :startDate"
+			+ " and consignment.consignmentsDate <= :endDate";
+			
+			
+			/*String query = "Select transaction, consignment.consignmentsDate from TurqInventoryTransaction as transaction," +
 					 " TurqConsignment as consignment where" +
 					 " consignment.turqEngineSequence = transaction.turqEngineSequence "
 					+ " and consignment.consignmentsDate >= :startDate"
-					+ " and consignment.consignmentsDate <= :endDate";
+					+ " and consignment.consignmentsDate <= :endDate";*/
+			
+			
 			if (type != EngBLCommon.COMMON_ALL_INT)
 				query+=" and consignment.consignmentsType ="+ type;
 
