@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.85 2005/03/31 15:33:25 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.86 2005/04/01 09:29:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -340,18 +340,21 @@ public class EngBLCommon
 		
 	
 
-	public static TurqCurrencyExchangeRate getBaseCurrencyExchangeRate() throws Exception
+	public static TurqCurrencyExchangeRate getBaseCurrencyExchangeRate() 
 	{
-		try
-		{
-			if (baseCurrencyExchangeRate == null)
-				baseCurrencyExchangeRate = (TurqCurrencyExchangeRate)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getBaseCurrencyExchangeRate",null);
-			return baseCurrencyExchangeRate;
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+		
+			if (baseCurrencyExchangeRate == null){
+				try
+				{
+					baseCurrencyExchangeRate = (TurqCurrencyExchangeRate)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getBaseCurrencyExchangeRate",null);
+				}
+				catch (Exception ex)
+				{
+					ex.printStackTrace();
+				}
+			}
+					return baseCurrencyExchangeRate;
+		
 	}
 
 	public static List getCurrencies() throws Exception
@@ -380,7 +383,7 @@ public class EngBLCommon
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession2();
+			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			Statement stmt = session.connection().createStatement();
 			String query = "Select id,engine_sequences_id from turq_bills";

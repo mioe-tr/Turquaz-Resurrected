@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionUpdate.java,v 1.32 2005/04/01 07:52:16 onsel Exp $
+ * @version $Id: CashBLCashTransactionUpdate.java,v 1.33 2005/04/01 09:29:13 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -139,7 +139,7 @@ public class CashBLCashTransactionUpdate
 		 String document_no = (String)argMap.get(EngKeys.DOCUMENT_NO);
 		 BigDecimal totalAmount = (BigDecimal)argMap.get(CashKeys.CASH_TOTAL_AMOUNT);
 		 TurqCurrentCard current = (TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD); 
-		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.ENG_SEQ);
+		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);
 		
 		
 			Calendar cal = Calendar.getInstance();
@@ -264,7 +264,7 @@ public class CashBLCashTransactionUpdate
 		 BigDecimal totalAmount = (BigDecimal)argMap.get(CashKeys.CASH_TOTAL_AMOUNT);
 		 
 		 TurqAccountingAccount account = (TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
-		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.ENG_SEQ);
+		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);
 		
 		
 		
@@ -358,7 +358,7 @@ public class CashBLCashTransactionUpdate
 		 String document_no = (String)argMap.get(EngKeys.DOCUMENT_NO);
 		 BigDecimal totalAmount = (BigDecimal)argMap.get(CashKeys.CASH_TOTAL_AMOUNT);
 		 TurqCurrentCard current = (TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD); 
-		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.ENG_SEQ);
+		 TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);
 		
 			Calendar cal = Calendar.getInstance();
 			//delete current Transactions..

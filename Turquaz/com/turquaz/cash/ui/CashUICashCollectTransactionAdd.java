@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCollectTransactionAdd.java,v 1.18 2005/03/31 18:42:19 onsel Exp $
+ * @version  $Id: CashUICashCollectTransactionAdd.java,v 1.19 2005/04/01 09:29:13 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -77,8 +77,8 @@ public class CashUICashCollectTransactionAdd extends org.eclipse.swt.widgets.Com
 	private CLabel lblCurrentCard;
 	private CashCardPicker txtCashCard;
 	private TurqCurrency baseCurrency = EngBLCommon.getBaseCurrency();
-	private TurqCurrencyExchangeRate exchangeRate = null;
-	private TurqCurrency exchangeCurrency = null;
+	private TurqCurrencyExchangeRate exchangeRate =EngBLCommon.getBaseCurrencyExchangeRate();
+	private TurqCurrency exchangeCurrency = EngBLCommon.getBaseCurrency();
 
 	public CashUICashCollectTransactionAdd(org.eclipse.swt.widgets.Composite parent, int style)
 	{
@@ -265,8 +265,6 @@ public class CashUICashCollectTransactionAdd extends org.eclipse.swt.widgets.Com
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
-			msg.setMessage(ex.getMessage());
-			msg.open();
 		}
 	}
 
@@ -313,10 +311,10 @@ public class CashUICashCollectTransactionAdd extends org.eclipse.swt.widgets.Com
 					return false;
 				}
 			}
-			else
-			{
-				exchangeRate = EngBLCommon.getBaseCurrencyExchangeRate();
-			}
+			
+			
+		
+			
 			return true;
 		}
 		catch (Exception ex)

@@ -54,7 +54,7 @@ import org.eclipse.swt.SWT;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardUpdate.java,v 1.9 2005/03/31 18:42:19 onsel Exp $
+ * @version $Id: CashUICashCardUpdate.java,v 1.10 2005/04/01 09:29:13 onsel Exp $
  */
 public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 {
@@ -181,7 +181,7 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 			
 			argMap.put(CashKeys.CASH_CARD,cashCard);
 			
-			EngTXCommon.doTransactionTX(CashBLCashCardUpdate.class.getName(),"delete",argMap);
+			EngTXCommon.doTransactionTX(CashBLCashCardUpdate.class.getName(),"deleteCashCard",argMap);
 		
 			msg.setMessage(Messages.getString("CashUICashCardUpdate.1")); //$NON-NLS-1$
 			msg.open();
@@ -191,9 +191,8 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
-			msg.setMessage(ex.getMessage());
-			msg.open();
+			ex.printStackTrace();	
+			
 		}
 	}
 

@@ -32,7 +32,7 @@ import net.sf.hibernate.Session;
 
 /**
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.26 2005/03/29 18:20:13 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.27 2005/04/01 09:29:13 onsel Exp $
  */
 public class CashDALCashCard
 {
@@ -76,7 +76,7 @@ public class CashDALCashCard
 			String query = "select cashCard from TurqCashCard as cashCard " + " where cashCard.cashCardName like '" + name + "%' ";
 			if (account != null)
 			{
-				query += " cashCard.turqAccountingAccount = :account";
+				query += " and cashCard.turqAccountingAccount = :account";
 			}
 			Query q = session.createQuery(query);
 			if (account != null)

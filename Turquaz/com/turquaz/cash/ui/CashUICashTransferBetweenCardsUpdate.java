@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.7 2005/04/01 07:52:16 onsel Exp $
+ * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.8 2005/04/01 09:29:13 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -77,7 +77,7 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog
 			}
 			dialogShell.setLayout(new GridLayout());
 			dialogShell.setSize(633, 353);
-			dialogShell.setText(Messages.getString("CashUICashOtherPaymentTransactionUpdate.0")); //$NON-NLS-1$
+			dialogShell.setText("Virman Fisi");
 			{
 				toolBar1 = new ToolBar(dialogShell, SWT.NONE);
 				{

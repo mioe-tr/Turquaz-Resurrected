@@ -25,7 +25,7 @@ import net.sf.hibernate.cfg.Configuration;
 
 /**
  * @author onsel
- * @version $Id: EngDALSessionFactory.java,v 1.52 2005/03/29 15:22:48 onsel Exp $ Class for initial database configuration. It creates the
+ * @version $Id: EngDALSessionFactory.java,v 1.53 2005/04/01 09:29:14 onsel Exp $ Class for initial database configuration. It creates the
  *          necessary bindings according to hibernate.cfg.xml Initiliaze the static SessionFactory object
  */
 public class EngDALSessionFactory
@@ -112,7 +112,7 @@ public class EngDALSessionFactory
 	 * @return Session object whisch is created by the static SessionFactory
 	 * @throws Exception
 	 */
-	public static synchronized Session openSession2() throws Exception
+	public static synchronized Session openSession() throws Exception
 	{
 		try
 		{
@@ -122,7 +122,7 @@ public class EngDALSessionFactory
 			}
 			
 			session = _instance.factory.openSession();
-			
+			session.clear();
 			return session;
 		}
 		catch (Exception ex)
