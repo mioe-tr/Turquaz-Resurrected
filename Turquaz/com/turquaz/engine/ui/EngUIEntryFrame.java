@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.12 2004/11/06 12:22:11 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.13 2004/11/06 12:26:01 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -271,7 +271,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 		
 		
 		
-		System.out.println(NewTurkishCurrencyFormat.format(new BigDecimal("134141134134134.13")));
+		System.out.println(NewTurkishCurrencyFormat.formatBD(new BigDecimal("134141134134134.13")));
 		
 		
 		EngDALSessionFactory.init();
