@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.11 2004/10/27 07:39:45 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.12 2004/10/27 07:43:42 onsel Exp $
 */
 
 
@@ -226,13 +226,8 @@ public class AccUIAddAccounts extends SecureComposite{
    
     boolean valid = false;
    
-    if(txtAccAcountName.getText().trim().equals("")){
-	  msg.setMessage("Please Fill Account Name!");
-    msg.open();	
-    return false;
-	}
 	
-	else if(txtAccAccountCode.getText().trim().equals("")){
+    if(txtAccAccountCode.getText().trim().equals("")){
     msg.setMessage("Please Fill Account Code!");
     msg.open();	
     return false;
@@ -253,7 +248,7 @@ public class AccUIAddAccounts extends SecureComposite{
 	txtAccAcountName.setText("");
 	txtParentAccount.setText("");
 	txtParentAccount.setData(null);
-	
+	txtAccAcountName.setFocus();
 	}
 	
 	
