@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIUnitAddDialog.java,v 1.18 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: InvUIUnitAddDialog.java,v 1.19 2005/03/17 09:28:38 onsel Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -397,7 +397,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog {
 				invUnit.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 				invUnit.setUnitsName(txtUnitName.getText().trim());
 	
-				blCardAdd.saveOrUpdateObject(invUnit);
+				blCardAdd.saveObject(invUnit);
 	
 				btnDelete.setEnabled(false);
 				btnUpdate.setEnabled(false);

@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.9 2005/03/14 19:29:49 cemdayanik Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.10 2005/03/17 09:28:38 onsel Exp $
  */
 import java.util.List;
 
@@ -49,30 +49,7 @@ public class InvDALCardUpdate {
 
 	}
 
-	public static void updateObject(Session session, Object obj) throws Exception {
-		try
-		{
-			session.update(obj);
-
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-
-	}
-
-	public static void deleteObject(Session session, Object obj) throws Exception {
-		try 
-		{
-			session.delete(obj);
-		} 
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-
-	}
+	
 
 	public boolean hasTransactions(TurqInventoryCard card) throws Exception {
 		try {

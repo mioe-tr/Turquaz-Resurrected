@@ -19,12 +19,10 @@ package com.turquaz.consignment.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConDALAddConsignment.java,v 1.4 2005/02/11 08:57:55 onsel Exp $
+* @version  $Id: ConDALAddConsignment.java,v 1.5 2005/03/17 09:28:37 onsel Exp $
 */
 
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
-
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqConsignment;
 
@@ -32,34 +30,7 @@ public class ConDALAddConsignment {
 	public ConDALAddConsignment(){
 		
 	}
-	public void save(Object obj)throws Exception{
-		try{
-		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		session.save(obj);
-		session.flush();
-		tx.commit();
-		session.close();
-		
-		}
-		catch(Exception ex){
-			throw ex;
-		}
-	}
-	public void delete(Object obj)throws Exception{
-		try{
-		Session session = EngDALSessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		session.delete(obj);
-		session.flush();
-		tx.commit();
-		session.close();
-		
-		}
-		catch(Exception ex){
-			throw ex;
-		}
-	}
+	
 	public TurqConsignment loadConsignment(Integer consId)throws Exception {
 		
 		try{

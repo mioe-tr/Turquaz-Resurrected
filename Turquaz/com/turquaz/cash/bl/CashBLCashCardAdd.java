@@ -4,6 +4,7 @@ package com.turquaz.cash.bl;
 import java.util.Calendar;
 
 import com.turquaz.cash.dal.CashDALCashCard;
+import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCashCard;
 
@@ -26,7 +27,7 @@ import com.turquaz.engine.dal.TurqCashCard;
 /**
  * 
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.3 2005/01/30 19:41:04 onsel Exp $
+ * @version $Id: CashBLCashCardAdd.java,v 1.4 2005/03/17 09:28:36 onsel Exp $
  *
  */
 public class CashBLCashCardAdd {
@@ -48,7 +49,7 @@ public class CashBLCashCardAdd {
           cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
           cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
           cashCard.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
-		  dalCash.save(cashCard);   
+          EngDALCommon.saveObject(cashCard);   
           
           
         }
