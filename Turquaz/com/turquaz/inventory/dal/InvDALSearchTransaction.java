@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.11 2005/02/07 18:49:48 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.12 2005/02/08 14:05:08 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -65,7 +65,7 @@ public class InvDALSearchTransaction {
 				query += " and transaction.turqInventoryCard = :invCard";
 			}
 			
-
+			query +=" order by consignment.consignmentsDate";
 			Query q = session.createQuery(query);
 
 			q.setParameter("startDate", startDate);
