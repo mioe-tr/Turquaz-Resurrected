@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.18 2005/02/19 21:16:49 cemdayanik Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.19 2005/02/21 10:49:05 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -802,6 +802,8 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 	private void comboInvMainGroupWidgetSelected(SelectionEvent evt) {
 		
 		comboInvSubGroup.removeAll();
+		if (comboInvMainGroup.getSelectionIndex()==-1)
+			return;
 		TurqInventoryGroup invMainGr=(TurqInventoryGroup)comboInvMainGroup.getData(comboInvMainGroup.getText());
 		if (invMainGr != null)
 		{
