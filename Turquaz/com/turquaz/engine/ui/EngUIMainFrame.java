@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.125 2005/02/13 14:00:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.126 2005/02/13 14:24:06 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -94,7 +94,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.125 2005/02/13 14:00:06 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.126 2005/02/13 14:24:06 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -818,22 +818,22 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
                 tabfldMainLData.horizontalAlignment = GridData.FILL;
                 tabfldMainLData.grabExcessVerticalSpace = true;
                 tabfldMain.setLayoutData(tabfldMainLData);
-                tabfldMain.addCTabFolder2Listener(new CTabFolder2Adapter() {
-                    public void close(CTabFolderEvent evt) {
-                        tabfldMainItemClosed(evt);
-                    }
-                    public void itemClosed(CTabFolderEvent evt) {
-                        tabfldMainItemClosed(evt);
-                    }
-                });
-                tabfldMain.addSelectionListener(new SelectionAdapter() {
-                    public void widgetDefaultSelected(SelectionEvent evt) {
-                        tabfldMainWidgetDefaultSelected(evt);
-                    }
-                    public void widgetSelected(SelectionEvent evt) {
-                        tabfldMainWidgetSelected(evt);
-                    }
-                });
+				tabfldMain.addCTabFolder2Listener(new CTabFolder2Adapter() {
+					public void close(CTabFolderEvent evt) {
+						tabfldMainItemClosed(evt);
+					}
+					public void itemClosed(CTabFolderEvent evt) {
+						tabfldMainItemClosed(evt);
+					}
+				});
+				tabfldMain.addSelectionListener(new SelectionAdapter() {
+					public void widgetDefaultSelected(SelectionEvent evt) {
+						tabfldMainWidgetDefaultSelected(evt);
+					}
+					public void widgetSelected(SelectionEvent evt) {
+						tabfldMainWidgetSelected(evt);
+					}
+				});
                 tabfldMain.setLayout(null);
 
             }
@@ -1380,7 +1380,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 
 	/** Auto-generated event handler method */
 	
-	private static void arrangeIcons(){
+	public static void arrangeIcons(){
 		try{
 		   if(tabfldMain.getSelection().getControl() instanceof SecureComposite){
 		    
