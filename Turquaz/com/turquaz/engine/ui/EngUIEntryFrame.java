@@ -18,15 +18,11 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.14 2004/11/06 12:31:53 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.15 2004/11/06 13:28:10 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -63,7 +59,6 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
-import com.turquaz.engine.ui.component.NewTurkishCurrencyFormat;
 import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.MouseAdapter;

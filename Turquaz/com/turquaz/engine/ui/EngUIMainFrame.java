@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.57 2004/11/06 12:31:53 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.58 2004/11/06 13:28:10 onsel Exp $
 */
 
 import java.io.FileOutputStream;
@@ -79,7 +79,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.57 2004/11/06 12:31:53 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.58 2004/11/06 13:28:10 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -820,7 +820,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		comboModuleSelection.add(Messages.getString("EngUIMainFrame.33")); //$NON-NLS-1$
 		comboModuleSelection.add(Messages.getString("EngUIMainFrame.34")); //$NON-NLS-1$
 		comboModuleSelection.add(Messages.getString("EngUIMainFrame.35")); //$NON-NLS-1$
-		
+		comboModuleSelection.add(Messages.getString("EngUIMainFrame.1")); //$NON-NLS-1$
 			
 		tabfldMain.setTabHeight(25);
 		tabfldMain.setSelectionBackground(new Color[]{Display.getDefault().getSystemColor(SWT.COLOR_WHITE)},
@@ -838,7 +838,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		treeAccounting = TreeFactory.createAccountingTree(treeAccounting);
 		treeCurrent = TreeFactory.createCurrentTree(treeCurrent);
 		treeAdmin =TreeFactory.createAdminTree(treeAdmin);		
-		
+		treeConsignment = TreeFactory.createConsignmetTree(treeConsignment);
 		fillFavoritesTree();
 				
 		
@@ -951,6 +951,9 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 			   }
 			   else if(text.equals(Messages.getString("EngUIMainFrame.35"))){ //$NON-NLS-1$
 			   	compo4layout.topControl = treeCurrent;
+			   }
+			   else if(text.equals(Messages.getString("EngUIMainFrame.1"))){ //$NON-NLS-1$
+			 	compo4layout.topControl = treeConsignment;
 			   }
 			   
 			   compModulesTree.layout();
