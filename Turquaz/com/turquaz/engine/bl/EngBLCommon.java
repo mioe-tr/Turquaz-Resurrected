@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.56 2005/03/11 10:00:44 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.57 2005/03/12 11:01:27 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -466,8 +466,7 @@ public class EngBLCommon {
 
 				dalBill.initializeBill(bill);
 				updateBill.deleteAccountingTransactions(bill);
-				addBill.saveAccountingTransaction(bill, bill
-						.getTurqBillConsignmentCommon().getTurqCurrentCard());
+				addBill.saveAccountingTransaction(bill, null);
 
 			}
 		} catch (Exception ex) {

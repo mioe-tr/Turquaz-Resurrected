@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.58 2005/03/11 16:42:51 cemdayanik Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.59 2005/03/12 11:01:29 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1403,8 +1403,7 @@ public class BillUIAddBill extends Composite
 				TurqBill bill = blAddBill.saveBill(txtDocumentNo.getText(),
 						txtDefinition.getText(), false, dateConsignmentDate
 								.getDate(), cons, type, !paymentType
-								.booleanValue(),
-								paymentType.booleanValue() ? accountPickerCurAcc.getData() : null,
+								.booleanValue(),accountPickerCurAcc.getTurqAccountingAccount(),
 								   dateDueDate.getDate());
 				saveGroups(bill.getId());
 				msg.setMessage(Messages.getString("BillUIAddBill.43")); //$NON-NLS-1$

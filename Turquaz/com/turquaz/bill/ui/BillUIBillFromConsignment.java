@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.33 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.34 2005/03/12 11:01:31 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1017,7 +1017,7 @@ implements SecureComposite{
 										consignment,
 										type,
 										!paymentType.booleanValue(),
-										paymentType.booleanValue() ? accountPickerCurAcc.getData() : null,
+										accountPickerCurAcc.getTurqAccountingAccount() ,
 										 dateDueDate.getDate());
 		
 				saveGroups(bill.getId());
