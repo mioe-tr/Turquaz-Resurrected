@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.78 2005/03/29 15:52:49 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.79 2005/03/29 15:57:32 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -349,7 +349,7 @@ public class EngBLCommon
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.openSession2();
 			Transaction tx = session.beginTransaction();
 			Statement stmt = session.connection().createStatement();
 			String query = "Select id,engine_sequences_id from turq_bills";

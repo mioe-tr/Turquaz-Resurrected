@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankDALCommon.java,v 1.22 2005/03/29 15:45:04 onsel Exp $
+ * @version $Id: BankDALCommon.java,v 1.23 2005/03/29 15:57:32 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -201,10 +201,11 @@ public class BankDALCommon
 		}
 	}
 
-	public static boolean checkInitialTransaction(Session session, TurqBanksCard bankCard) throws Exception
+	public static boolean checkInitialTransaction( TurqBanksCard bankCard) throws Exception
 	{
 		try
 		{
+			Session session = EngDALSessionFactory.getSession();
 			String query = "select bankTrans.id from TurqBanksTransaction as bankTrans "
 					+ " where bankTrans.turqBanksCard = :bankCard and bankTrans.turqBanksTransactionBill.turqBanksTransactionType.id="
 					+ EngBLCommon.BANK_TRANS_INITIAL;
