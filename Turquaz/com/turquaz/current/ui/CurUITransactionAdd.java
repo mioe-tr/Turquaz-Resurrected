@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.16 2004/11/26 12:40:12 cemdayanik Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.17 2004/11/26 20:23:55 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.List;
@@ -193,6 +193,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite{
 			lblAmount.setSize(new org.eclipse.swt.graphics.Point(88,21));
 	
 			GridData decTxtAmountLData = new GridData();
+			decTxtAmount.setTextLimit(26);
 			decTxtAmountLData.verticalAlignment = GridData.CENTER;
 			decTxtAmountLData.horizontalAlignment = GridData.BEGINNING;
 			decTxtAmountLData.widthHint = 217;
