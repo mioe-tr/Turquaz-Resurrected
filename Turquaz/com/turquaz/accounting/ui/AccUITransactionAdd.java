@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.43 2004/12/20 16:42:54 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.44 2004/12/24 10:34:57 ehad Exp $
 */
 
 import java.math.BigDecimal;
@@ -310,12 +310,12 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
                 table1LData.horizontalSpan = 4;
                 table1LData.horizontalAlignment = GridData.END;
                 table1LData.grabExcessHorizontalSpace = true;
-                table1LData.widthHint = 212;
+                table1LData.widthHint = 247;
                 table1LData.heightHint = 59;
                 table1.setLayoutData(table1LData);
                 {
                     tableColumnTitle = new TableColumn(table1, SWT.NONE);
-                    tableColumnTitle.setWidth(100);
+                    tableColumnTitle.setWidth(80);
                 }
                 {
                     tableColumnAmount = new TableColumn(table1, SWT.RIGHT);
