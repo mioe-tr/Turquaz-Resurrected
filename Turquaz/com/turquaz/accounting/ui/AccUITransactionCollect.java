@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.8 2004/11/04 12:54:38 ehad Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.9 2004/11/12 19:51:32 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -399,7 +399,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 	* 2- Mahsup Fisi	
 	*
 	**/
-	Integer transId =blTransAdd.saveAccTransaction(datePickerTransactionDate.getDate(),txtDocumentNo.getText().trim(),0,1);
+	Integer transId =blTransAdd.saveAccTransaction(datePickerTransactionDate.getDate(),txtDocumentNo.getText().trim(),0,1,null);
 	
 	saveTransactionRows(transId);
 	msg.setMessage(Messages.getString("AccUITransactionCollect.18")); //$NON-NLS-1$

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.17 2004/11/12 17:05:20 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.18 2004/11/12 19:51:32 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -428,7 +428,7 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	MessageBox msg=new MessageBox(this.getShell(),SWT.NULL);
 	try{
 	
-	Integer transId =blTransAdd.saveAccTransaction(dateTransactionDate.getDate(),txtDocumentNo.getText().trim(),2,1);
+	Integer transId =blTransAdd.saveAccTransaction(dateTransactionDate.getDate(),txtDocumentNo.getText().trim(),2,1,null);
 	
 	saveTransactionRows(transId);
 	msg.setMessage(Messages.getString("AccUITransactionAdd.16")); //$NON-NLS-1$
