@@ -19,10 +19,12 @@ package com.turquaz.engine.ui.component;
 
 import org.eclipse.swt.widgets.Composite;
 
+import com.turquaz.engine.bl.EngBLPermissions;
+
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.2 2004/08/30 19:53:06 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.3 2004/09/22 07:23:39 onsel Exp $
  */
 public abstract class SecureComposite extends Composite {
 	public SecureComposite(Composite parent,int style){
@@ -30,11 +32,7 @@ public abstract class SecureComposite extends Composite {
 	}
 	
 	final public int getPermission(String compname){
-	 if(compname.equals("com.turquaz.inventory.ui.InvUICardAdd"))
-	 return 2;
-	 
-	 return 3;
-	
+	return EngBLPermissions.getPermission(compname);
 	}
 
 }

@@ -42,8 +42,16 @@ import org.eclipse.swt.SWT;
  * 
  * @author onsel
  *
- *@version $Id: AdmUIPermPanel.java,v 1.2 2004/08/30 19:46:25 onsel Exp $
+ *@version $Id: AdmUIPermPanel.java,v 1.3 2004/09/22 07:23:39 onsel Exp $
  */
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a
+* for-profit company or business) then you should purchase
+* a license - please visit www.cloudgarden.com for details.
+*/
+
 
 public class AdmUIPermPanel extends org.eclipse.swt.widgets.Composite {
 
