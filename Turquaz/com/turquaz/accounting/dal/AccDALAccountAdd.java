@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.19 2005/01/03 19:37:41 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.20 2005/01/07 10:15:53 onsel Exp $
 */
 
 
@@ -152,6 +152,37 @@ public class AccDALAccountAdd {
 	    catch(Exception ex){
 	        throw ex;
 	    }
+	}
+	
+	public TurqAccountingAccount getLeafAccount(String code)throws Exception{
+		try{
+			Session session =  EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			String query = "from TurqAccountingAccount as accounts " +
+					"where accounts.accountCode ='"+code+"'" +
+							" and accounts.accountingAccountsId <> -1" +
+							" and accounts.turqAccountingAccountsByParentAccount.size=0";
+						
+
+			Query q = session.createQuery(query); 
+			List list = q.list();
+			tx.commit();
+			session.close();
+			if(list.size()>0){
+				return (TurqAccountingAccount)list.get(0); 
+			}
+			else
+				return null;
+			
+			
+			
+			
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
 	}
 	public List getCashAccounts()throws Exception{
 	    try{

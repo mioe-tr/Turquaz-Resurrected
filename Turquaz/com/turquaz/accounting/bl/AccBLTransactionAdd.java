@@ -18,9 +18,10 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.12 2004/12/28 17:00:49 onsel Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.13 2005/01/07 10:15:53 onsel Exp $
 */
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -48,6 +49,10 @@ public class AccBLTransactionAdd {
 	throws Exception{
 	try
 	{
+	    if(transRow.getCreditAmount().compareTo(new BigDecimal(0))<1 
+	       && transRow.getDeptAmount().compareTo(new BigDecimal(0))<1){
+	        return;
+	    }
 		TurqAccountingTransaction trans = new TurqAccountingTransaction();
 		trans.setAccountingTransactionsId(transID);
 		

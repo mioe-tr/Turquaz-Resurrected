@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.15 2005/01/03 19:37:41 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.16 2005/01/07 10:15:53 onsel Exp $
 */
 
 
@@ -41,6 +41,17 @@ public class AccBLAccountAdd {
 		try{
 			
 			return dalAccountAdd.getAccounts(parentid,codeCrit);
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
+	public TurqAccountingAccount getLeafAccount(String codeCrit)throws Exception{
+		try{
+			
+			return dalAccountAdd.getLeafAccount(codeCrit);
 			
 		}
 		catch(Exception ex){

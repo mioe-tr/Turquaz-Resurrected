@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.94 2005/01/04 15:48:59 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.95 2005/01/07 10:15:52 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -1416,8 +1416,29 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 		fillInvCardUnits();
 		fillTableInvAllGroups();
 		initTableInvPrices();
+		
+		fillDefaultValues();
+	
 
 	}
+	
+	public void fillDefaultValues(){
+	    
+	    txtInvCardInAcc.setText("153"); //Alis Muhasebe Kodu
+	    txtInvCardOutAcc.setText("600"); //Satis Muhasebe Kodu
+	    
+        accountPickerSpecVAT.setText("193"); // Alis OTV Kodu
+        accountPickerSpecVatSell.setText("360"); //Satis OTV Kodu
+        
+        accountPickerVAT.setText("191");     //Alis K.D.V
+        accountPickerVATSell.setText("391"); //Satis K.D.V
+        
+        
+        
+	    
+	}
+	
+	
 
 	public void initTableInvPrices() {
 		tableInvPricesViewer = new TableViewer(tableInvCardAddPrices);

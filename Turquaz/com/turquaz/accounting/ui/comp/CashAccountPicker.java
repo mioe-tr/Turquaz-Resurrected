@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CashAccountPicker.java,v 1.1 2005/01/03 19:37:41 onsel Exp $
+* @version  $Id: CashAccountPicker.java,v 1.2 2005/01/07 10:15:52 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -99,7 +99,7 @@ public class CashAccountPicker extends org.eclipse.swt.widgets.Composite {
                             try {
                                 
                                setData2(EngBLAccountingAccounts
-                                    .getAccount(text1.getText().trim()));
+                                    .getLeafAccount(text1.getText().trim()));
                           
                                                            
                                 
@@ -164,15 +164,17 @@ public class CashAccountPicker extends org.eclipse.swt.widgets.Composite {
 	
 	public void verifyData(){
 	    try{
+	        
 	        setData2(EngBLAccountingAccounts
-                    .getAccount(text1.getText().trim()));
-          
+                    .getAccount(text1.getText().trim()));          
+	    
 	    }
 	    catch(Exception ex){
 	        ex.printStackTrace();
 	    }
 	    
 	}
+	
 	public void setText(String arg0){
 	    text1.setText(arg0);
 	}
