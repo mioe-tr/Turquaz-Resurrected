@@ -19,7 +19,7 @@ package com.turquaz.admin;
 
 /**
 * @author  Huseyin Ergun
-* @version  $Id: Messages.java,v 1.8 2005/01/04 18:08:24 onsel Exp $
+* @version  $Id: Messages.java,v 1.9 2005/01/26 21:21:02 huseyiner Exp $
 */
 
 
@@ -28,7 +28,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Messages {
-	private static final String BUNDLE_NAME = "com.turquaz.admin.messages_tr_TR";//$NON-NLS-1$
+	private static final String BUNDLE_NAME = "com.turquaz.admin.messages";//$NON-NLS-1$
 
 	private Messages() {
 	}
