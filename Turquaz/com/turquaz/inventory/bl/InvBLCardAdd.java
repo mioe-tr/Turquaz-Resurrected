@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 /**
 
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.30 2005/02/07 13:40:17 onsel Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.31 2005/02/11 07:50:27 onsel Exp $
  */
 
 
@@ -172,7 +172,7 @@ public class InvBLCardAdd {
             invGroup
                     .setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 
-            cardAdd.saveOrUpdateInventoryGroup(invGroup);
+            cardAdd.saveOrUpdateObject(invGroup);
 
         } catch (Exception ex) {
             throw ex;
