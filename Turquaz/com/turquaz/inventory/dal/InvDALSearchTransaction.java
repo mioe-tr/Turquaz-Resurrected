@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.26 2005/03/17 12:19:21 onsel Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.27 2005/03/17 12:28:40 onsel Exp $
  */
 
 import java.util.Date;
@@ -348,8 +348,7 @@ public class InvDALSearchTransaction {
 			if (it.hasNext())
 			{
 				 cons = (TurqConsignment)it.next();
-				ConDALUpdateConsignment dalSearchCons = new ConDALUpdateConsignment();
-				dalSearchCons.initiliazeConsignment(cons);
+				 ConDALUpdateConsignment.initiliazeConsignment(cons);
 			}
 			session.close();
 			return cons;

@@ -19,7 +19,7 @@ package com.turquaz.consignment.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConDALAddConsignment.java,v 1.5 2005/03/17 09:28:37 onsel Exp $
+* @version  $Id: ConDALAddConsignment.java,v 1.6 2005/03/17 12:28:40 onsel Exp $
 */
 
 import net.sf.hibernate.Session;
@@ -31,7 +31,7 @@ public class ConDALAddConsignment {
 		
 	}
 	
-	public TurqConsignment loadConsignment(Integer consId)throws Exception {
+	public static TurqConsignment loadConsignment(Integer consId)throws Exception {
 		
 		try{
 			Session session = EngDALSessionFactory.openSession();
