@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIGroupAddDialog.java,v 1.17 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: InvUIGroupAddDialog.java,v 1.18 2005/02/06 21:19:46 onsel Exp $
 */
 
 import java.util.Calendar;
@@ -295,7 +295,7 @@ public class InvUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
     public void fillTable(){
     try{
     tableInvGroups.removeAll();
-    List list = blCardAdd.getInventoryGroups();
+    List list = InvBLCardAdd.getInventoryGroups();
     
     TurqInventoryGroup invGroup;
     TableItem item;

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.45 2005/02/06 20:46:45 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.46 2005/02/06 21:19:46 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -41,9 +41,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.CoolItem;
 import com.cloudgarden.resource.SWTResourceManager;
-import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.Dialog;
 
 import com.turquaz.inventory.Messages;
