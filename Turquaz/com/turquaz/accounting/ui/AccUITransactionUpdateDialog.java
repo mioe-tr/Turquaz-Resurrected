@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionUpdateDialog.java,v 1.41 2005/03/23 13:36:29 onsel Exp $
+ * @version  $Id: AccUITransactionUpdateDialog.java,v 1.42 2005/03/26 15:06:20 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
@@ -242,6 +243,8 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -289,6 +292,8 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(Messages.getString("AccUITransactionUpdateDialog.3")); //$NON-NLS-1$
 			msg.open();
@@ -314,6 +319,8 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			catch (Exception ex)
 			{
+				Logger loger = Logger.getLogger(this.getClass());
+				loger.error("Exception Caught", ex);
 				ex.printStackTrace();
 				msg.setMessage(Messages.getString("AccUITransactionUpdateDialog.3")); //$NON-NLS-1$
 				msg.open();

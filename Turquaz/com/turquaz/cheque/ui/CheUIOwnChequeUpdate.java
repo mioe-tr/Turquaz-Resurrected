@@ -17,10 +17,11 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeUpdate.java,v 1.5 2005/03/17 15:02:00 onsel Exp $
+ * @version  $Id: CheUIOwnChequeUpdate.java,v 1.6 2005/03/26 15:06:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.cheque.Messages;
@@ -238,6 +239,8 @@ public class CheUIOwnChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error(this, e);
 			e.printStackTrace();
 			return isUpdated;
 		}
@@ -309,6 +312,8 @@ public class CheUIOwnChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -328,6 +333,8 @@ public class CheUIOwnChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

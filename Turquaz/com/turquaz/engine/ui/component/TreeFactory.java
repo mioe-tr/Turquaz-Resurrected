@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.104 2005/03/22 19:17:44 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.105 2005/03/26 15:06:50 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -127,28 +127,23 @@ public final class TreeFactory
 			item.setText(com.turquaz.engine.Messages.getString("TreeFactory.4")); //$NON-NLS-1$
 			item.setData(InvUIWarehouseAdd.class.getName());
 		}
-		
-		TreeItem transRoot = new TreeItem(tree,SWT.NULL);
+		TreeItem transRoot = new TreeItem(tree, SWT.NULL);
 		transRoot.setText(Messages.getString("TreeFactory.115")); //$NON-NLS-1$
 		if (EngBLPermissions.getPermission(InvUIOtherTransactionIn.class.getName()) > 0)
 		{
 			item = new TreeItem(transRoot, SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.116"));  //$NON-NLS-1$
+			item.setText(Messages.getString("TreeFactory.116")); //$NON-NLS-1$
 			item.setData(InvUIOtherTransactionIn.class.getName());
 		}
 		if (EngBLPermissions.getPermission(InvUIOtherTransactionOut.class.getName()) > 0)
 		{
 			item = new TreeItem(transRoot, SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.117"));   //$NON-NLS-1$
+			item.setText(Messages.getString("TreeFactory.117")); //$NON-NLS-1$
 			item.setData(InvUIOtherTransactionOut.class.getName());
 		}
-		    item = new TreeItem(transRoot, SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.118"));   //$NON-NLS-1$
-			item.setData(InvUIInitialTransacions.class.getName());
-		
-		
-		
-		
+		item = new TreeItem(transRoot, SWT.NULL);
+		item.setText(Messages.getString("TreeFactory.118")); //$NON-NLS-1$
+		item.setData(InvUIInitialTransacions.class.getName());
 		TreeItem searchRoot = new TreeItem(tree, SWT.NULL);
 		searchRoot.setText(Messages.getString("TreeFactory.6")); //$NON-NLS-1$
 		if (EngBLPermissions.getPermission(InvUICardSearch.class.getName()) > 0)

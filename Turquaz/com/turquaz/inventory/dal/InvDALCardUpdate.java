@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardUpdate.java,v 1.14 2005/03/23 15:21:51 onsel Exp $
+ * @version $Id: InvDALCardUpdate.java,v 1.15 2005/03/26 15:06:43 onsel Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -42,8 +42,8 @@ public class InvDALCardUpdate
 		{
 			Session session = EngDALSessionFactory.openSession();
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
-					+ "where transactions.turqInventoryCard = :invCard" +
-					 " and transactions.turqInventoryTransactionType.id <>" +EngBLCommon.INV_TRANS_INITIAL;
+					+ "where transactions.turqInventoryCard = :invCard" + " and transactions.turqInventoryTransactionType.id <>"
+					+ EngBLCommon.INV_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("invCard", card);
 			List list = q.list();
@@ -62,14 +62,15 @@ public class InvDALCardUpdate
 			throw ex;
 		}
 	}
+
 	public static boolean hasInitialTransaction(TurqInventoryCard card) throws Exception
 	{
 		try
 		{
 			Session session = EngDALSessionFactory.openSession();
 			String query = "Select transactions from TurqInventoryTransaction as transactions "
-					+ "where transactions.turqInventoryCard = :invCard" +
-					 " and transactions.turqInventoryTransactionType.id =" +EngBLCommon.INV_TRANS_INITIAL;
+					+ "where transactions.turqInventoryCard = :invCard" + " and transactions.turqInventoryTransactionType.id ="
+					+ EngBLCommon.INV_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("invCard", card);
 			List list = q.list();
@@ -88,11 +89,11 @@ public class InvDALCardUpdate
 			throw ex;
 		}
 	}
+
 	public static void deleteInitialTransactions(TurqInventoryCard invCard) throws Exception
 	{
 		try
 		{
-
 			Session session = EngDALSessionFactory.openSession();
 			Transaction tx = session.beginTransaction();
 			String query = "Select invTrans from TurqInventoryTransaction as invTrans "

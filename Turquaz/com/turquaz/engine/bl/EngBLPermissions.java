@@ -17,9 +17,10 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLPermissions.java,v 1.14 2005/03/17 15:02:09 onsel Exp $
+ * @version  $Id: EngBLPermissions.java,v 1.15 2005/03/26 15:06:23 onsel Exp $
  */
 import java.util.*;
+import org.apache.log4j.Logger;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModuleComponent;
@@ -27,7 +28,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 
 /**
  * @author onsel
- * @version $Id: EngBLPermissions.java,v 1.14 2005/03/17 15:02:09 onsel Exp $ Here is the permissions layer. Other classes uses static
+ * @version $Id: EngBLPermissions.java,v 1.15 2005/03/26 15:06:23 onsel Exp $ Here is the permissions layer. Other classes uses static
  *          functions in this class.
  */
 public class EngBLPermissions
@@ -102,6 +103,8 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -163,6 +166,8 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -224,6 +229,8 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -235,7 +242,16 @@ public class EngBLPermissions
 	 */
 	public int getPerm(String classname)
 	{
-		String level = compMap.get(classname).toString();
-		return Integer.parseInt(level);
+		if (compMap.get(classname) != null)
+		{
+			String level = compMap.get(classname).toString();
+			return Integer.parseInt(level);
+		}
+		else
+		{
+			System.err.println("You probably forgot to add a module component to database!");
+			System.err.println("Class name: " + classname);
+			return 0;
+		}
 	}
 }

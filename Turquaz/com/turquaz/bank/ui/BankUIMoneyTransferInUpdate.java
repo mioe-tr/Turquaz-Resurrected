@@ -17,9 +17,10 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.11 2005/03/17 15:02:08 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.12 2005/03/26 15:06:12 onsel Exp $
  */
 import java.util.Iterator;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.layout.GridData;
@@ -190,6 +191,8 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			EngUICommon.showMessageBox(getParent(), ex.getMessage().toString(), SWT.ICON_ERROR);
 		}
@@ -213,6 +216,8 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			EngUICommon.showMessageBox(getParent(), ex.getMessage().toString(), SWT.ICON_ERROR);
 		}

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.23 2005/03/17 15:02:03 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.24 2005/03/26 15:06:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
@@ -377,6 +378,8 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -520,6 +523,8 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(Messages.getString("AccUITransactionUpdateDialog.3")); //$NON-NLS-1$
 			msg.open();

@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: DatePicker.java,v 1.22 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: DatePicker.java,v 1.23 2005/03/26 15:06:50 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.EngConfiguration;
@@ -25,6 +25,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.GridData;
@@ -102,6 +103,8 @@ public class DatePicker extends org.eclipse.swt.widgets.Composite
 						}
 						catch (Exception ex)
 						{
+							Logger loger = Logger.getLogger(this.getClass());
+							loger.error("Exception Caught", ex);
 							ex.printStackTrace();
 						}
 					}
@@ -163,6 +166,8 @@ public class DatePicker extends org.eclipse.swt.widgets.Composite
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return null;
 		}

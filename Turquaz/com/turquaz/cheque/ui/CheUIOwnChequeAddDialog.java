@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.11 2005/03/17 15:01:59 onsel Exp $
+ * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.12 2005/03/26 15:06:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -286,7 +286,14 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 			cheque.setChequesPaymentPlace(txtPaymentPlace.getText().trim());
 			cheque.setChequesAmount(curText.getBigDecimalValue());
 			cheque.setChequesAmountInForeignCurrency(curText.getBigDecimalValue());
-			cheque.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
+			try
+			{
+				cheque.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
 			cheque.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
 			cheque.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			cheque.setLastModified(Calendar.getInstance().getTime());

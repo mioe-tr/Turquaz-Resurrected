@@ -20,6 +20,7 @@ import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashCardUpdate;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCashCard;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.CoolBar;
@@ -49,7 +50,7 @@ import org.eclipse.swt.SWT;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardUpdate.java,v 1.7 2005/03/17 15:02:07 onsel Exp $
+ * @version $Id: CashUICashCardUpdate.java,v 1.8 2005/03/26 15:06:23 onsel Exp $
  */
 public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 {
@@ -179,6 +180,8 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();
@@ -206,6 +209,8 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();

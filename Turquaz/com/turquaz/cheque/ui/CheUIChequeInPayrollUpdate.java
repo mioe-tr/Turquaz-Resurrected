@@ -17,11 +17,12 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.16 2005/03/19 12:48:30 cemdayanik Exp $
+ * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.17 2005/03/26 15:06:17 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
@@ -190,6 +191,8 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -213,6 +216,8 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			EngUICommon.showMessageBox(getParent(), ex.getMessage().toString(), SWT.ICON_ERROR);
 		}
@@ -243,6 +248,8 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			EngUICommon.showMessageBox(getParent(), ex.getMessage(), SWT.ICON_ERROR);
 		}

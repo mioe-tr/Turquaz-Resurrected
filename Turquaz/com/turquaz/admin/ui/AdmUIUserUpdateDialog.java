@@ -18,8 +18,9 @@ package com.turquaz.admin.ui;
 import java.util.Iterator;
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserUpdateDialog.java,v 1.11 2005/03/17 15:02:09 onsel Exp $
+ * @version  $Id: AdmUIUserUpdateDialog.java,v 1.12 2005/03/26 15:06:50 onsel Exp $
  */
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -129,6 +130,8 @@ public class AdmUIUserUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();

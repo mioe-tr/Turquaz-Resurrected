@@ -2,6 +2,7 @@ package com.turquaz.engine.dal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import org.apache.log4j.Logger;
 import org.hsqldb.Server;
 import com.turquaz.engine.EngConfiguration;
 
@@ -22,7 +23,7 @@ import com.turquaz.engine.EngConfiguration;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: DatabaseThread.java,v 1.17 2005/03/17 15:02:00 onsel Exp $
+ * @version $Id: DatabaseThread.java,v 1.18 2005/03/26 15:06:14 onsel Exp $
  */
 public class DatabaseThread extends Thread
 {
@@ -55,6 +56,8 @@ public class DatabaseThread extends Thread
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

@@ -17,11 +17,12 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUICustomerChequeUpdate.java,v 1.8 2005/03/17 15:02:00 onsel Exp $
+ * @version  $Id: CheUICustomerChequeUpdate.java,v 1.9 2005/03/26 15:06:17 onsel Exp $
  */
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.cheque.Messages;
@@ -359,6 +360,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return false;
 		}
@@ -388,6 +391,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -416,6 +421,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -444,6 +451,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -463,6 +472,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -484,6 +495,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

@@ -17,8 +17,9 @@ package com.turquaz.cash.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CashCardPicker.java,v 1.8 2005/03/17 15:02:11 onsel Exp $
+ * @version  $Id: CashCardPicker.java,v 1.9 2005/03/26 15:06:51 onsel Exp $
  */
+import org.apache.log4j.Logger;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -87,6 +88,8 @@ public class CashCardPicker extends org.eclipse.swt.widgets.Composite
 						}
 						catch (Exception ex)
 						{
+							Logger loger = Logger.getLogger(this.getClass());
+							loger.error("Exception Caught", ex);
 							ex.printStackTrace();
 						}
 					}

@@ -17,9 +17,10 @@ package com.turquaz.accounting.ui.comp;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccUIAccountsTree.java,v 1.13 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: AccUIAccountsTree.java,v 1.14 2005/03/26 15:06:45 onsel Exp $
  */
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
@@ -53,6 +54,8 @@ public class AccUIAccountsTree
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return tree;
 		}
@@ -76,6 +79,8 @@ public class AccUIAccountsTree
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

@@ -17,8 +17,9 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.22 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.23 2005/03/26 15:06:22 onsel Exp $
  */
+import org.apache.log4j.Logger;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
@@ -242,6 +243,8 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -294,6 +297,8 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();

@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardSearch.java,v 1.37 2005/03/23 10:33:07 onsel Exp $
+ * @version $Id: InvDALCardSearch.java,v 1.38 2005/03/26 15:06:43 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -164,8 +164,8 @@ public class InvDALCardSearch
 		try
 		{
 			Session session = EngDALSessionFactory.openSession();
-			String query = "Select invCard.cardInventoryCode,invCard.cardName from TurqInventoryCard as invCard" +
-					" order by invCard.cardInventoryCode";
+			String query = "Select invCard.cardInventoryCode,invCard.cardName from TurqInventoryCard as invCard"
+					+ " order by invCard.cardInventoryCode";
 			Query q = session.createQuery(query);
 			List list = q.list();
 			session.close();
@@ -246,7 +246,6 @@ public class InvDALCardSearch
 			Hibernate.initialize(invCard.getTurqInventoryPrices());
 			Hibernate.initialize(invCard.getTurqInventoryCardUnits());
 			Hibernate.initialize(invCard.getTurqInventoryAccountingAccounts());
-			
 			session.close();
 			return invCard;
 		}
@@ -266,7 +265,6 @@ public class InvDALCardSearch
 			Hibernate.initialize(invCard.getTurqInventoryPrices());
 			Hibernate.initialize(invCard.getTurqInventoryCardUnits());
 			Hibernate.initialize(invCard.getTurqInventoryAccountingAccounts());
-		
 			session.close();
 			return invCard;
 		}

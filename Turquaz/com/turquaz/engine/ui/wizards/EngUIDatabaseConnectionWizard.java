@@ -17,10 +17,11 @@ package com.turquaz.engine.ui.wizards;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngUIDatabaseConnectionWizard.java,v 1.18 2005/03/17 15:02:09 onsel Exp $
+ * @version $Id: EngUIDatabaseConnectionWizard.java,v 1.19 2005/03/26 15:06:51 onsel Exp $
  */
 import java.io.FileOutputStream;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
@@ -82,6 +83,8 @@ public class EngUIDatabaseConnectionWizard extends Wizard
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();

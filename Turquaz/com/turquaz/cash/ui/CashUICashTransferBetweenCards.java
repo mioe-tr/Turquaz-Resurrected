@@ -17,10 +17,11 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransferBetweenCards.java,v 1.4 2005/03/17 15:02:07 onsel Exp $
+ * @version  $Id: CashUICashTransferBetweenCards.java,v 1.5 2005/03/26 15:06:23 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.custom.CCombo;
@@ -218,6 +219,8 @@ public class CashUICashTransferBetweenCards extends org.eclipse.swt.widgets.Comp
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -248,6 +251,8 @@ public class CashUICashTransferBetweenCards extends org.eclipse.swt.widgets.Comp
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			msg.setMessage(ex.getMessage());
 			msg.open();
@@ -305,6 +310,8 @@ public class CashUICashTransferBetweenCards extends org.eclipse.swt.widgets.Comp
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return false;
 		}

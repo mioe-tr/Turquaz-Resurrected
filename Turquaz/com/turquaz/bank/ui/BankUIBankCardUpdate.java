@@ -17,11 +17,12 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardUpdate.java,v 1.20 2005/03/17 15:02:08 onsel Exp $
+ * @version  $Id: BankUIBankCardUpdate.java,v 1.21 2005/03/26 15:06:12 onsel Exp $
  */
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
@@ -243,6 +244,8 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -285,6 +288,8 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			if (ex.getMessage() != null)
 			{
@@ -325,6 +330,8 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 			MessageBox msg = new MessageBox(this.getParent(), SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

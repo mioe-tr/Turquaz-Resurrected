@@ -17,9 +17,10 @@ package com.turquaz.engine.ui.wizards;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngUIDatabaseSelectionWizardPage.java,v 1.16 2005/03/17 15:02:09 onsel Exp $
+ * @version $Id: EngUIDatabaseSelectionWizardPage.java,v 1.17 2005/03/26 15:06:51 onsel Exp $
  */
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
@@ -126,6 +127,8 @@ public class EngUIDatabaseSelectionWizardPage extends WizardPage
 				}
 				catch (Exception ex)
 				{
+					Logger loger = Logger.getLogger(this.getClass());
+					loger.error("Exception Caught", ex);
 					ex.printStackTrace();
 				}
 			}
@@ -146,6 +149,8 @@ public class EngUIDatabaseSelectionWizardPage extends WizardPage
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return false;
 		}

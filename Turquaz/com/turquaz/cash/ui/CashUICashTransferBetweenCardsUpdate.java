@@ -17,10 +17,11 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.5 2005/03/17 15:02:07 onsel Exp $
+ * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.6 2005/03/26 15:06:22 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Iterator;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cash.Messages;
@@ -218,6 +219,8 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -241,6 +244,8 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.viewers;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: ITableRow.java,v 1.8 2005/03/18 15:01:33 onsel Exp $
+ * @version $Id: ITableRow.java,v 1.9 2005/03/26 15:06:45 onsel Exp $
  */
 import org.eclipse.swt.graphics.Color;
 
@@ -25,11 +25,9 @@ public interface ITableRow
 {
 	//Get column Text
 	public String getColumnText(int column_index);
-	
-//	public int getColumnType(int column_index);
-	
-//	public void setColumnTypes(int []columnTypes);
 
+	//	public int getColumnType(int column_index);
+	//	public void setColumnTypes(int []columnTypes);
 	//Get column Value
 	public Object getValue(int column_index);
 

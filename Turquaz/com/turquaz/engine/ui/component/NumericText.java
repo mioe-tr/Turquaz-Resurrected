@@ -17,10 +17,11 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: NumericText.java,v 1.14 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: NumericText.java,v 1.15 2005/03/26 15:06:50 onsel Exp $
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.VerifyEvent;
@@ -94,6 +95,8 @@ public class NumericText extends Composite
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 			return 0;
 		}

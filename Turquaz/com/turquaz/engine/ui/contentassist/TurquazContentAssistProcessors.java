@@ -17,11 +17,12 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistProcessors.java,v 1.30 2005/03/17 15:02:08 onsel Exp $
+ * @version $Id: TurquazContentAssistProcessors.java,v 1.31 2005/03/26 15:06:24 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import org.apache.log4j.Logger;
 import org.eclipse.jface.contentassist.IContentAssistSubjectControl;
 import org.eclipse.jface.contentassist.ISubjectControlContentAssistProcessor;
 import org.eclipse.jface.text.BadLocationException;
@@ -165,6 +166,8 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

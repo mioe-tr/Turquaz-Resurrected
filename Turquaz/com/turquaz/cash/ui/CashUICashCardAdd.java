@@ -17,8 +17,9 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAdd.java,v 1.11 2005/03/17 15:02:07 onsel Exp $
+ * @version  $Id: CashUICashCardAdd.java,v 1.12 2005/03/26 15:06:23 onsel Exp $
  */
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
@@ -132,6 +133,8 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
 		{
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

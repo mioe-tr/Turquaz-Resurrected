@@ -15,12 +15,11 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvBLUpdateTransaction.java,v 1.1 2005/03/22 17:50:32 onsel Exp $
+ * @version $Id: InvBLUpdateTransaction.java,v 1.2 2005/03/26 15:06:15 onsel Exp $
  */
 package com.turquaz.inventory.bl;
 
 import com.turquaz.engine.dal.EngDALCommon;
-
 
 public class InvBLUpdateTransaction
 {

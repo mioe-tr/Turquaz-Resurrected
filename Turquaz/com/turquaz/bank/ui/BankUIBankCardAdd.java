@@ -17,13 +17,14 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.22 2005/03/17 15:02:08 onsel Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.23 2005/03/26 15:06:12 onsel Exp $
  */
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.turquaz.accounting.ui.comp.AccountPicker;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.MessageBox;
@@ -353,6 +354,8 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -424,6 +427,8 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -461,6 +466,8 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 			msg.setMessage(ex.getMessage());
 			msg.open();
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

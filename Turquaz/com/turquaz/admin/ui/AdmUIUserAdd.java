@@ -17,10 +17,11 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserAdd.java,v 1.16 2005/03/17 15:02:09 onsel Exp $
+ * @version  $Id: AdmUIUserAdd.java,v 1.17 2005/03/26 15:06:50 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -239,6 +240,8 @@ public class AdmUIUserAdd extends Composite implements SecureComposite
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -298,6 +301,8 @@ public class AdmUIUserAdd extends Composite implements SecureComposite
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

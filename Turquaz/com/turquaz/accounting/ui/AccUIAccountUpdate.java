@@ -17,9 +17,10 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.35 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.36 2005/03/26 15:06:18 onsel Exp $
  */
 import java.math.BigDecimal;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
@@ -224,6 +225,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error(this, e);
 			e.printStackTrace();
 			return false;
 		}
@@ -285,6 +288,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -308,6 +313,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}
@@ -334,6 +341,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

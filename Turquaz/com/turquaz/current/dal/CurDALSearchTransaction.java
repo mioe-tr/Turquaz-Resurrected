@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALSearchTransaction.java,v 1.25 2005/03/24 11:40:51 onsel Exp $
+ * @version  $Id: CurDALSearchTransaction.java,v 1.26 2005/03/26 15:06:50 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -132,7 +132,6 @@ public class CurDALSearchTransaction
 		}
 	}
 
-
 	public static List getCurrentBalances(TurqCurrentCard curCard, TurqCurrentCard curCard2, Date endDate) throws Exception
 	{
 		try
@@ -197,7 +196,7 @@ public class CurDALSearchTransaction
 		}
 	}
 
-	public static void deleteInitialTransactions( TurqCurrentCard curCard) throws Exception
+	public static void deleteInitialTransactions(TurqCurrentCard curCard) throws Exception
 	{
 		try
 		{
@@ -213,7 +212,6 @@ public class CurDALSearchTransaction
 			{
 				session.delete(list.get(i));
 			}
-			
 			session.flush();
 			tx.commit();
 			session.close();

@@ -17,9 +17,10 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUsers.java,v 1.12 2005/03/17 15:02:09 onsel Exp $
+ * @version  $Id: AdmUIUsers.java,v 1.13 2005/03/26 15:06:50 onsel Exp $
  */
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
@@ -187,6 +188,8 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 		}
 		catch (Exception ex)
 		{
+			Logger loger = Logger.getLogger(this.getClass());
+			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
 		}
 	}

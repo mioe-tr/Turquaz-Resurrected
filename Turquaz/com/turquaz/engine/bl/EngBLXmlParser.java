@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLXmlParser.java,v 1.7 2005/03/21 16:06:01 onsel Exp $
+ * @version $Id: EngBLXmlParser.java,v 1.8 2005/03/26 15:06:23 onsel Exp $
  */
 import org.xml.sax.InputSource;
 import java.util.List;
@@ -48,7 +48,6 @@ public class EngBLXmlParser
 	public Map createMap()
 	{
 		treeInfo = new HashMap();
-		
 		Element root = myDocument.getRootElement();
 		List items = root.getChildren("treeitem");
 		String text = "";
