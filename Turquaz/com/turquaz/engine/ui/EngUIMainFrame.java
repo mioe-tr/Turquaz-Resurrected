@@ -58,15 +58,9 @@ import org.eclipse.swt.SWT;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.6 2004/08/28 07:18:37 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.7 2004/08/28 08:27:23 onsel Exp $
 */
-/**
-* This code was generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a
-* for-profit company or business) then you should purchase
-* a license - please visit www.cloudgarden.com for details.
-*/
+
 
 
 
