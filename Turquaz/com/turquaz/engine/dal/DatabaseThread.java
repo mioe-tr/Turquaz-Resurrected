@@ -18,7 +18,7 @@ package com.turquaz.engine.dal;
 
 /**
  * @author Onsel Armagan
- * @version $Id: DatabaseThread.java,v 1.10 2004/12/22 14:55:18 onsel Exp $
+ * @version $Id: DatabaseThread.java,v 1.11 2004/12/22 19:06:43 onsel Exp $
  */
 
 import java.sql.Connection;
@@ -27,8 +27,8 @@ import java.sql.DriverManager;
 import org.hsqldb.Server;
 
 public class DatabaseThread extends Thread {
-
-	/*public void run() {
+/*
+	public void run() {
 
 		String[] args = { "-database", "database/turquaz", "-port",
 				String.valueOf(8877), "-no_system_exit", "true" };
