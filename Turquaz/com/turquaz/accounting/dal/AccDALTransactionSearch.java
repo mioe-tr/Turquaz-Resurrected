@@ -5,6 +5,26 @@
  * Window - Preferences - Java - Code Style - Code Templates
  */
 package com.turquaz.accounting.dal;
+/************************************************************************/
+/* TURQUAZ: Higly Modular Accounting/ERP Program                        */
+/* ============================================                         */
+/* Copyright (c) 2004 by Turquaz Software Development Group			    */
+/*																		*/
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License, or    */
+/* (at your option) any later version.       							*/
+/* 																		*/
+/* This program is distributed in the hope that it will be useful,		*/
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of		*/
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
+/* GNU General Public License for more details.         				*/
+/************************************************************************/
+
+/**
+* @author  Onsel Armagan
+* @version  $Id: AccDALTransactionSearch.java,v 1.6 2004/11/04 12:54:38 ehad Exp $
+*/
 
 import java.util.Date;
 import java.util.List;
@@ -39,7 +59,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.5 2004/10/30 12:22:00 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.6 2004/11/04 12:54:38 ehad Exp $
 */
 public class AccDALTransactionSearch {
 	

@@ -22,8 +22,8 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 
 /**
-* @author  Onsel Armagan
-* @version  $Id: AccBLTransactionAdd.java,v 1.4 2004/11/04 12:43:55 ehad Exp $
+* @author  Ehad Karacam
+* @version  $Id: AccBLTransactionAdd.java,v 1.5 2004/11/04 12:54:38 ehad Exp $
 */
 
 import java.util.Calendar;
