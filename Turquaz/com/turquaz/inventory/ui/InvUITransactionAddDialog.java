@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.13 2004/11/25 20:17:57 cemdayanik Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.14 2004/11/25 20:31:16 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -458,6 +458,13 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
 	}
 	
 	boolean verifyFields(){
+		if (txtInvCard.getData()==null)
+		{
+			MessageBox msg=new MessageBox(this.getParent(),SWT.NULL);
+			msg.setMessage(Messages.getString("InvUITransactionAddDialog.7")); //$NON-NLS-1$
+			msg.open();
+			return false;
+		}
 		return true;
 	}
 	
