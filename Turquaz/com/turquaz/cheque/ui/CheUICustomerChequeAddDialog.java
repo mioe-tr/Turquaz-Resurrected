@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUICustomerChequeAddDialog.java,v 1.14 2005/03/26 15:06:17 onsel Exp $
+ * @version  $Id: CheUICustomerChequeAddDialog.java,v 1.15 2005/03/30 16:57:46 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -32,6 +32,7 @@ import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.CurrencyText;
 import org.eclipse.swt.widgets.MessageBox;
@@ -304,7 +305,7 @@ public class CheUICustomerChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 	{
 		try
 		{
-			List currencies = AccBLTransactionSearch.getCurrencies();
+			List currencies = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

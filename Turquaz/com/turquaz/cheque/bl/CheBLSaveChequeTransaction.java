@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSaveChequeTransaction.java,v 1.50 2005/03/17 15:02:11 onsel Exp $
+ * @version $Id: CheBLSaveChequeTransaction.java,v 1.51 2005/03/30 16:57:13 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -393,6 +393,7 @@ public class CheBLSaveChequeTransaction
 			chequeInRoll.setCreationDate(Calendar.getInstance().getTime());
 			amount = amount.add(cheque.getChequesAmount());
 			EngDALCommon.saveObject(chequeInRoll);
+			
 			TurqCurrentCard curCard = CheDALSearch.getCurrentCardOfCustomerCheque(cheque);
 			CurBLCurrentTransactionAdd
 					.saveCurrentTransaction(

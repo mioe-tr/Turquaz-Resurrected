@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.65 2005/03/29 13:13:27 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.66 2005/03/30 16:57:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.CurrencyText;
@@ -799,7 +800,7 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 	{
 		try
 		{
-			List currencies = AccBLTransactionSearch.getCurrencies();
+			List currencies = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

@@ -17,15 +17,18 @@ package com.turquaz.accounting.ui.comp;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccUIAccountsTree.java,v 1.17 2005/03/30 11:23:35 onsel Exp $
+ * @version $Id: AccUIAccountsTree.java,v 1.18 2005/03/30 16:57:43 onsel Exp $
  */
+import java.util.HashMap;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
+import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.bl.AccBLAccountAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.tx.EngTXCommon;
 
 public class AccUIAccountsTree
 {
@@ -40,10 +43,13 @@ public class AccUIAccountsTree
 		try
 		{
 			TreeItem item;
-			Object args[] = new Object[2];
-			args[0]=new Integer(parent);
-			args[1]=codeCrit;
-			List mainBranches = AccBLAccountAdd.getAccount(new Integer(parent),codeCrit);
+
+			HashMap argMap = new HashMap();
+			argMap.put(AccKeys.ACC_CODE_CRITERIA,codeCrit);
+			argMap.put(AccKeys.ACC_PARENT_ID,new Integer(parent));
+		
+			List mainBranches =(List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAccount",argMap);
+			
 			
 			TurqAccountingAccount account;
 			for (int i = 0; i < mainBranches.size(); i++)
@@ -70,10 +76,11 @@ public class AccUIAccountsTree
 		try
 		{
 			TreeItem item;
-			Object args[] = new Object[2];
-			args[0]=new Integer(parent_id);
-			args[1]=codeCriteria;
-			List mainBranches = AccBLAccountAdd.getAccount(new Integer(parent_id),codeCriteria);
+			HashMap argMap = new HashMap();
+			argMap.put(AccKeys.ACC_CODE_CRITERIA,codeCriteria);
+			argMap.put(AccKeys.ACC_PARENT_ID,new Integer(parent_id));
+		
+			List mainBranches =(List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAccount",argMap);
 			
 			TurqAccountingAccount account;
 			for (int i = 0; i < mainBranches.size(); i++)

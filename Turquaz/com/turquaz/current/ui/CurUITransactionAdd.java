@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionAdd.java,v 1.32 2005/03/26 15:06:20 onsel Exp $
+ * @version  $Id: CurUITransactionAdd.java,v 1.33 2005/03/30 16:57:37 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
@@ -45,6 +45,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 import com.turquaz.engine.dal.TurqCurrentCard;
+import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.DatePicker;
 import org.eclipse.swt.widgets.Text;
@@ -291,7 +292,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite
 	{
 		try
 		{
-			List currencies = AccBLTransactionSearch.getCurrencies();
+			List currencies = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);
