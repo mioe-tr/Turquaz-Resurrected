@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.49 2004/12/28 09:04:55 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.50 2004/12/29 15:53:57 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -54,6 +54,7 @@ import com.turquaz.bill.ui.BillUIBillFromConsignment;
 import com.turquaz.bill.ui.BillUIBillSearch;
 import com.turquaz.cash.ui.CashUICashCardAdd;
 import com.turquaz.cash.ui.CashUICashCardSearch;
+import com.turquaz.cash.ui.CashUICashCollectTransactionAdd;
 import com.turquaz.consignment.ui.ConUIAddConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
@@ -392,6 +393,18 @@ public final class TreeFactory {
 			item.setText(Messages.getString("TreeFactory.47"));  //$NON-NLS-1$
 			item.setData(CashUICashCardSearch.class.getName());
 		}
+		root = new TreeItem(tree,SWT.NULL);
+		root.setText("Tahsilat");
+		
+	   if(EngBLPermissions.getPermission(CashUICashCollectTransactionAdd.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText("Cariden Tahsilat"); 
+			item.setData(CashUICashCollectTransactionAdd.class.getName());
+	   }
+	   
+	    root = new TreeItem(tree,SWT.NULL);
+		root.setText("Ödeme");
+		
 		root.setExpanded(true);
 		return tree;
 	    
