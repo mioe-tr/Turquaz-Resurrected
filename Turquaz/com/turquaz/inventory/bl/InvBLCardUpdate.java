@@ -24,10 +24,11 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.5 2004/10/21 07:01:36 onsel Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.6 2004/11/08 12:10:51 onsel Exp $
 */
 
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -63,7 +64,8 @@ public class InvBLCardUpdate {
 	public void updateInvCard(String invCode, String invSpecialCode,
 			String cardName, String cardDefinition, int minAmount,
 			int maxAmount, int cardVat, int discount,TurqAccountingAccount accountBuy,
-			TurqAccountingAccount accountSell,TurqInventoryCard card) throws Exception{
+			TurqAccountingAccount accountSell,int cardSpecialVat, BigDecimal cardSpecialVatEach,
+			TurqInventoryCard card) throws Exception{
 		try {
 
 		
@@ -76,6 +78,8 @@ public class InvBLCardUpdate {
 			card.setCardName(cardName);
 			card.setCardSpecialCode(invSpecialCode);
 			card.setCardVat(cardVat);
+			card.setCardSpecialVat(cardSpecialVat);
+			card.setCardSpecialVatEach(cardSpecialVatEach);
 		
 			card.setUpdatedBy(System.getProperty("user"));
 			card.setUpdateDate(new java.sql.Date(cal.getTime().getTime()));

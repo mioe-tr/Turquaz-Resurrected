@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.20 2004/11/04 16:55:35 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.21 2004/11/08 12:10:51 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -482,7 +482,9 @@ public class InvUICardUpdateDialog extends Dialog{
 						.trim(), compInvUICard.getTxtInvCardSpecialCode().getText().trim(),
 						compInvUICard.getTxtInvCardName().getText().trim(), compInvUICard.getTxtInvCardDefinition().getText().trim(),
 						 compInvUICard.getTxtnumInvCardMin().getIntValue(),compInvUICard.getTxtnumInvCardMax().getIntValue(),
-						compInvUICard.getTxtInvCardVat().getIntValue(), compInvUICard.getTxtInvCardDiscount().getIntValue(), accountIdBuy, accountIdSell, invCard);	
+						compInvUICard.getTxtInvCardVat().getIntValue(), compInvUICard.getTxtInvCardDiscount().getIntValue(), accountIdBuy, accountIdSell,
+						compInvUICard.getNumTextSpecailVATPercent().getIntValue()
+						,compInvUICard.getDecTextSpecialVatAmount().getBigDecimalValue(),invCard);	
 	
 	 //Update Inventory Groups			
 	updateInvUnits();

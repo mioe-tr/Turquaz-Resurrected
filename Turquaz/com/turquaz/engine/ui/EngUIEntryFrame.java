@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.15 2004/11/06 13:28:10 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.16 2004/11/08 12:10:51 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -230,6 +230,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			    System.setProperty("company","0");
 			    
 			    EngDALSessionFactory.init();
+			    
 				}
 				catch(Exception ex){
 					ex.printStackTrace();
@@ -264,14 +265,14 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 			dialog.open();	
 		}
 		
-		
+	
 		EngDALSessionFactory.init();
 		
 		
 	}
 	
 	public void postInitGui(){
-		btnOk.setFocus();
+    btnOk.setFocus();
 	String username = EngConfiguration.getString("username");
 	String password = EngConfiguration.getString("password");
 	

@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.8 2004/11/05 09:30:57 onsel Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.9 2004/11/08 12:10:51 onsel Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -50,7 +50,8 @@ public class EngDALSessionFactory {
 		try{
 			
 		
-		ResourceBundle config = ResourceBundle.getBundle("config/turquaz");
+
+	
 		
 		String url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
 		String username = EngConfiguration.getString("dbUsername");
