@@ -17,11 +17,12 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionSearch.java,v 1.34 2005/01/16 13:06:24 cemdayanik Exp $
+* @version  $Id: AccUITransactionSearch.java,v 1.35 2005/01/16 13:09:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -101,6 +102,7 @@ public class AccUITransactionSearch extends  Composite implements SearchComposit
 	private Table tableTransactions;
 	private Composite compAccTransactionSearch;
 	private AccBLTransactionSearch blTransSearch = new AccBLTransactionSearch();
+	private Calendar cal=Calendar.getInstance();
 	public AccUITransactionSearch(Composite parent, int style) {
 		super(parent, style);
 		initGUI();

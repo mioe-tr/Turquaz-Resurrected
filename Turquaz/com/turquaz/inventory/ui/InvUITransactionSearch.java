@@ -18,10 +18,11 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionSearch.java,v 1.25 2005/01/16 13:06:23 cemdayanik Exp $
+* @version  $Id: InvUITransactionSearch.java,v 1.26 2005/01/16 13:09:50 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -111,6 +112,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite
 	private TableColumn tableColumnTransactionDate;
 
 	private InvBLSearchTransaction blSearch = new InvBLSearchTransaction();
+	private Calendar cal=Calendar.getInstance();
 
 	public InvUITransactionSearch(org.eclipse.swt.widgets.Composite parent,
 			int style) {
