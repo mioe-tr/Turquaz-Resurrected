@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.52 2005/03/30 16:57:03 onsel Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.53 2005/03/30 17:17:23 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -420,7 +420,7 @@ public class AccUITransactionSearch extends Composite implements SearchComposite
 				
 				HashMap argMap = new HashMap();
 				argMap.put(AccKeys.ACC_TRANSACTION,accTrans);
-				EngTXCommon.doSingleTX(AccBLTransactionUpdate.class.getName(),"initializeTransactionRows",argMap);
+				EngTXCommon.doSingleTX(AccBLTransactionUpdate.class.getName(),"initiliazeTransactionRows",argMap);
 				
 				int type = accTrans.getTurqAccountingTransactionType().getId().intValue();
 				boolean updated;

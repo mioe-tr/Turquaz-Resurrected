@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.25 2005/03/30 16:57:08 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.26 2005/03/30 17:17:18 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -367,7 +367,7 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 				
 				HashMap argMap = new HashMap();
 				argMap.put(AccKeys.ACC_TRANSACTION,accTrans);
-				EngTXCommon.doSingleTX(AccBLTransactionUpdate.class.getName(),"initializeTransactionRows",argMap);
+				EngTXCommon.doSingleTX(AccBLTransactionUpdate.class.getName(),"initiliazeTransactionRows",argMap);
 				
 				Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
 				Iterator it = transactionRows.iterator();
