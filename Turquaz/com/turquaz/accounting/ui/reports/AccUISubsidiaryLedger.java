@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.14 2005/02/03 10:03:22 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.15 2005/02/18 18:21:49 cemdayanik Exp $
  */
 
 import java.text.NumberFormat;
@@ -291,7 +291,7 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite 
 			if (account2==null)
 			{
 				sqlparam="Select transColumns.accounting_transaction_columns_id as columnId, " + //$NON-NLS-1$
-						"transColumns.dept_amount,transColumns.credit_amount," + //$NON-NLS-1$
+						"transColumns.rows_dept_in_base_currency,transColumns.rows_credit_in_base_currency," + //$NON-NLS-1$
 						"transColumns.transaction_definition, accounts.account_name as accName," + //$NON-NLS-1$
 						"accounts.account_code as accCode, topacc.account_name as topAccName, topacc.account_code as topAccCode," + //$NON-NLS-1$
 						" trans.transactions_date, trans.transaction_document_no" + //$NON-NLS-1$
