@@ -18,7 +18,7 @@ package com.turquaz.inventory.dal;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.22 2005/03/01 17:48:44 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.23 2005/03/01 18:27:39 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -114,7 +114,7 @@ public class InvDALSearchTransaction {
 					" transaction.turqInventoryCard.cardInventoryCode, " +
 					" transaction.turqInventoryCard.cardName," +
 					" consignment.turqBillConsignmentCommon.turqCurrentCard.cardsName," +
-					" transaction.turqInventoryCard.inventoryCardsId," +
+					" transaction.turqInventoryCard.id," +
 					" consignment.turqBillConsignmentCommon.billDocumentNo " +
 					"  from TurqInventoryTransaction as transaction," +
 					" TurqConsignment as consignment where" +
@@ -190,7 +190,7 @@ public class InvDALSearchTransaction {
 					" transaction.turqInventoryCard.cardInventoryCode, " +
 					" transaction.turqInventoryCard.cardName," +
 					" consignment.turqBillConsignmentCommon.turqCurrentCard.cardsName," +
-					" transaction.turqInventoryCard.inventoryCardsId," +
+					" transaction.turqInventoryCard.id," +
 					" consignment.turqBillConsignmentCommon.billDocumentNo";
 			if (invMainGroup != null)
 			{
