@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.21 2005/01/07 10:15:52 onsel Exp $
+* @version  $Id: AccountPicker.java,v 1.22 2005/01/31 15:13:03 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -92,6 +92,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 				text1.setEditable(true);
 				text1.setSize(new org.eclipse.swt.graphics.Point(358,22));
 				GridData text1LData = new GridData();
+				text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
                 text1.addModifyListener(new ModifyListener() {
                     public void modifyText(ModifyEvent evt) {
                       
@@ -109,8 +110,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
                         }
                     
                 });
-				text1.setBackground(SWTResourceManager.getColor(254, 254, 254));
-				
+
 				text1LData.verticalAlignment = GridData.FILL;
 				text1LData.horizontalAlignment = GridData.FILL;
 				text1LData.grabExcessHorizontalSpace = true;
@@ -187,6 +187,14 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 	}
 	public void setData2(Object obj){
 		super.setData(obj);
+		if(obj==null)
+		{
+		    text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+		}
+		else
+		{
+		    text1.setBackground(SWTResourceManager.getColor(198,255,198));
+		}
 		
 	}
 

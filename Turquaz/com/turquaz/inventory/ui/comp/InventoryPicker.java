@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InventoryPicker.java,v 1.5 2005/01/04 15:49:00 cemdayanik Exp $
+* @version  $Id: InventoryPicker.java,v 1.6 2005/01/31 15:13:02 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -164,6 +164,14 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite {
 	}
 	public void setData2(Object obj){
 		super.setData(obj);
+		if(obj==null)
+		{
+		    text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+		}
+		else
+		{
+		    text1.setBackground(SWTResourceManager.getColor(198,255,198));
+		}
 		
 	}
 
