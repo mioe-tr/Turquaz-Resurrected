@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.22 2005/02/19 16:12:35 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.23 2005/02/23 09:29:59 cemdayanik Exp $
 */
 
 
@@ -129,7 +129,7 @@ public class AccDALAccountAdd {
 		}
 		
 	}
-	public List getAccountsForAccountPickers()throws Exception{
+	public static List getAccountsForAccountPickers()throws Exception{
 	    try{
 	        Session session = EngDALSessionFactory.openSession();
 		
