@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.53 2005/03/08 18:12:50 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.54 2005/03/09 18:54:27 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -196,6 +196,7 @@ public class EngBLCommon {
 
 	public final static int CHEQUE_TRANS_RETURN_FROM_BANK = 5; //Bankadan Karsiliksiz iade...
 	
+	public final static int CHEQUE_TRANS_RETURN_FROM_CURRENT = 6; //Cariden karsiliksiz iade...
 	
 	
 	
