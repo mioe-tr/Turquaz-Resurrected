@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.7 2004/11/05 14:18:16 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.8 2004/11/17 13:48:04 onsel Exp $
 */
 
 
@@ -60,6 +60,7 @@ public class AccBLAccountAdd {
 		}
 		
 	}
+
 	public List getAllAccounts()throws Exception{
 		try{
 			
