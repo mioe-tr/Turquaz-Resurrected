@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.28 2004/12/29 21:18:34 cemdayanik Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.29 2005/01/13 15:12:05 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -385,7 +385,7 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 			tableCurrentCardSearch.removeAll();
 			List listCurrentCards=curBLCurrentCardSearch.searchCurrentCard(txtCurrentCode.getText().trim(),
 																		txtCurrentName.getText().trim(),(TurqCurrentGroup)comboTurqGroupName.getData(comboTurqGroupName.getText()));
-			TurkishCurrencyFormat cf=new TurkishCurrencyFormat();
+			TurkishCurrencyFormat cf=new TurkishCurrencyFormat(2);
 			for(int k=0; k<listCurrentCards.size(); k++){
 				TurqCurrentCard aCurrentCard=(TurqCurrentCard)((Object[])listCurrentCards.get(k))[1];
 				TurqViewCurrentAmountTotal currentView=(TurqViewCurrentAmountTotal)((Object[])listCurrentCards.get(k))[0];

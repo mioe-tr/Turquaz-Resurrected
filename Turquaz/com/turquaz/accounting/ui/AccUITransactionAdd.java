@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.47 2005/01/10 18:47:57 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.48 2005/01/13 15:12:05 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -386,8 +386,8 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 	       editors[0] = new AccountingCellEditor(tableTransactionColumns);
 	       editors[1] = new TextCellEditor(tableTransactionColumns);
 	       editors[2] = new TextCellEditor(tableTransactionColumns);
-	       editors[3] = new CurrencyCellEditor(tableTransactionColumns);
-	       editors[4] = new CurrencyCellEditor(tableTransactionColumns);
+	       editors[3] = new CurrencyCellEditor(tableTransactionColumns,2);
+	       editors[4] = new CurrencyCellEditor(tableTransactionColumns,2);
 	    
 	       // Assign the cell editors to the viewer 
 			tableViewer.setCellEditors(editors);

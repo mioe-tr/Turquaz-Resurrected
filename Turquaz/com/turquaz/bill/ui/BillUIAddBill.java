@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.44 2005/01/13 13:44:37 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.45 2005/01/13 15:12:02 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1092,14 +1092,14 @@ public class BillUIAddBill extends Composite
 	     
 	       editors[4] = new NumericCellEditor(tableConsignmentRows);
 	       editors[5] = new TextCellEditor(tableConsignmentRows);
-	       editors[6] = new CurrencyCellEditor(tableConsignmentRows);
-	       editors[7] = new CurrencyCellEditor(tableConsignmentRows);
+	       editors[6] = new CurrencyCellEditor(tableConsignmentRows,2);
+	       editors[7] = new CurrencyCellEditor(tableConsignmentRows,2);
 	       editors[8] = new NumericCellEditor(tableConsignmentRows);
 	       editors[9] = new NumericCellEditor(tableConsignmentRows);
-	       editors[10] = new CurrencyCellEditor(tableConsignmentRows);
-	       editors[11] = new CurrencyCellEditor(tableConsignmentRows);
-	       editors[12] = new CurrencyCellEditor(tableConsignmentRows);
-	       editors[13] = new CurrencyCellEditor(tableConsignmentRows);
+	       editors[10] = new CurrencyCellEditor(tableConsignmentRows,2);
+	       editors[11] = new CurrencyCellEditor(tableConsignmentRows,4);
+	       editors[12] = new CurrencyCellEditor(tableConsignmentRows,2);
+	       editors[13] = new CurrencyCellEditor(tableConsignmentRows,2);
 	    
 	       // Assign the cell editors to the viewer 
 			tableViewer.setCellEditors(editors);

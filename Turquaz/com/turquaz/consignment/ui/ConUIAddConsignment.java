@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.52 2005/01/13 13:44:43 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.53 2005/01/13 15:12:03 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -896,14 +896,14 @@ implements SecureComposite{
      
        editors[4] = new NumericCellEditor(tableConsignmentRows);
        editors[5] = new TextCellEditor(tableConsignmentRows);
-       editors[6] = new CurrencyCellEditor(tableConsignmentRows);
-       editors[7] = new CurrencyCellEditor(tableConsignmentRows);
+       editors[6] = new CurrencyCellEditor(tableConsignmentRows,2);
+       editors[7] = new CurrencyCellEditor(tableConsignmentRows,2);
        editors[8] = new NumericCellEditor(tableConsignmentRows);
        editors[9] = new NumericCellEditor(tableConsignmentRows);
-       editors[10] = new CurrencyCellEditor(tableConsignmentRows);
-       editors[11] = new CurrencyCellEditor(tableConsignmentRows);
-       editors[12] = new CurrencyCellEditor(tableConsignmentRows);
-       editors[13] = new CurrencyCellEditor(tableConsignmentRows);
+       editors[10] = new CurrencyCellEditor(tableConsignmentRows,2);
+       editors[11] = new CurrencyCellEditor(tableConsignmentRows,4);
+       editors[12] = new CurrencyCellEditor(tableConsignmentRows,2);
+       editors[13] = new CurrencyCellEditor(tableConsignmentRows,2);
     
        // Assign the cell editors to the viewer 
 		tableViewer.setCellEditors(editors);

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.39 2005/01/13 14:10:19 cemdayanik Exp $
+* @version  $Id: InvUICardSearch.java,v 1.40 2005/01/13 15:12:05 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -514,7 +514,7 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 	}
 	
 	
-	
+	TurkishCurrencyFormat format = new TurkishCurrencyFormat();
 	
 	item.setText(new String[]{invCode,
 							  invName,
@@ -522,8 +522,8 @@ public class InvUICardSearch extends  Composite implements SearchComposite {
 							  totalAmountOut.toString(),
 							  balanceAmountIn.toString(),
 							  balanceAmountOut.toString(),
-							  TurkishCurrencyFormat.formatBD(totalPriceIn),
-							  TurkishCurrencyFormat.formatBD(totalPriceOut)
+							  format.format(totalPriceIn),
+							  format.format(totalPriceOut)
 							  });
 	
 	
