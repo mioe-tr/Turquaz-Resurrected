@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.18 2005/04/01 15:15:26 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.19 2005/04/01 19:00:48 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -327,7 +327,7 @@ public class CheUIChequeOutPayrollCurrent extends org.eclipse.swt.widgets.Compos
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex);
 			ex.printStackTrace();
-			EngUICommon.showMessageBox(getShell(), ex.getMessage().toString(), SWT.ICON_ERROR);
+			EngUICommon.showMessageBox(getShell(),"Hata Olustu!", SWT.ICON_ERROR);
 		}
 	}
 

@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.33 2005/04/01 09:43:19 cemdayanik Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.34 2005/04/01 19:00:52 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -534,8 +534,7 @@ public class BankBLTransactionUpdate
 			{
 				CashBLCashTransactionUpdate.deleteOnlyCashTransaction((TurqCashTransaction) it.next());
 			}
-			//delete accounting transactions
-			AccDALTransactionSearch dalAcc = new AccDALTransactionSearch();
+		
 			it = bankTransBill.getTurqEngineSequence().getTurqAccountingTransactions().iterator();
 			while (it.hasNext())
 			{

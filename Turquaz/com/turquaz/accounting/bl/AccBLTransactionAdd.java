@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.27 2005/04/01 06:54:56 cemdayanik Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.28 2005/04/01 19:00:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -52,6 +52,7 @@ public class AccBLTransactionAdd
 		Iterator it = deptAccounts.keySet().iterator();
 		while (it.hasNext())
 		{
+		
 			Integer accountId = (Integer) it.next();
 			TurqAccountingAccount account = new TurqAccountingAccount();
 			account.setId(accountId);

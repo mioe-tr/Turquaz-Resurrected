@@ -17,9 +17,10 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.43 2005/04/01 14:53:09 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.44 2005/04/01 19:00:54 onsel Exp $
  */
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
@@ -197,9 +198,15 @@ public class AccDALTransactionSearch
 	{
 		try
 		{
-			removeTransactionRows(trans);
+			
 			Session session = EngDALSessionFactory.getSession();
-		
+			session.refresh(trans);
+			Iterator it = trans.getTurqAccountingTransactionColumns().iterator();
+			while(it.hasNext())
+			{
+				session.delete(it.next());
+			}		
+			
 			session.delete(trans);
 			session.flush();
 	
@@ -210,23 +217,7 @@ public class AccDALTransactionSearch
 		}
 	}
 
-	public static void removeTransactionRows(TurqAccountingTransaction transaction) throws Exception
-	{
-		try
-		{
-			Session session = EngDALSessionFactory.getSession();
-		
-			session.delete("select row from TurqAccountingTransactionColumn as row where" + " row.turqAccountingTransaction.id ="
-					+ transaction.getId().intValue());
-			session.flush();
-			session.clear();
-			
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
+	
 
 	public static List searchTransactionRows(TurqAccountingTransaction trans, boolean isCredit) throws Exception
 	{

@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSaveChequeTransaction.java,v 1.52 2005/04/01 15:15:28 onsel Exp $
+ * @version $Id: CheBLSaveChequeTransaction.java,v 1.53 2005/04/01 19:00:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -112,13 +112,13 @@ public class CheBLSaveChequeTransaction
 				EngDALCommon.saveObject(rollAccountingAccount);
 			}
 			TurqChequeCheque cheque;
-			TurqChequeChequeInRoll chequeInRoll;
+			
 			BigDecimal totalAmount = new BigDecimal(0);
 			for (int i = 0; i < chequeList.size(); i++)
 			{
-				chequeInRoll = new TurqChequeChequeInRoll();
+				TurqChequeChequeInRoll chequeInRoll = new TurqChequeChequeInRoll();
 				cheque = (TurqChequeCheque) chequeList.get(i);
-				EngDALCommon.saveObject(cheque);
+				EngDALCommon.saveOrUpdateObject(cheque);              
 				chequeInRoll.setTurqChequeCheque(cheque);
 				chequeInRoll.setTurqChequeRoll(chequeRoll);
 				chequeInRoll.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
@@ -612,6 +612,7 @@ public class CheBLSaveChequeTransaction
 				if (cheque.getChequesType() == EngBLCommon.CHEQUE_TYPE_CUSTOMER)
 				{
 					chequeAccount = CheBLSearchCheques.getChequeRollAccountingAccount(cheque, EngBLCommon.CHEQUE_TRANS_IN.intValue());
+			       
 				}
 				else
 				{
@@ -753,7 +754,7 @@ public class CheBLSaveChequeTransaction
 			}
 			List deptList = new ArrayList();
 			deptList.add(amount);
-			deptAccountsMap.put(deptAccount, deptList);
+			deptAccountsMap.put(deptAccount.getId(), deptList);
 		}
 		else if (type == EngBLCommon.CHEQUE_TRANS_RETURN_TO_CURRENT.intValue())
 		{

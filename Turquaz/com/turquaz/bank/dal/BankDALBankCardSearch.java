@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankDALBankCardSearch.java,v 1.19 2005/04/01 06:54:58 cemdayanik Exp $
+ * @version $Id: BankDALBankCardSearch.java,v 1.20 2005/04/01 19:00:53 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -139,7 +139,9 @@ public class BankDALBankCardSearch
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
+			session.clear();
 			session.refresh(bankCard);
+		
 			Iterator it = bankCard.getTurqBankAccountingAccounts().iterator();
 			while (it.hasNext())
 			{

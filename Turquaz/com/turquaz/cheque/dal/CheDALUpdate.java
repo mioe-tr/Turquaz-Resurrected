@@ -17,7 +17,7 @@ package com.turquaz.cheque.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheDALUpdate.java,v 1.10 2005/03/29 15:45:05 onsel Exp $
+ * @version $Id: CheDALUpdate.java,v 1.11 2005/04/01 19:00:53 onsel Exp $
  */
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Session;
@@ -27,7 +27,7 @@ import com.turquaz.engine.dal.TurqChequeRoll;
 
 public class CheDALUpdate
 {
-	public static TurqChequeCheque initializeCheque(Integer chequeId) throws Exception
+	public static TurqChequeCheque initCheque(Integer chequeId) throws Exception
 	{
 		try
 		{

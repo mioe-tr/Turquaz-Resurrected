@@ -17,7 +17,7 @@ package com.turquaz.cheque.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.33 2005/04/01 15:15:29 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.34 2005/04/01 19:00:53 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -328,6 +328,7 @@ public class CheDALSearch
 			List list = q.list();
 			if (list.size() > 0)
 			{
+				System.out.println(list.size());
 				return (TurqCurrentCard) list.get(0);
 			}
 			return null;
