@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.37 2005/02/18 18:53:03 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.38 2005/02/21 16:47:47 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -166,8 +166,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			this.setLayout(thisLayout);
 			{
 				lbldocumentNo = new CLabel(this, SWT.NONE);
-				lbldocumentNo.setText(Messages
-					.getString("AccUITransactionPayment.0")); //$NON-NLS-1$
+				lbldocumentNo.setText(Messages.getString("AccUITransactionPayment.0")); //$NON-NLS-1$
 				lbldocumentNo
 					.setSize(new org.eclipse.swt.graphics.Point(93, 18));
 				GridData lbldocumentNoLData = new GridData();
@@ -237,7 +236,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			}
 			//START >>  lblCurrency
 			lblCurrency = new CLabel(this, SWT.NONE);
-			lblCurrency.setText("Para Birimi");
+			lblCurrency.setText(Messages.getString("AccUITransactionPayment.5")); //$NON-NLS-1$
 			//END <<  lblCurrency
 			//START >>  comboCurrencyType
 			comboCurrencyType = new CCombo(this, SWT.NONE);
@@ -411,7 +410,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
    			}
    			else if ((exchangeCurrency=(TurqCurrency)comboCurrencyType.getData(comboCurrencyType.getText()))==null)
    			{
-   				msg.setMessage("Para birimi seçmelisiniz!");
+   				msg.setMessage(Messages.getString("AccUITransactionPayment.6")); //$NON-NLS-1$
    				msg.open();
 				comboCurrencyType.setFocus();
 				return false;
@@ -420,7 +419,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
    			{
    				if ((exchangeRatio=AccBLTransactionSearch.getExchangeRatio(baseCurrency,exchangeCurrency,Calendar.getInstance().getTime()))==null)
 				{
-					msg.setMessage("Bugün için çapraz kur tan?mlamal?s?n?z!");
+					msg.setMessage(Messages.getString("AccUITransactionPayment.7")); //$NON-NLS-1$
 					msg.open();
 					return false;	
 			
