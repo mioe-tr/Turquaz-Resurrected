@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.5 2005/03/01 16:24:41 onsel Exp $
+* @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.6 2005/03/16 11:55:13 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -359,8 +359,7 @@ public class AccUIAccountingMonthlyBalance extends org.eclipse.swt.widgets.Compo
 			endCal.add(2,1);
 			endCal.add(Calendar.DATE,-1);
 			List allAccounts = blSearch.getTransactions(accountPickerStart.getData(),accountPickerEnd.getData(),false,
-				false,
-				startCal.getTime() ,
+				 startCal.getTime() ,
 				 endCal.getTime() );
 	
 			TurqAccountingAccount account;

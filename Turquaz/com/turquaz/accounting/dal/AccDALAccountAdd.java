@@ -19,7 +19,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.30 2005/03/01 17:50:35 onsel Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.31 2005/03/16 11:55:13 onsel Exp $
 */
 
 
@@ -95,7 +95,7 @@ public class AccDALAccountAdd {
 			if(list.size()>0){
 				return (TurqAccountingAccount)list.get(0); 
 			}
-			else
+		
 				return null;
 			
 			
@@ -227,7 +227,7 @@ public class AccDALAccountAdd {
 			if(list.size()>0){
 				return (TurqAccountingAccount)list.get(0); 
 			}
-			else
+			
 				return null;			
 			
 			
@@ -256,7 +256,7 @@ public class AccDALAccountAdd {
 			if(list.size()>0){
 				return (TurqAccountingAccount)list.get(0); 
 			}
-			else
+		
 				return null;			
 			
 			
