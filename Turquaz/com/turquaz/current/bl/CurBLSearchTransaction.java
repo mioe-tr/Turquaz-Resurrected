@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLSearchTransaction.java,v 1.27 2005/03/31 12:23:36 onsel Exp $
+ * @version $Id: CurBLSearchTransaction.java,v 1.28 2005/03/31 16:26:16 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -153,6 +153,24 @@ public class CurBLSearchTransaction
 		try
 		{
 			CurDALSearchTransaction.deleteInitialTransactions(curCard);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static List getCurrentCardAbstract(HashMap argMap) throws Exception
+	{
+		try
+		{
+			TurqCurrentCard curCardStart=(TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_START);
+			TurqCurrentCard curCardEnd=(TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_END);
+			Date startDate=(Date)argMap.get(EngKeys.DATE_START);
+			Date endDate=(Date)argMap.get(EngKeys.DATE_END);
+			String definition=(String)argMap.get(EngKeys.DEFINITION);
+			BigDecimal minAmount=(BigDecimal)argMap.get(EngKeys.MIN_VALUE);	
+			return CurDALSearchTransaction.getCurrentCardAbstract(curCardStart,curCardEnd, startDate, endDate, definition,minAmount);
 		}
 		catch (Exception ex)
 		{
