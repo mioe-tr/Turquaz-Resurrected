@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALSearchTransaction.java,v 1.12 2005/02/04 11:23:17 onsel Exp $
+* @version  $Id: CurDALSearchTransaction.java,v 1.13 2005/02/09 15:59:48 onsel Exp $
 */
 
 import java.util.Date;
@@ -70,6 +70,8 @@ public class CurDALSearchTransaction {
 			if(type!=null){
 				query += " and transaction.turqCurrentTransactionType = :type";
 			}
+			
+			query += " order by transaction.transactionsDate";
 			
 			Query q = session.createQuery(query); 	
 			q.setParameter("startDate",startDate);
