@@ -19,7 +19,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLInventoryCards.java,v 1.4 2004/12/04 20:14:27 cemdayanik Exp $
+ * @version  $Id: EngBLInventoryCards.java,v 1.5 2004/12/08 16:25:59 cemdayanik Exp $
  */
 
 import java.util.HashMap;
@@ -82,7 +82,7 @@ public class EngBLInventoryCards {
 
 	}
 
-	public static TurqInventoryCard getAccount(String accountCode)
+	public static TurqInventoryCard getCard(String accountCode)
 			throws Exception {
 		try {
 
