@@ -17,10 +17,9 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentPicker.java,v 1.2 2005/01/02 17:27:25 onsel Exp $
+* @version  $Id: CurrentPicker.java,v 1.3 2005/01/02 20:01:13 onsel Exp $
 */
 
-import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -131,10 +130,11 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite {
 	}
 
 	/** Add your post-init code in here 	*/
+	public TurquazContentAssistant asistant;
 	public void postInitGUI(){
 	    TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 	    
-	 	final SubjectControlContentAssistant asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_CURRENT);
+	 	asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_CURRENT);
 	   
 	     adapter.appendVerifyKeyListener(
 	             new VerifyKeyListener() {

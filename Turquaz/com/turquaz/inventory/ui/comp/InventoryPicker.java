@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InventoryPicker.java,v 1.3 2005/01/02 17:27:24 onsel Exp $
+* @version  $Id: InventoryPicker.java,v 1.4 2005/01/02 20:01:11 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -130,11 +130,12 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite {
 	public void preInitGUI(){
 	}
 
+	public TurquazContentAssistant asistant;
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
 	    TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 	    
-	 	final SubjectControlContentAssistant asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_INVENTORY);
+	    asistant= new TurquazContentAssistant(adapter,EngBLCommon.CONTENT_ASSIST_INVENTORY);
 	   
 	     adapter.appendVerifyKeyListener(
 	             new VerifyKeyListener() {

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.92 2005/01/02 17:54:22 huseyiner Exp $
+ * @version $Id: InvUICardAdd.java,v 1.93 2005/01/02 20:01:11 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -296,8 +296,6 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 	private List currencyList;
 
 	public InvUIPriceList priceList;
-
-	TurquazContentAssistant asistant;
 
 	InvBLCardAdd blCardAdd = new InvBLCardAdd();
 
@@ -1779,10 +1777,12 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 				saveInvUnits(cardId);
 
 				// Save the price list now.
-				saveInvPrices(cardId);
-				asistant.refreshContentAssistant(1);
-				EngBLInventoryCards.RefreshContentAsistantMap();
-				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
+
+		        saveInvPrices(cardId);
+		        txtInvCardCode.asistant.refreshContentAssistant(1);
+		        EngBLInventoryCards.RefreshContentAsistantMap();
+		    	MessageBox msg=new MessageBox(this.getShell(), SWT.NULL);
+
 				msg.setMessage(Messages.getString("InvUICardAdd.36")); //$NON-NLS-1$
 				msg.open();
 
