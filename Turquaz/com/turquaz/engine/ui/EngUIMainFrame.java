@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.90 2004/12/05 08:59:36 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.91 2004/12/06 11:51:09 huseyiner Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.90 2004/12/05 08:59:36 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.91 2004/12/06 11:51:09 huseyiner Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1433,7 +1433,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		    
 		   SecureComposite c = (SecureComposite)tabfldMain.getSelection().getControl();
 		   int level =EngBLPermissions.getPermission(c.getClass().getName());
-		 			System.out.println(level);
+		 		//	System.out.println(level);
 					if(level==3)
 					{
 						toolNew.setEnabled(true);
