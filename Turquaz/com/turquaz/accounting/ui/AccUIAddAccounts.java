@@ -19,7 +19,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIAddAccounts.java,v 1.15 2004/10/28 10:16:18 onsel Exp $
+* @version  $Id: AccUIAddAccounts.java,v 1.16 2004/10/30 12:21:59 onsel Exp $
 */
 
 
@@ -54,7 +54,7 @@ import com.turquaz.engine.ui.component.SecureComposite;
 * for-profit company or business) then you should purchase
 * a license - please visit www.cloudgarden.com for details.
 */
-public class AccUIAddAccounts extends SecureComposite{
+public class AccUIAddAccounts extends  Composite implements SecureComposite{
 
 	/**
 	 * @return Returns the txtAccAccountCode.

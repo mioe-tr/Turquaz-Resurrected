@@ -24,19 +24,15 @@ import com.turquaz.engine.bl.EngBLPermissions;
 /**
  * @author onsel
  *
- * @version $Id: SecureComposite.java,v 1.4 2004/09/22 17:42:38 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.5 2004/10/30 12:21:59 onsel Exp $
  */
-public abstract class SecureComposite extends Composite {
-	public SecureComposite(Composite parent,int style){
-		super(parent, style);		
-	}
-	abstract public void save();
-	abstract public void search();
-	abstract public void newForm();
-	abstract public void delete();
-	
-	final public int getPermission(String compname){
-	return EngBLPermissions.getPermission(compname);
-	}
+public interface SecureComposite {
+
+	 public void save();
+	 public void search();
+	 public void newForm();
+	 public void delete();
+
+
 
 }

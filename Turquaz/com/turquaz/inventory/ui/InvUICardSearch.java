@@ -53,7 +53,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.15 2004/10/29 09:57:47 cem Exp $
+ * @version $Id: InvUICardSearch.java,v 1.16 2004/10/30 12:21:59 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -78,7 +78,7 @@ import org.eclipse.swt.SWT;
 */
 
 
-public class InvUICardSearch extends SecureComposite {
+public class InvUICardSearch extends  Composite implements SecureComposite {
 
 	private InvBLCardAdd invBLCardAdd = new InvBLCardAdd();
 	private Composite compInvCardSearch;

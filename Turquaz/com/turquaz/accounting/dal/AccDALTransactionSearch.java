@@ -7,9 +7,8 @@
 package com.turquaz.accounting.dal;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
@@ -40,7 +39,7 @@ import com.turquaz.engine.dal.TurqAccountingTransactionType;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.4 2004/10/29 14:00:19 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.5 2004/10/30 12:22:00 onsel Exp $
 */
 public class AccDALTransactionSearch {
 	

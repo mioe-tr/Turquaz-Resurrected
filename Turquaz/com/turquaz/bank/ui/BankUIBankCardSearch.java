@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.6 2004/10/22 11:51:29 cem Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.7 2004/10/30 12:21:59 onsel Exp $
 */
 
 
@@ -57,7 +57,7 @@ import org.eclipse.swt.custom.CCombo;
 * for-profit company or business) then you should purchase
 * a license - please visit www.cloudgarden.com for details.
 */
-public class BankUIBankCardSearch extends SecureComposite {
+public class BankUIBankCardSearch extends  Composite implements SecureComposite {
 
 	private CCombo comboCurrency;
 	private CLabel lblCurrency;
