@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.91 2005/02/21 13:54:58 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.92 2005/02/22 11:29:49 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -75,6 +75,7 @@ import com.turquaz.cash.ui.CashUICashOtherPaymentTransaction;
 import com.turquaz.cash.ui.CashUICashPaymentTransactionAdd;
 import com.turquaz.cash.ui.CashUICashTransactionSearch;
 import com.turquaz.cash.ui.CashUICashTransferBetweenCards;
+import com.turquaz.cheque.ui.CheUIChequeCollect;
 import com.turquaz.cheque.ui.CheUIChequeCollectFromBank;
 import com.turquaz.cheque.ui.CheUIChequeInPayroll;
 import com.turquaz.cheque.ui.CheUIChequeOutPayrollBank;
@@ -642,7 +643,7 @@ public final class TreeFactory {
 	   }
 		   if(EngBLPermissions.getPermission(CashUICashTransferBetweenCards.class.getName())>0){
 			item = new TreeItem(transRoot,SWT.NULL);
-			item.setText("Kasa Virman");  
+			item.setText(Messages.getString("TreeFactory.106"));   //$NON-NLS-1$
 			item.setData(CashUICashTransferBetweenCards.class.getName());
 	   }
 		   
@@ -731,6 +732,12 @@ public final class TreeFactory {
 			item = new TreeItem(root,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.103"));    //$NON-NLS-1$
 			item.setData(CheUIChequeCollectFromBank.class.getName());
+	    }
+		
+		if(EngBLPermissions.getPermission(CheUIChequeCollect.class.getName())>0){
+			item = new TreeItem(root,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.107"));     //$NON-NLS-1$
+			item.setData(CheUIChequeCollect.class.getName());
 	    }
 		
 		root.setExpanded(true);
