@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.3 2004/09/24 07:12:06 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.4 2004/09/27 16:47:47 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -52,6 +52,7 @@ public class DecimalText extends Composite {
  public DecimalText(Composite arg0, int arg1) {
   super(arg0, SWT.NONE);
   text = new Text(this, arg1);
+  text.setTextLimit(20);
 
   addListener(SWT.Resize, new Listener() {
    public void handleEvent(Event e) {
@@ -131,7 +132,22 @@ decimalSymbol + "][0-9]+)?");
     }
    }
   
-	
+ public void setText(String txt){
+  text.setText(txt);
+ 	
+ }
+ public String getText(){
+ 	return text.getText();
+ }
+ public void selectAll(){
+ 	text.selectAll();
+ }
+ public void setEditable(boolean arg0){
+ 	text.setEditable(arg0);
+ }
+ public boolean getEditable(){
+ 	return text.getEditable();
+ }
 
  public Point computeSize(int wHint, int hHint,boolean arg) {
  	return text.computeSize(wHint, hHint, arg);

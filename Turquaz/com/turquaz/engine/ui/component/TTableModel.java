@@ -23,7 +23,7 @@ import java.sql.*;
 /**
  * @author onsel
  *
- * @version $Id: TTableModel.java,v 1.3 2004/09/27 07:17:01 onsel Exp $
+ * @version $Id: TTableModel.java,v 1.4 2004/09/27 16:47:47 onsel Exp $
  */
 public class TTableModel implements KTableModel {
 
@@ -118,6 +118,11 @@ public class TTableModel implements KTableModel {
 		int colCount = getColumnCount();
 		int rowCount = getRowCount();
 	
+		if(rowCount>1){
+			
+		
+		
+		
 		for(int j=row;j<rowCount-1;j++){
 			for (int i = 0; i < colCount; i++) {
 			 setContentAt(i,j,getContentAt(i,j+1));	
@@ -127,12 +132,9 @@ public class TTableModel implements KTableModel {
 		for (int i = 0; i < colCount; i++) {
 			 content.remove(i+"/"+(rowCount-1));			 			
 			}
-			
-		if(rowCount>1){
-			
 			setRowCount(rowCount-1);
-		
 		}
+		
 		
 	}
 	

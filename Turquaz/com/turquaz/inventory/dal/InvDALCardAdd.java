@@ -16,7 +16,7 @@
 
 /**
  * @author onsel
- * @version $Id: InvDALCardAdd.java,v 1.1 2004/09/27 11:07:25 onsel Exp $
+ * @version $Id: InvDALCardAdd.java,v 1.2 2004/09/27 16:47:47 onsel Exp $
  */
 
 package com.turquaz.inventory.dal;
@@ -64,6 +64,27 @@ public class InvDALCardAdd {
 	
 	
 	
+	}
+	public List getCurrencies()throws Exception{
+		try{
+			
+			Session session = EngDALSessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			String query = "from TurqCurrency as currency " +
+					"where currency.turqCompany.companiesId ="+System.getProperty("company");		   
+			   
+
+			Query q = session.createQuery(query); 
+			List list = q.list();
+			tx.commit();
+			session.close();
+			return list;	
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
 	}
 	
 	public List getInventoryUnits()throws Exception{
