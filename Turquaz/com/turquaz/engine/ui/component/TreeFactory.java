@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.86 2005/02/15 09:00:09 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.87 2005/02/15 12:36:47 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -700,12 +700,12 @@ public final class TreeFactory {
 	    }
 		if(EngBLPermissions.getPermission(CheUICustomerChequeSearch.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
-			item.setText("Mü?teri Ceki Arama");   
+			item.setText(Messages.getString("TreeFactory.101"));    //$NON-NLS-1$
 			item.setData(CheUICustomerChequeSearch.class.getName());
 	    }
 		if(EngBLPermissions.getPermission(CheUIOwnChequeSearch.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
-			item.setText("Firma Ceki Arama");   
+			item.setText(Messages.getString("TreeFactory.102"));    //$NON-NLS-1$
 			item.setData(CheUIOwnChequeSearch.class.getName());
 	    }
 		
