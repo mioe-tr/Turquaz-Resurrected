@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionSearch.java,v 1.20 2005/01/02 18:21:02 huseyiner Exp $
+* @version  $Id: CurUITransactionSearch.java,v 1.21 2005/01/14 11:28:50 onsel Exp $
 */
 import java.util.List;
 
@@ -33,6 +33,7 @@ import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 import com.turquaz.current.bl.CurBLSearchTransaction;
 
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
@@ -349,16 +350,15 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	/** Auto-generated event handler method */
 	protected void tableCurrentTransactionsMouseDoubleClick(MouseEvent evt){
 		TableItem items[] = tableCurrentTransactions.getSelection();
-	//	if(items.length >0){
-		
-		if(false)
+		if(items.length >0)
+	//	if(false)
 		{
 		TurqCurrentTransaction trans = (TurqCurrentTransaction)items[0].getData();
-		
-		//nakit hareketi ise izin ver
-		if(trans.getTurqCurrentTransactionType().getCurrentTransactionTypesId().intValue()==4){
-		new CUrUITransactionUpdateDialog(this.getShell(),SWT.NULL,trans).open();
+			//nakit hareketi ise izin ver
+		if(trans.getTurqCurrentTransactionType().getCurrentTransactionTypesId().intValue()==EngBLCommon.CURRENT_TRANS_OTHERS){
+		new CurUIVoucherUpdate(this.getShell(),SWT.NULL,trans).open();
 		search();
+	
 		}
 		else{
 			MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
