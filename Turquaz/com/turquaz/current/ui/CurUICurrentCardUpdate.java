@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.27 2005/01/08 13:02:18 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.28 2005/01/11 18:40:14 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -39,6 +39,7 @@ import com.turquaz.current.bl.CurBLCurrentCardUpdate;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
 import org.eclipse.swt.layout.GridData;
 
+import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentCard;
@@ -567,6 +568,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		compCurCardAdd.savePhones(currentCard.getCurrentCardsId());
 		compCurCardAdd.saveGroups(currentCard.getCurrentCardsId());
 		
+		EngBLCurrentCards.RefreshContentAsistantMap();
 		 msg.setMessage(Messages.getString("CurUICurrentCardUpdate.26")); //$NON-NLS-1$
 		 msg.open();
 			

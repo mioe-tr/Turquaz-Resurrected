@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.37 2005/01/11 13:24:15 cemdayanik Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.38 2005/01/11 18:40:16 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -50,6 +50,7 @@ import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.comp.InvUIPrice;
 import com.turquaz.inventory.ui.comp.InvUIPriceList;
 
+import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
@@ -542,6 +543,8 @@ public class InvUICardUpdateDialog extends Dialog{
 	updateInvUnits();
 	updateInvGroups();
 	updatePrices();
+	  EngBLInventoryCards.RefreshContentAsistantMap();
+  	
 	MessageBox msg = new MessageBox(this.getParent(),SWT.NULL);
 	msg.setMessage(Messages.getString("InvUICardUpdateDialog.5"));	 //$NON-NLS-1$
 	msg.open();	
