@@ -17,10 +17,11 @@
 
 /**
  * @author onsel
- * @version $Id: DecimalText.java,v 1.7 2004/10/09 11:59:43 onsel Exp $
+ * @version $Id: DecimalText.java,v 1.8 2004/10/18 12:21:24 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -154,6 +155,13 @@ decimalSymbol + "][0-9]+)?");
  }
  public boolean getEditable(){
  	return text.getEditable();
+ }
+ 
+ public BigDecimal getBigDecimalValue(){
+ 	String text = this.text.getText();
+ 	return new BigDecimal(text);
+ 	
+ 	
  }
 
  public Point computeSize(int wHint, int hHint,boolean arg) {
