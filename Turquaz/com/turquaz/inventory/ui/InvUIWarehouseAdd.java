@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUIWarehouseAdd.java,v 1.19 2004/11/26 16:41:55 huseyiner Exp $
+* @version  $Id: InvUIWarehouseAdd.java,v 1.20 2004/11/27 11:18:23 cemdayanik Exp $
 */
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -38,6 +38,8 @@ import com.turquaz.inventory.bl.InvBLWarehouseAdd;
 
 
 
+import org.eclipse.swt.events.TraverseListener;
+import org.eclipse.swt.events.TraverseEvent;
 /**
 * This code was generated using CloudGarden's Jigloo
 * SWT/Swing GUI Builder, which is free for non-commercial
@@ -175,6 +177,14 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 			lblWarehouseAdres.setText(Messages.getString("InvUIWarehouseAdd.1")); //$NON-NLS-1$
 	
 			GridData txtWarehouseAdresLData = new GridData();
+			txtWarehouseAdres.addTraverseListener(new TraverseListener() {
+				public void keyTraversed(TraverseEvent evt) {
+					if (evt.keyCode == SWT.TAB) {
+						txtWarehouseCity.setFocus();
+						evt.doit = false;
+					}
+				}
+			});
 			txtWarehouseAdresLData.verticalAlignment = GridData.CENTER;
 			txtWarehouseAdresLData.horizontalAlignment = GridData.BEGINNING;
 			txtWarehouseAdresLData.widthHint = 323;
@@ -256,6 +266,14 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite{
 			lblDescription.setText(Messages.getString("InvUIWarehouseAdd.4")); //$NON-NLS-1$
 	
 			GridData txtWarehouseDescriptionLData = new GridData();
+			txtWarehouseDescription.addTraverseListener(new TraverseListener() {
+				public void keyTraversed(TraverseEvent evt) {
+					if (evt.keyCode == SWT.TAB) {
+						txtWarehouseCode.setFocus();
+						evt.doit = false;
+					}
+				}
+			});
 			txtWarehouseDescriptionLData.verticalAlignment = GridData.CENTER;
 			txtWarehouseDescriptionLData.horizontalAlignment = GridData.BEGINNING;
 			txtWarehouseDescriptionLData.widthHint = 347;
