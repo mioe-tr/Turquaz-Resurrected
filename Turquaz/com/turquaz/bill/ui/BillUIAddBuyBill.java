@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.46 2005/02/06 15:38:52 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.47 2005/02/07 19:45:32 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1288,7 +1288,7 @@ public class BillUIAddBuyBill extends Composite
 			TableItem items[] = tableConsignmentRows.getItems();
 
 			// buy bill
-			int type = 0;
+			int type = EngBLCommon.COMMON_BUY_INT;
 
 			boolean stable=true;
 			for (int i = 0; i < items.length; i++) {

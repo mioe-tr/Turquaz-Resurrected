@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddSellBill.java,v 1.48 2005/02/06 15:38:52 onsel Exp $
+ * @version  $Id: BillUIAddSellBill.java,v 1.49 2005/02/07 19:45:44 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -388,7 +388,7 @@ public class BillUIAddSellBill extends Composite
 
 	ConBLAddConsignment blAddConsignment = new ConBLAddConsignment();
 	
-	private final int BILL_TYPE = 1;
+	private final int BILL_TYPE = EngBLCommon.COMMON_SELL_INT;
 	
 //	 Set the table column property names
 	private final String INVENTORY_CODE             = Messages.getString("BillUIAddSellBill.0"); //$NON-NLS-1$
