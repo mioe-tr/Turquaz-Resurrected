@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Ehad Karacam
-* @version  $Id: AccBLTransactionAdd.java,v 1.9 2004/12/03 14:21:24 cemdayanik Exp $
+* @version  $Id: AccBLTransactionAdd.java,v 1.10 2004/12/11 17:55:48 cemdayanik Exp $
 */
 
 import java.util.Calendar;
@@ -68,7 +68,6 @@ public class AccBLTransactionAdd {
 		
 		transRow.setLastModified(new java.sql.Date( cal.getTime().getTime()));
 		transRow.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
-		
 		dalTransAdd.save(transRow);
 	}
 	catch(Exception ex){
@@ -125,7 +124,7 @@ public class AccBLTransactionAdd {
 		
 		trans.setLastModified(new java.sql.Date( cal.getTime().getTime()));
 		trans.setCreationDate(new java.sql.Date( cal.getTime().getTime()));
-		
+		trans.setTransactionDescription(definition);
 		
 	
 		dalTransAdd.save(trans);

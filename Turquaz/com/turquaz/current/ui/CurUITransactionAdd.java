@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.26 2004/12/10 02:35:51 onsel Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.27 2004/12/11 17:55:48 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 
@@ -345,7 +345,6 @@ public class CurUITransactionAdd extends Composite implements SecureComposite{
 	
 	//Transaction Type is Cash 
 	//4,at the end means cash, it is a cash Transaction 
-	System.out.println(decTxtAmount.getBigDecimalValue());
 	blTransAdd.saveCurrentCashTransaction((TurqCurrentCard)txtCurrentCode.getData(),
 									  dateTransDate.getDate(),txtDocumentNo.getText().trim(),isCredit,
 									  decTxtAmount.getBigDecimalValue(),new BigDecimal(0),4,(TurqAccountingAccount)accPickerCashAccount.getData());
