@@ -1,9 +1,4 @@
-/*
- * Created on Nov 2, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+
 package com.turquaz.engine.ui.wizards;
 
 /************************************************************************/
@@ -24,7 +19,7 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.12 2004/11/20 02:12:43 onsel Exp $
+* @version  $Id: EngUIDatabaseSelectionWizardPage.java,v 1.13 2004/11/20 20:43:39 huseyiner Exp $
 */
 import java.sql.ResultSet;
 
