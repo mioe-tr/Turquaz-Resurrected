@@ -18,12 +18,12 @@
 package com.turquaz.engine.ui.component;
 import de.kupzog.ktable.*;
 import java.util.*;
-import java.sql.*;
+
 
 /**
  * @author onsel
  *
- * @version $Id: TTableModel.java,v 1.4 2004/09/27 16:47:47 onsel Exp $
+ * @version $Id: TTableModel.java,v 1.5 2004/10/21 07:20:19 onsel Exp $
  */
 public class TTableModel implements KTableModel {
 

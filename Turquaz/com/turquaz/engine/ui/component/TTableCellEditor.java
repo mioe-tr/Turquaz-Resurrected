@@ -18,15 +18,13 @@
 package com.turquaz.engine.ui.component;
 
 import de.kupzog.ktable.KTableCellEditor;
-import org.eclipse.swt.*;
-import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.widgets.*;
 
 
 /**
  * @author onsel
- * @version $Id: TTableCellEditor.java,v 1.2 2004/08/30 19:53:06 onsel Exp $
+ * @version $Id: TTableCellEditor.java,v 1.3 2004/10/21 07:20:19 onsel Exp $
  */
 public class TTableCellEditor extends KTableCellEditor{
 	

@@ -16,18 +16,16 @@
 /************************************************************************/
 
 package com.turquaz.engine.ui.component;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.*;
-import org.eclipse.swt.graphics.*;
+
 import org.eclipse.swt.widgets.*;
-import java.util.*;
+
 import de.kupzog.ktable.*;
 import java.sql.*;
 
 /**
  * @author onsel
  *
- * @version $Id: TTable.java,v 1.2 2004/08/30 19:53:06 onsel Exp $
+ * @version $Id: TTable.java,v 1.3 2004/10/21 07:20:19 onsel Exp $
  */
 public class TTable extends KTable{
 	
