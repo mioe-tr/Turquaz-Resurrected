@@ -23,7 +23,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.13 2004/10/18 13:16:48 onsel Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.14 2004/10/21 07:01:36 onsel Exp $
 */
 
 
@@ -31,8 +31,6 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.type.BigDecimalType;
 
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCompany;

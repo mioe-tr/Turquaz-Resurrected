@@ -6,7 +6,6 @@
  */
 package com.turquaz.inventory.dal;
 
-import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Session;
 import net.sf.hibernate.Transaction;
 
@@ -29,7 +28,7 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardUpdate.java,v 1.3 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvDALCardUpdate.java,v 1.4 2004/10/21 07:01:36 onsel Exp $
 */
 
 public class InvDALCardUpdate {

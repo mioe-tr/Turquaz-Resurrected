@@ -17,11 +17,11 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.11 2004/10/19 14:14:35 onsel Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.12 2004/10/21 07:01:36 onsel Exp $
 */
 
 import java.math.BigDecimal;
-import java.sql.Date;
+
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -38,14 +38,14 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.layout.FormLayout;
+
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.widgets.Label;
+
 
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
-import com.turquaz.accounting.ui.comp.AccountPicker;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.SWT;

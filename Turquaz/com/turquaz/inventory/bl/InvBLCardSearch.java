@@ -23,14 +23,14 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardSearch.java,v 1.2 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvBLCardSearch.java,v 1.3 2004/10/21 07:01:36 onsel Exp $
 */
 
 import java.util.Calendar;
 import java.util.List;
 
 import com.turquaz.engine.dal.TurqInventoryGroup;
-import com.turquaz.inventory.dal.InvDALCardAdd;
+
 import com.turquaz.inventory.dal.InvDALCardSearch;
 
 

@@ -24,16 +24,16 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.4 2004/10/18 13:16:48 onsel Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.5 2004/10/21 07:01:36 onsel Exp $
 */
 
 
 import java.util.Calendar;
 
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqCompany;
+
 import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.inventory.dal.InvDALCardSearch;
+
 import com.turquaz.inventory.dal.InvDALCardUpdate;
 
 

@@ -26,23 +26,22 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Menu;
+
 
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.ui.component.SecureComposite;
-import com.turquaz.engine.ui.component.TTable;
+
 import com.turquaz.inventory.bl.InvBLCardAdd;
 import com.turquaz.inventory.bl.InvBLCardSearch;
 
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.swt.layout.FormLayout;
+
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Label;
+
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.events.MouseAdapter;
@@ -53,7 +52,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.12 2004/10/13 13:10:33 onsel Exp $
+ * @version $Id: InvUICardSearch.java,v 1.13 2004/10/21 07:01:36 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo

@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountUpdate.java,v 1.2 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: AccBLAccountUpdate.java,v 1.3 2004/10/21 07:01:35 onsel Exp $
 */
 
 
@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 import com.turquaz.accounting.dal.AccDALAccountUpdate;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqCompany;
+
 
 /**
  * @author onsel

@@ -36,14 +36,11 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.custom.TableTreeItem;
 import org.eclipse.swt.SWT;
 
-import com.turquaz.engine.dal.TurqModule;
-import com.turquaz.engine.dal.TurqModuleComponent;
-
 /**
  * 
  * @author onsel
  *
- *@version $Id: AdmUIPermPanel.java,v 1.6 2004/09/25 17:47:52 onsel Exp $
+ *@version $Id: AdmUIPermPanel.java,v 1.7 2004/10/21 07:01:36 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo

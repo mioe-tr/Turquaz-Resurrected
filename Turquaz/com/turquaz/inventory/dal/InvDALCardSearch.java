@@ -11,11 +11,11 @@ import java.util.List;
 import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
+
 
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqInventoryCard;
-import com.turquaz.engine.dal.TurqInventoryCardGroup;
+
 import com.turquaz.engine.dal.TurqInventoryGroup;
 
 /************************************************************************/
@@ -36,7 +36,7 @@ import com.turquaz.engine.dal.TurqInventoryGroup;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.5 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.6 2004/10/21 07:01:36 onsel Exp $
 */
 
 public class InvDALCardSearch {

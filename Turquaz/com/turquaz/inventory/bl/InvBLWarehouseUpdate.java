@@ -9,7 +9,6 @@ package com.turquaz.inventory.bl;
 import java.util.Calendar;
 
 import com.turquaz.engine.dal.TurqInventoryWarehous;
-import com.turquaz.inventory.dal.InvDALWarehouseSearch;
 import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
 /************************************************************************/
@@ -30,7 +29,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseUpdate.java,v 1.3 2004/10/17 17:46:48 onsel Exp $
+* @version  $Id: InvBLWarehouseUpdate.java,v 1.4 2004/10/21 07:01:36 onsel Exp $
 */
 
 public class InvBLWarehouseUpdate {

@@ -16,7 +16,7 @@ import net.sf.hibernate.Session;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
 import com.turquaz.engine.dal.TurqAccountingTransactionType;
-import com.turquaz.engine.dal.TurqInventoryCard;
+
 
 
 /************************************************************************/
@@ -37,7 +37,7 @@ import com.turquaz.engine.dal.TurqInventoryCard;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionSearch.java,v 1.1 2004/10/19 13:06:19 onsel Exp $
+* @version  $Id: AccDALTransactionSearch.java,v 1.2 2004/10/21 07:01:36 onsel Exp $
 */
 public class AccDALTransactionSearch {
 	

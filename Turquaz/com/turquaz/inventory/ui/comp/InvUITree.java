@@ -19,16 +19,10 @@ package com.turquaz.inventory.ui.comp;
 
 
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-import org.apache.xalan.trace.SelectionEvent;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.widgets.*;
 import org.eclipse.swt.*;
 
-import com.turquaz.engine.ui.EngUIMainFrame;
 import com.turquaz.inventory.ui.InvUICardAdd;
 import com.turquaz.inventory.ui.InvUICardSearch;
 import com.turquaz.inventory.ui.InvUITransactionAdd;
@@ -38,7 +32,7 @@ import com.turquaz.inventory.ui.InvUIWarehouseSearch;
 /**
  * @author onsel
  *
- * @version $Id: InvUITree.java,v 1.6 2004/10/16 07:17:22 onsel Exp $
+ * @version $Id: InvUITree.java,v 1.7 2004/10/21 07:01:36 onsel Exp $
  */
 public class InvUITree extends Tree {
 	

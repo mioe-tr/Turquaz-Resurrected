@@ -6,8 +6,7 @@
  */
 package com.turquaz.engine.dal;
 
-import java.sql.*;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import net.sf.hibernate.Criteria;
@@ -18,7 +17,7 @@ import net.sf.hibernate.expression.Expression;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.4 2004/09/25 18:53:34 onsel Exp $
+ * @version $Id: EngDALUserPerms.java,v 1.5 2004/10/21 07:01:36 onsel Exp $
  * 
  * Database functions for calculating user permissions.
  * TODO Module, Module Component functions must be placed in a different class

@@ -16,13 +16,11 @@
 
 package com.turquaz.engine.bl;
 
-import java.sql.ResultSet;
+
 import java.util.*;
 
-import net.sf.hibernate.Session;
-import net.sf.hibernate.Transaction;
 
-import com.turquaz.engine.dal.EngDALSessionFactory;
+
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModuleComponent;
@@ -31,7 +29,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 /**
  * @author onsel
  * 
- * @version $Id: EngBLPermissions.java,v 1.7 2004/09/25 18:53:34 onsel Exp $
+ * @version $Id: EngBLPermissions.java,v 1.8 2004/10/21 07:01:36 onsel Exp $
  * 
  * Here is the permissions layer. Other classes uses static functions in this
  * class.
