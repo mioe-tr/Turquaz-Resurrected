@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUICustomerChequeAddDialog.java,v 1.11 2005/03/06 19:33:22 cemdayanik Exp $
+* @version  $Id: CheUICustomerChequeAddDialog.java,v 1.12 2005/03/09 10:45:37 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -398,8 +398,10 @@ public class CheUICustomerChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 		    cheque.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 		    cheque.setLastModified(Calendar.getInstance().getTime());
 		    cheque.setCreationDate(Calendar.getInstance().getTime());
-	   
-        
+	        
+		    // TODO Exchane Rate
+		    cheque.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
+            cheque.setChequesAmountInForeignCurrency(curText.getBigDecimalValue());
         
         
 	    

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIReturnFromBankRoll.java,v 1.3 2005/03/08 19:44:43 onsel Exp $
+* @version  $Id: CheUIReturnFromBankRoll.java,v 1.4 2005/03/09 10:45:37 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -44,6 +44,7 @@ import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.SWT;
 import com.turquaz.cheque.Messages;
+import com.turquaz.cheque.bl.CheBLSaveChequeTransaction;
 import com.turquaz.engine.ui.component.SecureComposite;
 
 
@@ -243,6 +244,16 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
             toolItemAdd.setSelection(true);
             return false;
         }
+        if(accountPicker.getData()==null)
+        {
+        	if(EngUICommon.okToDelete(getShell(),"Muhsebe Entegrasyonu Yap?lamayacak!\n Devam Etmek ?stiyormusunuz!"))
+        	{
+        		return true;
+        	}
+        	else return false;
+        	
+        }
+        
         return true;
     }
     
@@ -252,6 +263,7 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
          
         if(verifyFields()){ 
    
+        	CheBLSaveChequeTransaction.saveReturnFromBank(accountPicker.getTurqAccountingAccount(),txtRollNo.getText().trim(),datePicker1.getDate(),cheques);
         	
         	EngUICommon.showSavedSuccesfullyMessage(getShell());  
            newForm();
@@ -260,8 +272,11 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
      }
      catch(Exception ex){
          ex.printStackTrace();
+         if(ex.getMessage()!=null)
+         {
          EngUICommon.showMessageBox(getShell(),ex.getMessage().toString(),SWT.ICON_ERROR);
-     }
+         }
+       }
 
     }
     public void deleteTableRow(){

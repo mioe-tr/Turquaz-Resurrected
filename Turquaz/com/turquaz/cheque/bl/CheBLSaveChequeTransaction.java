@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.33 2005/03/08 19:44:43 onsel Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.34 2005/03/09 10:45:36 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -346,6 +346,7 @@ public class CheBLSaveChequeTransaction {
           TurqChequeChequeInRoll chequeInRoll;
           TurqChequeCheque cheque;
           
+          BigDecimal amount = new BigDecimal(0);
           
           for(int i = 0; i<chequeList.size();i++){
             
@@ -363,13 +364,15 @@ public class CheBLSaveChequeTransaction {
             chequeInRoll.setLastModified(Calendar.getInstance().getTime());
             chequeInRoll.setCreationDate(Calendar.getInstance().getTime()); 
             
+            amount = amount.add(cheque.getChequesAmount());
+            
             
             CheDALSave.save(chequeInRoll);
            
             
           }
           
-          saveRollAccountingTransactions(rollAccount,null,chequeRoll,null,EngBLCommon.getBaseCurrencyExchangeRate());
+          saveRollAccountingTransactions(rollAccount,null,chequeRoll,amount,EngBLCommon.getBaseCurrencyExchangeRate());
           
          
          
@@ -923,6 +926,8 @@ public class CheBLSaveChequeTransaction {
     	
     		while(it.hasNext())
     		{
+    			cheque = ((TurqChequeChequeInRoll)it.next()).getTurqChequeCheque();
+    			
     			TurqBanksCard bankCard = CheDALSearch.getBankOfCustomerCheque(cheque);
 	   			   			
     			creditAccount = CheBLSearchCheques.getChequeRollAccountingAccount(cheque,EngBLCommon.CHEQUE_TRANS_OUT_BANK);
