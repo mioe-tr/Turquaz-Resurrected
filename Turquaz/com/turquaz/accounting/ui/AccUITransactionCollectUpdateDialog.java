@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.24 2005/03/06 19:33:23 cemdayanik Exp $
+* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.25 2005/03/16 17:09:47 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -324,6 +324,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		try{
 		  if(compTransactionCollect.verifyFields()){
 		  	updated=true;
+		  	
 		 blTransUpdate.updateTransaction(accTrans,compTransactionCollect.getTxtDocumentNo().getText().trim(),
 										compTransactionCollect.getDatePickerTransactionDate().getData(),compTransactionCollect.getTxtTransDefinition().getText(),
 										compTransactionCollect.getExchangeRate());
@@ -348,6 +349,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	   
 	   
 	     deleteTransactionRows();
+	     
 	     
 	     compTransactionCollect.saveTransactionRows(accTrans.getId());
 	     
