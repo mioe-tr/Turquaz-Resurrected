@@ -23,7 +23,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.18 2004/12/06 17:21:57 huseyiner Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.19 2004/12/07 18:02:34 onsel Exp $
 */
 
 
@@ -33,7 +33,6 @@ import java.util.List;
 
 
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqCompany;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryCardGroup;

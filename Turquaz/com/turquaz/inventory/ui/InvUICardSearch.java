@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardSearch.java,v 1.30 2004/12/05 17:21:48 cemdayanik Exp $
+* @version  $Id: InvUICardSearch.java,v 1.31 2004/12/07 18:02:35 onsel Exp $
 */
 
 import java.util.Iterator;
@@ -32,8 +32,6 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
-
-import com.turquaz.current.bl.CurBLCurrentCardUpdate;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryCardGroup;

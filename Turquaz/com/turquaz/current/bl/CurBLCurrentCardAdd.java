@@ -23,7 +23,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentCardAdd.java,v 1.9 2004/12/06 17:21:57 huseyiner Exp $
+* @version  $Id: CurBLCurrentCardAdd.java,v 1.10 2004/12/07 18:02:35 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -31,7 +31,6 @@ import java.util.List;
 
 import com.turquaz.current.dal.CurDALCurrentCardAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqCompany;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentCardsGroup;
 import com.turquaz.engine.dal.TurqCurrentCardsPhone;
