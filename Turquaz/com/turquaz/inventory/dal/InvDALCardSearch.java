@@ -19,7 +19,7 @@ package com.turquaz.inventory.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvDALCardSearch.java,v 1.15 2004/12/23 15:50:12 onsel Exp $
+* @version  $Id: InvDALCardSearch.java,v 1.16 2004/12/25 13:07:49 onsel Exp $
 */
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class InvDALCardSearch {
 			
 				Session session = EngDALSessionFactory.openSession();
 				
-				String query = "Select invView, invCard from TurqViewInventoryAmountTotal as invView," +
+				String query = "Select invView, invCard from TurqViewInventoryTotal as invView," +
 						" TurqInventoryCard as invCard" +						
 						" where invCard.inventoryCardsId = invView.inventoryCardsId and " +
 						" lower(invCard.cardName) like '"+cardName.toLowerCase()+"%' and invCard.cardInventoryCode like '"+cardCode+"%' ";
