@@ -17,12 +17,14 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.24 2004/12/10 01:48:25 onsel Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.25 2004/12/11 20:02:16 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.text.Style;
 
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TableViewer;
@@ -67,6 +69,7 @@ import org.eclipse.swt.SWT;
 */
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.VerifyListener;
@@ -380,6 +383,12 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					
 					}
 				});
+			 cursor.addMouseListener(new MouseAdapter() {
+				public void mouseDoubleClick(MouseEvent arg0) {
+					tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
+
+				}
+			});
 	  
 		
 	        

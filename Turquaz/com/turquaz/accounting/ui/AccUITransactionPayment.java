@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.21 2004/12/10 01:48:25 onsel Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.22 2004/12/11 20:02:16 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -452,6 +453,13 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				
 				}
 			});
+		 
+		 cursor.addMouseListener(new MouseAdapter() {
+			public void mouseDoubleClick(MouseEvent arg0) {
+				tableViewer.editElement(cursor.getRow().getData(),cursor.getColumn());
+
+			}
+		});
   
 	
         
