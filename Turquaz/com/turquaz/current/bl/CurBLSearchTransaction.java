@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.11 2004/12/29 22:32:53 cemdayanik Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.12 2005/01/05 14:55:28 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -142,6 +142,19 @@ public class CurBLSearchTransaction {
 		catch(Exception ex){
 			throw ex;
 		}
+	}
+	public List getCurrentBalances(TurqCurrentCard curCard, Date startDate)throws Exception{
+	    try{
+	        
+	        return dalSearch.getCurrentBalances(curCard,startDate);
+	        
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	    
 	}
 	
 	

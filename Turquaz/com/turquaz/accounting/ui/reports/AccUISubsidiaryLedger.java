@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.8 2004/12/29 19:47:52 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.9 2005/01/05 14:55:28 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -353,7 +353,7 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite 
 					balance = balance.add((BigDecimal)sums[1]);
 					totalCredit = totalCredit.add((BigDecimal)sums[1]);
 				}
-				// total
+				
 				item = new TableItem(tableTransactions, SWT.NULL);
 				item.setText(new String[]{"","",Messages.getString("AccUISubsidiaryLedger.14"), //$NON-NLS-1$ 
 				        (balance.compareTo(new BigDecimal(0))<0) ? df.format(balance.multiply(new BigDecimal(-1))): "", //$NON-NLS-1$

@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.108 2005/01/02 21:51:11 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.109 2005/01/05 14:55:27 onsel Exp $
 */
 
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.108 2005/01/02 21:51:11 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.109 2005/01/05 14:55:27 onsel Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1739,6 +1739,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		OutputStream output = null;
         
           output = new FileOutputStream("favorites.xml"); //$NON-NLS-1$
+         
+          
           
           TreeItem items[] = treeFavorites.getItems();
           
