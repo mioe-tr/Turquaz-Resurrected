@@ -18,10 +18,9 @@ package com.turquaz.accounting.ui.reports;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.20 2005/02/21 19:12:35 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.21 2005/02/22 07:23:19 cemdayanik Exp $
  */
 
-import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
