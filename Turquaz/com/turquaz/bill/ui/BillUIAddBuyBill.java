@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.29 2005/01/03 00:00:04 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.30 2005/01/03 21:33:06 huseyiner Exp $
  */
 
 import java.math.BigDecimal;
@@ -1062,7 +1062,7 @@ public class BillUIAddBuyBill extends Composite
 	    
        
 	
-	for(int i=0;i<10;i++){
+	for(int i=0;i<EngBLCommon.TABLE_ROW_COUNT;i++){
 //		enter empty table rows.
       InvUITransactionTableRow row = new InvUITransactionTableRow(rowList,0,tableViewer);
       rowList.addTask(row);
