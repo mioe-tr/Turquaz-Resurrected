@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 
 
-import org.eclipse.jface.contentassist.ComboContentAssistSubjectAdapter;
+
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Rectangle;
@@ -37,7 +37,7 @@ import org.eclipse.swt.SWT;
 /**
  * 
  * @author onsel
- * @version $Id: InvUICardSearch.java,v 1.7 2004/10/07 15:19:44 huseyin Exp $
+ * @version $Id: InvUICardSearch.java,v 1.8 2004/10/09 11:59:43 onsel Exp $
  */
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -95,7 +95,7 @@ public class InvUICardSearch extends SecureComposite {
 
 	/** Add your post-init code in here 	*/
 	public void postInitGUI(){
-		tTable1.fillRandom();
+		
 		
 		
 				
