@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccountPicker.java,v 1.25 2005/02/04 13:06:36 cemdayanik Exp $
+* @version  $Id: AccountPicker.java,v 1.26 2005/02/11 11:21:58 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -191,7 +191,7 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite {
 		super.setData(obj);
 		if(obj==null)
 		{
-		    text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+		    text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
 		}
 		else
 		{

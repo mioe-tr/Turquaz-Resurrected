@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurrentCodePicker.java,v 1.3 2005/01/31 17:04:03 onsel Exp $
+* @version  $Id: CurrentCodePicker.java,v 1.4 2005/02/11 11:21:57 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -100,7 +100,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
                         }
                     
                 });
-                text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+               
 				
 				text1LData.verticalAlignment = GridData.FILL;
 				text1LData.horizontalAlignment = GridData.FILL;
@@ -167,7 +167,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite {
 		super.setData(obj);
 		if(obj==null)
 		{
-		    text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+		    text1.setBackground(SWTResourceManager.getColor(255,150, 150));
 		}
 		else
 		{

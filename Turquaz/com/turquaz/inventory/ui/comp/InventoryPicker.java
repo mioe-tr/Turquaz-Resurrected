@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InventoryPicker.java,v 1.7 2005/01/31 17:04:05 onsel Exp $
+* @version  $Id: InventoryPicker.java,v 1.8 2005/02/11 11:21:55 onsel Exp $
 */
 
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -100,7 +100,7 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite {
                         }
                     
                 });
-                text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+                text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
 				
 				text1LData.verticalAlignment = GridData.FILL;
 				text1LData.horizontalAlignment = GridData.FILL;
@@ -166,7 +166,7 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite {
 		super.setData(obj);
 		if(obj==null)
 		{
-		    text1.setBackground(SWTResourceManager.getColor(255, 215, 215));
+		    text1.setBackground(SWTResourceManager.getColor(255, 150, 150));
 		}
 		else
 		{

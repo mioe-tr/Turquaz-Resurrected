@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.16 2005/02/09 17:45:00 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.17 2005/02/11 11:21:57 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -647,8 +647,9 @@ public class BankBLTransactionAdd {
     public static void saveChequeTransaction(TurqBanksCard bankCard, TurqAccountingAccount chequeAccount, TurqEngineSequence seq,
             BigDecimal totalAmount, Date transDate, String definition,
             String docNo) throws Exception {
+    	
         try {
-
+           
             if (seq == null) {
                 try {
                     TurqModule module = new TurqModule();
