@@ -17,7 +17,7 @@
 
 /**
  * @author onsel
- * @version $Id: NumericText.java,v 1.2 2004/09/24 07:15:33 onsel Exp $
+ * @version $Id: NumericText.java,v 1.3 2004/09/27 13:17:22 onsel Exp $
  */
 package com.turquaz.engine.ui.component;
 
@@ -82,10 +82,12 @@ public class NumericText extends Composite {
        if (!m.matches()) {
 
            evt.doit = false;
-
-       }
+          }
 	}
 
+ public void setText(int a){
+ 	text.setText(a+"");
+ }
  public Point computeSize(int wHint, int hHint,boolean arg) {
  	return text.computeSize(wHint, hHint, arg);
  }
