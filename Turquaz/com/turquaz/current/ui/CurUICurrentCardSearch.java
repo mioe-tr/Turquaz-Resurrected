@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardSearch.java,v 1.29 2005/01/13 15:12:05 onsel Exp $
+* @version  $Id: CurUICurrentCardSearch.java,v 1.30 2005/01/16 08:13:52 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -460,8 +460,9 @@ public class CurUICurrentCardSearch extends  Composite implements SearchComposit
 		if(selection.length>0){
 	
 			TurqCurrentCard card = (TurqCurrentCard)selection[0].getData();
-			new CurUICurrentCardUpdate(this.getShell(),SWT.NULL,card).open();
-			search();
+			boolean updated=new CurUICurrentCardUpdate(this.getShell(),SWT.NULL,card).open();
+			if (updated)
+				search();
 		}
 	}
 	public void exportToExcel(){

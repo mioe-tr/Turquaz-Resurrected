@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.29 2005/01/13 16:22:54 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.30 2005/01/16 08:13:52 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -103,6 +103,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	private CoolItem coolTop;
 	private CoolBar coolBarTop;
 	private TurqCurrentContact curContact=null;
+	private boolean updated=false;
 
 	public CurUICurrentCardUpdate(Shell parent, int style, TurqCurrentCard curCard) {
 		super(parent, style);
@@ -113,7 +114,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	* Opens the Dialog Shell.
 	* Auto-generated code - any changes you make will disappear.
 	*/
-	public void open(){
+	public boolean open(){
 		try {
 			preInitGUI();
 	
@@ -267,8 +268,10 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				if (!display.readAndDispatch())
 					display.sleep();
 			}
+			return updated;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 /** Add your pre-init code in here 	*/
@@ -472,6 +475,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 	    
 			if(result==SWT.OK)
 			{	 		
+				updated=true;
 				deleteRelations();			
 				currentUpdate.deleteObject(currentCard);			
 				msg.setMessage(Messages.getString("CurUICurrentCardUpdate.22")); //$NON-NLS-1$
@@ -549,7 +553,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 		try{
 			
 		if(verifyFields()){	
-		
+		updated=true;
 		currentUpdate.updateCurrentCard(compCurCardAdd.getTxtCurrentCode().getText().trim(),
 				compCurCardAdd.getTxtCurrentName().getText().trim(),
 				compCurCardAdd.getTxtCardDefinition().getText().trim(),
