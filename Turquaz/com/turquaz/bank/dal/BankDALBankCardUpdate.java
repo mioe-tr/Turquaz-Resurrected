@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankDALBankCardUpdate.java,v 1.8 2005/03/17 15:02:12 onsel Exp $
+ * @version $Id: BankDALBankCardUpdate.java,v 1.9 2005/03/29 15:45:04 onsel Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -42,14 +42,14 @@ public class BankDALBankCardUpdate
 			{
 				return true;
 			}
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = " Select count(bankTrans.id) from TurqBanksTransaction as bankTrans where "
 					+ " bankTrans.turqBanksCard = :bankCard and bankTrans.turqBanksTransactionBill.turqBanksTransactionType.id <> "
 					+ EngBLCommon.BANK_TRANS_INITIAL;
 			Query q = session.createQuery(query);
 			q.setParameter("bankCard", bankCard);
 			List ls = q.list();
-			session.close();
+		
 			if (ls.size() == 0)
 			{
 				return true;
@@ -72,7 +72,7 @@ public class BankDALBankCardUpdate
 	{
 		try
 		{
-			Session session = EngDALSessionFactory.openSession();
+			Session session = EngDALSessionFactory.getSession();
 			String query = "Select bankTransBill from TurqBanksTransactionBill as bankTransBill "
 					+ " left join bankTransBill.turqBanksTransactions as bankTrans"
 					+ " where bankTransBill.turqBanksTransactionType.id = " + EngBLCommon.BANK_TRANS_INITIAL
@@ -87,7 +87,7 @@ public class BankDALBankCardUpdate
 				BankBLTransactionUpdate.deleteTransaction(transBill);
 			}
 			session.flush();
-			session.close();
+		
 		}
 		catch (Exception ex)
 		{
