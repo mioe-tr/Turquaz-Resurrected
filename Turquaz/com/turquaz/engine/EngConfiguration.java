@@ -24,7 +24,7 @@ package com.turquaz.engine;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngConfiguration.java,v 1.5 2004/11/19 08:16:56 onsel Exp $
+* @version  $Id: EngConfiguration.java,v 1.6 2004/11/19 09:02:01 onsel Exp $
 */
 import java.io.FileInputStream;
 
@@ -45,7 +45,8 @@ public class EngConfiguration {
 	private static EngConfiguration _instance;
 	private EngConfiguration() {
 	    try{
-     FileInputStream fis = new FileInputStream(filename);
+	        
+      FileInputStream fis = new FileInputStream(filename);
 	   props = new Properties();
 	   props.load(fis);
 	    
