@@ -17,14 +17,13 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashCardAbstract.java,v 1.7 2005/02/06 11:11:34 cemdayanik Exp $
+* @version  $Id: CashUICashCardAbstract.java,v 1.8 2005/02/06 14:32:02 onsel Exp $
 */
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.text.TabExpander;
 
 import org.eclipse.swt.layout.GridLayout;
 
