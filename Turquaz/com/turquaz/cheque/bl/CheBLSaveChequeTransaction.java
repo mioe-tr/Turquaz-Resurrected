@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLSaveChequeTransaction.java,v 1.25 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CheBLSaveChequeTransaction.java,v 1.26 2005/03/02 19:30:49 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -63,7 +63,6 @@ public class CheBLSaveChequeTransaction {
     public static void saveChequeRoll(TurqAccountingAccount rollAccount, TurqCurrentCard curCard,TurqBanksCard bankCard, String rollNo,Date rollDate,List chequeList, int rollType, boolean sumTransTotal, TurqCurrencyExchangeRate exchangeRate)throws Exception {
      
       try{
-          
       	
  
       	
@@ -430,6 +429,7 @@ public class CheBLSaveChequeTransaction {
     			
     			if(chequeAccount == null)
     			{
+    				System.out.println("daaf");
     				return ;
     			}
     			if(accountMap.containsKey(chequeAccount.getId()))

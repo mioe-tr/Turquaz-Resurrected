@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.12 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.13 2005/03/02 19:30:49 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -174,6 +174,14 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog {
 	        compChequeRoll.getToolItemDelete().setEnabled(false);
 	        compChequeRoll.getToolItemUpdate().setEnabled(false);
 	        
+	        if(chequeRoll.getTurqChequeRollAccountingAccount()==null)
+	        {
+	        	compChequeRoll.getAccountPicker().setData(null);
+	        }
+	        else
+	        {
+	        	compChequeRoll.getAccountPicker().setData(chequeRoll.getTurqChequeRollAccountingAccount().getTurqAccountingAccount());
+	        }
 	        TableItem item;
 	        
 	        Iterator it = chequeRoll.getTurqChequeChequeInRolls().iterator();

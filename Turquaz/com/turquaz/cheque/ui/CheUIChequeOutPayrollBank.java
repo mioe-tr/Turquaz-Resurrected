@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.7 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CheUIChequeOutPayrollBank.java,v 1.8 2005/03/02 19:30:49 onsel Exp $
 */
 
 import java.util.ArrayList;
@@ -216,7 +216,7 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
                 {
                     tableColumnNo = new TableColumn(tableCheques, SWT.NONE);
                     tableColumnNo.setText(Messages.getString("CheUIChequeInPayroll.6")); //$NON-NLS-1$
-                    tableColumnNo.setWidth(59);
+                    tableColumnNo.setWidth(72);
                 }
                 {
                     tableColumnDueDaye = new TableColumn(tableCheques, SWT.NONE);
@@ -410,4 +410,17 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
     public void setTxtRollNo(Text txtRollNo) {
         this.txtRollNo = txtRollNo;
     }
+    
+	/**
+	 * @return Returns the accountPicker.
+	 */
+	public AccountPicker getAccountPicker() {
+		return accountPicker;
+	}
+	/**
+	 * @param accountPicker The accountPicker to set.
+	 */
+	public void setAccountPicker(AccountPicker accountPicker) {
+		this.accountPicker = accountPicker;
+	}
 }

@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.17 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.18 2005/03/02 19:30:49 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -45,6 +45,7 @@ import com.turquaz.engine.dal.TurqCashTransaction;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.dal.TurqChequeChequeInRoll;
 import com.turquaz.engine.dal.TurqChequeRoll;
+import com.turquaz.engine.dal.TurqChequeRollAccountingAccount;
 
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 import com.turquaz.engine.dal.TurqCurrentCard;
@@ -150,6 +151,16 @@ public class CheBLUpdateChequeRoll {
                
            }
            
+           if(rollAccount!=null){
+            
+            	TurqChequeRollAccountingAccount rollAccountingAccount = new TurqChequeRollAccountingAccount();
+            	rollAccountingAccount.setId(chequeRoll.getId());
+            	rollAccountingAccount.setTurqChequeRoll(chequeRoll);
+            	rollAccountingAccount.setTurqAccountingAccount(rollAccount);
+            	CheDALSave.save(rollAccountingAccount);          
+            
+            }
+           
           CheDALSave.update(chequeRoll);
                 
            TurqChequeCheque cheque;
@@ -207,7 +218,12 @@ public class CheBLUpdateChequeRoll {
            	CheBLSaveChequeTransaction.saveRollAccountingTransactions(rollAccount,curAccount,chequeRoll,totalAmount,EngBLCommon.getBaseCurrencyExchangeRate());
            	
            }
+           else if(rollType==EngBLCommon.CHEQUE_TRANS_OUT_BANK)
+           {
            
+           	CheBLSaveChequeTransaction.saveRollAccountingTransactions(rollAccount,null,chequeRoll,totalAmount,EngBLCommon.getBaseCurrencyExchangeRate());
+           }
+          
            
       
            /*   if(bankCard!=null&&sumTransTotal)
@@ -262,7 +278,13 @@ public class CheBLUpdateChequeRoll {
 	        	new AccBLTransactionSearch().removeAccountingTransaction(accTrans);
 	            
 	        }
-	      
+	        //Delete roll Account 
+	        //
+	        
+	        if(chequeRoll.getTurqChequeRollAccountingAccount()!=null)
+	        {
+	        CheDALSave.delete(chequeRoll.getTurqChequeRollAccountingAccount());
+	        }
 	        
             
             
