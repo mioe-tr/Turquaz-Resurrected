@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIGroupAddDialog.java,v 1.17 2005/03/30 20:25:00 onsel Exp $
+ * @version  $Id: CurUIGroupAddDialog.java,v 1.18 2005/03/31 12:23:34 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -46,6 +46,7 @@ import org.eclipse.swt.SWT;
 import com.turquaz.current.CurKeys;
 import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentCardAdd;
+import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.cloudgarden.resource.SWTResourceManager;
@@ -354,12 +355,15 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			else
 			{
-				TurqCurrentGroup invGroup = (TurqCurrentGroup) txtGroupName.getData();
-				invGroup.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-				invGroup.setLastModified(new java.sql.Date(cal.getTime().getTime()));
-				invGroup.setGroupsName(txtGroupName.getText().trim());
-				invGroup.setGroupsDescription(txtDescription.getText().trim());
-				CurBLCurrentCardAdd.updateObject(invGroup);
+				
+				HashMap argMap = new HashMap();
+				argMap.put(CurKeys.CUR_GROUP,txtGroupName.getData());
+				argMap.put(CurKeys.CUR_GROUP_NAME,txtGroupName.getText().trim());
+			    argMap.put(EngKeys.DEFINITION,txtDescription.getText().trim());
+				
+			    EngTXCommon.doTransactionTX(CurBLCurrentCardAdd.class.getName(),"updateGroup",argMap);
+			    
+			    
 				btnDelete.setEnabled(false);
 				btnUpdate.setEnabled(false);
 				btnGroupAdd.setEnabled(true);
@@ -399,7 +403,13 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			else
 			{
-				CurBLCurrentCardAdd.saveCurrentGroup(txtGroupName.getText().trim(), txtDescription.getText().trim());
+				HashMap argMap = new HashMap();
+				argMap.put(CurKeys.CUR_GROUP,txtGroupName.getText().trim());
+				argMap.put(EngKeys.DEFINITION,txtDescription.getText().trim());
+				
+				EngTXCommon.doTransactionTX(CurBLCurrentCardAdd.class.getName(),"saveCurrentGroup",argMap);
+				
+				
 				msg.setMessage(Messages.getString("CurUIGroupAddDialog.25")); //$NON-NLS-1$
 				txtGroupName.setText(""); //$NON-NLS-1$
 				txtDescription.setText(""); //$NON-NLS-1$
