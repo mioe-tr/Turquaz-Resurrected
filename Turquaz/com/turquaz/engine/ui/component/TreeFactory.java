@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.66 2005/02/01 19:28:04 onsel Exp $
+* @version  $Id: TreeFactory.java,v 1.67 2005/02/02 19:39:09 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -139,16 +139,23 @@ public final class TreeFactory {
 		item.setText(Messages.getString("TreeFactory.35"));  //$NON-NLS-1$
 		item.setData(InvUITransactionSearch.class.getName());
 		}
+		
+		TreeItem reports = new TreeItem(tree,SWT.NULL);
+		reports.setText("Raporlar");
+		
 		if(EngBLPermissions.getPermission(InvUIProfitAnalysis.class.getName())>0){
-			item = new TreeItem(root,SWT.NULL);
+			item = new TreeItem(reports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.44"));  //$NON-NLS-1$
 			item.setData(InvUIProfitAnalysis.class.getName());
 			}
 		if(EngBLPermissions.getPermission(InvUIInventoryLedger.class.getName())>0){
-			item = new TreeItem(root,SWT.NULL);
+			item = new TreeItem(reports,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.19"));  //$NON-NLS-1$
 			item.setData(InvUIInventoryLedger.class.getName());
 			}
+		
+		
+		reports.setExpanded(true);
 		root.setExpanded(true);
 		return tree;
 	}
