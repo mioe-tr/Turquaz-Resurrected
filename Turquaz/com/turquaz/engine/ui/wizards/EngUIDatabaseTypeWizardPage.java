@@ -19,10 +19,11 @@ package com.turquaz.engine.ui.wizards;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.8 2004/11/22 21:48:31 huseyiner Exp $
+* @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.9 2004/11/23 15:29:30 huseyiner Exp $
 */
 
 
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -87,7 +88,10 @@ public class EngUIDatabaseTypeWizardPage extends WizardPage {
 	            {
 	                public void widgetSelected(SelectionEvent e)
 	                {
+	                	
+	               ((EngUIDatabaseConnectionInfoWizardPage)getNextPage()).updateFields(comboDBServer.getText());	
 	                updateStatus(null);
+	                
 	                }
 	            });
 	      
@@ -138,5 +142,14 @@ public class EngUIDatabaseTypeWizardPage extends WizardPage {
 	 */
 	public void setSelection(ISelection selection) {
 		this.selection = selection;
+	}
+	public IWizardPage getNextPage() {
+
+		EngUIDatabaseConnectionInfoWizardPage page = ((EngUIDatabaseConnectionWizard) getWizard())
+				.getPage2();
+	
+
+		return page;
+
 	}
 }

@@ -30,7 +30,7 @@ import net.sf.hibernate.cfg.Configuration;
 /**
  * @author onsel
  *
- * @version $Id: EngDALSessionFactory.java,v 1.12 2004/11/22 21:48:31 huseyiner Exp $
+ * @version $Id: EngDALSessionFactory.java,v 1.13 2004/11/23 15:29:31 huseyiner Exp $
  * 
  * Class for initial database configuration. It creates the necessary
  * bindings according to hibernate.cfg.xml
@@ -58,7 +58,7 @@ public class EngDALSessionFactory {
 		 url = "jdbc:hsqldb:hsql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort");
 		  driver = "org.hsqldb.jdbcDriver";
 		}
-			else if (EngConfiguration.getString("dbType").startsWith("Turquaz"))
+			else if (EngConfiguration.getString("dbType").startsWith("Postgresql"))
 			{
 				url = "jdbc:postgresql://"+EngConfiguration.getString("serverAddress")+":"+EngConfiguration.getString("serverPort")+"/"+EngConfiguration.getString("dbName");
 				 driver = "org.postgresql.Driver";
