@@ -18,7 +18,7 @@ package com.turquaz.current.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurDALCurrentCardSearch.java,v 1.19 2005/02/04 11:23:18 onsel Exp $
+* @version  $Id: CurDALCurrentCardSearch.java,v 1.20 2005/02/14 12:18:25 onsel Exp $
 */
 import java.util.List;
 
@@ -26,6 +26,7 @@ import net.sf.hibernate.Hibernate;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentGroup;
@@ -122,7 +123,8 @@ public class CurDALCurrentCardSearch {
 			Session session = EngDALSessionFactory.openSession();
 			
 			String query = "Select bankTrans from TurqCurrentTransaction as bankTrans" +
-					" where bankTrans.turqCurrentCard.currentCardsId="+curCard.getCurrentCardsId();
+					" where bankTrans.turqCurrentCard.currentCardsId="+curCard.getCurrentCardsId()+
+					" and bankTrans.turqCurrentTransactionType.currentTransactionTypesId <>"+EngBLCommon.CURRENT_TRANS_INITIAL;
 
 			Query q = session.createQuery(query); 	
 			List list = q.list();

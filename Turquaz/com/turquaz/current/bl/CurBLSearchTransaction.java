@@ -18,7 +18,7 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.16 2005/02/04 11:23:18 onsel Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.17 2005/02/14 12:18:25 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -167,6 +167,16 @@ public class CurBLSearchTransaction {
 	        throw ex;
 	    }
 	    
+	}
+	public void deleteInitialTransactions(TurqCurrentCard curCard)throws Exception {
+	    try{
+	    
+	    	dalSearch.deleteInitialTransactions(curCard);
+	    	
+	    }
+	    catch(Exception ex){
+	    	throw ex;
+	    }
 	}
 	
 	

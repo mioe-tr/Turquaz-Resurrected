@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.32 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.33 2005/02/14 12:18:25 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -36,6 +36,7 @@ import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentCardAdd;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentCardUpdate;
+import com.turquaz.current.bl.CurBLSearchTransaction;
 import com.turquaz.current.ui.CurUICurrentCardAdd;
 import org.eclipse.swt.layout.GridData;
 
@@ -515,6 +516,8 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 				
 				currentUpdate.deleteObject(it.next());
 			}
+		new CurBLSearchTransaction().deleteInitialTransactions(currentCard);
+			
 	}
 	catch(Exception ex ){
 	throw ex;
