@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIEntryFrame.java,v 1.32 2004/12/10 01:48:24 onsel Exp $
+* @version  $Id: EngUIEntryFrame.java,v 1.33 2004/12/13 19:28:03 onsel Exp $
 */
 import java.io.File;
 import java.io.FileInputStream;
@@ -139,17 +139,17 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite {
 	private void initGUI() {
 		try {
 			
-		
-			   
+		 
+			 
 			String database = EngConfiguration.getString("serverAddress"); //$NON-NLS-1$
 			database = database.trim();
 			
-			if (database.equals("") || database.equals("localhost") || database.equals("127.0.0.1"))
+			if (database ==null||database.equals("") || database.equals("localhost") || database.equals("127.0.0.1"))
 			{
 		    DatabaseThread dbThread = new DatabaseThread();
 		    dbThread.start();
 			}
-			  preInitGui();
+			   preInitGui();
 		 
 			GridLayout thisLayout = new GridLayout();
 			this.addKeyListener(new KeyAdapter() {
