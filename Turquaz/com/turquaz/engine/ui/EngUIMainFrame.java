@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.138 2005/03/30 09:21:44 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.139 2005/04/01 20:06:21 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -85,7 +85,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.138 2005/03/30 09:21:44 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.139 2005/04/01 20:06:21 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -263,7 +263,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 			lblFavoritesTab = new CLabel(compFavoritesSelection, SWT.NULL);
 			treeFavorites = new Tree(compFavoritesTab, SWT.NULL);
 			compMainInRight = new Composite(sashMainHorizontal, SWT.NULL);
-			this.setSize(793, 572);
+			this.setSize(797, 582);
 			GridData compMainLData = new GridData();
 			compMainLData.verticalAlignment = GridData.FILL;
 			compMainLData.horizontalAlignment = GridData.FILL;

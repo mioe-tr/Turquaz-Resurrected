@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.60 2005/04/01 17:04:38 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.61 2005/04/01 20:06:52 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1208,9 +1208,7 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 			Logger loger = Logger.getLogger(this.getClass());
 			loger.error("Exception Caught", ex); //$NON-NLS-1$
 			ex.printStackTrace();
-			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
-			msg.setMessage(ex.getMessage());
-			msg.open();
+			
 		}
 	}
 
