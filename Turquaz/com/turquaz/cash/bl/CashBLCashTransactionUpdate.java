@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionUpdate.java,v 1.30 2005/04/01 06:54:58 cemdayanik Exp $
+ * @version $Id: CashBLCashTransactionUpdate.java,v 1.31 2005/04/01 06:55:43 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -134,7 +134,7 @@ public class CashBLCashTransactionUpdate
 		}
 	}
 
-	/
+	
 	public static void updateCashTrans(TurqCashTransaction cashTrans, TurqCashCard cashCard, TurqCurrentCard current,
 			BigDecimal totalAmount, Date transDate, String definition, String document_no, TurqCurrencyExchangeRate exchangeRate)
 			throws Exception
