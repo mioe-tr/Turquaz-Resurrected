@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.19 2004/12/29 16:20:23 cemdayanik Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.20 2004/12/29 16:31:01 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -950,7 +950,7 @@ implements SecureComposite{
 			txtConsignment.setFocus();
 			return false;
 		}
-		Boolean isCurrent=(Boolean)comboPaymentType.getData();
+		Boolean isCurrent=(Boolean)comboPaymentType.getData(comboPaymentType.getText());
 		if (isCurrent.booleanValue())
 		{
 			if (accountPickerCurAcc.getData()==null)

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.21 2004/12/29 16:20:23 cemdayanik Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.22 2004/12/29 16:31:01 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -1335,7 +1335,7 @@ public class BillUIAddBuyBill extends Composite
 			return false;
 		}
 		
-		Boolean isCurrent=(Boolean)comboPaymentType.getData();
+		Boolean isCurrent=(Boolean)comboPaymentType.getData(comboPaymentType.getText());
 		if (isCurrent.booleanValue())
 		{
 			if (accountPickerCurAcc.getData()==null)
