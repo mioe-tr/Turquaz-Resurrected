@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.98 2005/02/06 10:32:01 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.99 2005/02/06 15:38:51 onsel Exp $
  */
 
 import org.eclipse.jface.viewers.CellEditor;
@@ -58,6 +58,7 @@ import com.turquaz.engine.dal.TurqInventoryUnit;
 
 import com.turquaz.engine.ui.component.SecureComposite;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1802,7 +1803,9 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 		try {
 			Object invUnit = comboInvCardUnits.getData(comboInvCardUnits
 					.getText());
-			blCardAdd.registerUnits(cardId, invUnit, 1);
+			
+			blCardAdd.registerUnits(cardId, invUnit, new BigDecimal(1));
+			
 			TableItem item;
 			//Register Secondary Units
 			int itemCount = tableInvCardAddRegisteredUnits.getItemCount();
@@ -1811,7 +1814,7 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 				item = tableInvCardAddRegisteredUnits.getItem(i);
 				editor = (TableEditor) mapEditorsTableInvCardAddRegisteredUnits
 						.get(item.getText(0));
-				int factor = ((NumericText) editor.getEditor()).getIntValue();
+				BigDecimal factor = ((CurrencyText) editor.getEditor()).getBigDecimalValue();
 				blCardAdd.registerUnits(cardId, item.getData(), factor);
 
 			}
@@ -1951,9 +1954,9 @@ public class InvUICardAdd extends Composite implements SecureComposite {
 					TableEditor editor = new TableEditor(
 							tableInvCardAddRegisteredUnits);
 					editor.grabHorizontal = true;
-					NumericText nText = new NumericText(
+					CurrencyText nText = new CurrencyText(
 							tableInvCardAddRegisteredUnits, SWT.NONE);
-					nText.setText(1);
+					nText.setText(new BigDecimal(1));
 					editor.setEditor(nText, registeredItem, 1);
 					mapEditorsTableInvCardAddRegisteredUnits.put(itemText,
 							editor);

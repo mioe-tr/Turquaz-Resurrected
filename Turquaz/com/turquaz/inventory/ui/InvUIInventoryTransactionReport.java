@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Cem Dayanik
-* @version  $Id: InvUIInventoryTransactionReport.java,v 1.4 2005/02/06 10:04:35 onsel Exp $
+* @version  $Id: InvUIInventoryTransactionReport.java,v 1.5 2005/02/06 15:38:52 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -449,7 +449,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 				BigDecimal priceIn = new BigDecimal(0);
 				BigDecimal priceOut = new BigDecimal(0);
 				
-				if(transactions.getTransactionsAmountIn()==0){
+				if(transactions.getTransactionsAmountIn().doubleValue()==0){
 					priceOut = transactions.getTransactionsTotalPrice();
 					
 					

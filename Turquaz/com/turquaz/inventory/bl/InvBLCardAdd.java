@@ -18,7 +18,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardAdd.java,v 1.25 2005/02/04 13:06:35 cemdayanik Exp $
+* @version  $Id: InvBLCardAdd.java,v 1.26 2005/02/06 15:38:53 onsel Exp $
 */
 
 
@@ -76,7 +76,7 @@ public class InvBLCardAdd {
 
 	}
 
-	public void registerUnits(Integer cardId, Object unitObj, int factor)
+	public void registerUnits(Integer cardId, Object unitObj, BigDecimal factor)
 			throws Exception {
 
 		TurqInventoryCardUnit cardUnit = new TurqInventoryCardUnit();
