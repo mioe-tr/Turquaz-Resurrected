@@ -18,7 +18,7 @@ package com.turquaz.bank.dal;
 
 /**
 * @author  Ceday
-* @version  $Id: BankDALBankCardUpdate.java,v 1.4 2005/03/11 15:41:36 onsel Exp $
+* @version  $Id: BankDALBankCardUpdate.java,v 1.5 2005/03/15 14:24:00 cemdayanik Exp $
 */
 
 import java.util.List;
@@ -38,23 +38,17 @@ public class BankDALBankCardUpdate {
 	public BankDALBankCardUpdate(){
 	}
 
-	public void updateObject(Object obj)throws Exception{
-		try{
-			Session session = EngDALSessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			
+	public static void updateObject(Session session, Object obj)throws Exception{
+		try
+		{
 			session.update(obj);
-			session.flush();
-			tx.commit();
-			session.close();
-			
-			}
-			catch(Exception ex){
-				throw ex;
-			}
-		
-		
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}		
 	}
+	
 	public void deleteObject(Object obj)throws Exception{
 		
 		Transaction tx = null;

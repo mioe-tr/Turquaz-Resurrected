@@ -18,12 +18,14 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLSearchTransaction.java,v 1.21 2005/03/02 13:14:34 cemdayanik Exp $
+* @version  $Id: CurBLSearchTransaction.java,v 1.22 2005/03/15 14:24:01 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import net.sf.hibernate.Session;
 
 import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
@@ -192,10 +194,10 @@ public class CurBLSearchTransaction {
 	    }
 	    
 	}
-	public void deleteInitialTransactions(TurqCurrentCard curCard)throws Exception {
+	public void deleteInitialTransactions(Session session,TurqCurrentCard curCard)throws Exception {
 	    try{
 	    
-	    	dalSearch.deleteInitialTransactions(curCard);
+	    	CurDALSearchTransaction.deleteInitialTransactions(session,curCard);
 	    	
 	    }
 	    catch(Exception ex){

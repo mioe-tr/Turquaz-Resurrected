@@ -22,7 +22,7 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLTransactionUpdate.java,v 1.6 2005/02/21 20:08:40 onsel Exp $
+* @version  $Id: CurBLTransactionUpdate.java,v 1.7 2005/03/15 14:24:01 cemdayanik Exp $
 */
 
 public class CurBLTransactionUpdate {
@@ -32,8 +32,8 @@ public class CurBLTransactionUpdate {
     public static void updateTrans(Object trans)throws Exception{
         try{
             
-        	
-          dalUpdate.updateObject(trans);  
+//        	TODO Should not send null
+          CurDALCurrentCardUpdate.updateObject(null,trans);  
             
             
         }
@@ -44,8 +44,8 @@ public class CurBLTransactionUpdate {
     }
     public static void delete(Object obj)throws Exception{
         try{
-            
-            dalUpdate.deleteObject(obj);
+//        	TODO Should not send null
+            CurDALCurrentCardUpdate.deleteObject(null,obj);
             
         }
         catch(Exception ex){

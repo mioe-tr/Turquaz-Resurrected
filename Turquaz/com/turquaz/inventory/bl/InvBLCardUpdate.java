@@ -19,7 +19,7 @@ package com.turquaz.inventory.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLCardUpdate.java,v 1.14 2005/03/15 08:17:10 cemdayanik Exp $
+* @version  $Id: InvBLCardUpdate.java,v 1.15 2005/03/15 14:24:00 cemdayanik Exp $
 */
 
 
@@ -90,7 +90,7 @@ public class InvBLCardUpdate {
 		{	
 	   		deleteInvCardAccounts(session,invCard);
 	   		session.flush();
-	   		InvBLCardAdd.saveInvAccounts(session,invCard,invAccounts);
+	   		InvBLCardAdd.saveInvCardAccounts(session,invCard,invAccounts);
 		}
 	   	catch(Exception ex)
 		{
@@ -105,7 +105,7 @@ public class InvBLCardUpdate {
 		{
 	   		deleteInvCardUnits(session,invCard);
 	   		session.flush();
-	   		InvBLCardAdd.saveInvPrices(session,invCard,invPrices);
+	   		InvBLCardAdd.saveInvCardPrices(session,invCard,invPrices);
 		}
 	   	catch(Exception ex)
 		{
@@ -136,7 +136,7 @@ public class InvBLCardUpdate {
 			{
 	   			deleteInvCardGroups(session,invCard);
 	   			session.flush();
-	   			InvBLCardAdd.saveInvGroups(session,invCard,invGroups);   
+	   			InvBLCardAdd.saveInvCardGroups(session,invCard,invGroups);   
 			} 
 	   		catch(Exception ex){
 	   			throw ex;

@@ -18,7 +18,7 @@ package com.turquaz.bank.bl;
 
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.31 2005/03/10 13:44:11 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.32 2005/03/15 14:24:00 cemdayanik Exp $
  */
 
 import java.math.BigDecimal;
@@ -197,8 +197,7 @@ public class BankBLTransactionAdd {
             transType.setId(new Integer(
                     EngBLCommon.BANK_TRANS_INITIAL));
 
-            TurqBanksTransactionBill bankTransBill = new TurqBanksTransactionBill();
-       
+            TurqBanksTransactionBill bankTransBill = new TurqBanksTransactionBill();       
 
             bankTransBill.setTurqEngineSequence(seq);
 

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUIGroupAddDialog.java,v 1.12 2005/01/17 10:52:30 onsel Exp $
+* @version  $Id: CurUIGroupAddDialog.java,v 1.13 2005/03/15 14:24:00 cemdayanik Exp $
 */
 import java.util.Calendar;
 import java.util.List;
@@ -412,7 +412,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog {
 	    }
 	    else{
 	    
-	    blCardAdd.saveCurGroup(txtGroupName.getText().trim(),txtDescription.getText().trim());
+	    CurBLCurrentCardAdd.saveCurrentGroup(txtGroupName.getText().trim(),txtDescription.getText().trim());
 	    msg.setMessage(Messages.getString("CurUIGroupAddDialog.25")); //$NON-NLS-1$
 	    txtGroupName.setText(""); //$NON-NLS-1$
 	    txtDescription.setText(""); //$NON-NLS-1$

@@ -18,13 +18,14 @@ package com.turquaz.current.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.33 2005/03/06 19:33:25 cemdayanik Exp $
+* @version  $Id: CurBLCurrentTransactionAdd.java,v 1.34 2005/03/15 14:24:01 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+
 
 import com.turquaz.accounting.bl.AccBLTransactionAdd;
 
