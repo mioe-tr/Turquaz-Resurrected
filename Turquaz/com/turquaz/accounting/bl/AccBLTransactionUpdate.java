@@ -18,7 +18,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionUpdate.java,v 1.12 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: AccBLTransactionUpdate.java,v 1.13 2005/03/06 19:33:22 cemdayanik Exp $
 */
 
 import java.sql.Date;
@@ -41,6 +41,7 @@ public class AccBLTransactionUpdate {
 		
 	}
 	
+	//TODO DONE
 	public void updateTransaction(TurqAccountingTransaction transaction,String docNo, Object transDate, String definition, TurqCurrencyExchangeRate exchangeRate)
 	throws Exception{
 	

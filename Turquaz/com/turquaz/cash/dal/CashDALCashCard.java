@@ -39,7 +39,7 @@ import net.sf.hibernate.Transaction;
 /**
  * 
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.19 2005/03/01 18:14:14 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.20 2005/03/06 19:33:25 cemdayanik Exp $
  */
 
 public class CashDALCashCard {
@@ -59,11 +59,10 @@ public class CashDALCashCard {
             session.close();
             
             
-            
-            
         }
         catch(Exception ex){
             throw ex;
+            
         }
         
     }

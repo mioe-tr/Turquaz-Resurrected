@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.25 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: AccUITransactionPaymentUpdateDialog.java,v 1.26 2005/03/06 19:33:22 cemdayanik Exp $
 */
 
 
@@ -47,7 +47,6 @@ import org.eclipse.swt.events.DisposeListener;
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
 import com.turquaz.accounting.ui.AccUITransactionPayment;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
@@ -245,7 +244,7 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 	    
 		compTransactionPayment.getTxtDocumentNo().setText(accTrans.getTransactionDocumentNo());
 		compTransactionPayment.getTxtDefinition().setText(accTrans.getTransactionDescription());
-//		TODO exRate
+
 		compTransactionPayment.getComboCurrencyType().setText(accTrans.getTurqCurrencyExchangeRate().getTurqCurrencyByExchangeCurrencyId().getCurrenciesAbbreviation());
 
 		Date date = new Date(accTrans.getTransactionsDate().getTime());
@@ -302,10 +301,9 @@ public class AccUITransactionPaymentUpdateDialog extends org.eclipse.swt.widgets
 		try{
 		 if(compTransactionPayment.verifyFields()){
 		 	updated=true;
-//		 	TODO acc trans  exRate
 		 blTransUpdate.updateTransaction(accTrans,compTransactionPayment.getTxtDocumentNo().getText().trim(),
 										compTransactionPayment.getDatePickerTransactionDate().getData(),compTransactionPayment.getTxtDefinition().getText().trim(),
-										EngBLCommon.getBaseCurrencyExchangeRate());
+										compTransactionPayment.getExchangeRate());
 		 updateTransactionRows();
 		 msg.setMessage(Messages.getString("AccUITransactionPaymentUpdateDialog.6")); //$NON-NLS-1$
 		 msg.open();

@@ -18,11 +18,10 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLTransactionSearch.java,v 1.20 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: AccBLTransactionSearch.java,v 1.21 2005/03/06 19:33:22 cemdayanik Exp $
 */
 
 
-import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -118,21 +117,6 @@ public class AccBLTransactionSearch {
 
 		}
 	}
-	
-	
-	public static BigDecimal getExchangeRatio(TurqCurrency baseCurrency, TurqCurrency exchangeCurrency, Date exhangeDate) throws Exception
-	{
-
-		try 
-		{
-			return AccDALTransactionSearch.getExchangeRatio(baseCurrency, exchangeCurrency, exhangeDate);
-
-		} catch (Exception ex) {
-			throw ex;
-
-		}
-	}
-	
 	
 	
 	

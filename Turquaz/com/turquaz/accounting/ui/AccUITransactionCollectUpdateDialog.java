@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.23 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.24 2005/03/06 19:33:23 cemdayanik Exp $
 */
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ import org.eclipse.swt.events.DisposeListener;
 import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionUpdate;
 import com.turquaz.accounting.ui.AccUITransactionCollect;
-import com.turquaz.engine.bl.EngBLCommon;
+
 import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqAccountingTransaction;
@@ -264,7 +264,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		}
 	    
 	compTransactionCollect.getTxtDocumentNo().setText(accTrans.getTransactionDocumentNo());
-	//	TODO exRate
+
 	compTransactionCollect.getComboCurrencyType().setText(accTrans.getTurqCurrencyExchangeRate().getTurqCurrencyByExchangeCurrencyId().getCurrenciesAbbreviation());
 
 	Date date = new Date(accTrans.getTransactionsDate().getTime());
@@ -293,12 +293,13 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 	{
 		transRow=(TurqAccountingTransactionColumn)transRows.get(k);
 	
-	if(!transRow.getCreditAmount().toString().equals("0")){ //$NON-NLS-1$
+		if(!transRow.getCreditAmount().toString().equals("0")){ //$NON-NLS-1$
 	
 		ITableRow row = new AccUITransactionCollectTableRow(compTransactionCollect.rowList);
 		
 		row.setDBObject(transRow);
 		compTransactionCollect.rowList.addTask(row);
+
 		
 	    
 	    
@@ -323,10 +324,9 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		try{
 		  if(compTransactionCollect.verifyFields()){
 		  	updated=true;
-		  	//TODO acc trans exRate
 		 blTransUpdate.updateTransaction(accTrans,compTransactionCollect.getTxtDocumentNo().getText().trim(),
 										compTransactionCollect.getDatePickerTransactionDate().getData(),compTransactionCollect.getTxtTransDefinition().getText(),
-										EngBLCommon.getBaseCurrencyExchangeRate());
+										compTransactionCollect.getExchangeRate());
 		 updateTransactionRows();
 		 msg.setMessage(Messages.getString("AccUITransactionCollectUpdateDialog.6")); //$NON-NLS-1$
 		 msg.open();

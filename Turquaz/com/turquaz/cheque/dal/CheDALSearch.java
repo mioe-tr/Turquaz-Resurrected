@@ -18,7 +18,7 @@ package com.turquaz.cheque.dal;
 
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.17 2005/03/03 14:13:12 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.18 2005/03/06 19:33:26 cemdayanik Exp $
  */
 
 import java.util.Date;
@@ -224,8 +224,7 @@ public class CheDALSearch {
 		try {
 
 			/**
-			 * TODO
-			 * Bankaya teminata cek verilmesi dusunulmeden Cheque_trans_out_current kullanildi.
+			 * TODO Bankaya teminata cek verilmesi dusunulmeden Cheque_trans_out_current kullanildi.
 			 */
 			Session session = EngDALSessionFactory.openSession();
 			TurqViewChequeStatus chequeStatus = null;

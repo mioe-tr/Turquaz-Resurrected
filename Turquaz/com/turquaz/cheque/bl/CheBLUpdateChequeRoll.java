@@ -18,7 +18,7 @@ package com.turquaz.cheque.bl;
 
 /**
 * @author  Onsel
-* @version  $Id: CheBLUpdateChequeRoll.java,v 1.22 2005/03/03 19:31:47 onsel Exp $
+* @version  $Id: CheBLUpdateChequeRoll.java,v 1.23 2005/03/06 19:33:25 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -125,7 +125,11 @@ public class CheBLUpdateChequeRoll {
             TurqAccountingAccount account = new TurqAccountingAccount();
             
             account.setId(new Integer(-1));
-            new CashBLCashTransactionAdd().saveCashTransaction(cashCard,chequeRoll.getTurqEngineSequence(),EngBLCommon.CASH_CHEQUE_COLLECT,rollDate,Messages.getString("CheBLSaveChequeTransaction.5"),rollNo,totals,account); //$NON-NLS-1$
+//          TODO cheq exRate
+            new CashBLCashTransactionAdd().saveCashTransaction(cashCard,
+            		chequeRoll.getTurqEngineSequence(),EngBLCommon.CASH_CHEQUE_COLLECT,
+					rollDate,Messages.getString("CheBLSaveChequeTransaction.5"),rollNo,
+					totals,account,EngBLCommon.getBaseCurrencyExchangeRate()); //$NON-NLS-1$
             
             CheBLSaveChequeTransaction.saveRollAccountingTransactions(cashCard.getTurqAccountingAccount(),null,chequeRoll,chequeTotals,EngBLCommon.getBaseCurrencyExchangeRate());
             

@@ -19,11 +19,13 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLCommon.java,v 1.48 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: EngBLCommon.java,v 1.49 2005/03/06 19:33:22 cemdayanik Exp $
 */
 
+import java.math.BigDecimal;
 import java.sql.Statement;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -220,8 +222,12 @@ public class EngBLCommon {
     
     public final static int TABLE_ROW_COUNT = 10;
     
+    
+    public final static int ROUNDING_METHOD=BigDecimal.ROUND_HALF_DOWN;
+    
     private static TurqCurrency baseCurrency=null;
     private static TurqCurrencyExchangeRate baseCurrencyExchangeRate=null;
+    
     
     public static TurqCurrency getBaseCurrency()
     {
@@ -237,6 +243,19 @@ public class EngBLCommon {
     		return null;
 		}
     }
+    
+	public static TurqCurrencyExchangeRate getCurrencyExchangeRate(TurqCurrency baseCurrency, TurqCurrency exchangeCurrency, Date exhangeDate) throws Exception
+	{
+
+		try 
+		{
+			return EngDALCommon.getCurrencyExchangeRate(baseCurrency, exchangeCurrency, exhangeDate);
+
+		} catch (Exception ex) {
+			throw ex;
+
+		}
+	}
     
     public static TurqCurrencyExchangeRate getBaseCurrencyExchangeRate()
     {

@@ -17,9 +17,9 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: BankUISearchMoneyTransaction.java,v 1.14 2005/03/01 16:24:40 onsel Exp $
+* @version  $Id: BankUISearchMoneyTransaction.java,v 1.15 2005/03/06 19:33:22 cemdayanik Exp $
 */
-
+//TODO add curreny to bank sarch
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;

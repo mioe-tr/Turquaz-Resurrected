@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.2 2005/03/01 16:24:39 onsel Exp $
+* @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.3 2005/03/06 19:33:25 cemdayanik Exp $
 */
 
 import java.math.BigDecimal;
@@ -195,20 +195,26 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog {
         
         
 	    Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
+	    boolean addCurrencyAbbr=false;
 	   while(it.hasNext()){
 	     
 	        TurqCashTransactionRow row = (TurqCashTransactionRow)it.next();
 	        
-	        if(row.getDeptAmount().compareTo(new BigDecimal(0))==1){
+	        if(row.getDeptAmountInForeignCurrency().compareTo(new BigDecimal(0))==1){
 	            
-	            compTransAdd.getCurTextTotalAmount().setText(row.getDeptAmount());
+	            compTransAdd.getCurTextTotalAmount().setText(row.getDeptAmountInForeignCurrency());
 	            compTransAdd.getTxtCashCardWithCredit().setText(row.getTurqCashCard().getCashCardName());
 	            
 	        }
 	        else
 	        {
-	            compTransAdd.getCurTextTotalAmount().setText(row.getCreditAmount() );
+	            compTransAdd.getCurTextTotalAmount().setText(row.getCreditAmountInForeignCurrency() );
 	            compTransAdd.getTxtCashCardWithDept().setText(row.getTurqCashCard().getCashCardName());
+	        }
+	        if (!addCurrencyAbbr)
+	        {
+	        	compTransAdd.getComboCurrencyType().setText(row.getTurqCurrencyExchangeRate().getTurqCurrencyByExchangeCurrencyId().getCurrenciesAbbreviation());
+	        	addCurrencyAbbr=true;
 	        }
 	   }
 	    
@@ -249,7 +255,8 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog {
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),
 	                                compTransAdd.getTxtDefinition().getText(),
-	                                compTransAdd.getTxtDocumentNo().getText());
+	                                compTransAdd.getTxtDocumentNo().getText(),
+									compTransAdd.getExchangeRate());
 	        }
 	        msg.setMessage(Messages.getString("CashUICashCollectTransactionUpdate.5")); //$NON-NLS-1$
 	        msg.open();

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 
 /**
 * @author  Onsel
-* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.14 2005/03/02 13:14:32 cemdayanik Exp $
+* @version  $Id: CashUICashPaymentTransactionUpdate.java,v 1.15 2005/03/06 19:33:25 cemdayanik Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -214,13 +214,14 @@ public class CashUICashPaymentTransactionUpdate extends org.eclipse.swt.widgets.
 	        compTransAdd.getTxtCashCard().setText(row.getTurqCashCard().getCashCardName());
 	        if(row.getDeptAmount().compareTo(new BigDecimal(0))==1){
 	            
-	            compTransAdd.getCurTextTotalAmount().setText(row.getDeptAmount());
+	            compTransAdd.getCurTextTotalAmount().setText(row.getDeptAmountInForeignCurrency());
 	            
 	        }
 	        else
 	        {
-	            compTransAdd.getCurTextTotalAmount().setText(row.getCreditAmount());
+	            compTransAdd.getCurTextTotalAmount().setText(row.getCreditAmountInForeignCurrency());
 	        }
+	        compTransAdd.getComboCurrencyType().setText(row.getTurqCurrencyExchangeRate().getTurqCurrencyByExchangeCurrencyId().getCurrenciesAbbreviation());
 	   }
 	    
 	    
@@ -259,14 +260,13 @@ public class CashUICashPaymentTransactionUpdate extends org.eclipse.swt.widgets.
 	        if(compTransAdd.verifyFields())
 	        {
 	        	updated=true;
-//	          TODO current trans exRate
 	        	blUpdate.updateCashTrans(cashTrans,(TurqCashCard)compTransAdd.getTxtCashCard().getData(),
 	                                (TurqCurrentCard)compTransAdd.getTxtCurrentAccount().getData(),
 	                                compTransAdd.getCurTextTotalAmount().getBigDecimalValue(),
 	                                compTransAdd.getDatePicker().getDate(),
 	                                compTransAdd.getTxtDefinition().getText(),
 	                                compTransAdd.getTxtDocumentNo().getText(),
-									EngBLCommon.getBaseCurrencyExchangeRate());
+									compTransAdd.getExchangeRate());
 	        
 	        	msg.setMessage(Messages.getString("CashUICashPaymentTransactionUpdate.9")); //$NON-NLS-1$
 	        	msg.open();
