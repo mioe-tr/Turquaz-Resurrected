@@ -18,7 +18,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALTransactionUpdate.java,v 1.5 2005/02/07 17:28:57 onsel Exp $
+* @version  $Id: AccDALTransactionUpdate.java,v 1.6 2005/03/01 17:50:35 onsel Exp $
 */
 
 
@@ -98,7 +98,7 @@ public class AccDALTransactionUpdate {
 	        Session session = EngDALSessionFactory.openSession();
 
 			String query = "select accTrans from TurqAccountingTransaction as accTrans"
-					+ " where accTrans.turqAccountingTransactionType.accountingTransactionTypesId ="+EngBLCommon.ACCOUNTING_TRANS_OPENING;
+					+ " where accTrans.turqAccountingTransactionType.id ="+EngBLCommon.ACCOUNTING_TRANS_OPENING;
 
 			Query q = session.createQuery(query);
 			
