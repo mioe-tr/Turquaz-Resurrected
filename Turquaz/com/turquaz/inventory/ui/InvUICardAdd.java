@@ -19,7 +19,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.8 2004/09/23 13:21:05 onsel Exp $
+ * @version $Id: InvUICardAdd.java,v 1.9 2004/09/24 07:05:38 huseyin Exp $
  */
 
 import org.eclipse.swt.widgets.Event;
@@ -125,7 +125,7 @@ public class InvUICardAdd extends SecureComposite {
 		try {
 			preInitGUI();
 	
-			cTabFolder1 = new CTabFolder(this,SWT.NULL);
+			cTabFolder1 = new CTabFolder(this,SWT.H_SCROLL| SWT.V_SCROLL);
 			cTabItem1 = new CTabItem(cTabFolder1,SWT.NULL);
 			comp_general_info = new Composite(cTabFolder1,SWT.NULL);
 			cLabel1 = new CLabel(comp_general_info,SWT.RIGHT);
