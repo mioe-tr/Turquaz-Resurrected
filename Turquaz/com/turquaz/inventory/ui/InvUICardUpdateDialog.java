@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.23 2004/11/09 08:23:38 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.24 2004/11/18 08:36:13 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -223,10 +223,10 @@ public class InvUICardUpdateDialog extends Dialog{
 	compInvUICard.getTxtInvCardCode().setText(invCard.getCardInventoryCode());
 	compInvUICard.getTxtInvCardDefinition().setText(invCard.getCardDefinition());
 	compInvUICard.getTxtInvCardDiscount().setText(invCard.getCardDiscount());
-	compInvUICard.getTxtInvCardInAcc().setText(invCard.getTurqAccountingAccountByAccountingAccountsIdBuy().getAccountCode());
+	compInvUICard.getTxtInvCardInAcc().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdBuy());
 	compInvUICard.getTxtInvCardInAcc().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdBuy());
 	compInvUICard.getTxtInvCardName().setText(invCard.getCardName());
-	compInvUICard.getTxtInvCardOutAcc().setText(invCard.getTurqAccountingAccountByAccountingAccountsIdSell().getAccountCode());
+	compInvUICard.getTxtInvCardOutAcc().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdSell());
 	compInvUICard.getTxtInvCardOutAcc().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdSell());
 	compInvUICard.getTxtInvCardSpecialCode().setText(invCard.getCardSpecialCode());
 	compInvUICard.getTxtInvCardVat().setText(invCard.getCardVat());
@@ -484,7 +484,9 @@ public class InvUICardUpdateDialog extends Dialog{
      }
     }
    catch(Exception ex){
-   ex.printStackTrace();
+   	MessageBox msg = new MessageBox(this.getParent(),SWT.ICON_ERROR);
+   	msg.setMessage(ex.getMessage());
+    ex.printStackTrace();
    }
      
    

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUIDialogInventoryCodeChoose.java,v 1.8 2004/10/28 14:27:15 onsel Exp $
+* @version  $Id: AccUIDialogInventoryCodeChoose.java,v 1.9 2004/11/18 08:36:13 onsel Exp $
 */
 
 
@@ -119,7 +119,7 @@ public class AccUIDialogInventoryCodeChoose extends org.eclipse.swt.widgets.Dial
     
     dialogShell.setLocation(location_X,location_Y);
 	AccUIAccountsTree treeFactory = new AccUIAccountsTree();
-	accountTree= treeFactory.fillTree(-1,"15",accountTree);
+	accountTree= treeFactory.fillTree(-1,"",accountTree);
 	
 	
 	}
