@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.40 2004/11/29 19:28:18 huseyiner Exp $
+* @version  $Id: TreeFactory.java,v 1.41 2004/11/30 08:42:52 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -349,7 +349,7 @@ public final class TreeFactory {
 			}
 		if(EngBLPermissions.getPermission(BillUIAddSellBill.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.40")); //$NON-NLS-1$
+			item.setText(Messages.getString("TreeFactory.42"));  //$NON-NLS-1$
 			item.setData(BillUIAddSellBill.class.getName());
 			}
 		root.setExpanded(true);
