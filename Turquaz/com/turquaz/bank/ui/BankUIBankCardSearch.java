@@ -18,7 +18,7 @@ package com.turquaz.bank.ui;
 
 /**
 * @author  Ceday
-* @version  $Id: BankUIBankCardSearch.java,v 1.14 2004/12/01 18:10:43 onsel Exp $
+* @version  $Id: BankUIBankCardSearch.java,v 1.15 2004/12/03 13:07:23 onsel Exp $
 */
 
 
@@ -47,7 +47,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
 
 
@@ -67,7 +66,7 @@ import org.eclipse.swt.events.KeyEvent;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class BankUIBankCardSearch extends  Composite implements SecureComposite,SearchComposite {
+public class BankUIBankCardSearch extends  Composite implements SearchComposite {
 
 	private CCombo comboCurrency;
 	private CLabel lblCurrency;
