@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupPermissions.java,v 1.7 2004/11/18 12:06:29 huseyiner Exp $
+* @version  $Id: AdmUIGroupPermissions.java,v 1.8 2004/11/25 09:41:37 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -158,9 +158,10 @@ implements SecureComposite,SearchComposite{
 				composite1LData.grabExcessHorizontalSpace = true;
 				composite1LData.horizontalAlignment = GridData.FILL;
 				composite1LData.verticalAlignment = GridData.BEGINNING;
-				composite1LData.heightHint = 122;
+				composite1LData.heightHint = 140;
 				composite1.setLayoutData(composite1LData);
 				composite1Layout.numColumns = 2;
+				composite1Layout.verticalSpacing = 3;
 				composite1.setLayout(composite1Layout);
 				{
 					lblGroups = new CLabel(composite1, SWT.NONE);

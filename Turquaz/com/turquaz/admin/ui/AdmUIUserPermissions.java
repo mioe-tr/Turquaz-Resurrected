@@ -18,7 +18,7 @@ package com.turquaz.admin.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.10 2004/11/18 12:06:29 huseyiner Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.11 2004/11/25 09:41:37 onsel Exp $
  */
 
 import org.eclipse.swt.layout.GridLayout;
@@ -120,9 +120,10 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite
 				composite1LData.grabExcessHorizontalSpace = true;
 				composite1LData.horizontalAlignment = GridData.FILL;
 				composite1LData.verticalAlignment = GridData.BEGINNING;
-				composite1LData.heightHint = 122;
+				composite1LData.heightHint = 144;
 				composite1.setLayoutData(composite1LData);
 				composite1Layout.numColumns = 2;
+				composite1Layout.verticalSpacing = 3;
 				composite1.setLayout(composite1Layout);
 				{
 					lblUsers = new CLabel(composite1, SWT.NONE);

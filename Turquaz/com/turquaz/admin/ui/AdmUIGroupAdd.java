@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AdmUIGroupAdd.java,v 1.5 2004/11/18 09:20:49 huseyiner Exp $
+* @version  $Id: AdmUIGroupAdd.java,v 1.6 2004/11/25 09:41:37 onsel Exp $
 */
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
@@ -127,8 +127,8 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 				lblAdmGroupDesc.setText(Messages.getString("AdmUIGroupAdd.1")); //$NON-NLS-1$
 				GridData lblAdmGroupDescLData = new GridData();
 				lblAdmGroupDescLData.verticalAlignment = GridData.BEGINNING;
-				lblAdmGroupDescLData.widthHint = 91;
-				lblAdmGroupDescLData.heightHint = 19;
+				lblAdmGroupDescLData.widthHint = 113;
+				lblAdmGroupDescLData.heightHint = 20;
 				lblAdmGroupDesc.setLayoutData(lblAdmGroupDescLData);
 			}
 			{
