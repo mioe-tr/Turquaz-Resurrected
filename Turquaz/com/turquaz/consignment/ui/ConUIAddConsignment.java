@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.32 2004/12/16 14:23:47 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.33 2004/12/16 16:22:45 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1289,10 +1289,7 @@ implements SecureComposite{
 	BigDecimal generalTotal = new BigDecimal(0);
 	BigDecimal discountTotal = new BigDecimal(0);
 	
-	/**
-	 * TODO change this looop
-	 *
-	 */
+	
 	for(int i =0;i<items.length;i++){
 	    TurqInventoryTransaction invTrans = (TurqInventoryTransaction)((InvUITransactionTableRow)(items[i].getData())).getDBObject();
 		subTotal = subTotal.add(invTrans.getTransactionsTotalPrice());
