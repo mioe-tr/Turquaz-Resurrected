@@ -17,12 +17,16 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.31 2005/02/24 14:17:35 cemdayanik Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.32 2005/03/01 15:25:07 cemdayanik Exp $
 */
+
 
 import java.util.Date;
 import java.util.Iterator;
+
 import java.util.Set;
+
+
 
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
@@ -274,22 +278,28 @@ public void showDialog(TurqAccountingTransaction accTrans){
 	compTransactionAdd.rowList.removeAll();
 		
 	Set transactionRows = accTrans.getTurqAccountingTransactionColumns();
-	
+	//List transRows=new ArrayList();
+	//transRows.addAll(transactionRows);
+	//Collections.sort(transRows);
 	Iterator it = transactionRows.iterator();
 	TurqAccountingTransactionColumn transRow;
 	TableItem item;
 	boolean isCurrencySet = false;
-	while(it.hasNext()){
-	transRow =(TurqAccountingTransactionColumn)it.next();
-
+	while(it.hasNext())
+	//for (int k=0; k<transRows.size(); k++)
+	{
+		transRow =(TurqAccountingTransactionColumn)it.next();
+		//transRow=(TurqAccountingTransactionColumn)transRows.get(k);
 	
-	ITableRow row = new AccUITransactionAddTableRow(compTransactionAdd.rowList);
-	row.setDBObject(transRow);
-	compTransactionAdd.rowList.addTask(row);
+		ITableRow row = new AccUITransactionAddTableRow(compTransactionAdd.rowList);
+		row.setDBObject(transRow);
+		compTransactionAdd.rowList.addTask(row);
 	
 	
 	}
 	// add last empty row
+
+	
 	AccUITransactionAddTableRow row2 = new AccUITransactionAddTableRow(compTransactionAdd.rowList);
 	compTransactionAdd.rowList.addTask(row2);
 	
