@@ -25,7 +25,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseAdd;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvBLWarehouseAdd.java,v 1.8 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: InvBLWarehouseAdd.java,v 1.9 2004/12/29 20:10:13 cemdayanik Exp $
 */
 
 public class InvBLWarehouseAdd {
@@ -45,7 +45,7 @@ public class InvBLWarehouseAdd {
 		warehouse.setWarehousesCity(whCity);
 		warehouse.setWarehousesTelephone(whTelephone);
 		warehouse.setWarehousesDescription(whDescription);
-		warehouse.setWarehousesCode(whName);
+		warehouse.setWarehousesCode(whCode);
 		
 		warehouse.setCreatedBy(System.getProperty("user"));
 		warehouse.setUpdatedBy(System.getProperty("user"));
@@ -53,7 +53,7 @@ public class InvBLWarehouseAdd {
 		warehouse.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 		
 		whDALAdd.saveObject(warehouse);	
-		//sfbk?msfbthth?ksmf?b
+
 			
 	
 	  }
