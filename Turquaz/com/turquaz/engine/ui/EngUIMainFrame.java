@@ -19,7 +19,7 @@ package com.turquaz.engine.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.99 2004/12/09 21:49:08 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.100 2004/12/11 16:41:12 cemdayanik Exp $
 */
 
 import java.io.FileInputStream;
@@ -91,7 +91,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngUIMainFrame.java,v 1.99 2004/12/09 21:49:08 onsel Exp $
+* @version  $Id: EngUIMainFrame.java,v 1.100 2004/12/11 16:41:12 cemdayanik Exp $
 */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1347,7 +1347,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		}
 	});
 			shell.open();		
-			
+			shell.setMaximized(true);
 			while (!shell.isDisposed()){
 				
 				if (!display.readAndDispatch())
