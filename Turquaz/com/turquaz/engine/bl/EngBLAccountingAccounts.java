@@ -24,13 +24,15 @@ package com.turquaz.engine.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: EngBLAccountingAccounts.java,v 1.5 2004/11/05 14:18:16 onsel Exp $
+* @version  $Id: EngBLAccountingAccounts.java,v 1.6 2004/11/27 11:59:06 onsel Exp $
 */
 
+import java.util.HashMap;
 import java.util.List;
 
 
 import com.turquaz.accounting.bl.AccBLAccountAdd;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 
 
 /**
@@ -41,6 +43,7 @@ import com.turquaz.accounting.bl.AccBLAccountAdd;
  */
 public class EngBLAccountingAccounts {
 	public List accountList;
+	public static HashMap accountMap = new HashMap();
 
 	
 	static EngBLAccountingAccounts _instance;
@@ -59,6 +62,14 @@ public class EngBLAccountingAccounts {
 	public void fillAccountList()throws Exception{
 		try{
 		 accountList = blAccount.getAllAccounts();
+		 accountMap.clear();
+		 
+		 TurqAccountingAccount account;
+		 for(int i=0;i<accountList.size();i++){
+		  account = (TurqAccountingAccount)accountList.get(i);
+		  accountMap.put(account.getAccountCode(),account);   
+		     
+		 }
 		}
 		catch(Exception ex){
 			throw ex;
@@ -78,6 +89,7 @@ public class EngBLAccountingAccounts {
 			_instance = new EngBLAccountingAccounts();
 
 		}
+		
         //Not really static 
 		_instance.fillAccountList();
 		 
@@ -87,6 +99,19 @@ public class EngBLAccountingAccounts {
 			throw ex;
 		}
 
+	}
+	public static TurqAccountingAccount getAccount(String accountCode)throws Exception{
+	    try{
+	        
+	        return (TurqAccountingAccount)accountMap.get(accountCode);
+	        
+	        
+	    }
+	    catch(Exception ex){
+	        throw ex;
+	    }
+	    
+	    
 	}
 	
 

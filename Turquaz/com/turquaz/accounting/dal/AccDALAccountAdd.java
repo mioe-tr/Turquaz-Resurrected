@@ -24,7 +24,7 @@ package com.turquaz.accounting.dal;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccDALAccountAdd.java,v 1.12 2004/11/22 20:36:02 huseyiner Exp $
+* @version  $Id: AccDALAccountAdd.java,v 1.13 2004/11/27 11:59:06 onsel Exp $
 */
 
 
@@ -111,6 +111,7 @@ public class AccDALAccountAdd {
 		}
 		
 	}
+	
 	public List getAllAccounts()throws Exception{
 		try{
 			Session session = EngDALSessionFactory.openSession();
