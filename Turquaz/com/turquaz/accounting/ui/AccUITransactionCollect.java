@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionCollect.java,v 1.12 2004/11/23 22:10:38 huseyiner Exp $
+* @version  $Id: AccUITransactionCollect.java,v 1.13 2004/11/25 19:27:00 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -84,6 +84,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 	private CCombo comboDeptor;
 	private Composite composite2;
 	private TableItem item;
+	private TableColumn txtTransactionDefinition;
 	private TableColumn tableColumnCreditAmount;
 	private TableColumn tableColumnAccountName;
 	private TableColumn tableColumnAccountCode;
@@ -276,6 +277,13 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					tableColumnCreditAmount.setText(Messages
 						.getString("AccUITransactionCollect.7")); //$NON-NLS-1$
 					tableColumnCreditAmount.setWidth(100);
+				}
+				{
+					txtTransactionDefinition = new TableColumn(
+						tableTransactionRows,
+						SWT.NONE);
+					txtTransactionDefinition.setText(Messages.getString("AccUITransactionCollect.4")); //$NON-NLS-1$
+					txtTransactionDefinition.setWidth(150);
 				}
 			}
 			thisLayout.numColumns = 4;
@@ -504,7 +512,7 @@ public class AccUITransactionCollect extends  Composite implements SecureComposi
 					.getAccountCode(),
 				accTransRow.getTurqAccountingAccount()
 					.getAccountName(),
-				accTransRow.getCreditAmount().toString() });
+				accTransRow.getCreditAmount().toString(),accTransRow.getTransactionDefinition().toString() });
 		}
 	}
     

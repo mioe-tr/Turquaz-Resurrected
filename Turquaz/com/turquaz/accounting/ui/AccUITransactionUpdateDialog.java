@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionUpdateDialog.java,v 1.16 2004/11/25 14:59:48 huseyiner Exp $
+* @version  $Id: AccUITransactionUpdateDialog.java,v 1.17 2004/11/25 19:27:01 huseyiner Exp $
 */
 
 import java.util.Date;
@@ -233,7 +233,7 @@ public void showDialog(TurqAccountingTransaction accTrans){
 	item.setText(new String[]{transRow.getTurqAccountingAccount().getAccountCode(),
 				transRow.getTurqAccountingAccount().getAccountName(),
 				transRow.getCreditAmount().toString(),
-				transRow.getDeptAmount().toString()});
+				transRow.getDeptAmount().toString(),transRow.getTransactionDefinition().toString()});
 	
 	
 	}

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionPayment.java,v 1.11 2004/11/23 22:10:38 huseyiner Exp $
+* @version  $Id: AccUITransactionPayment.java,v 1.12 2004/11/25 19:27:00 huseyiner Exp $
 */
 
 import java.math.BigDecimal;
@@ -82,6 +82,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	private CLabel lblDate;
 	private CLabel lblCreditor;
 	private Text txtDefinition;
+	private TableColumn tableColumnDefinition;
 	private TableItem item;
 	private CLabel lblDefinition;
 	private TableColumn tableColumnDeptAmount;
@@ -268,6 +269,13 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 					tableColumnDeptAmount.setText(Messages
 						.getString("AccUITransactionPayment.7")); //$NON-NLS-1$
 					tableColumnDeptAmount.setWidth(100);
+				}
+				{
+					tableColumnDefinition = new TableColumn(
+						tableTransactionRows,
+						SWT.NONE);
+					tableColumnDefinition.setText("Aç?klama");
+					tableColumnDefinition.setWidth(150);
 				}
 			}
 			thisLayout.numColumns = 4;
@@ -496,7 +504,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				.getAccountCode(),
 			accTransRow.getTurqAccountingAccount()
 				.getAccountName(),
-			accTransRow.getDeptAmount().toString() });
+			accTransRow.getDeptAmount().toString(),accTransRow.getTransactionDefinition().toString() });
 	}
 	
 	}
