@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TreeFactory.java,v 1.94 2005/02/28 18:08:59 cemdayanik Exp $
+* @version  $Id: TreeFactory.java,v 1.95 2005/03/03 20:32:23 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -718,8 +718,9 @@ public final class TreeFactory {
 	public static Tree createChequesTree(Tree tree){
 		TreeItem root = new TreeItem(tree,SWT.NULL);
 		
-		root.setText(Messages.getString("TreeFactory.56"));  //$NON-NLS-1$
+		root.setText("Bordrolar");  
 		TreeItem item;
+		
 		
 		if(EngBLPermissions.getPermission(CheUIChequeInPayroll.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
@@ -747,11 +748,7 @@ public final class TreeFactory {
 			item.setText(Messages.getString("TreeFactory.101"));    //$NON-NLS-1$
 			item.setData(CheUICustomerChequeSearch.class.getName());
 	    }
-		if(EngBLPermissions.getPermission(CheUIOwnChequeSearch.class.getName())>0){
-			item = new TreeItem(root,SWT.NULL);
-			item.setText(Messages.getString("TreeFactory.102"));    //$NON-NLS-1$
-			item.setData(CheUIOwnChequeSearch.class.getName());
-	    }
+		
 		if(EngBLPermissions.getPermission(CheUIChequeCollectFromBank.class.getName())>0){
 			item = new TreeItem(root,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.103"));    //$NON-NLS-1$
@@ -762,6 +759,16 @@ public final class TreeFactory {
 			item = new TreeItem(root,SWT.NULL);
 			item.setText(Messages.getString("TreeFactory.107"));     //$NON-NLS-1$
 			item.setData(CheUIChequeCollect.class.getName());
+	    }
+		
+		TreeItem searchRoot = new TreeItem(tree,SWT.NULL);
+		
+		searchRoot.setText("Bordrolar");  
+		
+		if(EngBLPermissions.getPermission(CheUIOwnChequeSearch.class.getName())>0){
+			item = new TreeItem(searchRoot,SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.102"));    //$NON-NLS-1$
+			item.setData(CheUIOwnChequeSearch.class.getName());
 	    }
 		
 		root.setExpanded(true);

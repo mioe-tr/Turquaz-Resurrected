@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccUITransactionAdd.java,v 1.58 2005/03/02 11:47:44 cemdayanik Exp $
+* @version  $Id: AccUITransactionAdd.java,v 1.59 2005/03/03 20:32:23 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -39,6 +39,8 @@ import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.CTabFolder;
+
 import com.turquaz.engine.ui.component.TurquazDecimalFormat;
 import com.turquaz.engine.ui.editors.AccountingCellEditor;
 import com.turquaz.engine.ui.editors.CurrencyCellEditor;
@@ -482,6 +484,13 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
 			MessageBox msg = new MessageBox(this.getShell(),SWT.NULL);
 	
 			calculateTotalDeptAndCredit();
+			if(totalCredit.doubleValue()<=0)
+			{
+				msg.setMessage(Messages.getString("AccUITransactionAdd.15"));  //$NON-NLS-1$
+				msg.open();	
+				return false;
+				
+			}
 	
 			if(totalCredit.doubleValue()!=totalDept.doubleValue())
 			{
@@ -569,9 +578,14 @@ public class AccUITransactionAdd extends  Composite implements SecureComposite {
     }
     
     public void clearFields(){
-    txtDocumentNo.setText(""); //$NON-NLS-1$
-    tableTransactionColumns.removeAll();
-    calculateTotalDeptAndCredit();
+    
+    	 
+        AccUITransactionAdd curCard = new AccUITransactionAdd(this.getParent(),this.getStyle());
+		 CTabFolder tabfld = (CTabFolder)this.getParent();
+		 tabfld.getSelection().setControl(curCard);	 
+		 this.dispose();
+
+    	
     }
     
     
