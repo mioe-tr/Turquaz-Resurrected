@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardUpdate.java,v 1.28 2005/01/11 18:40:14 onsel Exp $
+* @version  $Id: CurUICurrentCardUpdate.java,v 1.29 2005/01/13 16:22:54 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.Iterator;
@@ -295,10 +295,10 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog {
 			compCurCardAdd.getTxtCardDefinition().setText(currentCard.getCardsDefinition());
 			compCurCardAdd.getTxtTaxDepartmant().setText(currentCard.getCardsTaxDepartment());
 			compCurCardAdd.getNumTextDiscountRate().setText((currentCard.getCardsDiscountRate().intValue()));
-			compCurCardAdd.getDecTxtRiskLimit().setText(currentCard.getCardsRiskLimit().toString());
+			compCurCardAdd.getDecTxtRiskLimit().setText(currentCard.getCardsRiskLimit());
 			compCurCardAdd.getTxtTaxNumber().setText(currentCard.getCardsTaxNumber());
-			compCurCardAdd.getDecTxtCreditLimit().setText(currentCard.getCardsCreditLimit().toString());
-			compCurCardAdd.getDecTxtDiscountAmount().setText(currentCard.getCardsDiscountPayment().toString());
+			compCurCardAdd.getDecTxtCreditLimit().setText(currentCard.getCardsCreditLimit());
+			compCurCardAdd.getDecTxtDiscountAmount().setText(currentCard.getCardsDiscountPayment());
 			compCurCardAdd.getTxtCardAddress().setText(currentCard.getCardsAddress());
 			compCurCardAdd.getNumDueDays().setText(currentCard.getDaysToValue());
 			

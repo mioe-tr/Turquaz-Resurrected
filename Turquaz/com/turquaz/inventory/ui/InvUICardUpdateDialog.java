@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUICardUpdateDialog.java,v 1.38 2005/01/11 18:40:16 onsel Exp $
+* @version  $Id: InvUICardUpdateDialog.java,v 1.39 2005/01/13 16:22:57 onsel Exp $
 */
 import java.util.Iterator;
 
@@ -252,7 +252,7 @@ public class InvUICardUpdateDialog extends Dialog{
 	compInvUICard.getTxtnumInvCardMax().setText(invCard.getCardMaximumAmount());
 	compInvUICard.getTxtnumInvCardMin().setText(invCard.getCardMinimumAmount());
 	compInvUICard.getNumTextSpecailVATPercent().setText(invCard.getCardSpecialVat());
-	compInvUICard.getDecTextSpecialVatAmount().setText(invCard.getCardSpecialVatEach().toString());
+	compInvUICard.getDecTextSpecialVatAmount().setText(invCard.getCardSpecialVatEach());
 	compInvUICard.getAccountPickerVAT().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdVat());
 	compInvUICard.getAccountPickerSpecVAT().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdSpecialVat());
 	compInvUICard.getAccountPickerVATSell().setData(invCard.getTurqAccountingAccountByAccountingAccountsIdVatSell());

@@ -19,7 +19,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: TTableCellEditorDecimalText.java,v 1.5 2004/12/23 15:49:55 onsel Exp $
+* @version  $Id: TTableCellEditorDecimalText.java,v 1.6 2005/01/13 16:22:55 onsel Exp $
 */
 import org.eclipse.swt.SWT;
 
@@ -40,7 +40,7 @@ public class TTableCellEditorDecimalText extends TTableCellEditor {
 
 	public void open(KTable table, int col, int row, Rectangle rect) {
 		super.open(table, col, row, rect);
-		m_Text.setText(m_Model.getContentAt(m_Col, m_Row).toString());
+	//	m_Text.setText(m_Model.getContentAt(m_Col, m_Row));
 		m_Text.selectAll();
 		m_Text.setVisible(true);
 		m_Text.setEditable(true);

@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: BillUIBillFromConsignment.java,v 1.26 2005/01/02 12:02:08 onsel Exp $
+* @version  $Id: BillUIBillFromConsignment.java,v 1.27 2005/01/13 16:22:53 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1072,11 +1072,11 @@ implements SecureComposite{
     
     totalVAT = totalVAT.subtract(totalVAT.multiply(new BigDecimal(discountRate+""))).setScale(2, BigDecimal.ROUND_DOWN); //$NON-NLS-1$
     
-    txtDiscountAmount.setText(discountTotal.toString());    
-	txtSubTotal.setText(subTotal.toString());
-	txtTotalVat.setText(totalVAT.toString());
-	decSpecialVat.setText(totalSpecVAT.toString());
-	txtTotalAmount.setText(generalTotal.subtract(discountTotal).toString());	
+    txtDiscountAmount.setText(discountTotal);    
+	txtSubTotal.setText(subTotal);
+	txtTotalVat.setText(totalVAT);
+	decSpecialVat.setText(totalSpecVAT);
+	txtTotalAmount.setText(generalTotal.subtract(discountTotal));	
 		
 		
 	}

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: InvUITransactionAddDialog.java,v 1.21 2005/01/02 13:42:07 onsel Exp $
+* @version  $Id: InvUITransactionAddDialog.java,v 1.22 2005/01/13 16:22:56 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -463,7 +463,7 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog {
     	fillComboUnits(invCard);
     	txtVat.setText(invCard.getCardVat());
     	numSpecialVat.setText(invCard.getCardSpecialVat());
-        numTxtSpecialVatEach.setText(invCard.getCardSpecialVatEach().toString());
+        numTxtSpecialVatEach.setText(invCard.getCardSpecialVatEach());
     	   	
         }
        

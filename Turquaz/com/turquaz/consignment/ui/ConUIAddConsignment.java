@@ -18,7 +18,7 @@ package com.turquaz.consignment.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: ConUIAddConsignment.java,v 1.53 2005/01/13 15:12:03 onsel Exp $
+* @version  $Id: ConUIAddConsignment.java,v 1.54 2005/01/13 16:22:55 onsel Exp $
 */
 
 import java.math.BigDecimal;
@@ -1292,11 +1292,11 @@ implements SecureComposite{
 	
     generalTotal = subTotal.add(totalVAT).add(totalSpecVAT);
     
-    txtDiscountAmount.setText(discountTotal.toString());    
-	txtSubTotal.setText(subTotal.toString());
-	txtTotalVat.setText(totalVAT.toString());
-	decSpecialVat.setText(totalSpecVAT.toString());
-	txtTotalAmount.setText(generalTotal.subtract(discountTotal).toString());	
+    txtDiscountAmount.setText(discountTotal);    
+	txtSubTotal.setText(subTotal);
+	txtTotalVat.setText(totalVAT);
+	decSpecialVat.setText(totalSpecVAT);
+	txtTotalAmount.setText(generalTotal.subtract(discountTotal));	
 		
 		
 	}

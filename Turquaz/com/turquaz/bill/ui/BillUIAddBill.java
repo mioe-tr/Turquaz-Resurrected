@@ -18,7 +18,7 @@ package com.turquaz.bill.ui;
 
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.46 2005/01/13 16:03:18 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.47 2005/01/13 16:22:53 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -1406,11 +1406,11 @@ public class BillUIAddBill extends Composite
 		}
 
 		 generalTotal = subTotal.add(totalVAT).add(totalSpecVAT);
-		txtDiscountAmount.setText(discountTotal.toString());
-		txtSubTotal.setText(subTotal.toString());
-		txtTotalVat.setText(totalVAT.toString());
-		decSpecialVat.setText(totalSpecVAT.toString());
-		txtTotalAmount.setText(generalTotal.subtract(discountTotal).toString());
+		txtDiscountAmount.setText(discountTotal);
+		txtSubTotal.setText(subTotal);
+		txtTotalVat.setText(totalVAT);
+		decSpecialVat.setText(totalSpecVAT);
+		txtTotalAmount.setText(generalTotal.subtract(discountTotal));
 	
 		
 	}

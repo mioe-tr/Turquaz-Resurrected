@@ -18,7 +18,7 @@ package com.turquaz.engine.ui.component;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: DecimalTextWithButton.java,v 1.2 2004/12/11 18:41:56 onsel Exp $
+* @version  $Id: DecimalTextWithButton.java,v 1.3 2005/01/13 16:22:55 onsel Exp $
 */
 import java.math.BigDecimal;
 import com.cloudgarden.resource.SWTResourceManager;
@@ -181,7 +181,7 @@ public class DecimalTextWithButton extends org.eclipse.swt.widgets.Composite {
 	}
 	
 	public void setText(String txt){
-		  text1.setText(txt);
+		  text1.setText(new BigDecimal(txt));
 		 	
 		 }
 		 public void setBackground(Color c){

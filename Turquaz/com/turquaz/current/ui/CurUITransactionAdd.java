@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUITransactionAdd.java,v 1.27 2004/12/11 17:55:48 cemdayanik Exp $
+* @version  $Id: CurUITransactionAdd.java,v 1.28 2005/01/13 16:22:55 onsel Exp $
 */
 import java.math.BigDecimal;
 
@@ -208,7 +208,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite{
 			decTxtAmountLData.widthHint = 235;
 			decTxtAmountLData.heightHint = 20;
 			decTxtAmount.setLayoutData(decTxtAmountLData);
-			decTxtAmount.setText(Messages.getString("CurUITransactionAdd.6")); //$NON-NLS-1$
+			decTxtAmount.setText(new BigDecimal(0)); 
 			decTxtAmount.setSize(235, 20);
 	
 			GridData lblTransDateLData = new GridData();
