@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: CurUICurrentCardAdd.java,v 1.32 2004/11/29 18:49:14 huseyiner Exp $
+* @version  $Id: CurUICurrentCardAdd.java,v 1.33 2004/11/29 19:04:43 onsel Exp $
 */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -550,19 +550,11 @@ public class CurUICurrentCardAdd extends  Composite implements SecureComposite{
 			compCurrentGeneralInfo.setSize(new org.eclipse.swt.graphics.Point(584,435));
 	
 			GridData lblCurrentCodeLData = new GridData();
-			lblCurrentCodeLData.verticalAlignment = GridData.CENTER;
-			lblCurrentCodeLData.horizontalAlignment = GridData.BEGINNING;
-			lblCurrentCodeLData.widthHint = 71;
-			lblCurrentCodeLData.heightHint = 19;
-			lblCurrentCodeLData.horizontalIndent = 0;
-			lblCurrentCodeLData.horizontalSpan = 1;
-			lblCurrentCodeLData.verticalSpan = 1;
-			lblCurrentCodeLData.grabExcessHorizontalSpace = false;
-			lblCurrentCodeLData.grabExcessVerticalSpace = false;
+			lblCurrentCodeLData.widthHint = 93;
+			lblCurrentCodeLData.heightHint = 20;
 			lblCurrentCode.setLayoutData(lblCurrentCodeLData);
 			lblCurrentCode.setText(Messages.getString("CurUICurrentCardAdd.1")); //$NON-NLS-1$
-			lblCurrentCode.setSize(new org.eclipse.swt.graphics.Point(71,19));
-	
+
 			GridData txtCurrentCodeLData = new GridData();
 			txtCurrentCodeLData.verticalAlignment = GridData.CENTER;
 			txtCurrentCodeLData.horizontalAlignment = GridData.BEGINNING;
