@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIReturnFromGivenChequesUpdate.java,v 1.2 2005/03/17 15:01:59 onsel Exp $
+ * @version $Id: CheUIReturnFromGivenChequesUpdate.java,v 1.3 2005/03/19 12:48:30 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -166,6 +166,7 @@ public class CheUIReturnFromGivenChequesUpdate extends org.eclipse.swt.widgets.D
 				item.setText(new String[]{cheque.getChequesPortfolioNo(), DatePicker.formatter.format(cheque.getChequesDueDate()),
 						cheque.getChequesPaymentPlace(), cheque.getChequesDebtor(), cf.format(cheque.getChequesAmount())});
 			}
+			compChequeRoll.calculateTotal();
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectUpdate.java,v 1.4 2005/03/17 15:02:00 onsel Exp $
+ * @version $Id: CheUIChequeCollectUpdate.java,v 1.5 2005/03/19 12:48:30 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -180,6 +180,7 @@ public class CheUIChequeCollectUpdate extends org.eclipse.swt.widgets.Dialog
 					compChequeRoll.getCashCardPcker().setText(transRow.getTurqCashCard().getCashCardName());
 				}
 			}
+			compChequeRoll.calculateTotal();
 		}
 		catch (Exception ex)
 		{

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollBankUpdate.java,v 1.7 2005/03/17 15:01:59 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollBankUpdate.java,v 1.8 2005/03/19 12:48:30 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -182,6 +182,7 @@ public class CheUIChequeOutPayrollBankUpdate extends org.eclipse.swt.widgets.Dia
 				item.setText(new String[]{cheque.getChequesPortfolioNo(), DatePicker.formatter.format(cheque.getChequesDueDate()),
 						cheque.getChequesPaymentPlace(), cheque.getChequesDebtor(), cf.format(cheque.getChequesAmount())});
 			}
+			compChequeRoll.calculateTotal();
 		}
 		catch (Exception ex)
 		{
