@@ -18,7 +18,7 @@ package com.turquaz.engine.bl;
 
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.52 2005/03/08 17:37:09 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.53 2005/03/08 18:12:50 onsel Exp $
  */
 
 import java.math.BigDecimal;
@@ -176,6 +176,9 @@ public class EngBLCommon {
 	public final static int MODULE_CASH = 8; //kasa modulu
 
 	public final static int MODULE_CHEQUE = 9; //cek modulu
+	
+	
+	
 
 	public final static int CHEQUE_TRANS_IN = 0; //Cek Giris Bordrosu
 
@@ -191,6 +194,11 @@ public class EngBLCommon {
 	public final static int CHEQUE_TRANS_COLLECT_FROM_CURRENT = 4; //Elden cek
 																   // tahsilati
 
+	public final static int CHEQUE_TRANS_RETURN_FROM_BANK = 5; //Bankadan Karsiliksiz iade...
+	
+	
+	
+	
 	public final static int CHEQUE_TYPE_CUSTOMER = 0; //mü?teri Ceki
 
 	public final static int CHEQUE_TYPE_OWN = 1; //Firma Ceki
