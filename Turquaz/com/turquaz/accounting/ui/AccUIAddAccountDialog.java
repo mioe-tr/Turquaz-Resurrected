@@ -18,7 +18,7 @@ package com.turquaz.accounting.ui;
 
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.2 2004/11/26 12:40:12 cemdayanik Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.3 2004/11/27 19:16:33 onsel Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -217,8 +217,8 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog {
 
 		compAccountCard.getTxtAccAccountCode()
 				.setText(account.getAccountCode()+".");
-		compAccountCard.getTxtParentAccount().setData(
-				account);
+		compAccountCard.getTxtParentAccount().setText(
+				account.getAccountCode());
 		
 
 		Point parentLocation = this.getParent().getLocation();

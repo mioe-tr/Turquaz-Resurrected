@@ -23,7 +23,7 @@ package com.turquaz.accounting.bl;
 
 /**
 * @author  Onsel Armagan
-* @version  $Id: AccBLAccountAdd.java,v 1.10 2004/11/18 15:06:35 onsel Exp $
+* @version  $Id: AccBLAccountAdd.java,v 1.11 2004/11/27 19:16:32 onsel Exp $
 */
 
 
@@ -72,7 +72,17 @@ public class AccBLAccountAdd {
 		}
 		
 	}
-	
+	public List getAccountsForAccountPickers()throws Exception{
+		try{
+			
+			return dalAccountAdd.getAccountsForAccountPickers();
+			
+		}
+		catch(Exception ex){
+			throw ex;
+		}
+		
+	}
 	public void saveAccount(String accountName, String accountCode, Object parent)throws Exception{
 		try{
 		
