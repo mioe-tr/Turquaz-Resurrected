@@ -1,5 +1,6 @@
 package com.turquaz.current.dal;
 
+
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
 /* ============================================                         */
@@ -17,8 +18,10 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurDALTransactionUpdate.java,v 1.6 2005/03/17 15:02:07 onsel Exp $
+ * @version $Id: CurDALTransactionUpdate.java,v 1.7 2005/04/07 09:35:22 onsel Exp $
  */
 public class CurDALTransactionUpdate
 {
+	
+	
 }

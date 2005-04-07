@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.45 2005/04/02 11:22:26 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.46 2005/04/07 09:35:25 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -444,6 +444,12 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 						{
 							updated = CashUICashTransactionSearch.updateCashTransaction(bankTransId, getShell());
 						}
+					}
+					else if (type == EngBLCommon.CURRENT_TRANS_BETWEEN_ACCOUNTS)
+					{
+						
+							updated =new CurUICurrentTransferUpdate(getShell(),SWT.NONE,trans).open();
+						
 					}
 					else
 					{

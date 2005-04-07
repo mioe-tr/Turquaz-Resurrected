@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurDALCurrentCardUpdate.java,v 1.16 2005/03/29 16:00:56 cemdayanik Exp $
+ * @version $Id: CurDALCurrentCardUpdate.java,v 1.17 2005/04/07 09:35:22 onsel Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Hibernate;
@@ -77,7 +77,8 @@ public class CurDALCurrentCardUpdate
 			Session session = EngDALSessionFactory.getSession();
 			session.refresh(curTrans);
 			Hibernate.initialize(curTrans.getTurqEngineSequence().getTurqAccountingTransactions());
-			session.flush();
+			Hibernate.initialize(curTrans.getTurqEngineSequence().getTurqCurrentTransactions());
+		
 		}
 		catch (Exception ex)
 		{

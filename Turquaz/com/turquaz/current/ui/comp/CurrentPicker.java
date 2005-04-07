@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentPicker.java,v 1.14 2005/03/31 12:23:36 onsel Exp $
+ * @version  $Id: CurrentPicker.java,v 1.15 2005/04/07 09:35:25 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -38,6 +38,7 @@ import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
+import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 import com.cloudgarden.resource.SWTResourceManager;
@@ -166,6 +167,13 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite
 	public void setData(Object obj)
 	{
 		super.setData(obj);
+		if(obj != null)
+		{
+			TurqCurrentCard curCard = (TurqCurrentCard)obj;
+			text1.setText(curCard.getCardsName()+" {"+curCard.getCardsCurrentCode()+"}");
+			
+		}
+			
 	}
 
 	public void setData2(Object obj)

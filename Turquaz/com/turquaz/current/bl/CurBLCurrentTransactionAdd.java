@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.46 2005/04/06 12:25:50 onsel Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.47 2005/04/07 09:35:26 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -107,6 +107,46 @@ public class CurBLCurrentTransactionAdd
 			throw ex;
 		}
 	}
+
+
+	public static void saveCurrentTransferBetweenAccounts(HashMap argMap) throws Exception
+			 {
+			  try
+			  {
+			  	
+			  	TurqCurrentCard creditCard = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_CREDIT);
+			  	TurqCurrentCard debitCard = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_DEPT);
+				Date transDate = (Date)argMap.get(EngKeys.DATE);
+				String documentNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
+				
+				BigDecimal amount = (BigDecimal)argMap.get(CurKeys.CUR_TRANS_AMOUNT);
+								
+				String definition = (String)argMap.get(EngKeys.DEFINITION);
+				TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);
+				
+			  	
+			  	
+			   TurqEngineSequence seq = new TurqEngineSequence();
+			   TurqModule module = new TurqModule();
+			   module.setId(new Integer(EngBLCommon.MODULE_CURRENT));
+			   
+			   seq.setTurqModule(module);
+			   EngDALCommon.saveObject(seq);
+			   
+			   TurqCurrentTransaction curTrans1 = saveCurrentTransaction(creditCard, transDate, documentNo, false, amount,new BigDecimal(0) ,
+			     EngBLCommon.CURRENT_TRANS_BETWEEN_ACCOUNTS, seq.getId(), definition,exchangeRate);
+			   
+			   TurqCurrentTransaction curTrans2 = saveCurrentTransaction(debitCard, transDate, documentNo, true, amount, new BigDecimal(0),
+			     EngBLCommon.CURRENT_TRANS_BETWEEN_ACCOUNTS, seq.getId(), definition, exchangeRate);
+			   
+			 
+			   
+			  }
+			  catch (Exception ex)
+			  {
+			   throw ex;
+			  }
+			 }
 
 	
 	public static TurqCurrentTransaction saveOtherCurrentTransaction(HashMap argMap) throws Exception
