@@ -1,0 +1,1 @@
+..\..\java\bin\java -Djava.library.path="lib\windows" -jar turquaz.jar
