@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.69 2005/04/05 12:29:31 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.70 2005/04/08 09:40:54 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1086,7 +1086,7 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 			{
 				// buy bill
 				int type = 0;
-				TurqBill bill = null;
+				TurqBill bill =new TurqBill();
 				
 				HashMap argMap=new HashMap();
 				
