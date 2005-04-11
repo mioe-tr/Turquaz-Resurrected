@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.73 2005/04/05 12:29:34 onsel Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.74 2005/04/11 11:07:09 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -735,7 +735,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		editors[3] = new ComboBoxCellEditor(tableConsignmentRows, new String[]{}, SWT.READ_ONLY);
 		editors[4] = new CurrencyCellEditor(tableConsignmentRows, 2);
 		editors[5] = new TextCellEditor(tableConsignmentRows);
-		editors[6] = new CurrencyCellEditor(tableConsignmentRows, 2);
+		editors[6] = new CurrencyCellEditor(tableConsignmentRows, 4);
 		editors[7] = new CurrencyCellEditor(tableConsignmentRows, 4);
 		editors[8] = new CurrencyCellEditor(tableConsignmentRows, 4);
 		editors[9] = new CurrencyCellEditor(tableConsignmentRows, 2);

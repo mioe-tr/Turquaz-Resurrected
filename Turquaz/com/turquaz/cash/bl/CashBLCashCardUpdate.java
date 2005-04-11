@@ -15,7 +15,7 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardUpdate.java,v 1.9 2005/03/31 18:42:19 onsel Exp $
+ * @version $Id: CashBLCashCardUpdate.java,v 1.10 2005/04/11 11:07:08 onsel Exp $
  */
 package com.turquaz.cash.bl;
 
@@ -51,6 +51,12 @@ public class CashBLCashCardUpdate
 			cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			EngDALCommon.updateObject(cashCard);
+			
+			if(!CashDALCashCard.checkInitialTransaction(cashCard))
+			{
+				CashBLCashCardAdd.saveInitialTransaction(cashCard);
+				
+			}
 	
 	}
 

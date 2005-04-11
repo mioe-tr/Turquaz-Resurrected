@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.91 2005/04/07 09:35:22 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.92 2005/04/11 11:07:07 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -80,6 +80,10 @@ public class EngBLCommon
 	public final static int CASH_TRANSFER_BETWEEN_CARDS = 4; // Virman
 	public final static int CASH_CHEQUE_COLLECT = 5; // Çek
 	// Tahsilat?
+	public final static int CASH_INITIAL_TRANSACTION = 6; //Kasa Acilis..
+	
+	
+	
 	public final static int ACCOUNTING_TRANS_COLLECT = 0; //Tahsil
 	// Fisi
 	public final static int ACCOUNTING_TRANS_PAYMENT = 1; //Tediye

@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.43 2005/04/06 12:25:50 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.44 2005/04/11 11:07:09 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -167,8 +167,7 @@ public class BankBLTransactionAdd
 
 	public static void saveInitialBankTransaction(TurqBanksCard bankCard) throws Exception
 	{
-		try
-		{
+		
 			TurqEngineSequence seq;
 			TurqModule module = new TurqModule();
 			module.setId(new Integer(EngBLCommon.MODULE_BANKS));
@@ -212,11 +211,7 @@ public class BankBLTransactionAdd
 			 */
 			transRow.setTurqBanksTransactionBill(bankTransBill);
 			EngDALCommon.saveObject(transRow);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+		
 	}
 
 	public static void saveCashTransaction(HashMap argMap)

@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionSearch.java,v 1.11 2005/03/31 18:42:19 onsel Exp $
+ * @version $Id: CashBLCashTransactionSearch.java,v 1.12 2005/04/11 11:07:08 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -68,6 +68,11 @@ public class CashBLCashTransactionSearch
 		
 			return CashDALCashCard.getTransactions(cashCard, startDate, endDate);
 	
+	}
+	public static List getInitialTransactions()throws Exception 
+	{
+		return CashDALCashCard.getInitialTransactions();
+		
 	}
 
 	// Devreden
