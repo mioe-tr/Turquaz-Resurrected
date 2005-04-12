@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionSearch.java,v 1.28 2005/04/01 14:53:09 cemdayanik Exp $
+ * @version $Id: AccBLTransactionSearch.java,v 1.29 2005/04/12 07:55:10 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.Date;
@@ -49,7 +49,9 @@ public class AccBLTransactionSearch
 			Boolean isCollect = (Boolean)argMap.get(AccKeys.ACC_IS_COLLECT);
 			Boolean isPayment = (Boolean)argMap.get(AccKeys.ACC_IS_PAYMENT);
 					
-			return AccDALTransactionSearch.searchTransaction(docNo, startDate, endDate, isGeneralTrans.booleanValue(), isCollect.booleanValue(), isPayment.booleanValue());
+			List ls = AccDALTransactionSearch.searchTransaction(docNo, startDate, endDate, isGeneralTrans.booleanValue(), isCollect.booleanValue(), isPayment.booleanValue());
+		    System.out.println(ls.size());
+			return ls;
 		}
 		catch (Exception ex)
 		{
