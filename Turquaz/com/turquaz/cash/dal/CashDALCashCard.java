@@ -33,7 +33,7 @@ import net.sf.hibernate.Session;
 
 /**
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.28 2005/04/11 11:07:08 onsel Exp $
+ * @version $Id: CashDALCashCard.java,v 1.29 2005/04/12 13:03:41 cemdayanik Exp $
  */
 public class CashDALCashCard
 {
@@ -195,7 +195,7 @@ public class CashDALCashCard
 					+ " from TurqCashTransaction as trans left join trans.turqCashTransactionRows as transRow "
 					+ " where transRow.turqCashCard = :cashCard"
 					+ " and trans.transactionDate >= :startDate and trans.transactionDate<= :endDate"
-					+ " order by trans.id,trans.transactionDate";
+					+ " order by trans.transactionDate";
 			Query q = session.createQuery(query);
 			q.setParameter("cashCard", cashCard);
 			q.setParameter("startDate", startDate);
