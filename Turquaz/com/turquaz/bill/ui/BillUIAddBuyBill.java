@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.71 2005/04/12 11:44:20 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.72 2005/04/12 13:41:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
@@ -1117,7 +1118,7 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
 				argMap.put(BillKeys.BILL_GROUPS,getBillGroups());
 				argMap.put(InvKeys.INV_TRANSACTIONS,getInventoryTransactions());				
-				argMap.put(BillKeys.BILL_SAVE_CONS,new Boolean(true));
+				argMap.put(BillKeys.BILL_SAVE_CONS,new Boolean(EngConfiguration.automaticDispatcNote()));
 				argMap.put(ConsKeys.CONS_DOC_NO,txtConsignmentDocumentNo.getText());
 				argMap.put(ConsKeys.CONS_DATE,datePickerConsDate.getDate());
 				Integer result = (Integer)EngTXCommon.doTransactionTX(BillBLAddBill.class.getName(),"saveBillFromBill",argMap);
