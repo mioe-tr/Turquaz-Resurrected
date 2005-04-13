@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSearchChequeRoll.java,v 1.12 2005/04/01 15:15:27 onsel Exp $
+ * @version $Id: CheBLSearchChequeRoll.java,v 1.13 2005/04/13 18:22:01 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -67,11 +67,23 @@ public class CheBLSearchChequeRoll
 			return CheDALSearch.getChequesGivenToCurrent();
 		
 	}
+	public static List getOwnChequesGivenToCurrent() throws Exception
+	{
+		
+			return CheDALSearch.getOwnChequesGivenToCurrent();
+		
+	}
 
 	public static TurqCurrentCard getCurrentCardOfCustomerCheque(HashMap argMap) throws Exception
 	{
 		TurqChequeCheque cheque =(TurqChequeCheque)argMap.get(CheKeys.CHE_CHEQUE);
 			return CheDALSearch.getCurrentCardOfCustomerCheque(cheque);
+		
+	}
+	public static TurqCurrentCard getCurrentCardOfGivenCheque(HashMap argMap) throws Exception
+	{
+		TurqChequeCheque cheque =(TurqChequeCheque)argMap.get(CheKeys.CHE_CHEQUE);
+			return CheDALSearch.getCurrentCardOfGivenCheque(cheque);
 		
 	}
 

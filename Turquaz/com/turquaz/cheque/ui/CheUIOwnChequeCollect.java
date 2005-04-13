@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeCollect.java,v 1.1 2005/04/13 13:10:52 onsel Exp $
+ * @version  $Id: CheUIOwnChequeCollect.java,v 1.2 2005/04/13 18:22:01 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public class CheUIOwnChequeCollect extends org.eclipse.swt.widgets.Composite imp
 				GridData compInfoPanelLData = new GridData();
 				compInfoPanelLData.grabExcessHorizontalSpace = true;
 				compInfoPanelLData.horizontalAlignment = GridData.FILL;
-				compInfoPanelLData.heightHint = 86;
+				compInfoPanelLData.heightHint = 65;
 				compInfoPanel.setLayoutData(compInfoPanelLData);
 				compInfoPanelLayout.numColumns = 2;
 				compInfoPanel.setLayout(compInfoPanelLayout);
@@ -260,7 +260,7 @@ public class CheUIOwnChequeCollect extends org.eclipse.swt.widgets.Composite imp
 				argMap.put(EngKeys.DATE,datePicker1.getDate());
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,cheques);
 				
-				EngTXCommon.doTransactionTX(CheBLSaveChequeTransaction.class.getName(),"save",argMap);
+				EngTXCommon.doTransactionTX(CheBLSaveChequeTransaction.class.getName(),"saveCollectOfOwnCheques",argMap);
 								
 				EngUICommon.showMessageBox(getShell(), Messages.getString("CheUIChequeInPayroll.13"), SWT.ICON_INFORMATION); //$NON-NLS-1$
 				newForm();
@@ -303,7 +303,7 @@ public class CheUIOwnChequeCollect extends org.eclipse.swt.widgets.Composite imp
 
 	public void addCheque()
 	{
-		cheques = new CheUICustomerChequeChooseDialog(getShell(), SWT.NULL, cheques).open();
+		cheques = new CheUIOwnChequeChooseDialog(getShell(), SWT.NULL, cheques).open();
 		fillTable();
 	}
 
