@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.113 2005/04/14 09:14:08 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.114 2005/04/14 10:45:23 cemdayanik Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -145,9 +145,12 @@ public final class TreeFactory
 			item.setText(Messages.getString("TreeFactory.117")); //$NON-NLS-1$
 			item.setData(InvUIOtherTransactionOut.class.getName());
 		}
-		item = new TreeItem(transRoot, SWT.NULL);
-		item.setText(Messages.getString("TreeFactory.118")); //$NON-NLS-1$
-		item.setData(InvUIInitialTransacions.class.getName());
+		if (EngBLPermissions.getPermission(InvUIInitialTransacions.class.getName()) > 0)
+		{
+			item = new TreeItem(transRoot, SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.118")); //$NON-NLS-1$
+			item.setData(InvUIInitialTransacions.class.getName());
+		}
 		TreeItem searchRoot = new TreeItem(tree, SWT.NULL);
 		searchRoot.setText(Messages.getString("TreeFactory.6")); //$NON-NLS-1$
 		if (EngBLPermissions.getPermission(InvUICardSearch.class.getName()) > 0)

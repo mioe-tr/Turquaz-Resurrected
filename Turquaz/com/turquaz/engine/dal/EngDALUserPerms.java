@@ -8,7 +8,7 @@ import net.sf.hibernate.expression.Expression;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.15 2005/04/01 09:29:14 onsel Exp $ Database functions for calculating user permissions.
+ * @version $Id: EngDALUserPerms.java,v 1.16 2005/04/14 10:45:23 cemdayanik Exp $ Database functions for calculating user permissions.
  */
 public class EngDALUserPerms
 {
@@ -134,9 +134,7 @@ public class EngDALUserPerms
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
-		
-			String query = "select comp.componentsName from TurqModuleComponent as comp" + " where comp.id= " + component_id
-					+ " and comp.id=" + module_id;
+			String query = "select comp.componentsName from TurqModuleComponent as comp" + " where comp.id= " + component_id;
 			Query q = session.createQuery(query);
 			List lst = q.list();
 			String s = lst.get(0).toString();

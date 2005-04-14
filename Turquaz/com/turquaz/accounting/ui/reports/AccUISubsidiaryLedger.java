@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.27 2005/04/05 11:23:40 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.28 2005/04/14 10:45:22 cemdayanik Exp $
  */
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -25,10 +25,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -316,7 +316,8 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite
 			parameters.put("balanceList", balanceList); //$NON-NLS-1$
 			EngDALConnection db = new EngDALConnection();
 			db.connect();
-			JasperReport jasperReport = (JasperReport) JRLoader.loadObject("reports/accounting/AccountingSubsidiaryLedger.jasper"); //$NON-NLS-1$
+			JasperReport jasperReport = JasperCompileManager.compileReport("reports/accounting/AccountingSubsidiaryLedger.jrxml");
+			//JasperReport jasperReport = (JasperReport) JRLoader.loadObject("reports/accounting/AccountingSubsidiaryLedger.jasper"); //$NON-NLS-1$
 			final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, db.getCon());
 			viewer.getReportViewer().setDocument(jasperPrint);
 		}

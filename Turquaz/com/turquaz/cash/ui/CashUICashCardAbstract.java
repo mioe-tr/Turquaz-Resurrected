@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAbstract.java,v 1.18 2005/03/31 18:42:19 onsel Exp $
+ * @version  $Id: CashUICashCardAbstract.java,v 1.19 2005/04/14 10:45:22 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -26,10 +26,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import com.turquaz.cash.CashKeys;
@@ -153,7 +153,8 @@ public class CashUICashCardAbstract extends org.eclipse.swt.widgets.Composite im
 			String[] fields = new String[]{"id", "transaction_date", "transaction_definition", "dept_amount", "credit_amount",
 					"cash_transaction_type_name"};
 			HibernateQueryResultDataSource ds = new HibernateQueryResultDataSource(list, fields);
-			JasperReport jasperReport = (JasperReport) JRLoader.loadObject("reports/cash/CashCardAbstract.jasper"); //$NON-NLS-1$
+			JasperReport jasperReport = JasperCompileManager.compileReport("reports/cash/CashCardAbstract.jrxml");
+			//JasperReport jasperReport = (JasperReport) JRLoader.loadObject("reports/cash/CashCardAbstract.jasper"); //$NON-NLS-1$
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, ds);
 			viewer.getReportViewer().setDocument(jasperPrint);
 		}

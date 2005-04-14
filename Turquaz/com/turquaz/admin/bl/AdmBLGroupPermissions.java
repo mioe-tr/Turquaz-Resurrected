@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmBLGroupPermissions.java,v 1.11 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version  $Id: AdmBLGroupPermissions.java,v 1.12 2005/04/14 10:45:22 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -29,6 +29,7 @@ import com.turquaz.engine.dal.TurqGroup;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModule;
 import com.turquaz.engine.dal.TurqModuleComponent;
+import com.turquaz.engine.dal.TurqUserPermissionLevel;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
@@ -83,14 +84,15 @@ public class AdmBLGroupPermissions
 			TurqGroup group=(TurqGroup)argMap.get(AdmKeys.ADM_GROUP);
 			TurqModule module=(TurqModule)argMap.get(AdmKeys.ADM_MODULE);
 			TurqModuleComponent moduleComp=(TurqModuleComponent)argMap.get(AdmKeys.ADM_MODULE_COMP);
-			Integer level=(Integer)argMap.get(AdmKeys.ADM_LEVEL);
+			TurqUserPermissionLevel permissionLevel=(TurqUserPermissionLevel)argMap.get(AdmKeys.ADM_LEVEL);
+
 			
 			Calendar cal = Calendar.getInstance();
 			TurqGroupPermission groupPerm = new TurqGroupPermission();
 			groupPerm.setTurqGroup(group);
 			groupPerm.setTurqModule(module);
 			groupPerm.setTurqModuleComponent(moduleComp);
-			groupPerm.setGroupPermissionsLevel(level.intValue());
+			groupPerm.setGroupPermissionsLevel(permissionLevel.getPermissionLevel());
 			groupPerm.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
 			groupPerm.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			groupPerm.setUpdateDate(cal.getTime());

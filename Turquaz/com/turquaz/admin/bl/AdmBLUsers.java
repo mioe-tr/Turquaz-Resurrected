@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUsers.java,v 1.9 2005/04/05 12:29:34 onsel Exp $
+ * @version $Id: AdmBLUsers.java,v 1.10 2005/04/14 10:45:22 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -52,7 +52,7 @@ public class AdmBLUsers
 		}
 		catch(Exception ex)
 		{
-			ex.printStackTrace();
+			throw ex;
 		}
 	}
 	

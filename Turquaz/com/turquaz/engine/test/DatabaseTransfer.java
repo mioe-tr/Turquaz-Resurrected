@@ -17,7 +17,7 @@ package com.turquaz.engine.test;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: DatabaseTransfer.java,v 1.12 2005/03/26 15:06:44 onsel Exp $
+ * @version $Id: DatabaseTransfer.java,v 1.13 2005/04/14 10:45:24 cemdayanik Exp $
  */
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -56,7 +56,7 @@ public class DatabaseTransfer
 				String code = "";
 				try
 				{
-					data = in.readLine();
+					data = "";
 					String rest = "";
 					int a = data.indexOf(",");
 					code = data.substring(0, a);
