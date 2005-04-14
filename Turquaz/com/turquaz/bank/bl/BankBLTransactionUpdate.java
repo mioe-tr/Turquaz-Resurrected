@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.35 2005/04/06 12:25:49 onsel Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.36 2005/04/14 09:14:11 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -520,10 +520,39 @@ public class BankBLTransactionUpdate
 		}
 	}
 
+	public static void deleteOnlyBankTransaction(TurqBanksTransactionBill bankTransBill)throws Exception
+	{
+		try
+		{
+			BankDALCommon.initializeTransaction(bankTransBill);
+			//delete transactions
+			Iterator it = bankTransBill.getTurqBanksTransactions().iterator();
+			while (it.hasNext())
+			{
+				EngDALCommon.deleteObject(it.next());
+			}
+			//delete current transactions
+			it = bankTransBill.getTurqEngineSequence().getTurqCurrentTransactions().iterator();
+			while (it.hasNext())
+			{
+				EngDALCommon.deleteObject(it.next());
+			}
+			
+		
+			
+			//delete transaction..
+			EngDALCommon.deleteObject(bankTransBill);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
 	public static void deleteTransaction(TurqBanksTransactionBill bankTransBill) throws Exception
 	{
 		try
 		{
+			BankDALCommon.initializeTransaction(bankTransBill);
 			//delete transactions
 			Iterator it = bankTransBill.getTurqBanksTransactions().iterator();
 			while (it.hasNext())

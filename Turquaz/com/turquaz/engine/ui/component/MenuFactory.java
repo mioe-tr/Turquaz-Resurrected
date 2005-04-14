@@ -58,6 +58,7 @@ import com.turquaz.cheque.ui.CheUIChequeOutPayrollBank;
 import com.turquaz.cheque.ui.CheUIChequeOutPayrollCurrent;
 import com.turquaz.cheque.ui.CheUIChequeRollSearch;
 import com.turquaz.cheque.ui.CheUICustomerChequeSearch;
+import com.turquaz.cheque.ui.CheUIOwnChequeCollect;
 import com.turquaz.cheque.ui.CheUIOwnChequeSearch;
 import com.turquaz.consignment.ui.ConUIAddBuyConsignment;
 import com.turquaz.consignment.ui.ConUIAddSellConsignment;
@@ -104,7 +105,7 @@ import com.turquaz.engine.Messages;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuFactory.java,v 1.13 2005/04/12 08:09:07 onsel Exp $
+ * @version $Id: MenuFactory.java,v 1.14 2005/04/14 09:14:08 onsel Exp $
  */
 public class MenuFactory
 {
@@ -224,6 +225,13 @@ public class MenuFactory
 			mit = new MenuItem(chequeMenu, SWT.PUSH);
 			mit.setText(Messages.getString("MenuFactory.73")); //$NON-NLS-1$
 			mit.setData(CheUIChequeCollect.class.getName());
+			mit.addSelectionListener(new MenuSelectionAdapter());
+		}
+		if (EngBLPermissions.getPermission(CheUIOwnChequeCollect.class.getName()) > 0)
+		{
+			mit = new MenuItem(chequeMenu, SWT.PUSH);
+			mit.setText(Messages.getString("MenuFactory.85"));  //$NON-NLS-1$
+			mit.setData(CheUIOwnChequeCollect.class.getName());
 			mit.addSelectionListener(new MenuSelectionAdapter());
 		}
 		sps = new MenuItem(chequeMenu, SWT.SEPARATOR);

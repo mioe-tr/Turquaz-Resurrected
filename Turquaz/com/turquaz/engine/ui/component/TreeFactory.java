@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.112 2005/04/13 18:22:01 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.113 2005/04/14 09:14:08 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -789,7 +789,7 @@ public final class TreeFactory
 		if (EngBLPermissions.getPermission(CheUIOwnChequeCollect.class.getName()) > 0)
 		{
 			item = new TreeItem(root, SWT.NULL);
-			item.setText("Firma Çeki Tahsilat?"); 
+			item.setText(Messages.getString("TreeFactory.121"));  //$NON-NLS-1$
 			item.setData(CheUIOwnChequeCollect.class.getName());
 		}
 		TreeItem searchRoot = new TreeItem(tree, SWT.NULL);
