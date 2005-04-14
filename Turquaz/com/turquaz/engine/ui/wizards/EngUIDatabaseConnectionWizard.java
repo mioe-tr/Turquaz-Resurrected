@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.wizards;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngUIDatabaseConnectionWizard.java,v 1.19 2005/03/26 15:06:51 onsel Exp $
+ * @version $Id: EngUIDatabaseConnectionWizard.java,v 1.20 2005/04/14 11:13:13 onsel Exp $
  */
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -74,7 +74,7 @@ public class EngUIDatabaseConnectionWizard extends Wizard
 			props.setProperty("serverPort", serverPort); //$NON-NLS-1$
 			props.setProperty("dbName", dbName); //$NON-NLS-1$
 			props.setProperty("remember_password", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-			props.setProperty("invoice_template", "template1.jasper"); //$NON-NLS-1$
+			props.setProperty("invoice_template", "template1.jrxml"); //$NON-NLS-1$
 			FileOutputStream fileout = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
 			props.store(fileout, "Turquaz Properties File"); //$NON-NLS-1$
 			fileout.flush();

@@ -17,7 +17,7 @@ package com.turquaz.engine;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngConfiguration.java,v 1.19 2005/04/12 13:41:14 onsel Exp $
+ * @version $Id: EngConfiguration.java,v 1.20 2005/04/14 11:13:13 onsel Exp $
  */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -47,6 +47,23 @@ public class EngConfiguration
 			{
 				logoURL = "";
 			}
+			
+			
+			
+			if (props.getProperty("invoice_template") != null) { //$NON-NLS-1$
+				
+				String invoice_template = props.getProperty("invoice_template");
+				if(invoice_template.endsWith(".jasper"))
+				{
+					invoice_template = invoice_template.substring(0,invoice_template.length()-7)+".jrxml";
+					props.setProperty("invoice_template",invoice_template);		
+					FileOutputStream fileout = new FileOutputStream("config/turquaz.properties"); //$NON-NLS-1$
+					props.store(fileout, "Turquaz Properties File"); //$NON-NLS-1$
+					fileout.flush();
+					fileout.close();
+				}
+			}
+			
 		}
 		catch (Exception ex)
 		{
@@ -58,6 +75,7 @@ public class EngConfiguration
 
 	public static void setString(String key, String value)
 	{
+		
 		_instance.props.setProperty(key, value);
 		try
 		{
