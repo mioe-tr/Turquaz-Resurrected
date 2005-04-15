@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionSearch.java,v 1.29 2005/04/12 07:55:10 onsel Exp $
+ * @version $Id: AccBLTransactionSearch.java,v 1.30 2005/04/15 17:12:00 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.Date;
@@ -34,10 +34,6 @@ import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 
 public class AccBLTransactionSearch
 {
-	public AccBLTransactionSearch()
-	{
-	}
-
 	public static List searchAccTransaction(HashMap argMap) throws Exception
 	{
 		try
@@ -50,7 +46,6 @@ public class AccBLTransactionSearch
 			Boolean isPayment = (Boolean)argMap.get(AccKeys.ACC_IS_PAYMENT);
 					
 			List ls = AccDALTransactionSearch.searchTransaction(docNo, startDate, endDate, isGeneralTrans.booleanValue(), isCollect.booleanValue(), isPayment.booleanValue());
-		    System.out.println(ls.size());
 			return ls;
 		}
 		catch (Exception ex)
