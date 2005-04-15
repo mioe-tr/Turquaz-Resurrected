@@ -1,0 +1,2 @@
+windows
+TURQUAZ\07Beta4\turquaz.bat klasorundeki dosyayi calistirin.
