@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistant.java,v 1.14 2005/03/17 15:02:08 onsel Exp $
+ * @version $Id: TurquazContentAssistant.java,v 1.15 2005/04/15 12:57:47 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +72,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant
 
 	public int findIndex(String text)
 	{
+		
 		if (processor == null)
 		{
 			return -1;
@@ -80,7 +81,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant
 		{
 			return -1;
 		}
-		Proposal[] proposals = processor.proposedCodes;
+		Proposal[] proposals = TurquazContentAssistProcessors.proposedCodeList[this.processor.contentType];
 		for (int i = 0; i < proposals.length; i++)
 		{
 			if (proposals[i].text.equals(text))
@@ -97,7 +98,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant
 		int end = findIndex(text2);
 		if (start != -1 && end != -1)
 		{
-			Proposal[] proposals = processor.proposedCodes;
+			Proposal[] proposals = TurquazContentAssistProcessors.proposedCodeList[this.processor.contentType];
 			List list = new ArrayList();
 			for (int i = start; i <= end; i++)
 			{

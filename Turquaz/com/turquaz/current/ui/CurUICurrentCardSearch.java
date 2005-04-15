@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.48 2005/03/31 12:23:34 onsel Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.49 2005/04/15 12:57:46 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -45,6 +45,7 @@ import com.turquaz.current.Messages;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentCardUpdate;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqCurrentGroup;
@@ -326,7 +327,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 						 argMap = new HashMap();
 						argMap.put(EngKeys.CURRENT_CARD,currentCard);
 						EngTXCommon.doTransactionTX(CurBLCurrentCardUpdate.class.getName(),"deleteCurrentCard",argMap);
-					
+						EngBLCurrentCards.RefreshContentAsistantMap();
 						msg.setMessage(Messages.getString("CurUICurrentCardUpdate.22")); //$NON-NLS-1$
 						msg.open();
 					}

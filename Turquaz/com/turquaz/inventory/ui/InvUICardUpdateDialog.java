@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardUpdateDialog.java,v 1.57 2005/03/30 18:38:07 cemdayanik Exp $
+ * @version  $Id: InvUICardUpdateDialog.java,v 1.58 2005/04/15 12:57:45 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -455,6 +455,7 @@ public class InvUICardUpdateDialog extends Dialog
 			argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD,invCard);					
 			EngTXCommon.doTransactionTX(InvBLCardUpdate.class.getName(),"deleteInventoryCard",argMap);
+			EngBLInventoryCards.RefreshContentAsistantMap();
 			msg = new MessageBox(this.getParent(), SWT.NULL);
 			msg.setMessage(Messages.getString("InvUICardUpdateDialog.6")); //$NON-NLS-1$
 			msg.open();

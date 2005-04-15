@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAddAccounts.java,v 1.51 2005/04/06 12:25:46 onsel Exp $
+ * @version  $Id: AccUIAddAccounts.java,v 1.52 2005/04/15 12:57:47 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -398,11 +398,9 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 				argMap.put(AccKeys.ACC_PARENT_ACCOUNT,parent);				
 				
 				TurqAccountingAccount account = (TurqAccountingAccount)EngTXCommon.doTransactionTX(AccBLAccountAdd.class.getName(),"saveAccount",argMap);
-				
-				msg.open();
-				EngTXCommon.doSingleTX(EngBLAccountingAccounts.class.getName(),"RefreshContentAsistantMap",null);
-
+				EngBLAccountingAccounts.RefreshContentAsistantMap();
 				asistant.refreshContentAssistant(0);
+				msg.open();			
 				clearFields();
 			}
 		}

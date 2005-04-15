@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardUpdate.java,v 1.47 2005/04/05 11:09:18 onsel Exp $
+ * @version  $Id: CurUICurrentCardUpdate.java,v 1.48 2005/04/15 12:57:46 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -426,7 +426,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog
 				argMap = new HashMap();
 				argMap.put(EngKeys.CURRENT_CARD,currentCard);
 				EngTXCommon.doTransactionTX(CurBLCurrentCardUpdate.class.getName(),"deleteCurrentCard",argMap);
-			
+				EngBLCurrentCards.RefreshContentAsistantMap();
 				msg.setMessage(Messages.getString("CurUICurrentCardUpdate.22")); //$NON-NLS-1$
 				msg.open();
 				this.dialogShell.close();

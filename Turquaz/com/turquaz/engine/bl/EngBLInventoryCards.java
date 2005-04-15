@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.14 2005/04/05 12:29:25 onsel Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.15 2005/04/15 12:57:47 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +30,6 @@ public class EngBLInventoryCards
 {
 	public List cardList;
 	static EngBLInventoryCards _instance;
-	private InvBLCardSearch blAccount = new InvBLCardSearch();
 
 	public EngBLInventoryCards() throws Exception
 	{
