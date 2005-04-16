@@ -17,12 +17,11 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: ContentAsistantSnippet.java,v 1.6 2005/03/17 15:02:08 onsel Exp $
+ * @version $Id: ContentAsistantSnippet.java,v 1.7 2005/04/16 14:39:03 cemdayanik Exp $
  */
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
@@ -35,7 +34,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
-import org.eclipse.swt.custom.VerifyKeyListener;
 
 public class ContentAsistantSnippet extends org.eclipse.swt.widgets.Composite
 {
@@ -150,18 +148,6 @@ public class ContentAsistantSnippet extends org.eclipse.swt.widgets.Composite
 		System.setProperty("company", "0");
 		TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 		final SubjectControlContentAssistant asistant = new TurquazContentAssistant(adapter, 0);
-		adapter.appendVerifyKeyListener(new VerifyKeyListener()
-		{
-			public void verifyKey(VerifyEvent event)
-			{
-				// Check for Ctrl+Spacebar
-				if (event.stateMask == SWT.CTRL && event.character == ' ')
-				{
-					asistant.showPossibleCompletions();
-					event.doit = false;
-				}
-			}
-		});
 	}
 
 	/**

@@ -17,17 +17,15 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentCodePicker.java,v 1.11 2005/03/31 12:23:36 onsel Exp $
+ * @version  $Id: CurrentCodePicker.java,v 1.12 2005/04/16 14:39:08 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.custom.VerifyKeyListener;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
@@ -139,18 +137,6 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite
 	{
 		TextContentAssistSubjectAdapter adapter = new TextContentAssistSubjectAdapter(text1);
 		asistant = new TurquazContentAssistant(adapter, EngBLCommon.CONTENT_ASSIST_CURRENT_CODE);
-		adapter.appendVerifyKeyListener(new VerifyKeyListener()
-		{
-			public void verifyKey(VerifyEvent event)
-			{
-				// Check for Ctrl+Spacebar
-				if (event.stateMask == SWT.CTRL && event.character == ' ')
-				{
-					asistant.showPossibleCompletions();
-					event.doit = false;
-				}
-			}
-		});
 	}
 
 	public void setText(String arg0)

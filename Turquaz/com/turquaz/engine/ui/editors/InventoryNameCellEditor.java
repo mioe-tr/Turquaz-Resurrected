@@ -17,12 +17,10 @@ package com.turquaz.engine.ui.editors;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: InventoryNameCellEditor.java,v 1.1 2005/04/05 12:29:34 onsel Exp $
+ * @version $Id: InventoryNameCellEditor.java,v 1.2 2005/04/16 14:39:04 cemdayanik Exp $
  */
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
 import org.eclipse.jface.viewers.TextCellEditor;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
@@ -44,17 +42,6 @@ public class InventoryNameCellEditor extends TextCellEditor
 		Text text = (Text) super.createControl(parent);
 		adapter = new TextContentAssistSubjectAdapter(text);
 		asistant = new TurquazContentAssistant(adapter, 10);
-		text.addKeyListener(new KeyAdapter()
-		{
-			public void keyPressed(org.eclipse.swt.events.KeyEvent event)
-			{
-				if (event.stateMask == SWT.CTRL && event.character == ' ')
-				{
-					asistant.showPossibleCompletions();
-					event.doit = false;
-				}
-			}
-		});
 		return text;
 	}
 }
