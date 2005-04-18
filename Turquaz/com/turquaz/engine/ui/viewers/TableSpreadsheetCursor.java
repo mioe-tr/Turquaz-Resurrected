@@ -17,8 +17,10 @@ package com.turquaz.engine.ui.viewers;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: TableSpreadsheetCursor.java,v 1.14 2005/03/26 15:06:45 onsel Exp $
+ * @version  $Id: TableSpreadsheetCursor.java,v 1.15 2005/04/18 08:52:32 onsel Exp $
  */
+
+
 import org.eclipse.jface.viewers.ICellEditorListener;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
@@ -29,8 +31,11 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.bill.Messages;
@@ -49,6 +54,7 @@ public class TableSpreadsheetCursor extends TableCursor implements ICellEditorLi
 	TableRowList rowList;
 	Table table;
 	boolean activeDelete = true;
+	int previousColumn = -1;
 
 	public TableSpreadsheetCursor(Table table, int style, SaveTableViewer viewer, boolean activateDelete)
 	{
@@ -70,6 +76,47 @@ public class TableSpreadsheetCursor extends TableCursor implements ICellEditorLi
 			{
 				tableViewer.editElement(getRow().getData(), getColumn());
 			}
+		});
+		this.addSelectionListener(new SelectionAdapter(){
+			public void widgetSelected(SelectionEvent e)
+			{
+				
+				TableColumn column = TableSpreadsheetCursor.this.table.getColumn(getColumn());
+				if(column.getWidth()<5)
+				{
+					if(getColumn()>previousColumn)
+					{
+						if(getColumn()<TableSpreadsheetCursor.this.table.getColumnCount()-1)
+						{
+							TableSpreadsheetCursor.this.setSelection(getRow(),getColumn()+1);
+						}
+						else
+						{
+							TableSpreadsheetCursor.this.setSelection(getRow(),getColumn()-1);
+						}
+					}
+					else
+					{
+						if(getColumn()>0)
+						{
+							TableSpreadsheetCursor.this.setSelection(getRow(),getColumn()-1);
+						}
+						else
+						{
+							TableSpreadsheetCursor.this.setSelection(getRow(),getColumn()+1);
+						}
+					}
+					previousColumn = getColumn();
+					
+				}
+				
+				
+				
+				
+				
+			}
+			
+			
 		});
 	}
 
