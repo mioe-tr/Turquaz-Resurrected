@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.95 2005/04/14 11:13:01 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.96 2005/04/18 08:08:24 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -306,7 +306,7 @@ public class EngBLCommon
 	public final static int INVENTORY_ACCOUNT_TYPE_DISCOUNT_BUY = 6;
 	public final static int INVENTORY_ACCOUNT_TYPE_DISCOUNT_SELL = 7;
 	public final static int TABLE_ROW_COUNT = 10;
-	public final static int ROUNDING_METHOD = BigDecimal.ROUND_HALF_DOWN;
+	public final static int ROUNDING_METHOD = BigDecimal.ROUND_HALF_UP;
 	private static TurqCurrency baseCurrency = null;
 	private static TurqCurrencyExchangeRate baseCurrencyExchangeRate = null;
 

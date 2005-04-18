@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUITransactionsTotalReport.java,v 1.21 2005/04/12 13:03:38 cemdayanik Exp $
+ * @version  $Id: InvUITransactionsTotalReport.java,v 1.22 2005/04/18 08:08:25 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -567,7 +567,7 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 				BigDecimal balanceAmount = totaltransOverAmountIn.add(totalAmountIn).subtract(totaltransOverAmountOut).subtract(
 						totalAmountOut);
 				BigDecimal balancePrice = (totalAmountIn.doubleValue() == 0) ? new BigDecimal(0) : balanceAmount
-						.multiply(totalPriceIn.divide(totalAmountIn, 2, BigDecimal.ROUND_HALF_DOWN));
+						.multiply(totalPriceIn.divide(totalAmountIn, 2, EngBLCommon.ROUNDING_METHOD));
 				BigDecimal unitPriceTransover = new BigDecimal(0);
 				BigDecimal unitPriceIn = new BigDecimal(0);
 				BigDecimal unitPriceOut = new BigDecimal(0);

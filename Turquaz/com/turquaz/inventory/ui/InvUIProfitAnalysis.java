@@ -17,12 +17,13 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.18 2005/03/30 17:10:05 cemdayanik Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.19 2005/04/18 08:08:26 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.SearchComposite;
@@ -200,7 +201,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 				}
 				if (inAmount != null)
 				{
-					avgPrice = inPrice.divide(inAmount, 2, BigDecimal.ROUND_HALF_UP);
+					avgPrice = inPrice.divide(inAmount, 2, EngBLCommon.ROUNDING_METHOD);
 				}
 				if (outAmount != null)
 				{

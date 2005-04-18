@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.21 2005/04/14 10:45:22 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.22 2005/04/18 08:08:25 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -461,6 +461,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 			parameters.put("curCard", (curCard != null) ? curCard.getCardsCurrentCode() : ""); //$NON-NLS-1$ //$NON-NLS-2$
 			parameters.put("formatter", new TurkishCurrencyFormat(2)); //$NON-NLS-1$
 			parameters.put("currentDate", dformat2.format(Calendar.getInstance().getTime())); //$NON-NLS-1$
+			parameters.put("roundingMethod",new Integer(EngBLCommon.ROUNDING_METHOD));
 			GenerateJasper(list, parameters);
 		}
 		catch (Exception ex)

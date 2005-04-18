@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryTransactionReport.java,v 1.31 2005/04/14 10:45:21 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryTransactionReport.java,v 1.32 2005/04/18 08:08:26 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -548,6 +548,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			parameters.put("dateformat", dformat2); //$NON-NLS-1$
 			parameters.put("formatter", new TurkishCurrencyFormat(2)); //$NON-NLS-1$
 			parameters.put("currentDate", dformat2.format(Calendar.getInstance().getTime())); //$NON-NLS-1$
+			parameters.put("roundingMethod",new Integer(EngBLCommon.ROUNDING_METHOD));
 			GenerateJasper(list, parameters, (invMainGroup != null));
 		}
 		catch (Exception ex)
