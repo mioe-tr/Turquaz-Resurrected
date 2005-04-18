@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.119 2005/04/06 07:34:49 huseyiner Exp $
+ * @version $Id: InvUICardAdd.java,v 1.120 2005/04/18 07:35:43 cemdayanik Exp $
  */
 import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.CellEditor;
@@ -1286,8 +1286,7 @@ public class InvUICardAdd extends Composite implements SecureComposite
 				argMap.put(InvKeys.INV_CARD_ACCOUNTS,getInvAccounts());
 				
 				EngTXCommon.doTransactionTX(InvBLCardAdd.class.getName(),"saveInventoryCard",argMap);
-				txtInvCardCode.asistant.refreshContentAssistant(1);
-				EngTXCommon.doSingleTX(EngBLInventoryCards.class.getName(),"RefreshContentAsistantMap",null);
+				
 				MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 				msg.setMessage(Messages.getString("InvUICardAdd.36")); //$NON-NLS-1$
 				msg.open();

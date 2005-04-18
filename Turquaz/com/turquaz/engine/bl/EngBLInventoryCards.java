@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.15 2005/04/15 12:57:47 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.16 2005/04/18 07:35:42 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +47,7 @@ public class EngBLInventoryCards
 	{
 		try
 		{
-			cardList = (List)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCards",null);
+			cardList = InvBLCardSearch.getInventoryCards();
 		}
 		catch (Exception ex)
 		{

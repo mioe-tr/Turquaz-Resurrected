@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.28 2005/04/14 10:45:22 cemdayanik Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.29 2005/04/18 07:35:48 cemdayanik Exp $
  */
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -299,6 +299,8 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite
 			formatter.setMaximumFractionDigits(2);
 			formatter.setMinimumFractionDigits(2);
 			parameters.put("formatter", new TurkishCurrencyFormat()); //$NON-NLS-1$
+			
+			
 		
 			HashMap argMap = new HashMap();
 			argMap.put(AccKeys.ACC_ACCOUNT_START,account);

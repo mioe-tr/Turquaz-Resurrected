@@ -26,7 +26,7 @@ import com.turquaz.engine.tx.EngTXCommon;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.8 2005/03/30 18:38:07 cemdayanik Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.9 2005/04/18 07:35:42 cemdayanik Exp $
  */
 public class EngBLCurrentCards
 {
@@ -49,7 +49,7 @@ public class EngBLCurrentCards
 	{
 		try
 		{
-			currentList = (List)EngTXCommon.doSingleTX(CurBLCurrentCardSearch.class.getName(),"getCurrentCards",null);
+			currentList = CurBLCurrentCardSearch.getCurrentCards();
 		}
 		catch (Exception ex)
 		{

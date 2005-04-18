@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.18 2005/03/30 14:02:10 onsel Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.19 2005/04/18 07:35:42 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -52,10 +52,10 @@ public class EngBLAccountingAccounts
 		try
 		{
 			
-			accountList = (List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAllAccounts",null);
-			accountListForAccountPickers = (List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAccountsForAccountPickers",null);
-			allAccountList = (List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAllAccountsForAccountPickerAll",null);
-			cashAccountList = (List)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getCashAccounts",null);
+			accountList = AccBLAccountAdd.getAllAccounts();
+			accountListForAccountPickers =AccBLAccountAdd.getAccountsForAccountPickers();
+			allAccountList = AccBLAccountAdd.getAllAccountsForAccountPickerAll();
+			cashAccountList =AccBLAccountAdd.getCashAccounts();
 			accountMap.clear();
 			TurqAccountingAccount account;
 			for (int i = 0; i < accountList.size(); i++)

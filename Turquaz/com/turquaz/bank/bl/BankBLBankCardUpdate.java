@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankBLBankCardUpdate.java,v 1.17 2005/04/01 09:43:20 cemdayanik Exp $
+ * @version $Id: BankBLBankCardUpdate.java,v 1.18 2005/04/18 07:35:46 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -26,6 +26,7 @@ import java.util.Map;
 import com.turquaz.bank.BankKeys;
 import com.turquaz.bank.dal.BankDALBankCardUpdate;
 import com.turquaz.bank.dal.BankDALCommon;
+import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
@@ -33,10 +34,6 @@ import com.turquaz.engine.dal.TurqCurrency;
 
 public class BankBLBankCardUpdate
 {
-	public BankBLBankCardUpdate()
-	{
-	}
-
 	public static void updateBankCard(HashMap argMap) throws Exception
 	{
 		
@@ -58,6 +55,7 @@ public class BankBLBankCardUpdate
 				BankBLTransactionAdd.saveInitialBankTransaction(bankCard);
 			}
 			updateBankAccountingAccounts( bankCard, accountingAccounts);
+			EngBLBankCards.RefreshContentAsistantMap();
 			
 		}
 		catch (Exception ex)
@@ -122,6 +120,7 @@ public class BankBLBankCardUpdate
 			}
 			BankDALBankCardUpdate.deleteInitialTransaction(bankCard);
 			EngDALCommon.deleteObject(bankCard);
+			EngBLBankCards.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{

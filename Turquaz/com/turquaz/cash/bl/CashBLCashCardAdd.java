@@ -7,6 +7,7 @@ import com.turquaz.accounting.AccKeys;
 import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.dal.CashDALCashCard;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -34,7 +35,7 @@ import com.turquaz.engine.dal.TurqModule;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.8 2005/04/11 11:07:08 onsel Exp $
+ * @version $Id: CashBLCashCardAdd.java,v 1.9 2005/04/18 07:35:46 cemdayanik Exp $
  */
 public class CashBLCashCardAdd
 {
@@ -61,6 +62,7 @@ public class CashBLCashCardAdd
 			EngDALCommon.saveObject(cashCard);
 			
 			saveInitialTransaction(cashCard);
+			EngBLCashCards.RefreshContentAsistantMap();
 			
 	
 	}

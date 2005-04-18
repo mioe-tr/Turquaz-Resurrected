@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.49 2005/03/30 20:01:50 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.50 2005/04/18 07:35:39 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,6 +26,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLInventoryCards;
+import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrentCard;
@@ -344,6 +346,8 @@ public class InvBLCardAdd
 			saveInvCardPrices(card, invPrices);
 			saveInvCardAccounts(card, invAccounts);
 			saveInitialTransaction(card, getBaseUnitFromCardUnits(invCardUnits));
+			
+			EngBLInventoryCards.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{
@@ -374,6 +378,7 @@ public class InvBLCardAdd
 			invGroup.setLastModified(cal.getTime());
 			invGroup.setCreationDate(cal.getTime());
 			EngDALCommon.saveObject(invGroup);
+			EngBLInventoryGroups.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{
@@ -417,6 +422,7 @@ public class InvBLCardAdd
 			invGroup.setLastModified(cal.getTime());
 			invGroup.setCreationDate(cal.getTime());
 			EngDALCommon.updateObject(invGroup);
+			EngBLInventoryGroups.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{

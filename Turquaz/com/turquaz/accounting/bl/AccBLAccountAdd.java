@@ -17,13 +17,14 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.27 2005/03/30 16:56:59 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.28 2005/04/18 07:35:44 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.dal.AccDALAccountAdd;
+import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 
@@ -161,6 +162,7 @@ public class AccBLAccountAdd
 				account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
 			}
 			EngDALCommon.saveObject(account);
+			EngBLAccountingAccounts.RefreshContentAsistantMap();
 			return account;
 		}
 		catch (Exception ex)

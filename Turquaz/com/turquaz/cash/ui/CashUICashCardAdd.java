@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAdd.java,v 1.14 2005/04/01 17:04:39 cemdayanik Exp $
+ * @version  $Id: CashUICashCardAdd.java,v 1.15 2005/04/18 07:35:47 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -34,7 +34,6 @@ import com.turquaz.accounting.ui.comp.CashAccountPicker;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.tx.EngTXCommon;
 import org.eclipse.swt.custom.CTabItem;
@@ -156,11 +155,9 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
 				argMap.put(CashKeys.CASH_CARD_NAME,txtCardCode.getText().trim());
 				argMap.put(EngKeys.DEFINITION, txtDefinition.getText().trim());
 				argMap.put(AccKeys.ACC_ACCOUNT,(TurqAccountingAccount) accountPicker.getData());
-				EngTXCommon.doTransactionTX(CashBLCashCardAdd.class.getName(),"saveCashCard",argMap);
-				
+				EngTXCommon.doTransactionTX(CashBLCashCardAdd.class.getName(),"saveCashCard",argMap);	
 				msg.setMessage(Messages.getString("CashUICashCardAdd.3")); //$NON-NLS-1$
 				msg.open();
-				EngBLCashCards.RefreshContentAsistantMap();
 				newForm();
 			}
 		}

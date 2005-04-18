@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardUpdate.java,v 1.27 2005/03/30 20:01:50 cemdayanik Exp $
+ * @version $Id: InvBLCardUpdate.java,v 1.28 2005/04/18 07:35:39 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqInventoryAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
@@ -68,6 +69,7 @@ public class InvBLCardUpdate
 			{
 				InvBLCardAdd.saveInitialTransaction(invCard, InvBLCardAdd.getBaseUnitFromCardUnits(invCardUnits));
 			}
+			EngBLInventoryCards.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{
@@ -163,6 +165,7 @@ public class InvBLCardUpdate
 			deleteInvCardUnits(invCard);
 			InvDALCardUpdate.deleteInitialTransactions(invCard);
 			EngDALCommon.deleteObject(invCard);
+			EngBLInventoryCards.RefreshContentAsistantMap();
 		}
 		catch (Exception ex)
 		{

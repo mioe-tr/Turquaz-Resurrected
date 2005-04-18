@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.19 2005/03/30 16:56:59 onsel Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.20 2005/04/18 07:35:44 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -30,10 +30,6 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 
 public class AccBLAccountUpdate
 {
-	public AccBLAccountUpdate()
-	{
-	}
-
 	public static void updateAccount(HashMap argMap)
 			throws Exception
 	{
@@ -92,6 +88,7 @@ public class AccBLAccountUpdate
 	public static void deleteAccount(HashMap argMap) throws Exception
 	{
 		EngDALCommon.deleteObject(argMap.get(AccKeys.ACC_ACCOUNT));
+		EngBLAccountingAccounts.RefreshContentAsistantMap();
 	}
 
 }

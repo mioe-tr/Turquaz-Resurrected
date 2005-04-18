@@ -15,7 +15,7 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardUpdate.java,v 1.10 2005/04/11 11:07:08 onsel Exp $
+ * @version $Id: CashBLCashCardUpdate.java,v 1.11 2005/04/18 07:35:46 cemdayanik Exp $
  */
 package com.turquaz.cash.bl;
 
@@ -25,46 +25,36 @@ import com.turquaz.accounting.AccKeys;
 import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.dal.CashDALCashCard;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCashCard;
 
 public class CashBLCashCardUpdate
 {
-	CashDALCashCard dalCash = new CashDALCashCard();
-
-
-	public static void updateCashCard(HashMap argMap )
-			throws Exception
+	public static void updateCashCard(HashMap argMap) throws Exception
 	{
-		
-		TurqCashCard cashCard = (TurqCashCard)argMap.get(CashKeys.CASH_CARD);
-		String name = (String)argMap.get(CashKeys.CASH_CARD_NAME);
-		String definition = (String)argMap.get(EngKeys.DEFINITION);
-		TurqAccountingAccount cashAccount = (TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
-		
-		
-			Calendar cal = Calendar.getInstance();
-			cashCard.setCashCardName(name);
-			cashCard.setCashCardDefinition(definition);
-			cashCard.setTurqAccountingAccount(cashAccount);
-			cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
-			cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
-			EngDALCommon.updateObject(cashCard);
-			
-			if(!CashDALCashCard.checkInitialTransaction(cashCard))
-			{
-				CashBLCashCardAdd.saveInitialTransaction(cashCard);
-				
-			}
-	
+		TurqCashCard cashCard = (TurqCashCard) argMap.get(CashKeys.CASH_CARD);
+		String name = (String) argMap.get(CashKeys.CASH_CARD_NAME);
+		String definition = (String) argMap.get(EngKeys.DEFINITION);
+		TurqAccountingAccount cashAccount = (TurqAccountingAccount) argMap.get(AccKeys.ACC_ACCOUNT);
+		Calendar cal = Calendar.getInstance();
+		cashCard.setCashCardName(name);
+		cashCard.setCashCardDefinition(definition);
+		cashCard.setTurqAccountingAccount(cashAccount);
+		cashCard.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
+		cashCard.setLastModified(new java.sql.Date(cal.getTime().getTime()));
+		EngDALCommon.updateObject(cashCard);
+		if (!CashDALCashCard.checkInitialTransaction(cashCard))
+		{
+			CashBLCashCardAdd.saveInitialTransaction(cashCard);
+		}
+		EngBLCashCards.RefreshContentAsistantMap();
 	}
 
 	public static void deleteCashCard(HashMap argMap) throws Exception
 	{
-	
-		
-			EngDALCommon.deleteObject(argMap.get(CashKeys.CASH_CARD));
-		
+		EngDALCommon.deleteObject(argMap.get(CashKeys.CASH_CARD));
+		EngBLCashCards.RefreshContentAsistantMap();
 	}
 }
