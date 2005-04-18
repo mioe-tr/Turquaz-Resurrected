@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionRowAddDialog.java,v 1.15 2005/03/17 15:02:02 onsel Exp $
+ * @version  $Id: AccUITransactionRowAddDialog.java,v 1.16 2005/04/18 09:24:09 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import org.eclipse.swt.graphics.Point;
@@ -27,7 +27,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.custom.CLabel;
 import com.turquaz.accounting.Messages;
-import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CCombo;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -63,7 +63,7 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 	private Composite composite1;
 	private Label label1;
 	private CCombo comboDeptOrCredit;
-	private AccountPicker accountPicker;
+	private AccountPickerLeaf accountPicker;
 	private CLabel lblAccount;
 	private Shell dialogShell;
 	private TurqAccountingTransactionColumn transactionRow;
@@ -101,7 +101,7 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 			dialogShellLayout.verticalSpacing = 5;
 			dialogShell.setText(getText());
 			lblAccount = new CLabel(dialogShell, SWT.NULL);
-			accountPicker = new AccountPicker(dialogShell, SWT.NULL);
+			accountPicker = new AccountPickerLeaf(dialogShell, SWT.NULL);
 			lbDeptOrCredit = new CLabel(dialogShell, SWT.NULL);
 			comboDeptOrCredit = new CCombo(dialogShell, SWT.READ_ONLY);
 			lblAmount = new CLabel(dialogShell, SWT.NULL);

@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentCodePicker.java,v 1.12 2005/04/16 14:39:08 cemdayanik Exp $
+ * @version  $Id: CurrentCodePicker.java,v 1.13 2005/04/18 09:24:08 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -31,7 +31,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
-import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
@@ -56,7 +56,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite
 	}
 	private String filter = "";
 	private Text text1;
-	private AccountPicker accountPicker = null;
+	private AccountPickerLeaf accountPicker = null;
 	private Integer pickerAccountType = null;
 
 	public CurrentCodePicker(Composite parent, int style)
@@ -193,7 +193,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite
 		}
 	}
 
-	public void setAccountPicker(AccountPicker picker, Integer Type)
+	public void setAccountPicker(AccountPickerLeaf picker, Integer Type)
 	{
 		accountPicker = picker;
 		pickerAccountType = Type;

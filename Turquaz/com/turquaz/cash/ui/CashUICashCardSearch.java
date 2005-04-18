@@ -22,7 +22,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import com.turquaz.accounting.AccKeys;
-import com.turquaz.accounting.ui.comp.AccountPicker;
+import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import com.turquaz.cash.CashKeys;
@@ -58,7 +58,7 @@ import org.eclipse.swt.layout.GridLayout;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.14 2005/04/01 17:04:40 cemdayanik Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.15 2005/04/18 09:24:07 cemdayanik Exp $
  */
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {
@@ -69,7 +69,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 	private TableColumn tableColumnDefinition;
 	private TableColumn tableColumnCashCode;
 	private Table tableCashCards;
-	private AccountPicker accountPicker;
+	private AccountPickerLeaf accountPicker;
 	private Text txtCardCode;
 	private SearchTableViewer tableViewer = null;
 
@@ -111,7 +111,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 					lblAccountCode.setText(Messages.getString("CashUICashCardSearch.1")); //$NON-NLS-1$
 				}
 				{
-					accountPicker = new AccountPicker(composite1, SWT.NONE);
+					accountPicker = new AccountPickerLeaf(composite1, SWT.NONE);
 					GridData accountPickerLData = new GridData();
 					accountPickerLData.widthHint = 157;
 					accountPickerLData.heightHint = 17;
