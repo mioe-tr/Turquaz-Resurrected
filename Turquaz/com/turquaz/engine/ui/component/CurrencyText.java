@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CurrencyText.java,v 1.27 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: CurrencyText.java,v 1.28 2005/04/20 15:02:43 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
@@ -34,6 +34,21 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 /**
  * @author Ceday Window - Preferences - Java - Code Style - Code Templates
  */
