@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.145 2005/04/14 11:13:01 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.146 2005/04/20 09:37:11 erhanb Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -86,7 +86,7 @@ import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.145 2005/04/14 11:13:01 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.146 2005/04/20 09:37:11 erhanb Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -710,7 +710,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 				}
 				//START >> toolBrowser
 				toolBrowser = new ToolItem(toolbarMainTop, SWT.NONE);
-				toolBrowser.setText("Turquaz Ana Sayfa"); //$NON-NLS-1$
+				toolBrowser.setText("Turquaz Web Sitesi"); //$NON-NLS-1$
 				toolBrowser.setImage(SWTResourceManager.getImage("icons/browserview.gif")); //$NON-NLS-1$
 				toolBrowser.addSelectionListener(new SelectionAdapter()
 				{
