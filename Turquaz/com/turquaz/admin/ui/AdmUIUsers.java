@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUsers.java,v 1.15 2005/04/01 14:53:06 cemdayanik Exp $
+ * @version  $Id: AdmUIUsers.java,v 1.16 2005/04/21 08:55:53 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -45,10 +45,10 @@ import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLUsers;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqUser;
+import com.turquaz.engine.interfaces.SearchComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
-import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;
 import com.turquaz.engine.ui.viewers.TurquazTableSorter;

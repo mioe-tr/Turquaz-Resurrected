@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAddMainAccount.java,v 1.5 2005/04/01 16:26:00 cemdayanik Exp $
+ * @version  $Id: AccUIAddMainAccount.java,v 1.6 2005/04/21 08:55:51 onsel Exp $
  */
  import org.eclipse.swt.custom.CTabFolder;
  import org.eclipse.swt.custom.CTabItem;
@@ -37,7 +37,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.ui.component.SecureComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 import com.cloudgarden.resource.SWTResourceManager;
 

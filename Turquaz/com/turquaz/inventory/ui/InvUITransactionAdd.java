@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionAdd.java,v 1.14 2005/03/17 15:02:04 onsel Exp $
+ * @version  $Id: InvUITransactionAdd.java,v 1.15 2005/04/21 08:55:49 onsel Exp $
  */
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Display;
@@ -30,7 +30,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import com.turquaz.engine.ui.component.SecureComposite;
+
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.inventory.Messages;
 
 /**

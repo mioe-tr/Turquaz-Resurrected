@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupAdd.java,v 1.17 2005/04/06 12:25:46 onsel Exp $
+ * @version  $Id: AdmUIGroupAdd.java,v 1.18 2005/04/21 08:55:53 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -43,8 +43,8 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.admin.AdmKeys;
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 

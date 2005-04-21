@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.75 2005/04/12 07:55:10 onsel Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.76 2005/04/21 08:55:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ import com.turquaz.engine.dal.TurqConsignmentGroup;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
-import com.turquaz.engine.ui.component.SecureComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.editors.CurrencyCellEditor;
 import com.turquaz.engine.ui.editors.InventoryCellEditor;
 import com.turquaz.engine.ui.editors.InventoryNameCellEditor;

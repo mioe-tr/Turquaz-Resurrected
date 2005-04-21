@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserAdd.java,v 1.19 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version  $Id: AdmUIUserAdd.java,v 1.20 2005/04/21 08:55:53 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,9 +47,9 @@ import com.turquaz.admin.bl.AdmBLGroups;
 import com.turquaz.admin.bl.AdmBLUserAdd;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqGroup;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;

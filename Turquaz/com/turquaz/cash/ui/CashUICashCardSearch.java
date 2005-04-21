@@ -30,8 +30,8 @@ import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashCardSearch;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqCashCard;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;
 import com.turquaz.engine.ui.viewers.TurquazTableSorter;
@@ -58,7 +58,7 @@ import org.eclipse.swt.layout.GridLayout;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.15 2005/04/18 09:24:07 cemdayanik Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.16 2005/04/21 08:55:50 onsel Exp $
  */
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {

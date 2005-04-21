@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseSearch.java,v 1.22 2005/03/30 17:09:59 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseSearch.java,v 1.23 2005/04/21 08:55:49 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -35,9 +35,9 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.SWT;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
+import com.turquaz.engine.interfaces.SearchComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;
 import com.turquaz.engine.ui.viewers.TurquazTableSorter;

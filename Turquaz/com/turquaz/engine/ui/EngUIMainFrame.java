@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.147 2005/04/20 15:02:36 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.148 2005/04/21 08:55:54 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -79,16 +79,16 @@ import com.turquaz.engine.bl.EngBLKeyEvents;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLXmlParser;
 import com.turquaz.engine.dal.TurqCompany;
+import com.turquaz.engine.interfaces.SearchComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.component.MenuFactory;
 import com.turquaz.engine.ui.component.MenuManager;
-import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.TurqKeyEvent;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.147 2005/04/20 15:02:36 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.148 2005/04/21 08:55:54 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 

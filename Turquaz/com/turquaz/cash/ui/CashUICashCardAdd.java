@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAdd.java,v 1.15 2005/04/18 07:35:47 cemdayanik Exp $
+ * @version  $Id: CashUICashCardAdd.java,v 1.16 2005/04/21 08:55:50 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -35,10 +35,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.widgets.Composite;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used

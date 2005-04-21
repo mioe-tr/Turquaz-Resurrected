@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvUIGroupingPlan.java,v 1.8 2005/04/05 10:16:04 huseyiner Exp $
+ * @version $Id: InvUIGroupingPlan.java,v 1.9 2005/04/21 08:55:49 onsel Exp $
  */
 
 import java.util.HashMap;
@@ -44,9 +44,9 @@ import org.eclipse.swt.SWT;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqInventoryGroup;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
-import com.turquaz.engine.ui.component.SearchComposite;
 
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.65 2005/04/18 09:24:07 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.66 2005/04/21 08:55:50 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,11 +45,11 @@ import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentGroup;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.NumericText;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.widgets.Label;
 import com.turquaz.engine.ui.component.CurrencyTextAdvanced;
 import com.turquaz.current.ui.comp.CurrentCodePicker;

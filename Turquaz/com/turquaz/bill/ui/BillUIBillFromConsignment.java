@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.44 2005/04/12 07:55:10 onsel Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.45 2005/04/21 08:55:53 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -68,7 +68,8 @@ import com.turquaz.engine.dal.TurqBillGroup;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
-import com.turquaz.engine.ui.component.SecureComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
+
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.SWT;
 

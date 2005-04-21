@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.14 2005/04/06 12:25:46 onsel Exp $
+ * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.15 2005/04/21 08:55:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -39,10 +39,10 @@ import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.CurrencyText;
 import com.turquaz.engine.ui.component.DatePicker;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.widgets.Text;
 import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.SWT;

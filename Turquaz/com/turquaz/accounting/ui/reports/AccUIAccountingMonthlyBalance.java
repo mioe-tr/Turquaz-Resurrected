@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.14 2005/04/18 09:24:08 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.15 2005/04/21 08:55:54 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -51,9 +51,9 @@ import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.DatePicker;
-import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.events.SelectionAdapter;

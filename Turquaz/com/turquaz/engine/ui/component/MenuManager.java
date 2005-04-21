@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuManager.java,v 1.11 2005/04/20 15:02:43 cemdayanik Exp $
+ * @version $Id: MenuManager.java,v 1.12 2005/04/21 08:55:52 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabItem;
@@ -29,6 +29,8 @@ import org.eclipse.swt.widgets.MenuItem;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLKeyEvents;
+import com.turquaz.engine.interfaces.SearchComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.EngUIHelpDialog;
 import com.turquaz.engine.ui.EngUIKeyControls;
 import com.turquaz.engine.ui.EngUIMainFrame;

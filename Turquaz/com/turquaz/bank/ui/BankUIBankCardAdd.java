@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.28 2005/04/18 09:24:07 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.29 2005/04/21 08:55:47 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -37,8 +37,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CTabItem;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqCurrency;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.custom.CCombo;
 import com.turquaz.bank.BankKeys;
 import com.turquaz.bank.Messages;

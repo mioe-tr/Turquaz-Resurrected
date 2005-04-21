@@ -1,4 +1,4 @@
-package com.turquaz.engine.ui.component;
+package com.turquaz.engine.interfaces;
 
 /************************************************************************/
 /* TURQUAZ: Higly Modular Accounting/ERP Program                        */
@@ -17,11 +17,11 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: SecureComposite.java,v 1.10 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: SecureComposite.java,v 1.1 2005/04/21 08:55:54 onsel Exp $
  */
 /**
  * @author onsel
- * @version $Id: SecureComposite.java,v 1.10 2005/03/17 15:02:06 onsel Exp $
+ * @version $Id: SecureComposite.java,v 1.1 2005/04/21 08:55:54 onsel Exp $
  */
 public interface SecureComposite
 {

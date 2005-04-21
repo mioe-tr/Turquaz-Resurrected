@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: CashUICashCardDailyAbstract.java,v 1.13 2005/04/01 17:04:39 cemdayanik Exp $
+ * @version  $Id: CashUICashCardDailyAbstract.java,v 1.14 2005/04/21 08:55:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -33,10 +33,10 @@ import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqCashTransaction;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.DatePicker;
-import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;

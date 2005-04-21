@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIReturnFromBankRoll.java,v 1.11 2005/04/18 09:24:07 cemdayanik Exp $
+ * @version  $Id: CheUIReturnFromBankRoll.java,v 1.12 2005/04/21 08:55:48 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -36,6 +36,7 @@ import com.turquaz.engine.ui.component.CurrencyTextAdvanced;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import com.turquaz.engine.dal.TurqChequeCheque;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
@@ -51,7 +52,6 @@ import org.eclipse.swt.SWT;
 import com.turquaz.cheque.CheKeys;
 import com.turquaz.cheque.Messages;
 import com.turquaz.cheque.bl.CheBLSaveChequeTransaction;
-import com.turquaz.engine.ui.component.SecureComposite;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used

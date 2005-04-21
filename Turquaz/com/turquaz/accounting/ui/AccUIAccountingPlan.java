@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.55 2005/04/21 08:06:04 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.56 2005/04/21 08:55:52 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -48,8 +48,8 @@ import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqViewAccTotal;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SearchComposite;
 import com.cloudgarden.resource.SWTResourceManager;
 
 /**

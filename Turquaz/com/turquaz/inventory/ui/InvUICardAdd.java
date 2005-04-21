@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUICardAdd.java,v 1.120 2005/04/18 07:35:43 cemdayanik Exp $
+ * @version $Id: InvUICardAdd.java,v 1.121 2005/04/21 08:55:48 onsel Exp $
  */
 import org.apache.log4j.Logger;
 import org.eclipse.jface.viewers.CellEditor;
@@ -51,7 +51,8 @@ import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqInventoryAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryAccountingType;
 import com.turquaz.engine.dal.TurqInventoryUnit;
-import com.turquaz.engine.ui.component.SecureComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupPermissions.java,v 1.18 2005/04/14 10:45:22 cemdayanik Exp $
+ * @version  $Id: AdmUIGroupPermissions.java,v 1.19 2005/04/21 08:55:53 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -57,9 +57,9 @@ import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModule;
 import com.turquaz.engine.dal.TurqModuleComponent;
 import com.turquaz.engine.dal.TurqUserPermissionLevel;
+import com.turquaz.engine.interfaces.SearchComposite;
+import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SearchComposite;
-import com.turquaz.engine.ui.component.SecureComposite;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import com.cloudgarden.resource.SWTResourceManager;

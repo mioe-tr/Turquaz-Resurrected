@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.19 2005/04/18 08:08:26 cemdayanik Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.20 2005/04/21 08:55:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
@@ -25,8 +25,8 @@ import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLUtils;
+import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
-import com.turquaz.engine.ui.component.SearchComposite;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;
 import com.turquaz.engine.ui.viewers.TurquazTableSorter;
