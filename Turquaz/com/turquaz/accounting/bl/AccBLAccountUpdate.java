@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.20 2005/04/18 07:35:44 cemdayanik Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.21 2005/04/21 08:06:04 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -30,18 +30,17 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 
 public class AccBLAccountUpdate
 {
-	public static void updateAccount(HashMap argMap)
-			throws Exception
+	public static void updateAccount(HashMap argMap) throws Exception
 	{
 		try
 		{
-			TurqAccountingAccount account = (TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
-			 String accountName = (String)argMap.get(AccKeys.ACC_ACCOUNT_NAME);
-			 String accountCode = (String)argMap.get(AccKeys.ACC_ACCOUNT_CODE);
-			 TurqAccountingAccount parent = (TurqAccountingAccount)argMap.get(AccKeys.ACC_PARENT_ACCOUNT);
+			TurqAccountingAccount account = (TurqAccountingAccount) argMap.get(AccKeys.ACC_ACCOUNT);
+			String accountName = (String) argMap.get(AccKeys.ACC_ACCOUNT_NAME);
+			String accountCode = (String) argMap.get(AccKeys.ACC_ACCOUNT_CODE);
+			TurqAccountingAccount parentAccount = (TurqAccountingAccount) argMap.get(AccKeys.ACC_PARENT_ACCOUNT);
 			
-			String accCode = account.getAccountCode();
-			TurqAccountingAccount parentAccount = parent;
+			
+			String accCode = account.getAccountCode();			
 			account.setAccountName(accountName);
 			account.setAccountCode(accountCode);
 			account.setUpdatedBy(System.getProperty("user"));
@@ -50,11 +49,12 @@ public class AccBLAccountUpdate
 			account.setTurqAccountingAccountByParentAccount(parentAccount);
 			if (parentAccount.getId().intValue() == -1)
 			{
-				account.setTurqAccountingAccountByTopAccount(account);
+				account.setTurqAccountingAccountByTopAccount(parentAccount);
 			}
 			else
 			{
-				account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
+				account.setTurqAccountingAccountByTopAccount(parentAccount
+						.getTurqAccountingAccountByTopAccount());
 			}
 			EngDALCommon.updateObject(account);
 			AccDALAccountUpdate.updateAccountCodeOfSubAccs(account, accCode);
