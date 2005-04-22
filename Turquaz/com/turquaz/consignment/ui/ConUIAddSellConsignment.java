@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddSellConsignment.java,v 1.2 2005/04/21 08:55:50 onsel Exp $
+ * @version  $Id: ConUIAddSellConsignment.java,v 1.3 2005/04/22 09:03:54 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -56,11 +56,9 @@ import com.turquaz.consignment.ConsKeys;
 import com.turquaz.consignment.Messages;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
 import com.turquaz.consignment.bl.ConBLAddGroups;
-import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqConsignment;
 import com.turquaz.engine.dal.TurqConsignmentGroup;
-import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.engine.interfaces.SecureComposite;
@@ -854,16 +852,7 @@ public class ConUIAddSellConsignment extends org.eclipse.swt.widgets.Composite i
 		}
 	}
 
-	public void btnChooseMouseUp()
-	{
-		Object data = new CurUICurrentCardSearchDialog(this.getShell(), SWT.NULL).open();
-		if (data != null)
-		{
-			TurqCurrentCard curCard = (TurqCurrentCard) data;
-			txtCurrentCard.setText(curCard.getCardsCurrentCode() + " - " + curCard.getCardsName()); //$NON-NLS-1$
-			txtCurrentCard.setData(curCard);
-		}
-	}
+	
 
 	public boolean verifyFields()
 	{

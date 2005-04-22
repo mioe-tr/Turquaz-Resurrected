@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentPicker.java,v 1.18 2005/04/21 11:29:33 onsel Exp $
+ * @version  $Id: CurrentPicker.java,v 1.19 2005/04/22 09:03:58 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -38,6 +38,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
+import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
@@ -229,7 +230,9 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite implements 
 	}
 
 	public void openSearchDialog() {
-		// TODO Auto-generated method stub
+		
+		String currentCode = (String)new CurUICurrentCardSearchDialog(getShell(),SWT.NULL,1).open();
+		text1.setText(currentCode);
 		
 	}
 

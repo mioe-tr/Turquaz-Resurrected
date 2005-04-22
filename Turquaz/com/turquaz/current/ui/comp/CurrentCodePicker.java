@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentCodePicker.java,v 1.15 2005/04/22 06:52:56 onsel Exp $
+ * @version  $Id: CurrentCodePicker.java,v 1.16 2005/04/22 09:03:58 onsel Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -203,8 +203,7 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 					HashMap argMap = new HashMap();
 					argMap.put(EngKeys.CURRENT_CARD, obj);
 					argMap.put(EngKeys.TYPE,pickerAccountType);
-					
-					
+									
 					accountPicker
 							.setData(EngTXCommon.doSingleTX(CurBLCurrentCardSearch.class.getName(),"getCurrentAccountingAccount",argMap));
 				    
@@ -231,8 +230,8 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 	}
 	
 	public void openSearchDialog() {
-		new CurUICurrentCardSearchDialog(getShell(),SWT.NULL).open();
-		
+	String currentCode = (String)new CurUICurrentCardSearchDialog(getShell(),SWT.NULL,0).open();
+		text1.setText(currentCode);
 	}
 
 

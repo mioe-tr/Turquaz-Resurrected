@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.73 2005/04/21 08:55:53 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.74 2005/04/22 09:03:55 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -60,7 +60,6 @@ import com.turquaz.bill.bl.BillBLAddBill;
 import com.turquaz.bill.bl.BillBLAddGroups;
 import com.turquaz.consignment.ConsKeys;
 import com.turquaz.consignment.bl.ConBLAddConsignment;
-import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.TurqBill;
 import com.turquaz.engine.dal.TurqBillGroup;
@@ -69,7 +68,6 @@ import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.engine.dal.TurqViewInventoryAmountTotal;
-import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.ui.editors.CurrencyCellEditor;
@@ -932,16 +930,7 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 		});
 	}
 
-	public void btnChooseMouseUp()
-	{
-		Object data = new CurUICurrentCardSearchDialog(this.getShell(), SWT.NULL).open();
-		if (data != null)
-		{
-			TurqCurrentCard curCard = (TurqCurrentCard) data;
-			txtCurrentCard.setText(curCard.getCardsCurrentCode() + " - " + curCard.getCardsName()); //$NON-NLS-1$
-			txtCurrentCard.setData(curCard);
-		}
-	}
+	
 
 	public void btnAddConsignmentRowMouseUp()
 	{
