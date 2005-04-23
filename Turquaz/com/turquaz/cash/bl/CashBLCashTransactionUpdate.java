@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionUpdate.java,v 1.35 2005/04/11 11:07:08 onsel Exp $
+ * @version $Id: CashBLCashTransactionUpdate.java,v 1.36 2005/04/23 12:36:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -172,11 +172,14 @@ public class CashBLCashTransactionUpdate
 			cashTransRow.setLastModified(new java.sql.Date(cal.getTime().getTime()));
 			cashTransRow.setCreationDate(new java.sql.Date(cal.getTime().getTime()));
 			cashTransRow.setTransactionDefinition(definition);
-			cashTransRow.setTurqAccountingAccount(CurBLCurrentCardSearch.getCurrentAccountingAccount(current,
-					EngBLCommon.CURRENT_ACC_TYPE_GENERAL));
 			TurqAccountingAccount cashAccount = cashCard.getTurqAccountingAccount();
 			TurqAccountingAccount currentAccount = CurBLCurrentCardSearch.getCurrentAccountingAccount(current,
 					EngBLCommon.CURRENT_ACC_TYPE_GENERAL);
+			TurqAccountingAccount account = new TurqAccountingAccount();
+			account.setId(new Integer(-1));
+			cashTransRow.setTurqAccountingAccount(account);
+			
+			
 			String currentTransDefinition = "";
 			int accTransType = 0;
 			boolean currentTransType = false; // Credit or Debit
