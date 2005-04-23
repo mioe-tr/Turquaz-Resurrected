@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.33 2005/04/05 10:25:32 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.34 2005/04/23 12:13:41 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -243,6 +243,7 @@ public class CurDALCurrentCardSearch
 		}
 	}
 
+	//TODO this method should be written
 	public static TurqAccountingAccount getCurrentAccountingAccount(TurqCurrentCard curCard, Integer type) throws Exception
 	{
 		try
