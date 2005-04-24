@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryTransactionReport.java,v 1.34 2005/04/24 14:53:54 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryTransactionReport.java,v 1.35 2005/04/24 15:07:46 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -731,7 +731,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 			}
 			tableViewer.addRow(new String[]{"", "", "", "", "", "", "", "", ""}, null);
 			tableViewer
-					.addRow(new String[]{"", "", "TOPLAM", "", cf.format(totalAmountIn), "", "", cf.format(totalAmountOut), ""}, null);
+					.addRow(new String[]{"", "", "TOPLAM", "", cf.format(totalPriceIn), "", "", cf.format(totalPriceOut), ""}, null);
 			if (list.size() > 0)
 				GenerateJasper(list, type);
 		}
