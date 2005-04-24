@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionAdd.java,v 1.72 2005/04/21 08:55:51 onsel Exp $
+ * @version  $Id: AccUITransactionAdd.java,v 1.73 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -353,7 +353,7 @@ public class AccUITransactionAdd extends Composite implements SecureComposite
 	{
 		try
 		{
-			List currencies = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
+			List currencies = (List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

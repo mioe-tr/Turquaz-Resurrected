@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.20 2005/03/30 20:01:51 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.21 2005/04/24 14:53:54 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -270,7 +270,7 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog
 				HashMap argMap=new HashMap();
 				argMap.put(InvKeys.INV_WAREHOUSE,warehouse);
 				
-				Boolean hasTX=(Boolean)EngTXCommon.doSingleTX(InvBLWarehouseUpdate.class.getName(),"hasTransactions",argMap);
+				Boolean hasTX=(Boolean)EngTXCommon.doSelectTX(InvBLWarehouseUpdate.class.getName(),"hasTransactions",argMap);
 				if (hasTX.booleanValue())
 				{
 					msg.setMessage("Warehouse card contains transactions and \ncan not be deleted. Delete transactions first. "); //$NON-NLS-1$

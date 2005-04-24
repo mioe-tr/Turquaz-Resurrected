@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.42 2005/04/18 07:35:47 cemdayanik Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.43 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -309,7 +309,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 				argMap.put(AccKeys.ACC_ACCOUNT_CODE,compAccountCard.getTxtAccAccountCode().getText().trim());
 				argMap.put(AccKeys.ACC_PARENT_ACCOUNT,compAccountCard.getTxtParentAccount().getData());
 				
-				EngTXCommon.doSingleTX(AccBLAccountUpdate.class.getName(),"updateAccount",argMap);						
+				EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"updateAccount",argMap);						
 				msg.setMessage(Messages.getString("AccUIAccountUpdate.14")); //$NON-NLS-1$
 				msg.open();
 				updateOccured = true;

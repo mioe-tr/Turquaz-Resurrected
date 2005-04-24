@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.66 2005/04/21 08:55:50 onsel Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.67 2005/04/24 14:53:53 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1013,7 +1013,7 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 		try
 		{
 			HashMap groupMap = new HashMap();
-			List list = (List)EngTXCommon.doSingleTX(CurBLCurrentCardAdd.class.getName(),"getCurrentGroups",null); //$NON-NLS-1$
+			List list = (List)EngTXCommon.doSelectTX(CurBLCurrentCardAdd.class.getName(),"getCurrentGroups",null); //$NON-NLS-1$
 			TurqCurrentGroup curGroup;
 			for (int i = 0; i < list.size(); i++)
 			{

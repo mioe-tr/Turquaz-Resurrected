@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUISubsidiaryLedger.java,v 1.31 2005/04/21 08:55:54 onsel Exp $
+ * @version  $Id: AccUISubsidiaryLedger.java,v 1.32 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -306,7 +306,7 @@ public class AccUISubsidiaryLedger extends Composite implements SearchComposite
 			argMap.put(AccKeys.ACC_ACCOUNT_START,account);
 			argMap.put(AccKeys.ACC_ACCOUNT_END,account2);
 			argMap.put(AccKeys.ACC_START_DATE,dateStartDate.getDate());
-			List balances = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrentBalances",argMap);
+			List balances = (List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getCurrentBalances",argMap);
 			
 			HashMap balanceList = new HashMap();
 			for (int k = 0; k < balances.size(); k++)

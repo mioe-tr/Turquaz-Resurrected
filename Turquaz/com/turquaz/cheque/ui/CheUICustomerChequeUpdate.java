@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUICustomerChequeUpdate.java,v 1.10 2005/04/01 15:15:26 onsel Exp $
+ * @version  $Id: CheUICustomerChequeUpdate.java,v 1.11 2005/04/24 14:53:55 cemdayanik Exp $
  */
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -410,7 +410,7 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 			
 			HashMap argMap = new HashMap();
 			argMap.put(CheKeys.CHE_CHEQUE,cheque);
-			List history = (List)EngTXCommon.doSingleTX(CheBLSearchCheques.class.getName(),"getChequeHistory",argMap);
+			List history = (List)EngTXCommon.doSelectTX(CheBLSearchCheques.class.getName(),"getChequeHistory",argMap);
 			TableItem item;
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //$NON-NLS-1$
 			for (int k = 0; k < history.size(); k++)

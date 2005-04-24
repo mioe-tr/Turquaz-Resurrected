@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InventoryPicker.java,v 1.16 2005/04/21 13:29:47 onsel Exp $
+ * @version  $Id: InventoryPicker.java,v 1.17 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -211,7 +211,7 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite implement
 					TurqInventoryUnit unit = null;
 					HashMap argMap=new HashMap();
 					argMap.put(InvKeys.INV_CARD,invCard);
-					List ls = (List)EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getInventoryUnits",argMap);
+					List ls = (List)EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getInventoryUnits",argMap);
 					for (int i = 0; i < ls.size(); i++)
 					{
 						unit = (TurqInventoryUnit) ls.get(i);

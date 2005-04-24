@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.96 2005/04/18 08:08:24 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.97 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -316,7 +316,7 @@ public class EngBLCommon
 		{
 			if (baseCurrency == null)
 			{
-				baseCurrency = (TurqCurrency)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getBaseCurrency",null);
+				baseCurrency = (TurqCurrency)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getBaseCurrency",null);
 			}
 				return baseCurrency;
 		}
@@ -382,7 +382,7 @@ public class EngBLCommon
 			if (baseCurrencyExchangeRate == null){
 				try
 				{
-					baseCurrencyExchangeRate = (TurqCurrencyExchangeRate)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getBaseCurrencyExchangeRate",null);
+					baseCurrencyExchangeRate = (TurqCurrencyExchangeRate)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getBaseCurrencyExchangeRate",null);
 				}
 				catch (Exception ex)
 				{

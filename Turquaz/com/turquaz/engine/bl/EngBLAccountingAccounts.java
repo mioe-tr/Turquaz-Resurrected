@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.19 2005/04/18 07:35:42 cemdayanik Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.20 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -169,7 +169,7 @@ public class EngBLAccountingAccounts
 			
 			HashMap argMap = new HashMap();
 			argMap.put(AccKeys.ACC_CODE_CRITERIA,accountCode);
-			TurqAccountingAccount account = (TurqAccountingAccount)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getLeafAccount",argMap);
+			TurqAccountingAccount account = (TurqAccountingAccount)EngTXCommon.doSelectTX(AccBLAccountAdd.class.getName(),"getLeafAccount",argMap);
 			return account;
 		}
 		catch (Exception ex)
@@ -184,7 +184,7 @@ public class EngBLAccountingAccounts
 		{
 			HashMap argMap = new HashMap();
 			argMap.put(AccKeys.ACC_CODE_CRITERIA,accountCode);
-			TurqAccountingAccount account = (TurqAccountingAccount)EngTXCommon.doSingleTX(AccBLAccountAdd.class.getName(),"getAllAccounts",argMap);
+			TurqAccountingAccount account = (TurqAccountingAccount)EngTXCommon.doSelectTX(AccBLAccountAdd.class.getName(),"getAllAccounts",argMap);
 			return account;
 		}
 		catch (Exception ex)

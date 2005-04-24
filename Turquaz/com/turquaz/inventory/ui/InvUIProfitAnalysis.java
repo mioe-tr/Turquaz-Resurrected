@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.20 2005/04/21 08:55:49 onsel Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.21 2005/04/24 14:53:54 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
@@ -158,7 +158,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 		try
 		{
 			tableViewer.removeAll();
-			List ls = (List)EngTXCommon.doSingleTX(InvBLProfitAnalysis.class.getName(),"getTransactionTotals",null);
+			List ls = (List)EngTXCommon.doSelectTX(InvBLProfitAnalysis.class.getName(),"getTransactionTotals",null);
 			BigDecimal amountNow;
 			BigDecimal avgPrice;
 			BigDecimal amountOut;

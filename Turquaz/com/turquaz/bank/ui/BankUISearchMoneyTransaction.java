@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUISearchMoneyTransaction.java,v 1.26 2005/04/21 08:55:47 onsel Exp $
+ * @version  $Id: BankUISearchMoneyTransaction.java,v 1.27 2005/04/24 14:53:53 cemdayanik Exp $
  */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -244,7 +244,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 			argMap.put(EngKeys.DOCUMENT_NO,txtDocNo.getText().trim());
 			argMap.put(EngKeys.DATE_START,dateStart.getDate());
 			argMap.put(EngKeys.DATE_END,dateEnd.getDate());
-			List ls =(List) EngTXCommon.doSingleTX(BankBLTransactionSearch.class.getName(),"searchtransaction",argMap);
+			List ls =(List) EngTXCommon.doSelectTX(BankBLTransactionSearch.class.getName(),"searchtransaction",argMap);
 			Object[] result;
 			Integer transId;
 			Date transDate;
@@ -289,7 +289,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 		boolean isUpdated = false;
 		HashMap argMap=new HashMap();
 		argMap.put(EngKeys.TRANS_ID,billId);
-		TurqBanksTransactionBill transBill =(TurqBanksTransactionBill)EngTXCommon.doSingleTX(BankBLTransactionUpdate.class.getName(),"initializeTransaction",argMap);
+		TurqBanksTransactionBill transBill =(TurqBanksTransactionBill)EngTXCommon.doSelectTX(BankBLTransactionUpdate.class.getName(),"initializeTransaction",argMap);
 		if (transBill.getTurqBanksTransactionType().getId().intValue() == EngBLCommon.BANK_TRANS_RECIEVE_MONEY)
 		{
 			isUpdated = new BankUIMoneyTransferInUpdate(shell, SWT.NULL, transBill).open();

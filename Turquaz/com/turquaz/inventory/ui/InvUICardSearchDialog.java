@@ -7,7 +7,7 @@ package com.turquaz.inventory.ui;
 /* the Free Software Foundation; either version 2 of the License, or    */
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearchDialog.java,v 1.12 2005/04/21 14:54:40 onsel Exp $
+ * @version  $Id: InvUICardSearchDialog.java,v 1.13 2005/04/24 14:53:55 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -276,7 +276,7 @@ public class InvUICardSearchDialog extends org.eclipse.swt.widgets.Dialog
 	{
 		try
 		{
-			List groupList =(List)EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getParentInventoryGroups",null);
+			List groupList =(List)EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getParentInventoryGroups",null);
 			comboInvMainGroup.add("");
 			for (int k = 0; k < groupList.size(); k++)
 			{
@@ -311,7 +311,7 @@ public class InvUICardSearchDialog extends org.eclipse.swt.widgets.Dialog
 			argMap.put(InvKeys.INV_CARD_NAME,txtInvName.getText().trim());
 			argMap.put(InvKeys.INV_CARD_CODE, txtInvCode.getText().trim());
 			argMap.put(InvKeys.INV_GROUP,comboSubGroup.getData(comboSubGroup.getText()));
-			List result = (List)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"searchCards",argMap);
+			List result = (List)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"searchCards",argMap);
 			TableItem item;
 			int listSize = result.size();
 			for (int i = 0; i < listSize; i++)

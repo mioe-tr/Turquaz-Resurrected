@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectUpdate.java,v 1.9 2005/04/01 19:00:48 onsel Exp $
+ * @version $Id: CheUIChequeCollectUpdate.java,v 1.10 2005/04/24 14:53:55 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -163,7 +163,7 @@ public class CheUIChequeCollectUpdate extends org.eclipse.swt.widgets.Dialog
 			
 			HashMap argMap = new HashMap();
 			argMap.put(CheKeys.CHE_CHEQUE_ROLL,chequeRoll);
-			EngTXCommon.doSingleTX(CheBLUpdateChequeRoll.class.getName(),"initializeChequeRoll",argMap);
+			EngTXCommon.doSelectTX(CheBLUpdateChequeRoll.class.getName(),"initializeChequeRoll",argMap);
 			
 			
 			compChequeRoll.getTxtRollNo().setText(chequeRoll.getChequeRollNo());
@@ -186,7 +186,7 @@ public class CheUIChequeCollectUpdate extends org.eclipse.swt.widgets.Dialog
 				 argMap = new HashMap();
 				argMap.put(CashKeys.CASH_TRANSACTION,cashTrans);
 				
-				EngTXCommon.doSingleTX(CashBLCashTransactionSearch.class.getName(),"initializeTransaction",argMap);
+				EngTXCommon.doSelectTX(CashBLCashTransactionSearch.class.getName(),"initializeTransaction",argMap);
 				Iterator it2 = cashTrans.getTurqCashTransactionRows().iterator();
 				while (it2.hasNext())
 				{

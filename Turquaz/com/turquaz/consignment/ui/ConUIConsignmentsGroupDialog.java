@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.10 2005/03/31 12:10:26 cemdayanik Exp $
+ * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.11 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -271,7 +271,7 @@ public class ConUIConsignmentsGroupDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			tableCurGroups.removeAll();
-			List list = (List)EngTXCommon.doSingleTX(ConBLAddGroups.class.getName(),"getConsignmentGroups",null);
+			List list = (List)EngTXCommon.doSelectTX(ConBLAddGroups.class.getName(),"getConsignmentGroups",null);
 			TurqConsignmentGroup curGroup;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.18 2005/04/01 15:15:26 onsel Exp $
+ * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.19 2005/04/24 14:53:55 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -167,7 +167,7 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog
 
 			HashMap argMap = new HashMap();
 			argMap.put(CheKeys.CHE_CHEQUE_ROLL,chequeRoll);
-			EngTXCommon.doSingleTX(CheBLUpdateChequeRoll.class.getName(),"initializeChequeRoll",argMap);
+			EngTXCommon.doSelectTX(CheBLUpdateChequeRoll.class.getName(),"initializeChequeRoll",argMap);
 			
 			
 			compChequeRoll.getTxtRollNo().setText(chequeRoll.getChequeRollNo());

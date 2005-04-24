@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionUpdateDialog.java,v 1.44 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version  $Id: AccUITransactionUpdateDialog.java,v 1.45 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -165,7 +165,7 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 							dialogShell.close();
 							HashMap argMap=new HashMap();
 							argMap.put(AccKeys.ACC_TRANSACTION,accTrans);
-							EngTXCommon.doSingleTX(EngBLUtils.class.getName(),"PrintTransaction",argMap);
+							EngTXCommon.doSelectTX(EngBLUtils.class.getName(),"PrintTransaction",argMap);
 							
 						}
 						catch(Exception ex)

@@ -18,7 +18,7 @@ package com.turquaz.inventory.ui;
 
 /**
  * @author Huseyin Ergun
- * @version $Id: InvUIGroupingPlan.java,v 1.9 2005/04/21 08:55:49 onsel Exp $
+ * @version $Id: InvUIGroupingPlan.java,v 1.10 2005/04/24 14:53:55 cemdayanik Exp $
  */
 
 import java.util.HashMap;
@@ -208,7 +208,7 @@ public class InvUIGroupingPlan extends org.eclipse.swt.widgets.Composite impleme
 		try
 		{
 			tableTreeGroups.removeAll();
-			List ls = (List)EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getParentInventoryGroups",null);
+			List ls = (List)EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getParentInventoryGroups",null);
 			TableTreeItem item;
 			TableTreeItem subItem;
 			TurqInventoryGroup invGroup;

@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistant.java,v 1.20 2005/04/20 15:02:38 cemdayanik Exp $
+ * @version $Id: TurquazContentAssistant.java,v 1.21 2005/04/24 14:53:56 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,7 +132,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant
 	{
 		HashMap argMap=new HashMap();
 		argMap.put(EngKeys.TYPE,new Integer(type));
-		EngTXCommon.doSingleTX(TurquazContentAssistProcessors.class.getName(),"fillProposalArray",argMap);
+		EngTXCommon.doSelectTX(TurquazContentAssistProcessors.class.getName(),"fillProposalArray",argMap);
 	}
 
 	public SubjectControlContentAssistant createContentAssistant()

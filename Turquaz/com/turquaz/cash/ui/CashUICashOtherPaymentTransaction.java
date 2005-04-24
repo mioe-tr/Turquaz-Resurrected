@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashOtherPaymentTransaction.java,v 1.12 2005/04/21 08:55:50 onsel Exp $
+ * @version  $Id: CashUICashOtherPaymentTransaction.java,v 1.13 2005/04/24 14:53:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -209,7 +209,7 @@ public class CashUICashOtherPaymentTransaction extends org.eclipse.swt.widgets.C
 	{
 		try
 		{
-			List currencies = (List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
+			List currencies = (List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

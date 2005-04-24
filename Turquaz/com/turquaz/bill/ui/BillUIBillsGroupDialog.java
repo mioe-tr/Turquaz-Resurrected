@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillsGroupDialog.java,v 1.9 2005/03/31 12:10:40 cemdayanik Exp $
+ * @version  $Id: BillUIBillsGroupDialog.java,v 1.10 2005/04/24 14:53:56 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -288,7 +288,7 @@ public class BillUIBillsGroupDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			tableCurGroups.removeAll();
-			List list = (List)EngTXCommon.doSingleTX(BillBLAddGroups.class.getName(),"getBillGroups",null);
+			List list = (List)EngTXCommon.doSelectTX(BillBLAddGroups.class.getName(),"getBillGroups",null);
 			TurqBillGroup curGroup;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)

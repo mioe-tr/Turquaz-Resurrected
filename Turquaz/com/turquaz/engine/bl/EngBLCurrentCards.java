@@ -26,7 +26,7 @@ import com.turquaz.engine.tx.EngTXCommon;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.9 2005/04/18 07:35:42 cemdayanik Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.10 2005/04/24 14:53:59 cemdayanik Exp $
  */
 public class EngBLCurrentCards
 {
@@ -114,7 +114,7 @@ public class EngBLCurrentCards
 		{
 			HashMap argMap=new HashMap();
 			argMap.put(CurKeys.CUR_CURRENT_CODE,currentCode);
-			return (TurqCurrentCard)EngTXCommon.doSingleTX(CurBLCurrentCardSearch.class.getName(),"getCurrentCard",argMap);
+			return (TurqCurrentCard)EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"getCurrentCard",argMap);
 		}
 		catch (Exception ex)
 		{

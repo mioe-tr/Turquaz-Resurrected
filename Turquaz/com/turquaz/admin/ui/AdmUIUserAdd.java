@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserAdd.java,v 1.20 2005/04/21 08:55:53 onsel Exp $
+ * @version  $Id: AdmUIUserAdd.java,v 1.21 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -235,7 +235,7 @@ public class AdmUIUserAdd extends Composite implements SecureComposite
 		try
 		{
 			HashMap groupMap = new HashMap();
-			List list =(List)EngTXCommon.doSingleTX(AdmBLGroups.class.getName(),"getGroups",null);
+			List list =(List)EngTXCommon.doSelectTX(AdmBLGroups.class.getName(),"getGroups",null);
 			TurqGroup group;
 			for (int i = 0; i < list.size(); i++)
 			{

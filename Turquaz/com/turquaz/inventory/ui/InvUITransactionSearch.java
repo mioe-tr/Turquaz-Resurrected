@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.46 2005/04/21 08:55:48 onsel Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.47 2005/04/24 14:53:54 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -255,11 +255,11 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 					boolean updated = false;
 					HashMap argMap=new HashMap();
 					argMap.put(EngKeys.TRANS_ID,transId);
-					TurqInventoryTransaction invTrans =(TurqInventoryTransaction)EngTXCommon.doSingleTX(InvBLSearchTransaction.class.getName(),"getInvTransByTransId",argMap);
+					TurqInventoryTransaction invTrans =(TurqInventoryTransaction)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getInvTransByTransId",argMap);
 					TurqEngineSequence seq = invTrans.getTurqEngineSequence();
 					argMap=new HashMap();
 					argMap.put(EngKeys.ENG_SEQ,seq);
-					TurqBill bill =(TurqBill)EngTXCommon.doSingleTX(InvBLSearchTransaction.class.getName(),"getBill",argMap);
+					TurqBill bill =(TurqBill)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getBill",argMap);
 					TurqConsignment cons;
 					argMap=new HashMap();
 					argMap.put(EngKeys.ENG_SEQ,seq);
@@ -267,7 +267,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 					{
 						updated = new BillUIBillUpdateDialog(this.getShell(), SWT.NULL, bill).open();
 					}
-					else if ((cons = (TurqConsignment)EngTXCommon.doSingleTX(InvBLSearchTransaction.class.getName(),"getConsignment",argMap)) != null)
+					else if ((cons = (TurqConsignment)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getConsignment",argMap)) != null)
 					{
 						updated = new ConUIConsignmentUpdateDialog(this.getShell(), SWT.NULL, cons).open();
 					}

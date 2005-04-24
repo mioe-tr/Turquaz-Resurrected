@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.60 2005/04/22 09:03:55 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.61 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -377,7 +377,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 	}
 	public void validateDB(){
 		try{
-		Boolean isVersionUpdated=(Boolean)EngTXCommon.doSingleTX(EngBLVersionValidate.class.getName(),"checkVersion",null);		 //$NON-NLS-1$
+		Boolean isVersionUpdated=(Boolean)EngTXCommon.doSelectTX(EngBLVersionValidate.class.getName(),"checkVersion",null);		 //$NON-NLS-1$
 		if (!isVersionUpdated.booleanValue())
 		{
 			EngUICommon.showMessageBox(getShell(),Messages.getString("EngUIEntryFrame.9")); //$NON-NLS-1$
@@ -408,7 +408,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 			argMap.put(EngKeys.USER,txtUserName.getText());
 			argMap.put(EngKeys.PASSWORD,txtPassword.getText());
 			
-			Boolean result = (Boolean)EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"checkUserPass",argMap); //$NON-NLS-1$
+			Boolean result = (Boolean)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"checkUserPass",argMap); //$NON-NLS-1$
 			if (result.booleanValue())
 			{
 				showMainFrame();

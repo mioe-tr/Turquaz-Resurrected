@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransactionSearch.java,v 1.28 2005/04/21 08:55:50 onsel Exp $
+ * @version  $Id: CashUICashTransactionSearch.java,v 1.29 2005/04/24 14:53:55 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -251,7 +251,7 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 			argMap.put(EngKeys.DEFINITION,txtDefinition.getText());
 			
 			
-			List list =(List)EngTXCommon.doSingleTX(CashBLCashTransactionSearch.class.getName(),"searchCashTransactions",argMap); //$NON-NLS-1$
+			List list =(List)EngTXCommon.doSelectTX(CashBLCashTransactionSearch.class.getName(),"searchCashTransactions",argMap); //$NON-NLS-1$
 			
 			
 			Object[] row;
@@ -294,7 +294,7 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 		HashMap argMap = new HashMap();
 		argMap.put(EngKeys.TRANS_ID,transId);
 		
-		TurqCashTransaction cashTrans =(TurqCashTransaction)EngTXCommon.doSingleTX(CashBLCashTransactionSearch.class.getName(),"initializeCashTransaction",argMap); //$NON-NLS-1$
+		TurqCashTransaction cashTrans =(TurqCashTransaction)EngTXCommon.doSelectTX(CashBLCashTransactionSearch.class.getName(),"initializeCashTransaction",argMap); //$NON-NLS-1$
 		if (cashTrans.getTurqEngineSequence().getTurqModule().getId().intValue() != EngBLCommon.MODULE_CASH)
 		{
 			EngUICommon.showMessageBox(shell, Messages.getString("CashUICashTransactionSearch.7")); //$NON-NLS-1$

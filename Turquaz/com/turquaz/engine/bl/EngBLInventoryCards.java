@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.16 2005/04/18 07:35:42 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.17 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -102,7 +102,7 @@ public class EngBLInventoryCards
 			argMap.put(InvKeys.INV_CARD_NAME,cardName);
 			
 			
-			return  (TurqInventoryCard)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCardFromName",argMap);
+			return  (TurqInventoryCard)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"getInventoryCardFromName",argMap);
 		}
 		catch (Exception ex)
 		{
@@ -116,7 +116,7 @@ public class EngBLInventoryCards
 		{
 			HashMap argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD_CODE,invCode);
-			return (TurqInventoryCard)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getInventoryCard",argMap);
+			return (TurqInventoryCard)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"getInventoryCard",argMap);
 		}
 		catch (Exception ex)
 		{

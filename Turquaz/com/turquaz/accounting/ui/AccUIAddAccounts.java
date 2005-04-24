@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAddAccounts.java,v 1.55 2005/04/21 08:55:51 onsel Exp $
+ * @version  $Id: AccUIAddAccounts.java,v 1.56 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -318,7 +318,7 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 								
 				HashMap argMap = new HashMap();
 				argMap.put(AccKeys.ACC_ACCOUNT,parent);				
-				List accTrans = (List) EngTXCommon.doSingleTX(AccBLAccountUpdate.class.getName(),"getAccountTransColumns",argMap);
+				List accTrans = (List) EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"getAccountTransColumns",argMap);
 				
 				if (accTrans.size() > 0)
 				{
@@ -362,7 +362,7 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 				TurqAccountingAccount parent = (TurqAccountingAccount) txtParentAccount.getData();
 				HashMap argMap = new HashMap();
 				argMap.put(AccKeys.ACC_ACCOUNT,parent);				
-				List accTrans = (List) EngTXCommon.doSingleTX(AccBLAccountUpdate.class.getName(),"getAccountTransColumns",argMap);
+				List accTrans = (List) EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"getAccountTransColumns",argMap);
 				
 				
 				if (accTrans.size() > 0)

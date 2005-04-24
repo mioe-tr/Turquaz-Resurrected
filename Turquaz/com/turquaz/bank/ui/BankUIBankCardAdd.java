@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.29 2005/04/21 08:55:47 onsel Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.30 2005/04/24 14:53:53 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -349,7 +349,7 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 		{
 			comboCurrency.removeAll();
 			comboCurrency.setText(Messages.getString("BankUIBankCardAdd.16")); //$NON-NLS-1$
-			List currencies = (List) EngTXCommon.doSingleTX(EngBLCommon.class.getName(),"getCurrencies",null);
+			List currencies = (List) EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

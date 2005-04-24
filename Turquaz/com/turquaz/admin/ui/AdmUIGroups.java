@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroups.java,v 1.16 2005/04/21 08:55:53 onsel Exp $
+ * @version  $Id: AdmUIGroups.java,v 1.17 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -200,7 +200,7 @@ public class AdmUIGroups extends org.eclipse.swt.widgets.Composite implements Se
 		try
 		{
 			tableGroups.removeAll();
-			List list =(List)EngTXCommon.doSingleTX(AdmBLGroups.class.getName(),"getGroups",null); //$NON-NLS-1$
+			List list =(List)EngTXCommon.doSelectTX(AdmBLGroups.class.getName(),"getGroups",null); //$NON-NLS-1$
 			TurqGroup group;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)

@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.77 2005/04/22 09:03:55 onsel Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.78 2005/04/24 14:53:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -815,7 +815,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		try
 		{
 			//Fill Group Table
-			List list = (List)EngTXCommon.doSingleTX(ConBLAddGroups.class.getName(),"getConsignmentGroups",null);
+			List list = (List)EngTXCommon.doSelectTX(ConBLAddGroups.class.getName(),"getConsignmentGroups",null);
 			HashMap groupMap = new HashMap();
 			TurqConsignmentGroup curGroup;
 			for (int i = 0; i < list.size(); i++)
@@ -861,7 +861,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		try
 		{
 			comboWareHouse.removeAll();
-			List list = (List)EngTXCommon.doSingleTX(InvBLWarehouseSearch.class.getName(),"getInventoryWarehouses",null);
+			List list = (List)EngTXCommon.doSelectTX(InvBLWarehouseSearch.class.getName(),"getInventoryWarehouses",null);
 			TurqInventoryWarehous warehouse;
 			for (int i = 0; i < list.size(); i++)
 			{

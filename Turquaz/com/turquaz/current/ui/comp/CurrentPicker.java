@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentPicker.java,v 1.19 2005/04/22 09:03:58 onsel Exp $
+ * @version  $Id: CurrentPicker.java,v 1.20 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -210,7 +210,7 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite implements 
 					
 					
 					accountPicker
-							.setData(EngTXCommon.doSingleTX(CurBLCurrentCardSearch.class.getName(),"getCurrentAccountingAccount",argMap));
+							.setData(EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"getCurrentAccountingAccount",argMap));
 				    
 				}
 				catch (Exception ex)

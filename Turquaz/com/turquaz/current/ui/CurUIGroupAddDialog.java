@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIGroupAddDialog.java,v 1.18 2005/03/31 12:23:34 onsel Exp $
+ * @version  $Id: CurUIGroupAddDialog.java,v 1.19 2005/04/24 14:53:52 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -284,7 +284,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			tableCurGroups.removeAll();
-			List list = (List)EngTXCommon.doSingleTX(CurBLCurrentCardAdd.class.getName(),"getCurrentGroups",null);
+			List list = (List)EngTXCommon.doSelectTX(CurBLCurrentCardAdd.class.getName(),"getCurrentGroups",null);
 			TurqCurrentGroup curGroup;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)

@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.80 2005/04/23 12:08:09 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.81 2005/04/24 14:53:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -749,7 +749,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 		try
 		{
 			comboWareHouse.removeAll();
-			List list =(List)EngTXCommon.doSingleTX(InvBLWarehouseSearch.class.getName(),"getInventoryWarehouses",null);
+			List list =(List)EngTXCommon.doSelectTX(InvBLWarehouseSearch.class.getName(),"getInventoryWarehouses",null);
 			TurqInventoryWarehous warehouse;
 			for (int i = 0; i < list.size(); i++)
 			{
@@ -775,7 +775,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 		try
 		{
 			//Fill Group Table
-			List list = (List)EngTXCommon.doSingleTX(BillBLAddGroups.class.getName(),"getBillGroups",null);
+			List list = (List)EngTXCommon.doSelectTX(BillBLAddGroups.class.getName(),"getBillGroups",null);
 			HashMap groupMap = new HashMap();
 			TurqBillGroup curGroup;
 			for (int i = 0; i < list.size(); i++)
@@ -938,7 +938,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 		{
 			HashMap argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD,invCard);
-			TurqViewInventoryAmountTotal invView = (TurqViewInventoryAmountTotal)EngTXCommon.doSingleTX(InvBLCardSearch.class.getName(),"getView",argMap);
+			TurqViewInventoryAmountTotal invView = (TurqViewInventoryAmountTotal)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"getView",argMap);
 			int Now = (invView.getTransactionsTotalAmountNow() == null) ? 0 : invView.getTransactionsTotalAmountNow().intValue();
 			int Max = invCard.getCardMaximumAmount();
 			int Min = invCard.getCardMinimumAmount();

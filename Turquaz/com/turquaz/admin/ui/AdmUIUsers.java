@@ -17,7 +17,7 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUsers.java,v 1.16 2005/04/21 08:55:53 onsel Exp $
+ * @version  $Id: AdmUIUsers.java,v 1.17 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -214,7 +214,7 @@ public class AdmUIUsers extends org.eclipse.swt.widgets.Composite implements Sec
 		try
 		{
 			tableViewer.removeAll();
-			List list = (List)EngTXCommon.doSingleTX(AdmBLUsers.class.getName(),"getUsers",null);
+			List list = (List)EngTXCommon.doSelectTX(AdmBLUsers.class.getName(),"getUsers",null);
 			TurqUser user;
 			for (int i = 0; i < list.size(); i++)
 			{

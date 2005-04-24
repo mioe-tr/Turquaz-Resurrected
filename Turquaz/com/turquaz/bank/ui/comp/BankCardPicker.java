@@ -17,7 +17,7 @@ package com.turquaz.bank.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BankCardPicker.java,v 1.12 2005/04/21 11:29:33 onsel Exp $
+ * @version  $Id: BankCardPicker.java,v 1.13 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.apache.log4j.Logger;
@@ -199,7 +199,7 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite implements
 					HashMap argMap=new HashMap();
 					argMap.put(BankKeys.BANK,obj);
 					argMap.put(EngKeys.TYPE,pickerAccountType);
-					accountPicker.setData((TurqAccountingAccount)EngTXCommon.doSingleTX(BankBLBankCardSearch.class.getName(),"getAccountingAccount",argMap));
+					accountPicker.setData((TurqAccountingAccount)EngTXCommon.doSelectTX(BankBLBankCardSearch.class.getName(),"getAccountingAccount",argMap));
 				}
 				catch (Exception ex)
 				{

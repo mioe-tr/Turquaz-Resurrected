@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIUnitAddDialog.java,v 1.24 2005/03/30 20:02:01 cemdayanik Exp $
+ * @version  $Id: InvUIUnitAddDialog.java,v 1.25 2005/04/24 14:53:54 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -276,7 +276,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			tableInvUnits.removeAll();
-			List list = (List) EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
+			List list = (List) EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
 			TurqInventoryUnit invUnit;
 			TableItem item;
 			for (int i = 0; i < list.size(); i++)
@@ -346,7 +346,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			else
 			{
-				List list = (List)EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
+				List list = (List)EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
 				String unit = txtUnitName.getText().trim();
 				boolean exist = false;
 				for (int k = 0; k < list.size(); k++)
@@ -403,7 +403,7 @@ public class InvUIUnitAddDialog extends org.eclipse.swt.widgets.Dialog
 				txtUnitName.setFocus();
 				return;
 			}
-			List list = (List) EngTXCommon.doSingleTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
+			List list = (List) EngTXCommon.doSelectTX(InvBLCardAdd.class.getName(),"getInventoryUnits",null);
 			String unit = txtUnitName.getText().trim();
 			boolean exist = false;
 			for (int k = 0; k < list.size(); k++)

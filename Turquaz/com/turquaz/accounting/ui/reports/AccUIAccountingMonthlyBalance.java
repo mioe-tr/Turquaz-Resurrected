@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.15 2005/04/21 08:55:54 onsel Exp $
+ * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.16 2005/04/24 14:53:59 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -341,7 +341,7 @@ public class AccUIAccountingMonthlyBalance extends org.eclipse.swt.widgets.Compo
 			argMap.put(AccKeys.ACC_START_DATE,startCal.getTime());
 			argMap.put(AccKeys.ACC_END_DATE,endCal.getTime());
 			
-			List allAccounts =(List)EngTXCommon.doSingleTX(AccBLTransactionSearch.class.getName(),"getTransactions",argMap);
+			List allAccounts =(List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getTransactions",argMap);
 			
 			
 			
