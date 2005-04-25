@@ -17,11 +17,10 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIUserPermissions.java,v 1.24 2005/04/24 14:53:59 cemdayanik Exp $
+ * @version  $Id: AdmUIUserPermissions.java,v 1.25 2005/04/25 11:14:31 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.TableItem;
@@ -45,6 +44,7 @@ import com.turquaz.admin.bl.AdmBLGroupPermissions;
 import com.turquaz.admin.bl.AdmBLUserPermissions;
 import com.turquaz.admin.bl.AdmBLUsers;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqModule;
 import com.turquaz.engine.dal.TurqModuleComponent;
@@ -212,7 +212,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getShell());
 		}
 	}
 
@@ -245,9 +245,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 
@@ -292,9 +290,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 
@@ -329,9 +325,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 
@@ -388,9 +382,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 
@@ -429,11 +421,7 @@ public class AdmUIUserPermissions extends org.eclipse.swt.widgets.Composite impl
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
-			msg2.setMessage("Hata Olustu!");
-			msg2.open();
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 

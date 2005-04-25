@@ -17,10 +17,9 @@ package com.turquaz.admin.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AdmUIGroupAdd.java,v 1.18 2005/04/21 08:55:53 onsel Exp $
+ * @version  $Id: AdmUIGroupAdd.java,v 1.19 2005/04/25 11:14:31 onsel Exp $
  */
 import java.util.HashMap;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
@@ -43,6 +42,7 @@ import org.eclipse.swt.widgets.Text;
 import com.turquaz.admin.AdmKeys;
 import com.turquaz.admin.Messages;
 import com.turquaz.admin.bl.AdmBLGroupAdd;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
 import org.eclipse.swt.events.VerifyListener;
@@ -157,7 +157,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getShell());
 		}
 	}
 
@@ -192,11 +192,7 @@ public class AdmUIGroupAdd extends org.eclipse.swt.widgets.Composite implements 
 			}
 			catch (Exception ex)
 			{
-				Logger loger = Logger.getLogger(this.getClass());
-				loger.error("Exception Caught", ex);
-				ex.printStackTrace();
-				messageBox.setMessage("Hata Olustu!");
-				messageBox.open();
+                EngBLLogger.log(this.getClass(),ex,getShell());
 			}
 		}
 	}
