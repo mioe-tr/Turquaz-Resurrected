@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: SecureDialog.java,v 1.4 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: SecureDialog.java,v 1.5 2005/04/25 15:15:12 onsel Exp $
  */
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
@@ -33,6 +33,8 @@ import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.engine.bl.EngBLLogger;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
@@ -298,7 +300,7 @@ public class SecureDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e);
 		}
 	}
 

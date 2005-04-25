@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUsers.java,v 1.10 2005/04/14 10:45:22 cemdayanik Exp $
+ * @version $Id: AdmBLUsers.java,v 1.11 2005/04/25 15:15:12 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -67,7 +67,7 @@ public class AdmBLUsers
 		}
 		catch(Exception ex)
 		{
-			ex.printStackTrace();
+			throw ex;
 		}
 	}
 	private static void deleteGroupPermissions(TurqGroup user)throws Exception

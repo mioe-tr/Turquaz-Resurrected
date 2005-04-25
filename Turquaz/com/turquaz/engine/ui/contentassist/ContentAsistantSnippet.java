@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: ContentAsistantSnippet.java,v 1.7 2005/04/16 14:39:03 cemdayanik Exp $
+ * @version $Id: ContentAsistantSnippet.java,v 1.8 2005/04/25 15:15:12 onsel Exp $
  */
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -34,6 +34,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.custom.CLabel;
+
+import com.turquaz.engine.bl.EngBLLogger;
 
 public class ContentAsistantSnippet extends org.eclipse.swt.widgets.Composite
 {
@@ -138,7 +140,7 @@ public class ContentAsistantSnippet extends org.eclipse.swt.widgets.Composite
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e);
 		}
 	}
 

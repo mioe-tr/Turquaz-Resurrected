@@ -17,10 +17,9 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngBLPermissions.java,v 1.16 2005/03/29 14:24:08 cemdayanik Exp $
+ * @version  $Id: EngBLPermissions.java,v 1.17 2005/04/25 15:15:10 onsel Exp $
  */
 import java.util.*;
-import org.apache.log4j.Logger;
 import com.turquaz.engine.dal.EngDALUserPerms;
 import com.turquaz.engine.dal.TurqGroupPermission;
 import com.turquaz.engine.dal.TurqModuleComponent;
@@ -28,7 +27,7 @@ import com.turquaz.engine.dal.TurqUserPermission;
 
 /**
  * @author onsel
- * @version $Id: EngBLPermissions.java,v 1.16 2005/03/29 14:24:08 cemdayanik Exp $ Here is the permissions layer. Other classes uses static
+ * @version $Id: EngBLPermissions.java,v 1.17 2005/04/25 15:15:10 onsel Exp $ Here is the permissions layer. Other classes uses static
  *          functions in this class.
  */
 public class EngBLPermissions
@@ -103,9 +102,7 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex);
 		}
 	}
 
@@ -166,9 +163,7 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex);
 		}
 	}
 
@@ -229,9 +224,7 @@ public class EngBLPermissions
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex);
 		}
 	}
 

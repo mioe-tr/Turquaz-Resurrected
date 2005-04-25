@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.48 2005/04/23 12:13:41 cemdayanik Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.49 2005/04/25 15:15:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -189,7 +189,6 @@ public class CurBLCurrentTransactionAdd
 		}
 		catch(Exception ex)
 		{
-			ex.printStackTrace();
 			throw ex;
 		}
 		

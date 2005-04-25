@@ -17,10 +17,12 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: DecimalTextWithButton.java,v 1.4 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: DecimalTextWithButton.java,v 1.5 2005/04/25 15:15:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import com.cloudgarden.resource.SWTResourceManager;
+import com.turquaz.engine.bl.EngBLLogger;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Rectangle;
@@ -115,7 +117,7 @@ public class DecimalTextWithButton extends org.eclipse.swt.widgets.Composite
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e);
 		}
 	}
 

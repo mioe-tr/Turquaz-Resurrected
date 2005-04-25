@@ -17,14 +17,14 @@ package com.turquaz.engine;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngConfiguration.java,v 1.20 2005/04/14 11:13:13 onsel Exp $
+ * @version $Id: EngConfiguration.java,v 1.21 2005/04/25 15:15:10 onsel Exp $
  */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
-import org.apache.log4j.Logger;
+import com.turquaz.engine.bl.EngBLLogger;
 
 public class EngConfiguration
 {
@@ -67,9 +67,7 @@ public class EngConfiguration
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex);
 		}
 	}
 
@@ -86,9 +84,7 @@ public class EngConfiguration
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(EngConfiguration.class);
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(EngConfiguration.class,ex);
 		}
 	}
 	public static boolean automaticDispatcNote(){

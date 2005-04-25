@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: TextWithButton.java,v 1.7 2005/03/17 15:02:06 onsel Exp $
+ * @version  $Id: TextWithButton.java,v 1.8 2005/04/25 15:15:12 onsel Exp $
  */
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.graphics.Rectangle;
@@ -26,6 +26,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import com.cloudgarden.resource.SWTResourceManager;
+import com.turquaz.engine.bl.EngBLLogger;
+
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.layout.GridData;
@@ -106,7 +108,7 @@ public class TextWithButton extends org.eclipse.swt.widgets.Composite
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e);
 		}
 	}
 

@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLXmlParser.java,v 1.8 2005/03/26 15:06:23 onsel Exp $
+ * @version $Id: EngBLXmlParser.java,v 1.9 2005/04/25 15:15:10 onsel Exp $
  */
 import org.xml.sax.InputSource;
 import java.util.List;
@@ -41,7 +41,7 @@ public class EngBLXmlParser
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e);
 		}
 	}
 
