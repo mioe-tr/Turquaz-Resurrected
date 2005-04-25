@@ -17,7 +17,7 @@ package com.turquaz.cheque.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.36 2005/04/25 09:12:29 cemdayanik Exp $
+ * @version $Id: CheDALSearch.java,v 1.37 2005/04/25 11:13:50 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -286,7 +286,7 @@ public class CheDALSearch
 			Session session = EngDALSessionFactory.getSession();
 			TurqViewChequeStatus chequeStatus = null;
 			String query = "Select cheque.id, chequeInRolls.turqChequeRoll.chequeRollsDate,"
-					+ " chequeInRolls.turqChequeRoll.turqCurrentCard.cardsName, cheque.chequesDueDate,status.chequeTransactionTypesId,"
+					+ " chequeInRolls.turqChequeRoll.turqCurrentCard.cardsName, cheque.chequesDueDate,status.transactionTypsName,"
 					+ " cheque.chequesAmount, cheque.turqBanksCard.bankCode, cheque.chequesNo " + " from TurqChequeCheque as cheque"
 					+ " left join cheque.turqChequeChequeInRolls as chequeInRolls ," + " TurqViewChequeStatus as status " + " where"
 					+ " cheque.chequesDueDate >= :startDueDate " + " and cheque.chequesType =" + EngBLCommon.CHEQUE_TYPE_OWN
