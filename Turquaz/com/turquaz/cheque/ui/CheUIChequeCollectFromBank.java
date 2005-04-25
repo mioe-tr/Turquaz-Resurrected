@@ -17,13 +17,12 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeCollectFromBank.java,v 1.8 2005/04/21 08:55:48 onsel Exp $
+ * @version  $Id: CheUIChequeCollectFromBank.java,v 1.9 2005/04/25 13:25:30 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TableItem;
@@ -33,6 +32,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.tx.EngTXCommon;
@@ -224,7 +224,7 @@ public class CheUIChequeCollectFromBank extends org.eclipse.swt.widgets.Composit
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getShell());
 		}
 	}
 
@@ -266,10 +266,7 @@ public class CheUIChequeCollectFromBank extends org.eclipse.swt.widgets.Composit
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
-			EngUICommon.showMessageBox(getShell(),"Hata Olustu!", SWT.ICON_ERROR);
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 
