@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUISearchAccountsDialog.java,v 1.14 2005/04/25 10:35:34 onsel Exp $
+ * @version  $Id: AccUISearchAccountsDialog.java,v 1.15 2005/04/25 11:05:19 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -229,7 +229,7 @@ public class AccUISearchAccountsDialog extends org.eclipse.swt.widgets.Dialog im
             }
         } catch (Exception e)
         {
-            e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
         }
         return returnData;
     }

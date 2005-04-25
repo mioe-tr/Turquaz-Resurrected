@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionRowAddDialog.java,v 1.16 2005/04/18 09:24:09 cemdayanik Exp $
+ * @version  $Id: AccUITransactionRowAddDialog.java,v 1.17 2005/04/25 11:05:22 onsel Exp $
  */
 import java.math.BigDecimal;
 import org.eclipse.swt.graphics.Point;
@@ -30,6 +30,8 @@ import com.turquaz.accounting.Messages;
 import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CCombo;
+
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
 import com.turquaz.engine.ui.component.CurrencyText;
@@ -234,7 +236,7 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
 		}
 	}
 
