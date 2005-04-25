@@ -12,12 +12,11 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.23 2005/04/24 14:53:56 cemdayanik Exp $
+ * @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.24 2005/04/25 12:08:06 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cash.CashKeys;
@@ -25,6 +24,7 @@ import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashTransactionUpdate;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqCashTransaction;
 import com.turquaz.engine.dal.TurqCashTransactionRow;
 import com.turquaz.engine.dal.TurqCurrentCard;
@@ -134,7 +134,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
 			return true;
 		}
 	}
@@ -163,9 +163,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getParent());
 		}
 		Iterator it = cashTrans.getTurqCashTransactionRows().iterator();
 		if (it.hasNext())
@@ -210,9 +208,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getParent());
 		}
 	}
 
@@ -249,9 +245,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+            EngBLLogger.log(this.getClass(),ex,getParent());
 		}
 	}
 }

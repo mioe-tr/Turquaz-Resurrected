@@ -22,9 +22,9 @@ import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.Messages;
 import com.turquaz.cash.bl.CashBLCashCardUpdate;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqCashCard;
 import com.turquaz.engine.tx.EngTXCommon;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.CoolBar;
@@ -54,7 +54,7 @@ import org.eclipse.swt.SWT;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardUpdate.java,v 1.10 2005/04/01 09:29:13 onsel Exp $
+ * @version $Id: CashUICashCardUpdate.java,v 1.11 2005/04/25 12:08:06 onsel Exp $
  */
 public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 {
@@ -161,7 +161,7 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
 		}
 	}
 
@@ -189,9 +189,7 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();	
+            EngBLLogger.log(this.getClass(),ex,getParent());	
 			
 		}
 	}
@@ -224,11 +222,7 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
-			msg.setMessage(ex.getMessage());
-			msg.open();
+            EngBLLogger.log(this.getClass(),ex,getParent());
 		}
 	}
 }
