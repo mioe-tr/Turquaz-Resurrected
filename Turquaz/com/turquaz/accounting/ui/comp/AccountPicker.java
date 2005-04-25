@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.comp;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccountPicker.java,v 1.34 2005/04/21 11:29:33 onsel Exp $
+ * @version  $Id: AccountPicker.java,v 1.35 2005/04/25 10:35:34 onsel Exp $
  */
 import org.apache.log4j.Logger;
 import org.eclipse.jface.contentassist.SubjectControlContentAssistant;
@@ -36,6 +36,8 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.accounting.ui.AccUISearchAccountsDialog;
 import com.turquaz.accounting.ui.AccUIStaticAccountsDialog;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLCommon;
@@ -248,7 +250,8 @@ public class AccountPicker extends org.eclipse.swt.widgets.Composite implements 
 	}
 
 	public void openSearchDialog() {
-		// TODO Auto-generated method stub
+        String code = new AccUISearchAccountsDialog(getShell(),SWT.NULL).open();
+        text1.setText(code);
 		
 	}
 	
