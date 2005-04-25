@@ -17,7 +17,7 @@ package com.turquaz.cheque.dal;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheDALSearch.java,v 1.35 2005/04/13 18:22:01 onsel Exp $
+ * @version $Id: CheDALSearch.java,v 1.36 2005/04/25 09:12:29 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -213,7 +213,7 @@ public class CheDALSearch
 	 * @throws Exception
 	 */
 	public static List searchCheque(String portfoyNo, TurqCurrentCard curCard, Integer status, Date startEnterDate, Date endEnterDate,
-			Date startDueDate, Date endDueDate) throws Exception
+			Date startDueDate, Date endDueDate, Integer sorting) throws Exception
 	{
 		try
 		{
@@ -238,7 +238,23 @@ public class CheDALSearch
 				query += " and status.transactionTypesParent = " + status.intValue();
 			}
 			
+			if (sorting.intValue()==0)
+			{
 				query += " order by chequeInRolls.turqChequeRoll.chequeRollsDate ";
+			}
+			else if (sorting.intValue()==1)
+			{
+				query += " order by cheque.chequesDueDate";
+			}
+			else if (sorting.intValue()==2)
+			{
+				query += " order by cheque.chequesPortfolioNo";
+			}
+			else
+			{
+				query += " order by chequeInRolls.turqChequeRoll.chequeRollsDate ";
+			}
+				
 			
 			
 			Query q = session.createQuery(query);
@@ -260,7 +276,7 @@ public class CheDALSearch
 	}
 
 	public static List searchOwnCheques(TurqCurrentCard curCard, TurqBanksCard bankCard, Date startEnterDate, Date endEnterDate,
-			Date startDueDate, Date endDueDate) throws Exception
+			Date startDueDate, Date endDueDate, boolean sortByDate) throws Exception
 	{
 		try
 		{
@@ -286,6 +302,14 @@ public class CheDALSearch
 			if (bankCard != null)
 			{
 				query += " and cheque.turqBanksCard = :bankCard";
+			}
+			if (sortByDate)
+			{
+				query += " order by chequeInRolls.turqChequeRoll.chequeRollsDate";
+			}
+			else
+			{
+				query += " order by cheque.chequesDueDate";
 			}
 			Query q = session.createQuery(query);
 			q.setParameter("startDueDate", startDueDate);
