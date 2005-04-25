@@ -17,13 +17,13 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.21 2005/04/24 14:53:54 cemdayanik Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.22 2005/04/25 14:39:44 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
-import org.apache.log4j.Logger;
 import org.eclipse.swt.layout.GridLayout;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.interfaces.SearchComposite;
 import com.turquaz.engine.tx.EngTXCommon;
@@ -130,7 +130,8 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+
+            EngBLLogger.log(this.getClass(),e,getShell());
 		}
 	}
 
@@ -223,9 +224,8 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 		}
 		catch (Exception ex)
 		{
-			Logger loger = Logger.getLogger(this.getClass());
-			loger.error("Exception Caught", ex);
-			ex.printStackTrace();
+
+            EngBLLogger.log(this.getClass(),ex,getShell());
 		}
 	}
 

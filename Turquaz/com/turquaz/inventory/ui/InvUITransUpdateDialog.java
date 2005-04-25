@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransUpdateDialog.java,v 1.7 2005/03/17 15:02:04 onsel Exp $
+ * @version  $Id: InvUITransUpdateDialog.java,v 1.8 2005/04/25 14:39:46 onsel Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Point;
@@ -25,6 +25,8 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.engine.bl.EngBLLogger;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
@@ -76,7 +78,7 @@ public class InvUITransUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
 		}
 	}
 
@@ -96,23 +98,5 @@ public class InvUITransUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		dialogShell.setLocation(location_X, location_Y);
 	}
 
-	/**
-	 * This static method creates a new instance of this class and shows it inside a new Shell. It is a convenience method for showing the
-	 * GUI, but it can be copied and used as a basis for your own code. * It is auto-generated code - the body of this method will be
-	 * re-generated after any changes are made to the GUI. However, if you delete this method it will not be re-created.
-	 */
-	public static void showGUI()
-	{
-		try
-		{
-			Display display = Display.getDefault();
-			Shell shell = new Shell(display);
-			InvUITransUpdateDialog inst = new InvUITransUpdateDialog(shell, SWT.NULL);
-			inst.open();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
+	
 }

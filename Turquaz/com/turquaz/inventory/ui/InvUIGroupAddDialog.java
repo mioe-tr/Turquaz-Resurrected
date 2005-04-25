@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIGroupAddDialog.java,v 1.22 2005/03/17 15:02:03 onsel Exp $
+ * @version  $Id: InvUIGroupAddDialog.java,v 1.23 2005/04/25 14:39:46 onsel Exp $
  */
 import java.util.Calendar;
 import org.eclipse.swt.layout.GridLayout;
@@ -28,6 +28,8 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.inventory.Messages;
 import org.eclipse.swt.widgets.ToolBar;
@@ -149,7 +151,7 @@ public class InvUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+            EngBLLogger.log(this.getClass(),e,getParent());
 			return false;
 		}
 	}
