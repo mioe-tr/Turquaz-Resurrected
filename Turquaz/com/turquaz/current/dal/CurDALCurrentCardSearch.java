@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.34 2005/04/23 12:13:41 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.35 2005/04/26 07:45:08 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -56,8 +56,16 @@ public class CurDALCurrentCardSearch
 			{
 				query += " left join  currentCard.turqCurrentCardsGroups as gr ";
 			}
-			query += " where currentCard.id=currentView.currentCardsId" + " and currentCard.cardsCurrentCode like '" + currentCode
-					+ "%'" + " and currentCard.cardsName like '" + currentName + "%'" + " and currentCard.id <> -1";
+			query += " where currentCard.id=currentView.currentCardsId";
+			if (!currentCode.equals(""))
+			{
+				query += " and currentCard.cardsCurrentCode like '" +currentCode+ "%'";
+			}
+			if (!currentName.equals(""))
+			{
+				query += " and currentCard.cardsName like '" + currentName + "%'";
+			}
+			query += " and currentCard.id <> -1";
 			if (cardGroup != null)
 			{
 				//query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";

@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentCodePicker.java,v 1.18 2005/04/25 15:15:13 onsel Exp $
+ * @version  $Id: CurrentCodePicker.java,v 1.19 2005/04/26 07:45:08 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.widgets.Button;
@@ -42,6 +42,8 @@ import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.dal.TurqCurrentCard;
 import com.turquaz.engine.interfaces.TurquazContentAssistInterface;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
@@ -66,7 +68,12 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 	private Text text1;
 	private AccountPickerLeaf accountPicker = null;
 	private Integer pickerAccountType = null;
+	private Text txtCurrentName=null;
 
+	public void setTxtCurrentName(Text txtCurrentName)
+	{
+		this.txtCurrentName = txtCurrentName;
+	}
 	public CurrentCodePicker(Composite parent, int style)
 	{
 		super(parent, style);
@@ -189,10 +196,18 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 			{
 				accountPicker.setData(null);
 			}
+			if (txtCurrentName != null)
+			{
+				txtCurrentName.setText("");
+			}
 		}
 		else
 		{
 			text1.setBackground(SWTResourceManager.getColor(198, 255, 198));
+			if (txtCurrentName != null)
+			{
+				txtCurrentName.setText(((TurqCurrentCard)obj).getCardsName());
+			}
 			if (accountPicker != null)
 			{
 				try
@@ -201,10 +216,8 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 					HashMap argMap = new HashMap();
 					argMap.put(EngKeys.CURRENT_CARD, obj);
 					argMap.put(EngKeys.TYPE,pickerAccountType);
-									
-					accountPicker
-							.setData(EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"getCurrentAccountingAccount",argMap));
-				    
+					TurqAccountingAccount account=(TurqAccountingAccount)EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"getCurrentAccountingAccount",argMap);
+					accountPicker.setData(account);
 				
 				}
 				catch (Exception ex)
@@ -221,12 +234,14 @@ public class CurrentCodePicker extends org.eclipse.swt.widgets.Composite impleme
 		pickerAccountType = Type;
 	}
 
-	public void openNewObjectDialog() {
+	public void openNewObjectDialog()
+	{
 		// TODO Auto-generated method stub		
 	}
 	
-	public void openSearchDialog() {
-	String currentCode = (String)new CurUICurrentCardSearchDialog(getShell(),SWT.NULL,0).open();
+	public void openSearchDialog() 
+	{
+		String currentCode = (String)new CurUICurrentCardSearchDialog(getShell(),SWT.NULL,0).open();
 		text1.setText(currentCode);
 	}
 
