@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransactionSearch.java,v 1.30 2005/04/25 12:08:06 onsel Exp $
+ * @version  $Id: CashUICashTransactionSearch.java,v 1.31 2005/04/26 10:09:45 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -231,7 +231,7 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCashTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

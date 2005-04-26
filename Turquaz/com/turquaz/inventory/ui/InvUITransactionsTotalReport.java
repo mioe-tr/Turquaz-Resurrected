@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUITransactionsTotalReport.java,v 1.25 2005/04/25 14:39:40 onsel Exp $
+ * @version  $Id: InvUITransactionsTotalReport.java,v 1.26 2005/04/26 10:09:41 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -689,7 +689,7 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableSearcResults);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

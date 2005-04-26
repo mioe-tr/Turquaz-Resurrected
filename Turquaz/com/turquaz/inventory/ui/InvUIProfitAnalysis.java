@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIProfitAnalysis.java,v 1.22 2005/04/25 14:39:44 onsel Exp $
+ * @version  $Id: InvUIProfitAnalysis.java,v 1.23 2005/04/26 10:09:43 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.List;
@@ -235,7 +235,7 @@ public class InvUIProfitAnalysis extends org.eclipse.swt.widgets.Composite imple
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableInvTotals);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

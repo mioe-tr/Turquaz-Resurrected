@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.54 2005/04/26 07:45:08 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.55 2005/04/26 10:09:47 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -444,7 +444,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCurrentCardSearch);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

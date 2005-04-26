@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.58 2005/04/25 11:05:20 onsel Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.59 2005/04/26 10:09:44 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -449,6 +449,6 @@ public class AccUITransactionSearch extends Composite implements SearchComposite
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 }

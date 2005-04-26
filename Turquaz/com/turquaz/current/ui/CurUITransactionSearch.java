@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.50 2005/04/25 13:41:43 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.51 2005/04/26 10:09:47 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -462,7 +462,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCurrentTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

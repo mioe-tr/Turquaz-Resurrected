@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearch.java,v 1.62 2005/04/25 14:39:42 onsel Exp $
+ * @version  $Id: InvUICardSearch.java,v 1.63 2005/04/26 10:09:42 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -465,7 +465,7 @@ public class InvUICardSearch extends Composite implements SearchComposite
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableSearcResults);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

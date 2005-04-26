@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardSearch.java,v 1.31 2005/04/25 11:32:46 onsel Exp $
+ * @version  $Id: BankUIBankCardSearch.java,v 1.32 2005/04/26 10:09:45 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -345,7 +345,7 @@ public class BankUIBankCardSearch extends Composite implements SearchComposite
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableBankCards);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	/** Auto-generated event handler method */

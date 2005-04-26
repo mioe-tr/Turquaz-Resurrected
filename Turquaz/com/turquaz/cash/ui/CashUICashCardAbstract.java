@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAbstract.java,v 1.22 2005/04/25 12:08:07 onsel Exp $
+ * @version  $Id: CashUICashCardAbstract.java,v 1.23 2005/04/26 10:09:44 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -124,7 +124,7 @@ public class CashUICashCardAbstract extends org.eclipse.swt.widgets.Composite im
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCashTrans);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void GenerateJasper(List list, List deferred)

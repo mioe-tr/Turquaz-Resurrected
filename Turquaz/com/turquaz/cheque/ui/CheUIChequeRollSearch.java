@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeRollSearch.java,v 1.29 2005/04/25 13:25:29 onsel Exp $
+ * @version  $Id: CheUIChequeRollSearch.java,v 1.30 2005/04/26 10:09:43 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -333,7 +333,7 @@ public class CheUIChequeRollSearch extends org.eclipse.swt.widgets.Composite imp
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableChequeRolls);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

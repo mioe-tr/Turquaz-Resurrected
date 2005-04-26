@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: CashUICashCardDailyAbstract.java,v 1.16 2005/04/25 12:08:06 onsel Exp $
+ * @version  $Id: CashUICashCardDailyAbstract.java,v 1.17 2005/04/26 10:09:44 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -265,7 +265,7 @@ public class CashUICashCardDailyAbstract extends org.eclipse.swt.widgets.Composi
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCashTrans);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

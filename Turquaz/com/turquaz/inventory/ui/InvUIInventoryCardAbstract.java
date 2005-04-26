@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.25 2005/04/25 14:39:46 onsel Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.26 2005/04/26 10:09:43 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -515,7 +515,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

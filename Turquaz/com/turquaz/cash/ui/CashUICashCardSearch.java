@@ -58,7 +58,7 @@ import org.eclipse.swt.layout.GridLayout;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardSearch.java,v 1.18 2005/04/25 12:08:06 onsel Exp $
+ * @version $Id: CashUICashCardSearch.java,v 1.19 2005/04/26 10:09:45 onsel Exp $
  */
 public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {
@@ -182,7 +182,7 @@ public class CashUICashCardSearch extends org.eclipse.swt.widgets.Composite impl
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableCashCards);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

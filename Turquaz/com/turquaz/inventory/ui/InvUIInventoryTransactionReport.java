@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryTransactionReport.java,v 1.38 2005/04/26 07:45:08 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryTransactionReport.java,v 1.39 2005/04/26 10:09:42 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -769,7 +769,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableInvTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

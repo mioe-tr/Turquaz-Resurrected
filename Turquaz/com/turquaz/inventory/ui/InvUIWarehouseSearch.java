@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseSearch.java,v 1.25 2005/04/25 14:39:42 onsel Exp $
+ * @version  $Id: InvUIWarehouseSearch.java,v 1.26 2005/04/26 10:09:42 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -293,7 +293,7 @@ public class InvUIWarehouseSearch extends Composite implements SecureComposite, 
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableInvUIWarehouses);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()

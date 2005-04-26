@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.48 2005/04/25 14:39:41 onsel Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.49 2005/04/26 10:09:42 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -379,7 +379,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 
 	public void exportToExcel()
 	{
-		EngBLUtils.Export2Excel(tableTransactions);
+		EngBLUtils.Export2Excel(tableViewer);
 	}
 
 	public void printTable()
