@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.48 2005/04/26 12:30:55 onsel Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.49 2005/04/26 13:03:41 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -707,7 +707,8 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 				argMap.put(BillKeys.BILL_TOTAL_AMOUNT,txtTotalAmount.getBigDecimalValue());
 				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
 				argMap.put(BillKeys.BILL_GROUPS,getBillGroups());
-
+				argMap.put(BillKeys.BILL_CHECK,EngBLCommon.getBillCheckStatus());
+				
 				TurqBill bill = (TurqBill)EngTXCommon.doTransactionTX(BillBLAddBill.class.getName(),"saveBillFromCons",argMap);
 				msg.setMessage(Messages.getString("BillUIBillFromConsignment.34")); //$NON-NLS-1$
 				msg.open();

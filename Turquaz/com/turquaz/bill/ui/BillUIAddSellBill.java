@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /** ********************************************************************* */
 /**
  * @author Huseyin Ergun
- * @version $Id: BillUIAddSellBill.java,v 1.80 2005/04/25 11:54:30 onsel Exp $
+ * @version $Id: BillUIAddSellBill.java,v 1.81 2005/04/26 13:03:42 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1005,7 +1005,8 @@ public class BillUIAddSellBill extends Composite implements SecureComposite
 				argMap.put(BillKeys.BILL_SAVE_CONS,new Boolean(EngConfiguration.automaticDispatcNote()));
 				argMap.put(ConsKeys.CONS_DOC_NO,txtConsignmentDocumentNo.getText());
 				argMap.put(ConsKeys.CONS_DATE,datePickerConsDate.getDate());
-									
+				argMap.put(BillKeys.BILL_CHECK,EngBLCommon.getBillCheckStatus());		
+				
 				Integer result = (Integer) EngTXCommon.doTransactionTX(BillBLAddBill.class.getName(), "saveBillFromBill", argMap);
 
 				if (result.intValue() != 1)
