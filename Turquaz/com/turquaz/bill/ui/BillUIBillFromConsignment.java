@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.47 2005/04/25 11:54:30 onsel Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.48 2005/04/26 12:30:55 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -767,7 +767,7 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 
 	public void chooseConsignmentMouseUp()
 	{
-		Object[] result = new ConUIConsignmentSearchDialog(this.getShell(), SWT.NULL).open();
+		Object[] result = new ConUIConsignmentSearchDialog(this.getShell(), SWT.NULL).open(dateBillDate.getDate());
 		if(result[0]==null||result[1]==null)
 		{
 			return;
