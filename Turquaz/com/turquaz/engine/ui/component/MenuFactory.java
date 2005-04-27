@@ -63,6 +63,7 @@ import com.turquaz.cheque.ui.CheUIOwnChequeSearch;
 import com.turquaz.consignment.ui.ConUIAddBuyConsignment;
 import com.turquaz.consignment.ui.ConUIAddSellConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
+import com.turquaz.current.ui.CurUICurCardBalanceReport;
 import com.turquaz.current.ui.CurUICurCardCreditList;
 import com.turquaz.current.ui.CurUICurCardDeptList;
 import com.turquaz.current.ui.CurUICurrentCardAbstract;
@@ -105,7 +106,7 @@ import com.turquaz.engine.Messages;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuFactory.java,v 1.14 2005/04/14 09:14:08 onsel Exp $
+ * @version $Id: MenuFactory.java,v 1.15 2005/04/27 12:41:31 cemdayanik Exp $
  */
 public class MenuFactory
 {
@@ -177,6 +178,13 @@ public class MenuFactory
 			mit = new MenuItem(currentMenu, SWT.PUSH);
 			mit.setText(Messages.getString("MenuFactory.5")); //$NON-NLS-1$
 			mit.setData(CurUICurrentCardAbstract.class.getName());
+			mit.addSelectionListener(new MenuSelectionAdapter());
+		}
+		if (EngBLPermissions.getPermission(CurUICurCardBalanceReport.class.getName()) > 0)
+		{
+			mit = new MenuItem(currentMenu, SWT.PUSH);
+			mit.setText(Messages.getString("MenuFactory.86")); //$NON-NLS-1$
+			mit.setData(CurUICurCardBalanceReport.class.getName());
 			mit.addSelectionListener(new MenuSelectionAdapter());
 		}
 		sps = new MenuItem(currentMenu, SWT.SEPARATOR);

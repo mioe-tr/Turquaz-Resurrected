@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.114 2005/04/14 10:45:23 cemdayanik Exp $
+ * @version $Id: TreeFactory.java,v 1.115 2005/04/27 12:41:30 cemdayanik Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -84,6 +84,7 @@ import com.turquaz.cheque.ui.CheUIReturnFromGivenCheques;
 import com.turquaz.consignment.ui.ConUIAddBuyConsignment;
 import com.turquaz.consignment.ui.ConUIAddSellConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearch;
+import com.turquaz.current.ui.CurUICurCardBalanceReport;
 import com.turquaz.current.ui.CurUICurCardCreditList;
 import com.turquaz.current.ui.CurUICurCardDeptList;
 import com.turquaz.current.ui.CurUICurrentCardAbstract;
@@ -483,6 +484,13 @@ public final class TreeFactory
 			item.setText(Messages.getString("TreeFactory.48")); //$NON-NLS-1$
 			item.setData(CurUICurrentCardAbstract.class.getName());
 		}
+		if (EngBLPermissions.getPermission(CurUICurCardBalanceReport.class.getName()) > 0)
+		{
+			item = new TreeItem(reportsRoot, SWT.NULL);
+			item.setText(Messages.getString("TreeFactory.122")); //$NON-NLS-1$
+			item.setData(CurUICurCardBalanceReport.class.getName());
+		}
+		
 		TreeItem settingsRoot = new TreeItem(tree, SWT.NULL);
 		settingsRoot.setText(Messages.getString("TreeFactory.85")); //$NON-NLS-1$
 		if (EngBLPermissions.getPermission(CurUIInitialTransaction.class.getName()) > 0)

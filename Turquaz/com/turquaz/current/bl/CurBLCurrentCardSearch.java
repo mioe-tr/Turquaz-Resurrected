@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardSearch.java,v 1.14 2005/04/05 10:25:33 cemdayanik Exp $
+ * @version $Id: CurBLCurrentCardSearch.java,v 1.15 2005/04/27 12:41:31 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -33,15 +33,15 @@ import com.turquaz.engine.dal.TurqViewCurrentAmountTotal;
 public class CurBLCurrentCardSearch
 {
 
+	/*CurUICurrentCardSearch, CurUICurCardBalanceReport*/
 	public static List searchCurrentCard(HashMap argMap) throws Exception
 	{
 		
 		String currentCode = (String)argMap.get(CurKeys.CUR_CURRENT_CODE);
 		String currentName = (String)argMap.get(CurKeys.CUR_CURRENT_NAME);
 		TurqCurrentGroup currentGroup = (TurqCurrentGroup)argMap.get(CurKeys.CUR_GROUP);
-		
-		
-			return CurDALCurrentCardSearch.searchCurrentCards(currentCode, currentName, currentGroup);
+			
+		return CurDALCurrentCardSearch.searchCurrentCards(currentCode, currentName, currentGroup);
 		
 	}
 	

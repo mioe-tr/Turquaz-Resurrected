@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.35 2005/04/26 07:45:08 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.36 2005/04/27 12:41:31 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -50,8 +50,10 @@ public class CurDALCurrentCardSearch
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
-			String query = "Select currentView, currentCard.cardsCurrentCode," + " currentCard.cardsName, currentCard.id"
-					+ " from TurqViewCurrentAmountTotal as currentView," + " TurqCurrentCard as currentCard";
+			String query = "Select currentCard.id, currentCard.cardsCurrentCode, currentCard.cardsName," +
+					" currentView.transactionsTotalCredit, currentView.transactionsTotalDept," +
+					" currentView.transactionsBalanceNow "+
+					" from TurqViewCurrentAmountTotal as currentView, TurqCurrentCard as currentCard";
 			if (cardGroup != null)
 			{
 				query += " left join  currentCard.turqCurrentCardsGroups as gr ";
