@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLSearchTransaction.java,v 1.30 2005/04/18 08:08:25 cemdayanik Exp $
+ * @version $Id: CurBLSearchTransaction.java,v 1.31 2005/04/28 09:43:37 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -33,6 +33,7 @@ import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrentCard;
+import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqCurrentTransactionType;
 
@@ -170,7 +171,9 @@ public class CurBLSearchTransaction
 			Date endDate=(Date)argMap.get(EngKeys.DATE_END);
 			String definition=(String)argMap.get(EngKeys.DEFINITION);
 			BigDecimal minAmount=(BigDecimal)argMap.get(EngKeys.MIN_VALUE);	
-			return CurDALSearchTransaction.getCurrentCardAbstract(curCardStart,curCardEnd, startDate, endDate, definition,minAmount);
+			TurqCurrentGroup curGroup=(TurqCurrentGroup)argMap.get(CurKeys.CUR_GROUP);
+			
+			return CurDALSearchTransaction.getCurrentCardAbstract(curCardStart,curCardEnd, startDate, endDate, definition,minAmount,curGroup);
 		}
 		catch (Exception ex)
 		{
