@@ -17,9 +17,8 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.47 2005/04/27 12:41:31 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.48 2005/04/28 07:43:40 cemdayanik Exp $
  */
-import java.sql.Statement;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
