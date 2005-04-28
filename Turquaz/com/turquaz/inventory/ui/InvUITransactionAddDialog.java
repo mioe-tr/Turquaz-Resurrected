@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionAddDialog.java,v 1.32 2005/04/25 14:39:44 onsel Exp $
+ * @version  $Id: InvUITransactionAddDialog.java,v 1.33 2005/04/28 10:02:32 onsel Exp $
  */
 import java.util.List;
 import org.eclipse.swt.widgets.Composite;
@@ -101,7 +101,7 @@ public class InvUITransactionAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

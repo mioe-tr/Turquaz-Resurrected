@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransUpdateDialog.java,v 1.8 2005/04/25 14:39:46 onsel Exp $
+ * @version  $Id: InvUITransUpdateDialog.java,v 1.9 2005/04/28 10:02:32 onsel Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.graphics.Point;
@@ -53,7 +53,7 @@ public class InvUITransUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			dialogShell.setText(getText());
 			dialogShell.setSize(new org.eclipse.swt.graphics.Point(304, 208));
 			GridLayout dialogShellLayout = new GridLayout(1, true);

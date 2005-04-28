@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashOtherPaymentTransactionUpdate.java,v 1.10 2005/04/25 12:08:06 onsel Exp $
+ * @version  $Id: CashUICashOtherPaymentTransactionUpdate.java,v 1.11 2005/04/28 10:02:14 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public class CashUICashOtherPaymentTransactionUpdate extends Dialog
 		try
 		{
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.22 2005/04/25 14:39:42 onsel Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.23 2005/04/28 10:02:32 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.widgets.Display;
@@ -81,7 +81,7 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

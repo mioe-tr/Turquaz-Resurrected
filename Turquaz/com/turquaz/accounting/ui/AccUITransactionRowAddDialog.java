@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionRowAddDialog.java,v 1.17 2005/04/25 11:05:22 onsel Exp $
+ * @version  $Id: AccUITransactionRowAddDialog.java,v 1.18 2005/04/28 10:02:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import org.eclipse.swt.graphics.Point;
@@ -86,7 +86,7 @@ public class AccUITransactionRowAddDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

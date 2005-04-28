@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: AccUIAddAccountDialog.java,v 1.18 2005/04/25 11:05:22 onsel Exp $
+ * @version  $Id: AccUIAddAccountDialog.java,v 1.19 2005/04/28 10:02:12 onsel Exp $
  */
 
 import org.eclipse.swt.graphics.Point;
@@ -61,7 +61,7 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources
@@ -143,7 +143,7 @@ public class AccUIAddAccountDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

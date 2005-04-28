@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIGroupAddDialog.java,v 1.23 2005/04/25 14:39:46 onsel Exp $
+ * @version  $Id: InvUIGroupAddDialog.java,v 1.24 2005/04/28 10:02:31 onsel Exp $
  */
 import java.util.Calendar;
 import org.eclipse.swt.layout.GridLayout;
@@ -74,7 +74,7 @@ public class InvUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.32 2005/04/25 11:05:21 onsel Exp $
+ * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.33 2005/04/28 10:02:11 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -94,7 +94,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

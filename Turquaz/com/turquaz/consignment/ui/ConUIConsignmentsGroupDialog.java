@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.12 2005/04/25 12:14:46 onsel Exp $
+ * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.13 2005/04/28 10:02:12 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -90,7 +90,7 @@ public class ConUIConsignmentsGroupDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.25 2005/04/25 13:41:43 onsel Exp $
+ * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.26 2005/04/28 10:02:11 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.graphics.Rectangle;
@@ -97,7 +97,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

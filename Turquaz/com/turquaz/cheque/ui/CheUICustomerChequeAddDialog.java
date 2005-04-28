@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUICustomerChequeAddDialog.java,v 1.17 2005/04/25 13:25:30 onsel Exp $
+ * @version  $Id: CheUICustomerChequeAddDialog.java,v 1.18 2005/04/28 10:02:13 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -103,7 +103,7 @@ public class CheUICustomerChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

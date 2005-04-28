@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardUpdate.java,v 1.52 2005/04/25 13:41:44 onsel Exp $
+ * @version  $Id: CurUICurrentCardUpdate.java,v 1.53 2005/04/28 10:02:11 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -106,7 +106,7 @@ public class CurUICurrentCardUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.44 2005/04/25 11:05:21 onsel Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.45 2005/04/28 10:02:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

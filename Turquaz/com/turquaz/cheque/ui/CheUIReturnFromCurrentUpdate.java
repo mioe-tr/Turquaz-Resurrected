@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIReturnFromCurrentUpdate.java,v 1.10 2005/04/25 13:25:30 onsel Exp $
+ * @version $Id: CheUIReturnFromCurrentUpdate.java,v 1.11 2005/04/28 10:02:13 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public class CheUIReturnFromCurrentUpdate extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardUpdate.java,v 1.27 2005/04/25 11:32:46 onsel Exp $
+ * @version  $Id: BankUIBankCardUpdate.java,v 1.28 2005/04/28 10:02:33 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -89,7 +89,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

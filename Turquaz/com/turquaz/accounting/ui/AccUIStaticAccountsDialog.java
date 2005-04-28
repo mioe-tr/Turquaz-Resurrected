@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIStaticAccountsDialog.java,v 1.8 2005/04/25 11:05:22 onsel Exp $
+ * @version  $Id: AccUIStaticAccountsDialog.java,v 1.9 2005/04/28 10:02:12 onsel Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
@@ -68,7 +68,7 @@ public class AccUIStaticAccountsDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources
@@ -129,7 +129,7 @@ public class AccUIStaticAccountsDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			dialogShell.setText(getText());
 			accountTree = new Tree(dialogShell, SWT.NULL);
 			dialogShell.setSize(new org.eclipse.swt.graphics.Point(304, 208));

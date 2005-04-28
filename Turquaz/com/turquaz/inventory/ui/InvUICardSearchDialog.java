@@ -7,7 +7,7 @@ package com.turquaz.inventory.ui;
 /* the Free Software Foundation; either version 2 of the License, or    */
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearchDialog.java,v 1.14 2005/04/25 14:39:42 onsel Exp $
+ * @version  $Id: InvUICardSearchDialog.java,v 1.15 2005/04/28 10:02:32 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -87,7 +87,7 @@ public class InvUICardSearchDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			
 			{
 				SearchMenu = new Menu(dialogShell, SWT.BAR);

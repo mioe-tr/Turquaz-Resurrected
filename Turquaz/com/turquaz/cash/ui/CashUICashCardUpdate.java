@@ -54,7 +54,7 @@ import org.eclipse.swt.SWT;
  */
 /**
  * @author onsel
- * @version $Id: CashUICashCardUpdate.java,v 1.11 2005/04/25 12:08:06 onsel Exp $
+ * @version $Id: CashUICashCardUpdate.java,v 1.12 2005/04/28 10:02:14 onsel Exp $
  */
 public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 {
@@ -79,7 +79,7 @@ public class CashUICashCardUpdate extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources

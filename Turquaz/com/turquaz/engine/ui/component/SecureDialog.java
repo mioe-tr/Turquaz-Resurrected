@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: SecureDialog.java,v 1.5 2005/04/25 15:15:12 onsel Exp $
+ * @version  $Id: SecureDialog.java,v 1.6 2005/04/28 10:02:34 onsel Exp $
  */
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
@@ -54,7 +54,7 @@ public class SecureDialog extends org.eclipse.swt.widgets.Dialog
 	{
 		super(parent2, style);
 		Shell parent = getParent();
-		dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 		dialogShell.setText(getText());
 		coolBar1 = new CoolBar(dialogShell, SWT.NULL);
 		coolItem = new CoolItem(coolBar1, SWT.DROP_DOWN);
@@ -135,7 +135,7 @@ public class SecureDialog extends org.eclipse.swt.widgets.Dialog
 	{
 		super(parent2);
 		Shell parent = getParent();
-		dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 		dialogShell.setText(getText());
 		coolBar1 = new CoolBar(dialogShell, SWT.NULL);
 		coolItem = new CoolItem(coolBar1, SWT.DROP_DOWN);
@@ -221,7 +221,7 @@ public class SecureDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			dialogShell.setText(getText());
 			coolBar1 = new CoolBar(dialogShell, SWT.NULL);
 			coolItem = new CoolItem(coolBar1, SWT.DROP_DOWN);

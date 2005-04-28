@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIGroupAddDialog.java,v 1.20 2005/04/25 13:41:43 onsel Exp $
+ * @version  $Id: CurUIGroupAddDialog.java,v 1.21 2005/04/28 10:02:10 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -90,7 +90,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			preInitGUI();
 			Shell parent = getParent();
-			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE | SWT.MAX);
 			{
 				//Register as a resource user - SWTResourceManager will
 				//handle the obtaining and disposing of resources
