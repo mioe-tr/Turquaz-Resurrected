@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.57 2005/04/25 11:05:21 onsel Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.58 2005/04/28 14:48:19 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -412,12 +412,16 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 		columnList.add(DEFINITION);
 		columnList.add(DEBIT);
 		//     Create the cell editors
+       
 		CellEditor[] editors = new CellEditor[columnNames.length];
-		editors[0] = new AccountingCellEditor(tableTransactionRows);
-		editors[1] = new TextCellEditor(tableTransactionRows);
+        editors[0] = new AccountingCellEditor(tableTransactionRows,ACCOUNT_CODE);
+        editors[1] = new TextCellEditor(tableTransactionRows);
 		editors[2] = new TextCellEditor(tableTransactionRows);
 		editors[3] = new CurrencyCellEditor(tableTransactionRows, 2);
-		tableViewer = new SaveTableViewer(tableTransactionRows, editors);
+	  
+        tableViewer = new SaveTableViewer(tableTransactionRows,editors);
+        ((AccountingCellEditor)editors[0]).setTableViewer(tableViewer.getViewer());
+        
 		// Assign the cell editors to the viewer
 		// create a TableCursor to navigate around the table
 		cursor = new TableSpreadsheetCursor(tableTransactionRows, SWT.NONE, tableViewer, true);

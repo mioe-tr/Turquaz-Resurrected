@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.30 2005/04/26 10:09:44 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.31 2005/04/28 14:48:18 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -409,13 +409,17 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 		tableViewer.setColumnProperties(columnNames);
 		//     Create the cell editors
 		CellEditor[] editors = new CellEditor[columnNames.length];
-		editors[0] = new AccountingCellEditor(tableTransactionColumns);
+		editors[0] = new AccountingCellEditor(tableTransactionColumns,ACCOUNT_CODE);
 		editors[1] = new TextCellEditor(tableTransactionColumns);
 		editors[2] = new TextCellEditor(tableTransactionColumns);
 		editors[3] = new CurrencyCellEditor(tableTransactionColumns, 2);
 		editors[4] = new CurrencyCellEditor(tableTransactionColumns, 2);
+        
+       
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
+        ((AccountingCellEditor)editors[0]).setTableViewer(tableViewer);
+        
 		TurquazContentProvider contentProvider = new TurquazContentProvider(tableViewer, rowList);
 		tableViewer.setCellModifier(new TurquazCellModifier(columnList, contentProvider));
 		tableViewer.setContentProvider(contentProvider);
