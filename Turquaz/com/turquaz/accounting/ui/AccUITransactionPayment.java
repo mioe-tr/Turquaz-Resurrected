@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.60 2005/04/29 09:25:13 cemdayanik Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.61 2005/04/29 13:12:19 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -44,6 +44,7 @@ import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.dal.TurqCurrencyExchangeRate;
@@ -495,13 +496,25 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	{
 		List transColumns=new ArrayList();
 		TableItem items[] = tableTransactionRows.getItems();
+		BigDecimal total=new BigDecimal(0);
 		for (int i = 0; i < items.length; i++)
 		{
 			AccUITransactionPaymentTableRow row = (AccUITransactionPaymentTableRow) items[i].getData();
 			if (row.okToSave())
 			{
-				transColumns.add(row.getDBObject());
+				TurqAccountingTransactionColumn tcol=(TurqAccountingTransactionColumn)row.getDBObject();
+				transColumns.add(tcol);
+				total=total.add(tcol.getDeptAmount());
 			}
+		}
+		if (transColumns.size() > 0)
+		{
+			TurqAccountingTransactionColumn counterCol=new TurqAccountingTransactionColumn();
+			counterCol.setCreditAmount(total);
+			counterCol.setDeptAmount(new BigDecimal(0));
+			counterCol.setTransactionDefinition("");
+			counterCol.setTurqAccountingAccount((TurqAccountingAccount)comboCreditor.getData());
+			transColumns.add(counterCol);
 		}
 		return transColumns;
 	}
