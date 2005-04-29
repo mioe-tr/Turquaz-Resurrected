@@ -106,10 +106,11 @@ import com.turquaz.engine.Messages;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: MenuFactory.java,v 1.15 2005/04/27 12:41:31 cemdayanik Exp $
+ * @version $Id: MenuFactory.java,v 1.16 2005/04/29 13:30:27 huseyiner Exp $
  */
 public class MenuFactory
 {
+
 	public static MenuItem createFinanceMenu(MenuItem menuItem)
 	{
 		Menu menuFinance = new Menu(menuItem);

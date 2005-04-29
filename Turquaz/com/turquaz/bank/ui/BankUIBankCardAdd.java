@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.31 2005/04/25 11:32:47 onsel Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.32 2005/04/29 13:30:27 huseyiner Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -135,7 +135,6 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			preInitGUI();
 			this.setSize(634, 380);
 			GridLayout thisLayout = new GridLayout();
-			this.setEnabled(false);
 			this.setLayout(thisLayout);
 			//START >> cTabFolder1
 			cTabFolder1 = new CTabFolder(this, SWT.NONE);

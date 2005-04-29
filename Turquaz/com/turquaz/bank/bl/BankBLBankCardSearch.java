@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankBLBankCardSearch.java,v 1.12 2005/04/01 06:54:58 cemdayanik Exp $
+ * @version $Id: BankBLBankCardSearch.java,v 1.13 2005/04/29 13:30:27 huseyiner Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +46,20 @@ public class BankBLBankCardSearch
 			throw ex;
 		}
 	}
+	public static List searchBankCardsWithCode(HashMap argMap)
+	throws Exception
+{
+try
+{
+	String bankName=(String)argMap.get(BankKeys.BANK_NAME);
+	String bankCode=(String)argMap.get(BankKeys.BANK_CODE);
+	return BankDALBankCardSearch.searchBankCardsWithCode(bankName, bankCode);
+}
+catch (Exception ex)
+{
+	throw ex;
+}
+}
 
 	public static List getBankCards() throws Exception
 	{
