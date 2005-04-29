@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: TreeFactory.java,v 1.116 2005/04/29 14:33:07 onsel Exp $
+ * @version $Id: TreeFactory.java,v 1.117 2005/04/29 16:08:17 onsel Exp $
  */
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Tree;
@@ -95,6 +95,7 @@ import com.turquaz.current.ui.CurUICurrentCardSearch;
 import com.turquaz.current.ui.CurUICurrentTransfer;
 import com.turquaz.current.ui.CurUIInitialTransaction;
 import com.turquaz.current.ui.CurUIMultipleCreditVoucher;
+import com.turquaz.current.ui.CurUIMultipleDeptVoucher;
 import com.turquaz.current.ui.CurUITransactionSearch;
 import com.turquaz.engine.Messages;
 import com.turquaz.engine.bl.EngBLPermissions;
@@ -454,8 +455,14 @@ public final class TreeFactory
         if (EngBLPermissions.getPermission(CurUIMultipleCreditVoucher.class.getName()) > 0)
         {
             item = new TreeItem(transactionsRoot, SWT.NULL);
-            item.setText("Çoklu Alacak Fiþi");
+            item.setText(Messages.getString("TreeFactory.123")); //$NON-NLS-1$
             item.setData(CurUIMultipleCreditVoucher.class.getName());
+        }
+        if (EngBLPermissions.getPermission(CurUIMultipleDeptVoucher.class.getName()) > 0)
+        {
+            item = new TreeItem(transactionsRoot, SWT.NULL);
+            item.setText(Messages.getString("TreeFactory.124")); //$NON-NLS-1$
+            item.setData(CurUIMultipleDeptVoucher.class.getName());
         }
 		TreeItem searchRoot = new TreeItem(tree, SWT.NULL);
 		searchRoot.setText(Messages.getString("TreeFactory.83")); //$NON-NLS-1$
