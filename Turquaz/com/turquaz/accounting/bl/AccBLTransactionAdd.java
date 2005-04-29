@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.30 2005/04/28 17:16:28 cemdayanik Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.31 2005/04/29 14:33:06 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -174,7 +174,7 @@ public class AccBLTransactionAdd
 		
 	}
 	
-	private static boolean saveAccTransaction(Date date, String documentNo, int type, int moduleId,
+	public static boolean saveAccTransaction(Date date, String documentNo, int type, int moduleId,
 			Integer docSeqId, String definition, TurqCurrencyExchangeRate exchangeRate, List transColumns)
 			throws Exception
 	{

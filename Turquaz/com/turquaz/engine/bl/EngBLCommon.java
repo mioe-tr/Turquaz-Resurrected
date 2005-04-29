@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.101 2005/04/29 12:49:26 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.102 2005/04/29 14:33:06 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -119,6 +119,10 @@ public class EngBLCommon
 	public final static int CURRENT_TRANS_OTHERS = 7; //Diger Borc
 	
 	public final static int CURRENT_TRANS_BETWEEN_ACCOUNTS = 8; //Virman
+    
+    public final static int CURRENT_TRANS_MULTIPLE_DEPT = 9; //Coklu borc
+    
+    public final static int CURRENT_TRANS_MULTIPLE_CREDIT = 10; //Coklu Alacak
 	
 	// Alacaklar
 	public final static Integer CURRENT_ACC_TYPE_GENERAL = new Integer(0); // Cari
