@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.49 2005/04/29 12:11:20 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.50 2005/04/29 14:54:38 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -378,49 +378,8 @@ public class AccDALTransactionSearch
 		}
 	}
 
-	public static List getTransactions(TurqAccountingAccount firstAccount, TurqAccountingAccount secondAccount, boolean initialAccounts, Date startDate, Date endDate)
-			throws Exception
-	{
-		try
-		{
-			Session session = EngDALSessionFactory.getSession();
-			String query = "select accounts, sum(transColumns.rowsDeptInBaseCurrency),"
-					+ " sum(transColumns.rowsCreditInBaseCurrency) from TurqAccountingAccount accounts,"
-					+ " TurqAccountingTransaction as accTrans," + " TurqAccountingTransactionColumn as transColumns"
-					+ " where transColumns.turqAccountingTransaction=accTrans" + " and accounts=transColumns.turqAccountingAccount"
-					+ " and accTrans.transactionsDate >= :startDate and accTrans.transactionsDate <= :endDate";
-			if (firstAccount != null && secondAccount != null)
-			{
-				query += " and accounts.accountCode >='" + firstAccount.getAccountCode() + "'" + "and accounts.accountCode <='"
-						+ secondAccount.getAccountCode() + "'";
-			}
-			else if (firstAccount != null)
-			{
-				query += " and accounts.accountCode ='" + firstAccount.getAccountCode() + "'";
-			}
-			if (!initialAccounts)
-			{
-				query += " and accTrans.turqAccountingTransactionType <>" + new Integer(3);
-			}
-			query += " group by accounts.id,accounts.accountName," + " accounts.accountCode, accounts.createdBy, accounts.creationDate,"
-					+ " accounts.updatedBy, accounts.updateDate," + " accounts.turqAccountingAccountByParentAccount,"
-					+ " accounts.turqAccountingAccountByTopAccount," + " accounts.turqAccountingAccountClass,"
-					+ " accounts.turqAccountingAccountType" + " order by accounts.turqAccountingAccountByTopAccount.id";
-			Query q = session.createQuery(query);
 
-			q.setParameter("startDate", startDate);
-			q.setParameter("endDate",endDate);
-
-			List list = q.list();
-			return list;
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
-
-	public static List getTransactions2(TurqAccountingAccount firstAccount,
+	public static List getTransactions(TurqAccountingAccount firstAccount,
 			TurqAccountingAccount secondAccount, boolean initialAccounts, Date startDate, Date endDate)
 			throws Exception
 	{
@@ -456,7 +415,7 @@ public class AccDALTransactionSearch
 			{
 				query += " and accounts.account_code ='" + firstAccount.getAccountCode() + "'";
 			}
-			query += " order by accounts.top_account";
+			//query += " order by accounts.top_account";
 			ResultSet rs = statement.executeQuery(query);
 			List result = new ArrayList();
 			while (rs.next())

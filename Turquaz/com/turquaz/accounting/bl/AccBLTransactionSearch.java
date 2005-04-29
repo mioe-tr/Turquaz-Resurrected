@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionSearch.java,v 1.32 2005/04/29 12:11:19 cemdayanik Exp $
+ * @version $Id: AccBLTransactionSearch.java,v 1.33 2005/04/29 14:54:38 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.Date;
@@ -153,7 +153,7 @@ public class AccBLTransactionSearch
 		Date endDate = (Date)argMap.get(AccKeys.ACC_END_DATE);
 		
 		
-		return AccDALTransactionSearch.getTransactions2(firstAccount, secondAccount, initialAccounts.booleanValue(), startDate, endDate);
+		return AccDALTransactionSearch.getTransactions(firstAccount, secondAccount, initialAccounts.booleanValue(), startDate, endDate);
 		
 	}
 
