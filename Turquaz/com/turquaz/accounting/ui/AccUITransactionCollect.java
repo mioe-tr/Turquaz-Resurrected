@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.63 2005/04/29 13:12:19 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.64 2005/04/29 13:25:46 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -55,6 +55,7 @@ import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.ITableRowListViewer;
 import com.turquaz.engine.ui.viewers.SaveTableViewer;
 import com.turquaz.engine.ui.viewers.TableSpreadsheetCursor;
+import com.turquaz.engine.ui.viewers.TurquazTableSorter;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.accounting.ui.comp.CashAccountPicker;
 import org.eclipse.swt.custom.CCombo;
@@ -371,6 +372,13 @@ public class AccUITransactionCollect extends Composite implements SecureComposit
 			{
 			}
 		});
+		
+		int columnTypes[] = new int[4];
+		columnTypes[0] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[1] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
+		tableViewer.addSortingSupport(columnTypes);
 	}
 
 	public boolean okToDelete()

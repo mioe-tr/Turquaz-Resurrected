@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.61 2005/04/29 13:12:19 cemdayanik Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.62 2005/04/29 13:25:46 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -306,13 +306,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 			{
 			}
 		});
-		
-		int columnTypes[] = new int[4];
-		columnTypes[0] = TurquazTableSorter.COLUMN_TYPE_STRING;
-		columnTypes[1] = TurquazTableSorter.COLUMN_TYPE_STRING;
-		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
-		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
-		tableViewer.addSortingSupport(columnTypes);
+
 	}
 
 	public void fillCurrencyCombo()
@@ -448,6 +442,13 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 				tableViewer.editElement(cursor.getRow().getData(), cursor.getColumn());
 			}
 		});
+		
+		int columnTypes[] = new int[4];
+		columnTypes[0] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[1] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[2] = TurquazTableSorter.COLUMN_TYPE_STRING;
+		columnTypes[3] = TurquazTableSorter.COLUMN_TYPE_DECIMAL;
+		tableViewer.addSortingSupport(columnTypes);
 	}
 
 	public void save()
