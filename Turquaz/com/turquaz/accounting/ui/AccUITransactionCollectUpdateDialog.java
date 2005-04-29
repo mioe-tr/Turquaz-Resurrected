@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.34 2005/04/28 17:16:30 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.35 2005/04/29 18:57:54 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -267,7 +267,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 		for (int k = 0; k < transRows.size(); k++)
 		{
 			transRow = (TurqAccountingTransactionColumn) transRows.get(k);
-			if (!transRow.getCreditAmount().toString().equals("0")) { //$NON-NLS-1$
+			if (transRow.getCreditAmount().doubleValue()>0) { //$NON-NLS-1$
 				ITableRow row = new AccUITransactionCollectTableRow(compTransactionCollect.tableViewer.getRowList());
 				row.setDBObject(transRow);
 				compTransactionCollect.tableViewer.addRow(row);

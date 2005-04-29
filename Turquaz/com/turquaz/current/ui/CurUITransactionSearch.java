@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.51 2005/04/26 10:09:47 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.52 2005/04/29 18:57:54 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -443,6 +443,16 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 							updated =new CurUICurrentTransferUpdate(getShell(),SWT.NONE,trans).open();
 						
 					}
+                    else if (type == EngBLCommon.CURRENT_TRANS_MULTIPLE_CREDIT)
+                    {
+                            updated =new CurUIMultipleCreditVoucherUpdate(getShell(),SWT.NONE,trans).open();
+                        
+                    }
+                    else if (type == EngBLCommon.CURRENT_TRANS_MULTIPLE_DEPT)
+                    {
+                            updated =new CurUIMultipleDeptVoucherUpdate(getShell(),SWT.NONE,trans).open();
+                        
+                    }
 					else
 					{
 						MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
