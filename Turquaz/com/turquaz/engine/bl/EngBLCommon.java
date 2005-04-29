@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.100 2005/04/28 15:00:45 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.101 2005/04/29 12:49:26 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -240,8 +240,6 @@ public class EngBLCommon
 
 	public final static int CHECK_BUY_BILL=1;
 	public final static int CHECK_SELL_BILL=2;
-	
-	public final static String EX_BILL_DOC_NO="Bill document no is already defined!"; //$NON-NLS-1$
 	
 	public static Map getChequeStatusMapWithStringKey()
 	{
