@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIStaticAccountsDialog.java,v 1.9 2005/04/28 10:02:12 onsel Exp $
+ * @version  $Id: AccUIStaticAccountsDialog.java,v 1.10 2005/04/30 18:14:24 huseyiner Exp $
  */
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
@@ -39,13 +39,6 @@ import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyAdapter;
 
-/**
- * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
- * commercially (ie, by a corporation, company or business for any purpose whatever) then you should purchase a license for each developer
- * using Jigloo. Please visit www.cloudgarden.com for details. Use of Jigloo implies acceptance of these licensing terms.
- * ************************************* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED for this machine, so Jigloo or this code cannot be used
- * legally for any corporate or commercial purpose. *************************************
- */
 public class AccUIStaticAccountsDialog extends org.eclipse.swt.widgets.Dialog
 {
 	private Composite composite1;
