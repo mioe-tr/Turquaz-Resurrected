@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.62 2005/04/25 15:15:11 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.63 2005/05/02 13:48:27 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -468,6 +468,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 			EngDALSessionFactory.init();
 			EngBLCommon.getBaseCurrency();
 			EngBLCommon.getBaseCurrencyExchangeRate();
+            //checkRememberPassword.setVisible(false);
+            
 		}
 		catch (Exception ex)
 		{
