@@ -6,9 +6,13 @@ public class EngLangCommonKeys {
 	public final static String MSG_DELETE_REALLY = "Silmek istediðinizden emin misiniz?";
 	public final static String MSG_DELETED_SUCCESS = "Baþarýyla Silindi!";
 	
+	public final static String MSG_ENTER_AMOUNT="Lütfen tutar giriniz!";
 	public final static String MSG_SAVED_SUCCESS = "Baþarýyla Kaydedildi!";
 	public final static String MSG_UNKNOWN_ERROR_REPORT_ERROR_LOG = "Bilinmeyen bir hata oluþtu. error.log dosyasýndan eriþilebilir.";
 	public final static String MSG_UPDATED_SUCCESS = "Baþarýyla Güncellendi!";
+	public final static String MSG_SELECT_CURRENCY="Lütfen para birimi seçiniz!";
+	public final static String MSG_DEFINE_DAILY_EXCHANGE_RATE="Günlük kur oran? tan?mlamal?s?n?z!";
+	
 	public final static String STR_ADD="Ekle";
 	
 	public final static String STR_ADDRESS="Adres";
