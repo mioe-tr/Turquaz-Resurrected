@@ -6,6 +6,7 @@ public class EngLangCommonKeys {
 	public final static String MSG_DELETE_REALLY = "Silmek istediðinizden emin misiniz?";
 	public final static String MSG_DELETED_SUCCESS = "Baþarýyla Silindi!";
 	
+	public final static String MSG_ENTER_AMOUNT="Lütfen tutar giriniz!";
 	public final static String MSG_SAVED_SUCCESS = "Baþarýyla Kaydedildi!";
 	public final static String MSG_UNKNOWN_ERROR_REPORT_ERROR_LOG = "Bilinmeyen bir hata oluþtu. error.log dosyasýndan eriþilebilir.";
 	public final static String MSG_UPDATED_SUCCESS = "Baþarýyla Güncellendi!";
@@ -20,6 +21,7 @@ public class EngLangCommonKeys {
 	public final static String STR_CANCEL = "Ýptal";
 	public final static String STR_CITY="?ehir";
 	public final static String STR_CREDIT="Alacak";
+	public final static String STR_TOTALPRICE="Tutar";
 	
 	public final static String STR_CURRENCY = "Para Birimi";
     public final static String STR_CURRENCY_ABBR="Para Birimi Kýsaltmasý";
