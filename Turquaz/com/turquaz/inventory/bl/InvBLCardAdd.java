@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.50 2005/04/18 07:35:39 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.51 2005/05/02 13:36:18 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -43,9 +43,9 @@ import com.turquaz.engine.dal.TurqInventoryTransactionType;
 import com.turquaz.engine.dal.TurqInventoryUnit;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.engine.dal.TurqModule;
+import com.turquaz.engine.lang.InvLangKeys;
 import com.turquaz.engine.ui.component.DatePicker;
 import com.turquaz.inventory.InvKeys;
-import com.turquaz.inventory.Messages;
 import com.turquaz.inventory.dal.InvDALCardAdd;
 
 public class InvBLCardAdd
@@ -232,7 +232,7 @@ public class InvBLCardAdd
 			EngDALCommon.saveObject(seq);
 			invTrans.setTurqEngineSequence(seq);
 			invTrans.setTransactionsDate(DatePicker.getFirstDayOfYear());
-			invTrans.setDefinition(Messages.getString("InvBLCardAdd.0")); //$NON-NLS-1$
+			invTrans.setDefinition(InvLangKeys.STR_INITIAL_TRANSACTION);
 			invTrans.setDocumentNo(""); //$NON-NLS-1$
 			invTrans.setAmountIn(new BigDecimal(0));
 			invTrans.setAmountOut(new BigDecimal(0));
