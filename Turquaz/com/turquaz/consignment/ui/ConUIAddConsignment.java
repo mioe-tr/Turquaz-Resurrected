@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.81 2005/05/03 13:20:22 cemdayanik Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.82 2005/05/03 16:32:04 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -881,7 +881,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		}
 		if (tableConsignmentRows.getItemCount() == 0)
 		{
-			EngUICommon.showMessageBox(getShell(),ConsLangKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
+			EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
 			tableConsignmentRows.setFocus();
 			return false;
 		}
@@ -898,7 +898,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 		}
 		if (!isExistEntry)
 		{
-			EngUICommon.showMessageBox(getShell(),ConsLangKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
+			EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
 			return false;
 		}
 		return true;

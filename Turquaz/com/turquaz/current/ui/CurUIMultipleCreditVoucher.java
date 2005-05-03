@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIMultipleCreditVoucher.java,v 1.4 2005/05/03 07:43:11 onsel Exp $
+ * @version  $Id: CurUIMultipleCreditVoucher.java,v 1.5 2005/05/03 16:32:04 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -350,13 +350,13 @@ public class CurUIMultipleCreditVoucher extends Composite implements SecureCompo
             }
             else if (currentPicker.getData() == null)
             {
-                msg.setMessage(CurLangKeys.MSG_PLAESE_CHOOSE_CURRENT_CARD);  //$NON-NLS-1$
+                msg.setMessage(CurLangKeys.MSG_SELECT_CURRENT_CARD);  //$NON-NLS-1$
                 msg.open();
                 return false;
             }
             else if ((exchangeCurrency = (TurqCurrency) comboCurrencyType.getData(comboCurrencyType.getText())) == null)
             {
-                msg.setMessage(CurLangKeys.MSG_PLEASE_CHOOSE_CURRENCY); //$NON-NLS-1$
+                msg.setMessage(EngLangCommonKeys.MSG_SELECT_CURRENCY); //$NON-NLS-1$
                 msg.open();
                 comboCurrencyType.setFocus();
                 return false;
@@ -366,7 +366,7 @@ public class CurUIMultipleCreditVoucher extends Composite implements SecureCompo
                 exchangeRate = EngBLCommon.getCurrencyExchangeRate(baseCurrency, exchangeCurrency, datePickerTransactionDate.getDate());
                 if (exchangeRate == null)
                 {
-                    msg.setMessage(CurLangKeys.MSG_PLASE_ENTER_DAILY_EXCHANGE_RATE); //$NON-NLS-1$
+                    msg.setMessage(EngLangCommonKeys.MSG_DEFINE_DAILY_EXCHANGE_RATE); //$NON-NLS-1$
                     msg.open();
                     return false;
                 }

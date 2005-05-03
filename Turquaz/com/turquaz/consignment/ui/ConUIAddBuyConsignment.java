@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddBuyConsignment.java,v 1.7 2005/05/03 13:20:22 cemdayanik Exp $
+ * @version  $Id: ConUIAddBuyConsignment.java,v 1.8 2005/05/03 16:32:04 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -61,7 +61,6 @@ import com.turquaz.engine.dal.TurqInventoryTransaction;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.BillLangKeys;
-import com.turquaz.engine.lang.ConsLangKeys;
 import com.turquaz.engine.lang.CurLangKeys;
 import com.turquaz.engine.lang.EngLangCommonKeys;
 import com.turquaz.engine.lang.InvLangKeys;
@@ -846,7 +845,7 @@ public class ConUIAddBuyConsignment extends org.eclipse.swt.widgets.Composite im
 		}
 		else if (tableConsignmentRows.getItemCount() == 0)
 		{
-			EngUICommon.showMessageBox(getShell(),ConsLangKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
+			EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
 			tableConsignmentRows.setFocus();
 			return false;
 		}
@@ -863,7 +862,7 @@ public class ConUIAddBuyConsignment extends org.eclipse.swt.widgets.Composite im
 		}
 		if (!isExistEntry)
 		{
-			EngUICommon.showMessageBox(getShell(),ConsLangKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
+			EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_ENTER_AT_LEAST_ONE_ROW,SWT.ICON_WARNING);
 			return false;
 		}
 		return true;
