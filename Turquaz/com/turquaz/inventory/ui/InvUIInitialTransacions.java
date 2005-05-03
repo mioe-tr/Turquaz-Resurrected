@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: InvUIInitialTransacions.java,v 1.9 2005/05/02 13:36:19 cemdayanik Exp $
+ * @version $Id: InvUIInitialTransacions.java,v 1.10 2005/05/03 11:51:19 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -153,7 +153,7 @@ public class InvUIInitialTransacions extends org.eclipse.swt.widgets.Composite
 			//END << tableColumnAmount
 			//START >> tableColumnPrice
 			tableColumnPrice = new TableColumn(tableInitialTransactions, SWT.NONE);
-			tableColumnPrice.setText(InvLangKeys.STR_TOTALPRICE);
+			tableColumnPrice.setText(EngLangCommonKeys.STR_TOTALPRICE);
 			tableColumnPrice.setWidth(106);
 			//END << tableColumnPrice
 			//END << tableInitialTransactions
