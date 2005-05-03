@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAdd.java,v 1.18 2005/05/02 17:39:18 cemdayanik Exp $
+ * @version  $Id: CashUICashCardAdd.java,v 1.19 2005/05/03 07:35:07 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.layout.GridLayout;
@@ -177,7 +177,7 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
 		}
 		else if (accountPicker.getData() == null)
 		{
-			EngUICommon.showMessageBox(getShell(),CashLangKeys.MSG_SELECT_ACCOUNTING_ACCOUNT,SWT.ICON_WARNING);
+			EngUICommon.showMessageBox(getShell(),AccLangKeys.MSG_SELECT_ACCOUNTING_ACCOUNT,SWT.ICON_WARNING);
 			accountPicker.setFocus();
 			return false;
 		}

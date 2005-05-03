@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashOtherCollectTransaction.java,v 1.16 2005/05/02 17:39:17 cemdayanik Exp $
+ * @version  $Id: CashUICashOtherCollectTransaction.java,v 1.17 2005/05/03 07:35:07 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -267,7 +267,7 @@ public class CashUICashOtherCollectTransaction extends org.eclipse.swt.widgets.C
 			}
 			else if (txtAccountingAccount.getData() == null)
 			{
-				EngUICommon.showMessageBox(getShell(),CashLangKeys.MSG_SELECT_ACCOUNTING_ACCOUNT,SWT.ICON_WARNING);
+				EngUICommon.showMessageBox(getShell(),AccLangKeys.MSG_SELECT_ACCOUNTING_ACCOUNT,SWT.ICON_WARNING);
 				txtAccountingAccount.setFocus();
 				return false;
 			}
