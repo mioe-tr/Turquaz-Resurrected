@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.14 2005/05/03 16:32:04 cemdayanik Exp $
+ * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.15 2005/05/03 16:37:26 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -328,7 +328,7 @@ public class ConUIConsignmentsGroupDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			if (txtGroupName.getText().trim().equals("")) 
 			{
-				EngUICommon.showMessageBox(getParent(),CurLangKeys.MSG_PLEASE_FILL_GROUP_NAME,SWT.ICON_WARNING);
+				EngUICommon.showMessageBox(getParent(),CurLangKeys.MSG_ENTER_GROUP_NAME,SWT.ICON_WARNING);
 			}
 			else
 			{
@@ -369,7 +369,7 @@ public class ConUIConsignmentsGroupDialog extends org.eclipse.swt.widgets.Dialog
 		{
 			if (txtGroupName.getText().trim().equals("")) 
 			{
-				EngUICommon.showMessageBox(getParent(),CurLangKeys.MSG_PLEASE_FILL_GROUP_NAME,SWT.ICON_WARNING);
+				EngUICommon.showMessageBox(getParent(),CurLangKeys.MSG_ENTER_GROUP_NAME,SWT.ICON_WARNING);
 			}
 			else
 			{

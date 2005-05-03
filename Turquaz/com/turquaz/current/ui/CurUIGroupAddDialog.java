@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIGroupAddDialog.java,v 1.22 2005/05/03 07:43:11 onsel Exp $
+ * @version  $Id: CurUIGroupAddDialog.java,v 1.23 2005/05/03 16:37:25 cemdayanik Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -346,7 +346,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			if (txtGroupName.getText().trim().equals("")) { //$NON-NLS-1$
-				msg.setMessage(CurLangKeys.MSG_PLEASE_FILL_GROUP_NAME); //$NON-NLS-1$
+				msg.setMessage(CurLangKeys.MSG_ENTER_GROUP_NAME); //$NON-NLS-1$
 				msg.open();
 			}
 			else
@@ -390,7 +390,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 		try
 		{
 			if (txtGroupName.getText().trim().equals("")) { //$NON-NLS-1$
-				msg.setMessage(CurLangKeys.MSG_PLEASE_FILL_GROUP_NAME); //$NON-NLS-1$
+				msg.setMessage(CurLangKeys.MSG_ENTER_GROUP_NAME); //$NON-NLS-1$
 				msg.open();
 				txtGroupName.setFocus();
 			}
