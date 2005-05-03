@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.22 2005/05/03 18:29:44 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.23 2005/05/03 18:38:12 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -289,7 +289,7 @@ public class CheUIChequeOutPayrollCurrent extends org.eclipse.swt.widgets.Compos
 	{
 		if (currentPicker.getData() == null)
 		{
-			EngUICommon.showMessageBox(getShell(), CurLangKeys.MSG_PLAESE_CHOOSE_CURRENT_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
+			EngUICommon.showMessageBox(getShell(), CurLangKeys.MSG_SELECT_CURRENT_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
 			currentPicker.setFocus();
 			return false;
 		}
