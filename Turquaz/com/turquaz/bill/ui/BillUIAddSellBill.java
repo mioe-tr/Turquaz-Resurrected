@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /** ********************************************************************* */
 /**
  * @author Huseyin Ergun
- * @version $Id: BillUIAddSellBill.java,v 1.81 2005/04/26 13:03:42 cemdayanik Exp $
+ * @version $Id: BillUIAddSellBill.java,v 1.82 2005/05/03 17:02:32 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1019,7 +1019,7 @@ public class BillUIAddSellBill extends Composite implements SecureComposite
 				int answer = msg2.open();
 				if (answer == SWT.YES)
 				{
-					boolean ans = EngUICommon.okToDelete(getShell(), Messages.getString("BillUIAddSellBill.20")); //$NON-NLS-1$
+					boolean ans = EngUICommon.showQuestion(getShell(), Messages.getString("BillUIAddSellBill.20")); //$NON-NLS-1$
 					argMap = new HashMap();
 					argMap.put(BillKeys.BILL, bill);
 					argMap.put(BillKeys.BILL_BALANCE, new Boolean(ans));

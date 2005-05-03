@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.49 2005/04/26 13:03:41 cemdayanik Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.50 2005/05/03 17:02:30 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -718,7 +718,7 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 				int answer = msg2.open();
 				if (answer == SWT.YES)
 				{
-					boolean ans = EngUICommon.okToDelete(getShell(), Messages.getString("BillUIAddSellBill.20")); //$NON-NLS-1$
+					boolean ans = EngUICommon.showQuestion(getShell(), Messages.getString("BillUIAddSellBill.20")); //$NON-NLS-1$
 					argMap = new HashMap();
 					argMap.put(BillKeys.BILL, bill);
 					argMap.put(BillKeys.BILL_BALANCE, new Boolean(ans));

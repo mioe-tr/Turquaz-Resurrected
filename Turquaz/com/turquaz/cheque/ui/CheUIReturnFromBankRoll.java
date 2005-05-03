@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIReturnFromBankRoll.java,v 1.13 2005/04/25 13:25:30 onsel Exp $
+ * @version  $Id: CheUIReturnFromBankRoll.java,v 1.14 2005/05/03 17:02:35 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -263,7 +263,7 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
 		}
 		if (accountPicker.getData() == null)
 		{
-			if (EngUICommon.okToDelete(getShell(), "Muhsebe Entegrasyonu Yap?lamayacak!\n Devam Etmek ?stiyormusunuz!"))
+			if (EngUICommon.showQuestion(getShell(), "Muhsebe Entegrasyonu Yap?lamayacak!\n Devam Etmek ?stiyormusunuz!"))
 			{
 				return true;
 			}
