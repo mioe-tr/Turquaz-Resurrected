@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionAdd.java,v 1.41 2005/05/03 16:32:05 cemdayanik Exp $
+ * @version  $Id: CurUITransactionAdd.java,v 1.42 2005/05/04 14:50:29 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -308,7 +308,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite
 			MessageBox msg = new MessageBox(this.getShell(), SWT.NULL);
 			if (txtCurrentCode.getData() == null)
 			{
-				msg.setMessage(CurLangKeys.MSG_SELECT_CURRENT_CARD); //$NON-NLS-1$
+				msg.setMessage(CurLangKeys.MSG_SELECT_CUR_CARD); //$NON-NLS-1$
 				msg.open();
 				txtCurrentCode.setFocus();
 				return false;

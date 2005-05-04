@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollBank.java,v 1.17 2005/05/03 18:29:43 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollBank.java,v 1.18 2005/05/04 14:50:28 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -280,7 +280,7 @@ public class CheUIChequeOutPayrollBank extends org.eclipse.swt.widgets.Composite
 	{
 		if (bankCardPicker.getData() == null)
 		{
-			EngUICommon.showMessageBox(getShell(), BankLangKeys.MSG_PLEASE_SELECT_BANK_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
+			EngUICommon.showMessageBox(getShell(), BankLangKeys.MSG_SELECT_BANK_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
 			bankCardPicker.setFocus();
 			return false;
 		}

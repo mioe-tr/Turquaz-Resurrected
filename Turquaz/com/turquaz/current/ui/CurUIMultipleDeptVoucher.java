@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIMultipleDeptVoucher.java,v 1.5 2005/05/03 16:32:05 cemdayanik Exp $
+ * @version  $Id: CurUIMultipleDeptVoucher.java,v 1.6 2005/05/04 14:50:31 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -347,7 +347,7 @@ public class CurUIMultipleDeptVoucher extends Composite implements SecureComposi
             }
             else if (currentPicker.getData() == null)
             {
-                EngUICommon.showMessageBox(getShell(),CurLangKeys.MSG_SELECT_CURRENT_CARD,SWT.ICON_WARNING);             
+                EngUICommon.showMessageBox(getShell(),CurLangKeys.MSG_SELECT_CUR_CARD,SWT.ICON_WARNING);             
                 return false;
             }
             else if ((exchangeCurrency = (TurqCurrency) comboCurrencyType.getData(comboCurrencyType.getText())) == null)

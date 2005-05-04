@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeUpdate.java,v 1.10 2005/05/04 10:34:57 onsel Exp $
+ * @version  $Id: CheUIOwnChequeUpdate.java,v 1.11 2005/05/04 14:50:28 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -267,7 +267,7 @@ public class CheUIOwnChequeUpdate extends org.eclipse.swt.widgets.Dialog
 	{
 		if (bankPicker.getData() == null)
 		{
-			EngUICommon.showMessageBox(getParent(), BankLangKeys.MSG_PLEASE_SELECT_BANK_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
+			EngUICommon.showMessageBox(getParent(), BankLangKeys.MSG_SELECT_BANK_CARD, SWT.ICON_WARNING); //$NON-NLS-1$
 			bankPicker.setFocus();
 			return false;
 		}
