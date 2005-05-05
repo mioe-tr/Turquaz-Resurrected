@@ -17,12 +17,14 @@ package com.turquaz.inventory.ui.comp;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvUIPriceCellModifier.java,v 1.5 2005/03/17 15:02:08 onsel Exp $
+ * @version $Id: InvUIPriceCellModifier.java,v 1.6 2005/05/05 16:25:12 huseyiner Exp $
  */
 import java.util.Arrays;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
-import com.turquaz.inventory.Messages;
+
+import com.turquaz.engine.lang.EngLangCommonKeys;
+import com.turquaz.engine.lang.InvLangKeys;
 
 public class InvUIPriceCellModifier implements ICellModifier
 {
@@ -34,7 +36,7 @@ public class InvUIPriceCellModifier implements ICellModifier
 		priceList = list;
 	}
 	private String[] columnNames = new String[]{
-			Messages.getString("InvUIPriceCellModifier.0"), Messages.getString("InvUIPriceCellModifier.1"), Messages.getString("InvUIPriceCellModifier.2")}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			InvLangKeys.STR_PRICE_TYPE, EngLangCommonKeys.STR_AMOUNT, EngLangCommonKeys.STR_CURRENCY}; 
 
 	public boolean canModify(Object element, String property)
 	{
