@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIPriceChooseDialog.java,v 1.7 2005/05/02 13:36:20 cemdayanik Exp $
+ * @version  $Id: InvUIPriceChooseDialog.java,v 1.8 2005/05/05 15:17:48 onsel Exp $
  */
 import java.util.Iterator;
 import java.util.Set;
@@ -32,7 +32,6 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.TableColumn;
 
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryPrice;
@@ -141,11 +140,11 @@ public class InvUIPriceChooseDialog extends org.eclipse.swt.widgets.Dialog
 			//XXX CHANNNNGE HEREEEE
 			if (price.isPricesType())
 			{
-				type = EngBLCommon.COMMON_BUY_STRING;
+				type = EngLangCommonKeys.COMMON_BUY_STRING;
 			}
 			else
 			{
-				type = EngBLCommon.COMMON_SELL_STRING;
+				type = EngLangCommonKeys.COMMON_SELL_STRING;
 			}
 			item.setText(new String[]{type, price.getPricesAmount().toString(), price.getTurqCurrency().getCurrenciesAbbreviation()});
 			item.setData(price);

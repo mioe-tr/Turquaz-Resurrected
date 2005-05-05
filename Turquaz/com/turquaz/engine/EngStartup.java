@@ -17,7 +17,7 @@ package com.turquaz.engine;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: EngStartup.java,v 1.3 2005/04/25 15:15:11 onsel Exp $
+ * @version $Id: EngStartup.java,v 1.4 2005/05/05 15:17:50 onsel Exp $
  */
 
 import java.io.File;
@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.lang.EngLangCommonKeys;
 import com.turquaz.engine.ui.EngUIEntryFrame;
 import java.net.*;
 
@@ -77,7 +78,7 @@ public class EngStartup {
 		Shell shell = new Shell(display);
 		EngUIEntryFrame inst = new EngUIEntryFrame(shell, SWT.NULL);
 		Point size = inst.getSize();
-		shell.setText(Messages.getString("EngUIEntryFrame.0")); //$NON-NLS-1$
+		shell.setText(EngLangCommonKeys.STR_APPLICATION_NAME); //$NON-NLS-1$
 		shell.setLayout(new FillLayout());
 		shell.layout();
 		if (size.x == 0 && size.y == 0) {

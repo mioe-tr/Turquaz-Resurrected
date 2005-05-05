@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.27 2005/05/02 13:36:20 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.28 2005/05/05 15:17:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -344,10 +344,10 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 
 	public void postInitGui()
 	{
-		comboTransactionsType.add(EngBLCommon.COMMON_ALL_STRING);
-		comboTransactionsType.add(EngBLCommon.COMMON_BUY_STRING);
-		comboTransactionsType.add(EngBLCommon.COMMON_SELL_STRING);
-		comboTransactionsType.setText(EngBLCommon.COMMON_ALL_STRING);
+		comboTransactionsType.add(EngLangCommonKeys.COMMON_ALL_STRING);
+		comboTransactionsType.add(EngLangCommonKeys.COMMON_BUY_STRING);
+		comboTransactionsType.add(EngLangCommonKeys.COMMON_SELL_STRING);
+		comboTransactionsType.setText(EngLangCommonKeys.COMMON_ALL_STRING);
 		cal.set(cal.get(Calendar.YEAR), 0, 1);
 		dateStartDate.setDate(cal.getTime());
 		createTableViewer();
@@ -364,9 +364,9 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 			TurkishCurrencyFormat cf = new TurkishCurrencyFormat();
 			tableViewer.removeAll();
 			int type = EngBLCommon.COMMON_ALL_INT;
-			if (comboTransactionsType.getText().equals(EngBLCommon.COMMON_BUY_STRING))
+			if (comboTransactionsType.getText().equals(EngLangCommonKeys.COMMON_BUY_STRING))
 				type = EngBLCommon.COMMON_BUY_INT;
-			else if (comboTransactionsType.getText().equals(EngBLCommon.COMMON_SELL_STRING))
+			else if (comboTransactionsType.getText().equals(EngLangCommonKeys.COMMON_SELL_STRING))
 				type = EngBLCommon.COMMON_SELL_INT;
 			HashMap argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD_START,txtInvCardStart.getData());
