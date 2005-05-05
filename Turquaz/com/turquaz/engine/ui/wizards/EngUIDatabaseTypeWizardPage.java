@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.wizards;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.10 2005/03/17 15:02:09 onsel Exp $
+ * @version  $Id: EngUIDatabaseTypeWizardPage.java,v 1.11 2005/05/05 09:55:04 onsel Exp $
  */
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
@@ -30,7 +30,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import com.turquaz.engine.Messages;
+
+import com.turquaz.engine.lang.EngLangCommonKeys;
 
 /**
  * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
@@ -47,9 +48,9 @@ public class EngUIDatabaseTypeWizardPage extends WizardPage
 
 	public EngUIDatabaseTypeWizardPage(ISelection selection)
 	{
-		super(Messages.getString("EngUIDatabaseTypeWizardPage.0")); //$NON-NLS-1$
-		setTitle(Messages.getString("EngUIDatabaseTypeWizardPage.1")); //$NON-NLS-1$
-		setDescription(Messages.getString("EngUIDatabaseTypeWizardPage.2")); //$NON-NLS-1$
+		super("Database Connector"); //$NON-NLS-1$
+		setTitle(EngLangCommonKeys.STR_DATABASE_WIZARD); //$NON-NLS-1$
+		setDescription(EngLangCommonKeys.STR_DATABASE_WIZARD_DESCRIPTION); //$NON-NLS-1$
 		this.selection = selection;
 		setPageComplete(false);
 	}

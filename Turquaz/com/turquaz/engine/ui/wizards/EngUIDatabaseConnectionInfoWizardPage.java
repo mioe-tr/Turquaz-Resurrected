@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.wizards;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngUIDatabaseConnectionInfoWizardPage.java,v 1.11 2005/03/17 15:02:09 onsel Exp $
+ * @version $Id: EngUIDatabaseConnectionInfoWizardPage.java,v 1.12 2005/05/05 09:55:04 onsel Exp $
  */
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.wizard.IWizardPage;
@@ -30,7 +30,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import com.turquaz.engine.Messages;
+
+import com.turquaz.engine.lang.EngLangCommonKeys;
 
 public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 {
@@ -127,8 +128,8 @@ public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 	public EngUIDatabaseConnectionInfoWizardPage(ISelection selection)
 	{
 		super("Database Connector"); //$NON-NLS-1$
-		setTitle(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.1")); //$NON-NLS-1$
-		setDescription(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.2")); //$NON-NLS-1$
+		setTitle(EngLangCommonKeys.STR_DATABASE_WIZARD); //$NON-NLS-1$
+		setDescription(EngLangCommonKeys.STR_DATABASE_WIZARD_DESCRIPTION); //$NON-NLS-1$
 		this.selection = selection;
 		setPageComplete(false);
 	}
@@ -146,7 +147,7 @@ public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 		layout.numColumns = 2;
 		layout.verticalSpacing = 9;
 		Label label = new Label(container, SWT.NULL);
-		label.setText(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.4")); //$NON-NLS-1$
+		label.setText(EngLangCommonKeys.STR_DATABASE_SERVER); //$NON-NLS-1$
 		txtServerAddress = new Text(container, SWT.BORDER | SWT.SINGLE);
 		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
 		txtServerAddress.setLayoutData(gd);
@@ -172,7 +173,7 @@ public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 			}
 		});
 		label = new Label(container, SWT.NULL);
-		label.setText(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.0")); //$NON-NLS-1$
+		label.setText(EngLangCommonKeys.STR_USERNAME); //$NON-NLS-1$
 		txtUsername = new Text(container, SWT.BORDER | SWT.SINGLE);
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		txtUsername.setLayoutData(gd);
@@ -184,7 +185,7 @@ public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 			}
 		});
 		label = new Label(container, SWT.NULL);
-		label.setText(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.3")); //$NON-NLS-1$
+		label.setText(EngLangCommonKeys.STR_PASSWORD); //$NON-NLS-1$
 		txtPassword = new Text(container, SWT.BORDER | SWT.SINGLE | SWT.PASSWORD);
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		txtPassword.setLayoutData(gd);
@@ -224,12 +225,12 @@ public class EngUIDatabaseConnectionInfoWizardPage extends WizardPage
 	{
 		if (txtServerAddress.getText().length() == 0)
 		{
-			updateStatus(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.10")); //$NON-NLS-1$
+			updateStatus(EngLangCommonKeys.STR_ENTER_DATABASE_SERVER_LOCATION); //$NON-NLS-1$
 			return;
 		}
 		else if (txtUsername.getText().length() == 0)
 		{
-			updateStatus(Messages.getString("EngUIDatabaseConnectionInfoWizardPage.11")); //$NON-NLS-1$
+			updateStatus(EngLangCommonKeys.STR_ENTER_USERNAME); //$NON-NLS-1$
 			return;
 		}
 		updateStatus(null);
