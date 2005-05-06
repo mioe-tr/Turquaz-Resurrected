@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistant.java,v 1.22 2005/04/28 14:48:19 onsel Exp $
+ * @version $Id: TurquazContentAssistant.java,v 1.23 2005/05/06 14:23:49 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +43,6 @@ import org.eclipse.swt.widgets.Shell;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLKeyEvents;
-import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.component.TurqKeyEvent;
 
 public class TurquazContentAssistant extends SubjectControlContentAssistant
@@ -135,7 +134,7 @@ public class TurquazContentAssistant extends SubjectControlContentAssistant
 	{
 		HashMap argMap=new HashMap();
 		argMap.put(EngKeys.TYPE,new Integer(type));
-		EngTXCommon.doSelectTX(TurquazContentAssistProcessors.class.getName(),"fillProposalArray",argMap);
+		TurquazContentAssistProcessors.fillProposalArray(argMap);
 	}
 
 	public SubjectControlContentAssistant createContentAssistant()

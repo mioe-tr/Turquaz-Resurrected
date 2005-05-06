@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.20 2005/04/24 14:53:59 cemdayanik Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.21 2005/05/06 14:23:49 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +25,7 @@ import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.bl.AccBLAccountAdd;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.tx.EngTXCommon;
+import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 
 public class EngBLAccountingAccounts
 {
@@ -203,6 +204,7 @@ public class EngBLAccountingAccounts
 				return;
 			}
 			_instance.fillAccountList();
+			TurquazContentAssistant.refreshContentAssistant(EngBLCommon.CONTENT_ASSIST_ACCOUNTING);
 		}
 		catch (Exception ex)
 		{

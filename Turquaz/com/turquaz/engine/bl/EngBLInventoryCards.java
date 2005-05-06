@@ -17,12 +17,13 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLInventoryCards.java,v 1.17 2005/04/24 14:53:59 cemdayanik Exp $
+ * @version $Id: EngBLInventoryCards.java,v 1.18 2005/05/06 14:23:49 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.tx.EngTXCommon;
+import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 import com.turquaz.inventory.InvKeys;
 import com.turquaz.inventory.bl.InvBLCardSearch;
 
@@ -135,6 +136,8 @@ public class EngBLInventoryCards
 				return;
 			}
 			_instance.fillInventoryList();
+			TurquazContentAssistant.refreshContentAssistant(EngBLCommon.CONTENT_ASSIST_INVENTORY);
+			
 		}
 		catch (Exception ex)
 		{
