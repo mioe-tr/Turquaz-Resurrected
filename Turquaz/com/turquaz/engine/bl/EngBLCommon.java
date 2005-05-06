@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.104 2005/05/05 15:17:48 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.105 2005/05/06 11:19:29 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -81,6 +81,9 @@ public class EngBLCommon
 	// Tahsilat?
 	public final static int CASH_INITIAL_TRANSACTION = 6; //Kasa Acilis..
 	
+    public final static int CASH_BILL_COLLECT =7; //Kapali Satis Faturasi
+    
+    public final static int CASH_BILL_PAYMENT =8; //Kapali Alis Faturasi
 	
 	
 	public final static int ACCOUNTING_TRANS_COLLECT = 0; //Tahsil

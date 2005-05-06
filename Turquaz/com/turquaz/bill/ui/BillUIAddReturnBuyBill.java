@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnBuyBill.java,v 1.2 2005/05/05 16:25:11 huseyiner Exp $
+ * @version  $Id: BillUIAddReturnBuyBill.java,v 1.3 2005/05/06 11:19:29 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -270,7 +270,7 @@ public class BillUIAddReturnBuyBill extends Composite implements SecureComposite
 	private final String TOTAL_PRICE_AFTER_DISCOUNT = EngLangCommonKeys.STR_DISCOUNTED_TOTALPRICE;
 	private final String VAT_PERCENT = InvLangKeys.STR_VAT_PERCENTAGE;
 	private final String VAT_TOTAL = InvLangKeys.STR_VAT_TOTAL;
-	private final String SPECIAL_VAT_PERCENT = InvLangKeys.STR_VAT_PERCENTAGE;
+	private final String SPECIAL_VAT_PERCENT = InvLangKeys.STR_SPEC_VAT_PERC;
 	private final String SPECIAL_VAT_TOTAL = InvLangKeys.STR_SPEC_VAT_TOTAL;
 	private final String ROW_TOTAL = InvLangKeys.STR_TRANSROW_TOTAL;
 	private final int BILL_TYPE = 0;

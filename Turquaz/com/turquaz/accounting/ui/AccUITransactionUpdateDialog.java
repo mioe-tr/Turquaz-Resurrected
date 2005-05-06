@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionUpdateDialog.java,v 1.49 2005/04/30 18:14:23 huseyiner Exp $
+ * @version  $Id: AccUITransactionUpdateDialog.java,v 1.50 2005/05/06 11:19:30 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Collections;
@@ -135,7 +135,7 @@ public class AccUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 			}
 			{
 				toolCancel = new ToolItem(toolBar1, SWT.NONE);
-				toolCancel.setText(EngLangCommonKeys.STR_UPDATE); //$NON-NLS-1$
+				toolCancel.setText(EngLangCommonKeys.STR_CANCEL); //$NON-NLS-1$
 				toolCancel.setImage(SWTResourceManager.getImage("icons/cancel.jpg")); //$NON-NLS-1$
 				toolCancel.addSelectionListener(new SelectionAdapter()
 				{
