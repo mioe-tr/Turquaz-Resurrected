@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnBuyBill.java,v 1.6 2005/05/09 12:44:38 onsel Exp $
+ * @version  $Id: BillUIAddReturnBuyBill.java,v 1.7 2005/05/09 13:08:58 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -803,7 +803,7 @@ public class BillUIAddReturnBuyBill extends Composite implements SecureComposite
         for (int i = 0; i < EngBLCommon.TABLE_ROW_COUNT; i++)
         {
             //      enter empty table rows.
-            InvUITransactionTableRow row = new InvUITransactionTableRow(0, tableViewer);
+            InvUITransactionTableRow row = new InvUITransactionTableRow(EngBLCommon.COMMON_RETURN_BUY_INT, tableViewer);
             tableViewer.addRow(row);
         }
         //fill combo ware houses
@@ -908,7 +908,7 @@ public class BillUIAddReturnBuyBill extends Composite implements SecureComposite
                 {
                     if (row.okToSave())
                     {
-                        InvUITransactionTableRow row2 = new InvUITransactionTableRow(0, tableViewer);
+                        InvUITransactionTableRow row2 = new InvUITransactionTableRow(EngBLCommon.COMMON_RETURN_BUY_INT, tableViewer);
                         tableViewer.addRow(row2);
                     }
                 }
