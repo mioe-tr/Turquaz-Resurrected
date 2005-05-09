@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.105 2005/05/06 11:19:29 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.106 2005/05/09 09:52:37 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -273,9 +273,15 @@ public class EngBLCommon
 	public final static int BILL_TRANS_TYPE_BUY = 0;
 	public final static int BILL_TRANS_TYPE_SELL = 1;
 	public final static int BILL_TRANS_TYPE_ALL = 2;
+    public final static int BILL_TRANS_TYPE_RETURN_BUY =3;
+    public final static int BILL_TRANS_TYPE_RETURN_SELL =4;
+    
+    
 	public final static int CONSIGNMENT_TRANS_TYPE_BUY = 0;
 	public final static int CONSIGNMENT_TRANS_TYPE_SELL = 1;
 	public final static int CONSIGNMENT_TRANS_TYPE_ALL = 2;
+    public final static int CONSIGNMENT_TRANS_TYPE_RETURN_BUY =3;
+    public final static int CONSIGNMENT_TRANS_TYPE_RETURN_SELL =4;
 	
     public final static int INVENTORY_TRANS_INITIAL = 0;
 	public final static int INVENTORY_TRANS_CONSIGNMENT = 1;
