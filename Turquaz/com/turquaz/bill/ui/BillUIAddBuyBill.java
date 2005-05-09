@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.80 2005/05/06 11:19:29 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.81 2005/05/09 12:44:39 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1046,9 +1046,9 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 			int Now = (invView.getTransactionsTotalAmountNow() == null) ? 0 : invView.getTransactionsTotalAmountNow().intValue();
 			int Max = invCard.getCardMaximumAmount();
 			int Min = invCard.getCardMinimumAmount();
-			if (BILL_TYPE == EngBLCommon.BILL_TRANS_TYPE_SELL && Now < Min)
+			if (BILL_TYPE == EngBLCommon.COMMON_SELL_INT && Now < Min)
 				return false;
-			else if (BILL_TYPE == EngBLCommon.BILL_TRANS_TYPE_BUY && Max != 0 && Now > Max)
+			else if (BILL_TYPE == EngBLCommon.COMMON_BUY_INT && Max != 0 && Now > Max)
 				return false;
 			return true;
 		}
