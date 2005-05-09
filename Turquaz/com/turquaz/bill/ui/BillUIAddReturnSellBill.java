@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnSellBill.java,v 1.1 2005/05/09 09:52:38 onsel Exp $
+ * @version  $Id: BillUIAddReturnSellBill.java,v 1.2 2005/05/09 11:40:19 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -280,7 +280,7 @@ public class BillUIAddReturnSellBill extends Composite implements SecureComposit
     private final String ROW_TOTAL = InvLangKeys.STR_TRANSROW_TOTAL;
    
     
-    private final int BILL_TYPE = EngBLCommon.BILL_TRANS_TYPE_RETURN_BUY;
+    private final int BILL_TYPE = EngBLCommon.BILL_TRANS_TYPE_RETURN_SELL;
     int last_row_index = 0;
     TableSpreadsheetCursor cursor;
     // Set column names
@@ -1132,7 +1132,7 @@ public class BillUIAddReturnSellBill extends Composite implements SecureComposit
 
     public void newForm()
     {
-        BillUIAddBuyBill curCard = new BillUIAddBuyBill(this.getParent(), this.getStyle());
+        BillUIAddReturnBuyBill curCard = new BillUIAddReturnBuyBill(this.getParent(), this.getStyle());
         CTabFolder tabfld = (CTabFolder) this.getParent();
         tabfld.getSelection().setControl(curCard);
         this.dispose();

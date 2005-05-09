@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnBuyBill.java,v 1.4 2005/05/09 09:52:38 onsel Exp $
+ * @version  $Id: BillUIAddReturnBuyBill.java,v 1.5 2005/05/09 11:40:18 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1132,7 +1132,7 @@ public class BillUIAddReturnBuyBill extends Composite implements SecureComposite
 
     public void newForm()
     {
-        BillUIAddBuyBill curCard = new BillUIAddBuyBill(this.getParent(), this.getStyle());
+        BillUIAddReturnBuyBill curCard = new BillUIAddReturnBuyBill(this.getParent(), this.getStyle());
         CTabFolder tabfld = (CTabFolder) this.getParent();
         tabfld.getSelection().setControl(curCard);
         this.dispose();
