@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardSearch.java,v 1.44 2005/04/14 07:55:03 cemdayanik Exp $
+ * @version $Id: InvDALCardSearch.java,v 1.45 2005/05/10 13:11:02 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -60,7 +60,6 @@ public class InvDALCardSearch
 			{
 				q.setParameter("invGroup", invGroup);
 			}
-			q.setMaxResults(1000);
 			List list = q.list();
 			return list;
 		}
@@ -152,7 +151,6 @@ public class InvDALCardSearch
 			{
 				q.setParameter("invGroup", invGroup);
 			}
-			q.setMaxResults(1000);
 			List list = q.list();
 			return list;
 		}

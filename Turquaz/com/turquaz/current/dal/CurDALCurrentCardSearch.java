@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.36 2005/04/27 12:41:31 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.37 2005/05/10 13:11:02 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -79,7 +79,6 @@ public class CurDALCurrentCardSearch
 			{
 				q.setParameter("cardGroup", cardGroup);
 			}
-			q.setMaxResults(1000);
 			List list = q.list();
 			return list;
 		}
