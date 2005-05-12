@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.38 2005/04/30 18:14:24 huseyiner Exp $
+ * @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.39 2005/05/12 15:17:31 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -53,6 +53,21 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.widgets.Label;
 
+
+/**
+* This code was generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* *************************************
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED
+* for this machine, so Jigloo or this code cannot be used legally
+* for any corporate or commercial purpose.
+* *************************************
+*/
 public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Composite implements SearchComposite
 {
 	private TableColumn tableColumnTotalCredit;
@@ -256,7 +271,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 			//END << groupRemainder
 			{
 				checkSubAccounts = new Button(compOptions, SWT.CHECK | SWT.LEFT);
-				checkSubAccounts.setText(AccLangKeys.STR_TOTAL); //$NON-NLS-1$
+				checkSubAccounts.setText(AccLangKeys.STR_SHOW_SUBSIDIARY_ACCOUNTS);
 				GridData checkSubAccountsLData = new GridData();
 				checkSubAccountsLData.heightHint = 33;
 				checkSubAccounts.setLayoutData(checkSubAccountsLData);
