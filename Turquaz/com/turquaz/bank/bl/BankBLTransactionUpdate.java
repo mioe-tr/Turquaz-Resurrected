@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.37 2005/05/04 12:42:50 huseyiner Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.38 2005/05/12 14:35:04 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -127,7 +127,7 @@ public class BankBLTransactionUpdate
 			transRowCredit.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			transRowCredit.setLastModified(Calendar.getInstance().getTime());
 			transRowCredit.setCreationDate(Calendar.getInstance().getTime());
-			transRowCredit.setTurqBanksCard(bankCardWithDept);
+			transRowCredit.setTurqBanksCard(bankCardWithCredit);
 			transRowCredit.setCreditAmountInForeignCurrency(totalAmount);
 			transRowCredit.setCreditAmount(totalAmount.multiply(exchangeRate.getExchangeRatio())
 					.setScale(2, EngBLCommon.ROUNDING_METHOD));
@@ -138,7 +138,7 @@ public class BankBLTransactionUpdate
 			transRowDebit.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			transRowDebit.setLastModified(Calendar.getInstance().getTime());
 			transRowDebit.setCreationDate(Calendar.getInstance().getTime());
-			transRowDebit.setTurqBanksCard(bankCardWithCredit);
+			transRowDebit.setTurqBanksCard(bankCardWithDept);
 			transRowDebit.setCreditAmountInForeignCurrency(new BigDecimal(0));
 			transRowDebit.setCreditAmount(new BigDecimal(0));
 			transRowDebit.setDeptAmountInForeignCurrency(totalAmount);

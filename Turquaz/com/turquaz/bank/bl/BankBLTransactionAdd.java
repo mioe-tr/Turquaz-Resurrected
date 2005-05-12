@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.46 2005/05/04 12:42:50 huseyiner Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.47 2005/05/12 14:34:54 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -100,7 +100,7 @@ public class BankBLTransactionAdd
 			transRowCredit.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			transRowCredit.setLastModified(Calendar.getInstance().getTime());
 			transRowCredit.setCreationDate(Calendar.getInstance().getTime());
-			transRowCredit.setTurqBanksCard(bankCardWithDept);
+			transRowCredit.setTurqBanksCard(bankCardWithCredit);
 			transRowCredit.setCreditAmountInForeignCurrency(totalAmount);
 			transRowCredit.setCreditAmount(totalAmount.multiply(exchangeRate.getExchangeRatio())
 					.setScale(2, EngBLCommon.ROUNDING_METHOD));
@@ -111,7 +111,7 @@ public class BankBLTransactionAdd
 			transRowDebit.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			transRowDebit.setLastModified(Calendar.getInstance().getTime());
 			transRowDebit.setCreationDate(Calendar.getInstance().getTime());
-			transRowDebit.setTurqBanksCard(bankCardWithCredit);
+			transRowDebit.setTurqBanksCard(bankCardWithDept);
 			transRowDebit.setCreditAmountInForeignCurrency(new BigDecimal(0));
 			transRowDebit.setCreditAmount(new BigDecimal(0));
 			transRowDebit.setDeptAmountInForeignCurrency(totalAmount);
@@ -143,9 +143,9 @@ public class BankBLTransactionAdd
 					EngBLCommon.BANK_ACC_TYPE_GENERAL);
 		
 			accTransRowDept.setTransactionDefinition(definition);
-			accTransRowDept.setTurqAccountingAccount(creditAccount);
+			accTransRowDept.setTurqAccountingAccount(deptAccount);
 			accTransRowCredit.setTransactionDefinition(definition);
-			accTransRowCredit.setTurqAccountingAccount(deptAccount);
+			accTransRowCredit.setTurqAccountingAccount(creditAccount);
 			int accTransType = EngBLCommon.ACCOUNTING_TRANS_GENERAL;
 			accTransRowCredit.setDeptAmount(new BigDecimal(0));
 			accTransRowCredit.setCreditAmount(totalAmount);
