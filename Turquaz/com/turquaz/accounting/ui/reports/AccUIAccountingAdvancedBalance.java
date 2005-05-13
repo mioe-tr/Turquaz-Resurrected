@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.40 2005/05/13 07:57:28 onsel Exp $
+ * @version  $Id: AccUIAccountingAdvancedBalance.java,v 1.41 2005/05/13 08:19:06 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -372,8 +372,7 @@ public class AccUIAccountingAdvancedBalance extends org.eclipse.swt.widgets.Comp
 	
 	private void PostInitGui()
 	{
-        ReportTableViewer viewer = new ReportTableViewer(tableTreeAccounts.getTable());
-        
+        ReportTableViewer viewer = new ReportTableViewer(tableTreeAccounts.getTable());        
         
 	}
 	
