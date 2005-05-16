@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardAdd.java,v 1.29 2005/04/18 07:35:44 cemdayanik Exp $
+ * @version $Id: CurBLCurrentCardAdd.java,v 1.30 2005/05/16 08:27:52 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -113,8 +113,7 @@ public class CurBLCurrentCardAdd
 			Calendar cal = Calendar.getInstance();
 			cal.set(cal.get(Calendar.YEAR), 0, 1);
 			CurBLCurrentTransactionAdd.saveCurrentTransaction(currentCard, cal.getTime(), "", false, new BigDecimal(0),
-					new BigDecimal(0), EngBLCommon.CURRENT_TRANS_INITIAL, new Integer(-1), "sads",
-					//Messages.getString("CurBLCurrentCardAdd.3"),//$NON-NLS-1$ //$NON-NLS-2$
+					new BigDecimal(0), EngBLCommon.CURRENT_TRANS_INITIAL, new Integer(-1), "",
 					EngBLCommon.getBaseCurrencyExchangeRate());
 		}
 		catch (Exception ex)
