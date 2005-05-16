@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.28 2005/04/18 07:35:44 cemdayanik Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.29 2005/05/16 09:21:21 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -156,12 +156,16 @@ public class AccBLAccountAdd
 			if (parentAccount.getId().intValue() == -1)
 			{
 				account.setTurqAccountingAccountByTopAccount(parentAccount);
+                EngDALCommon.saveObject(account);
+                account.setTurqAccountingAccountByTopAccount(account);
+                EngDALCommon.updateObject(account);
 			}
 			else
 			{
 				account.setTurqAccountingAccountByTopAccount(parentAccount.getTurqAccountingAccountByTopAccount());
+                EngDALCommon.saveObject(account);
 			}
-			EngDALCommon.saveObject(account);
+			
 			EngBLAccountingAccounts.RefreshContentAsistantMap();
 			return account;
 		}
