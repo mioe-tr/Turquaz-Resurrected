@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.59 2005/04/30 13:49:38 huseyiner Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.60 2005/05/16 09:39:40 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -42,7 +42,6 @@ import com.turquaz.accounting.bl.AccBLAccountAdd;
 import com.turquaz.accounting.bl.AccBLAccountUpdate;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -441,7 +440,6 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite imple
 					
 					msg.setMessage(EngLangCommonKeys.MSG_DELETED_SUCCESS); 
 					msg.open();
-					EngTXCommon.doSelectTX(EngBLAccountingAccounts.class.getName(),"RefreshContentAsistantMap",null);
 
 					fillTree(-1, ""); //$NON-NLS-1$
 				}
