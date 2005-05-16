@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.29 2005/05/16 09:21:21 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.30 2005/05/16 09:27:33 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -177,7 +177,7 @@ public class AccBLAccountAdd
 
 	public static List getTransactionColumns(HashMap argMap) throws Exception
 	{			
-		 	Integer type = (Integer)argMap.get(AccKeys.ACC_TYPE);
+		  Integer type = (Integer)argMap.get(AccKeys.ACC_TYPE);
 		  Object startDate = argMap.get(AccKeys.ACC_START_DATE);
 		  Object endDate = argMap.get(AccKeys.ACC_END_DATE);
 		
