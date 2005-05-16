@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.23 2005/05/16 09:27:33 onsel Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.24 2005/05/16 15:16:51 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -116,7 +116,7 @@ public class AccBLAccountUpdate
             TurqAccountingAccount dummy = new TurqAccountingAccount();
             dummy.setId(new Integer(-1));
             account.setTurqAccountingAccountByTopAccount(dummy);
-            EngDALCommon.updateObject(dummy);
+            EngDALCommon.updateObject(account);
         }
         
 		EngDALCommon.deleteObject(account);
