@@ -17,13 +17,15 @@ package com.turquaz.engine;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngConfiguration.java,v 1.21 2005/04/25 15:15:10 onsel Exp $
+ * @version $Id: EngConfiguration.java,v 1.22 2005/05/16 13:33:03 onsel Exp $
  */
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+
+import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 
 public class EngConfiguration
@@ -94,7 +96,7 @@ public class EngConfiguration
 			_instance = new EngConfiguration();
 		}
 		
-		String ADN = _instance.findString("automatic.dispatch.note");
+		String ADN = EngModulePrefs.getProperty(EngBLCommon.BILL_CONFIG,"automatic.dispatch.note");
 		
 		if(ADN == null)
 		{

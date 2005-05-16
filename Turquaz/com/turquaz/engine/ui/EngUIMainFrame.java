@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.152 2005/05/04 13:51:20 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.153 2005/05/16 13:33:00 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -70,6 +70,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.layout.FillLayout;
 import com.turquaz.engine.EngConfiguration;
+import com.turquaz.engine.EngModulePrefs;
 import com.turquaz.engine.backup.EngBackUp;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLInventoryCards;
@@ -88,7 +89,7 @@ import com.turquaz.engine.ui.component.TurqKeyEvent;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.152 2005/05/04 13:51:20 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.153 2005/05/16 13:33:00 onsel Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1182,6 +1183,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 						saveFavoritesTree();
 						saveProperties();
 						EngUITableProperties.saveToFile();
+                        EngModulePrefs.saveToFile();
 						EngBackUp.backUp("");
 						System.exit(0);
 					}
