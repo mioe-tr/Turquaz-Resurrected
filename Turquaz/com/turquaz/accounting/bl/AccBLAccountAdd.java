@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.30 2005/05/16 09:27:33 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.31 2005/05/22 16:46:20 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,10 +45,13 @@ public class AccBLAccountAdd
 			throw ex;
 		}
 	}
+    
 	public static List getAllAccountsWithSum() throws Exception
 	{
 		return AccDALAccountAdd.getAllAccountsWithSum();
 	}
+    
+    
 	public static TurqAccountingAccount getLeafAccount(HashMap argMap) throws Exception
 	{
 		try
@@ -62,7 +65,7 @@ public class AccBLAccountAdd
 		}
 	}
 
-	public static TurqAccountingAccount getAllAccounts(HashMap argMap) throws Exception
+    public static TurqAccountingAccount getAllAccounts(HashMap argMap) throws Exception
 	{
 		try
 		{
