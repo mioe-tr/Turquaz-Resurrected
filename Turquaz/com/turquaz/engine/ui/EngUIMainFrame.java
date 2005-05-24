@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.153 2005/05/16 13:33:00 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.154 2005/05/24 09:03:16 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,9 +87,10 @@ import com.turquaz.engine.ui.component.MenuManager;
 import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.TurqKeyEvent;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
+import com.turquaz.server.ServiceList;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.153 2005/05/16 13:33:00 onsel Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.154 2005/05/24 09:03:16 cemdayanik Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
@@ -1166,7 +1167,7 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite
 		try
 		{
 			Shell shell = new Shell(display);
-			
+
 			final EngUIMainFrame inst = new EngUIMainFrame(shell, SWT.NULL);
 			shell.setLayout(new org.eclipse.swt.layout.FillLayout());
 			Rectangle shellBounds = shell.computeTrim(0, 0, 800, 580);

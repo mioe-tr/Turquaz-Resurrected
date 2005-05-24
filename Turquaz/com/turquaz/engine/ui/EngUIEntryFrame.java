@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.64 2005/05/04 13:51:20 onsel Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.65 2005/05/24 09:03:16 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -48,6 +48,7 @@ import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.lang.EngLangCommonKeys;
 import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.engine.ui.wizards.EngUIDatabaseConnectionWizard;
+import com.turquaz.server.ServiceList;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
@@ -128,8 +129,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 	{
 		try
 		{
-			
-			
+					
 			String database = EngConfiguration.getString("serverAddress"); //$NON-NLS-1$
 			database = database.trim();
 			if (database == null || database.equals("") || database.equals("localhost") || database.equals("127.0.0.1")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -356,6 +356,7 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 			}
 			
 			validateDB();
+			ServiceList.InitializeServices();
 			
 		}
 		catch (Exception ex)
