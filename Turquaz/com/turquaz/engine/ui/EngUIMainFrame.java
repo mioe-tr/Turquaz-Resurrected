@@ -18,7 +18,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.154 2005/05/24 09:03:16 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.155 2005/05/24 12:54:02 cemdayanik Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,10 +87,9 @@ import com.turquaz.engine.ui.component.MenuManager;
 import com.turquaz.engine.ui.component.TreeFactory;
 import com.turquaz.engine.ui.component.TurqKeyEvent;
 import com.turquaz.engine.ui.component.rssowl.BrowserPanel;
-import com.turquaz.server.ServiceList;
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIMainFrame.java,v 1.154 2005/05/24 09:03:16 cemdayanik Exp $
+ * @version  $Id: EngUIMainFrame.java,v 1.155 2005/05/24 12:54:02 cemdayanik Exp $
  */
 import com.cloudgarden.resource.SWTResourceManager;
 
