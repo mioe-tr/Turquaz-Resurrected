@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.60 2005/05/16 09:39:40 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.61 2005/05/25 10:34:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -420,7 +420,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite imple
 				
 				
 				argMap = new HashMap();
-		        argMap.put(AccKeys.ACC_PARENT_ACCOUNT,account);	        
+		        argMap.put(AccKeys.ACC_PARENT_ID,account.getId());	        
 				List subAccs =(List)EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"getSubAccounts",argMap);
 				
 				

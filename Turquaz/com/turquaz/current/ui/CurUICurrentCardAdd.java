@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.71 2005/05/03 17:02:25 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.72 2005/05/25 10:34:56 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1126,7 +1126,7 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 				txtCurrentName.setFocus();
 				return false;
 			}
-			if (accPickerCustomer.getTurqAccountingAccount() == null)
+			if (accPickerCustomer.getDBData() == null)
 			{
 				boolean ans = EngUICommon.showQuestion(getShell(),CurLangKeys.MSG_WANT_TO_ADD_ACCOUNTING_ACCOUNT);  //$NON-NLS-1$
 				if (ans)
@@ -1164,9 +1164,9 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 		{
 			Integer type = (Integer) it.next();
 			AccountPickerLeaf picker = (AccountPickerLeaf) fieldMap.get(type);
-			if (picker.getTurqAccountingAccount() != null)
+			if (picker.getDBData() != null)
 			{
-				map.put(type, picker.getTurqAccountingAccount());
+				map.put(type, picker.getDBData());
 			}
 		}
 		return map;

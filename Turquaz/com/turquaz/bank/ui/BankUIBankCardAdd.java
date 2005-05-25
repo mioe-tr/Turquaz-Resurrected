@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.33 2005/05/04 14:50:28 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.34 2005/05/25 10:34:56 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -375,9 +375,9 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 		{
 			Integer type = (Integer) it.next();
 			AccountPickerLeaf picker = (AccountPickerLeaf) fieldMap.get(type);
-			if (picker.getTurqAccountingAccount() != null)
+			if (picker.getDBData() != null)
 			{
-				map.put(type, picker.getTurqAccountingAccount());
+				map.put(type, picker.getDBData());
 			}
 		}
 		return map;

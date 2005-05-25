@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashOtherPaymentTransactionUpdate.java,v 1.12 2005/05/03 07:35:07 cemdayanik Exp $
+ * @version  $Id: CashUICashOtherPaymentTransactionUpdate.java,v 1.13 2005/05/25 10:34:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -207,7 +207,7 @@ public class CashUICashOtherPaymentTransactionUpdate extends Dialog
 				argMap.put(EngKeys.DEFINITION, compTransAdd.getTxtDefinition().getText());
 				argMap.put(EngKeys.DOCUMENT_NO, compTransAdd.getTxtDocumentNo().getText());
 				argMap.put(EngKeys.EXCHANGE_RATE, compTransAdd.getExchangeRate());
-				argMap.put(AccKeys.ACC_ACCOUNT,compTransAdd.getTxtAccountingAccount().getTurqAccountingAccount());
+				argMap.put(AccKeys.ACC_ACCOUNT_ID,compTransAdd.getTxtAccountingAccount().getDBData());
 							
 				EngTXCommon.doTransactionTX(CashBLCashTransactionUpdate.class.getName(),"updateOtherTrans",argMap);
 				EngUICommon.showUpdatedSuccesfullyMessage(getParent());

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIReturnFromBankRoll.java,v 1.15 2005/05/04 10:34:58 onsel Exp $
+ * @version  $Id: CheUIReturnFromBankRoll.java,v 1.16 2005/05/25 10:34:56 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -281,7 +281,7 @@ public class CheUIReturnFromBankRoll extends org.eclipse.swt.widgets.Composite i
 			if (verifyFields())
 			{
 				HashMap argMap = new HashMap();
-				argMap.put(AccKeys.ACC_ACCOUNT,accountPicker.getTurqAccountingAccount());
+				argMap.put(AccKeys.ACC_ACCOUNT_ID,accountPicker.getDBData());
 				argMap.put(EngKeys.DOCUMENT_NO,txtRollNo.getText().trim());
 				argMap.put(EngKeys.DATE,datePicker1.getDate());
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,cheques);
