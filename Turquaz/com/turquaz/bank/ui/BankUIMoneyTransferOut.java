@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferOut.java,v 1.17 2005/05/04 15:59:25 cemdayanik Exp $
+ * @version  $Id: BankUIMoneyTransferOut.java,v 1.18 2005/05/26 13:30:36 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -287,7 +287,7 @@ public class BankUIMoneyTransferOut extends org.eclipse.swt.widgets.Composite im
 			{
 				HashMap argMap=new HashMap();
 				
-				argMap.put(BankKeys.BANK,txtBankCard.getTurqBank());
+				argMap.put(BankKeys.BANK_ID,txtBankCard.getBankId());
 				argMap.put(EngKeys.CURRENT_CARD,currentPicker.getData());
 				argMap.put(EngKeys.TYPE,new Integer(EngBLCommon.BANK_TRANS_SEND_MONEY));
 				argMap.put(EngKeys.ENG_SEQ,null);

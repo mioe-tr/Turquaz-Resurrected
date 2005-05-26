@@ -17,12 +17,13 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankBLBankCardSearch.java,v 1.14 2005/05/26 10:11:21 onsel Exp $
+ * @version $Id: BankBLBankCardSearch.java,v 1.15 2005/05/26 13:30:38 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import com.turquaz.accounting.AccKeys;
 import com.turquaz.admin.AdmKeys;
 import com.turquaz.bank.BankKeys;
 import com.turquaz.bank.dal.BankDALBankCardSearch;
@@ -66,11 +67,23 @@ catch (Exception ex)
 }
 }
 
-	public static List getBankCards() throws Exception
+	public static HashBag getBankCards() throws Exception
 	{
 		try
 		{
-			return BankDALBankCardSearch.getBankCards();
+			HashBag returnBag = new HashBag();
+			List list =  BankDALBankCardSearch.getBankCards();
+			for(int i=0;i<list.size();i++)
+			{
+				TurqBanksCard bankCard = (TurqBanksCard)list.get(i);
+				returnBag.put(BankKeys.BANK_CARDS,i,BankKeys.BANK_ID,bankCard.getId());
+				returnBag.put(BankKeys.BANK_CARDS,i,BankKeys.BANK_CODE,bankCard.getBankCode());
+				returnBag.put(BankKeys.BANK_CARDS,i,BankKeys.BANK_NAME,bankCard.getBankName());
+				returnBag.put(BankKeys.BANK_CARDS,i,BankKeys.BANK_BRANCH_NAME,bankCard.getBankBranchName());
+				
+			}
+			
+			return returnBag;
 		}
 		catch (Exception ex)
 		{
@@ -116,10 +129,14 @@ catch (Exception ex)
 		return BankDALBankCardSearch.getBankAccountingAccount(bankCard, type);
 	}
 	
-	public static TurqAccountingAccount getAccountingAccount(HashMap argMap) throws Exception
+	public static HashBag getAccountingAccount(HashMap argMap) throws Exception
 	{
-		TurqBanksCard bankCard=(TurqBanksCard)argMap.get(BankKeys.BANK);
+		Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+		TurqBanksCard bankCard = new TurqBanksCard();
+		bankCard.setId(bankCardId);
 		Integer type=(Integer)argMap.get(EngKeys.TYPE);
-		return BankDALBankCardSearch.getBankAccountingAccount(bankCard, type);
+		HashBag bag = new HashBag();
+		bag.put(AccKeys.ACC_ACCOUNT,BankDALBankCardSearch.getBankAccountingAccount(bankCard, type).getId());
+		return bag;
 	}
 }

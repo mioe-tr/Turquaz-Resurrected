@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSearchCheques.java,v 1.13 2005/04/25 09:12:29 cemdayanik Exp $
+ * @version $Id: CheBLSearchCheques.java,v 1.14 2005/05/26 13:30:37 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +26,7 @@ import com.turquaz.bank.BankKeys;
 import com.turquaz.cheque.CheKeys;
 import com.turquaz.cheque.dal.CheDALSearch;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqChequeCheque;
@@ -55,7 +56,10 @@ public class CheBLSearchCheques
 		Date endEnterDate = (Date) argMap.get(CheKeys.CHE_END_ENTER_DATE);
 		Date startDueDate = (Date) argMap.get(CheKeys.CHE_START_DUE_DATE);
 		Date endDueDate = (Date) argMap.get(CheKeys.CHE_END_DUE_DATE);
-		TurqBanksCard bankCard = (TurqBanksCard) argMap.get(BankKeys.BANK);
+		Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+		
+		TurqBanksCard bankCard = (TurqBanksCard)EngDALSessionFactory.getSession().load(TurqBanksCard.class,bankCardId);
+		
 		Boolean sortByDate=(Boolean)argMap.get(BankKeys.BANK_SORT_BY_DATE);
 		
 		return CheDALSearch.searchOwnCheques(curCard, bankCard, startEnterDate, endEnterDate, startDueDate,

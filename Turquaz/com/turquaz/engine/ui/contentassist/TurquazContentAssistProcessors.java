@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /** ********************************************************************* */
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistProcessors.java,v 1.39 2005/05/26 12:40:35 cemdayanik Exp $
+ * @version $Id: TurquazContentAssistProcessors.java,v 1.40 2005/05/26 13:30:39 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +35,7 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 import com.turquaz.accounting.AccKeys;
+import com.turquaz.bank.BankKeys;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLBankCards;
@@ -45,7 +46,6 @@ import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCashCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.tx.EngTXCommon;
@@ -268,12 +268,13 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 	public static void fillBankModuleArray() throws Exception
 	{
 		List proposed = new ArrayList();
-		List list = EngBLBankCards.getBankCards();
+		
+		HashMap list = EngBLBankCards.getBankCards();
 		for (int i = 0; i < list.size(); i++)
 		{
-			TurqBanksCard bankCard = ((TurqBanksCard) list.get(i));
-			proposed.add(new Proposal(bankCard.getBankCode(), bankCard.getBankName() + "-"
-					+ bankCard.getBankBranchName() + "-" + bankCard.getBankAccountNo()));
+			HashMap infoMap = ((HashMap) list.get(new Integer(i)));
+			proposed.add(new Proposal(infoMap.get(BankKeys.BANK_CODE).toString(), infoMap.get(BankKeys.BANK_NAME) + "-"
+					+ infoMap.get(BankKeys.BANK_BRANCH_NAME) + "-" + infoMap.get(BankKeys.BANK_ACCOUNT_NO)));
 		}
 		proposedCodeList[EngBLCommon.CONTENT_ASSIST_BANK] = new Proposal[proposed.size()];
 		proposed.toArray(proposedCodeList[EngBLCommon.CONTENT_ASSIST_BANK]);

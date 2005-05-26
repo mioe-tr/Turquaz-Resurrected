@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.16 2005/05/04 10:34:57 onsel Exp $
+ * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.17 2005/05/26 13:30:36 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -277,10 +277,10 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 			/**
 			 * 
 			 */
-			TurqBanksCard bankCard = (TurqBanksCard) bankPicker.getData();
-			cheque.setBankBranchName(bankCard.getBankBranchName());
-			cheque.setBankName(bankCard.getBankName());
-			cheque.setBankAccountNo(bankCard.getBankAccountNo());
+			
+			cheque.setBankBranchName(bankPicker.getBankBranchName());
+			cheque.setBankName(bankPicker.getBankName());
+			cheque.setBankAccountNo(bankPicker.getBankAccountNo());
 			cheque.setChequesPortfolioNo(""); //$NON-NLS-1$
 			cheque.setChequesNo(txtChequeNo.getText().trim());
 			cheque.setChequesDueDate(datePickValueDate.getDate());
@@ -290,13 +290,15 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 			cheque.setChequesAmount(curText.getBigDecimalValue());
 			cheque.setChequesAmountInForeignCurrency(curText.getBigDecimalValue());
 			
-				cheque.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
+			cheque.setTurqCurrencyExchangeRate(EngBLCommon.getBaseCurrencyExchangeRate());
 		
 			cheque.setCreatedBy(System.getProperty("user")); //$NON-NLS-1$
 			cheque.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			cheque.setLastModified(Calendar.getInstance().getTime());
 			cheque.setCreationDate(Calendar.getInstance().getTime());
 			cheque.setChequesType(EngBLCommon.CHEQUE_TYPE_OWN);
+			TurqBanksCard bankCard = new TurqBanksCard();
+			bankCard.setId(bankPicker.getBankId());
 			cheque.setTurqBanksCard(bankCard);
 			TurqCurrency cur = new TurqCurrency();
 			cur.setId(new Integer(1));
