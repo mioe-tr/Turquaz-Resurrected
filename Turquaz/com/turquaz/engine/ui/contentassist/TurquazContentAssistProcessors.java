@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /** ********************************************************************* */
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistProcessors.java,v 1.37 2005/05/06 14:23:49 cemdayanik Exp $
+ * @version $Id: TurquazContentAssistProcessors.java,v 1.38 2005/05/26 10:30:28 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -195,7 +195,7 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 		
 		proposed = new ArrayList();
 		
-		list = EngBLAccountingAccounts.getAccountsForAccountPickers();
+		list = EngBLAccountingAccounts.getLeafAccounts();
 		for (int i = 0; i < list.size(); i++)
 		{
 			TurqAccountingAccount acc = (TurqAccountingAccount) list.get(i);
@@ -215,7 +215,7 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 		proposed.toArray(proposedCodeList[EngBLCommon.CONTENT_ASSIST_ACCOUNTING_CASH]);
 		
 		proposed = new ArrayList();
-		list = EngBLAccountingAccounts.getMainAccounts();
+		list = EngBLAccountingAccounts.getNormalAccounts();
 		for (int i = 0; i < list.size(); i++)
 		{
 			TurqAccountingAccount acc = (TurqAccountingAccount) list.get(i);
