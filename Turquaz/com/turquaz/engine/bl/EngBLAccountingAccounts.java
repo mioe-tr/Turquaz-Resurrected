@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.22 2005/05/24 09:03:16 cemdayanik Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.23 2005/05/26 09:33:30 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -158,7 +158,7 @@ public class EngBLAccountingAccounts
 			throw ex;
 		}
 	}
-
+	
 	public static TurqAccountingAccount getLeafAccount(String accountCode) throws Exception
 	{
 		try

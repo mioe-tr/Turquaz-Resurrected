@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.72 2005/05/25 10:34:56 cemdayanik Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.73 2005/05/26 09:33:30 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,7 +42,6 @@ import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLLogger;
-import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrentGroup;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.CurLangKeys;
@@ -1131,8 +1130,8 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 				boolean ans = EngUICommon.showQuestion(getShell(),CurLangKeys.MSG_WANT_TO_ADD_ACCOUNTING_ACCOUNT);  //$NON-NLS-1$
 				if (ans)
 				{
-					TurqAccountingAccount account = new AccUIAddAccountDialog(getShell(), SWT.NONE).open();
-					accPickerCustomer.setData(account);
+					Integer accountId = new AccUIAddAccountDialog(getShell(), SWT.NONE).open();
+					accPickerCustomer.setData(accountId);
 				}
 			}
 			/*

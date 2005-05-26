@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALAccountAdd.java,v 1.38 2005/05/25 13:39:41 cemdayanik Exp $
+ * @version $Id: AccDALAccountAdd.java,v 1.39 2005/05/26 09:33:29 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -95,7 +95,7 @@ public class AccDALAccountAdd
 		{
 			Session session = EngDALSessionFactory.getSession();
 			String query = "Select account.id, account.accountName, account.accountCode," +
-					" account.getturqAccountingAccountByParentAccount.id, accView.totalcreditamount," +
+					" account.turqAccountingAccountByParentAccount.id, accView.totalcreditamount," +
 					" accView.totaldeptamount from TurqAccountingAccount account, TurqViewAccTotal accView"
 					+ " where account.id=accView.accountingAccountsId order by account.id";
 			//includes "accounting plan" id=-1
