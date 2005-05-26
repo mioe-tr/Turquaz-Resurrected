@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLAccountingAccounts.java,v 1.24 2005/05/26 10:30:29 cemdayanik Exp $
+ * @version $Id: EngBLAccountingAccounts.java,v 1.25 2005/05/26 12:40:35 cemdayanik Exp $
  */
 import java.util.HashMap;
 import java.util.List;
@@ -61,16 +61,16 @@ public class EngBLAccountingAccounts
 			
 			cashAccountList =AccBLAccountAdd.getCashAccounts();
 			accountMap.clear();
-			HashMap accountInfo;
+			
 			for (int i = 0; i < accountList.size(); i++)
 			{
-				accountInfo = (HashMap) accountList.get(i);
-				accountMap.put(accountInfo.get(AccKeys.ACC_ACCOUNT_NAME), accountInfo);
+				HashMap accountInfo = (HashMap) accountList.get(i);
+				accountMap.put(accountInfo.get(AccKeys.ACC_ACCOUNT_CODE), accountInfo);
 			}
 			for(int k=0; k<leafAccounts.size(); k++)
 			{
-				accountInfo = (HashMap)leafAccounts.get(k);
-				leafAccountMap.put(accountInfo.get(AccKeys.ACC_ACCOUNT_NAME), accountInfo);
+				HashMap accountInfo = (HashMap)leafAccounts.get(k);
+				leafAccountMap.put(accountInfo.get(AccKeys.ACC_ACCOUNT_CODE), accountInfo);
 			}
 		}
 		catch (Exception ex)
@@ -83,7 +83,7 @@ public class EngBLAccountingAccounts
 	 * @return
 	 * @throws Exception
 	 */
-	public static synchronized List getAccounts() throws Exception
+	public static List getAccounts() throws Exception
 	{
 		try
 		{
@@ -99,7 +99,7 @@ public class EngBLAccountingAccounts
 		}
 	}
 
-	public static synchronized List getNormalAccounts() throws Exception
+	public static List getNormalAccounts() throws Exception
 	{
 		try
 		{

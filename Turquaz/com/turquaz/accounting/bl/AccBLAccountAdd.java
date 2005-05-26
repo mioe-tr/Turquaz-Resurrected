@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.36 2005/05/26 10:30:29 cemdayanik Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.37 2005/05/26 12:40:35 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,6 +29,7 @@ import com.turquaz.accounting.dal.AccDALAccountAdd;
 import com.turquaz.common.HashBag;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.EngDALCommon;
+import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.exceptions.TurquazException;
 import com.turquaz.engine.lang.AccLangKeys;
@@ -63,6 +64,7 @@ public class AccBLAccountAdd
 				accountMap.put(AccKeys.ACC_ACCOUNT_NAME,accountInfo[1]);
 				accountMap.put(AccKeys.ACC_ACCOUNT_CODE,accountInfo[2]);
 				accountMap.put(AccKeys.ACC_PARENT_ID,accountInfo[3]);
+				accountMaps.add(accountMap);
 			}
 			return accountMaps;
 		}
@@ -86,6 +88,7 @@ public class AccBLAccountAdd
 				accountMap.put(AccKeys.ACC_ACCOUNT_NAME,accountInfo[1]);
 				accountMap.put(AccKeys.ACC_ACCOUNT_CODE,accountInfo[2]);
 				accountMap.put(AccKeys.ACC_PARENT_ID,accountInfo[3]);
+				accountMaps.add(accountMap);
 			}
 			return accountMaps;
 		}
@@ -176,7 +179,7 @@ public class AccBLAccountAdd
 			String accountName = (String) argMap.get(AccKeys.ACC_ACCOUNT_NAME);
 			String accountCode = (String) argMap.get(AccKeys.ACC_ACCOUNT_CODE);
 			Integer parentId = (Integer) argMap.get(AccKeys.ACC_PARENT_ID);
-			
+
 			verifyAccountForSave(accountCode,parentId);
 			
 			TurqAccountingAccount account = new TurqAccountingAccount();
@@ -190,6 +193,7 @@ public class AccBLAccountAdd
 				
 				parentAccount.setId(new Integer(-1));
 			}
+			EngDALSessionFactory.getSession().refresh(parentAccount);
 			account.setAccountName(accountName);
 			account.setAccountCode(accountCode);
 			account.setCreatedBy(System.getProperty("user"));

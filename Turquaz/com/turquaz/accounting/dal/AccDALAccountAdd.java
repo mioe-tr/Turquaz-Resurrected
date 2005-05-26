@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALAccountAdd.java,v 1.40 2005/05/26 10:30:28 cemdayanik Exp $
+ * @version $Id: AccDALAccountAdd.java,v 1.41 2005/05/26 12:40:34 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -93,7 +93,7 @@ public class AccDALAccountAdd
 			Session session = EngDALSessionFactory.getSession();
 			String query = "Select account.id, account.accountName, account.accountCode," +
 					" account.turqAccountingAccountByParentAccount.id from TurqAccountingAccount as account" +
-					" where accounts.id <> -1 and account.turqAccountingAccountsByParentAccount.size=0"
+					" where account.id <> -1 and account.turqAccountingAccountsByParentAccount.size=0"
 					+ " order by account.accountCode";
 			Query q = session.createQuery(query);
 			List list = q.list();
