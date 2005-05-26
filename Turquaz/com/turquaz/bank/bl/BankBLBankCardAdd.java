@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: BankBLBankCardAdd.java,v 1.20 2005/04/18 07:35:46 cemdayanik Exp $
+ * @version $Id: BankBLBankCardAdd.java,v 1.21 2005/05/26 10:11:21 onsel Exp $
  */
 import com.turquaz.bank.BankKeys;
 import com.turquaz.engine.bl.EngBLBankCards;
@@ -91,7 +91,9 @@ public class BankBLBankCardAdd
 				bankAccount.setLastModified(cal.getTime());
 				bankAccount.setCreationDate(cal.getTime());
 				bankAccount.setTurqBanksCard(bankCard);
-				bankAccount.setTurqAccountingAccount((TurqAccountingAccount) accounts.get(type));
+				TurqAccountingAccount account = new TurqAccountingAccount();
+				account.setId((Integer)accounts.get(type));
+				bankAccount.setTurqAccountingAccount(account );
 				TurqBankAccountingType accType = new TurqBankAccountingType();
 				accType.setId(type);
 				bankAccount.setTurqBankAccountingType(accType);

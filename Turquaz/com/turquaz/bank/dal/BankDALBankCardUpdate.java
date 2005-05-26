@@ -17,7 +17,7 @@ package com.turquaz.bank.dal;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankDALBankCardUpdate.java,v 1.10 2005/04/01 06:54:58 cemdayanik Exp $
+ * @version $Id: BankDALBankCardUpdate.java,v 1.11 2005/05/26 10:11:21 onsel Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
@@ -43,6 +43,7 @@ public class BankDALBankCardUpdate
 				return new Boolean(true);
 			}
 			Session session = EngDALSessionFactory.getSession();
+			session.refresh(bankCard);
 			String query = " Select count(bankTrans.id) from TurqBanksTransaction as bankTrans where "
 					+ " bankTrans.turqBanksCard = :bankCard and bankTrans.turqBanksTransactionBill.turqBanksTransactionType.id <> "
 					+ EngBLCommon.BANK_TRANS_INITIAL;

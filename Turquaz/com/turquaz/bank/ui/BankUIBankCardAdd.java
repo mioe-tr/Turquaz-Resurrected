@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.34 2005/05/25 10:34:56 cemdayanik Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.35 2005/05/26 10:11:21 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -35,6 +35,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CTabItem;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqCurrency;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.AccLangKeys;
@@ -377,7 +378,8 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 			AccountPickerLeaf picker = (AccountPickerLeaf) fieldMap.get(type);
 			if (picker.getDBData() != null)
 			{
-				map.put(type, picker.getDBData());
+				TurqAccountingAccount account = (TurqAccountingAccount)picker.getDBData();
+				map.put(type, account.getId());
 			}
 		}
 		return map;

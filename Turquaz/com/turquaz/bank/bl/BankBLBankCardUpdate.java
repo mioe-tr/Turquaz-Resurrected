@@ -17,15 +17,17 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankBLBankCardUpdate.java,v 1.18 2005/04/18 07:35:46 cemdayanik Exp $
+ * @version $Id: BankBLBankCardUpdate.java,v 1.19 2005/05/26 10:11:21 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import com.turquaz.bank.BankKeys;
+import com.turquaz.bank.dal.BankDALBankCardSearch;
 import com.turquaz.bank.dal.BankDALBankCardUpdate;
 import com.turquaz.bank.dal.BankDALCommon;
+import com.turquaz.common.HashBag;
 import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
@@ -39,7 +41,11 @@ public class BankBLBankCardUpdate
 		
 		try
 		{
-			TurqBanksCard bankCard=(TurqBanksCard)argMap.get(BankKeys.BANK);
+			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+			
+			TurqBanksCard bankCard = BankDALBankCardSearch.initializeBankCardById(bankCardId);
+			
+			
 			String bankName=(String)argMap.get(BankKeys.BANK_NAME);
 			String bankBranchName=(String)argMap.get(BankKeys.BANK_BRANCH_NAME);
 			String bankAccountNo=(String)argMap.get(BankKeys.BANK_ACCOUNT_NO);
@@ -102,17 +108,24 @@ public class BankBLBankCardUpdate
 		BankBLBankCardAdd.saveBankAccountingAccounts( curCard, accounts);
 	}
 
-	public static Boolean hasTransaction(HashMap argMap) throws Exception
+	public static HashBag hasTransaction(HashMap argMap) throws Exception
 	{
-		TurqBanksCard bankCard=(TurqBanksCard)argMap.get(BankKeys.BANK);
-		return BankDALBankCardUpdate.hasTransaction(bankCard);
+		Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+		TurqBanksCard bankCard = new TurqBanksCard();
+		bankCard.setId(bankCardId);
+		HashBag returnBag = new HashBag();
+		returnBag.put(BankKeys.BANK_HAS_TRANSACTIONS,BankDALBankCardUpdate.hasTransaction(bankCard));
+		
+		return returnBag;
 	}
-
 	public static void deleteBankCard(HashMap argMap) throws Exception
 	{
 		try
 		{
-			TurqBanksCard bankCard=(TurqBanksCard)argMap.get(BankKeys.BANK);
+			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+		
+			TurqBanksCard bankCard = BankDALBankCardSearch.initializeBankCardById(bankCardId);
+			
 			Iterator it = bankCard.getTurqBankAccountingAccounts().iterator();
 			while (it.hasNext())
 			{
