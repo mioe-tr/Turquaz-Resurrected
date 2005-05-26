@@ -17,13 +17,12 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferOut.java,v 1.18 2005/05/26 13:30:36 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferOut.java,v 1.19 2005/05/26 15:55:12 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import org.eclipse.swt.custom.CCombo;
-import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.bank.ui.comp.BankCardPicker;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.custom.CLabel;
@@ -202,7 +201,7 @@ public class BankUIMoneyTransferOut extends org.eclipse.swt.widgets.Composite im
 	{
 		try
 		{
-			List currencies = (List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
+			List currencies = (List)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);
