@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransactionSearch.java,v 1.32 2005/05/03 07:35:07 cemdayanik Exp $
+ * @version  $Id: CashUICashTransactionSearch.java,v 1.33 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -246,7 +246,7 @@ public class CashUICashTransactionSearch extends org.eclipse.swt.widgets.Composi
 			tableViewer.removeAll();
 			
 			HashMap argMap = new HashMap();
-			argMap.put(CashKeys.CASH_CARD,txtCashCard.getTurqCashCard());
+			argMap.put(CashKeys.CASH_CARD_ID,txtCashCard.getCashCardId());
 			argMap.put(EngKeys.DATE_START,datePickerStart.getDate());
 			argMap.put(EngKeys.DATE_END,datePickerEnd.getDate());
 			argMap.put(EngKeys.DEFINITION,txtDefinition.getText());

@@ -17,13 +17,12 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCollectTransactionAdd.java,v 1.23 2005/05/02 17:39:17 cemdayanik Exp $
+ * @version  $Id: CashUICashCollectTransactionAdd.java,v 1.24 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import org.eclipse.swt.layout.GridLayout;
-import com.turquaz.accounting.bl.AccBLTransactionSearch;
 import com.turquaz.current.ui.comp.CurrentPicker;
 import org.eclipse.swt.custom.CCombo;
 import com.turquaz.cash.ui.comp.CashCardPicker;
@@ -207,7 +206,7 @@ public class CashUICashCollectTransactionAdd extends org.eclipse.swt.widgets.Com
 	{
 		try
 		{
-			List currencies = (List)EngTXCommon.doSelectTX(AccBLTransactionSearch.class.getName(),"getCurrencies",null);
+			List currencies = (List)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
 			for (int k = 0; k < currencies.size(); k++)
 			{
 				TurqCurrency currency = (TurqCurrency) currencies.get(k);

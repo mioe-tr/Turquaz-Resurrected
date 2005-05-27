@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLUpdateChequeRoll.java,v 1.42 2005/05/26 13:30:37 onsel Exp $
+ * @version $Id: CheBLUpdateChequeRoll.java,v 1.43 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -78,8 +78,12 @@ public class CheBLUpdateChequeRoll
 	{
 		
 		TurqChequeRoll chequeRoll = (TurqChequeRoll)argMap.get(CheKeys.CHE_CHEQUE_ROLL);
-		TurqCashCard cashCard = (TurqCashCard)argMap.get(CashKeys.CASH_CARD);
-		 String rollNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
+		
+		Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
+		TurqCashCard cashCard=(TurqCashCard)EngDALSessionFactory.getSession().load(TurqCashCard.class,cashCardId);
+				
+		
+		String rollNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
 		 Date rollDate = (Date)argMap.get(EngKeys.DATE);
 		 List chequeList = (List)argMap.get(CheKeys.CHE_CHEQUE_LIST);
 		 

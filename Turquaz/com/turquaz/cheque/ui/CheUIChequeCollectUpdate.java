@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectUpdate.java,v 1.13 2005/05/03 18:29:43 onsel Exp $
+ * @version $Id: CheUIChequeCollectUpdate.java,v 1.14 2005/05/27 09:36:19 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -218,7 +218,7 @@ public class CheUIChequeCollectUpdate extends org.eclipse.swt.widgets.Dialog
 				
 				HashMap argMap = new HashMap();
 				argMap.put(CheKeys.CHE_CHEQUE_ROLL,chequeRoll);
-				argMap.put(CashKeys.CASH_CARD,compChequeRoll.getCashCardPcker().getTurqCashCard());
+				argMap.put(CashKeys.CASH_CARD_ID,compChequeRoll.getCashCardPcker().getCashCardId());
 				argMap.put(EngKeys.DOCUMENT_NO,compChequeRoll.getTxtRollNo().getText().trim());
 				argMap.put(EngKeys.DATE, compChequeRoll.getDatePicker1().getDate());
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,chequeList);

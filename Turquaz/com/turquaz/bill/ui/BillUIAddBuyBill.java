@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddBuyBill.java,v 1.81 2005/05/09 12:44:39 onsel Exp $
+ * @version  $Id: BillUIAddBuyBill.java,v 1.82 2005/05/27 09:36:19 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -967,7 +967,7 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 			}
             else if(btnClosedBill.getSelection())
             {
-                if(cashPicher.getTurqCashCard()==null)
+                if(cashPicher.getData()==null)
                 {
                     EngUICommon.showMessageBox(getShell(),CashLangKeys.MSG_SELECT_CASH_CARD,SWT.ICON_WARNING);
                     cashPicher.setFocus();
@@ -1104,7 +1104,8 @@ public class BillUIAddBuyBill extends Composite implements SecureComposite
 				argMap.put(BillKeys.BILL_CHECK,EngBLCommon.getBillCheckStatus());
 				argMap.put(BillKeys.BILL_IS_OPEN,new Boolean(!btnClosedBill.getSelection()));
                
-                argMap.put(CashKeys.CASH_CARD,cashPicher.getData());
+                argMap.put(CashKeys.CASH_CARD_ID,cashPicher.getCashCardId());
+				
 				Integer result = (Integer)EngTXCommon.doTransactionTX(BillBLAddBill.class.getName(),"saveBillFromBill",argMap);
 				if(result.intValue()!=1)
 				{

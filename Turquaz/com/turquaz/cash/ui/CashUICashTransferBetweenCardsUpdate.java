@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.11 2005/05/03 07:35:07 cemdayanik Exp $
+ * @version  $Id: CashUICashTransferBetweenCardsUpdate.java,v 1.12 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -204,8 +204,8 @@ public class CashUICashTransferBetweenCardsUpdate extends Dialog
 				updated = true;
 				
 				HashMap argMap = new HashMap();
-				argMap.put(CashKeys.CASH_CARD_WITH_DEPT,compTransAdd.getTxtCashCardWithDept().getData());
-				argMap.put(CashKeys.CASH_CARD_WITH_CREDIT,compTransAdd.getTxtCashCardWithCredit().getTurqCashCard());
+				argMap.put(CashKeys.CASH_CARD_WITH_DEPT,compTransAdd.getTxtCashCardWithDept().getCashCardId());
+				argMap.put(CashKeys.CASH_CARD_WITH_CREDIT,compTransAdd.getTxtCashCardWithCredit().getCashCardId());
 				argMap.put(CashKeys.CASH_TOTAL_AMOUNT,compTransAdd.getCurTextTotalAmount().getBigDecimalValue());
 				argMap.put(EngKeys.DATE,compTransAdd.getDatePicker().getDate());
 				argMap.put(EngKeys.DEFINITION,compTransAdd.getTxtDefinition().getText());

@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAbstract.java,v 1.24 2005/05/02 17:39:18 cemdayanik Exp $
+ * @version  $Id: CashUICashCardAbstract.java,v 1.25 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -370,7 +370,7 @@ public class CashUICashCardAbstract extends org.eclipse.swt.widgets.Composite im
 					}
 					Integer id = (Integer) results[0];
 					tableViewer.addRow(new String[]{DatePicker.formatter.format((Date) results[1]),
-							cashCardPicker.getTurqCashCard().getCashCardName(), results[5].toString(), results[2].toString(),
+							cashCardPicker.getCashCardName(), results[5].toString(), results[2].toString(),
 							cf.format(dept), cf.format(credit)}, id);
 					total_dept = total_dept.add(dept);
 					total_credit = total_credit.add(credit);

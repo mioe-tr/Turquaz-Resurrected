@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSaveChequeTransaction.java,v 1.57 2005/05/26 13:30:37 onsel Exp $
+ * @version $Id: CheBLSaveChequeTransaction.java,v 1.58 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -501,7 +501,9 @@ public class CheBLSaveChequeTransaction
 
 	public static void saveChequeCollect(HashMap argMap ) throws Exception
 	{
-		 TurqCashCard cashCard = (TurqCashCard)argMap.get(CashKeys.CASH_CARD);
+		Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
+		TurqCashCard cashCard=(TurqCashCard)EngDALSessionFactory.getSession().load(TurqCashCard.class,cashCardId);
+		 
 		 String rollNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
 		 Date rollDate = (Date)argMap.get(EngKeys.DATE);
 		 List chequeList = (List)argMap.get(CheKeys.CHE_CHEQUE_LIST);

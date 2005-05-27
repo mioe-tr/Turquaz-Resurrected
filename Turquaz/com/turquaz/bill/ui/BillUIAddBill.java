@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.86 2005/05/12 14:05:56 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.87 2005/05/27 09:36:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -915,7 +915,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 		}
          if(btnClosedBill.getSelection())
         {
-            if(cashPicker.getTurqCashCard()==null)
+            if(cashPicker.getData()==null)
             {
                 EngUICommon.showMessageBox(getShell(),CashLangKeys.MSG_SELECT_CASH_CARD,SWT.ICON_WARNING);
                 cashPicker.setFocus();
