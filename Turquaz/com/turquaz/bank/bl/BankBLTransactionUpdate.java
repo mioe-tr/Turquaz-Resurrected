@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.40 2005/05/27 09:36:20 onsel Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.41 2005/05/27 16:59:21 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -87,7 +87,8 @@ public class BankBLTransactionUpdate
 	{
 		try
 		{
-			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)argMap.get(BankKeys.BANK_TRANS_BILL);
+			Integer bankTransBillId = (Integer)argMap.get(BankKeys.BANK_TRANS_BILL_ID);
+			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)EngDALSessionFactory.getSession().load(TurqBanksTransactionBill.class,bankTransBillId);
 			
 			Integer bankCardWithDeptId=(Integer)argMap.get(BankKeys.BANK_CARD_WITH_DEPT);
 			Integer bankCardWithCreditId = (Integer)argMap.get(BankKeys.BANK_CARD_WITH_CREDIT);
@@ -217,8 +218,9 @@ public class BankBLTransactionUpdate
 		{
 			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
 			TurqBanksCard bankCard = (TurqBanksCard)EngDALSessionFactory.getSession().load(TurqBanksCard.class,bankCardId);
-					
-			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)argMap.get(BankKeys.BANK_TRANS_BILL);
+			
+			Integer bankTransBillId = (Integer)argMap.get(BankKeys.BANK_TRANS_BILL_ID);
+			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)EngDALSessionFactory.getSession().load(TurqBanksTransactionBill.class,bankTransBillId);
 			
 			Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
 			TurqCashCard cashCard=(TurqCashCard)EngDALSessionFactory.getSession().load(TurqCashCard.class,cashCardId);
@@ -331,7 +333,8 @@ public class BankBLTransactionUpdate
 	{
 		try
 		{
-			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)argMap.get(BankKeys.BANK_TRANS_BILL);
+			Integer bankTransBillId = (Integer)argMap.get(BankKeys.BANK_TRANS_BILL_ID);
+			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)EngDALSessionFactory.getSession().load(TurqBanksTransactionBill.class,bankTransBillId);
 			
 			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
 			
@@ -428,8 +431,13 @@ public class BankBLTransactionUpdate
 	{
 		try
 		{
-			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)argMap.get(BankKeys.BANK_TRANS_BILL);
-			TurqBanksCard bankCard=(TurqBanksCard)argMap.get(BankKeys.BANK);
+			Integer bankTransBillId = (Integer)argMap.get(BankKeys.BANK_TRANS_BILL_ID);
+			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)EngDALSessionFactory.getSession().load(TurqBanksTransactionBill.class,bankTransBillId);
+			
+			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
+			
+			TurqBanksCard bankCard = (TurqBanksCard)EngDALSessionFactory.getSession().load(TurqBanksCard.class,bankCardId);
+			
 			TurqCurrentCard curCard=(TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD);
 			BigDecimal totalAmount=(BigDecimal)argMap.get(EngKeys.TOTAL_AMOUNT);
 			Date transDate=(Date)argMap.get(EngKeys.TRANS_DATE);
@@ -607,7 +615,9 @@ public class BankBLTransactionUpdate
 	{
 		try
 		{
-			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)argMap.get(BankKeys.BANK_TRANS_BILL);
+			Integer bankTransBillId = (Integer)argMap.get(BankKeys.BANK_TRANS_BILL_ID);
+			TurqBanksTransactionBill bankTransBill=(TurqBanksTransactionBill)EngDALSessionFactory.getSession().load(TurqBanksTransactionBill.class,bankTransBillId);
+			
 			deleteTransaction(bankTransBill);
 		}
 		catch (Exception ex)
