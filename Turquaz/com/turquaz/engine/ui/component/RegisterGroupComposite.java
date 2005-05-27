@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: RegisterGroupComposite.java,v 1.11 2005/05/05 09:55:04 onsel Exp $
+ * @version  $Id: RegisterGroupComposite.java,v 1.12 2005/05/27 16:39:36 huseyiner Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,13 +28,12 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.SWT;
+
+import com.turquaz.admin.AdmKeys;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.lang.EngLangCommonKeys;
 
-/**
- * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
- * commercially (ie, by a for-profit company or business) then you should purchase a license - please visit www.cloudgarden.com for details.
- */
+
 public class RegisterGroupComposite extends org.eclipse.swt.widgets.Composite
 {
 	private TableColumn tableColumn3;
@@ -128,14 +127,17 @@ public class RegisterGroupComposite extends org.eclipse.swt.widgets.Composite
 	public void fillTableAllGroups(HashMap elementMap)
 	{
 		tableAllGroups.removeAll();
+        
 		Iterator it = elementMap.keySet().iterator();
 		TableItem item;
-		while (it.hasNext())
+		
+        for (int i = 0 ; i < elementMap.size(); i ++)
 		{
-			item = new TableItem(tableAllGroups, SWT.NULL);
-			String key = it.next().toString();
-			item.setText(key);
-			item.setData(elementMap.get(key));
+            HashMap rowMap = (HashMap)elementMap.get(new Integer(i));
+            
+			item = new TableItem(tableAllGroups, SWT.NULL);		
+           	item.setText(rowMap.get(AdmKeys.ADM_GROUP_NAME).toString());
+			item.setData(rowMap.get(AdmKeys.ADM_GROUP_ID));
 		}
 	}
 

@@ -17,18 +17,32 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: AdmBLGroups.java,v 1.6 2005/04/01 14:53:07 cemdayanik Exp $
+ * @version $Id: AdmBLGroups.java,v 1.7 2005/05/27 16:39:36 huseyiner Exp $
  */
 import java.util.List;
+
+import com.turquaz.admin.AdmKeys;
+import com.turquaz.common.HashBag;
 import com.turquaz.engine.dal.EngDALCommon;
+import com.turquaz.engine.dal.TurqGroup;
 
 public class AdmBLGroups
 {
-	public static List getGroups() throws Exception
+	public static HashBag getGroups() throws Exception
 	{
 		try
-		{
-			return EngDALCommon.getGroups();
+		{            
+            HashBag bag = new HashBag();
+            List groupList = EngDALCommon.getGroups();
+            for(int i =0;i<groupList.size();i++)
+            {
+                TurqGroup group = (TurqGroup)groupList.get(i);
+                bag.put(AdmKeys.ADM_GROUP,i,AdmKeys.ADM_GROUP_ID,group.getId());
+                bag.put(AdmKeys.ADM_GROUP,i,AdmKeys.ADM_GROUP_NAME,group.getGroupsName());
+                bag.put(AdmKeys.ADM_GROUP,i,AdmKeys.ADM_GROUP_DESCRIPTION,group.getGroupsName());
+                
+            }            
+            return bag;
 		}
 		catch (Exception ex)
 		{

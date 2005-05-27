@@ -17,7 +17,7 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserUpdate.java,v 1.13 2005/04/05 12:29:33 onsel Exp $
+ * @version $Id: AdmBLUserUpdate.java,v 1.14 2005/05/27 16:39:36 huseyiner Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -37,15 +37,20 @@ public class AdmBLUserUpdate
 			String password=(String)argMap.get(AdmKeys.ADM_PASSWORD);
 			String realname=(String)argMap.get(AdmKeys.ADM_REALNAME);
 			String description=(String)argMap.get(EngKeys.DESCRIPTION);
-			TurqUser user=(TurqUser)argMap.get(AdmKeys.ADM_USER);
+			Integer userId=(Integer)argMap.get(AdmKeys.ADM_USER_ID);
 			List userGroups=(List)argMap.get(AdmKeys.ADM_USER_GROUPS);
 			
 			Calendar cal = Calendar.getInstance();
+            
+            TurqUser user = new TurqUser ();            
+            user.setId(userId);
+            
 			user.setUsersPassword(password);
 			user.setUsersRealName(realname);
 			user.setUsersDescription(description);
 			user.setUpdateDate(cal.getTime());
 			user.setUpdatedBy(System.getProperty("user"));
+            
 			EngDALCommon.updateObject(user);
 			updateUserGroups(user,userGroups);
 			
@@ -62,11 +67,13 @@ public class AdmBLUserUpdate
 		
 			String realname=(String)argMap.get(AdmKeys.ADM_GROUP_NAME);
 			String description=(String)argMap.get(AdmKeys.ADM_GROUP_DESCRIPTION);
-			TurqGroup group=(TurqGroup)argMap.get(AdmKeys.ADM_GROUP);
+			Integer groupId = (Integer)argMap.get(AdmKeys.ADM_GROUP_ID);
 			List userGroups=(List)argMap.get(AdmKeys.ADM_USER_GROUPS);
 			
 			Calendar cal = Calendar.getInstance();
-			
+			TurqGroup group = new TurqGroup ();
+            
+            group.setId(groupId);
 			group.setGroupsName(realname);
 			group.setGroupsDescription(description);
 			group.setUpdateDate(cal.getTime());
