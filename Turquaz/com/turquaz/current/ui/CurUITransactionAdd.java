@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionAdd.java,v 1.42 2005/05/04 14:50:29 cemdayanik Exp $
+ * @version  $Id: CurUITransactionAdd.java,v 1.43 2005/05/30 18:09:35 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -131,7 +131,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite
 					{
 						try
 						{
-							txtCurrentCode.setData(EngBLCurrentCards.getCards(txtCurrentCode.getText().trim()));
+							txtCurrentCode.setData(EngBLCurrentCards.getCardsId(txtCurrentCode.getText().trim()));
 						}
 						catch (Exception ex)
 						{
@@ -373,7 +373,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite
 				//4,at the end means cash, it is a cash Transaction
 				exchangeRate = EngBLCommon.getBaseCurrencyExchangeRate();
 				HashMap argMap = new HashMap();
-				argMap.put(EngKeys.CURRENT_CARD,(TurqCurrentCard) txtCurrentCode.getData());
+				argMap.put(CurKeys.CUR_CARD,(TurqCurrentCard) txtCurrentCode.getData());
 				argMap.put(AccKeys.ACC_ACCOUNT, accPickerCashAccount.getData());
 				argMap.put(EngKeys.DATE,dateTransDate.getDate());
 				argMap.put(EngKeys.DOCUMENT_NO,"");

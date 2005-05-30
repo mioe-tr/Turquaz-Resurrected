@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /** ********************************************************************* */
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistProcessors.java,v 1.41 2005/05/27 09:36:22 onsel Exp $
+ * @version $Id: TurquazContentAssistProcessors.java,v 1.42 2005/05/30 18:09:36 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +37,7 @@ import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.bank.BankKeys;
 import com.turquaz.cash.CashKeys;
+import com.turquaz.current.CurKeys;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLBankCards;
@@ -162,11 +163,13 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 	public static void fillCurrentModuleArray() throws Exception
 	{
 		List proposed = new ArrayList();
-		List list = EngBLCurrentCards.getCurrentCards();
+		HashMap list = EngBLCurrentCards.getCurrentCards();
 		for (int i = 0; i < list.size(); i++)
 		{
-			Object[] result = ((Object[]) list.get(i));
-			proposed.add(new Proposal(result[1].toString() + " {" + result[0].toString() + "}", null));
+			HashMap cardInfo = (HashMap)list.get(new Integer(i));
+		
+			proposed.add(new Proposal(cardInfo.get(CurKeys.CUR_CURRENT_NAME).toString() + " {" + cardInfo.get(CurKeys.CUR_CURRENT_CODE).toString()  + "}", null));
+		
 		}
 		proposedCodeList[EngBLCommon.CONTENT_ASSIST_CURRENT] = new Proposal[proposed.size()];
 		proposed.toArray(proposedCodeList[EngBLCommon.CONTENT_ASSIST_CURRENT]);
@@ -174,8 +177,8 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 		proposed = new ArrayList();
 		for (int i = 0; i < list.size(); i++)
 		{
-			Object[] result = ((Object[]) list.get(i));
-			proposed.add(new Proposal(result[0].toString(), result[1].toString()));
+			HashMap cardInfo = (HashMap)list.get(new Integer(i));
+			proposed.add(new Proposal(cardInfo.get(CurKeys.CUR_CURRENT_CODE).toString() , cardInfo.get(CurKeys.CUR_CURRENT_NAME).toString()));
 		}
 		proposedCodeList[EngBLCommon.CONTENT_ASSIST_CURRENT_CODE] = new Proposal[proposed.size()];
 		proposed.toArray(proposedCodeList[EngBLCommon.CONTENT_ASSIST_CURRENT_CODE]);
@@ -356,6 +359,10 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 			int qlen = qualifier.length();
 			qualifier = qualifier.toLowerCase(Locale.getDefault());
 			// Loop through all proposals
+			if(proposedCodes==null)
+			{
+				System.out.println(this.contentType);
+			}
 			for (int i = 0; i < proposedCodes.length; i++)
 			{
 				if (propList.size() > 1000)

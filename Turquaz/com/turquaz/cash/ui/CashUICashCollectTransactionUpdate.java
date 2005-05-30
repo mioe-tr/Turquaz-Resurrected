@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.26 2005/05/02 17:39:18 cemdayanik Exp $
+ * @version  $Id: CashUICashCollectTransactionUpdate.java,v 1.27 2005/05/30 18:09:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -21,6 +21,7 @@ import org.eclipse.swt.layout.GridLayout;
 import com.cloudgarden.resource.SWTResourceManager;
 import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.bl.CashBLCashTransactionUpdate;
+import com.turquaz.current.CurKeys;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
@@ -216,7 +217,7 @@ public class CashUICashCollectTransactionUpdate extends Dialog
 
 				HashMap argMap = new HashMap();
 				argMap.put(CashKeys.CASH_CARD,compTransAdd.getTxtCashCard().getData());
-				argMap.put(EngKeys.CURRENT_CARD,compTransAdd.getTxtCurrentAccount().getData());
+				argMap.put(CurKeys.CUR_CARD,compTransAdd.getTxtCurrentAccount().getData());
 				
 				argMap.put(CashKeys.CASH_TOTAL_AMOUNT, compTransAdd.getCurTextTotalAmount().getBigDecimalValue());
 				argMap.put(EngKeys.DATE,compTransAdd.getDatePicker().getDate());

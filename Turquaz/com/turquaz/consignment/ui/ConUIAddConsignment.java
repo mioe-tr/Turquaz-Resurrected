@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddConsignment.java,v 1.83 2005/05/05 15:17:47 onsel Exp $
+ * @version  $Id: ConUIAddConsignment.java,v 1.84 2005/05/30 18:09:36 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -47,6 +47,8 @@ import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.events.SelectionEvent;
+
+import com.turquaz.current.CurKeys;
 import com.turquaz.current.ui.comp.CurrentPicker;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
 import org.eclipse.swt.widgets.TableColumn;
@@ -953,7 +955,7 @@ public class ConUIAddConsignment extends org.eclipse.swt.widgets.Composite imple
 				argMap.put(ConsKeys.CONS_IS_PRINTED,new Boolean(false));
 				argMap.put(ConsKeys.CONS_DATE,dateConsignmentDate.getDate());
 				argMap.put(EngKeys.TYPE,new Integer(type));
-				argMap.put(EngKeys.CURRENT_CARD,txtCurrentCard.getData());
+				argMap.put(CurKeys.CUR_CARD,txtCurrentCard.getData());
 				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
 				argMap.put(ConsKeys.CONS_GROUPS,getConsignmentGroups());
 				argMap.put(InvKeys.INV_TRANSACTIONS,getInventoryTransactions(type));				

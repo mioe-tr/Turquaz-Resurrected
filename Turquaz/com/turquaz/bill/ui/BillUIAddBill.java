@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.87 2005/05/27 09:36:20 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.88 2005/05/30 18:09:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -47,6 +47,8 @@ import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.events.SelectionEvent;
+
+import com.turquaz.current.CurKeys;
 import com.turquaz.current.ui.comp.CurrentPicker;
 import com.turquaz.cash.ui.comp.CashCardPicker;
 import com.turquaz.engine.ui.component.RegisterGroupComposite;
@@ -982,7 +984,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 				argMap.put(BillKeys.BILL_IS_PRINTED,new Boolean(false));
 				argMap.put(BillKeys.BILL_DATE,dateConsignmentDate.getDate());
 				argMap.put(EngKeys.TYPE, new Integer(type));
-				argMap.put(EngKeys.CURRENT_CARD,txtCurrentCard.getData());
+				argMap.put(CurKeys.CUR_CARD,txtCurrentCard.getData());
 				argMap.put(BillKeys.BILL_DUE_DATE,dateDueDate.getDate());
 				argMap.put(BillKeys.BILL_DISCOUNT_AMOUNT,txtDiscountAmount.getBigDecimalValue());
 				argMap.put(BillKeys.BILL_DOC_NO,txtDocumentNo.getText().trim());

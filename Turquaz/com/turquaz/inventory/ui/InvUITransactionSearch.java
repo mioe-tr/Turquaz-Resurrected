@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.51 2005/05/05 15:17:48 onsel Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.52 2005/05/30 18:09:32 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -48,6 +48,7 @@ import com.turquaz.engine.ui.viewers.ITableRow;
 import com.turquaz.engine.ui.viewers.SearchTableViewer;
 import com.turquaz.engine.ui.viewers.TurquazTableSorter;
 import com.turquaz.inventory.ui.comp.InventoryPicker;
+import com.turquaz.current.CurKeys;
 import com.turquaz.current.ui.comp.CurrentPicker;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CCombo;
@@ -317,7 +318,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 				type = EngBLCommon.COMMON_SELL_INT;
 			}
 			HashMap argMap=new HashMap();
-			argMap.put(EngKeys.CURRENT_CARD,txtCurCard.getData());
+			argMap.put(CurKeys.CUR_CARD,txtCurCard.getData());
 			argMap.put(InvKeys.INV_CARD,txtInvCard.getData());
 			argMap.put(EngKeys.DATE_START,dateStartDate.getDate());
 			argMap.put(EngKeys.DATE_END,dateEndDate.getDate());

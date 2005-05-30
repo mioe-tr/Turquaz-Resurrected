@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillFromConsignment.java,v 1.52 2005/05/05 15:17:50 onsel Exp $
+ * @version  $Id: BillUIBillFromConsignment.java,v 1.53 2005/05/30 18:09:32 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -56,6 +56,7 @@ import com.turquaz.bill.bl.BillBLAddGroups;
 import com.turquaz.consignment.ConsKeys;
 import com.turquaz.consignment.bl.ConBLUpdateConsignment;
 import com.turquaz.consignment.ui.ConUIConsignmentSearchDialog;
+import com.turquaz.current.CurKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.bl.EngBLLogger;
@@ -700,7 +701,7 @@ public class BillUIBillFromConsignment extends org.eclipse.swt.widgets.Composite
 				argMap.put(BillKeys.BILL_DATE,dateBillDate.getDate());
 				argMap.put(BillKeys.BILL_CONS_LIST,consList);
 				argMap.put(EngKeys.TYPE,new Integer(type));
-				argMap.put(EngKeys.CURRENT_CARD,txtCurrentCard.getData());
+				argMap.put(CurKeys.CUR_CARD,txtCurrentCard.getData());
 				argMap.put(BillKeys.BILL_DUE_DATE,dateDueDate.getDate());
 				argMap.put(BillKeys.BILL_DISCOUNT_AMOUNT,txtDiscountAmount.getBigDecimalValue());
 				argMap.put(BillKeys.BILL_TOTAL_AMOUNT,txtTotalAmount.getBigDecimalValue());

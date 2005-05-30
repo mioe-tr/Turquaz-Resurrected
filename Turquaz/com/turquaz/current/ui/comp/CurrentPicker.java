@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentPicker.java,v 1.21 2005/04/25 15:15:13 onsel Exp $
+ * @version  $Id: CurrentPicker.java,v 1.22 2005/05/30 18:09:38 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.events.FocusAdapter;
@@ -36,6 +36,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.SWT;
 import com.turquaz.accounting.ui.comp.AccountPickerLeaf;
+import com.turquaz.current.CurKeys;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.ui.CurUICurrentCardSearchDialog;
 import com.turquaz.engine.EngKeys;
@@ -203,7 +204,7 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite implements 
 				{
 
 					HashMap argMap = new HashMap();
-					argMap.put(EngKeys.CURRENT_CARD, obj);
+					argMap.put(CurKeys.CUR_CARD, obj);
 					argMap.put(EngKeys.TYPE,pickerAccountType);
 					
 					

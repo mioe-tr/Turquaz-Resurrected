@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.37 2005/05/10 13:11:02 cemdayanik Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.38 2005/05/30 18:09:38 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -174,7 +174,7 @@ public class CurDALCurrentCardSearch
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
-			String query = "Select curCard.cardsCurrentCode, curCard.cardsName from TurqCurrentCard as curCard "
+			String query = "Select curCard.cardsCurrentCode, curCard.cardsName, curCard.id from TurqCurrentCard as curCard "
 					+ " where curCard.id <> -1";
 			Query q = session.createQuery(query);
 			List list = q.list();

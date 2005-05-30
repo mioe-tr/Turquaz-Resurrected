@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIMultipleCreditVoucher.java,v 1.6 2005/05/04 14:50:29 cemdayanik Exp $
+ * @version  $Id: CurUIMultipleCreditVoucher.java,v 1.7 2005/05/30 18:09:35 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -444,7 +444,7 @@ public class CurUIMultipleCreditVoucher extends Composite implements SecureCompo
             {               
                 
                 HashMap argMap = new HashMap();
-                argMap.put(EngKeys.CURRENT_CARD,currentPicker.getData());
+                argMap.put(CurKeys.CUR_CARD,currentPicker.getData());
                 argMap.put(AccKeys.ACC_TRANSACTIONS,getTransactionColumns());
                 argMap.put(EngKeys.DATE,datePickerTransactionDate.getDate());
                 argMap.put(EngKeys.DOCUMENT_NO,txtDocumentNo.getText().trim());
