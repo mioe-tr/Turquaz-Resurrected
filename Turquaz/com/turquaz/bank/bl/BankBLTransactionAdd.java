@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.49 2005/05/27 09:36:20 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.50 2005/05/30 09:32:08 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -475,8 +475,12 @@ public class BankBLTransactionAdd
 			Integer bankCardId=(Integer)argMap.get(BankKeys.BANK_ID);
 			
 			TurqBanksCard bankCard = (TurqBanksCard)EngDALSessionFactory.getSession().load(TurqBanksCard.class,bankCardId);
-					
-			TurqAccountingAccount account=(TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
+			
+			Integer accountId = (Integer)argMap.get(AccKeys.ACC_ACCOUNT_ID);
+			TurqAccountingAccount account=new TurqAccountingAccount();
+
+			account.setId(accountId);
+			
 			Integer type=(Integer)argMap.get(EngKeys.TYPE);
 			TurqEngineSequence seq=(TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
 			BigDecimal totalAmount=(BigDecimal)argMap.get(EngKeys.TOTAL_AMOUNT);
