@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.17 2005/05/27 16:59:21 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferOutUpdate.java,v 1.18 2005/05/30 09:24:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -137,8 +137,9 @@ public class BankUIMoneyTransferOutUpdate extends org.eclipse.swt.widgets.Dialog
 				compMoneyTransferInLData.grabExcessVerticalSpace = true;
 				compMoneyTransferIn.setLayoutData(compMoneyTransferInLData);
 			}
-			dialogShell.open();
 			postInitGUI();
+			dialogShell.open();
+		
 			Display display = dialogShell.getDisplay();
 			while (!dialogShell.isDisposed())
 			{

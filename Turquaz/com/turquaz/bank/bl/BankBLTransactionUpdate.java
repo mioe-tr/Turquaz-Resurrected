@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionUpdate.java,v 1.42 2005/05/29 15:19:06 onsel Exp $
+ * @version $Id: BankBLTransactionUpdate.java,v 1.43 2005/05/30 09:24:49 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -231,6 +231,16 @@ public class BankBLTransactionUpdate
 			String docNo=(String)argMap.get(EngKeys.DOCUMENT_NO);
 			TurqCurrencyExchangeRate exchangeRate=(TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);	
 			
+			bankTransBill.setTransactionBillDate(transDate);
+			bankTransBill.setTransactionBillDefinition(definition);
+			bankTransBill.setTransactionBillNo(docNo);
+			bankTransBill.setUpdatedBy(System.getProperty("user"));
+			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			/**
+			 * Save transaction bill
+			 */
+			EngDALCommon.updateObject(bankTransBill);
+			
 			//delete transactions
 			Iterator it = bankTransBill.getTurqBanksTransactions().iterator();
 			while (it.hasNext())
@@ -250,11 +260,7 @@ public class BankBLTransactionUpdate
 			{
 				AccDALTransactionSearch.deleteTransaction((TurqAccountingTransaction) it.next());
 			}
-			bankTransBill.setTransactionBillDate(transDate);
-			bankTransBill.setTransactionBillDefinition(definition);
-			bankTransBill.setTransactionBillNo(docNo);
-			bankTransBill.setUpdatedBy(System.getProperty("user"));
-			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			
 			/*
 			 * Transaction Rows
 			 */
@@ -297,10 +303,7 @@ public class BankBLTransactionUpdate
 								EngBLCommon.ROUNDING_METHOD));
 				cashTransType = EngBLCommon.CASH_CURRENT_COLLECT;
 			}
-			/**
-			 * Save transaction bill
-			 */
-			EngDALCommon.updateObject(bankTransBill);
+		
 			/**
 			 * Save transaction row
 			 */
@@ -347,6 +350,15 @@ public class BankBLTransactionUpdate
 			String docNo=(String)argMap.get(EngKeys.DOCUMENT_NO);
 			TurqCurrencyExchangeRate exchangeRate=(TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);	
 			
+			bankTransBill.setTransactionBillDate(transDate);
+			bankTransBill.setTransactionBillDefinition(definition);
+			bankTransBill.setTransactionBillNo(docNo);
+			bankTransBill.setUpdatedBy(System.getProperty("user"));
+			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			/**
+			 * Save transaction bill
+			 */
+			EngDALCommon.updateObject(bankTransBill);
 			
 			//delete transactions
 			Iterator it = bankTransBill.getTurqBanksTransactions().iterator();
@@ -361,11 +373,7 @@ public class BankBLTransactionUpdate
 			{
 				AccDALTransactionSearch.deleteTransaction((TurqAccountingTransaction) it.next());
 			}
-			bankTransBill.setTransactionBillDate(transDate);
-			bankTransBill.setTransactionBillDefinition(definition);
-			bankTransBill.setTransactionBillNo(docNo);
-			bankTransBill.setUpdatedBy(System.getProperty("user"));
-			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			
 			/*
 			 * Transaction Rows
 			 */
@@ -402,10 +410,7 @@ public class BankBLTransactionUpdate
 						.setCreditAmount(totalAmount.multiply(exchangeRate.getExchangeRatio()).setScale(2,
 								EngBLCommon.ROUNDING_METHOD));
 			}
-			/**
-			 * Save transaction bill
-			 */
-			EngDALCommon.updateObject(bankTransBill);
+			
 			/**
 			 * Save transaction row
 			 */
@@ -446,6 +451,20 @@ public class BankBLTransactionUpdate
 			String docNo=(String)argMap.get(EngKeys.DOCUMENT_NO);
 			TurqCurrencyExchangeRate exchangeRate=(TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);	
 			
+
+			
+			bankTransBill.setTransactionBillDate(transDate);
+			bankTransBill.setTransactionBillDefinition(definition);
+			bankTransBill.setTransactionBillNo(docNo);
+			bankTransBill.setUpdatedBy(System.getProperty("user"));
+			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			/**
+			 * Save transaction bill
+			 */
+			
+			EngDALCommon.updateObject(bankTransBill);
+			
+			
 			//delete transactions
 			Iterator it = bankTransBill.getTurqBanksTransactions().iterator();
 			while (it.hasNext())
@@ -471,11 +490,8 @@ public class BankBLTransactionUpdate
 			{
 				AccDALTransactionSearch.deleteTransaction((TurqAccountingTransaction) it.next());
 			}
-			bankTransBill.setTransactionBillDate(transDate);
-			bankTransBill.setTransactionBillDefinition(definition);
-			bankTransBill.setTransactionBillNo(docNo);
-			bankTransBill.setUpdatedBy(System.getProperty("user"));
-			bankTransBill.setLastModified(Calendar.getInstance().getTime());
+			
+			
 			/*
 			 * Transaction Rows
 			 */
@@ -517,11 +533,7 @@ public class BankBLTransactionUpdate
 				currentTransType = EngBLCommon.CURRENT_TRANS_DEBIT;
 				currentTransDefinition = curCard.getCardsName() + BankLangKeys.STR_TRANSFER_TO;
 			}
-			/**
-			 * Save transaction bill
-			 */
-			EngDALSessionFactory.getSession().refresh(bankTransBill);
-			EngDALCommon.updateObject(bankTransBill);
+			
 			/**
 			 * Save transaction row
 			 */
