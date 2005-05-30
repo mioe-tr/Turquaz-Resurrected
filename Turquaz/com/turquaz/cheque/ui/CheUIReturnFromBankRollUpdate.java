@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIReturnFromBankRollUpdate.java,v 1.12 2005/05/25 10:34:56 cemdayanik Exp $
+ * @version $Id: CheUIReturnFromBankRollUpdate.java,v 1.13 2005/05/30 16:30:59 cemdayanik Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -204,7 +204,7 @@ public class CheUIReturnFromBankRollUpdate extends org.eclipse.swt.widgets.Dialo
 				
 				HashMap argMap = new HashMap();
 				argMap.put(CheKeys.CHE_CHEQUE_ROLL,chequeRoll);
-				argMap.put(AccKeys.ACC_ACCOUNT_ID,compChequeRoll.getAccountPicker().getDBData());
+				argMap.put(AccKeys.ACC_ACCOUNT_ID,compChequeRoll.getAccountPicker().getId());
 				argMap.put(EngKeys.DOCUMENT_NO, compChequeRoll.getTxtRollNo().getText().trim());
 				argMap.put(EngKeys.DATE,compChequeRoll.getDatePicker1().getDate());
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,chequeList);

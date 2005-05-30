@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIChequeInPayroll.java,v 1.29 2005/05/25 10:34:56 cemdayanik Exp $
+ * @version $Id: CheUIChequeInPayroll.java,v 1.30 2005/05/30 16:30:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -320,7 +320,7 @@ public class CheUIChequeInPayroll extends org.eclipse.swt.widgets.Composite impl
 				//        TODO cheq trans exRate
 				
 				HashMap argMap = new HashMap();
-				argMap.put(AccKeys.ACC_ACCOUNT_ID,accountPicker.getDBData());
+				argMap.put(AccKeys.ACC_ACCOUNT_ID,accountPicker.getId());
 				argMap.put(EngKeys.CURRENT_CARD,(TurqCurrentCard) currentPicker.getData());
 				argMap.put(EngKeys.DOCUMENT_NO,txtRollNo.getText().trim());
 				argMap.put(EngKeys.DATE,datePicker1.getDate());

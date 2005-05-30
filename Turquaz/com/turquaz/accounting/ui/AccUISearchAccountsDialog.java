@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUISearchAccountsDialog.java,v 1.16 2005/04/30 18:14:24 huseyiner Exp $
+ * @version  $Id: AccUISearchAccountsDialog.java,v 1.17 2005/05/30 16:30:59 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -42,11 +42,11 @@ import com.turquaz.engine.lang.AccLangKeys;
 import com.turquaz.engine.tx.EngTXCommon;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import com.turquaz.engine.ui.EngUICommon;
 import com.turquaz.engine.ui.component.SearchDialogMenu;
 import com.turquaz.engine.ui.component.TurkishCurrencyFormat;
 
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
@@ -233,13 +233,7 @@ public class AccUISearchAccountsDialog extends org.eclipse.swt.widgets.Dialog im
     /** Add your post-init code in here */
     public void postInitGUI()
     {
-        Point parentLocation = this.getParent().getLocation();
-        Point parentSize = this.getParent().getSize();
-        Point dialogSize = dialogShell.getSize();
-        int location_X = (parentLocation.x + parentSize.x) / 2 - (dialogSize.x / 2);
-        int location_Y = (parentLocation.y + parentSize.y) / 2 - (dialogSize.y / 2);
-        dialogShell.setLocation(location_X, location_Y);
-
+       EngUICommon.centreWindow(dialogShell);
     }
     
     
