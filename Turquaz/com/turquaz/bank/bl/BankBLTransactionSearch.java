@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionSearch.java,v 1.10 2005/05/27 16:59:21 onsel Exp $
+ * @version $Id: BankBLTransactionSearch.java,v 1.11 2005/05/30 08:08:43 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -156,6 +156,9 @@ public class BankBLTransactionSearch
 			Date endDate=(Date)argMap.get(EngKeys.DATE_END);
 			HashBag transBag = new HashBag();
 			List list = BankDALCommon.searchBankTransactions(docNo, startDate, endDate);
+			
+			transBag.put(BankKeys.BANK_TRANSACTIONS,new HashMap());
+			
 			for(int i=0;i<list.size();i++)
 			{
 				Object results[] = (Object[])list.get(i);

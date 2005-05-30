@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionSearch.java,v 1.13 2005/05/27 09:36:20 onsel Exp $
+ * @version $Id: CashBLCashTransactionSearch.java,v 1.14 2005/05/30 08:08:45 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -37,8 +37,11 @@ public class CashBLCashTransactionSearch
 	{
 		
 		Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
-		TurqCashCard cashCard=(TurqCashCard)EngDALSessionFactory.getSession().load(TurqCashCard.class,cashCardId);
-		
+		TurqCashCard cashCard=null;
+		if(cashCardId!=null)
+		{
+			cashCard = (TurqCashCard)EngDALSessionFactory.getSession().load(TurqCashCard.class,cashCardId);
+		}
 		Date startDate = (Date)argMap.get(EngKeys.DATE_START);
 		Date endDate = (Date)argMap.get(EngKeys.DATE_END);
 		String definition = (String)argMap.get(EngKeys.DEFINITION);

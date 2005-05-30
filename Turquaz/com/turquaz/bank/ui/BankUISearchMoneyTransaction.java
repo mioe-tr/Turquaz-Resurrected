@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUISearchMoneyTransaction.java,v 1.31 2005/05/27 16:59:20 onsel Exp $
+ * @version  $Id: BankUISearchMoneyTransaction.java,v 1.32 2005/05/30 08:08:44 onsel Exp $
  */
 //TODO add curreny to bank sarch
 import java.math.BigDecimal;
@@ -257,6 +257,7 @@ public class BankUISearchMoneyTransaction extends org.eclipse.swt.widgets.Compos
 			String transType;
 			
 			HashMap rowMap = (HashMap)resultBag.get(BankKeys.BANK_TRANSACTIONS);
+		
 			for (int i = 0; i < rowMap.size(); i++)
 			{
 				HashMap rowInfo = (HashMap)rowMap.get(new Integer(i));				
