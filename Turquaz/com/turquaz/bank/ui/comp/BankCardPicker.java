@@ -17,7 +17,7 @@ package com.turquaz.bank.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BankCardPicker.java,v 1.16 2005/05/26 13:30:37 onsel Exp $
+ * @version  $Id: BankCardPicker.java,v 1.17 2005/05/30 17:12:19 onsel Exp $
  */
 
 import java.util.HashMap;
@@ -176,6 +176,7 @@ public class BankCardPicker extends org.eclipse.swt.widgets.Composite implements
 	{
 		this.bankData = bankData;
 	}
+	
 	public Object getData()
 	{
 		return bankData;
