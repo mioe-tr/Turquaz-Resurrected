@@ -17,7 +17,7 @@ package com.turquaz.current.dal;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurDALCurrentCardSearch.java,v 1.38 2005/05/30 18:09:38 onsel Exp $
+ * @version  $Id: CurDALCurrentCardSearch.java,v 1.39 2005/05/31 17:59:23 onsel Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -45,7 +45,7 @@ import com.turquaz.engine.dal.TurqViewCurrentAmountTotal;
  */
 public class CurDALCurrentCardSearch
 {
-	public static List searchCurrentCards(String currentCode, String currentName, TurqCurrentGroup cardGroup) throws Exception
+	public static List searchCurrentCards(String currentCode, String currentName, Integer cardGroupId) throws Exception
 	{
 		try
 		{
@@ -54,7 +54,7 @@ public class CurDALCurrentCardSearch
 					" currentView.transactionsTotalCredit, currentView.transactionsTotalDept," +
 					" currentView.transactionsBalanceNow "+
 					" from TurqViewCurrentAmountTotal as currentView, TurqCurrentCard as currentCard";
-			if (cardGroup != null)
+			if (cardGroupId != null)
 			{
 				query += " left join  currentCard.turqCurrentCardsGroups as gr ";
 			}
@@ -68,16 +68,16 @@ public class CurDALCurrentCardSearch
 				query += " and currentCard.cardsName like '" + currentName + "%'";
 			}
 			query += " and currentCard.id <> -1";
-			if (cardGroup != null)
+			if (cardGroupId != null)
 			{
 				//query +=" and :cardGroup in (Select gr.turqCurrentGroup from gr)";
-				query += " and gr.turqCurrentGroup = :cardGroup";//left join fetch" +
+				query += " and gr.turqCurrentGroup.id = :cardGroup";//left join fetch" +
 			}
 			query += " order by currentCard.cardsCurrentCode";
 			Query q = session.createQuery(query);
-			if (cardGroup != null)
+			if (cardGroupId != null)
 			{
-				q.setParameter("cardGroup", cardGroup);
+				q.setParameter("cardGroup", cardGroupId);
 			}
 			List list = q.list();
 			return list;

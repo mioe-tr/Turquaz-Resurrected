@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardSearch.java,v 1.17 2005/05/31 13:54:38 onsel Exp $
+ * @version $Id: CurBLCurrentCardSearch.java,v 1.18 2005/05/31 17:59:22 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -42,9 +42,9 @@ public class CurBLCurrentCardSearch
 		
 		String currentCode = (String)argMap.get(CurKeys.CUR_CURRENT_CODE);
 		String currentName = (String)argMap.get(CurKeys.CUR_CURRENT_NAME);
-		TurqCurrentGroup currentGroup = (TurqCurrentGroup)argMap.get(CurKeys.CUR_GROUP);
-			
-		return CurDALCurrentCardSearch.searchCurrentCards(currentCode, currentName, currentGroup);
+		Integer currentGroupId = (Integer)argMap.get(CurKeys.CUR_GROUP_ID);
+		
+		return CurDALCurrentCardSearch.searchCurrentCards(currentCode, currentName, currentGroupId);
 		
 	}
 	
@@ -53,7 +53,11 @@ public class CurBLCurrentCardSearch
 		
 		String currentCode = (String)argMap.get(CurKeys.CUR_CURRENT_CODE);
 		String currentName = (String)argMap.get(CurKeys.CUR_CURRENT_NAME);
-		TurqCurrentGroup currentGroup = (TurqCurrentGroup)argMap.get(CurKeys.CUR_GROUP);
+		
+		Integer groupId = (Integer)argMap.get(CurKeys.CUR_GROUP_ID);
+		TurqCurrentGroup currentGroup = new TurqCurrentGroup();
+		currentGroup.setId(groupId);
+		
 		Date startDate=(Date)argMap.get(EngKeys.DATE_START);
 		Date endDate=(Date)argMap.get(EngKeys.DATE_END);
 		String definition=(String)argMap.get(EngKeys.DEFINITION);		

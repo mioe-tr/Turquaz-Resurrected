@@ -27,7 +27,7 @@ import com.turquaz.engine.ui.contentassist.TurquazContentAssistant;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: EngBLCurrentCards.java,v 1.13 2005/05/31 13:54:37 onsel Exp $
+ * @version $Id: EngBLCurrentCards.java,v 1.14 2005/05/31 17:59:22 onsel Exp $
  */
 public class EngBLCurrentCards
 {
@@ -96,7 +96,7 @@ public class EngBLCurrentCards
 			{
 				_instance = new EngBLCurrentCards();
 			}
-			return (HashMap) _instance.currentCards.get(currentCode);
+			return (HashMap) _instance.cardMap.get(currentCode);
 		}
 		catch (Exception ex)
 		{
