@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.75 2005/05/30 18:09:35 onsel Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.76 2005/05/31 13:54:39 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1111,7 +1111,7 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 				txtCurrentCode.setFocus();
 				return false;
 			}
-			else if (save && EngBLCurrentCards.getCardsId(txtCurrentCode.getText().trim()) != null)
+			else if (save && EngBLCurrentCards.getCardsInfo(txtCurrentCode.getText().trim()) != null)
 			{
 				msg.setMessage(CurLangKeys.MSG_CURRENT_CODE_ALREADY_EXIST);
 				msg.open();

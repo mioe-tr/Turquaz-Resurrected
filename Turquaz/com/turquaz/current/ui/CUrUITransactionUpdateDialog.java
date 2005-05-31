@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.28 2005/05/30 18:09:35 onsel Exp $
+ * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.29 2005/05/31 13:54:39 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.graphics.Rectangle;
@@ -274,8 +274,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 				}
 				
 				HashMap argMap = new HashMap();
-				argMap.put(CurKeys.CUR_CARD, compTransactionAdd.getTxtCurrentCode().getData(
-						compTransactionAdd.getTxtCurrentCode().getText()));
+				argMap.put(CurKeys.CUR_CARD_ID, compTransactionAdd.getTxtCurrentCode().getCardId());
 				argMap.put(EngKeys.DATE,compTransactionAdd.getDateTransDate().getDate());
 				argMap.put(EngKeys.DOCUMENT_NO,compTransactionAdd.getTxtDocumentNo().getText());
 				argMap.put(CurKeys.CUR_IS_CREDIT,new Boolean(isCredit));

@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.55 2005/05/30 18:09:35 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.56 2005/05/31 13:54:39 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -320,7 +320,7 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 			BigDecimal totalCredit = new BigDecimal(0);
 			
 			HashMap argMap = new HashMap();
-			argMap.put(CurKeys.CUR_CARD,txtCurCard.getData());
+			argMap.put(CurKeys.CUR_CARD_ID,txtCurCard.getCardId());
 			argMap.put(EngKeys.TYPE,comboTransactionGroup.getData(comboTransactionGroup.getText()));
 			argMap.put(EngKeys.DOCUMENT_NO,"");
 			argMap.put(EngKeys.DEFINITION,txtDefinition.getText().trim());

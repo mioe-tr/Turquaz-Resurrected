@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrentUpdate.java,v 1.14 2005/05/30 18:09:33 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrentUpdate.java,v 1.15 2005/05/31 13:54:38 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -240,7 +240,7 @@ public class CheUIChequeOutPayrollCurrentUpdate extends org.eclipse.swt.widgets.
 				//		          TODO cheq trans exRate
 			    HashMap argMap = new HashMap();
 			    argMap.put(CheKeys.CHE_CHEQUE_ROLL,chequeRoll);
-			    argMap.put(CurKeys.CUR_CARD,compChequeRoll.getCurrentPicker().getData());
+			    argMap.put(CurKeys.CUR_CARD_ID,compChequeRoll.getCurrentPicker().getCardId());
 			    argMap.put(EngKeys.DOCUMENT_NO,compChequeRoll.getTxtRollNo().getText().trim());
 			    argMap.put(EngKeys.DATE,compChequeRoll.getDatePicker1().getDate());
 			    argMap.put(CheKeys.CHE_CHEQUE_LIST,chequeList);

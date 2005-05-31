@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.29 2005/05/30 18:09:32 onsel Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.30 2005/05/31 13:54:37 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -372,7 +372,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 			HashMap argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD_START,txtInvCardStart.getData());
 			argMap.put(InvKeys.INV_CARD_END,txtInvCardEnd.getData());
-			argMap.put(CurKeys.CUR_CARD,txtCurCard.getData());
+			argMap.put(CurKeys.CUR_CARD_ID,txtCurCard.getCardId());
 			argMap.put(EngKeys.DATE_START,dateStartDate.getDate());
 			argMap.put(EngKeys.DATE_END,dateEndDate.getDate());
 			argMap.put(EngKeys.TYPE,new Integer(type));

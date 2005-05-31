@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferIn.java,v 1.21 2005/05/30 18:09:25 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferIn.java,v 1.22 2005/05/31 13:54:29 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -288,7 +288,7 @@ public class BankUIMoneyTransferIn extends org.eclipse.swt.widgets.Composite imp
 				HashMap argMap=new HashMap();
 				
 				argMap.put(BankKeys.BANK_ID,txtBankCard.getBankId());
-				argMap.put(CurKeys.CUR_CARD,currentPicker.getData());
+				argMap.put(CurKeys.CUR_CARD_ID,currentPicker.getCardId());
 				argMap.put(EngKeys.TYPE,new Integer(EngBLCommon.BANK_TRANS_RECIEVE_MONEY));
 				argMap.put(EngKeys.ENG_SEQ,null);
 				argMap.put(EngKeys.TOTAL_AMOUNT,curAmount.getBigDecimalValue());

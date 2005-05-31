@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIAddBuyConsignment.java,v 1.9 2005/05/30 18:09:37 onsel Exp $
+ * @version  $Id: ConUIAddBuyConsignment.java,v 1.10 2005/05/31 13:54:40 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -916,7 +916,7 @@ public class ConUIAddBuyConsignment extends org.eclipse.swt.widgets.Composite im
 				argMap.put(ConsKeys.CONS_IS_PRINTED,new Boolean(false));
 				argMap.put(ConsKeys.CONS_DATE,dateConsignmentDate.getDate());
 				argMap.put(EngKeys.TYPE,new Integer(CONS_TYPE));
-				argMap.put(CurKeys.CUR_CARD,txtCurrentCard.getData());
+				argMap.put(CurKeys.CUR_CARD_ID,txtCurrentCard.getCardId());
 				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
 				argMap.put(ConsKeys.CONS_GROUPS,getConsignmentGroups());
 				argMap.put(InvKeys.INV_TRANSACTIONS,getInventoryTransactions());				

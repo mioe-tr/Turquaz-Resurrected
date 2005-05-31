@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.51 2005/05/30 18:09:34 onsel Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.52 2005/05/31 13:54:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,6 +33,7 @@ import com.turquaz.current.CurKeys;
 import com.turquaz.current.dal.CurDALCurrentTransactionAdd;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingTransactionColumn;
@@ -152,8 +153,14 @@ public class CurBLCurrentTransactionAdd
     public static Integer saveMultipleOtherTransaction(HashMap argMap)throws Exception
     {
     
-        TurqCurrentCard curCard = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD);
-        List transColumns = (List)argMap.get(AccKeys.ACC_TRANSACTIONS);       
+
+		Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
+		TurqCurrentCard curCard=null;
+		if(curCardId!=null)
+		{
+			curCard=(TurqCurrentCard)EngDALSessionFactory.getSession().load(TurqCurrentCard.class,curCardId);
+		};
+		List transColumns = (List)argMap.get(AccKeys.ACC_TRANSACTIONS);       
         Date transDate = (Date)argMap.get(EngKeys.DATE);
         String documentNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
         Boolean isCredit = (Boolean)argMap.get(CurKeys.CUR_IS_CREDIT);
@@ -203,7 +210,13 @@ public class CurBLCurrentTransactionAdd
 		
 		try
 		{
-		TurqCurrentCard curCard = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD);
+
+			Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
+			TurqCurrentCard curCard=null;
+			if(curCardId!=null)
+			{
+				curCard=(TurqCurrentCard)EngDALSessionFactory.getSession().load(TurqCurrentCard.class,curCardId);
+			};
 		TurqAccountingAccount account = (TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
 		Date transDate = (Date)argMap.get(EngKeys.DATE);
 		String documentNo = (String)argMap.get(EngKeys.DOCUMENT_NO);
@@ -262,7 +275,14 @@ public class CurBLCurrentTransactionAdd
 			throws Exception
 	{
 
-		TurqCurrentCard curCard = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD);
+
+		Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
+		TurqCurrentCard curCard=null;
+		if(curCardId!=null)
+		{
+			curCard=(TurqCurrentCard)EngDALSessionFactory.getSession().load(TurqCurrentCard.class,curCardId);
+		};
+		
 		TurqAccountingAccount account = (TurqAccountingAccount)argMap.get(AccKeys.ACC_ACCOUNT);
 		Date transDate = (Date)argMap.get(EngKeys.DATE);
 		String documentNo = (String)argMap.get(EngKeys.DOCUMENT_NO);

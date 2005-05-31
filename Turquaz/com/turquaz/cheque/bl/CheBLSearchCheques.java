@@ -17,7 +17,7 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSearchCheques.java,v 1.15 2005/05/30 18:09:38 onsel Exp $
+ * @version $Id: CheBLSearchCheques.java,v 1.16 2005/05/31 13:54:41 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
@@ -37,8 +37,12 @@ public class CheBLSearchCheques
 {
 	public static List searchCheque(HashMap argMap) throws Exception
 	{
-		String portfoliNo = (String) argMap.get(EngKeys.DOCUMENT_NO);
-		TurqCurrentCard curCard = (TurqCurrentCard) argMap.get(CurKeys.CUR_CARD);
+		String portfoliNo = (String) argMap.get(EngKeys.DOCUMENT_NO);Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
+		TurqCurrentCard curCard=null;
+		if(curCardId!=null)
+		{
+			curCard=(TurqCurrentCard)EngDALSessionFactory.getSession().load(TurqCurrentCard.class,curCardId);
+		};
 		Integer status = (Integer) argMap.get(CheKeys.CHE_STATUS);
 		Date startEnterDate = (Date) argMap.get(CheKeys.CHE_START_ENTER_DATE);
 		Date endEnterDate = (Date) argMap.get(CheKeys.CHE_END_ENTER_DATE);
@@ -52,7 +56,12 @@ public class CheBLSearchCheques
 
 	public static List searchOwnCheques(HashMap argMap) throws Exception
 	{
-		TurqCurrentCard curCard = (TurqCurrentCard) argMap.get(CurKeys.CUR_CARD);
+		Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
+		TurqCurrentCard curCard=null;
+		if(curCardId!=null)
+		{
+			curCard=(TurqCurrentCard)EngDALSessionFactory.getSession().load(TurqCurrentCard.class,curCardId);
+		};
 		Date startEnterDate = (Date) argMap.get(CheKeys.CHE_START_ENTER_DATE);
 		Date endEnterDate = (Date) argMap.get(CheKeys.CHE_END_ENTER_DATE);
 		Date startDueDate = (Date) argMap.get(CheKeys.CHE_START_DUE_DATE);

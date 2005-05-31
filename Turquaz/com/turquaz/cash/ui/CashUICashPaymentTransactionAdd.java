@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.20 2005/05/30 18:09:38 onsel Exp $
+ * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.21 2005/05/31 13:54:41 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -262,7 +262,7 @@ public class CashUICashPaymentTransactionAdd extends org.eclipse.swt.widgets.Com
 				
 				HashMap argMap = new HashMap();
 				argMap.put(CashKeys.CASH_CARD,txtCashCard.getData());
-				argMap.put(CurKeys.CUR_CARD,txtCurrentAccount.getData());
+				argMap.put(CurKeys.CUR_CARD_ID,txtCurrentAccount.getCardId());
 				argMap.put(EngKeys.TYPE,new Integer(EngBLCommon.CASH_CURRENT_PAYMENT));
 				argMap.put(EngKeys.ENG_SEQ,null);
 				argMap.put(CashKeys.CASH_TOTAL_AMOUNT,curTextTotalAmount.getBigDecimalValue());

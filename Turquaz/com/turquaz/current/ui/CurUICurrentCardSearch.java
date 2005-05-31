@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.58 2005/05/30 18:09:35 onsel Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.59 2005/05/31 13:54:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -319,11 +319,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 					
 					HashMap argMap = new HashMap();
 					argMap.put(CurKeys.CUR_CARD_ID,cardId);
-					TurqCurrentCard currentCard =(TurqCurrentCard)EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"initializeCurrentCard",argMap);
 					
-					
-					argMap = new HashMap();
-					argMap.put(CurKeys.CUR_CARD,currentCard);
 					
 					List curCardTrans = (List)EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"getTransactions",argMap);
 					
@@ -339,7 +335,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 					{
 						
 						 argMap = new HashMap();
-						argMap.put(CurKeys.CUR_CARD,currentCard);
+						 argMap.put(CurKeys.CUR_CARD_ID,cardId);
 						EngTXCommon.doTransactionTX(CurBLCurrentCardUpdate.class.getName(),"deleteCurrentCard",argMap);
 						msg.setMessage(EngLangCommonKeys.MSG_DELETED_SUCCESS); //$NON-NLS-1$
 						msg.open();

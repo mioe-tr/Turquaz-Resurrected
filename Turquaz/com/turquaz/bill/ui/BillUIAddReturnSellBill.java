@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnSellBill.java,v 1.7 2005/05/30 18:09:27 onsel Exp $
+ * @version  $Id: BillUIAddReturnSellBill.java,v 1.8 2005/05/31 13:54:30 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1094,7 +1094,7 @@ public class BillUIAddReturnSellBill extends Composite implements SecureComposit
                 argMap.put(BillKeys.BILL_IS_PRINTED,new Boolean(false));
                 argMap.put(BillKeys.BILL_DATE,dateConsignmentDate.getDate());
                 argMap.put(EngKeys.TYPE, new Integer(type));
-                argMap.put(CurKeys.CUR_CARD,txtCurrentCard.getData());
+                argMap.put(CurKeys.CUR_CARD_ID,txtCurrentCard.getCardId());
                 argMap.put(BillKeys.BILL_DUE_DATE,dateDueDate.getDate());
                 argMap.put(BillKeys.BILL_DISCOUNT_AMOUNT,txtDiscountAmount.getBigDecimalValue());
                 argMap.put(BillKeys.BILL_DOC_NO,txtDocumentNo.getText().trim());

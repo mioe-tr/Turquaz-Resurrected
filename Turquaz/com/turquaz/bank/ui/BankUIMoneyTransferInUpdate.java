@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.19 2005/05/30 18:09:26 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.20 2005/05/31 13:54:29 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -229,7 +229,7 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog
 				
 				argMap.put(BankKeys.BANK_TRANS_BILL_ID,transBillId);
 				argMap.put(BankKeys.BANK_ID,compMoneyTransferIn.getTxtBankCard().getBankId());
-				argMap.put(CurKeys.CUR_CARD,compMoneyTransferIn.getCurrentPicker().getData());
+				argMap.put(CurKeys.CUR_CARD_ID,compMoneyTransferIn.getCurrentPicker().getCardId());
 				argMap.put(EngKeys.TOTAL_AMOUNT,compMoneyTransferIn.getCurAmount().getBigDecimalValue());
 				argMap.put(EngKeys.TRANS_DATE,compMoneyTransferIn.getDatePick().getDate());
 				argMap.put(EngKeys.DEFINITION,compMoneyTransferIn.getTxtDefinition().getText().trim());
