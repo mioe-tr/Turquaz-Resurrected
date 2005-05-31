@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.35 2005/05/30 08:52:43 cemdayanik Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.36 2005/05/31 16:33:47 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -328,7 +328,7 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 			{
 				txtDocumentNo.setText((String)accountBag.get(AccKeys.ACC_TRANSACTION_DOC_NO));
 				txtTransDefinition.setText((String)accountBag.get(AccKeys.ACC_TRANSACTION_DEFINITION));
-				dateTransactionDate.setDate((Date)accountBag.get(AccKeys.ACC_TRANSACTION_DATE));
+				dateTransactionDate.setDate((Date)accountBag.get(AccKeys.ACC_TRANS_DATE));
 
 				HashMap transRows=(HashMap)accountBag.get(AccKeys.ACC_TRANSACTION_ROWS);
 
