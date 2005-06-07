@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionAdd.java,v 1.82 2005/06/07 09:13:15 cemdayanik Exp $
+ * @version  $Id: AccUITransactionAdd.java,v 1.83 2005/06/07 09:53:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -427,6 +427,11 @@ public class AccUITransactionAdd extends Composite implements SecureComposite
 			else if (tableTransactionColumns.getItems().length == 0)
 			{
 				EngUICommon.showMessageBox(getShell(),AccLangKeys.MSG_ENTER_AT_LEAST_ONE_ROW); 
+				return false;
+			}
+			else if (comboCurrencyType.getData(comboCurrencyType.getText().trim())==null)
+			{
+				EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_SELECT_CURRENCY);
 				return false;
 			}
 			return true;

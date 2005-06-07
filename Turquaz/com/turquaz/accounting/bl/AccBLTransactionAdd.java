@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.33 2005/06/07 09:02:58 cemdayanik Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.34 2005/06/07 09:53:58 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -140,11 +140,6 @@ public class AccBLTransactionAdd
 			{
 				return;
 			}
-			
-			if (exchangeRate==null)
-				System.out.println("NULLLLLLLLL");
-			if (exchangeRate.getExchangeRatio()==null)
-				System.out.println("ZZZZZZZZ");
 			TurqAccountingTransaction trans = new TurqAccountingTransaction();
 			trans.setId(transID);
 			
