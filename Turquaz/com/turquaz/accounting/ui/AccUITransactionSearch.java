@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionSearch.java,v 1.60 2005/04/30 18:14:24 huseyiner Exp $
+ * @version  $Id: AccUITransactionSearch.java,v 1.61 2005/06/07 14:05:39 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -429,7 +429,7 @@ public class AccUITransactionSearch extends Composite implements SearchComposite
 				}
 				else if (type == 0)
 				{
-					updated = new AccUITransactionCollectUpdateDialog(this.getShell(), SWT.NULL, accTrans).open();
+					updated = new AccUITransactionCollectUpdateDialog(this.getShell(), SWT.NULL, accTrans.getId()).open();
 					if (updated)
 						search();
 				}
