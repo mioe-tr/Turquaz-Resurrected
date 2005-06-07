@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.114 2005/06/07 09:02:58 cemdayanik Exp $
+ * @version $Id: EngBLCommon.java,v 1.115 2005/06/07 14:34:45 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -370,6 +370,22 @@ public class EngBLCommon
 	}
 		
 	
+	public static Integer getBaseCurrencyId()
+	{
+		try
+		{
+			if (baseCurrency == null)
+			{
+				baseCurrency = (TurqCurrency)EngTXCommon.doSelectTX(EngDALCommon.class.getName(),"getBaseCurrency",null); //$NON-NLS-1$
+			}
+				return baseCurrency.getId();
+		}
+		catch (Exception ex)
+		{
+            EngBLLogger.log(EngBLCommon.class,ex);
+			return null;
+		}
+	}
 
 	public static TurqCurrencyExchangeRate getBaseCurrencyExchangeRate() 
 	{
