@@ -17,7 +17,7 @@ package com.turquaz.current.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurrentPicker.java,v 1.23 2005/05/31 13:54:41 onsel Exp $
+ * @version  $Id: CurrentPicker.java,v 1.24 2005/06/07 11:40:37 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.events.FocusAdapter;
@@ -223,6 +223,26 @@ public class CurrentPicker extends org.eclipse.swt.widgets.Composite implements 
 			return null;
 		}
 		return (Integer)cardInfo.get(CurKeys.CUR_CARD_ID);
+	}
+	
+	public String getCardName()
+	{
+		if(cardInfo==null)
+		{
+			return null;
+		}
+		return (String)cardInfo.get(CurKeys.CUR_CURRENT_NAME);
+		
+	}
+
+	public String getCardCode()
+	{
+		if(cardInfo==null)
+		{
+			return null;
+		}
+		return (String)cardInfo.get(CurKeys.CUR_CURRENT_CODE);
+		
 	}
 
 	public void openNewObjectDialog() {

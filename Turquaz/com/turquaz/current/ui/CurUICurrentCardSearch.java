@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardSearch.java,v 1.61 2005/06/07 08:12:58 onsel Exp $
+ * @version  $Id: CurUICurrentCardSearch.java,v 1.62 2005/06/07 11:40:37 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -379,7 +379,7 @@ public class CurUICurrentCardSearch extends Composite implements SearchComposite
 			
 			
 			HashBag result = (HashBag)EngTXCommon.doSelectTX(CurBLCurrentCardSearch.class.getName(),"searchCurrentCard",argMap);
-			HashMap cardList = (HashMap)result.get(CurKeys.CUR_TRANSACTIONS);
+			HashMap cardList = (HashMap)result.get(CurKeys.CUR_CARDS);
 			
 			
 			TurkishCurrencyFormat cf = new TurkishCurrencyFormat(2);
