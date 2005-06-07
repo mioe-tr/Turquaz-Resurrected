@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardUpdate.java,v 1.25 2005/05/31 17:59:22 onsel Exp $
+ * @version $Id: CurBLCurrentCardUpdate.java,v 1.26 2005/06/07 08:12:58 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -81,6 +81,16 @@ public class CurBLCurrentCardUpdate
 			currentBag.put(CurKeys.CUR_CONTACT_PHONE2,curContact.getContactsPhone2());		
 		}
 		
+		
+		currentBag.put(CurKeys.CUR_PHONE_NUMBER1,"0");
+		currentBag.put(CurKeys.CUR_PHONE_CITY_CODE1,"0");
+		currentBag.put(CurKeys.CUR_PHONE_COUNTRY_CODE1,"0");
+		
+		currentBag.put(CurKeys.CUR_PHONE_NUMBER2,"0");
+		currentBag.put(CurKeys.CUR_PHONE_CITY_CODE2,"0");
+		currentBag.put(CurKeys.CUR_PHONE_COUNTRY_CODE2,"0");
+		
+
 		List phoneList = new ArrayList(currentCard.getTurqCurrentCardsPhones()); 
 		EngBLHibernateComparer comp = new EngBLHibernateComparer();
 		Collections.sort(phoneList,comp);
