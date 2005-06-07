@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionAdd.java,v 1.81 2005/06/07 09:02:58 cemdayanik Exp $
+ * @version  $Id: AccUITransactionAdd.java,v 1.82 2005/06/07 09:13:15 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -335,8 +335,9 @@ public class AccUITransactionAdd extends Composite implements SecureComposite
 			{
 				HashMap currencyMap=(HashMap)currencies.get(new Integer(k));
 
-				comboCurrencyType.add((String)currencyMap.get(EngKeys.CURRENCY_ABBR));
-				comboCurrencyType.setData(currencyMap.get(EngKeys.CURRENCY_ID));
+				String abbr=(String)currencyMap.get(EngKeys.CURRENCY_ABBR);
+				comboCurrencyType.add(abbr);
+				comboCurrencyType.setData(abbr,currencyMap.get(EngKeys.CURRENCY_ID));
 				
 				if (((Boolean)currencyMap.get(EngKeys.DEFAULT)).booleanValue())
 				{
