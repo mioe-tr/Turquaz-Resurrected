@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollect.java,v 1.66 2005/06/07 09:53:58 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollect.java,v 1.67 2005/06/07 10:15:07 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -90,7 +90,7 @@ public class AccUITransactionCollect extends Composite implements SecureComposit
 	private Text txtDocumentNo;
 	private CLabel lbldocumentNo;
 	private DatePicker datePickerTransactionDate;
-	private BigDecimal totalCredit;
+	private BigDecimal totalDept;
 	//	 Set the table column property names
 	private final String ACCOUNT_CODE = AccLangKeys.STR_ACCOUNT_CODE; 
 	private final String ACCOUNT_NAME = AccLangKeys.STR_ACCOUNT_NAME; 
@@ -254,7 +254,7 @@ public class AccUITransactionCollect extends Composite implements SecureComposit
 	/** Add your post-init code in here */
 	public void postInitGUI()
 	{
-		totalCredit = new BigDecimal(0);
+		totalDept = new BigDecimal(0);
 		fillCurrencyCombo();
 		createTableViewer();
 		for (int i = 0; i < EngBLCommon.TABLE_ROW_COUNT; i++)
@@ -385,7 +385,7 @@ public class AccUITransactionCollect extends Composite implements SecureComposit
 		try
 		{
 			calculateTotalDept();
-			if (totalCredit.doubleValue() <= 0)
+			if (totalDept.doubleValue() <= 0)
 			{
 				EngUICommon.showMessageBox(getShell(),AccLangKeys.MSG_VOUCHER_AMOUNT_NOT_ZERO); 
 				return false;
@@ -507,14 +507,14 @@ public class AccUITransactionCollect extends Composite implements SecureComposit
 	void calculateTotalDept()
 	{
 		TableItem items[] = tableTransactionRows.getItems();
-		totalCredit = new BigDecimal(0);
+		totalDept = new BigDecimal(0);
 		for (int i = 0; i < items.length; i++)
 		{
 			
 			HashMap transRow = (HashMap)((AccUITransactionCollectTableRow) items[i].getData()).getDBObject();
 			if (transRow != null && ((AccUITransactionCollectTableRow) items[i].getData()).okToSave())
 			{
-				totalCredit = totalCredit.add((BigDecimal)transRow.get(EngKeys.CREDIT_AMOUNT));
+				totalDept = totalDept.add((BigDecimal)transRow.get(EngKeys.CREDIT_AMOUNT));
 			}
 		}
 	}
