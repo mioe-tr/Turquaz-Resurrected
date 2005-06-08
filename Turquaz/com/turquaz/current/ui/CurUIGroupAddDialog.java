@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIGroupAddDialog.java,v 1.25 2005/05/31 17:59:22 onsel Exp $
+ * @version  $Id: CurUIGroupAddDialog.java,v 1.26 2005/06/08 12:28:26 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -317,7 +317,7 @@ public class CurUIGroupAddDialog extends org.eclipse.swt.widgets.Dialog
 			{
 				HashMap argMap = new HashMap();
 				argMap.put(CurKeys.CUR_GROUP_ID,txtGroupName.getData());
-				EngTXCommon.doTransactionTX(CurBLCurrentCardAdd.class.getName(),"deleteObject",argMap);
+				EngTXCommon.doTransactionTX(CurBLCurrentCardAdd.class.getName(),"deleteGroup",argMap);
 			
 				btnDelete.setEnabled(false);
 				btnUpdate.setEnabled(false);

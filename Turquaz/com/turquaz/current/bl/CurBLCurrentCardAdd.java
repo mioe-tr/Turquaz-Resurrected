@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardAdd.java,v 1.32 2005/05/31 17:59:22 onsel Exp $
+ * @version $Id: CurBLCurrentCardAdd.java,v 1.33 2005/06/08 12:28:26 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -311,6 +311,15 @@ public class CurBLCurrentCardAdd
 		
 			return new Boolean(CurDALCurrentCardAdd.isCurrentCodePresent(Code));
 	
+	}
+	public static void deleteGroup(HashMap argMap)throws Exception
+	{
+		
+		Integer groupId = (Integer)argMap.get(CurKeys.CUR_GROUP_ID);
+		TurqCurrentGroup group = (TurqCurrentGroup)EngDALSessionFactory.getSession().load(TurqCurrentGroup.class,groupId);
+		
+		EngDALCommon.deleteObject(group);
+		
 	}
 
 	public static Boolean isCurrentNamePresent(HashMap argMap) throws Exception

@@ -17,7 +17,7 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.115 2005/06/07 14:34:45 onsel Exp $
+ * @version $Id: EngBLCommon.java,v 1.116 2005/06/08 12:28:26 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -339,37 +339,11 @@ public class EngBLCommon
 	
 	
 	
-	public static Object[] getBankTransaction(HashMap argMap) throws Exception
-	{
-		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
-		return EngDALCommon.getBankTransaction(seq);
-	}
-	public static Integer getCheqeuTransaction(HashMap argMap) throws Exception
-	{
-		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
-		return EngDALCommon.getCheqeuTransaction(seq);
-	}
-	
 	public static Integer getBill(HashMap argMap) throws Exception
 	{
 		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
 		return EngDALCommon.getBill(seq);
 	}
-	public static Integer getBillofCurrentTrans(HashMap argMap) throws Exception
-	{
-		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
-		return EngDALCommon.getBillOfCurrentTrans(seq);
-	}
-	
-	
-
-	public static Integer getCashTransaction(HashMap argMap) throws Exception
-	{
-		TurqEngineSequence seq = (TurqEngineSequence)argMap.get(EngKeys.ENG_SEQ);
-		return EngDALCommon.getCashTransaction(seq);
-	}
-		
-	
 	public static Integer getBaseCurrencyId()
 	{
 		try
