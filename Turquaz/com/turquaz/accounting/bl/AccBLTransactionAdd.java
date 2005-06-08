@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.34 2005/06/07 09:53:58 cemdayanik Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.35 2005/06/08 17:20:50 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -115,6 +115,7 @@ public class AccBLTransactionAdd
 	{
 		for(int k=0; k<transColumns.size(); k++)
 		{
+			
 			HashMap transRow = (HashMap)transColumns.get(k);
 			registerAccTransactionRow(transRow, transId, exchangeRate);
 		}
