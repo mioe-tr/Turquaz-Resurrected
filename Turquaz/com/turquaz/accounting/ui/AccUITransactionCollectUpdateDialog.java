@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.38 2005/06/09 15:52:28 cemdayanik Exp $
+ * @version  $Id: AccUITransactionCollectUpdateDialog.java,v 1.39 2005/06/09 16:16:47 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -41,7 +41,6 @@ import com.turquaz.accounting.bl.AccBLTransactionUpdate;
 import com.turquaz.accounting.ui.AccUITransactionCollect;
 import com.turquaz.common.HashBag;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.lang.EngLangCommonKeys;
@@ -296,7 +295,7 @@ public class AccUITransactionCollectUpdateDialog extends org.eclipse.swt.widgets
 				argMap.put(AccKeys.ACC_DOCUMENT_NO,compTransactionCollect.getTxtDocumentNo().getText().trim());
 				argMap.put(AccKeys.ACC_TRANS_DATE, compTransactionCollect.getDatePickerTransactionDate().getDate());
 				argMap.put(AccKeys.ACC_DEFINITION,compTransactionCollect.getTxtTransDefinition().getText().trim());
-				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
+				argMap.put(EngKeys.CURRENCY_ID,compTransactionCollect.getComboCurrencyType().getData(compTransactionCollect.getComboCurrencyType().getText().trim()));
 				argMap.put(AccKeys.ACC_TRANSACTIONS,compTransactionCollect.getTransactionColumns());
 				
 				EngTXCommon.doTransactionTX(AccBLTransactionUpdate.class.getName(),"updateTransaction",argMap);			
