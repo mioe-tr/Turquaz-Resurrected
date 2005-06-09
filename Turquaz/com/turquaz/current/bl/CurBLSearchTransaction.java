@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLSearchTransaction.java,v 1.36 2005/06/08 12:28:26 onsel Exp $
+ * @version $Id: CurBLSearchTransaction.java,v 1.37 2005/06/09 16:15:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -208,16 +208,27 @@ public class CurBLSearchTransaction
 		
 	}
 
-	public static List getInitialTransactions() throws Exception
+	public static HashBag getInitialTransactions() throws Exception
 	{
-		try
+		
+		
+		List list = CurDALSearchTransaction.getInitialTransactions();
+		HashBag transBag = new HashBag();
+		for(int i=0;i<list.size();i++)
 		{
-			return CurDALSearchTransaction.getInitialTransactions();
+			TurqCurrentTransaction curTrans = (TurqCurrentTransaction)list.get(i);
+			transBag.put(CurKeys.CUR_TRANSACTIONS,i,CurKeys.CUR_CARD_ID,curTrans.getTurqCurrentCard().getId());
+			transBag.put(CurKeys.CUR_TRANSACTIONS,i,CurKeys.CUR_CURRENT_NAME,curTrans.getTurqCurrentCard().getCardsName());
+			transBag.put(CurKeys.CUR_TRANSACTIONS,i,CurKeys.CUR_CURRENT_CODE,curTrans.getTurqCurrentCard().getCardsCurrentCode());
+			transBag.put(CurKeys.CUR_TRANSACTIONS,i,EngKeys.DEPT_AMOUNT,curTrans.getTransactionsTotalDept());
+			transBag.put(CurKeys.CUR_TRANSACTIONS,i,EngKeys.CREDIT_AMOUNT,curTrans.getTransactionsTotalCredit());
+			
+			
 		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
+		
+		return transBag;
+		
+		
 	}
 
 	private static void deleteInitialTransactions(TurqCurrentCard curCard) throws Exception

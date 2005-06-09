@@ -1,5 +1,6 @@
 package com.turquaz.current.bl;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -33,7 +34,7 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLTransactionUpdate.java,v 1.16 2005/06/08 12:28:26 onsel Exp $
+ * @version $Id: CurBLTransactionUpdate.java,v 1.17 2005/06/09 16:15:34 onsel Exp $
  */
 public class CurBLTransactionUpdate
 {
@@ -215,6 +216,23 @@ public class CurBLTransactionUpdate
 	
 		return transBag;
 		
+	}
+	
+	public static void updateInitialTransaction(HashMap argMap)throws Exception
+	{
+		HashMap transInfo =(HashMap)argMap.get(CurKeys.CUR_TRANS_INFO);
+		Integer transId = (Integer)transInfo.get(CurKeys.CUR_CARD_ID);
+		BigDecimal credit = (BigDecimal)transInfo.get(EngKeys.CREDIT_AMOUNT);
+		BigDecimal dept = (BigDecimal)transInfo.get(EngKeys.DEPT_AMOUNT);
+		
+		
+		TurqCurrentTransaction curTrans = (TurqCurrentTransaction)EngDALSessionFactory.getSession().load(TurqCurrentTransaction.class,transId);
+		curTrans.setTotalCreditInForeignCurrency(credit);
+		curTrans.setTransactionsTotalCredit(credit);
+		
+		curTrans.setTotalDeptInForeignCurrency(dept);
+		curTrans.setTransactionsTotalCredit(credit);
+		EngDALCommon.updateObject(curTrans);
 		
 		
 		
