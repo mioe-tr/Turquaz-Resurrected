@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Ehad Karacam
- * @version $Id: AccBLTransactionAdd.java,v 1.35 2005/06/08 17:20:50 onsel Exp $
+ * @version $Id: AccBLTransactionAdd.java,v 1.36 2005/06/09 15:52:27 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -211,7 +211,7 @@ public class AccBLTransactionAdd
 		Date date = (Date) argMap.get(AccKeys.ACC_TRANS_DATE);
 		String documentNo = (String)argMap.get(AccKeys.ACC_DOCUMENT_NO);
 		Integer type = (Integer)argMap.get(AccKeys.ACC_TYPE);
-		Integer moduleId = (Integer)argMap.get(AccKeys.ACC_MODULE_ID);
+		Integer moduleId = (Integer)argMap.get(AccKeys.ACC_TRANS_MODULE_ID);
 		Integer seqId = (Integer)argMap.get(AccKeys.ACC_SEQUENCE_ID);
 		String definition = (String)argMap.get(AccKeys.ACC_DEFINITION);
 		

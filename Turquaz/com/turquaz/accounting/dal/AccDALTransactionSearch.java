@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.51 2005/05/24 12:54:03 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.52 2005/06/09 15:52:29 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -86,17 +86,18 @@ public class AccDALTransactionSearch
 		}
 	}
 
-	public static List searchTransaction(String docNo, Object startDate, Object endDate, boolean isGeneralTrans, boolean isCollect,
+	public static List searchTransaction(String docNo, Date startDate, Date endDate, boolean isGeneralTrans, boolean isCollect,
 			boolean isPayment) throws Exception
 	{
 		try
 		{
 			
 			Session session = EngDALSessionFactory.getSession();
-			String query = "select accTrans.id," + " accTrans.transactionsDate," + "accTrans.transactionDocumentNo,"
-					+ "accTrans.turqAccountingTransactionType.typesName," + "accTrans.transactionDescription, "
-					+ "accView.totalcreditamount," + "accTrans.turqModule.moduleDescription "
-					+ "from TurqAccountingTransaction as accTrans, TurqViewAccTransTotalAmount as accView "
+			String query = "select accTrans.id, accTrans.transactionsDate, accTrans.transactionDocumentNo,"
+					+ " accTrans.turqAccountingTransactionType.typesName, accTrans.transactionDescription, "
+					+ " accView.totalcreditamount, accTrans.turqModule.moduleDescription, accTrans.turqAccountingJournal.id,"
+					+ " accTrans.turqModule.id, accTrans.turqAccountingTransactionType.id"
+					+ " from TurqAccountingTransaction as accTrans, TurqViewAccTransTotalAmount as accView "
 					+ " where accTrans.id = accView.accountingTransactionsId" ;
 			if(!docNo.trim().equals(""))
 			{
