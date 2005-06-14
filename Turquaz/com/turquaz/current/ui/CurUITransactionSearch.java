@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionSearch.java,v 1.58 2005/06/08 12:28:26 onsel Exp $
+ * @version  $Id: CurUITransactionSearch.java,v 1.59 2005/06/14 18:14:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -443,9 +443,10 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					{
 						HashBag result = (HashBag)EngTXCommon.doSelectTX(CurBLSearchTransaction.class.getName(),"getCheqeuTransaction",argMap);
 						Integer bankTransId =(Integer)result.get(CheKeys.CHE_CHEQUE_ROLL_ID);
+						Integer typeId =(Integer)result.get(EngKeys.TYPE_ID);
 						if (bankTransId != null)
 						{
-							updated = CheUIChequeRollSearch.rollUpdate(bankTransId, getShell());
+							updated = CheUIChequeRollSearch.rollUpdate(bankTransId,typeId, getShell());
 						}
 					}
 					else if (type == EngBLCommon.CURRENT_TRANS_CASH)

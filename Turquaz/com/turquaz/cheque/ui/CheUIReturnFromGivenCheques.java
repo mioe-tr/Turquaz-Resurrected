@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIReturnFromGivenCheques.java,v 1.10 2005/05/04 10:34:57 onsel Exp $
+ * @version  $Id: CheUIReturnFromGivenCheques.java,v 1.11 2005/06/14 18:14:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.CTabFolder;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLLogger;
-import com.turquaz.engine.dal.TurqChequeCheque;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.CheLangKeys;
 import com.turquaz.engine.lang.EngLangCommonKeys;
@@ -279,8 +278,8 @@ public class CheUIReturnFromGivenCheques extends org.eclipse.swt.widgets.Composi
 		BigDecimal totalAmount = new BigDecimal(0);
 		for (int i = 0; i < count; i++)
 		{
-			TurqChequeCheque cheque = (TurqChequeCheque) tableCheques.getItem(i).getData();
-			totalAmount = totalAmount.add(cheque.getChequesAmount());
+			HashMap chequeInfo = (HashMap) tableCheques.getItem(i).getData();
+			totalAmount = totalAmount.add((BigDecimal)chequeInfo.get(EngKeys.TOTAL_AMOUNT));
 		}
 		txtTotalAmount.setBigDecimalValue(totalAmount);
 	}
@@ -311,13 +310,16 @@ public class CheUIReturnFromGivenCheques extends org.eclipse.swt.widgets.Composi
 		for (int i = 0; i < cheques.size(); i++)
 		{
 			TableItem item;
-			TurqChequeCheque cheque = (TurqChequeCheque) cheques.get(i);
-			if (cheque != null)
+			HashMap chequeInfo = (HashMap) cheques.get(i);
+			if (chequeInfo != null)
 			{
 				item = new TableItem(tableCheques, SWT.NULL);
-				item.setData(cheque);
-				item.setText(new String[]{cheque.getChequesPortfolioNo(), DatePicker.formatter.format(cheque.getChequesDueDate()),
-						cheque.getChequesPaymentPlace(), cheque.getChequesDebtor(), cf.format(cheque.getChequesAmount())});
+				item.setData(chequeInfo);
+				item.setText(new String[]{chequeInfo.get(CheKeys.CHE_PORTFOLIO_NO).toString(),
+						DatePicker.formatter.format(chequeInfo.get(EngKeys.DATE)),
+						chequeInfo.get(CheKeys.CHE_PAYMENT_PLACE).toString(),
+						chequeInfo.get(CheKeys.CHE_DEBTOR).toString(),
+						cf.format(chequeInfo.get(EngKeys.TOTAL_AMOUNT))});
 			}
 		}
 		calculateTotal();

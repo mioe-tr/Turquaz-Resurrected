@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheUIChequeCollectFromBankUpdate.java,v 1.13 2005/06/13 18:07:31 onsel Exp $
+ * @version $Id: CheUIChequeCollectFromBankUpdate.java,v 1.14 2005/06/14 18:14:17 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Date;
@@ -209,7 +209,7 @@ public class CheUIChequeCollectFromBankUpdate extends org.eclipse.swt.widgets.Di
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,chequeList);
 				argMap.put(EngKeys.TYPE,EngBLCommon.CHEQUE_TRANS_COLLECT_FROM_BANK);
 				argMap.put(CheKeys.CHE_SUM_TRANS,new Boolean(false));
-				argMap.put(EngKeys.EXCHANGE_RATE,EngBLCommon.getBaseCurrencyExchangeRate());
+				argMap.put(EngKeys.CURRENCY_ID,EngBLCommon.getBaseCurrencyId());
 				
 				
 				EngTXCommon.doTransactionTX(CheBLUpdateChequeRoll.class.getName(),"updateChequeRollIn",argMap);

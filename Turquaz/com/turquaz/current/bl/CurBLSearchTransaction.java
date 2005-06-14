@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLSearchTransaction.java,v 1.37 2005/06/09 16:15:34 onsel Exp $
+ * @version $Id: CurBLSearchTransaction.java,v 1.38 2005/06/14 18:14:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -286,7 +286,8 @@ public class CurBLSearchTransaction
 		Integer curTransId = (Integer)argMap.get(CurKeys.CUR_TRANSACTION_ID);
 		TurqCurrentTransaction trans = (TurqCurrentTransaction)EngDALSessionFactory.getSession().load(TurqCurrentTransaction.class,curTransId);
 		
-		result.put(CheKeys.CHE_CHEQUE_ROLL_ID,EngDALCommon.getCheqeuTransaction(trans.getTurqEngineSequence()));
+		result.put(CheKeys.CHE_CHEQUE_ROLL_ID,EngDALCommon.getCheqeuTransaction(trans.getTurqEngineSequence())[0]);
+		result.put(EngKeys.TYPE_ID,EngDALCommon.getCheqeuTransaction(trans.getTurqEngineSequence())[01]);
 		return result;
 	}
 

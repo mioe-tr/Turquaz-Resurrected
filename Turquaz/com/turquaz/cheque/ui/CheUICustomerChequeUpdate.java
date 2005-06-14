@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUICustomerChequeUpdate.java,v 1.14 2005/05/04 10:34:57 onsel Exp $
+ * @version  $Id: CheUICustomerChequeUpdate.java,v 1.15 2005/06/14 18:14:16 onsel Exp $
  */
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -423,7 +423,9 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 						((cheqRoll.getTurqBanksCard().getId().intValue() == -1) ? "" : cheqRoll.getTurqBanksCard().getBankCode()), //$NON-NLS-1$
 						((cheqRoll.getTurqCurrentCard().getId().intValue() == -1)
 								? "" : cheqRoll.getTurqCurrentCard().getCardsCurrentCode())}); //$NON-NLS-1$
-				item.setData(cheqRoll.getId());
+				
+				
+				item.setData(new Integer[]{cheqRoll.getId(),cheqRoll.getTurqChequeTransactionType().getId()});
 			}
 		}
 		catch (Exception ex)
@@ -498,8 +500,8 @@ public class CheUICustomerChequeUpdate extends org.eclipse.swt.widgets.Dialog
 			TableItem[] selection = tableHistory.getSelection();
 			if (selection.length > 0)
 			{
-				Integer rollId = (Integer) selection[0].getData();
-				boolean isUpdatedRoll = CheUIChequeRollSearch.rollUpdate(rollId, this.getParent());
+				Integer data[] = (Integer[]) selection[0].getData();
+				boolean isUpdatedRoll = CheUIChequeRollSearch.rollUpdate(data[0],data[1], this.getParent());
 				if (isUpdatedRoll)
 				{
 					FillHistory();
