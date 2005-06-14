@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.53 2005/06/10 12:51:52 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.54 2005/06/14 08:12:55 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -108,6 +108,77 @@ public class AccDALTransactionSearch
 			result.add(obj);
 		}		
 		return result;
+	}
+	
+	public static List getGeneralLedger(Integer accountStartId, Integer accountEndId,Date startDate, Date endDate, boolean approved) throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.getSession();
+			SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			
+			String query = "Select accounts.top_account,accounts.account_name," + 
+			" accounts.account_code, trans.transactions_date,trans.transaction_document_no," + 
+			" transcolumns.rows_dept_in_base_currency,transcolumns.rows_credit_in_base_currency,"+
+			" transcolumns.transaction_definition, trans.accounting_journal_id," +
+			" accounts.id as accounting_accounts_id" + 
+			" from turq_accounting_accounts accounts,turq_accounting_transactions trans," +
+			" turq_accounting_transaction_columns transcolumns " +
+			" where accounts.id=transcolumns.accounting_accounts_id" + 
+			" and transcolumns.accounting_transactions_id=trans.id" +
+			" and trans.transactions_date >= '" + dformat.format(startDate) + "'" +
+			" and trans.transactions_date <= '" + dformat.format(endDate) + "'";
+			if (approved)
+			{
+				query += " and trans.accounting_journal_id > 0"; 
+			}
+			
+			TurqAccountingAccount accountStart=null;
+			if (accountStartId != null)
+			{
+				accountStart=(TurqAccountingAccount)session.load(TurqAccountingAccount.class,accountStartId);
+			}
+			TurqAccountingAccount accountEnd = null;
+			if (accountEndId != null)
+			{
+				accountEnd=(TurqAccountingAccount)session.load(TurqAccountingAccount.class,accountEnd);
+			}
+			
+			if (accountStart != null && accountEnd != null)
+			{
+				query += " and accounts.account_code >='" + accountStart.getAccountCode() + "'" +
+					" and accounts.account_code <='" + accountEnd.getAccountCode() + "'";
+			}
+			else if (accountStart != null)
+			{
+				query += " and accounts.id=" + accountStart.getId();
+			}
+			else if (accountEnd != null)
+			{
+				query += " and accounts.id=" + accountEnd.getId();
+			}
+			query += " ORDER BY accounts.top_account,trans.transactions_date";
+			
+			Statement statement=session.connection().createStatement();
+			ResultSet rs=statement.executeQuery(query);
+			List list=new ArrayList();
+			while(rs.next())
+			{
+				Object[] obj=new Object[10];
+				for(int k=0; k<10; k++)
+				{
+					obj[k]=rs.getObject(k+1);
+				}
+				list.add(obj);
+			}
+		
+			return list;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
 	}
 
 
