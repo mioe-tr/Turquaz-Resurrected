@@ -15,7 +15,7 @@
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardSearch.java,v 1.8 2005/05/27 09:36:20 onsel Exp $
+ * @version $Id: CashBLCashCardSearch.java,v 1.9 2005/06/14 08:09:47 huseyiner Exp $
  */
 package com.turquaz.cash.bl;
 
@@ -49,6 +49,7 @@ public class CashBLCashCardSearch
 		
 		HashBag returnBag = new HashBag();
 		
+        returnBag.put(CashKeys.CASH_CARDS,new HashMap());
 		
 		List list = CashDALCashCard.searchCashCard(account, cardName);
 		
@@ -58,13 +59,13 @@ public class CashBLCashCardSearch
 			returnBag.put(CashKeys.CASH_CARDS,i,CashKeys.CASH_CARD_NAME,cashCard.getCashCardName());
 			returnBag.put(CashKeys.CASH_CARDS,i,EngKeys.DEFINITION,cashCard.getCashCardDefinition());
 			returnBag.put(CashKeys.CASH_CARDS,i,CashKeys.CASH_CARD_ID,cashCard.getId());
-			returnBag.put(CashKeys.CASH_CARDS,i,AccKeys.ACC_ACCOUNT_CODE,cashCard.getTurqAccountingAccount().getAccountCode());
+			returnBag.put(CashKeys.CASH_CARDS,i,AccKeys.ACC_ACCOUNT_CODE_ID,cashCard.getTurqAccountingAccount().getId());
+            returnBag.put(CashKeys.CASH_CARDS,i,AccKeys.ACC_ACCOUNT_CODE,cashCard.getTurqAccountingAccount().getAccountCode());
+            
 			
 		}
 		
 		return returnBag;
-		
-		
-		
+
 	}
 }
