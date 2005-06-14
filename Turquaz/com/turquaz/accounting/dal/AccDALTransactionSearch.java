@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALTransactionSearch.java,v 1.54 2005/06/14 08:12:55 cemdayanik Exp $
+ * @version $Id: AccDALTransactionSearch.java,v 1.55 2005/06/14 09:30:54 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -159,6 +159,54 @@ public class AccDALTransactionSearch
 				query += " and accounts.id=" + accountEnd.getId();
 			}
 			query += " ORDER BY accounts.top_account,trans.transactions_date";
+			
+			Statement statement=session.connection().createStatement();
+			ResultSet rs=statement.executeQuery(query);
+			List list=new ArrayList();
+			while(rs.next())
+			{
+				Object[] obj=new Object[10];
+				for(int k=0; k<10; k++)
+				{
+					obj[k]=rs.getObject(k+1);
+				}
+				list.add(obj);
+			}
+		
+			return list;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+	
+	public static List getAccountingJournal(Date startDate, Date endDate, boolean approved) throws Exception
+	{
+		try
+		{
+			
+			Session session = EngDALSessionFactory.getSession();
+			SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			String query = "Select trans.id as accounting_transactions_id," +
+			" transcolumns.id as accounting_transaction_columns_id,"+
+			" trans.accounting_journal_id, trans.transactions_date," +
+			" trans.transaction_document_no, transcolumns.rows_dept_in_base_currency," +
+			" transcolumns.rows_credit_in_base_currency, accounts.account_name," +
+			" accounts.account_code, trans.transaction_description" +
+			" from turq_accounting_transactions trans," +
+			" turq_accounting_transaction_columns transcolumns," + 
+			" turq_accounting_accounts accounts" +
+			" where trans.id=transcolumns.accounting_transactions_id" + 
+			" and transcolumns.accounting_accounts_id=accounts.id" +
+			" and trans.transactions_date >= '" + dformat.format(startDate) + "'" +
+			" and trans.transactions_date <= '" + dformat.format(endDate) + "'"; 
+			if (approved)
+			{
+				query += " and trans.accounting_journal_id > 0"; 
+			}
+			query += " ORDER BY trans.accounting_journal_id"; 
 			
 			Statement statement=session.connection().createStatement();
 			ResultSet rs=statement.executeQuery(query);

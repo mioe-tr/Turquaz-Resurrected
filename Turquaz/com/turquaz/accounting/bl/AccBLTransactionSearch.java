@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionSearch.java,v 1.40 2005/06/14 08:12:55 cemdayanik Exp $
+ * @version $Id: AccBLTransactionSearch.java,v 1.41 2005/06/14 09:30:53 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -109,6 +109,18 @@ public class AccBLTransactionSearch
 		List list=AccDALTransactionSearch.getGeneralLedger(accountStartId,accountEndId,startDate,endDate,approved.booleanValue());
 		generalBag.put(AccKeys.ACC_TRANSACTIONS,list);		
 		return generalBag;
+	}
+	
+	public static HashBag getAccountingJournal(HashMap argMap)throws Exception
+	{
+		Date startDate=(Date)argMap.get(EngKeys.DATE_START);
+		Date endDate=(Date)argMap.get(EngKeys.DATE_END);	
+		Boolean approved=(Boolean)argMap.get(AccKeys.ACC_APPROVED);
+		
+		HashBag journalBag=new HashBag();		
+		List list=AccDALTransactionSearch.getAccountingJournal(startDate,endDate,approved.booleanValue());
+		journalBag.put(AccKeys.ACC_TRANSACTIONS,list);		
+		return journalBag;
 	}
 
 	public static List getCurrentBalances(HashMap argMap) throws Exception
