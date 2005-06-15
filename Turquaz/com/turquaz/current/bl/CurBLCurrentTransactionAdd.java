@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentTransactionAdd.java,v 1.56 2005/06/08 17:20:51 onsel Exp $
+ * @version $Id: CurBLCurrentTransactionAdd.java,v 1.57 2005/06/15 15:42:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -342,8 +342,10 @@ public class CurBLCurrentTransactionAdd
 		BigDecimal totalDiscount = (BigDecimal)argMap.get(CurKeys.CUR_DISCOUNT_PAYMENT);
 		Integer type = (Integer)argMap.get(EngKeys.TYPE);
 		Integer seqDocNo = (Integer)argMap.get(EngKeys.ENG_SEQ_ID);
-		TurqCurrencyExchangeRate exchangeRate = (TurqCurrencyExchangeRate)argMap.get(EngKeys.EXCHANGE_RATE);
 		
+		Integer currencyId=(Integer)argMap.get(EngKeys.CURRENCY_ID);
+		TurqCurrencyExchangeRate exchangeRate = EngDALCommon.getCurrencyExchangeRate(currencyId,transDate);
+		 
 			//Accounting Integration
 			//Eger bir Nakit hareketi ise Muhasebe kaydini yap
 			//Daha sonra cari hareketi ekle

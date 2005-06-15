@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.20 2005/05/31 13:54:29 onsel Exp $
+ * @version  $Id: BankUIMoneyTransferInUpdate.java,v 1.21 2005/06/15 15:42:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -234,7 +234,7 @@ public class BankUIMoneyTransferInUpdate extends org.eclipse.swt.widgets.Dialog
 				argMap.put(EngKeys.TRANS_DATE,compMoneyTransferIn.getDatePick().getDate());
 				argMap.put(EngKeys.DEFINITION,compMoneyTransferIn.getTxtDefinition().getText().trim());
 				argMap.put(EngKeys.DOCUMENT_NO,compMoneyTransferIn.getTxtDocNo().getText().trim());
-				argMap.put(EngKeys.EXCHANGE_RATE,compMoneyTransferIn.getExchangeRate());				
+				argMap.put(EngKeys.CURRENCY_ID,compMoneyTransferIn.getComboCurrencyType().getData(compMoneyTransferIn.getComboCurrencyType().getText().trim()));				
 				
 				EngTXCommon.doTransactionTX(BankBLTransactionUpdate.class.getName(),"updateTransactionBill",argMap);
 				EngUICommon.showUpdatedSuccesfullyMessage(getParent());

@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.27 2005/06/14 18:14:16 onsel Exp $
+ * @version  $Id: CheUIChequeOutPayrollCurrent.java,v 1.28 2005/06/15 15:42:38 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -316,7 +316,7 @@ public class CheUIChequeOutPayrollCurrent extends org.eclipse.swt.widgets.Compos
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,cheques);
 				argMap.put(EngKeys.TYPE, EngBLCommon.CHEQUE_TRANS_OUT_CURRENT);
 				argMap.put(CheKeys.CHE_SUM_TRANS,new Boolean(btnSumTotals.getSelection()));
-				argMap.put(EngKeys.EXCHANGE_RATE, EngBLCommon.getBaseCurrencyExchangeRate());
+				argMap.put(EngKeys.CURRENCY_ID, EngBLCommon.getBaseCurrencyId());
 				
 				EngTXCommon.doTransactionTX(CheBLSaveChequeTransaction.class.getName(),"saveChequeRoll",argMap);
 								
