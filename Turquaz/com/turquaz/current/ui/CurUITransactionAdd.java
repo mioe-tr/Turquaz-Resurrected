@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUITransactionAdd.java,v 1.45 2005/06/15 15:42:38 onsel Exp $
+ * @version  $Id: CurUITransactionAdd.java,v 1.46 2005/06/15 16:36:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -39,6 +39,7 @@ import org.eclipse.swt.layout.GridData;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.CashLangKeys;
@@ -253,7 +254,7 @@ public class CurUITransactionAdd extends Composite implements SecureComposite
 		try
 		{
 
-			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
+			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLServer.class.getName(),"getCurrencies",null);
 			HashMap currencies = (HashMap)currencyBag.get(EngKeys.CURRENCIES);
 			
 			for (int k = 0; k < currencies.size(); k++)

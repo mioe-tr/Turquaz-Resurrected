@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.22 2005/06/14 08:09:46 huseyiner Exp $
+ * @version  $Id: CashUICashPaymentTransactionAdd.java,v 1.23 2005/06/15 16:36:19 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -35,6 +35,7 @@ import com.turquaz.cash.bl.CashBLCashTransactionAdd;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.CashLangKeys;
 import com.turquaz.engine.lang.CurLangKeys;
@@ -207,7 +208,7 @@ public class CashUICashPaymentTransactionAdd extends org.eclipse.swt.widgets.Com
 	{
 		try
 		{
-            HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
+            HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLServer.class.getName(),"getCurrencies",null);
             HashMap currencies = (HashMap)currencyBag.get(EngKeys.CURRENCIES);
            
 			for (int k = 0; k < currencies.size(); k++)

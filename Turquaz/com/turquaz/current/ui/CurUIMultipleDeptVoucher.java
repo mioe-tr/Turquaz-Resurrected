@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUIMultipleDeptVoucher.java,v 1.10 2005/06/08 17:20:51 onsel Exp $
+ * @version  $Id: CurUIMultipleDeptVoucher.java,v 1.11 2005/06/15 16:36:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -39,6 +39,7 @@ import org.eclipse.swt.widgets.TableItem;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.common.HashBag;
 import com.turquaz.current.CurKeys;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
@@ -289,7 +290,7 @@ public class CurUIMultipleDeptVoucher extends Composite implements SecureComposi
 		try
 		{
 
-			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
+			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLServer.class.getName(),"getCurrencies",null);
 			HashMap currencies = (HashMap)currencyBag.get(EngKeys.CURRENCIES);
 			
 			for (int k = 0; k < currencies.size(); k++)

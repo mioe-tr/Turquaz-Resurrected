@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.30 2005/06/07 11:40:37 onsel Exp $
+ * @version  $Id: CUrUITransactionUpdateDialog.java,v 1.31 2005/06/15 16:36:17 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.graphics.Rectangle;
@@ -39,7 +39,7 @@ import com.turquaz.current.bl.CurBLSearchTransaction;
 import com.turquaz.current.bl.CurBLTransactionUpdate;
 import com.turquaz.current.ui.CurUITransactionAdd;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLCommon;
+import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -71,7 +71,7 @@ public class CUrUITransactionUpdateDialog extends org.eclipse.swt.widgets.Dialog
 	private Shell dialogShell;
 	TurqCurrentTransaction transaction;
 	private ToolItem toolCancel;
-	private TurqCurrency baseCurrency = EngBLCommon.getBaseCurrency();
+	private TurqCurrency baseCurrency = EngBLClient.getBaseCurrency();
 	private TurqCurrencyExchangeRate exchangeRate = null;
 	private TurqCurrency exchangeCurrency = null;
 

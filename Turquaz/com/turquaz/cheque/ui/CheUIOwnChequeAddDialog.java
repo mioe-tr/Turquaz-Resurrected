@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.18 2005/06/14 18:14:17 onsel Exp $
+ * @version  $Id: CheUIOwnChequeAddDialog.java,v 1.19 2005/06/15 16:36:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -26,6 +26,7 @@ import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.GridData;
 
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.lang.CheLangKeys;
@@ -294,7 +295,7 @@ public class CheUIOwnChequeAddDialog extends org.eclipse.swt.widgets.Dialog
 			
 			chequeInfo.put(EngKeys.TYPE_ID,new Integer(EngBLCommon.CHEQUE_TYPE_OWN));
 			chequeInfo.put(BankKeys.BANK_ID,bankPicker.getBankId());
-			chequeInfo.put(EngKeys.CURRENCY_ID,EngBLCommon.getBaseCurrencyId());
+			chequeInfo.put(EngKeys.CURRENCY_ID,EngBLClient.getBaseCurrencyId());
 		
 			dialogShell.close();
 		}

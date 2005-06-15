@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUITransactionPayment.java,v 1.65 2005/06/09 15:52:28 cemdayanik Exp $
+ * @version  $Id: AccUITransactionPayment.java,v 1.66 2005/06/15 16:36:16 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -41,6 +41,7 @@ import com.turquaz.accounting.bl.AccBLTransactionAdd;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.AccLangKeys;
 import com.turquaz.engine.lang.EngLangCommonKeys;
@@ -295,7 +296,7 @@ public class AccUITransactionPayment extends Composite implements SecureComposit
 	{
 		try
 		{
-			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLCommon.class.getName(),"getCurrencies",null);
+			HashBag currencyBag = (HashBag)EngTXCommon.doSelectTX(EngBLServer.class.getName(),"getCurrencies",null);
 			HashMap currencies = (HashMap)currencyBag.get(EngKeys.CURRENCIES);
 			
 			for (int k = 0; k < currencies.size(); k++)

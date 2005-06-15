@@ -17,7 +17,7 @@ package com.turquaz.engine.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: EngUIEntryFrame.java,v 1.66 2005/05/24 12:54:02 cemdayanik Exp $
+ * @version  $Id: EngUIEntryFrame.java,v 1.67 2005/06/15 16:36:20 onsel Exp $
  */
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,6 +40,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 import com.turquaz.engine.EngConfiguration;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLVersionValidate;
@@ -455,8 +456,8 @@ public class EngUIEntryFrame extends org.eclipse.swt.widgets.Composite
 			comboLanguage.setData("English", new Integer(2)); //$NON-NLS-1$
 			comboLanguage.setText("T\u00FCrk\u00E7e"); //$NON-NLS-1$
 			EngDALSessionFactory.init();
-			EngBLCommon.getBaseCurrency();
-			EngBLCommon.getBaseCurrencyExchangeRate();
+			EngBLClient.getBaseCurrency();
+			EngBLClient.getBaseCurrencyExchangeRate();
             //checkRememberPassword.setVisible(false);
             
 		}

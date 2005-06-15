@@ -17,7 +17,7 @@ package com.turquaz.cheque.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.27 2005/06/14 18:14:17 onsel Exp $
+ * @version  $Id: CheUIChequeInPayrollUpdate.java,v 1.28 2005/06/15 16:36:17 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,6 +36,7 @@ import com.turquaz.cheque.bl.CheBLUpdateChequeRoll;
 import com.turquaz.common.HashBag;
 import com.turquaz.current.CurKeys;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.lang.CheLangKeys;
@@ -257,7 +258,7 @@ public class CheUIChequeInPayrollUpdate extends org.eclipse.swt.widgets.Dialog
 				argMap.put(CheKeys.CHE_CHEQUE_LIST,chequeList);
 				argMap.put(EngKeys.TYPE,EngBLCommon.CHEQUE_TRANS_IN);
 				argMap.put(CheKeys.CHE_SUM_TRANS,new Boolean(compChequeRoll.getBtnSumTotals().getSelection()));
-				argMap.put(EngKeys.CURRENCY_ID,EngBLCommon.getBaseCurrencyId());
+				argMap.put(EngKeys.CURRENCY_ID,EngBLClient.getBaseCurrencyId());
 				EngTXCommon.doTransactionTX(CheBLUpdateChequeRoll.class.getName(),"updateChequeRollIn",argMap);
 				
 				
