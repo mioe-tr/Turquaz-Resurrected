@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.51 2005/05/02 13:36:18 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.52 2005/06/15 10:23:50 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import com.turquaz.common.HashBag;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLInventoryGroups;
@@ -66,11 +67,24 @@ public class InvBLCardAdd
 		return null;
 	}
 
-	public static List getInventoryUnits() throws Exception
+	public static HashBag getInventoryUnits() throws Exception
 	{
 		try
 		{
-			return InvDALCardAdd.getAllInventoryUnits();
+			HashBag invUnitsBag=new HashBag();
+			List invUnits=InvDALCardAdd.getAllInventoryUnits();
+			
+			invUnitsBag.put(InvKeys.INV_UNITS, new HashMap());
+			
+			for(int k=0; k<invUnits.size() ; k++)
+			{
+				TurqInventoryUnit invUnit=(TurqInventoryUnit)invUnits.get(k);
+
+				invUnitsBag.put(InvKeys.INV_UNITS,k,InvKeys.INV_UNIT_ID,invUnit.getId());
+				invUnitsBag.put(InvKeys.INV_UNITS,k,InvKeys.INV_UNIT_NAME,invUnit.getUnitsName());
+			}
+			
+			return invUnitsBag;
 		}
 		catch (Exception ex)
 		{

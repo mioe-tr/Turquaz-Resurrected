@@ -17,13 +17,15 @@ package com.turquaz.inventory.bl;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.20 2005/04/12 13:03:38 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.21 2005/06/15 10:23:50 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import com.turquaz.common.HashBag;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqAccountingAccount;
+import com.turquaz.engine.dal.TurqInventoryAccountingType;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqViewInventoryAmountTotal;
@@ -72,11 +74,24 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static List getAllInvAccTypes() throws Exception
+	public static HashBag getAllInvAccTypes() throws Exception
 	{
 		try
 		{
-			return InvDALCardSearch.getAllInvAccTypes();
+			HashBag typeBag=new HashBag();
+			List typeList=InvDALCardSearch.getAllInvAccTypes();
+			
+			typeBag.put(InvKeys.INV_ACC_TYPES,new HashMap());
+			
+			for(int k=0; k<typeList.size(); k++)
+			{
+				TurqInventoryAccountingType type=(TurqInventoryAccountingType)typeList.get(k);
+				
+				typeBag.put(InvKeys.INV_ACC_TYPES,k,InvKeys.INV_ACC_TYPE_ID,type.getId());
+				typeBag.put(InvKeys.INV_ACC_TYPES,k,InvKeys.INV_ACC_TYPE_NAME,type.getTypeName());
+				typeBag.put(InvKeys.INV_ACC_TYPES,k,InvKeys.INV_ACC_TYPE_DEFINITION,type.getDefinition());
+			}
+			return typeBag;
 		}
 		catch (Exception ex)
 		{
