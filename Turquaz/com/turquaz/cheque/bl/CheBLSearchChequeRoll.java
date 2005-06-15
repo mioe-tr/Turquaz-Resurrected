@@ -17,23 +17,19 @@ package com.turquaz.cheque.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CheBLSearchChequeRoll.java,v 1.15 2005/06/14 18:14:17 onsel Exp $
+ * @version $Id: CheBLSearchChequeRoll.java,v 1.16 2005/06/15 13:48:32 onsel Exp $
  */
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import com.turquaz.bank.BankKeys;
 import com.turquaz.cheque.CheKeys;
 import com.turquaz.cheque.dal.CheDALSearch;
-import com.turquaz.cheque.dal.CheDALUpdate;
 import com.turquaz.common.HashBag;
 import com.turquaz.current.CurKeys;
 import com.turquaz.engine.EngKeys;
 import com.turquaz.engine.dal.TurqChequeCheque;
-import com.turquaz.engine.dal.TurqChequeChequeInRoll;
-import com.turquaz.engine.dal.TurqChequeRoll;
 import com.turquaz.engine.dal.TurqChequeTransactionType;
 import com.turquaz.engine.dal.TurqCurrentCard;
 
@@ -226,21 +222,5 @@ public class CheBLSearchChequeRoll
 			return chequesBag; 
 	}
 
-	public static TurqChequeRoll getChequeRoll(HashMap argMap) throws Exception
-	{
-		 TurqChequeCheque cheque = (TurqChequeCheque)argMap.get(CheKeys.CHE_CHEQUE);
-		 Integer rollType = (Integer)argMap.get(EngKeys.TYPE);
-		
-		CheDALUpdate.initChequeRolls(cheque);
-		Iterator it = cheque.getTurqChequeChequeInRolls().iterator();
-		while (it.hasNext())
-		{
-			TurqChequeChequeInRoll chequeInRoll = (TurqChequeChequeInRoll) it.next();
-			if (chequeInRoll.getTurqChequeRoll().getTurqChequeTransactionType().getId().intValue() == rollType.intValue())
-			{
-				return chequeInRoll.getTurqChequeRoll();
-			}
-		}
-		return null;
-	}
+	
 }
