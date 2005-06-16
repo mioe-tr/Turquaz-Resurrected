@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.90 2005/06/15 16:36:15 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.91 2005/06/16 11:54:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -990,7 +990,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 				argMap.put(BillKeys.BILL_DISCOUNT_AMOUNT,txtDiscountAmount.getBigDecimalValue());
 				argMap.put(BillKeys.BILL_DOC_NO,txtDocumentNo.getText().trim());
 				argMap.put(BillKeys.BILL_TOTAL_AMOUNT,txtTotalAmount.getBigDecimalValue());
-				argMap.put(EngKeys.EXCHANGE_RATE,EngBLClient.getBaseCurrencyExchangeRate());
+				argMap.put(EngKeys.CURRENCY_ID,EngBLClient.getBaseCurrencyId());
 				argMap.put(BillKeys.BILL_GROUPS,getBillGroups());
 				argMap.put(InvKeys.INV_TRANSACTIONS,getInventoryTransactions());				
 				

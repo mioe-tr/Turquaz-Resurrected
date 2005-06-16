@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIInitialTransaction.java,v 1.37 2005/06/15 16:36:16 onsel Exp $
+ * @version  $Id: AccUIInitialTransaction.java,v 1.38 2005/06/16 11:54:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -446,7 +446,7 @@ public class AccUIInitialTransaction extends Composite implements SecureComposit
 				argMap.put(AccKeys.ACC_DOCUMENT_NO,txtDocumentNo.getText().trim());
 				argMap.put(AccKeys.ACC_TRANS_DATE, dateTransactionDate.getDate());
 				argMap.put(AccKeys.ACC_DEFINITION,	txtTransDefinition.getText().trim());
-				argMap.put(EngKeys.EXCHANGE_RATE_ID,EngBLClient.getBaseCurrencyExchangeRate().getId());
+				argMap.put(EngKeys.CURRENCY_ID,EngBLClient.getBaseCurrencyId());
 				argMap.put(AccKeys.ACC_TRANSACTIONS,getTransactionColumns());
 				
 				EngTXCommon.doTransactionTX(AccBLTransactionUpdate.class.getName(),"updateTransaction",argMap);

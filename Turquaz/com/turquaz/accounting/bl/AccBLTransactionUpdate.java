@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLTransactionUpdate.java,v 1.23 2005/06/09 16:16:47 cemdayanik Exp $
+ * @version $Id: AccBLTransactionUpdate.java,v 1.24 2005/06/16 11:54:28 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,6 +53,7 @@ public class AccBLTransactionUpdate
 			List transColumns = (List) argMap.get(AccKeys.ACC_TRANSACTIONS);
 		
 			Integer currencyId=(Integer)argMap.get(EngKeys.CURRENCY_ID);
+			
 			TurqCurrencyExchangeRate exchangeRate = EngDALCommon.getCurrencyExchangeRate(currencyId,transDate);
 			if (exchangeRate == null)
 			{

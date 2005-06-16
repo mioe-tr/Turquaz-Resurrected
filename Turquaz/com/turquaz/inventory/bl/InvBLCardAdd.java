@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.54 2005/06/16 07:16:12 cemdayanik Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.55 2005/06/16 11:54:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -26,7 +26,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.turquaz.common.HashBag;
-import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLInventoryGroups;
@@ -299,7 +298,7 @@ public class InvBLCardAdd
 			invTrans.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
 			invTrans.setLastModified(cal.getTime());
 			invTrans.setCreationDate(cal.getTime());
-			invTrans.setTurqCurrencyExchangeRate(EngBLClient.getBaseCurrencyExchangeRate());
+			invTrans.setTurqCurrencyExchangeRate(EngDALCommon.getBaseCurrencyExchangeRate());
 			TurqCurrentCard curCard=new TurqCurrentCard();
 			curCard.setId(new Integer(-1));
 			invTrans.setTurqCurrentCard(curCard);

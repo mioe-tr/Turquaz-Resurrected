@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardUpdate.java,v 1.27 2005/06/16 09:55:34 onsel Exp $
+ * @version $Id: CurBLCurrentCardUpdate.java,v 1.28 2005/06/16 11:54:27 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -46,8 +46,7 @@ import com.turquaz.engine.dal.TurqCurrentTransactionType;
 
 public class CurBLCurrentCardUpdate
 {
-	
-	
+		
 	public static HashBag getCurrentcardInfo(HashMap argMap)throws Exception
 	{
 		Integer curCardId = (Integer)argMap.get(CurKeys.CUR_CARD_ID);
