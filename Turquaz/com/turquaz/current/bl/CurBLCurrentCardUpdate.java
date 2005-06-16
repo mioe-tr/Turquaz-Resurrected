@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLCurrentCardUpdate.java,v 1.26 2005/06/07 08:12:58 onsel Exp $
+ * @version $Id: CurBLCurrentCardUpdate.java,v 1.27 2005/06/16 09:55:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,7 +34,6 @@ import com.turquaz.current.CurKeys;
 import com.turquaz.current.dal.CurDALCurrentCardUpdate;
 import com.turquaz.current.dal.CurDALSearchTransaction;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLHibernateComparer;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -174,7 +173,7 @@ public class CurBLCurrentCardUpdate
 		updateCurrentCardContact(currentCard, contactInfo);
 		updateCurrentCardGroups(currentCard, groupList);
 		
-		EngBLCurrentCards.RefreshContentAsistantMap();
+		
 	
 	}
 
@@ -287,7 +286,7 @@ public class CurBLCurrentCardUpdate
 			CurDALSearchTransaction.deleteInitialTransactions(currentCard);
 			EngDALCommon.deleteObject(currentCard);
 			
-			EngBLCurrentCards.RefreshContentAsistantMap();
+			
 	
 	}
 

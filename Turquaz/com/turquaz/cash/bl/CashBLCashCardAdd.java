@@ -7,8 +7,6 @@ import com.turquaz.accounting.AccKeys;
 import com.turquaz.cash.CashKeys;
 import com.turquaz.cash.dal.CashDALCashCard;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLCashCards;
-import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -36,7 +34,7 @@ import com.turquaz.engine.dal.TurqModule;
 /************************************************************************/
 /**
  * @author onsel
- * @version $Id: CashBLCashCardAdd.java,v 1.11 2005/06/15 16:36:20 onsel Exp $
+ * @version $Id: CashBLCashCardAdd.java,v 1.12 2005/06/16 09:55:36 onsel Exp $
  */
 public class CashBLCashCardAdd
 {
@@ -66,7 +64,7 @@ public class CashBLCashCardAdd
 			EngDALCommon.saveObject(cashCard);
 			
 			saveInitialTransaction(cashCard);
-			EngBLCashCards.RefreshContentAsistantMap();
+			
 			
 	
 	}
@@ -104,7 +102,7 @@ public class CashBLCashCardAdd
 		transRow.setLastModified(Calendar.getInstance().getTime());
 		transRow.setCreationDate(Calendar.getInstance().getTime());
 		transRow.setTurqCashCard(cashCard);
-		transRow.setTurqCurrencyExchangeRate(EngBLClient.getBaseCurrencyExchangeRate());
+		transRow.setTurqCurrencyExchangeRate(EngDALCommon.getBaseCurrencyExchangeRate());
 		transRow.setDeptAmount(new BigDecimal(0));
 		transRow.setCreditAmount(new BigDecimal(0));
 		transRow.setDeptAmountInForeignCurrency(new BigDecimal(0));

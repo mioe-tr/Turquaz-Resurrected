@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.37 2005/05/26 12:40:35 cemdayanik Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.38 2005/06/16 09:55:34 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,7 +27,6 @@ import java.util.List;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.dal.AccDALAccountAdd;
 import com.turquaz.common.HashBag;
-import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -215,7 +214,7 @@ public class AccBLAccountAdd
 						.getTurqAccountingAccountByTopAccount());
 				EngDALCommon.saveObject(account);
 			}
-			EngBLAccountingAccounts.RefreshContentAsistantMap();
+			
 			return account.getId();
 		}
 		catch (Exception ex)

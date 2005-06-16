@@ -17,10 +17,9 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: BankBLBankCardAdd.java,v 1.21 2005/05/26 10:11:21 onsel Exp $
+ * @version $Id: BankBLBankCardAdd.java,v 1.22 2005/06/16 09:55:36 onsel Exp $
  */
 import com.turquaz.bank.BankKeys;
-import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqAccountingAccount;
 import com.turquaz.engine.dal.TurqBankAccountingAccount;
@@ -47,7 +46,7 @@ public class BankBLBankCardAdd
 			Map accountingAccounts=(Map)argMap.get(BankKeys.BANK_ACCOUNTING_ACCOUNTS);
 			TurqBanksCard bankCard = registerBankCard( bankName, bankBranchName, bankAccountNo, currency, definition, bankCode);
 			saveBankAccountingAccounts(bankCard, accountingAccounts);
-			EngBLBankCards.RefreshContentAsistantMap();
+			
 			
 		}
 		catch (Exception ex)

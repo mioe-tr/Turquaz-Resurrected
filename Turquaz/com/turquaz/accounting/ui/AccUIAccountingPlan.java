@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountingPlan.java,v 1.64 2005/05/26 12:40:34 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingPlan.java,v 1.65 2005/06/16 09:55:34 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -43,6 +43,8 @@ import com.turquaz.accounting.bl.AccBLAccountUpdate;
 import com.turquaz.common.HashBag;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+
+import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLUtils;
 import com.turquaz.engine.interfaces.SearchComposite;
@@ -409,7 +411,7 @@ public class AccUIAccountingPlan extends org.eclipse.swt.widgets.Composite imple
 					argMap = new HashMap();
 					argMap.put(AccKeys.ACC_ACCOUNT_ID,accountId);
 					EngTXCommon.doTransactionTX(AccBLAccountUpdate.class.getName(),"deleteAccount",argMap);
-					
+					EngBLAccountingAccounts.RefreshContentAsistantMap();
 					msg.setMessage(EngLangCommonKeys.MSG_DELETED_SUCCESS); 
 					msg.open();
 

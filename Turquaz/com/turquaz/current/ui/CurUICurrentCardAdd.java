@@ -17,7 +17,7 @@ package com.turquaz.current.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: CurUICurrentCardAdd.java,v 1.77 2005/05/31 15:18:23 onsel Exp $
+ * @version  $Id: CurUICurrentCardAdd.java,v 1.78 2005/06/16 09:55:35 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1192,6 +1192,7 @@ public class CurUICurrentCardAdd extends Composite implements SecureComposite
 				argMap.put(CurKeys.CUR_CONTACT_INFO,getContactInfo());
 				argMap.put(CurKeys.CUR_GROUP_LIST,getGroupList());
 				EngTXCommon.doTransactionTX(CurBLCurrentCardAdd.class.getName(),"saveCurrentCard",argMap);	 //$NON-NLS-1$
+				EngBLCurrentCards.RefreshContentAsistantMap();
 				EngUICommon.showSavedSuccesfullyMessage(getShell());
 				clearFields();
 			}

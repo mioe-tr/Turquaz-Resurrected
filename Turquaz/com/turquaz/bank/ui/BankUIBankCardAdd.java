@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardAdd.java,v 1.37 2005/06/15 16:36:14 onsel Exp $
+ * @version  $Id: BankUIBankCardAdd.java,v 1.38 2005/06/16 09:55:34 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -33,6 +33,8 @@ import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.custom.CTabItem;
+
+import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLServer;
@@ -402,6 +404,7 @@ public class BankUIBankCardAdd extends Composite implements SecureComposite
 				
 				EngTXCommon.doTransactionTX(BankBLBankCardAdd.class.getName(),"saveBankCard",argMap);
 				EngUICommon.showSavedSuccesfullyMessage(getShell());
+				EngBLBankCards.RefreshContentAsistantMap();
 				newForm();
 				
 			}

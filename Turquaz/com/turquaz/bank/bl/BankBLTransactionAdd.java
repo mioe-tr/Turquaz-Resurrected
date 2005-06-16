@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: BankBLTransactionAdd.java,v 1.54 2005/06/15 16:36:19 onsel Exp $
+ * @version $Id: BankBLTransactionAdd.java,v 1.55 2005/06/16 09:55:35 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -36,7 +36,6 @@ import com.turquaz.current.CurKeys;
 import com.turquaz.current.bl.CurBLCurrentCardSearch;
 import com.turquaz.current.bl.CurBLCurrentTransactionAdd;
 import com.turquaz.engine.EngKeys;
-import com.turquaz.engine.bl.EngBLClient;
 import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
@@ -212,7 +211,7 @@ public class BankBLTransactionAdd
 			transRow.setLastModified(Calendar.getInstance().getTime());
 			transRow.setCreationDate(Calendar.getInstance().getTime());
 			transRow.setTurqBanksCard(bankCard);
-			transRow.setTurqCurrencyExchangeRate(EngBLClient.getBaseCurrencyExchangeRate());
+			transRow.setTurqCurrencyExchangeRate(EngDALCommon.getBaseCurrencyExchangeRate());
 			transRow.setDeptAmount(new BigDecimal(0));
 			transRow.setCreditAmount(new BigDecimal(0));
 			transRow.setDeptAmountInForeignCurrency(new BigDecimal(0));

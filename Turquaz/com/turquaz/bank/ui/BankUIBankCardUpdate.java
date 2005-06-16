@@ -17,7 +17,7 @@ package com.turquaz.bank.ui;
 /************************************************************************/
 /**
  * @author  Ceday
- * @version  $Id: BankUIBankCardUpdate.java,v 1.31 2005/06/15 16:36:14 onsel Exp $
+ * @version  $Id: BankUIBankCardUpdate.java,v 1.32 2005/06/16 09:55:34 onsel Exp $
  */
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,6 +36,7 @@ import com.turquaz.bank.bl.BankBLBankCardSearch;
 import com.turquaz.bank.bl.BankBLBankCardUpdate;
 import com.turquaz.bank.ui.BankUIBankCardAdd;
 import com.turquaz.common.HashBag;
+import com.turquaz.engine.bl.EngBLBankCards;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.bl.EngBLServer;
@@ -297,6 +298,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 			
 			EngTXCommon.doTransactionTX(BankBLBankCardUpdate.class.getName(),"updateBankCard",argMap);
 			EngUICommon.showUpdatedSuccesfullyMessage(getParent());
+			EngBLBankCards.RefreshContentAsistantMap();
 			this.dialogShell.close();
 		}
 		catch (Exception ex)
@@ -326,6 +328,7 @@ public class BankUIBankCardUpdate extends org.eclipse.swt.widgets.Dialog
 				{
 					updated = true;
 					EngTXCommon.doTransactionTX(BankBLBankCardUpdate.class.getName(),"deleteBankCard",argMap);
+					EngBLBankCards.RefreshContentAsistantMap();
 					this.dialogShell.close();
 				}
 				else

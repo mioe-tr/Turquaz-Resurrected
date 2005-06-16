@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAccountUpdate.java,v 1.49 2005/05/26 12:40:35 cemdayanik Exp $
+ * @version  $Id: AccUIAccountUpdate.java,v 1.50 2005/06/16 09:55:33 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Shell;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.bl.AccBLAccountUpdate;
 import com.turquaz.accounting.ui.AccUIAddAccounts;
+import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLPermissions;
 import com.turquaz.engine.lang.AccLangKeys;
@@ -300,7 +301,8 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 				argMap.put(AccKeys.ACC_ACCOUNT_CODE,compAccountCard.getTxtAccAccountCode().getText().trim());
 				argMap.put(AccKeys.ACC_PARENT_ID,compAccountCard.getTxtParentAccount().getData());
 				
-				EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"updateAccount",argMap);						
+				EngTXCommon.doSelectTX(AccBLAccountUpdate.class.getName(),"updateAccount",argMap);
+				EngBLAccountingAccounts.RefreshContentAsistantMap();
 				EngUICommon.showUpdatedSuccesfullyMessage(getParent());
 				updateOccured = true;
 				this.dialogShell.close();
@@ -323,6 +325,7 @@ public class AccUIAccountUpdate extends org.eclipse.swt.widgets.Dialog
 				HashMap argMap = new HashMap();
 				argMap.put(AccKeys.ACC_ACCOUNT_ID,accountMap.get(AccKeys.ACC_ACCOUNT_ID));
 				EngTXCommon.doTransactionTX(AccBLAccountUpdate.class.getName(),"deleteAccount",argMap);				
+				EngBLAccountingAccounts.RefreshContentAsistantMap();
 				EngUICommon.showDeletedSuccesfullyMessage(getParent());
 				updateOccured = true;
 				this.dialogShell.close();

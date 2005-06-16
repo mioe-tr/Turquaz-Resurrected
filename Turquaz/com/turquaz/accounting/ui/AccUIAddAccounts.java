@@ -17,7 +17,7 @@ package com.turquaz.accounting.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: AccUIAddAccounts.java,v 1.61 2005/05/26 12:40:34 cemdayanik Exp $
+ * @version  $Id: AccUIAddAccounts.java,v 1.62 2005/06/16 09:55:33 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.jface.contentassist.TextContentAssistSubjectAdapter;
@@ -312,6 +312,7 @@ public class AccUIAddAccounts extends Composite implements SecureComposite
 			Integer accountId = (Integer) EngTXCommon.doTransactionTX(AccBLAccountAdd.class.getName(),
 					"saveAccount", argMap);
 			EngUICommon.showSavedSuccesfullyMessage(getShell());
+			EngBLAccountingAccounts.RefreshContentAsistantMap();
 			clearFields();
 			return accountId;
 		}

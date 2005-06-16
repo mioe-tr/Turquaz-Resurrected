@@ -17,7 +17,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashCardAdd.java,v 1.20 2005/06/14 08:09:46 huseyiner Exp $
+ * @version  $Id: CashUICashCardAdd.java,v 1.21 2005/06/16 09:55:34 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.layout.GridLayout;
@@ -31,6 +31,7 @@ import com.turquaz.accounting.ui.comp.CashAccountPicker;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import com.turquaz.engine.EngKeys;
+import com.turquaz.engine.bl.EngBLCashCards;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.interfaces.SecureComposite;
 import com.turquaz.engine.lang.AccLangKeys;
@@ -150,6 +151,7 @@ public class CashUICashCardAdd extends org.eclipse.swt.widgets.Composite impleme
 				argMap.put(EngKeys.DEFINITION, txtDefinition.getText().trim());
 				argMap.put(AccKeys.ACC_ACCOUNT_ID,(Integer) accountPicker.getId());
 				EngTXCommon.doTransactionTX(CashBLCashCardAdd.class.getName(),"saveCashCard",argMap);	
+				EngBLCashCards.RefreshContentAsistantMap();
 				EngUICommon.showSavedSuccesfullyMessage(getShell());
 				newForm();
 			}

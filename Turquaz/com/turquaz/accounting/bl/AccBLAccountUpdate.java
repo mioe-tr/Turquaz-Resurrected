@@ -17,14 +17,13 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountUpdate.java,v 1.26 2005/05/26 09:33:29 cemdayanik Exp $
+ * @version $Id: AccBLAccountUpdate.java,v 1.27 2005/06/16 09:55:34 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import com.turquaz.accounting.AccKeys;
 import com.turquaz.accounting.dal.AccDALAccountUpdate;
-import com.turquaz.engine.bl.EngBLAccountingAccounts;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqAccountingAccount;
@@ -72,7 +71,7 @@ public class AccBLAccountUpdate
 			}
 			EngDALCommon.updateObject(account);
 			AccDALAccountUpdate.updateAccountCodeOfSubAccs(account, accCode);
-			EngBLAccountingAccounts.RefreshContentAsistantMap();
+			
 		}
 		catch (Exception ex)
 		{
@@ -139,6 +138,6 @@ public class AccBLAccountUpdate
 			EngDALCommon.updateObject(account);
 		}
 		EngDALCommon.deleteObject(account);
-		EngBLAccountingAccounts.RefreshContentAsistantMap();
+		
 	}
 }
