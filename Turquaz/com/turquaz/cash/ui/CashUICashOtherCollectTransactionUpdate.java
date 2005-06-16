@@ -12,7 +12,7 @@ package com.turquaz.cash.ui;
 /************************************************************************/
 /**
  * @author  Onsel
- * @version  $Id: CashUICashOtherCollectTransactionUpdate.java,v 1.15 2005/06/14 08:09:46 huseyiner Exp $
+ * @version  $Id: CashUICashOtherCollectTransactionUpdate.java,v 1.16 2005/06/16 17:56:32 huseyiner Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -206,7 +206,7 @@ public class CashUICashOtherCollectTransactionUpdate extends Dialog
 				updated = true;
 				HashMap argMap = new HashMap();
 				argMap.put(CashKeys.CASH_TRANSACTION_ID,cashTransId);
-				argMap.put(CashKeys.CASH_CARD_ID, compTransAdd.getTxtCashCard().getData());
+				argMap.put(CashKeys.CASH_CARD_ID, compTransAdd.getTxtCashCard().getCashCardId());
 				argMap.put(CashKeys.CASH_TOTAL_AMOUNT,compTransAdd.getCurTextTotalAmount().getBigDecimalValue());
 				argMap.put(EngKeys.DATE, compTransAdd.getDatePicker().getDate());
 				argMap.put(EngKeys.DEFINITION, compTransAdd.getTxtDefinition().getText());

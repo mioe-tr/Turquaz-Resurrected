@@ -33,7 +33,7 @@ import net.sf.hibernate.Session;
 
 /**
  * @author onsel
- * @version $Id: CashDALCashCard.java,v 1.29 2005/04/12 13:03:41 cemdayanik Exp $
+ * @version $Id: CashDALCashCard.java,v 1.30 2005/06/16 17:56:41 huseyiner Exp $
  */
 public class CashDALCashCard
 {
@@ -131,6 +131,7 @@ public class CashDALCashCard
 
 	public static TurqCashTransaction initiliazeCashTrans(Integer id) throws Exception
 	{
+
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
