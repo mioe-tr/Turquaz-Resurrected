@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Huseyin Ergun
- * @version  $Id: BillUIAddReturnSellBill.java,v 1.9 2005/06/15 16:36:15 onsel Exp $
+ * @version  $Id: BillUIAddReturnSellBill.java,v 1.10 2005/06/16 07:48:23 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1002,19 +1002,7 @@ public class BillUIAddReturnSellBill extends Composite implements SecureComposit
                 comboCurrencyType.setFocus();
                 return false;
             }
-            if (baseCurrency.getId().intValue() != exchangeCurrency.getId().intValue())
-            {
-                exchangeRate = EngBLCommon.getCurrencyExchangeRate(baseCurrency, exchangeCurrency, dateConsignmentDate.getDate());
-                if (exchangeRate == null)
-                {
-                    EngUICommon.showMessageBox(getShell(),EngLangCommonKeys.MSG_DEFINE_DAILY_EXCHANGE_RATE,SWT.ICON_WARNING);
-                    return false;
-                }
-            }
-            else
-            {
-                exchangeRate = EngBLClient.getBaseCurrencyExchangeRate();
-            }
+           
             return true;
         }
         catch (Exception ex)
@@ -1106,7 +1094,7 @@ public class BillUIAddReturnSellBill extends Composite implements SecureComposit
                 argMap.put(BillKeys.BILL_SAVE_CONS,new Boolean(EngConfiguration.automaticDispatcNote()));
                 argMap.put(ConsKeys.CONS_DOC_NO,txtConsignmentDocumentNo.getText());
                 argMap.put(ConsKeys.CONS_DATE,datePickerConsDate.getDate());
-                argMap.put(BillKeys.BILL_CHECK,EngBLCommon.getBillCheckStatus());
+                argMap.put(BillKeys.BILL_CHECK,EngBLClient.getBillCheckStatus());
                 argMap.put(BillKeys.BILL_IS_OPEN,new Boolean(!btnClosedBill.getSelection()));
                
                 argMap.put(CashKeys.CASH_CARD_ID,cashPicher.getCashCardId());

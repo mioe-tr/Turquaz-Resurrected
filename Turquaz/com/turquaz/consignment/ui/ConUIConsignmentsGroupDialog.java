@@ -17,7 +17,7 @@ package com.turquaz.consignment.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.15 2005/05/03 16:37:26 cemdayanik Exp $
+ * @version  $Id: ConUIConsignmentsGroupDialog.java,v 1.16 2005/06/16 07:48:24 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,8 +45,8 @@ import com.turquaz.consignment.ConsKeys;
 import com.turquaz.consignment.bl.ConBLAddGroups;
 import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.widgets.Label;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.TurqConsignmentGroup;
 import com.turquaz.engine.lang.ConsLangKeys;
 import com.turquaz.engine.lang.CurLangKeys;
@@ -300,7 +300,7 @@ public class ConUIConsignmentsGroupDialog extends org.eclipse.swt.widgets.Dialog
 			{
 				HashMap argMap=new HashMap();
 				argMap.put(ConsKeys.CONS_GROUP, txtGroupName.getData());
-				EngTXCommon.doTransactionTX(EngBLCommon.class.getName(),"delete",argMap);
+				EngTXCommon.doTransactionTX(EngBLServer.class.getName(),"delete",argMap);
 				btnDelete.setEnabled(false);
 				btnUpdate.setEnabled(false);
 				btnGroupAdd.setEnabled(true);

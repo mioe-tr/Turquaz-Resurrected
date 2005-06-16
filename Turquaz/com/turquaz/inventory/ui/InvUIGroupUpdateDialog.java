@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIGroupUpdateDialog.java,v 1.9 2005/05/02 13:36:19 cemdayanik Exp $
+ * @version  $Id: InvUIGroupUpdateDialog.java,v 1.10 2005/06/16 07:48:24 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -29,8 +29,8 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.SWT;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.lang.EngLangCommonKeys;
 import com.turquaz.engine.lang.InvLangKeys;
@@ -211,7 +211,7 @@ public class InvUIGroupUpdateDialog extends org.eclipse.swt.widgets.Dialog
 			{ 
 				HashMap argMap=new HashMap();
 				argMap.put(InvKeys.INV_MAIN_GROUP,mainGroup);
-				EngTXCommon.doTransactionTX(EngBLCommon.class.getName(),"delete",argMap); //$NON-NLS-1$
+				EngTXCommon.doTransactionTX(EngBLServer.class.getName(),"delete",argMap); //$NON-NLS-1$
 				EngUICommon.showDeletedSuccesfullyMessage(getParent());
 				isUpdated = true; 
 				dialogShell.close();

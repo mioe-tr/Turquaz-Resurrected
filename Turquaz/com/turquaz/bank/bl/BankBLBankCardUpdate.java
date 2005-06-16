@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Ceday
- * @version $Id: BankBLBankCardUpdate.java,v 1.19 2005/05/26 10:11:21 onsel Exp $
+ * @version $Id: BankBLBankCardUpdate.java,v 1.20 2005/06/16 07:48:24 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -29,7 +29,6 @@ import com.turquaz.bank.dal.BankDALBankCardUpdate;
 import com.turquaz.bank.dal.BankDALCommon;
 import com.turquaz.common.HashBag;
 import com.turquaz.engine.bl.EngBLBankCards;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.TurqBanksCard;
 import com.turquaz.engine.dal.TurqCurrency;
@@ -129,7 +128,7 @@ public class BankBLBankCardUpdate
 			Iterator it = bankCard.getTurqBankAccountingAccounts().iterator();
 			while (it.hasNext())
 			{
-				EngBLCommon.delete(it.next());
+				EngDALCommon.deleteObject(it.next());
 			}
 			BankDALBankCardUpdate.deleteInitialTransaction(bankCard);
 			EngDALCommon.deleteObject(bankCard);

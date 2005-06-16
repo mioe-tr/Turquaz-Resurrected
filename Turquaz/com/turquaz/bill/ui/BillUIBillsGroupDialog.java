@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIBillsGroupDialog.java,v 1.13 2005/05/04 12:34:36 cemdayanik Exp $
+ * @version  $Id: BillUIBillsGroupDialog.java,v 1.14 2005/06/16 07:48:23 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,8 +45,8 @@ import com.turquaz.bill.BillKeys;
 import com.turquaz.bill.bl.BillBLAddGroups;
 import com.cloudgarden.resource.SWTResourceManager;
 import org.eclipse.swt.widgets.Label;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.TurqBillGroup;
 import com.turquaz.engine.lang.BillLangKeys;
 import com.turquaz.engine.lang.EngLangCommonKeys;
@@ -317,7 +317,7 @@ public class BillUIBillsGroupDialog extends org.eclipse.swt.widgets.Dialog
 			{
 				HashMap argMap=new HashMap();
 				argMap.put(BillKeys.BILL_GROUP,txtGroupName.getData());
-				EngTXCommon.doTransactionTX(EngBLCommon.class.getName(),"delete",argMap);
+				EngTXCommon.doTransactionTX(EngBLServer.class.getName(),"delete",argMap);
 				btnDelete.setEnabled(false);
 				btnUpdate.setEnabled(false);
 				btnGroupAdd.setEnabled(true);

@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseUpdate.java,v 1.24 2005/05/02 13:36:19 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseUpdate.java,v 1.25 2005/06/16 07:48:23 onsel Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.widgets.Display;
@@ -25,9 +25,9 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Shell;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.bl.EngBLLogger;
 import com.turquaz.engine.bl.EngBLPermissions;
+import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
 import com.turquaz.engine.lang.EngLangCommonKeys;
 import com.turquaz.engine.lang.InvLangKeys;
@@ -269,7 +269,7 @@ public class InvUIWarehouseUpdate extends org.eclipse.swt.widgets.Dialog
 					EngUICommon.showMessageBox(getParent(),InvLangKeys.MSG_WAREHOUSE_HAS_TRANSACTION,SWT.ICON_WARNING);
 					return;
 				}
-				EngTXCommon.doTransactionTX(EngBLCommon.class.getName(),"delete",argMap);
+				EngTXCommon.doTransactionTX(EngBLServer.class.getName(),"delete",argMap);
 				EngUICommon.showDeletedSuccesfullyMessage(getParent());
 				this.dialogShell.dispose();
 			}

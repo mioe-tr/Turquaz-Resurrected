@@ -17,14 +17,13 @@ package com.turquaz.admin.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AdmBLUserPermissions.java,v 1.12 2005/05/27 16:39:36 huseyiner Exp $
+ * @version $Id: AdmBLUserPermissions.java,v 1.13 2005/06/16 07:48:24 onsel Exp $
  */
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import com.turquaz.admin.AdmKeys;
 import com.turquaz.common.HashBag;
-import com.turquaz.engine.bl.EngBLCommon;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.EngDALUserPerms;
@@ -134,7 +133,7 @@ public class AdmBLUserPermissions
             
             EngDALSessionFactory.getSession().refresh(perm);
                         
-            EngBLCommon.delete(perm);            
+            EngDALCommon.deleteObject(perm);            
         }
         catch (Exception ex)
         {
