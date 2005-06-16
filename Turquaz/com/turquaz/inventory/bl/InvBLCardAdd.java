@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardAdd.java,v 1.53 2005/06/15 16:36:14 onsel Exp $
+ * @version $Id: InvBLCardAdd.java,v 1.54 2005/06/16 07:16:12 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -106,11 +106,38 @@ public class InvBLCardAdd
 		}
 	}
 
-	public static List getParentInventoryGroups() throws Exception
+	public static HashBag getParentInventoryGroups() throws Exception
 	{
 		try
 		{
-			return InvDALCardAdd.getParentInventoryGroups();
+			HashBag groupBag=new HashBag();
+			List groups= InvDALCardAdd.getParentInventoryGroups();
+			
+			groupBag.put(InvKeys.INV_GROUPS, new HashMap());
+			for(int k=0; k<groups.size(); k++)
+			{
+				TurqInventoryGroup group=(TurqInventoryGroup)groups.get(k);
+				
+				groupBag.put(InvKeys.INV_GROUPS,k,InvKeys.INV_GROUP_ID,group.getId());
+				groupBag.put(InvKeys.INV_GROUPS,k,InvKeys.INV_GROUP_NAME,group.getGroupsName());
+				groupBag.put(InvKeys.INV_GROUPS,k,InvKeys.INV_GROUP_DESCRIPTION,group.getGroupsDescription());
+				
+				Iterator it=group.getTurqInventoryGroups().iterator();
+				
+				HashBag subGroups=new HashBag();
+				subGroups.put(InvKeys.INV_SUB_GROUPS,new HashMap());
+				int row=0;
+				while(it.hasNext())
+				{
+					TurqInventoryGroup subGroup=(TurqInventoryGroup)it.next();
+					subGroups.put(InvKeys.INV_SUB_GROUPS,row,InvKeys.INV_GROUP_ID,subGroup.getId());
+					subGroups.put(InvKeys.INV_SUB_GROUPS,row,InvKeys.INV_GROUP_NAME,subGroup.getGroupsName());
+					subGroups.put(InvKeys.INV_SUB_GROUPS,row,InvKeys.INV_GROUP_DESCRIPTION,subGroup.getGroupsDescription());
+					row++;
+				}
+				groupBag.put(InvKeys.INV_GROUPS,k,InvKeys.INV_SUB_GROUPS,subGroups);
+			}
+			return groupBag;
 		}
 		catch (Exception ex)
 		{
