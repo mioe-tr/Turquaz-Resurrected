@@ -17,7 +17,7 @@ package com.turquaz.engine.ui.contentassist;
 /** ********************************************************************* */
 /**
  * @author Onsel
- * @version $Id: TurquazContentAssistProcessors.java,v 1.43 2005/06/16 07:16:15 cemdayanik Exp $
+ * @version $Id: TurquazContentAssistProcessors.java,v 1.44 2005/06/16 16:38:31 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,8 +47,6 @@ import com.turquaz.engine.bl.EngBLCurrentCards;
 import com.turquaz.engine.bl.EngBLInventoryCards;
 import com.turquaz.engine.bl.EngBLInventoryGroups;
 import com.turquaz.engine.bl.EngBLLogger;
-import com.turquaz.engine.dal.TurqAccountingAccount;
-import com.turquaz.engine.tx.EngTXCommon;
 import com.turquaz.inventory.InvKeys;
 
 public class TurquazContentAssistProcessors implements ISubjectControlContentAssistProcessor
@@ -87,7 +85,7 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 			this.contentType = type;
 			HashMap argMap=new HashMap();
 			argMap.put(EngKeys.TYPE,new Integer(type));
-			EngTXCommon.doSelectTX(this.getClass().getName(),"fillProposalArray",argMap);
+			fillProposalArray(argMap);
 		}
 		catch(Exception ex)
 		{
@@ -220,14 +218,17 @@ public class TurquazContentAssistProcessors implements ISubjectControlContentAss
 		
 		proposed = new ArrayList();
 		list = EngBLAccountingAccounts.getNormalAccounts();
+		
 		for (int i = 0; i < list.size(); i++)
 		{
-			TurqAccountingAccount acc = (TurqAccountingAccount) list.get(i);
-			proposed.add(new Proposal(acc.getAccountCode(), acc.getAccountName()));
+			HashMap acc = (HashMap) list.get(i);
+			
+			proposed.add(new Proposal(acc.get(AccKeys.ACC_ACCOUNT_CODE).toString(), acc.get(AccKeys.ACC_ACCOUNT_NAME).toString()));
+		
 		}
 		proposedCodeList[EngBLCommon.CONTENT_ASSIST_MAIN_ACCOUNTS] = new Proposal[proposed.size()];
 		proposed.toArray(proposedCodeList[EngBLCommon.CONTENT_ASSIST_MAIN_ACCOUNTS]);
-
+		
 		
 	}
 	

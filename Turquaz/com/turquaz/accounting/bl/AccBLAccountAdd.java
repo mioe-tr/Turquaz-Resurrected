@@ -17,7 +17,7 @@ package com.turquaz.accounting.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccBLAccountAdd.java,v 1.38 2005/06/16 09:55:34 onsel Exp $
+ * @version $Id: AccBLAccountAdd.java,v 1.39 2005/06/16 16:38:31 onsel Exp $
  */
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,6 +35,20 @@ import com.turquaz.engine.lang.AccLangKeys;
 
 public class AccBLAccountAdd
 {
+	
+	public static HashBag getAccountingAccountLists()throws Exception
+	{
+		
+		HashBag accountBag =new HashBag();
+		accountBag.put(AccKeys.ACC_CASH_ACCOUNTS,getCashAccounts());
+		accountBag.put(AccKeys.ACC_LEAF_ACCOUNTS,getLeafAccounts());
+		accountBag.put(AccKeys.ACC_ALL_ACCOUNTS,getAllAccounts());
+		accountBag.put(AccKeys.ACC_NORMAL_ACCOUNTS,getAllAccountsExceptRoot());
+		
+		return accountBag;
+	}
+	
+	
 	public static List getAccount(HashMap argMap) throws Exception
 	{
 		try
@@ -101,7 +115,19 @@ public class AccBLAccountAdd
 	{
 		try
 		{
-			return AccDALAccountAdd.getAllAccountsExceptRoot();
+			List accounts = AccDALAccountAdd.getAllAccountsExceptRoot();
+			List accountMaps=new ArrayList();
+			for(int k=0; k<accounts.size(); k++)
+			{
+				HashMap accountMap=new HashMap();
+				Object[] accountInfo=(Object[])accounts.get(k);
+				accountMap.put(AccKeys.ACC_ACCOUNT_ID,accountInfo[0]);
+				accountMap.put(AccKeys.ACC_ACCOUNT_NAME,accountInfo[1]);
+				accountMap.put(AccKeys.ACC_ACCOUNT_CODE,accountInfo[2]);
+				accountMap.put(AccKeys.ACC_PARENT_ID,accountInfo[3]);
+				accountMaps.add(accountMap);
+			}
+			return accountMaps;
 		}
 		catch (Exception ex)
 		{

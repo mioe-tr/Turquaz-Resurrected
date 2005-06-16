@@ -17,7 +17,7 @@ package com.turquaz.accounting.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: AccDALAccountAdd.java,v 1.41 2005/05/26 12:40:34 cemdayanik Exp $
+ * @version $Id: AccDALAccountAdd.java,v 1.42 2005/06/16 16:38:31 onsel Exp $
  */
 import java.util.Date;
 import java.util.List;
@@ -111,7 +111,8 @@ public class AccDALAccountAdd
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
-			String query = "Select account from TurqAccountingAccount as account " + "where account.id<> -1" +
+			String query = "Select account.id, account.accountName, account.accountCode," +
+					" account.turqAccountingAccountByParentAccount.id from TurqAccountingAccount as account " + "where account.id<> -1" +
 			//" and account.turqAccountingAccountsByParentAccount.accountingAccountsId=-1" +
 					" order by account.accountCode";
 			Query q = session.createQuery(query);
