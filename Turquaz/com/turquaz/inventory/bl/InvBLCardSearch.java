@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.22 2005/06/16 17:38:37 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.23 2005/06/17 10:04:55 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -231,15 +231,17 @@ public class InvBLCardSearch
 			String invCode = (String) argMap.get(InvKeys.INV_CARD_CODE);
 			TurqInventoryCard invCard=InvDALCardSearch.getInventoryCard(invCode);
 			HashBag cardBag=new HashBag();
-			HashMap cardMap=new HashMap();
+			if (invCard != null)
+			{
+				HashMap cardMap=new HashMap();
+				cardMap.put(InvKeys.INV_CARD_ID,invCard.getId());
+				cardMap.put(InvKeys.INV_CARD_NAME,invCard.getCardName());
+				cardMap.put(InvKeys.INV_CARD_CODE,invCard.getCardInventoryCode());
+				cardMap.put(InvKeys.INV_CARD_DEFINITION,invCard.getCardDefinition());
+				cardMap.put(InvKeys.INV_IS_SPEC_VAT_FOR_EACH,new Boolean(invCard.isSpecVatForEach()));
+				cardBag.put(InvKeys.INV_CARD,cardMap);
+			}
 			
-			cardMap.put(InvKeys.INV_CARD_ID,invCard.getId());
-			cardMap.put(InvKeys.INV_CARD_NAME,invCard.getCardName());
-			cardMap.put(InvKeys.INV_CARD_CODE,invCard.getCardInventoryCode());
-			cardMap.put(InvKeys.INV_CARD_DEFINITION,invCard.getCardDefinition());
-			cardMap.put(InvKeys.INV_IS_SPEC_VAT_FOR_EACH,new Boolean(invCard.isSpecVatForEach()));
-			
-			cardBag.put(InvKeys.INV_CARD,cardMap);
 			return cardBag;
 		}
 		catch (Exception ex)
