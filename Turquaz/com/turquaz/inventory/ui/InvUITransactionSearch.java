@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.53 2005/05/31 13:54:37 onsel Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.54 2005/06/17 12:48:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -266,7 +266,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 					argMap.put(EngKeys.ENG_SEQ,seq);
 					if (bill != null)
 					{
-						updated = new BillUIBillUpdateDialog(this.getShell(), SWT.NULL, bill).open();
+						updated = new BillUIBillUpdateDialog(this.getShell(), SWT.NULL, bill.getId()).open();
 					}
 					else if ((cons = (TurqConsignment)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getConsignment",argMap)) != null)
 					{

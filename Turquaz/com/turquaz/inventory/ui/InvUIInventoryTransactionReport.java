@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryTransactionReport.java,v 1.42 2005/05/10 08:47:27 cemdayanik Exp $
+ * @version  $Id: InvUIInventoryTransactionReport.java,v 1.43 2005/06/17 12:48:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -577,7 +577,7 @@ public class InvUIInventoryTransactionReport extends org.eclipse.swt.widgets.Com
 					TurqBill bill =(TurqBill)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getBill",argMap);
 					if (bill != null)
 					{
-						updated = new BillUIBillUpdateDialog(this.getShell(), SWT.NULL, bill).open();
+						updated = new BillUIBillUpdateDialog(this.getShell(), SWT.NULL, bill.getId()).open();
 					}
 					else
 					{
