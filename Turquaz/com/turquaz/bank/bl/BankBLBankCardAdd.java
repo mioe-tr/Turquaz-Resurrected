@@ -17,7 +17,7 @@ package com.turquaz.bank.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: BankBLBankCardAdd.java,v 1.22 2005/06/16 09:55:36 onsel Exp $
+ * @version $Id: BankBLBankCardAdd.java,v 1.23 2005/06/18 13:27:06 onsel Exp $
  */
 import com.turquaz.bank.BankKeys;
 import com.turquaz.engine.dal.EngDALCommon;
@@ -40,7 +40,11 @@ public class BankBLBankCardAdd
 			String bankName=(String)argMap.get(BankKeys.BANK_NAME);
 			String bankBranchName=(String)argMap.get(BankKeys.BANK_BRANCH_NAME);
 			String bankAccountNo=(String)argMap.get(BankKeys.BANK_ACCOUNT_NO);
-			TurqCurrency currency=(TurqCurrency)argMap.get(BankKeys.BANK_CURRENCY);
+			
+			Integer currencyId =(Integer)argMap.get(BankKeys.BANK_CURRENCY);
+			TurqCurrency currency = new TurqCurrency();
+			currency.setId(currencyId);
+			
 			String definition=(String)argMap.get(BankKeys.BANK_DEFINITION);
 			String bankCode=(String)argMap.get(BankKeys.BANK_CODE);
 			Map accountingAccounts=(Map)argMap.get(BankKeys.BANK_ACCOUNTING_ACCOUNTS);
