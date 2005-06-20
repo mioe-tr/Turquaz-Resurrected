@@ -17,10 +17,9 @@ package com.turquaz.engine.ui.component;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: RegisterGroupComposite.java,v 1.12 2005/05/27 16:39:36 huseyiner Exp $
+ * @version  $Id: RegisterGroupComposite.java,v 1.13 2005/06/20 17:15:46 onsel Exp $
  */
 import java.util.HashMap;
-import java.util.Iterator;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.GridData;
@@ -128,7 +127,6 @@ public class RegisterGroupComposite extends org.eclipse.swt.widgets.Composite
 	{
 		tableAllGroups.removeAll();
         
-		Iterator it = elementMap.keySet().iterator();
 		TableItem item;
 		
         for (int i = 0 ; i < elementMap.size(); i ++)
