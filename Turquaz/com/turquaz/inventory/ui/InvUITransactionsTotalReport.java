@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUITransactionsTotalReport.java,v 1.28 2005/05/10 08:47:26 cemdayanik Exp $
+ * @version  $Id: InvUITransactionsTotalReport.java,v 1.29 2005/06/20 14:32:30 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -685,7 +685,7 @@ public class InvUITransactionsTotalReport extends Composite implements SearchCom
 					HashMap argMap=new HashMap();
 					argMap.put(InvKeys.INV_CARD_ID,cardId);
 					TurqInventoryCard invCard = (TurqInventoryCard)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"initializeInventoryCardById",argMap); //$NON-NLS-1$
-					boolean updated = new InvUICardUpdateDialog(this.getShell(), SWT.NULL, invCard).open();
+					boolean updated = new InvUICardUpdateDialog(this.getShell(), SWT.NULL, invCard.getId()).open();
 					if (updated)
 						search();
 				}
