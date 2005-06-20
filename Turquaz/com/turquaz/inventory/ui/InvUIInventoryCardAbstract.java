@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: InvUIInventoryCardAbstract.java,v 1.30 2005/05/31 13:54:37 onsel Exp $
+ * @version  $Id: InvUIInventoryCardAbstract.java,v 1.31 2005/06/20 16:09:24 huseyiner Exp $
  */
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -330,7 +330,7 @@ public class InvUIInventoryCardAbstract extends org.eclipse.swt.widgets.Composit
 					argMap=new HashMap();
 					argMap.put(EngKeys.ENG_SEQ,seq);
 					TurqConsignment cons = (TurqConsignment)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getConsignment",argMap);
-					boolean updated = new ConUIConsignmentUpdateDialog(this.getShell(), SWT.NULL, cons).open();
+					boolean updated = new ConUIConsignmentUpdateDialog(this.getShell(), SWT.NULL, cons.getId()).open();
 					if (updated)
 						search();
 				}
