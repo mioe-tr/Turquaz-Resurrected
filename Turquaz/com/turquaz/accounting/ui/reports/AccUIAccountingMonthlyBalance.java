@@ -17,19 +17,14 @@ package com.turquaz.accounting.ui.reports;
 /************************************************************************/
 /**
  * @author  Cem Dayanik
- * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.20 2005/05/12 15:17:31 cemdayanik Exp $
+ * @version  $Id: AccUIAccountingMonthlyBalance.java,v 1.21 2005/06/20 06:52:00 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
@@ -97,46 +92,6 @@ public class AccUIAccountingMonthlyBalance extends org.eclipse.swt.widgets.Compo
 	private Calendar cal = Calendar.getInstance();
 	private Map treeItems;
 	private Map accountsMap;
-
-	/**
-	 * Auto-generated main method to display this org.eclipse.swt.widgets.Composite inside a new Shell.
-	 */
-	public static void main(String[] args)
-	{
-		showGUI();
-	}
-
-	/**
-	 * Auto-generated method to display this org.eclipse.swt.widgets.Composite inside a new Shell.
-	 */
-	public static void showGUI()
-	{
-		Display display = Display.getDefault();
-		Shell shell = new Shell(display);
-		AccUIAccountingMonthlyBalance inst = new AccUIAccountingMonthlyBalance(shell, SWT.NULL);
-		Point size = inst.getSize();
-		shell.setLayout(new FillLayout());
-		shell.layout();
-		if (size.x == 0 && size.y == 0)
-		{
-			inst.pack();
-			shell.pack();
-		}
-		else
-		{
-			Rectangle shellBounds = shell.computeTrim(0, 0, size.x, size.y);
-			int MENU_HEIGHT = 22;
-			if (shell.getMenuBar() != null)
-				shellBounds.height -= MENU_HEIGHT;
-			shell.setSize(shellBounds.width, shellBounds.height);
-		}
-		shell.open();
-		while (!shell.isDisposed())
-		{
-			if (!display.readAndDispatch())
-				display.sleep();
-		}
-	}
 
 	public AccUIAccountingMonthlyBalance(org.eclipse.swt.widgets.Composite parent, int style)
 	{
