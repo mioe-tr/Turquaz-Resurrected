@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.25 2005/06/21 12:20:11 onsel Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.26 2005/06/21 12:26:03 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -277,10 +277,10 @@ public class InvBLCardSearch
 			cardBag.put(InvKeys.INV_CARD_CODE, invCard.getCardInventoryCode());			
 			cardBag.put(InvKeys.INV_CARD_DEFINITION, invCard.getCardDefinition());			
 			cardBag.put(InvKeys.INV_IS_SPEC_VAT_FOR_EACH, new Boolean(invCard.isSpecVatForEach()));
-			cardBag.put(InvKeys.INV_VAT_RATE,new Integer(invCard.getCardVat()));
-			cardBag.put(InvKeys.INV_VAT_SPECIAL_RATE, new Integer(invCard.getCardSpecialVat()));
+			cardBag.put(InvKeys.INV_VAT_RATE,new BigDecimal(invCard.getCardVat()));
+			cardBag.put(InvKeys.INV_VAT_SPECIAL_RATE, new BigDecimal(invCard.getCardSpecialVat()));
 			cardBag.put(InvKeys.INV_SPECIAL_VAT_FOR_EACH, invCard.getCardSpecialVatEach());
-			cardBag.put(InvKeys.INV_DISCOUNT_RATE, new Integer(invCard.getCardDiscount()));
+			cardBag.put(InvKeys.INV_DISCOUNT_RATE, new BigDecimal(invCard.getCardDiscount()));
 			cardBag.put(InvKeys.INV_MAX_AMOUNT, new Integer(invCard.getCardMaximumAmount()));
 			cardBag.put(InvKeys.INV_MIN_AMOUNT, new Integer(invCard.getCardMinimumAmount()));
 			
