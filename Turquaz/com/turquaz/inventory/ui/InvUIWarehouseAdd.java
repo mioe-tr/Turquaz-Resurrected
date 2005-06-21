@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseAdd.java,v 1.34 2005/05/02 13:36:20 cemdayanik Exp $
+ * @version  $Id: InvUIWarehouseAdd.java,v 1.35 2005/06/21 08:36:23 huseyiner Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.layout.GridLayout;
@@ -38,13 +38,7 @@ import com.turquaz.inventory.bl.InvBLWarehouseAdd;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.events.VerifyEvent;
 
-/**
- * This code was generated using CloudGarden's Jigloo SWT/Swing GUI Builder, which is free for non-commercial use. If Jigloo is being used
- * commercially (ie, by a corporation, company or business for any purpose whatever) then you should purchase a license for each developer
- * using Jigloo. Please visit www.cloudgarden.com for details. Use of Jigloo implies acceptance of these licensing terms.
- * ************************************* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED for this machine, so Jigloo or this code cannot be used
- * legally for any corporate or commercial purpose. *************************************
- */
+
 public class InvUIWarehouseAdd extends Composite implements SecureComposite
 {
 	private Text txtWarehouseDescription;
