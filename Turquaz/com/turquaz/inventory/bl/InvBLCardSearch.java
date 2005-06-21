@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.24 2005/06/20 14:32:30 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.25 2005/06/21 12:20:11 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -310,12 +310,24 @@ public class InvBLCardSearch
 		}
 	}
 
-	public static TurqViewInventoryAmountTotal getView(HashMap argMap) throws Exception
+	public static HashBag getView(HashMap argMap) throws Exception
 	{
 		try
 		{
-			TurqInventoryCard invCard = (TurqInventoryCard) argMap.get(InvKeys.INV_CARD);
-			return InvDALCardSearch.getView(invCard);
+			Integer invCardId = (Integer) argMap.get(InvKeys.INV_CARD_ID);
+			
+			TurqInventoryCard invCard = (TurqInventoryCard)EngDALSessionFactory.getSession().load(TurqInventoryCard.class,invCardId);
+						
+			TurqViewInventoryAmountTotal view = InvDALCardSearch.getView(invCardId);
+			
+			HashBag result = new HashBag();
+			result.put(InvKeys.INV_AMOUNT_NOW,view.getTransactionsTotalAmountNow());
+			result.put(InvKeys.INV_AMOUNT_MAX,new Integer(invCard.getCardMaximumAmount()));
+			result.put(InvKeys.INV_AMOUNT_MIN,new Integer(invCard.getCardMinimumAmount()));
+			
+			return result;
+			
+			
 		}
 		catch (Exception ex)
 		{
