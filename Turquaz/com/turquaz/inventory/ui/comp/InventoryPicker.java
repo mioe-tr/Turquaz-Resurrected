@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui.comp;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InventoryPicker.java,v 1.19 2005/06/17 10:04:55 cemdayanik Exp $
+ * @version  $Id: InventoryPicker.java,v 1.20 2005/06/21 10:01:04 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.widgets.Button;
@@ -82,7 +82,6 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite implement
 	{
 		try
 		{
-			preInitGUI();
 			this.setSize(new org.eclipse.swt.graphics.Point(397, 22));
 			this.setEnabled(true);
 			GridLayout thisLayout = new GridLayout(4, true);
@@ -145,11 +144,6 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite implement
 		{
             EngBLLogger.log(this.getClass(),e);
 		}
-	}
-
-	/** Add your pre-init code in here */
-	public void preInitGUI()
-	{
 	}
 	public TurquazContentAssistant asistant;
 
@@ -253,6 +247,11 @@ public class InventoryPicker extends org.eclipse.swt.widgets.Composite implement
 	}
 
 	public Object getDBData() {
+		return invCardMap;
+	}
+	
+	public Object getData()
+	{
 		return invCardMap;
 	}
 
