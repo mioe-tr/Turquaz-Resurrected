@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardUpdate.java,v 1.31 2005/06/20 14:32:29 cemdayanik Exp $
+ * @version $Id: InvBLCardUpdate.java,v 1.32 2005/06/21 09:26:13 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -32,6 +32,7 @@ import com.turquaz.engine.dal.TurqInventoryAccountingAccount;
 import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryCardGroup;
 import com.turquaz.engine.dal.TurqInventoryCardUnit;
+import com.turquaz.engine.dal.TurqInventoryGroup;
 import com.turquaz.engine.dal.TurqInventoryPrice;
 import com.turquaz.engine.dal.TurqInventoryUnit;
 import com.turquaz.engine.exceptions.TurquazException;
@@ -275,4 +276,26 @@ public class InvBLCardUpdate
 			throw ex;
 		}
 	}
+	
+	public static void deleteInvGroup(HashMap argMap) throws Exception
+	{
+		Integer groupId=(Integer)argMap.get(InvKeys.INV_GROUP_ID);
+		
+		Session session=EngDALSessionFactory.getSession();
+		TurqInventoryGroup group=(TurqInventoryGroup)session.load(TurqInventoryGroup.class,groupId);
+		
+		Iterator it=group.getTurqInventoryGroups().iterator();
+		if (it.hasNext())
+		{
+			throw new TurquazException(InvLangKeys.MSG_GROUP_HAS_SUB_GROUPS_CAN_NOT_DELETE);
+		}
+		it=group.getTurqInventoryCardGroups().iterator();
+		if (it.hasNext())
+		{
+			throw new TurquazException(InvLangKeys.MSG_GROUP_HAS_BEEN_USED_IN_INV_CARD_GROUPS);
+		}
+		EngDALCommon.deleteObject(group);
+	}
+	
+	
 }
