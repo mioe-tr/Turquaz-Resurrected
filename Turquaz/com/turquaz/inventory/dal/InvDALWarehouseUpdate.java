@@ -17,33 +17,31 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALWarehouseUpdate.java,v 1.11 2005/03/30 17:10:42 cemdayanik Exp $
+ * @version $Id: InvDALWarehouseUpdate.java,v 1.12 2005/06/21 10:22:55 cemdayanik Exp $
  */
 import java.util.List;
 import net.sf.hibernate.Query;
 import net.sf.hibernate.Session;
 import com.turquaz.engine.dal.EngDALSessionFactory;
-import com.turquaz.engine.dal.TurqInventoryWarehous;
 
 public class InvDALWarehouseUpdate
 {
-	public static Boolean hasTransaction(TurqInventoryWarehous warehouse) throws Exception
+	public static boolean hasTransaction(Integer warehouseId) throws Exception
 	{
 		try
 		{
 			Session session = EngDALSessionFactory.getSession();
-			String query = "Select transactions from TurqInventoryTransaction as transactions "
-					+ "where transactions.turqInventoryWarehous = :warehouse ";
+			String query = "Select transactions.id from TurqInventoryTransaction as transactions "
+					+ "where transactions.turqInventoryWarehous.id ="+warehouseId;
 			Query q = session.createQuery(query);
-			q.setParameter("warehouse", warehouse);
 			List list = q.list();
 			if (list.size() > 0)
 			{
-				return new Boolean(true);
+				return true;
 			}
 			else
 			{
-				return new Boolean(false);
+				return false;
 			}
 		}
 		catch (Exception ex)

@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUIWarehouseAdd.java,v 1.35 2005/06/21 08:36:23 huseyiner Exp $
+ * @version  $Id: InvUIWarehouseAdd.java,v 1.36 2005/06/21 10:22:55 cemdayanik Exp $
  */
 import java.util.HashMap;
 import org.eclipse.swt.layout.GridLayout;
@@ -356,12 +356,4 @@ public class InvUIWarehouseAdd extends Composite implements SecureComposite
 		return txtWarehouseCode;
 	}
 
-	/**
-	 * @param txtWarehouseCode
-	 *             The txtWarehouseCode to set.
-	 */
-	public void setTxtWarehouseCode(Text txtWarehouseCode)
-	{
-		this.txtWarehouseCode = txtWarehouseCode;
-	}
 }

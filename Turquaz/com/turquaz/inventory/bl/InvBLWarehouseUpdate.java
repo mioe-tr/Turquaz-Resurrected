@@ -7,6 +7,8 @@ import com.turquaz.engine.bl.EngBLServer;
 import com.turquaz.engine.dal.EngDALCommon;
 import com.turquaz.engine.dal.EngDALSessionFactory;
 import com.turquaz.engine.dal.TurqInventoryWarehous;
+import com.turquaz.engine.exceptions.TurquazException;
+import com.turquaz.engine.lang.InvLangKeys;
 import com.turquaz.inventory.InvKeys;
 import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 
@@ -27,7 +29,7 @@ import com.turquaz.inventory.dal.InvDALWarehouseUpdate;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLWarehouseUpdate.java,v 1.11 2005/06/21 08:36:24 huseyiner Exp $
+ * @version $Id: InvBLWarehouseUpdate.java,v 1.12 2005/06/21 10:22:55 cemdayanik Exp $
  */
 public class InvBLWarehouseUpdate
 {
@@ -61,28 +63,19 @@ public class InvBLWarehouseUpdate
 			throw ex;
 		}
 	}
-
-	public static Boolean hasTransactions(HashMap argMap) throws Exception
-	{
-		try
-		{
-            Integer warehouseId = (Integer)argMap.get(InvKeys.INV_WAREHOUSE_ID);
-			TurqInventoryWarehous warehouse= (TurqInventoryWarehous)EngDALSessionFactory.getSession().load(TurqInventoryWarehous.class,warehouseId);
-			return InvDALWarehouseUpdate.hasTransaction(warehouse);
-		}
-		catch (Exception ex)
-		{
-			throw ex;
-		}
-	}
     
     public static void deleteWarehouse(HashMap argMap) throws Exception
     {
         try
         {
             Integer warehouseId = (Integer)argMap.get(InvKeys.INV_WAREHOUSE_ID);
+            boolean hasTransaction=InvDALWarehouseUpdate.hasTransaction(warehouseId);
+            if (hasTransaction)
+            {
+            	throw new TurquazException(InvLangKeys.MSG_WAREHOUSE_HAS_TRANSACTION);
+            }            
             TurqInventoryWarehous warehouse= (TurqInventoryWarehous)EngDALSessionFactory.getSession().load(TurqInventoryWarehous.class,warehouseId);
-           
+        
             HashMap deleteMap = new HashMap ();
             deleteMap.put(InvKeys.INV_WAREHOUSE,warehouse);
             EngBLServer.delete(deleteMap);
