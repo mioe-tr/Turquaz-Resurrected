@@ -17,7 +17,7 @@ package com.turquaz.current.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: CurBLSearchTransaction.java,v 1.40 2005/06/16 09:55:34 onsel Exp $
+ * @version $Id: CurBLSearchTransaction.java,v 1.41 2005/06/22 13:49:05 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -201,8 +201,8 @@ public class CurBLSearchTransaction
 	public static List getCurrentBalances(HashMap argMap) throws Exception
 	{
 		
-		TurqCurrentCard curCardStart = (TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_START);
-		TurqCurrentCard curCardEnd = (TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_END);
+		TurqCurrentCard curCardStart = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_START);
+		TurqCurrentCard curCardEnd = (TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_END);
 		Date startDate = (Date)argMap.get(EngKeys.DATE_START);
 			return CurDALSearchTransaction.getCurrentBalances(curCardStart, curCardEnd, startDate);
 		
@@ -247,8 +247,8 @@ public class CurBLSearchTransaction
 	{
 		try
 		{
-			TurqCurrentCard curCardStart=(TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_START);
-			TurqCurrentCard curCardEnd=(TurqCurrentCard)argMap.get(EngKeys.CURRENT_CARD_END);
+			TurqCurrentCard curCardStart=(TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_START);
+			TurqCurrentCard curCardEnd=(TurqCurrentCard)argMap.get(CurKeys.CUR_CARD_END);
 			Date startDate=(Date)argMap.get(EngKeys.DATE_START);
 			Date endDate=(Date)argMap.get(EngKeys.DATE_END);
 			String definition=(String)argMap.get(EngKeys.DEFINITION);

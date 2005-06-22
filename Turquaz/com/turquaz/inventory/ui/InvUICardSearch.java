@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUICardSearch.java,v 1.66 2005/06/20 14:32:30 cemdayanik Exp $
+ * @version  $Id: InvUICardSearch.java,v 1.67 2005/06/22 13:49:06 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -323,7 +323,7 @@ public class InvUICardSearch extends Composite implements SearchComposite
 				HashMap gr = (HashMap) groupList.get(new Integer(k));
 				String grName=(String)gr.get(InvKeys.INV_GROUP_NAME);
 				comboInvMainGroup.add(grName);
-				comboInvMainGroup.setData(grName, gr.get(InvKeys.INV_GROUP_ID));
+				comboInvMainGroup.setData(grName, gr);
 			}
 		}
 		catch (Exception ex)
@@ -376,7 +376,14 @@ public class InvUICardSearch extends Composite implements SearchComposite
 			HashMap argMap=new HashMap();
 			argMap.put(InvKeys.INV_CARD_NAME,txtInvName.getText().trim());
 			argMap.put(InvKeys.INV_CARD_CODE, txtInvCode.getText().trim());
-			argMap.put(InvKeys.INV_GROUP_ID,comboInvSubGroup.getData(comboInvSubGroup.getText()));
+			
+			HashMap grMap=(HashMap)comboInvSubGroup.getData(comboInvSubGroup.getText());
+			Integer groupId=null;
+			if (grMap != null)
+			{
+				groupId=(Integer)grMap.get(InvKeys.INV_GROUP_ID);
+			}
+			argMap.put(InvKeys.INV_GROUP_ID,groupId);
 			
 			HashBag cardBag =(HashBag)EngTXCommon.doSelectTX(InvBLCardSearch.class.getName(),"searchCards",argMap);
 			

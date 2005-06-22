@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvDALCardSearch.java,v 1.47 2005/06/21 12:20:12 onsel Exp $
+ * @version $Id: InvDALCardSearch.java,v 1.48 2005/06/22 13:49:06 cemdayanik Exp $
  */
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -55,7 +55,7 @@ public class InvDALCardSearch
 			}
 			if (groupId != null)
 			{
-				query += "and :groupId in (Select myGroup.turqInventoryGroup.id From invCard.turqInventoryCardGroups as myGroup)";
+				query += " and :groupId in (Select myGroup.turqInventoryGroup.id From invCard.turqInventoryCardGroups as myGroup)";
 			}
 			query += " order by invCard.cardInventoryCode";
 			Query q = session.createQuery(query);
