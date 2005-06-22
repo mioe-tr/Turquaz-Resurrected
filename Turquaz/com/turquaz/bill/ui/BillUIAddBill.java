@@ -17,7 +17,7 @@ package com.turquaz.bill.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: BillUIAddBill.java,v 1.92 2005/06/21 12:20:12 onsel Exp $
+ * @version  $Id: BillUIAddBill.java,v 1.93 2005/06/22 08:10:20 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -49,7 +49,6 @@ import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.events.SelectionEvent;
 
 import com.turquaz.common.HashBag;
-import com.turquaz.consignment.ConsKeys;
 import com.turquaz.current.CurKeys;
 import com.turquaz.current.ui.comp.CurrentPicker;
 import com.turquaz.cash.ui.comp.CashCardPicker;
@@ -785,7 +784,7 @@ public class BillUIAddBill extends Composite implements SecureComposite
 			//Fill Group Table
 			HashBag groupBag = (HashBag)EngTXCommon.doSelectTX(BillBLAddGroups.class.getName(),"getBillGroups",null);
 		
-			HashMap groupList =(HashMap)groupBag.get(ConsKeys.CONS_GROUPS);
+			HashMap groupList = (HashMap) groupBag.get(BillKeys.BILL_GROUPS);
 			
 			
 			compRegisterGroup.fillTableAllGroups(groupList);
