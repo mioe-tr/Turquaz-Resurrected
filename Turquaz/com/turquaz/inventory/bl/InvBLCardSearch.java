@@ -17,7 +17,7 @@ package com.turquaz.inventory.bl;
 /** ********************************************************************* */
 /**
  * @author Onsel Armagan
- * @version $Id: InvBLCardSearch.java,v 1.26 2005/06/21 12:26:03 cemdayanik Exp $
+ * @version $Id: InvBLCardSearch.java,v 1.27 2005/06/22 11:21:17 onsel Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -300,6 +300,7 @@ public class InvBLCardSearch
 				unitMap.put(InvKeys.INV_UNIT_NAME,cardUnit.getTurqInventoryUnit().getUnitsName());
 			
 				cardBag.put(InvKeys.INV_CARD_UNITS,row,InvKeys.INV_UNIT,unitMap);
+				row++;
 			}			
 			
 			return cardBag;
