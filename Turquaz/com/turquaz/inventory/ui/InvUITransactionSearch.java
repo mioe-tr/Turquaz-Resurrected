@@ -17,7 +17,7 @@ package com.turquaz.inventory.ui;
 /************************************************************************/
 /**
  * @author  Onsel Armagan
- * @version  $Id: InvUITransactionSearch.java,v 1.56 2005/06/22 06:25:25 cemdayanik Exp $
+ * @version  $Id: InvUITransactionSearch.java,v 1.57 2005/06/22 07:50:19 cemdayanik Exp $
  */
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -253,7 +253,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 				{
 					boolean updated = false;
 					HashMap argMap=new HashMap();
-					argMap.put(EngKeys.TRANS_ID,transId);
+					argMap.put(InvKeys.INV_TRANS_ID,transId);
 					
 					HashBag idBag=(HashBag)EngTXCommon.doSelectTX(InvBLSearchTransaction.class.getName(),"getAllIds",argMap);
 					Integer billId=(Integer)idBag.get(BillKeys.BILL_ID);
@@ -326,6 +326,7 @@ public class InvUITransactionSearch extends org.eclipse.swt.widgets.Composite im
 			{
 				HashMap invTrans=(HashMap)transList.get(new Integer(i));
 				Integer transId = (Integer) invTrans.get(InvKeys.INV_TRANS_ID);
+
 				Date transDate = (Date)invTrans.get(InvKeys.INV_TRANS_DATE);
 				BigDecimal inAmount = (BigDecimal) invTrans.get(InvKeys.INV_AMOUNT_IN);
 				BigDecimal outAmount = (BigDecimal)invTrans.get(InvKeys.INV_AMOUNT_OUT);

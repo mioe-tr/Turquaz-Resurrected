@@ -17,7 +17,7 @@ package com.turquaz.inventory.dal;
 /************************************************************************/
 /**
  * @author Huseyin Ergun
- * @version $Id: InvDALSearchTransaction.java,v 1.38 2005/06/22 06:25:25 cemdayanik Exp $
+ * @version $Id: InvDALSearchTransaction.java,v 1.39 2005/06/22 07:50:20 cemdayanik Exp $
  */
 import java.util.Date;
 import java.util.Iterator;
@@ -47,7 +47,8 @@ public class InvDALSearchTransaction
 			String query = "Select transaction.id,transaction.transactionsDate,transaction.amountIn,"
 					+ "transaction.amountOut, transaction.totalPrice," + " transaction.turqInventoryCard.cardInventoryCode, "
 					+ " transaction.turqInventoryCard.cardName from TurqInventoryTransaction as transaction"
-					+ " where transaction.transactionsDate >= :startDate" + " and transaction.transactionsDate <= :endDate";
+					+ " where transaction.transactionsDate >= :startDate" + " and transaction.transactionsDate <= :endDate"
+					+ " and transaction.turqInventoryTransactionType.id <>"+EngBLCommon.INV_TRANS_INITIAL;
 			if (type == EngBLCommon.COMMON_BUY_INT)
 				query += " and transaction.amountIn > 0";
 			else if (type == EngBLCommon.COMMON_SELL_INT)
