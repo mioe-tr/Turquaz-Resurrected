@@ -17,7 +17,7 @@ package com.turquaz.cash.bl;
 /************************************************************************/
 /**
  * @author Onsel
- * @version $Id: CashBLCashTransactionSearch.java,v 1.16 2005/06/16 17:56:33 huseyiner Exp $
+ * @version $Id: CashBLCashTransactionSearch.java,v 1.17 2005/06/23 14:05:04 huseyiner Exp $
  */
 import java.math.BigDecimal;
 import java.util.Date;
@@ -40,10 +40,12 @@ public class CashBLCashTransactionSearch
 {
 	
 
-	public static List searchCashTransactions(HashMap argMap) throws Exception
+	public static HashBag searchCashTransactions(HashMap argMap) throws Exception
 	{
 		
-		Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
+        HashBag listBag = new HashBag();
+        
+        Integer cashCardId = (Integer)argMap.get(CashKeys.CASH_CARD_ID);
 		TurqCashCard cashCard=null;
 		if(cashCardId!=null)
 		{
@@ -53,8 +55,23 @@ public class CashBLCashTransactionSearch
 		Date endDate = (Date)argMap.get(EngKeys.DATE_END);
 		String definition = (String)argMap.get(EngKeys.DEFINITION);
 		
-		return CashDALCashCard.searchCashTransaction(cashCard, startDate, endDate, definition);
-		
+		List transList =  CashDALCashCard.searchCashTransaction(cashCard, startDate, endDate, definition);
+        
+        Object [] row;
+        for (int i = 0 ; i < transList.size(); i ++)
+        {
+            row = (Object[]) transList.get(i);
+            
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,CashKeys.CASH_TRANSACTION_ID,(Integer) row[0]);
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,CashKeys.CASH_TRANS_TYPE_NAME,(String) row[1]);
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,EngKeys.DEPT_AMOUNT,(BigDecimal) row[2]);
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,EngKeys.CREDIT_AMOUNT,(BigDecimal) row[3]);
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,EngKeys.DATE,(Date) row[4]);
+            listBag.put(CashKeys.CASH_TRANSACTIONS,i,EngKeys.DESCRIPTION,(String) row[5]);
+            
+        }
+        
+        return listBag;
 	}
 
 	public static TurqCashTransaction initializeCashTransaction(HashMap argMap) throws Exception
