@@ -1,0 +1,7 @@
+
+LINUX
+TURQUAZ/08Beta5 klasorune girin. 
+
+asagidaki dosyayi calistirin. 
+
+TURQUAZ/08Beta5/turquaz.sh 

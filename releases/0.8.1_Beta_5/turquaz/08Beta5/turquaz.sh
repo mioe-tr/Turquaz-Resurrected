@@ -1,0 +1,1 @@
+../../java/bin/java -Djava.library.path="lib" -jar run.jar
