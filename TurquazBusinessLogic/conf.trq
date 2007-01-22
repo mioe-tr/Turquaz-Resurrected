@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+  <server.path>kulup.sabanciuniv.edu</server.path>
+  <server.port>5432</server.port>
+  <db.name>makro_R</db.name>
+  <username>turquaz</username>
+  <password>turq34</password>
+</server>
+
