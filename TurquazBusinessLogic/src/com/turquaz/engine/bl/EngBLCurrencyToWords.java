@@ -101,7 +101,7 @@ public class EngBLCurrencyToWords
 		String[] nums = bd.toString().split("\\."); //$NON-NLS-1$
 		int YTL = Integer.parseInt(nums[0]);
 		int YKRS = Integer.parseInt(nums[1]);
-		String words = (YKRS == 0) ? convert(YTL) + " YTL" : convert(YTL) + " YTL, " + convert(YKRS) + " YKr ";
+		String words = (YKRS == 0) ? convert(YTL) + " TL" : convert(YTL) + " TL, " + convert(YKRS) + " Kr ";
 		return words;
 	}
 }
