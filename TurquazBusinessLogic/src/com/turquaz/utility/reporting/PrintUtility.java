@@ -236,7 +236,14 @@ public class PrintUtility
 		String[] fields = new String[]{"accountName", "accountCode", "topAccountName",
 				"topAccountCode", "dept_amount", "credit_amount", "transaction_definition", "columnId"};
 		
+		BigDecimal total = new BigDecimal (0);
 		
+		
+		 for (Iterator i = list.iterator(); i.hasNext(); ) {
+		        Object [] row = ((Object[]) i.next());
+		        total = total.add( (BigDecimal)row [4]);
+		    }
+		 parameters.put("transGrandTotalText", EngBLCurrencyToWords.getTurkishCurrencyInWords(total));
 		JasperPrint jasperPrint=ReportGenerator.generateReport("/reports/accounting/AccountingTransaction.jrxml",list,fields,parameters);
 		
 			
