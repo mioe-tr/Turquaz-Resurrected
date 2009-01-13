@@ -18,7 +18,7 @@ import server.util.MyThreadLocal;
 
 /**
  * @author onsel
- * @version $Id: EngDALUserPerms.java,v 1.1 2007/01/22 16:36:36 huseyiner Exp $
+ * @version $Id: EngDALUserPerms.java,v 1.2 2009/01/13 17:04:21 huseyiner Exp $
  *          Database functions for calculating user permissions.
  */
 public class EngDALUserPerms {
@@ -281,16 +281,15 @@ public class EngDALUserPerms {
 
 	public static HashMap getPermissionMap() throws Exception {
 		
-		
 		String username =(String)MyThreadLocal.getSessionInfo().get("username");
-		
-		HashMap compMap = new HashMap();
 
+		HashMap compMap = new HashMap();
+		
 		HashBag result = getModuleComponents();
 		HashMap moduleList = (HashMap) result.get(EngKeys.MODULE_COMPONENTS);
-
+		
 		Iterator it = moduleList.keySet().iterator();
-
+		
 		while (it.hasNext()) {
 			List list = (List) moduleList.get(it.next());
 
@@ -315,9 +314,8 @@ public class EngDALUserPerms {
 		HashBag userPermBag = (HashBag)getUserPermissions(argMap);
 
 		HashMap userPermList = (HashMap) userPermBag.get(EngKeys.USER_PERMISSIONS);
-
 		calculateUserPerms(userPermList, moduleList,compMap);
-		
+
 		return compMap;
 	}
 	private static void calculateGroupPerms(HashMap permlist,HashMap moduleList,HashMap compMap)
@@ -393,6 +391,7 @@ public class EngDALUserPerms {
 			int module_component_id = -1;
 			int perm_level = 0;
 			String component_name = "";
+			
 			for (int i = 0; i < permlist.size(); i++)
 			{
 				HashMap permInfo =(HashMap)permlist.get(new Integer(i));
@@ -404,6 +403,7 @@ public class EngDALUserPerms {
 				
 				if (perm_level > -1 && perm_level < 4)
 				{
+				
 					if (module_id == -1)
 					{
 						// Iterate over the values in the map
@@ -421,7 +421,7 @@ public class EngDALUserPerms {
 							List list = (List)moduleList.get(new Integer(module_id));
 							
 							HashMap modComp = null;
-							for (int j = 0; j < list.size(); i++)
+							for (int j = 0; j < list.size(); j++)
 							{
 								modComp = (HashMap) list.get(j);
 								compMap.put(modComp.get(AdmKeys.ADM_MODULE_COMP_NAME), new Integer(perm_level));
@@ -429,6 +429,7 @@ public class EngDALUserPerms {
 						}
 						else
 						{
+							System.out.println("7");
 							compMap.put(component_name, new Integer(perm_level));
 						}
 					}
