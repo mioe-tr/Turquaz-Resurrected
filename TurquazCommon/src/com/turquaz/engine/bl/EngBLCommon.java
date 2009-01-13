@@ -17,14 +17,14 @@ package com.turquaz.engine.bl;
 /************************************************************************/
 /**
  * @author Onsel Armagan
- * @version $Id: EngBLCommon.java,v 1.1 2007/01/22 17:36:03 huseyiner Exp $
+ * @version $Id: EngBLCommon.java,v 1.2 2009/01/13 17:00:58 huseyiner Exp $
  */
 import java.math.BigDecimal;
 
 public class EngBLCommon
 {
 	
-	public static String VERSION = "0.8.1 Beta 5"; //$NON-NLS-1$
+	public static String VERSION = "0.8.1 Beta 7"; //$NON-NLS-1$
 	public static String DATABASE_VERSION="0.8.1"; //$NON-NLS-1$
 	
 	public static int BILL_ERR_TOO_MANY_CONS = -1;
@@ -242,7 +242,7 @@ public class EngBLCommon
     
 	public final static int TABLE_ROW_COUNT = 10;
 	public final static int ROUNDING_METHOD = BigDecimal.ROUND_HALF_UP;
-	
+	public final static int ROUNDING_METHOD_UNNECESSARY = BigDecimal.ROUND_UNNECESSARY;
 	
 	
 	/*
