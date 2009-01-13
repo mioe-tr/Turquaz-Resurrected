@@ -176,7 +176,7 @@ public class InvUITransactionTableRow implements ITableRow
 				result = invTrans.get(InvKeys.INV_VAT_RATE).toString();
 				break;
 			case 11 : // VAT total
-				result = cf.format((BigDecimal) invTrans.get(InvKeys.INV_VAT_AMOUNT_IN_FOREIGN_CURRENCY));
+				result = cf4.format((BigDecimal) invTrans.get(InvKeys.INV_VAT_AMOUNT_IN_FOREIGN_CURRENCY));
 				break;
 			case 12 : // Special VAT percent
 				if (invCard == null)
@@ -623,7 +623,7 @@ public class InvUITransactionTableRow implements ITableRow
 			BigDecimal totalPriceAfterDiscountAddedSpecVAT = totalPriceAfterDiscount
 					.add((BigDecimal) invTrans.get(InvKeys.INV_VAT_SPECIAL_AMOUNT_IN_FOREIGN_CURRENCY));
 			invTrans.put(InvKeys.INV_VAT_AMOUNT_IN_FOREIGN_CURRENCY, totalPriceAfterDiscountAddedSpecVAT
-					.multiply((BigDecimal) invTrans.get(InvKeys.INV_VAT_RATE)).divide(new BigDecimal(100), 2,
+					.multiply((BigDecimal) invTrans.get(InvKeys.INV_VAT_RATE)).divide(new BigDecimal(100), 4,
 							EngBLCommon.ROUNDING_METHOD));
 			invTrans.put(InvKeys.INV_CUMILATIVE_PRICE_IN_FOREIGN_CURRENCY, totalPriceAfterDiscount.add(
 					(BigDecimal) invTrans.get(InvKeys.INV_VAT_SPECIAL_AMOUNT_IN_FOREIGN_CURRENCY)).add(
