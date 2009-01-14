@@ -133,7 +133,7 @@ public class PrintUtility
 		
 		
 		String[] fields = new String[]{"trans_id", "card_units_factor", "card_inventory_code", "card_name",
-				"units_name", "amount", "unit_price", "total_price", "warehouses_name", "transactions_vat"};
+				"units_name", "amount", "unit_price", "total_price", "warehouses_name","transactions_vat","discount_amount" };
 		
 		String reportName="/reports/invoice/" +template;
 		
