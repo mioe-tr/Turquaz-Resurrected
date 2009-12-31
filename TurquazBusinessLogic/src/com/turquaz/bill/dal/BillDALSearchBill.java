@@ -140,7 +140,7 @@ public class BillDALSearchBill
 					((bill.getBillsType() == EngBLCommon.COMMON_BUY_INT || bill.getBillsType() ==EngBLCommon.COMMON_RETURN_SELL_INT)
 							? "invTrans.amountIn ," : "invTrans.amountOut ,")+
 					" invTrans.unitPriceInForeignCurrency, invTrans.totalPriceInForeignCurrency," +
-					" invTrans.turqInventoryWarehous.warehousesName, invTrans.vatRate,"+
+					" invTrans.turqInventoryWarehous.warehousesName, invTrans.vatRate,invTrans.vatAmount,"+
 					" invTrans.discountAmountInForeignCurrency "+
 					" from TurqInventoryTransaction invTrans" +
 					" left join invTrans.turqInventoryCard.turqInventoryCardUnits as cardUnit," +
