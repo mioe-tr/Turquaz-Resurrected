@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +53,35 @@ public class PrintUtility
 		TurqBill bill=(TurqBill)session.load(TurqBill.class,billId);
 		
 		List list = BillBLSearchBill.getBillInfo(bill);
+		List listForVat = BillBLSearchBill.getBillInfo(bill);
 		
+		/**************/
+		Object[] billInfo;
+		String format = "";
+		
+	for (int vat = 1 ; vat <30 ; vat ++ )
+	{
+		double result = 0 ;
+		for (int i=0; i< listForVat.size(); i++) //check every row to sum
+		  {
+			billInfo =(Object[])listForVat.get(i) ;
+			if (((BigDecimal)billInfo[9]).intValue() == vat  )
+			{
+				result += Double.parseDouble(((BigDecimal)billInfo[10]).toString());
+			}
+		  }
+		if (result != 0.0) //if we have that vat, 
+		{
+			DecimalFormat df = new java.text.DecimalFormat("#####.##");
+			result = df.parse(df.format(result)).doubleValue();
+			
+			 format += "%" + vat + "=" + result+" TL   ";
+			
+		}	
+	}
+	
+			System.out.println(format);
+		/***************/
 		SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy"); 
 		
 		
@@ -65,6 +94,7 @@ public class PrintUtility
 		BigDecimal invoiceSum = billview.getTotalprice();
 		BigDecimal invoiceTotal = invoiceSum.subtract(discount);
 		BigDecimal grandTotal = invoiceTotal.add(VAT).add(specialVATAmount);
+		parameters.put("vatdescription", format);
 		parameters.put("invoiceSum", invoiceSum);
 		parameters.put("invoiceTotal", invoiceTotal.add(specialVATAmount));
 		parameters.put("invoiceDiscount", discount);
