@@ -1,0 +1,23 @@
+# Maven
+target/
+*.jar
+*.war
+!**/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+
+# Eski kod referansı: yerelde RCS arşivinden açılır, repoya konmaz.
+# Bkz. docs/decisions/0002-eski-kod-referansi.md ve docs/legacy-schema.sql
+/legacy/
+
+# Loglar
+*.log

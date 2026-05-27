@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: turquaz-api
+  datasource:
+    url: ${TURQUAZ_DB_URL:jdbc:postgresql://localhost:5432/turquaz}
+    username: ${TURQUAZ_DB_USER:turquaz}
+    password: ${TURQUAZ_DB_PASSWORD:turquaz}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate.format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

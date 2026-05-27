@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Turquaz Resurrected - Modern Türk muhasebe yazılımı
+  Copyright (C) 2026  Turquaz Resurrected katkıcıları
+
+  Bu program özgür yazılımdır: GNU Genel Kamu Lisansı (GPL) sürüm 3 veya
+  (tercihinize göre) daha sonraki bir sürümün koşulları altında yeniden
+  dağıtabilir ve/veya değiştirebilirsiniz.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.turquaz</groupId>
+    <artifactId>turquaz-parent</artifactId>
+    <version>0.9.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Turquaz Resurrected</name>
+    <description>Modern port of the Turquaz Financial Accounting software (GPLv3)</description>
+
+    <modules>
+        <module>core</module>
+        <module>persistence</module>
+        <module>api</module>
+    </modules>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springdoc.version>2.6.0</springdoc.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.turquaz</groupId>
+                <artifactId>turquaz-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.turquaz</groupId>
+                <artifactId>turquaz-persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
