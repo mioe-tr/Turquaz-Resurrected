@@ -1,0 +1,72 @@
+package com.turquaz.engine.dal;
+
+import java.io.Serializable;
+import java.util.Set;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+
+/** @author Hibernate CodeGenerator */
+public class TurqCurrentAccountingType implements Serializable {
+
+    /** identifier field */
+    private Integer id;
+
+    /** persistent field */
+    private String typeName;
+
+    /** persistent field */
+    private String definition;
+
+    /** persistent field */
+    private Set turqCurrentAccountingAccounts;
+
+    /** full constructor */
+    public TurqCurrentAccountingType(String typeName, String definition, Set turqCurrentAccountingAccounts) {
+        this.typeName = typeName;
+        this.definition = definition;
+        this.turqCurrentAccountingAccounts = turqCurrentAccountingAccounts;
+    }
+
+    /** default constructor */
+    public TurqCurrentAccountingType() {
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTypeName() {
+        return this.typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+    public String getDefinition() {
+        return this.definition;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
+    }
+
+    public Set getTurqCurrentAccountingAccounts() {
+        return this.turqCurrentAccountingAccounts;
+    }
+
+    public void setTurqCurrentAccountingAccounts(Set turqCurrentAccountingAccounts) {
+        this.turqCurrentAccountingAccounts = turqCurrentAccountingAccounts;
+    }
+
+    public String toString() {
+        return new ToStringBuilder(this)
+            .append("id", getId())
+            .toString();
+    }
+
+}
