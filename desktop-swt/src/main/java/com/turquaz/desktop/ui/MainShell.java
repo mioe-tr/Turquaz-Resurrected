@@ -42,6 +42,14 @@ public class MainShell {
     private final RestClient rest;
     private final AuthApi.LoginResponse session;
 
+    // Menü/araç çubuğu eylemlerinin modül listesine erişebilmesi için alanlar:
+    private List moduleList;
+    private Composite content;
+    private StackLayout stack;
+    private Composite[] slots;
+    private boolean[] created;
+    private String[] labels;
+
     public MainShell(Display display, RestClient rest, AuthApi.LoginResponse session) {
         this.display = display;
         this.rest = rest;
@@ -70,8 +78,9 @@ public class MainShell {
         SashForm sash = new SashForm(shell, SWT.HORIZONTAL);
         sash.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-        List moduleList = new List(sash, SWT.BORDER | SWT.V_SCROLL);
-        String[] labels = {
+        List moduleListLocal = new List(sash, SWT.BORDER | SWT.V_SCROLL);
+        this.moduleList = moduleListLocal;
+        this.labels = new String[] {
                 "Pano",
                 "Cari Kartlar",
                 "Stok Kartları",
@@ -95,13 +104,13 @@ public class MainShell {
         };
         moduleList.setItems(labels);
 
-        Composite content = new Composite(sash, SWT.NONE);
-        StackLayout stack = new StackLayout();
+        this.content = new Composite(sash, SWT.NONE);
+        this.stack = new StackLayout();
         content.setLayout(stack);
 
         // Lazy yaratım için her slot bir Composite, ilk seçildiğinde içerik konulur.
-        Composite[] slots = new Composite[labels.length];
-        boolean[] created = new boolean[labels.length];
+        this.slots = new Composite[labels.length];
+        this.created = new boolean[labels.length];
         for (int i = 0; i < labels.length; i++) {
             slots[i] = new Composite(content, SWT.NONE);
             slots[i].setLayout(new FillLayout());
@@ -168,6 +177,32 @@ public class MainShell {
         }
     }
 
+    /** Modül listesindeki bir maddeyi seçer ve görünümü değiştirir. */
+    private void selectModule(int index) {
+        if (moduleList == null || index < 0 || index >= labels.length) return;
+        // 15 = "— Ayarlar —" başlığı: özel placeholder
+        moduleList.select(index);
+        if (!created[index]) {
+            createView(index, slots[index]);
+            created[index] = true;
+        }
+        stack.topControl = slots[index];
+        content.layout();
+    }
+
+    /** Mevcut görünümü baştan yarat (Yenile için). */
+    private void refreshCurrentModule() {
+        if (moduleList == null) return;
+        int sel = moduleList.getSelectionIndex();
+        if (sel < 0) return;
+        // Slot'un içeriğini boşalt ve yeniden yarat
+        for (org.eclipse.swt.widgets.Control c : slots[sel].getChildren()) {
+            c.dispose();
+        }
+        created[sel] = false;
+        selectModule(sel);
+    }
+
     private void buildMenuBar(Shell shell) {
         Menu bar = new Menu(shell, SWT.BAR);
         shell.setMenuBar(bar);
@@ -184,34 +219,44 @@ public class MainShell {
         editItem.setText("D&üzen");
         Menu editMenu = new Menu(shell, SWT.DROP_DOWN);
         editItem.setMenu(editMenu);
-        addItem(editMenu, "Yenile\tF5", SWT.F5, e -> {
-            // Aktif görünüm bilgisi yok; kullanıcı genelde refresh butonunu basabilir.
-            // Burada placeholder olarak shell başlığını güncelle.
-            shell.setText("Turquaz Resurrected — " + session.username);
-        });
+        addItem(editMenu, "Yenile\tF5", SWT.F5, e -> refreshCurrentModule());
 
-        // Görünüm
+        // Görünüm — tüm modülleri kategorize göster
         MenuItem viewItem = new MenuItem(bar, SWT.CASCADE);
         viewItem.setText("&Görünüm");
         Menu viewMenu = new Menu(shell, SWT.DROP_DOWN);
         viewItem.setMenu(viewMenu);
-        // Görünüm menüsü, modül listesindeki seçimi koruyup yön verir.
-        addItem(viewMenu, "Pano", 0, null);
-        addItem(viewMenu, "Cari Kartlar", 0, null);
-        addItem(viewMenu, "Stok Kartları", 0, null);
+        addItem(viewMenu, "Pano", 0, e -> selectModule(0));
         new MenuItem(viewMenu, SWT.SEPARATOR);
-        addItem(viewMenu, "Yevmiye", 0, null);
-        addItem(viewMenu, "Mizan", 0, null);
+        addItem(viewMenu, "Cari Kartlar", 0, e -> selectModule(1));
+        new MenuItem(viewMenu, SWT.SEPARATOR);
+        addItem(viewMenu, "Stok Kartları", 0, e -> selectModule(2));
+        addItem(viewMenu, "Depolar", 0, e -> selectModule(3));
+        addItem(viewMenu, "Stok Bakiyesi", 0, e -> selectModule(4));
+        new MenuItem(viewMenu, SWT.SEPARATOR);
+        addItem(viewMenu, "Yevmiye Fişi", 0, e -> selectModule(5));
+        addItem(viewMenu, "Mizan", 0, e -> selectModule(6));
+        addItem(viewMenu, "Hesap Bakiyesi", 0, e -> selectModule(7));
+        new MenuItem(viewMenu, SWT.SEPARATOR);
+        addItem(viewMenu, "Banka", 0, e -> selectModule(8));
+        addItem(viewMenu, "Kasa", 0, e -> selectModule(9));
+        addItem(viewMenu, "Çek/Senet", 0, e -> selectModule(10));
+        new MenuItem(viewMenu, SWT.SEPARATOR);
+        addItem(viewMenu, "Faturalar", 0, e -> selectModule(11));
+        addItem(viewMenu, "Siparişler", 0, e -> selectModule(12));
+        addItem(viewMenu, "Konsinye", 0, e -> selectModule(13));
+        new MenuItem(viewMenu, SWT.SEPARATOR);
+        addItem(viewMenu, "Stok Kâr Analizi", 0, e -> selectModule(14));
 
         // Araçlar
         MenuItem toolsItem = new MenuItem(bar, SWT.CASCADE);
         toolsItem.setText("&Araçlar");
         Menu toolsMenu = new Menu(shell, SWT.DROP_DOWN);
         toolsItem.setMenu(toolsMenu);
-        addItem(toolsMenu, "Şirket Bilgisi", 0, null);
-        addItem(toolsMenu, "Kullanıcılar", 0, null);
-        addItem(toolsMenu, "Para Birimleri", 0, null);
-        addItem(toolsMenu, "Döviz Kurları", 0, null);
+        addItem(toolsMenu, "Şirket Bilgisi", 0, e -> selectModule(16));
+        addItem(toolsMenu, "Kullanıcılar", 0, e -> selectModule(17));
+        addItem(toolsMenu, "Para Birimleri", 0, e -> selectModule(18));
+        addItem(toolsMenu, "Döviz Kurları", 0, e -> selectModule(19));
         new MenuItem(toolsMenu, SWT.SEPARATOR);
         addItem(toolsMenu, "Parolayı Değiştir...", 0, e ->
                 new SettingsViews.ChangePasswordDialog(shell, new AdminApi(rest)).open());
@@ -245,15 +290,15 @@ public class MainShell {
     private ToolBar buildToolBar(Shell shell) {
         ToolBar tb = new ToolBar(shell, SWT.FLAT | SWT.WRAP | SWT.RIGHT);
 
-        addTool(tb, "🔄  Yenile", "Görünümü yenile (F5)", null);
-        addTool(tb, "📊  Mizan", "Mizanı aç", e -> { /* MainShell modül seçimi */ });
-        addTool(tb, "📒  Yevmiye", "Yevmiye fişi", null);
+        addTool(tb, "🔄  Yenile", "Görünümü yenile (F5)", e -> refreshCurrentModule());
+        addTool(tb, "📊  Mizan", "Mizanı aç", e -> selectModule(6));
+        addTool(tb, "📒  Yevmiye", "Yevmiye fişi", e -> selectModule(5));
         new ToolItem(tb, SWT.SEPARATOR);
-        addTool(tb, "👥  Cari", "Cari kartlar", null);
-        addTool(tb, "📦  Stok", "Stok kartları", null);
-        addTool(tb, "🧾  Fatura", "Faturalar", null);
+        addTool(tb, "👥  Cari", "Cari kartlar", e -> selectModule(1));
+        addTool(tb, "📦  Stok", "Stok kartları", e -> selectModule(2));
+        addTool(tb, "🧾  Fatura", "Faturalar", e -> selectModule(11));
         new ToolItem(tb, SWT.SEPARATOR);
-        addTool(tb, "⚙  Ayarlar", "Şirket / Kullanıcılar / Para", null);
+        addTool(tb, "⚙  Ayarlar", "Şirket Bilgisi", e -> selectModule(16));
         addTool(tb, "🔑  Parola", "Parolayı değiştir",
                 e -> new SettingsViews.ChangePasswordDialog(shell, new AdminApi(rest)).open());
         new ToolItem(tb, SWT.SEPARATOR);
