@@ -20,7 +20,9 @@ import com.turquaz.persistence.consignment.ConsignmentService;
 import com.turquaz.persistence.consignment.NewConsignment;
 import jakarta.validation.Valid;
 import java.util.UUID;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +47,24 @@ public class BillController {
     }
 
     // -------------------- Fatura --------------------
+
+    @GetMapping("/bills")
+    public List<BillResponse> listBills() {
+        return billService.listAll(CurrentUser.companyId()).stream()
+                .map(BillResponse::from).toList();
+    }
+
+    @GetMapping("/orders")
+    public List<OrderResponse> listOrders() {
+        return orderService.listAll(CurrentUser.companyId()).stream()
+                .map(OrderResponse::from).toList();
+    }
+
+    @GetMapping("/consignments")
+    public List<ConsignmentResponse> listConsignments() {
+        return consignmentService.listAll(CurrentUser.companyId()).stream()
+                .map(ConsignmentResponse::from).toList();
+    }
 
     @PostMapping("/bills")
     public ResponseEntity<BillResponse> createBill(@Valid @RequestBody CreateBillRequest req) {

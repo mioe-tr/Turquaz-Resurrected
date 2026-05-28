@@ -95,4 +95,9 @@ public class BillService {
     public List<Bill> listByCurrentCard(UUID companyId, UUID currentCardId) {
         return repo.findByCompanyIdAndCurrentCardsId(companyId, currentCardId);
     }
+
+    @Transactional(readOnly = true)
+    public List<Bill> listAll(UUID companyId) {
+        return repo.findByCompanyId(companyId);
+    }
 }

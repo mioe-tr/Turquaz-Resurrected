@@ -17,4 +17,6 @@ public interface BillRepository extends JpaRepository<Bill, UUID> {
     boolean existsByCompanyIdAndBillDocumentNo(UUID companyId, String docNo);
 
     List<Bill> findByCompanyIdAndCurrentCardsId(UUID companyId, UUID currentCardId);
+
+    List<Bill> findByCompanyId(UUID companyId);
 }

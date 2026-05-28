@@ -83,4 +83,9 @@ public class OrderService {
     public List<Order> listByCurrentCard(UUID companyId, UUID currentCardId) {
         return repo.findByCompanyIdAndCurrentCardsId(companyId, currentCardId);
     }
+
+    @Transactional(readOnly = true)
+    public List<Order> listAll(UUID companyId) {
+        return repo.findByCompanyId(companyId);
+    }
 }

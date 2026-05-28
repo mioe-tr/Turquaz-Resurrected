@@ -17,4 +17,6 @@ public interface ConsignmentRepository extends JpaRepository<Consignment, UUID> 
     boolean existsByCompanyIdAndConsignmentDocumentNo(UUID companyId, String docNo);
 
     List<Consignment> findByCompanyIdAndCurrentCardsId(UUID companyId, UUID currentCardId);
+
+    List<Consignment> findByCompanyId(UUID companyId);
 }
