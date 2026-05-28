@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.turquaz</groupId>
+        <artifactId>turquaz-parent</artifactId>
+        <version>0.9.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>turquaz-desktop-swt</artifactId>
+    <name>Turquaz Desktop (SWT)</name>
+    <description>Eski SWT istemcisinden esinlenmiş modern SWT 4.x masaüstü
+        istemcisi; REST API'ye bağlanır.</description>
+
+    <properties>
+        <swt.version>3.125.0</swt.version>
+        <jackson.version>2.18.2</jackson.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>swt-linux</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <os><family>unix</family><name>Linux</name></os>
+            </activation>
+            <properties>
+                <swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
+            </properties>
+        </profile>
+        <profile>
+            <id>swt-windows</id>
+            <activation>
+                <os><family>windows</family></os>
+            </activation>
+            <properties>
+                <swt.artifactId>org.eclipse.swt.win32.win32.x86_64</swt.artifactId>
+            </properties>
+        </profile>
+        <profile>
+            <id>swt-mac</id>
+            <activation>
+                <os><family>mac</family></os>
+            </activation>
+            <properties>
+                <swt.artifactId>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifactId>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.turquaz</groupId>
+            <artifactId>turquaz-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.platform</groupId>
+            <artifactId>${swt.artifactId}</artifactId>
+            <version>${swt.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.turquaz.desktop.TurquazDesktop</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

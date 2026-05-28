@@ -54,9 +54,18 @@ mvn clean verify
 
 # API'yi çalıştır (PostgreSQL gerektirir)
 mvn -pl api spring-boot:run
+
+# Web istemcisi (Vite dev sunucusu — proxy ile API'ye bağlanır)
+cd web && npm install && npm run dev
+
+# Masaüstü SWT istemcisi (REST'e bağlanır)
+mvn -pl desktop-swt -am package
+java -jar desktop-swt/target/turquaz-desktop-swt-0.9.0-SNAPSHOT.jar
+# (TURQUAZ_API_URL ile farklı sunucu gösterilebilir; varsayılan localhost:8080)
 ```
 
-Çevre değişkenleri: `TURQUAZ_DB_URL`, `TURQUAZ_DB_USER`, `TURQUAZ_DB_PASSWORD`.
+Çevre değişkenleri: `TURQUAZ_DB_URL`, `TURQUAZ_DB_USER`, `TURQUAZ_DB_PASSWORD`,
+`TURQUAZ_JWT_SECRET`, `TURQUAZ_API_URL` (desktop).
 
 ## Lisans
 
@@ -66,8 +75,9 @@ için [LICENSE](LICENSE) dosyasına bakınız.
 ## Yol Haritası
 
 - [x] **Faz 0** — Hazırlık: eski kod analizi, proje iskeleti, CI.
-- [ ] **Faz 1** — Veri modeli: 77 tablo → modern şema, Flyway, JPA entity'leri.
-- [ ] **Faz 2** — Business logic portu (`com.turquaz.engine.bl.*`).
-- [ ] **Faz 3** — REST API + OpenAPI + kimlik doğrulama.
-- [ ] **Faz 4** — React web istemcisi (Cari, Stok, Fatura, Yevmiye).
+- [x] **Faz 1** — Veri modeli: 79 tablo → modern şema, Flyway, JPA entity'leri.
+- [x] **Faz 2** — Business logic portu (`com.turquaz.engine.bl.*`).
+- [x] **Faz 3** — REST API + OpenAPI + JWT.
+- [x] **Faz 4** — React web istemcisi (15 sayfa).
+- [x] **Faz 4+** — Modern SWT masaüstü istemcisi (REST'e bağlı).
 - [ ] **Faz 5** — e-Fatura / e-Arşiv entegrasyonu.
