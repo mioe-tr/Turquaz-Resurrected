@@ -21,3 +21,8 @@ target/
 
 # Loglar
 *.log
+
+# Web (Node) build çıktıları
+node_modules/
+web/dist/
+*.tsbuildinfo
