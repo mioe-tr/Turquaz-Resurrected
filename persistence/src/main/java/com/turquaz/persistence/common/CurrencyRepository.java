@@ -5,8 +5,10 @@
  */
 package com.turquaz.persistence.common;
 
+import java.util.List;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CurrencyRepository extends JpaRepository<Currency, UUID> {
+    List<Currency> findByCompanyId(UUID companyId);
 }

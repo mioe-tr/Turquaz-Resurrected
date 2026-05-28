@@ -20,6 +20,7 @@ import { InventoryCardsPage } from "@/features/inventory/InventoryCardsPage";
 import { StockOnHandPage } from "@/features/inventory/StockOnHandPage";
 import { WarehousesPage } from "@/features/inventory/WarehousesPage";
 import { InventoryProfitPage } from "@/features/reports/InventoryProfitPage";
+import { SettingsPage } from "@/features/settings/SettingsPage";
 import { useAuthStore } from "@/store/auth";
 
 function ProtectedRoute({ children }: { children: JSX.Element }) {
@@ -57,6 +58,7 @@ export function AppRoutes() {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/consignments" element={<ConsignmentsPage />} />
         <Route path="/reports/inventory-profit" element={<InventoryProfitPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

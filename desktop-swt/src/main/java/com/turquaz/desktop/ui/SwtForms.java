@@ -82,4 +82,23 @@ public final class SwtForms {
         mb.setMessage(message);
         mb.open();
     }
+
+    /** Tabloya bağlı "Excel'e Aktar" butonu üretir. */
+    public static org.eclipse.swt.widgets.Button exportButton(
+            Composite parent, Table table, String baseName, String sheetName) {
+        org.eclipse.swt.widgets.Button btn = new org.eclipse.swt.widgets.Button(parent, SWT.PUSH);
+        btn.setText("Excel'e Aktar");
+        btn.addListener(SWT.Selection,
+                e -> ExcelExporter.exportTable(parent.getShell(), table, baseName, sheetName));
+        return btn;
+    }
+
+    /** "Yenile" butonu üretir; verilen aksiyon her tıklamada çalışır. */
+    public static org.eclipse.swt.widgets.Button refreshButton(
+            Composite parent, Runnable action) {
+        org.eclipse.swt.widgets.Button btn = new org.eclipse.swt.widgets.Button(parent, SWT.PUSH);
+        btn.setText("Yenile");
+        btn.addListener(SWT.Selection, e -> action.run());
+        return btn;
+    }
 }

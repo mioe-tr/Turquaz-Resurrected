@@ -82,10 +82,11 @@ public final class BankCashChequeViews {
                 }
             });
 
-            Button refresh = new Button(parent, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            refresh.addListener(SWT.Selection, e -> refresh());
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "banka_hesaplari", "Banka Hesapları");
         }
 
         public void refresh() {
@@ -150,10 +151,11 @@ public final class BankCashChequeViews {
                 }
             });
 
-            Button refresh = new Button(parent, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            refresh.addListener(SWT.Selection, e -> refresh());
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "kasa_kartlari", "Kasa Kartları");
         }
 
         public void refresh() {
@@ -198,14 +200,14 @@ public final class BankCashChequeViews {
             filterCombo.setItems("Tümü", "Alınan", "Verilen");
             filterCombo.select(0);
             filterCombo.addListener(SWT.Selection, e -> refresh());
-            Button refresh = new Button(topRow, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.addListener(SWT.Selection, e -> refresh());
+            SwtForms.refreshButton(topRow, this::refresh);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Çek No", "Borçlu", "Tutar", "Vade", "Tür"},
                     new int[] {120, 220, 120, 120, 100});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+            // Üst satırdaki toolbar'a Excel butonu — table artık tanımlı.
+            SwtForms.exportButton(topRow, table, "cek_senet", "Çek/Senet");
 
             Group form = new Group(parent, SWT.NONE);
             form.setText("Yeni Çek/Senet");

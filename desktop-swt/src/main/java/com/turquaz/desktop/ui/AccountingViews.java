@@ -199,16 +199,15 @@ public final class AccountingViews {
             h.setText("Mizan");
 
             Composite top = new Composite(parent, SWT.NONE);
-            top.setLayout(new GridLayout(2, false));
+            top.setLayout(new org.eclipse.swt.layout.RowLayout());
             top.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-            Button refresh = new Button(top, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.addListener(SWT.Selection, e -> refresh());
+            SwtForms.refreshButton(top, this::refresh);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Hesap UUID", "Toplam Borç", "Toplam Alacak", "Bakiye"},
                     new int[] {320, 160, 160, 160});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+            SwtForms.exportButton(top, table, "mizan", "Mizan");
         }
 
         public void refresh() {

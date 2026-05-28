@@ -71,11 +71,10 @@ public class CurrentCardsView {
         form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
 
         Composite toolbar = new Composite(parent, SWT.NONE);
-        toolbar.setLayout(new GridLayout(2, false));
+        toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
         toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-        Button refreshBtn = new Button(toolbar, SWT.PUSH);
-        refreshBtn.setText("Yenile");
-        refreshBtn.addListener(SWT.Selection, e -> refresh());
+        SwtForms.refreshButton(toolbar, this::refresh);
+        SwtForms.exportButton(toolbar, table, "cari_kartlar", "Cari Kartlar");
     }
 
     private Composite buildForm(Composite parentComposite) {

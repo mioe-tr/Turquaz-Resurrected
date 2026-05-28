@@ -89,10 +89,11 @@ public final class InventoryViews {
                 }
             });
 
-            Button refresh = new Button(parent, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            refresh.addListener(SWT.Selection, e -> refresh());
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "stok_kartlari", "Stok Kartları");
         }
 
         public void refresh() {
@@ -167,10 +168,11 @@ public final class InventoryViews {
                 }
             });
 
-            Button refresh = new Button(parent, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            refresh.addListener(SWT.Selection, e -> refresh());
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "depolar", "Depolar");
         }
 
         public void refresh() {

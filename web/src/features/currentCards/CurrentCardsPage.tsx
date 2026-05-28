@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadCsv } from "@/lib/csvExport";
 import { createCurrentCard, listCurrentCards } from "./api";
 
 const schema = z.object({
@@ -64,9 +65,31 @@ export function CurrentCardsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("currentCards.title")}</h1>
-        <Button onClick={() => setShowForm((v) => !v)}>
-          {showForm ? t("currentCards.cancel") : t("currentCards.newCard")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadCsv(
+                  "cari_kartlar",
+                  [
+                    { header: t("currentCards.code"), value: (c) => c.code },
+                    { header: t("currentCards.name"), value: (c) => c.name },
+                    { header: t("currentCards.taxNumber"), value: (c) => c.taxNumber },
+                    { header: t("currentCards.creditLimit"), value: (c) => c.creditLimit },
+                    { header: t("currentCards.riskLimit"), value: (c) => c.riskLimit },
+                  ],
+                  data,
+                )
+              }
+            >
+              {t("common.exportCsv")}
+            </Button>
+          )}
+          <Button onClick={() => setShowForm((v) => !v)}>
+            {showForm ? t("currentCards.cancel") : t("currentCards.newCard")}
+          </Button>
+        </div>
       </div>
 
       {showForm && (

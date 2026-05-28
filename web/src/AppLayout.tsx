@@ -49,6 +49,7 @@ export function AppLayout() {
       ],
     },
     { label: t("nav.reports"), items: [{ to: "/reports/inventory-profit", label: t("nav.inventoryProfit") }] },
+    { label: t("nav.settings"), items: [{ to: "/settings", label: t("nav.settings") }] },
   ];
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>

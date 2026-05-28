@@ -93,11 +93,10 @@ public final class BillViews {
             });
 
             Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new GridLayout(3, false));
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
             actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            Button refresh = new Button(actions, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.addListener(SWT.Selection, e -> refresh());
+            SwtForms.refreshButton(actions, this::refresh);
+            SwtForms.exportButton(actions, table, "faturalar", "Faturalar");
             Button printBtn = new Button(actions, SWT.PUSH);
             printBtn.setText("Seçiliyi Yazdır");
             Button closeBtn = new Button(actions, SWT.PUSH);
@@ -223,11 +222,10 @@ public final class BillViews {
             });
 
             Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new GridLayout(2, false));
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
             actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            Button refresh = new Button(actions, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.addListener(SWT.Selection, e -> refresh());
+            SwtForms.refreshButton(actions, this::refresh);
+            SwtForms.exportButton(actions, table, "siparisler", "Siparişler");
             Button deliver = new Button(actions, SWT.PUSH);
             deliver.setText("Seçiliyi Teslim Et");
             deliver.addListener(SWT.Selection, e -> {
@@ -321,11 +319,10 @@ public final class BillViews {
             });
 
             Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new GridLayout(2, false));
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
             actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            Button refresh = new Button(actions, SWT.PUSH);
-            refresh.setText("Yenile");
-            refresh.addListener(SWT.Selection, e -> refresh());
+            SwtForms.refreshButton(actions, this::refresh);
+            SwtForms.exportButton(actions, table, "konsinye", "Konsinye");
             Button print = new Button(actions, SWT.PUSH);
             print.setText("Seçiliyi Yazdır");
             print.addListener(SWT.Selection, e -> {
@@ -398,6 +395,7 @@ public final class BillViews {
                             "Ort. Birim", "Satılanın Maliyeti", "Kâr"},
                     new int[] {240, 90, 90, 110, 110, 110, 140, 110});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+            SwtForms.exportButton(top, table, "stok_kar_analizi", "Kâr Analizi");
             totals = new Label(parent, SWT.NONE);
             totals.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         }
