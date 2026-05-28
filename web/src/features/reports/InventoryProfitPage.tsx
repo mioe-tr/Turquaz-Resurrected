@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
 import { inventoryProfit } from "./api";
 
 const isoStart = (date: string) => (date ? `${date}T00:00:00Z` : "");
@@ -32,7 +33,28 @@ export function InventoryProfitPage() {
 
   return (
     <div className="container py-6 space-y-4">
-      <h1 className="text-2xl font-semibold">{t("reports.inventoryProfit.title")}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">{t("reports.inventoryProfit.title")}</h1>
+        {q.data && q.data.length > 0 && (
+          <Button
+            variant="outline"
+            onClick={() =>
+              downloadExcel("stok_kar_analizi", "Stok Kâr Analizi", [
+                { header: t("reports.inventoryProfit.card"), value: (r) => r.cardId },
+                { header: t("reports.inventoryProfit.amountIn"), value: (r) => r.amountIn },
+                { header: t("reports.inventoryProfit.amountOut"), value: (r) => r.amountOut },
+                { header: t("reports.inventoryProfit.costIn"), value: (r) => r.costIn },
+                { header: t("reports.inventoryProfit.revenueOut"), value: (r) => r.revenueOut },
+                { header: t("reports.inventoryProfit.avgUnitCost"), value: (r) => r.avgUnitCost },
+                { header: t("reports.inventoryProfit.costOfSold"), value: (r) => r.costOfSold },
+                { header: t("reports.inventoryProfit.profit"), value: (r) => r.profit },
+              ], q.data)
+            }
+          >
+            {t("common.exportExcel")}
+          </Button>
+        )}
+      </div>
       <Card>
         <CardHeader><CardTitle>{t("reports.inventoryProfit.run")}</CardTitle></CardHeader>
         <CardContent>

@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createWarehouse, listWarehouses } from "./api";
 
 const schema = z.object({
@@ -45,7 +47,9 @@ export function WarehousesPage() {
       qc.invalidateQueries({ queryKey: ["warehouses"] });
       reset();
       setShow(false);
+      toast.success(t("inventory.warehouses.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);
@@ -54,9 +58,26 @@ export function WarehousesPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("inventory.warehouses.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("inventory.warehouses.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("depolar", "Depolar", [
+                  { header: t("inventory.warehouses.code"), value: (w) => w.code },
+                  { header: t("inventory.warehouses.name"), value: (w) => w.name },
+                  { header: t("inventory.warehouses.city"), value: (w) => w.city },
+                  { header: t("inventory.warehouses.telephone"), value: (w) => w.telephone },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("inventory.warehouses.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

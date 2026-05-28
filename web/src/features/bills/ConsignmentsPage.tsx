@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createConsignment, listConsignments, printConsignment } from "./api";
 
 const schema = z.object({
@@ -48,11 +50,17 @@ export function ConsignmentsPage() {
       qc.invalidateQueries({ queryKey: ["consignments"] });
       reset();
       setShow(false);
+      toast.success(t("consignments.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const print = useMutation({
     mutationFn: printConsignment,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["consignments"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["consignments"] });
+      toast.success(t("common.print"));
+    },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(create.error || print.error);
@@ -61,9 +69,27 @@ export function ConsignmentsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("consignments.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("consignments.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("konsinye", "Konsinye", [
+                  { header: t("consignments.docNo"), value: (c) => c.documentNo },
+                  { header: t("consignments.type"), value: (c) => (c.type === 1 ? t("consignments.out") : t("consignments.in")) },
+                  { header: t("consignments.date"), value: (c) => c.date },
+                  { header: t("consignments.referenceBillNo"), value: (c) => c.referenceBillNo },
+                  { header: t("consignments.printed"), value: (c) => (c.printed ? "✓" : "") },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("consignments.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

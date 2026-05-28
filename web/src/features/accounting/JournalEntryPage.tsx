@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { toast } from "@/lib/toast";
 import { postJournal, type JournalLineRequest } from "./api";
 
 interface LineState {
@@ -64,6 +65,9 @@ export function JournalEntryPage() {
         lines: reqLines,
       });
     },
+    onSuccess: (data) =>
+      toast.success(t("accounting.journal.post") + " ✓ " + data.transactionId.slice(0, 8)),
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);

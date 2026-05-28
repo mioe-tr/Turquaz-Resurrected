@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createCheque, listCheques } from "./api";
 
 const schema = z.object({
@@ -62,7 +64,9 @@ export function ChequesPage() {
       qc.invalidateQueries({ queryKey: ["cheques"] });
       reset();
       setShow(false);
+      toast.success(t("cheques.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const apiError = extractApiError(mutation.error);
 
@@ -80,6 +84,22 @@ export function ChequesPage() {
             <option value="received">{t("cheques.received")}</option>
             <option value="given">{t("cheques.given")}</option>
           </select>
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("cek_senet", "Çek/Senet", [
+                  { header: t("cheques.chequeNo"), value: (c) => c.chequeNo },
+                  { header: t("cheques.debtor"), value: (c) => c.debtor },
+                  { header: t("cheques.amount"), value: (c) => c.amount },
+                  { header: t("cheques.dueDate"), value: (c) => c.dueDate },
+                  { header: t("cheques.type"), value: (c) => (c.type === 1 ? t("cheques.received") : t("cheques.given")) },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
           <Button onClick={() => setShow((v) => !v)}>
             {show ? t("common.cancel") : t("cheques.new")}
           </Button>

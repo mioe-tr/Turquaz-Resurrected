@@ -48,7 +48,10 @@ const tr = {
     date: "Tarih",
     amount: "Tutar",
     exportCsv: "CSV İndir",
+    exportExcel: "Excel İndir",
     actions: "İşlemler",
+    created: "Kayıt oluşturuldu",
+    updated: "Güncellendi",
   },
   currentCards: {
     title: "Cari Kartlar",

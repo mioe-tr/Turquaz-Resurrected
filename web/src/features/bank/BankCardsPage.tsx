@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createBankCard, listBankCards } from "./api";
 
 const schema = z.object({
@@ -43,7 +45,9 @@ export function BankCardsPage() {
       qc.invalidateQueries({ queryKey: ["bankCards"] });
       reset();
       setShow(false);
+      toast.success(t("bank.cards.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);
@@ -52,9 +56,26 @@ export function BankCardsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("bank.cards.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("bank.cards.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("banka_hesaplari", "Banka Hesapları", [
+                  { header: t("bank.cards.code"), value: (c) => c.code },
+                  { header: t("bank.cards.bankName"), value: (c) => c.bankName },
+                  { header: t("bank.cards.branchName"), value: (c) => c.branchName },
+                  { header: t("bank.cards.accountNo"), value: (c) => c.accountNo },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("bank.cards.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

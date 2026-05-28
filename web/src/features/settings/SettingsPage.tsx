@@ -13,7 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
 import { cn } from "@/lib/utils";
-import { downloadCsv } from "@/lib/csvExport";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import {
   changePassword,
   createCurrency,
@@ -118,7 +119,11 @@ function CompanyTab() {
   });
   const mutation = useMutation({
     mutationFn: updateCompany,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["company"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["company"] });
+      toast.success(t("settings.saved"));
+    },
+    onError: (e) => toast.apiError(e),
   });
   const apiError = extractApiError(mutation.error);
 
@@ -181,8 +186,9 @@ function UsersTab() {
             variant="outline"
             size="sm"
             onClick={() =>
-              downloadCsv(
+              downloadExcel(
                 "kullanicilar",
+                "Kullanıcılar",
                 [
                   { header: t("settings.username"), value: (u) => u.username },
                   { header: t("settings.realName"), value: (u) => u.realName },
@@ -192,7 +198,7 @@ function UsersTab() {
               )
             }
           >
-            {t("common.exportCsv")}
+            {t("common.exportExcel")}
           </Button>
         )}
       </CardHeader>
@@ -252,7 +258,9 @@ function CurrenciesTab() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["currencies"] });
       reset();
+      toast.success(t("settings.currencies") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const apiError = extractApiError(mutation.error);
 
@@ -308,8 +316,9 @@ function CurrenciesTab() {
               variant="outline"
               size="sm"
               onClick={() =>
-                downloadCsv<Currency>(
+                downloadExcel<Currency>(
                   "para_birimleri",
+                  "Para Birimleri",
                   [
                     { header: t("settings.currencyName"), value: (c) => c.name },
                     { header: t("settings.currencyAbbr"), value: (c) => c.abbreviation },
@@ -327,7 +336,7 @@ function CurrenciesTab() {
                 )
               }
             >
-              {t("common.exportCsv")}
+              {t("common.exportExcel")}
             </Button>
           )}
         </CardHeader>
@@ -390,7 +399,9 @@ function ExchangeRatesTab() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["exchangeRates"] });
       reset();
+      toast.success(t("settings.rates") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const apiError = extractApiError(mutation.error);
 
@@ -445,8 +456,9 @@ function ExchangeRatesTab() {
               variant="outline"
               size="sm"
               onClick={() =>
-                downloadCsv<ExchangeRate>(
+                downloadExcel<ExchangeRate>(
                   "doviz_kurlari",
+                  "Döviz Kurları",
                   [
                     { header: t("common.date"), value: (r) => r.date },
                     { header: t("settings.baseCurrency"), value: (r) => r.baseCurrencyId },
@@ -457,7 +469,7 @@ function ExchangeRatesTab() {
                 )
               }
             >
-              {t("common.exportCsv")}
+              {t("common.exportExcel")}
             </Button>
           )}
         </CardHeader>
@@ -515,7 +527,11 @@ function PasswordTab() {
   const mutation = useMutation({
     mutationFn: ({ currentPassword, newPassword }: { currentPassword: string; newPassword: string }) =>
       changePassword(currentPassword, newPassword),
-    onSuccess: () => reset(),
+    onSuccess: () => {
+      reset();
+      toast.success(t("settings.passwordChanged"));
+    },
+    onError: (e) => toast.apiError(e),
   });
   const apiError = extractApiError(mutation.error);
 

@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { toast } from "@/lib/toast";
 import { useAuthStore } from "@/store/auth";
 import { login } from "./api";
 
@@ -47,8 +48,10 @@ export function LoginPage() {
         expiresInSeconds: resp.expiresInSeconds,
         loginAt: Date.now(),
       });
+      toast.success(t("auth.loggedInAs", { name: resp.username }));
       navigate(from, { replace: true });
     },
+    onError: (e) => toast.apiError(e),
   });
 
   if (isAuthenticated) {

@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createInventoryCard, listInventoryCards } from "./api";
 
 const schema = z.object({
@@ -51,7 +53,9 @@ export function InventoryCardsPage() {
       qc.invalidateQueries({ queryKey: ["inventoryCards"] });
       reset();
       setShow(false);
+      toast.success(t("inventory.cards.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);
@@ -60,9 +64,27 @@ export function InventoryCardsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("inventory.cards.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("inventory.cards.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("stok_kartlari", "Stok Kartları", [
+                  { header: t("inventory.cards.code"), value: (c) => c.code },
+                  { header: t("inventory.cards.name"), value: (c) => c.name },
+                  { header: t("inventory.cards.min"), value: (c) => c.minimumAmount ?? 0 },
+                  { header: t("inventory.cards.max"), value: (c) => c.maximumAmount ?? 0 },
+                  { header: t("inventory.cards.vatRate"), value: (c) => c.vatRate ?? 0 },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("inventory.cards.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

@@ -12,7 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
-import { downloadCsv } from "@/lib/csvExport";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createCurrentCard, listCurrentCards } from "./api";
 
 const schema = z.object({
@@ -56,7 +57,9 @@ export function CurrentCardsPage() {
       qc.invalidateQueries({ queryKey: ["currentCards"] });
       reset();
       setShowForm(false);
+      toast.success(t("currentCards.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);
@@ -70,8 +73,9 @@ export function CurrentCardsPage() {
             <Button
               variant="outline"
               onClick={() =>
-                downloadCsv(
+                downloadExcel(
                   "cari_kartlar",
+                  "Cari Kartlar",
                   [
                     { header: t("currentCards.code"), value: (c) => c.code },
                     { header: t("currentCards.name"), value: (c) => c.name },
@@ -83,7 +87,7 @@ export function CurrentCardsPage() {
                 )
               }
             >
-              {t("common.exportCsv")}
+              {t("common.exportExcel")}
             </Button>
           )}
           <Button onClick={() => setShowForm((v) => !v)}>

@@ -7,6 +7,7 @@ package com.turquaz.desktop.ui;
 
 import com.turquaz.desktop.rest.AccountingApi;
 import com.turquaz.desktop.rest.AdminApi;
+import com.turquaz.desktop.rest.ApiException;
 import com.turquaz.desktop.rest.AuthApi;
 import com.turquaz.desktop.rest.BankCashChequeApi;
 import com.turquaz.desktop.rest.BillApi;
@@ -27,6 +28,8 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
 
 /**
  * Eski TurquazClient WorkbenchWindow'unun modern SWT karşılığı:
@@ -52,6 +55,8 @@ public class MainShell {
         shell.setSize(1280, 800);
 
         buildMenuBar(shell);
+        ToolBar toolbar = buildToolBar(shell);
+        toolbar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         Composite header = new Composite(shell, SWT.NONE);
         header.setLayout(new GridLayout(2, false));
@@ -120,6 +125,8 @@ public class MainShell {
         });
 
         sash.setWeights(new int[] {1, 5});
+
+        buildStatusBar(shell);
 
         shell.open();
         while (!shell.isDisposed()) {
@@ -232,5 +239,73 @@ public class MainShell {
         mi.setText(text);
         if (accelerator != 0) mi.setAccelerator(accelerator);
         if (listener != null) mi.addListener(SWT.Selection, listener);
+    }
+
+    /** Üst araç çubuğu — sık kullanılan eylemler için Unicode ikonlu butonlar. */
+    private ToolBar buildToolBar(Shell shell) {
+        ToolBar tb = new ToolBar(shell, SWT.FLAT | SWT.WRAP | SWT.RIGHT);
+
+        addTool(tb, "🔄  Yenile", "Görünümü yenile (F5)", null);
+        addTool(tb, "📊  Mizan", "Mizanı aç", e -> { /* MainShell modül seçimi */ });
+        addTool(tb, "📒  Yevmiye", "Yevmiye fişi", null);
+        new ToolItem(tb, SWT.SEPARATOR);
+        addTool(tb, "👥  Cari", "Cari kartlar", null);
+        addTool(tb, "📦  Stok", "Stok kartları", null);
+        addTool(tb, "🧾  Fatura", "Faturalar", null);
+        new ToolItem(tb, SWT.SEPARATOR);
+        addTool(tb, "⚙  Ayarlar", "Şirket / Kullanıcılar / Para", null);
+        addTool(tb, "🔑  Parola", "Parolayı değiştir",
+                e -> new SettingsViews.ChangePasswordDialog(shell, new AdminApi(rest)).open());
+        new ToolItem(tb, SWT.SEPARATOR);
+        addTool(tb, "❌  Çıkış", "Uygulamayı kapat", e -> shell.close());
+
+        return tb;
+    }
+
+    private static void addTool(ToolBar tb, String text, String tooltip,
+                                org.eclipse.swt.widgets.Listener listener) {
+        ToolItem it = new ToolItem(tb, SWT.PUSH);
+        it.setText(text);
+        if (tooltip != null) it.setToolTipText(tooltip);
+        if (listener != null) it.addListener(SWT.Selection, listener);
+    }
+
+    /** Alt durum çubuğu — kullanıcı, şirket, API URL ve bağlantı durumu. */
+    private void buildStatusBar(Shell shell) {
+        Composite status = new Composite(shell, SWT.BORDER);
+        status.setLayout(new GridLayout(4, false));
+        status.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+
+        Label connLabel = new Label(status, SWT.NONE);
+        connLabel.setText("● Bağlı");
+        connLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+
+        Label sep1 = new Label(status, SWT.SEPARATOR | SWT.VERTICAL);
+        sep1.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, true));
+
+        Label userLabel = new Label(status, SWT.NONE);
+        userLabel.setText("Kullanıcı: " + session.username + "  |  Şirket: " + session.companyId);
+
+        Label apiLabel = new Label(status, SWT.NONE);
+        apiLabel.setText("API: " + System.getenv().getOrDefault("TURQUAZ_API_URL", "http://localhost:8080"));
+        apiLabel.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+
+        // 30 saniyede bir basit bağlantı kontrolü
+        Runnable check = new Runnable() {
+            @Override
+            public void run() {
+                if (shell.isDisposed()) return;
+                try {
+                    new AdminApi(rest).getCompany();
+                    connLabel.setText("● Bağlı");
+                    connLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+                } catch (ApiException ex) {
+                    connLabel.setText("● Bağlantı yok");
+                    connLabel.setForeground(shell.getDisplay().getSystemColor(SWT.COLOR_DARK_RED));
+                }
+                shell.getDisplay().timerExec(30_000, this);
+            }
+        };
+        shell.getDisplay().timerExec(30_000, check);
     }
 }

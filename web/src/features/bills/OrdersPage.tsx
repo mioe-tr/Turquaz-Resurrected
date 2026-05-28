@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createOrder, deliverOrder, listOrders } from "./api";
 
 const schema = z.object({
@@ -55,11 +57,17 @@ export function OrdersPage() {
       qc.invalidateQueries({ queryKey: ["orders"] });
       reset();
       setShow(false);
+      toast.success(t("orders.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const deliver = useMutation({
     mutationFn: deliverOrder,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["orders"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["orders"] });
+      toast.success(t("common.deliver"));
+    },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(create.error || deliver.error);
@@ -68,9 +76,28 @@ export function OrdersPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("orders.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("orders.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("siparisler", "Siparişler", [
+                  { header: t("orders.docNo"), value: (o) => o.documentNo ?? 0 },
+                  { header: t("orders.type"), value: (o) => (o.type === 1 ? t("bills.sales") : t("bills.purchase")) },
+                  { header: t("orders.orderDate"), value: (o) => o.orderDate },
+                  { header: t("orders.deliverDate"), value: (o) => o.deliverDate },
+                  { header: t("orders.totalAmount"), value: (o) => o.totalAmount },
+                  { header: t("orders.delivered"), value: (o) => (o.delivered ? "✓" : "") },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("orders.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

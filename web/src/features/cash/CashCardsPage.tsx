@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { createCashCard, listCashCards } from "./api";
 
 const schema = z.object({
@@ -37,7 +39,9 @@ export function CashCardsPage() {
       qc.invalidateQueries({ queryKey: ["cashCards"] });
       reset();
       setShow(false);
+      toast.success(t("cash.cards.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(mutation.error);
@@ -46,9 +50,25 @@ export function CashCardsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("cash.cards.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("cash.cards.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("kasa_kartlari", "Kasa Kartları", [
+                  { header: t("cash.cards.name"), value: (c) => c.name },
+                  { header: t("cash.cards.definition"), value: (c) => c.definition },
+                  { header: t("cash.cards.accountingAccount"), value: (c) => c.accountingAccountsId },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("cash.cards.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

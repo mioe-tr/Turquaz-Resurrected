@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { extractApiError } from "@/lib/api";
+import { downloadExcel } from "@/lib/excelExport";
+import { toast } from "@/lib/toast";
 import { closeBill, createBill, listBills, printBill } from "./api";
 
 const schema = z.object({
@@ -48,15 +50,25 @@ export function BillsPage() {
       qc.invalidateQueries({ queryKey: ["bills"] });
       reset();
       setShow(false);
+      toast.success(t("bills.title") + " — " + t("common.created"));
     },
+    onError: (e) => toast.apiError(e),
   });
   const print = useMutation({
     mutationFn: printBill,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["bills"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bills"] });
+      toast.success(t("common.print"));
+    },
+    onError: (e) => toast.apiError(e),
   });
   const close = useMutation({
     mutationFn: closeBill,
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["bills"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bills"] });
+      toast.success(t("common.close"));
+    },
+    onError: (e) => toast.apiError(e),
   });
 
   const apiError = extractApiError(create.error || print.error || close.error);
@@ -65,9 +77,28 @@ export function BillsPage() {
     <div className="container py-6 space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">{t("bills.title")}</h1>
-        <Button onClick={() => setShow((v) => !v)}>
-          {show ? t("common.cancel") : t("bills.new")}
-        </Button>
+        <div className="flex gap-2">
+          {data && data.length > 0 && (
+            <Button
+              variant="outline"
+              onClick={() =>
+                downloadExcel("faturalar", "Faturalar", [
+                  { header: t("bills.docNo"), value: (b) => b.documentNo },
+                  { header: t("bills.type"), value: (b) => (b.type === 1 ? t("bills.sales") : t("bills.purchase")) },
+                  { header: t("bills.billDate"), value: (b) => b.billDate },
+                  { header: t("bills.dueDate"), value: (b) => b.dueDate },
+                  { header: t("bills.printed"), value: (b) => (b.printed ? "✓" : "") },
+                  { header: t("bills.open"), value: (b) => (b.open ? "✓" : "") },
+                ], data)
+              }
+            >
+              {t("common.exportExcel")}
+            </Button>
+          )}
+          <Button onClick={() => setShow((v) => !v)}>
+            {show ? t("common.cancel") : t("bills.new")}
+          </Button>
+        </div>
       </div>
 
       {show && (

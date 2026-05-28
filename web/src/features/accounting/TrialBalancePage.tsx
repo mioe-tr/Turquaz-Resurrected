@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { downloadExcel } from "@/lib/excelExport";
 import { trialBalance } from "./api";
 
 export function TrialBalancePage() {
@@ -24,7 +25,24 @@ export function TrialBalancePage() {
 
   return (
     <div className="container py-6 space-y-4">
-      <h1 className="text-2xl font-semibold">{t("accounting.trialBalance.title")}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">{t("accounting.trialBalance.title")}</h1>
+        {q.data && q.data.length > 0 && (
+          <Button
+            variant="outline"
+            onClick={() =>
+              downloadExcel("mizan", "Mizan", [
+                { header: t("accounting.trialBalance.account"), value: (l) => l.accountId },
+                { header: t("accounting.trialBalance.totalDebit"), value: (l) => l.totalDebit },
+                { header: t("accounting.trialBalance.totalCredit"), value: (l) => l.totalCredit },
+                { header: t("accounting.trialBalance.net"), value: (l) => l.net },
+              ], q.data)
+            }
+          >
+            {t("common.exportExcel")}
+          </Button>
+        )}
+      </div>
       <Card>
         <CardHeader><CardTitle>{t("accounting.trialBalance.calculate")}</CardTitle></CardHeader>
         <CardContent>
