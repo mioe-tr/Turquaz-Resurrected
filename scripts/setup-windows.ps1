@@ -75,6 +75,10 @@ Write-Host "    `"realName`": `"Yönetici`","
 Write-Host "    `"companyId`": `"$companyId`""
 Write-Host "  }"
 Write-Host ""
-Write-Host "Masaüstü (SWT) istemcisi için:" -ForegroundColor Cyan
+Write-Host "Masaüstü (SWT) istemcisi için (opsiyonel, JDK 21 + Maven gerekli):" -ForegroundColor Cyan
 Write-Host "  .\scripts\build-desktop.ps1"
 Write-Host "  .\scripts\run-desktop.ps1"
+Write-Host ""
+Write-Host "JDK 21 yoksa:" -ForegroundColor Yellow
+Write-Host "  winget install EclipseAdoptium.Temurin.21.JDK"
+Write-Host "  winget install Apache.Maven"

@@ -7,6 +7,11 @@
 
 $ErrorActionPreference = "Stop"
 
+# JDK ve Maven sürümünü önce denetle — yanlış sürüm Java sessiz bir
+# "release version 21 not supported" hatasına neden olur.
+. (Join-Path $PSScriptRoot "check-jdk.ps1")
+Assert-Jdk21
+
 Write-Host "==> SWT masaüstü istemcisi derleniyor (Windows native)..." -ForegroundColor Cyan
 mvn -pl desktop-swt -am -DskipTests package
 

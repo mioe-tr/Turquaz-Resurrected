@@ -5,10 +5,35 @@ komutla ayağa kaldırmayı anlatır.
 
 ## Gereksinimler
 
+### Docker yığını için (web + API + PostgreSQL)
 - **Docker Desktop** (Windows için WSL2 backend ile) — son kararlı sürüm.
 - En az 4 GB RAM ayrılmış olarak Docker'a verilmiş olmalı.
-- Masaüstü (SWT) istemcisini Windows'ta yerelde derlemek için ek olarak:
-  **JDK 21** (Eclipse Temurin önerilir) ve **Maven 3.9+**.
+
+### Masaüstü SWT istemcisi için (Windows yerelde, opsiyonel)
+- **JDK 21** — Eclipse Temurin (zorunlu, eski sürümler `release version 21 not supported` hatası verir)
+- **Apache Maven 3.9+**
+
+Kurulum:
+
+```powershell
+# winget ile (Windows 10/11)
+winget install EclipseAdoptium.Temurin.21.JDK
+winget install Apache.Maven
+
+# Yeni PowerShell penceresi aç ve doğrula
+java -version    # → openjdk 21.x.x
+mvn -version     # → Java version: 21.0.x
+```
+
+Eğer `mvn -version` daha eski bir JDK gösteriyorsa `JAVA_HOME` ayarla:
+
+```powershell
+[Environment]::SetEnvironmentVariable("JAVA_HOME",
+  "C:\Program Files\Eclipse Adoptium\jdk-21.x.x-hotspot", "User")
+# PowerShell'i kapatıp yeniden aç
+```
+
+Manuel kurulum: <https://adoptium.net/temurin/releases/?version=21>
 
 ## Hızlı Başlangıç (Windows PowerShell)
 
