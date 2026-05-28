@@ -5,8 +5,16 @@
  */
 package com.turquaz.persistence.bill;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BillRepository extends JpaRepository<Bill, UUID> {
+
+    Optional<Bill> findByCompanyIdAndBillDocumentNo(UUID companyId, String docNo);
+
+    boolean existsByCompanyIdAndBillDocumentNo(UUID companyId, String docNo);
+
+    List<Bill> findByCompanyIdAndCurrentCardsId(UUID companyId, UUID currentCardId);
 }
