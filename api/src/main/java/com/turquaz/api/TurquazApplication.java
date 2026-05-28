@@ -17,8 +17,12 @@ package com.turquaz.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.turquaz")
+@EnableJpaRepositories(basePackages = "com.turquaz.persistence")
+@EntityScan(basePackages = "com.turquaz.persistence")
 public class TurquazApplication {
 
     public static void main(String[] args) {

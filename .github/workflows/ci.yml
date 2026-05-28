@@ -8,6 +8,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: turquaz
+          POSTGRES_PASSWORD: turquaz
+          POSTGRES_DB: turquaz
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U turquaz"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      TURQUAZ_DB_URL: jdbc:postgresql://localhost:5432/turquaz
+      TURQUAZ_DB_USER: turquaz
+      TURQUAZ_DB_PASSWORD: turquaz
+
     steps:
       - uses: actions/checkout@v4
 

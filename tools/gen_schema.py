@@ -62,6 +62,13 @@ def is_fk_col(table: str, name: str) -> bool:
 
 
 def map_type(table: str, col: str, sql_type: str) -> str:
+    # Audit sütunlarının kanonik tipleri (eski dump'taki tip hatalarını
+    # düzeltir; örn. turq_tradebill_transaction_types.created_by 2005'te
+    # yanlışlıkla date tanımlanmış)
+    if col in ("created_by", "updated_by"):
+        return "varchar(50)"
+    if col in ("creation_date", "last_modified", "update_date"):
+        return "timestamptz"
     s = sql_type.strip().lower()
     if col == "id":
         return "uuid"

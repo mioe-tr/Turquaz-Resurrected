@@ -29,9 +29,9 @@ CREATE TABLE turq_accounting_account_classes (
     id uuid NOT NULL,
     accounting_classes_name varchar(50) NOT NULL,
     accounting_classes_definition varchar(50) NOT NULL,
-    created_by varchar(25) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(25) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -42,9 +42,9 @@ CREATE TABLE turq_accounting_account_types (
     id uuid NOT NULL,
     accounting_types_name varchar(50) NOT NULL,
     accounting_types_definition varchar(250) NOT NULL,
-    created_by varchar(25) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(25) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -305,9 +305,9 @@ CREATE TABLE turq_cash_cards (
     cash_card_name varchar(250) NOT NULL,
     cash_card_definition varchar(250) NOT NULL,
     accounting_accounts_id uuid NOT NULL,
-    created_by varchar(100) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(100) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -321,9 +321,9 @@ CREATE TABLE turq_cash_transaction_rows (
     credit_amount numeric(19,4) NOT NULL,
     cash_transactions_id uuid NOT NULL,
     transaction_definition varchar(250),
-    created_by varchar(100) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(100) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     cash_cards_id uuid NOT NULL,
     dept_amount_in_foreign_currency numeric(19,4) NOT NULL,
@@ -337,9 +337,9 @@ CREATE INDEX ix_cash_transaction_rows_company ON turq_cash_transaction_rows (com
 CREATE TABLE turq_cash_transaction_types (
     id uuid NOT NULL,
     cash_transation_type_name varchar(100) NOT NULL,
-    created_by varchar(100) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(100) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -353,9 +353,9 @@ CREATE TABLE turq_cash_transactions (
     transaction_date timestamptz NOT NULL,
     transaction_definition varchar(250),
     document_no varchar(100),
-    created_by varchar(100) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(100) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -589,7 +589,7 @@ CREATE TABLE turq_current_cards_phones (
     phones_type varchar(50) NOT NULL,
     created_by varchar(50) NOT NULL,
     creation_date timestamptz,
-    updated_by text NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -848,9 +848,9 @@ CREATE TABLE turq_inventory_transaction_bills (
     bill_type integer NOT NULL,
     engine_sequence uuid NOT NULL,
     bill_document_no varchar(25) NOT NULL,
-    created_by varchar(25) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(25) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     warehouse_in uuid NOT NULL,
     warehouse_out uuid NOT NULL,
@@ -862,9 +862,9 @@ CREATE INDEX ix_inventory_transaction_bills_company ON turq_inventory_transactio
 CREATE TABLE turq_inventory_transaction_types (
     id uuid NOT NULL,
     type_name varchar(100) NOT NULL,
-    created_by varchar(100) NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
-    updated_by varchar(100) NOT NULL,
+    updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
     company_id uuid NOT NULL
 );
@@ -1085,7 +1085,7 @@ CREATE TABLE turq_tradebill_transaction_types (
     transaction_types_name varchar(50) NOT NULL,
     transaction_types_parent smallint NOT NULL,
     accounting_accounts_id uuid NOT NULL,
-    created_by timestamptz NOT NULL,
+    created_by varchar(50) NOT NULL,
     creation_date timestamptz NOT NULL,
     updated_by varchar(50) NOT NULL,
     last_modified timestamptz NOT NULL,
