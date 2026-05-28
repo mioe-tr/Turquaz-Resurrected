@@ -1,7 +1,5 @@
 /*
- * Turquaz Resurrected - Modern Türk muhasebe yazılımı
- * Copyright (C) 2026  Turquaz Resurrected katkıcıları
- * GPLv3 — bkz. LICENSE.
+ * Turquaz Resurrected — GPLv3
  */
 package com.turquaz.desktop.ui;
 
@@ -23,19 +21,17 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 
-/** Ayarlar (admin) görünümleri: Şirket, Kullanıcılar, Para Birimleri, Döviz Kurları. */
 public final class SettingsViews {
 
     private SettingsViews() {}
 
-    // ===== Şirket =====
+    // ===== Şirket — form (tek satırlık, yeni eklenmiyor; yalnız güncelleme) =====
 
     public static class CompanyView {
         private final Composite parent;
@@ -50,22 +46,19 @@ public final class SettingsViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(1, false));
+            parent.setLayout(new GridLayout(2, false));
             Label h = new Label(parent, SWT.NONE);
             h.setText("Şirket Bilgileri");
+            h.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
-            Group g = new Group(parent, SWT.NONE);
-            g.setText("Şirket");
-            g.setLayout(new GridLayout(2, false));
-            g.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-            nameTx = SwtForms.textRow(g, "Ad");
-            addressTx = SwtForms.textRow(g, "Adres");
-            telTx = SwtForms.textRow(g, "Telefon");
-            faxTx = SwtForms.textRow(g, "Faks");
+            nameTx = SwtForms.textRow(parent, "Ad");
+            addressTx = SwtForms.textRow(parent, "Adres");
+            telTx = SwtForms.textRow(parent, "Telefon");
+            faxTx = SwtForms.textRow(parent, "Faks");
 
             Composite actions = new Composite(parent, SWT.NONE);
             actions.setLayout(new org.eclipse.swt.layout.RowLayout());
-            actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
             SwtForms.refreshButton(actions, this::load);
             Button save = new Button(actions, SWT.PUSH);
             save.setText("Kaydet");
@@ -115,12 +108,22 @@ public final class SettingsViews {
 
         private void build() {
             parent.setLayout(new GridLayout(1, false));
-            Label h = new Label(parent, SWT.NONE);
-            h.setText("Kullanıcılar");
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Kullanıcılar");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            Button changePw = new Button(actions, SWT.PUSH);
+            changePw.setText("🔑  Parolamı Değiştir...");
+            changePw.addListener(SWT.Selection,
+                    e -> new ChangePasswordDialog(parent.getShell(), api).open());
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Kullanıcı Adı", "Gerçek Ad", "Açıklama"},
-                    new int[] {200, 280, 280});
+                    new int[] {220, 320, 320});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
             Composite toolbar = new Composite(parent, SWT.NONE);
@@ -128,10 +131,6 @@ public final class SettingsViews {
             toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
             SwtForms.refreshButton(toolbar, this::refresh);
             SwtForms.exportButton(toolbar, table, "kullanicilar", "Kullanıcılar");
-            Button changePw = new Button(toolbar, SWT.PUSH);
-            changePw.setText("Parolamı Değiştir...");
-            changePw.addListener(SWT.Selection,
-                    e -> new ChangePasswordDialog(parent.getShell(), api).open());
         }
 
         public void refresh() {
@@ -140,9 +139,7 @@ public final class SettingsViews {
                 table.removeAll();
                 for (UserSummary u : list) {
                     TableItem it = new TableItem(table, SWT.NONE);
-                    it.setText(new String[] {
-                            nz(u.username), nz(u.realName), nz(u.description)
-                    });
+                    it.setText(new String[] {nz(u.username), nz(u.realName), nz(u.description)});
                 }
             } catch (ApiException ex) {
                 SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
@@ -165,49 +162,47 @@ public final class SettingsViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Para Birimleri");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Para Birimleri");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Para Birimi", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Ad", "Kısaltma", "Ülke", "Varsayılan", "Sabit"},
-                    new int[] {180, 100, 140, 100, 80});
+                    new int[] {220, 120, 180, 120, 100});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Para Birimi");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text name = SwtForms.textRow(form, "Ad");
-            Text abbr = SwtForms.textRow(form, "Kısaltma");
-            Text country = SwtForms.textRow(form, "Ülke");
-            Combo def = SwtForms.comboRow(form, "Varsayılan", new String[] {"Hayır", "Evet"});
-            Combo constant = SwtForms.comboRow(form, "Sabit", new String[] {"Hayır", "Evet"});
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "para_birimleri", "Para Birimleri");
+        }
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Para Birimi", 460, 340);
+            Text name = SwtForms.textRow(dlg, "Ad");
+            Text abbr = SwtForms.textRow(dlg, "Kısaltma");
+            Text country = SwtForms.textRow(dlg, "Ülke");
+            Combo def = SwtForms.comboRow(dlg, "Varsayılan", new String[] {"Hayır", "Evet"});
+            Combo constant = SwtForms.comboRow(dlg, "Sabit", new String[] {"Hayır", "Evet"});
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateCurrency r = new CreateCurrency();
                 r.name = name.getText().trim();
                 r.abbreviation = abbr.getText().trim();
                 r.country = country.getText().trim();
                 r.defaultCurrency = def.getSelectionIndex() == 1;
                 r.constant = constant.getSelectionIndex() == 1;
-                try {
-                    api.createCurrency(r);
-                    name.setText(""); abbr.setText(""); country.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createCurrency(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "para_birimleri", "Para Birimleri");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -243,51 +238,47 @@ public final class SettingsViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Döviz Kurları");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Döviz Kurları");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Kur", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Tarih", "Baz", "Hedef", "Kur"},
-                    new int[] {120, 280, 280, 140});
+                    new int[] {140, 300, 300, 160});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Kur");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text base = SwtForms.textRow(form, "Baz Para UUID");
-            Text target = SwtForms.textRow(form, "Hedef Para UUID");
-            Text ratio = SwtForms.textRow(form, "Kur");
-            Text date = SwtForms.textRow(form, "Tarih (YYYY-MM-DD)");
-            date.setText(LocalDate.now().toString());
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "doviz_kurlari", "Döviz Kurları");
+        }
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Döviz Kuru", 460, 300);
+            Text base = SwtForms.textRow(dlg, "Baz Para UUID");
+            Text target = SwtForms.textRow(dlg, "Hedef Para UUID");
+            Text ratio = SwtForms.textRow(dlg, "Kur");
+            Text date = SwtForms.textRow(dlg, "Tarih (YYYY-MM-DD)");
+            date.setText(LocalDate.now().toString());
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateExchangeRate r = new CreateExchangeRate();
                 r.baseCurrencyId = base.getText().trim();
                 r.exchangeCurrencyId = target.getText().trim();
                 r.exchangeRatio = SwtForms.parseDecimal(ratio.getText());
                 try { r.date = LocalDate.parse(date.getText().trim()); }
-                catch (Exception ex) {
-                    SwtForms.error(parent.getShell(), "Tarih", "Geçersiz"); return;
-                }
-                try {
-                    api.createExchangeRate(r);
-                    ratio.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                catch (Exception ex) { SwtForms.error(dlg, "Tarih", "Geçersiz"); return false; }
+                try { api.createExchangeRate(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "doviz_kurlari", "Döviz Kurları");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -298,8 +289,7 @@ public final class SettingsViews {
                     TableItem it = new TableItem(table, SWT.NONE);
                     it.setText(new String[] {
                             r.date == null ? "" : r.date.toString(),
-                            nz(r.baseCurrencyId),
-                            nz(r.exchangeCurrencyId),
+                            nz(r.baseCurrencyId), nz(r.exchangeCurrencyId),
                             r.exchangeRatio == null ? "" : r.exchangeRatio.toPlainString()
                     });
                 }
@@ -324,7 +314,9 @@ public final class SettingsViews {
             Shell dlg = new Shell(parent, SWT.TITLE | SWT.CLOSE | SWT.APPLICATION_MODAL);
             dlg.setText("Parolayı Değiştir");
             dlg.setLayout(new GridLayout(2, false));
-            dlg.setSize(420, 220);
+            dlg.setSize(420, 240);
+            org.eclipse.swt.graphics.Rectangle p = parent.getBounds();
+            dlg.setLocation(p.x + (p.width - 420) / 2, p.y + (p.height - 240) / 2);
 
             new Label(dlg, SWT.NONE).setText("Mevcut Parola:");
             Text current = new Text(dlg, SWT.BORDER | SWT.PASSWORD);

@@ -101,4 +101,64 @@ public final class SwtForms {
         btn.addListener(SWT.Selection, e -> action.run());
         return btn;
     }
+
+    /** Prominent "+ Yeni X" eylem butonu (öne çıkmış, yeşil-tonlu). */
+    public static org.eclipse.swt.widgets.Button primaryAddButton(
+            Composite parent, String label, Runnable action) {
+        org.eclipse.swt.widgets.Button btn = new org.eclipse.swt.widgets.Button(parent, SWT.PUSH);
+        btn.setText("➕  " + label);
+        btn.setFont(boldFont(parent.getDisplay(), btn.getFont()));
+        btn.addListener(SWT.Selection, e -> action.run());
+        return btn;
+    }
+
+    private static org.eclipse.swt.graphics.Font boldFont(
+            org.eclipse.swt.widgets.Display d, org.eclipse.swt.graphics.Font base) {
+        org.eclipse.swt.graphics.FontData[] fd = base.getFontData();
+        for (var f : fd) f.setStyle(SWT.BOLD);
+        return new org.eclipse.swt.graphics.Font(d, fd);
+    }
+
+    /** Modal bir Shell yarat — GridLayout(2, false) ile, çağrı sahibi alanları
+     * ekler, sonra {@link #runModal} ile event loop'u sürdürür. */
+    public static Shell modalShell(Shell parent, String title, int width, int height) {
+        Shell dlg = new Shell(parent,
+                SWT.TITLE | SWT.CLOSE | SWT.APPLICATION_MODAL | SWT.RESIZE);
+        dlg.setText(title);
+        dlg.setLayout(new org.eclipse.swt.layout.GridLayout(2, false));
+        dlg.setSize(width, height);
+        // Ekranın ortasına yerleştir
+        org.eclipse.swt.graphics.Rectangle p = parent.getBounds();
+        dlg.setLocation(p.x + (p.width - width) / 2, p.y + (p.height - height) / 2);
+        return dlg;
+    }
+
+    /** Diyalog için "İptal | Kaydet" düğme barı. Save aksiyonu onClose=true
+     * dönerse diyalog kapatılır. */
+    public static void dialogButtonBar(Shell dlg, java.util.function.BooleanSupplier onSave) {
+        Composite bar = new Composite(dlg, SWT.NONE);
+        bar.setLayout(new org.eclipse.swt.layout.RowLayout(SWT.HORIZONTAL));
+        bar.setLayoutData(new org.eclipse.swt.layout.GridData(
+                SWT.END, SWT.CENTER, true, false, 2, 1));
+        org.eclipse.swt.widgets.Button cancel =
+                new org.eclipse.swt.widgets.Button(bar, SWT.PUSH);
+        cancel.setText("İptal");
+        cancel.addListener(SWT.Selection, e -> dlg.close());
+        org.eclipse.swt.widgets.Button save =
+                new org.eclipse.swt.widgets.Button(bar, SWT.PUSH);
+        save.setText("Kaydet");
+        dlg.setDefaultButton(save);
+        save.addListener(SWT.Selection, e -> {
+            if (onSave.getAsBoolean()) dlg.close();
+        });
+    }
+
+    /** Diyalog event loop'unu yürüt (modal). */
+    public static void runModal(Shell dlg) {
+        dlg.open();
+        org.eclipse.swt.widgets.Display d = dlg.getDisplay();
+        while (!dlg.isDisposed()) {
+            if (!d.readAndDispatch()) d.sleep();
+        }
+    }
 }

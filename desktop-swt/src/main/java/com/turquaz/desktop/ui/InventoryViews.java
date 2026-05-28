@@ -18,13 +18,12 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 
-/** Stok kartları, depolar, anlık stok bakiyesi görünümleri. */
 public final class InventoryViews {
 
     private InventoryViews() {}
@@ -42,35 +41,44 @@ public final class InventoryViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            Label h = new Label(parent, SWT.NONE);
-            h.setText("Stok Kartları");
-            h.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+            parent.setLayout(new GridLayout(1, false));
+
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Stok Kartları");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Stok Kartı", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Kod", "Ad", "Min", "Maks", "KDV %"},
-                    new int[] {120, 240, 80, 80, 80});
+                    new int[] {120, 280, 100, 100, 100});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Stok Kartı");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text code = SwtForms.textRow(form, "Kod");
-            Text name = SwtForms.textRow(form, "Ad");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text minA = SwtForms.textRow(form, "Min. Miktar");
-            Text maxA = SwtForms.textRow(form, "Maks. Miktar");
-            Text vat = SwtForms.textRow(form, "KDV %");
-            Text disc = SwtForms.textRow(form, "İskonto %");
-            Text sVat = SwtForms.textRow(form, "ÖTV %");
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "stok_kartlari", "Stok Kartları");
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Stok Kartı", 480, 480);
+            Text code = SwtForms.textRow(dlg, "Kod");
+            Text name = SwtForms.textRow(dlg, "Ad");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text minA = SwtForms.textRow(dlg, "Min. Miktar");
+            Text maxA = SwtForms.textRow(dlg, "Maks. Miktar");
+            Text vat = SwtForms.textRow(dlg, "KDV %");
+            Text disc = SwtForms.textRow(dlg, "İskonto %");
+            Text sVat = SwtForms.textRow(dlg, "ÖTV %");
             minA.setText("0"); maxA.setText("0"); vat.setText("18");
             disc.setText("0"); sVat.setText("0");
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateCard r = new CreateCard();
                 r.code = code.getText().trim();
                 r.name = name.getText().trim();
@@ -80,20 +88,10 @@ public final class InventoryViews {
                 r.vatRate = SwtForms.parseInt(vat.getText(), 0);
                 r.discountPercent = SwtForms.parseInt(disc.getText(), 0);
                 r.specialVatRate = SwtForms.parseInt(sVat.getText(), 0);
-                try {
-                    api.createCard(r);
-                    code.setText(""); name.setText(""); def.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createCard(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "stok_kartlari", "Stok Kartları");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -127,31 +125,38 @@ public final class InventoryViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            Label h = new Label(parent, SWT.NONE);
-            h.setText("Depolar");
-            h.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Depolar");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Depo", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Kod", "Ad", "Şehir", "Telefon"},
-                    new int[] {120, 220, 120, 140});
+                    new int[] {140, 280, 160, 180});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Depo");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text code = SwtForms.textRow(form, "Kod");
-            Text name = SwtForms.textRow(form, "Ad");
-            Text address = SwtForms.textRow(form, "Adres");
-            Text city = SwtForms.textRow(form, "Şehir");
-            Text tel = SwtForms.textRow(form, "Telefon");
-            Text desc = SwtForms.textRow(form, "Açıklama");
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "depolar", "Depolar");
+        }
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Depo", 460, 380);
+            Text code = SwtForms.textRow(dlg, "Kod");
+            Text name = SwtForms.textRow(dlg, "Ad");
+            Text address = SwtForms.textRow(dlg, "Adres");
+            Text city = SwtForms.textRow(dlg, "Şehir");
+            Text tel = SwtForms.textRow(dlg, "Telefon");
+            Text desc = SwtForms.textRow(dlg, "Açıklama");
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateWarehouse r = new CreateWarehouse();
                 r.code = code.getText().trim();
                 r.name = name.getText().trim();
@@ -159,20 +164,10 @@ public final class InventoryViews {
                 r.city = city.getText();
                 r.telephone = tel.getText();
                 r.description = desc.getText();
-                try {
-                    api.createWarehouse(r);
-                    code.setText(""); name.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createWarehouse(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "depolar", "Depolar");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -181,9 +176,7 @@ public final class InventoryViews {
                 table.removeAll();
                 for (Warehouse w : list) {
                     TableItem it = new TableItem(table, SWT.NONE);
-                    it.setText(new String[] {
-                            nz(w.code), nz(w.name), nz(w.city), nz(w.telephone)
-                    });
+                    it.setText(new String[] {nz(w.code), nz(w.name), nz(w.city), nz(w.telephone)});
                 }
             } catch (ApiException ex) {
                 SwtForms.error(parent.getShell(), "Liste alınamadı", ex.getMessage());

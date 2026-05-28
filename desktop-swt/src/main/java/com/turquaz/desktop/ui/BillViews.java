@@ -21,8 +21,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
@@ -44,82 +44,73 @@ public final class BillViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Faturalar");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Faturalar");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Fatura", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Belge No", "Tür", "Tarih", "Vade", "Yazdı", "Açık"},
-                    new int[] {140, 80, 110, 110, 60, 60});
+                    new int[] {160, 100, 130, 130, 80, 80});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Fatura");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Combo type = SwtForms.comboRow(form, "Tür", new String[] {"Satış", "Alış"});
-            Text bDate = SwtForms.textRow(form, "Fatura Tarihi");
-            Text dueDate = SwtForms.textRow(form, "Vade");
-            Text docNo = SwtForms.textRow(form, "Belge No");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text ccId = SwtForms.textRow(form, "Cari Kart UUID");
-            Text rateId = SwtForms.textRow(form, "Kur UUID");
-            Text seqId = SwtForms.textRow(form, "Sıra UUID");
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "faturalar", "Faturalar");
+            Button printBtn = new Button(toolbar, SWT.PUSH);
+            printBtn.setText("Seçiliyi Yazdır");
+            printBtn.addListener(SWT.Selection, e -> doAction("print"));
+            Button closeBtn = new Button(toolbar, SWT.PUSH);
+            closeBtn.setText("Seçiliyi Kapat");
+            closeBtn.addListener(SWT.Selection, e -> doAction("close"));
+        }
+
+        private void doAction(String op) {
+            int i = table.getSelectionIndex();
+            if (i < 0) return;
+            String id = (String) table.getItem(i).getData();
+            try {
+                if ("print".equals(op)) api.printBill(id); else api.closeBill(id);
+                refresh();
+            } catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Fatura", 540, 540);
+            Combo type = SwtForms.comboRow(dlg, "Tür", new String[] {"Satış", "Alış"});
+            Text bDate = SwtForms.textRow(dlg, "Fatura Tarihi");
+            Text dueDate = SwtForms.textRow(dlg, "Vade");
+            Text docNo = SwtForms.textRow(dlg, "Belge No");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text ccId = SwtForms.textRow(dlg, "Cari Kart UUID");
+            Text rateId = SwtForms.textRow(dlg, "Kur UUID");
+            Text seqId = SwtForms.textRow(dlg, "Sıra UUID");
             bDate.setText(LocalDate.now().toString());
             dueDate.setText(LocalDate.now().plusDays(30).toString());
-
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateBill r = new CreateBill();
                 r.type = type.getSelectionIndex() + 1;
                 try { r.billDate = LocalDate.parse(bDate.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Tarih", "Geçersiz"); return; }
+                catch (Exception ex) { SwtForms.error(dlg, "Tarih", "Geçersiz"); return false; }
                 try { r.dueDate = LocalDate.parse(dueDate.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Vade", "Geçersiz"); return; }
+                catch (Exception ex) { SwtForms.error(dlg, "Vade", "Geçersiz"); return false; }
                 r.documentNo = docNo.getText().trim();
                 r.definition = def.getText().trim();
                 r.currentCardId = ccId.getText().trim();
                 r.exchangeRateId = rateId.getText().trim();
                 r.engineSequenceId = seqId.getText().trim();
-                try {
-                    api.createBill(r);
-                    docNo.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createBill(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
-            actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(actions, this::refresh);
-            SwtForms.exportButton(actions, table, "faturalar", "Faturalar");
-            Button printBtn = new Button(actions, SWT.PUSH);
-            printBtn.setText("Seçiliyi Yazdır");
-            Button closeBtn = new Button(actions, SWT.PUSH);
-            closeBtn.setText("Seçiliyi Kapat");
-
-            printBtn.addListener(SWT.Selection, e -> {
-                String id = (String) selected();
-                if (id == null) return;
-                try { api.printBill(id); refresh(); }
-                catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
-            });
-            closeBtn.addListener(SWT.Selection, e -> {
-                String id = (String) selected();
-                if (id == null) return;
-                try { api.closeBill(id); refresh(); }
-                catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
-            });
-        }
-
-        private Object selected() {
-            int i = table.getSelectionIndex();
-            if (i < 0) return null;
-            return table.getItem(i).getData();
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -138,9 +129,7 @@ public final class BillViews {
                             Boolean.TRUE.equals(b.open) ? "✓" : "—"
                     });
                 }
-            } catch (ApiException ex) {
-                SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
-            }
+            } catch (ApiException ex) { SwtForms.error(parent.getShell(), "Liste", ex.getMessage()); }
         }
     }
 
@@ -157,52 +146,70 @@ public final class BillViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Siparişler");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Siparişler");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Sipariş", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Belge No", "Tür", "Tarih", "Teslim", "Tutar", "Teslim Edildi"},
-                    new int[] {120, 80, 110, 110, 140, 110});
+                    new int[] {140, 90, 130, 130, 160, 120});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Sipariş");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Combo type = SwtForms.comboRow(form, "Tür", new String[] {"Satış", "Alış"});
-            Text docNo = SwtForms.textRow(form, "Belge No (sayı)");
-            Text oDate = SwtForms.textRow(form, "Sipariş Tarihi");
-            Text dDate = SwtForms.textRow(form, "Vade");
-            Text dlvDate = SwtForms.textRow(form, "Teslim Tarihi");
-            Text ccId = SwtForms.textRow(form, "Cari UUID");
-            Text billId = SwtForms.textRow(form, "Fatura UUID");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text disc = SwtForms.textRow(form, "İskonto %");
-            Text vat = SwtForms.textRow(form, "KDV %");
-            Text discAmt = SwtForms.textRow(form, "İskonto Tutarı");
-            Text charges = SwtForms.textRow(form, "Masraflar");
-            Text vatAmt = SwtForms.textRow(form, "KDV Tutarı");
-            Text total = SwtForms.textRow(form, "Toplam Tutar");
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "siparisler", "Siparişler");
+            Button deliver = new Button(toolbar, SWT.PUSH);
+            deliver.setText("Seçiliyi Teslim Et");
+            deliver.addListener(SWT.Selection, e -> {
+                int i = table.getSelectionIndex();
+                if (i < 0) return;
+                String id = (String) table.getItem(i).getData();
+                try { api.deliverOrder(id); refresh(); }
+                catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
+            });
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Sipariş", 540, 760);
+            Combo type = SwtForms.comboRow(dlg, "Tür", new String[] {"Satış", "Alış"});
+            Text docNo = SwtForms.textRow(dlg, "Belge No (sayı)");
+            Text oDate = SwtForms.textRow(dlg, "Sipariş Tarihi");
+            Text dDate = SwtForms.textRow(dlg, "Vade");
+            Text dlvDate = SwtForms.textRow(dlg, "Teslim Tarihi");
+            Text ccId = SwtForms.textRow(dlg, "Cari UUID");
+            Text billId = SwtForms.textRow(dlg, "Fatura UUID");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text disc = SwtForms.textRow(dlg, "İskonto %");
+            Text vat = SwtForms.textRow(dlg, "KDV %");
+            Text discAmt = SwtForms.textRow(dlg, "İskonto Tutarı");
+            Text charges = SwtForms.textRow(dlg, "Masraflar");
+            Text vatAmt = SwtForms.textRow(dlg, "KDV Tutarı");
+            Text total = SwtForms.textRow(dlg, "Toplam Tutar");
             oDate.setText(LocalDate.now().toString());
             dDate.setText(LocalDate.now().plusDays(30).toString());
             dlvDate.setText(LocalDate.now().plusDays(7).toString());
             disc.setText("0"); vat.setText("18");
             discAmt.setText("0"); charges.setText("0"); vatAmt.setText("0"); total.setText("0");
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateOrder r = new CreateOrder();
                 r.type = type.getSelectionIndex() + 1;
                 r.documentNo = SwtForms.parseInt(docNo.getText(), 0);
                 try { r.orderDate = LocalDate.parse(oDate.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Tarih", "Geçersiz"); return; }
+                catch (Exception ex) { SwtForms.error(dlg, "Tarih", "Geçersiz"); return false; }
                 try { r.dueDate = LocalDate.parse(dDate.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Vade", "Geçersiz"); return; }
+                catch (Exception ex) { SwtForms.error(dlg, "Vade", "Geçersiz"); return false; }
                 try { r.deliverDate = LocalDate.parse(dlvDate.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Teslim", "Geçersiz"); return; }
+                catch (Exception ex) { SwtForms.error(dlg, "Teslim", "Geçersiz"); return false; }
                 r.currentCardId = ccId.getText().trim();
                 r.billId = billId.getText().trim();
                 r.definition = def.getText().trim();
@@ -212,29 +219,10 @@ public final class BillViews {
                 r.charges = SwtForms.parseDecimal(charges.getText());
                 r.vatAmount = SwtForms.parseDecimal(vatAmt.getText());
                 r.totalAmount = SwtForms.parseDecimal(total.getText());
-                try {
-                    api.createOrder(r);
-                    docNo.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createOrder(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
-            actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(actions, this::refresh);
-            SwtForms.exportButton(actions, table, "siparisler", "Siparişler");
-            Button deliver = new Button(actions, SWT.PUSH);
-            deliver.setText("Seçiliyi Teslim Et");
-            deliver.addListener(SWT.Selection, e -> {
-                int i = table.getSelectionIndex();
-                if (i < 0) return;
-                String id = (String) table.getItem(i).getData();
-                try { api.deliverOrder(id); refresh(); }
-                catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
-            });
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -253,9 +241,7 @@ public final class BillViews {
                             Boolean.TRUE.equals(o.delivered) ? "✓" : "—"
                     });
                 }
-            } catch (ApiException ex) {
-                SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
-            }
+            } catch (ApiException ex) { SwtForms.error(parent.getShell(), "Liste", ex.getMessage()); }
         }
     }
 
@@ -272,58 +258,28 @@ public final class BillViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Konsinye");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Konsinye");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Konsinye", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Belge No", "Tür", "Tarih", "Ref. Fatura", "Yazdırıldı"},
-                    new int[] {140, 80, 110, 140, 100});
+                    new int[] {160, 100, 130, 160, 120});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Konsinye");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Combo type = SwtForms.comboRow(form, "Tür", new String[] {"Verilen", "Alınan"});
-            Text date = SwtForms.textRow(form, "Tarih");
-            Text docNo = SwtForms.textRow(form, "Belge No");
-            Text refBill = SwtForms.textRow(form, "Ref. Fatura No");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text ccId = SwtForms.textRow(form, "Cari UUID");
-            Text rateId = SwtForms.textRow(form, "Kur UUID");
-            Text seqId = SwtForms.textRow(form, "Sıra UUID");
-            date.setText(LocalDate.now().toString());
-
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
-                CreateConsignment r = new CreateConsignment();
-                r.type = type.getSelectionIndex() + 1;
-                try { r.date = LocalDate.parse(date.getText().trim()); }
-                catch (Exception ex) { SwtForms.error(parent.getShell(), "Tarih", "Geçersiz"); return; }
-                r.documentNo = docNo.getText().trim();
-                r.referenceBillNo = refBill.getText().trim();
-                r.definition = def.getText().trim();
-                r.currentCardId = ccId.getText().trim();
-                r.exchangeRateId = rateId.getText().trim();
-                r.engineSequenceId = seqId.getText().trim();
-                try {
-                    api.createConsignment(r);
-                    docNo.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
-            });
-
-            Composite actions = new Composite(parent, SWT.NONE);
-            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
-            actions.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(actions, this::refresh);
-            SwtForms.exportButton(actions, table, "konsinye", "Konsinye");
-            Button print = new Button(actions, SWT.PUSH);
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "konsinye", "Konsinye");
+            Button print = new Button(toolbar, SWT.PUSH);
             print.setText("Seçiliyi Yazdır");
             print.addListener(SWT.Selection, e -> {
                 int i = table.getSelectionIndex();
@@ -332,6 +288,35 @@ public final class BillViews {
                 try { api.printConsignment(id); refresh(); }
                 catch (ApiException ex) { SwtForms.error(parent.getShell(), "Hata", ex.getMessage()); }
             });
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Konsinye", 540, 540);
+            Combo type = SwtForms.comboRow(dlg, "Tür", new String[] {"Verilen", "Alınan"});
+            Text date = SwtForms.textRow(dlg, "Tarih");
+            Text docNo = SwtForms.textRow(dlg, "Belge No");
+            Text refBill = SwtForms.textRow(dlg, "Ref. Fatura No");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text ccId = SwtForms.textRow(dlg, "Cari UUID");
+            Text rateId = SwtForms.textRow(dlg, "Kur UUID");
+            Text seqId = SwtForms.textRow(dlg, "Sıra UUID");
+            date.setText(LocalDate.now().toString());
+
+            SwtForms.dialogButtonBar(dlg, () -> {
+                CreateConsignment r = new CreateConsignment();
+                r.type = type.getSelectionIndex() + 1;
+                try { r.date = LocalDate.parse(date.getText().trim()); }
+                catch (Exception ex) { SwtForms.error(dlg, "Tarih", "Geçersiz"); return false; }
+                r.documentNo = docNo.getText().trim();
+                r.referenceBillNo = refBill.getText().trim();
+                r.definition = def.getText().trim();
+                r.currentCardId = ccId.getText().trim();
+                r.exchangeRateId = rateId.getText().trim();
+                r.engineSequenceId = seqId.getText().trim();
+                try { api.createConsignment(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
+            });
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -349,9 +334,7 @@ public final class BillViews {
                             Boolean.TRUE.equals(c.printed) ? "✓" : "—"
                     });
                 }
-            } catch (ApiException ex) {
-                SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
-            }
+            } catch (ApiException ex) { SwtForms.error(parent.getShell(), "Liste", ex.getMessage()); }
         }
     }
 
@@ -411,20 +394,16 @@ public final class BillViews {
                 for (InventoryProfitRow r : rows) {
                     TableItem it = new TableItem(table, SWT.NONE);
                     it.setText(new String[] {
-                            r.cardId,
-                            d(r.amountIn), d(r.amountOut),
+                            r.cardId, d(r.amountIn), d(r.amountOut),
                             d(r.costIn), d(r.revenueOut),
-                            d(r.avgUnitCost), d(r.costOfSold),
-                            d(r.profit)
+                            d(r.avgUnitCost), d(r.costOfSold), d(r.profit)
                     });
                     if (r.profit != null) totalProfit = totalProfit.add(r.profit);
                     if (r.revenueOut != null) totalRevenue = totalRevenue.add(r.revenueOut);
                 }
                 totals.setText("Σ Gelir=" + totalRevenue.toPlainString()
                         + "  Σ Kâr=" + totalProfit.toPlainString());
-            } catch (ApiException ex) {
-                SwtForms.error(parent.getShell(), "Rapor", ex.getMessage());
-            }
+            } catch (ApiException ex) { SwtForms.error(parent.getShell(), "Rapor", ex.getMessage()); }
         }
 
         private static String d(BigDecimal b) { return b == null ? "" : b.toPlainString(); }

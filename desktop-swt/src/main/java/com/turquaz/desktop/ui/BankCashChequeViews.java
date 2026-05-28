@@ -16,11 +16,10 @@ import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
@@ -42,30 +41,38 @@ public final class BankCashChequeViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Banka Hesapları");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Banka Hesapları");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Banka Hesabı", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Kod", "Banka", "Şube", "Hesap No"},
-                    new int[] {100, 180, 140, 160});
+                    new int[] {120, 220, 180, 220});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Banka Hesabı");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text code = SwtForms.textRow(form, "Kod");
-            Text bank = SwtForms.textRow(form, "Banka Adı");
-            Text branch = SwtForms.textRow(form, "Şube");
-            Text accNo = SwtForms.textRow(form, "Hesap No");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text curId = SwtForms.textRow(form, "Para Birimi UUID");
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "banka_hesaplari", "Banka Hesapları");
+        }
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Banka Hesabı", 480, 420);
+            Text code = SwtForms.textRow(dlg, "Kod");
+            Text bank = SwtForms.textRow(dlg, "Banka Adı");
+            Text branch = SwtForms.textRow(dlg, "Şube");
+            Text accNo = SwtForms.textRow(dlg, "Hesap No");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text curId = SwtForms.textRow(dlg, "Para Birimi UUID");
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateBankCard r = new CreateBankCard();
                 r.code = code.getText().trim();
                 r.bankName = bank.getText().trim();
@@ -73,20 +80,10 @@ public final class BankCashChequeViews {
                 r.accountNo = accNo.getText().trim();
                 r.definition = def.getText();
                 r.currencyId = curId.getText().trim();
-                try {
-                    api.createBankCard(r);
-                    code.setText(""); bank.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createBankCard(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "banka_hesaplari", "Banka Hesapları");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -95,9 +92,7 @@ public final class BankCashChequeViews {
                 table.removeAll();
                 for (BankCard c : list) {
                     TableItem it = new TableItem(table, SWT.NONE);
-                    it.setText(new String[] {
-                            nz(c.code), nz(c.bankName), nz(c.branchName), nz(c.accountNo)
-                    });
+                    it.setText(new String[] {nz(c.code), nz(c.bankName), nz(c.branchName), nz(c.accountNo)});
                 }
             } catch (ApiException ex) {
                 SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
@@ -118,44 +113,43 @@ public final class BankCashChequeViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Kasa Kartları");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Kasa Kartları");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Kasa Kartı", this::openNewDialog);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Ad", "Açıklama", "Muhasebe Hesabı"},
-                    new int[] {200, 280, 320});
+                    new int[] {220, 320, 320});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Kasa Kartı");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text name = SwtForms.textRow(form, "Ad");
-            Text def = SwtForms.textRow(form, "Açıklama");
-            Text acc = SwtForms.textRow(form, "Muhasebe Hesabı UUID");
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "kasa_kartlari", "Kasa Kartları");
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Kasa Kartı", 460, 280);
+            Text name = SwtForms.textRow(dlg, "Ad");
+            Text def = SwtForms.textRow(dlg, "Açıklama");
+            Text acc = SwtForms.textRow(dlg, "Muhasebe Hesabı UUID");
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateCashCard r = new CreateCashCard();
                 r.name = name.getText().trim();
                 r.definition = def.getText();
                 r.accountingAccountsId = acc.getText().trim();
-                try {
-                    api.createCashCard(r);
-                    name.setText(""); def.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createCashCard(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
-
-            Composite toolbar = new Composite(parent, SWT.NONE);
-            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
-            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            SwtForms.refreshButton(toolbar, this::refresh);
-            SwtForms.exportButton(toolbar, table, "kasa_kartlari", "Kasa Kartları");
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -164,9 +158,7 @@ public final class BankCashChequeViews {
                 table.removeAll();
                 for (CashCard c : list) {
                     TableItem it = new TableItem(table, SWT.NONE);
-                    it.setText(new String[] {
-                            nz(c.name), nz(c.definition), nz(c.accountingAccountsId)
-                    });
+                    it.setText(new String[] {nz(c.name), nz(c.definition), nz(c.accountingAccountsId)});
                 }
             } catch (ApiException ex) {
                 SwtForms.error(parent.getShell(), "Liste", ex.getMessage());
@@ -188,52 +180,58 @@ public final class BankCashChequeViews {
         }
 
         private void build() {
-            parent.setLayout(new GridLayout(2, false));
-            new Label(parent, SWT.NONE).setText("Çek/Senet");
-            new Label(parent, SWT.NONE);
+            parent.setLayout(new GridLayout(1, false));
+            Composite header = new Composite(parent, SWT.NONE);
+            header.setLayout(new GridLayout(2, false));
+            header.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Label title = new Label(header, SWT.NONE);
+            title.setText("Çek / Senet");
+            title.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            Composite actions = new Composite(header, SWT.NONE);
+            actions.setLayout(new org.eclipse.swt.layout.RowLayout());
+            SwtForms.primaryAddButton(actions, "Yeni Çek/Senet", this::openNewDialog);
 
             Composite topRow = new Composite(parent, SWT.NONE);
             topRow.setLayout(new GridLayout(3, false));
-            topRow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+            topRow.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
             new Label(topRow, SWT.NONE).setText("Filtre:");
             filterCombo = new Combo(topRow, SWT.READ_ONLY);
             filterCombo.setItems("Tümü", "Alınan", "Verilen");
             filterCombo.select(0);
             filterCombo.addListener(SWT.Selection, e -> refresh());
-            SwtForms.refreshButton(topRow, this::refresh);
 
             table = SwtForms.makeTable(parent,
                     new String[] {"Çek No", "Borçlu", "Tutar", "Vade", "Tür"},
-                    new int[] {120, 220, 120, 120, 100});
+                    new int[] {140, 280, 140, 140, 120});
             table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-            // Üst satırdaki toolbar'a Excel butonu — table artık tanımlı.
-            SwtForms.exportButton(topRow, table, "cek_senet", "Çek/Senet");
 
-            Group form = new Group(parent, SWT.NONE);
-            form.setText("Yeni Çek/Senet");
-            form.setLayout(new GridLayout(2, false));
-            form.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true));
-            Text chNo = SwtForms.textRow(form, "Çek No");
-            Text prtNo = SwtForms.textRow(form, "Portföy No");
-            Text bankId = SwtForms.textRow(form, "Banka UUID");
-            Text curId = SwtForms.textRow(form, "Para Birimi UUID");
-            Text rateId = SwtForms.textRow(form, "Kur UUID");
-            Text rate = SwtForms.textRow(form, "Kur");
-            Text bankName = SwtForms.textRow(form, "Banka Adı");
-            Text branch = SwtForms.textRow(form, "Şube");
-            Text accNo = SwtForms.textRow(form, "Hesap No");
-            Text amount = SwtForms.textRow(form, "Tutar");
-            Text debtor = SwtForms.textRow(form, "Borçlu");
-            Text payPlace = SwtForms.textRow(form, "Ödeme Yeri");
-            Text dueDate = SwtForms.textRow(form, "Vade (YYYY-MM-DD)");
-            Text valueDate = SwtForms.textRow(form, "Keşide (YYYY-MM-DD)");
-            Combo type = SwtForms.comboRow(form, "Tür", new String[] {"Alınan", "Verilen"});
+            Composite toolbar = new Composite(parent, SWT.NONE);
+            toolbar.setLayout(new org.eclipse.swt.layout.RowLayout());
+            toolbar.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false));
+            SwtForms.refreshButton(toolbar, this::refresh);
+            SwtForms.exportButton(toolbar, table, "cek_senet", "Çek/Senet");
+        }
+
+        private void openNewDialog() {
+            Shell dlg = SwtForms.modalShell(parent.getShell(), "Yeni Çek/Senet", 560, 720);
+            Text chNo = SwtForms.textRow(dlg, "Çek No");
+            Text prtNo = SwtForms.textRow(dlg, "Portföy No");
+            Text bankId = SwtForms.textRow(dlg, "Banka UUID");
+            Text curId = SwtForms.textRow(dlg, "Para Birimi UUID");
+            Text rateId = SwtForms.textRow(dlg, "Kur UUID");
+            Text rate = SwtForms.textRow(dlg, "Kur");
+            Text bankName = SwtForms.textRow(dlg, "Banka Adı");
+            Text branch = SwtForms.textRow(dlg, "Şube");
+            Text accNo = SwtForms.textRow(dlg, "Hesap No");
+            Text amount = SwtForms.textRow(dlg, "Tutar");
+            Text debtor = SwtForms.textRow(dlg, "Borçlu");
+            Text payPlace = SwtForms.textRow(dlg, "Ödeme Yeri");
+            Text dueDate = SwtForms.textRow(dlg, "Vade (YYYY-MM-DD)");
+            Text valueDate = SwtForms.textRow(dlg, "Keşide (YYYY-MM-DD)");
+            Combo type = SwtForms.comboRow(dlg, "Tür", new String[] {"Alınan", "Verilen"});
             rate.setText("1");
 
-            Button save = new Button(form, SWT.PUSH);
-            save.setText("Kaydet");
-            save.setLayoutData(new GridData(SWT.END, SWT.CENTER, true, false, 2, 1));
-            save.addListener(SWT.Selection, e -> {
+            SwtForms.dialogButtonBar(dlg, () -> {
                 CreateCheque r = new CreateCheque();
                 r.chequeNo = chNo.getText().trim();
                 r.portfolioNo = prtNo.getText().trim();
@@ -248,22 +246,14 @@ public final class BankCashChequeViews {
                 r.debtor = debtor.getText().trim();
                 r.paymentPlace = payPlace.getText();
                 try { r.dueDate = LocalDate.parse(dueDate.getText().trim()); }
-                catch (Exception ex) {
-                    SwtForms.error(parent.getShell(), "Vade", "Geçersiz tarih"); return;
-                }
+                catch (Exception ex) { SwtForms.error(dlg, "Vade", "Geçersiz tarih"); return false; }
                 try { r.valueDate = LocalDate.parse(valueDate.getText().trim()); }
-                catch (Exception ex) {
-                    SwtForms.error(parent.getShell(), "Keşide", "Geçersiz tarih"); return;
-                }
+                catch (Exception ex) { SwtForms.error(dlg, "Keşide", "Geçersiz tarih"); return false; }
                 r.type = type.getSelectionIndex() + 1;
-                try {
-                    api.createCheque(r);
-                    chNo.setText(""); amount.setText("");
-                    refresh();
-                } catch (ApiException ex) {
-                    SwtForms.error(parent.getShell(), "Hata", ex.getMessage());
-                }
+                try { api.createCheque(r); refresh(); return true; }
+                catch (ApiException ex) { SwtForms.error(dlg, "Hata", ex.getMessage()); return false; }
             });
+            SwtForms.runModal(dlg);
         }
 
         public void refresh() {
@@ -278,8 +268,7 @@ public final class BankCashChequeViews {
                 for (Cheque c : list) {
                     TableItem it = new TableItem(table, SWT.NONE);
                     it.setText(new String[] {
-                            nz(c.chequeNo),
-                            nz(c.debtor),
+                            nz(c.chequeNo), nz(c.debtor),
                             c.amount == null ? "" : c.amount.toPlainString(),
                             c.dueDate == null ? "" : c.dueDate.toString(),
                             c.type == null ? "" : (c.type == 1 ? "Alınan" : "Verilen")
