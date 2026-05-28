@@ -1,0 +1,30 @@
+# Build artefaktları
+**/target/
+**/node_modules/
+**/dist/
+**/.next/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Git ve OS
+.git/
+.gitignore
+.DS_Store
+*.log
+
+# Eski kod referansı (Docker build için gereksiz)
+legacy/
+
+# CI ve dokümanlar
+.github/
+docs/
+
+# Test ve geçici
+*.tmp
+*.swp

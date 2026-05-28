@@ -46,7 +46,19 @@ turquaz-parent (pom)
 `legacy/` dizini, eski kaynak kodun salt-okunur referansıdır ve sürüm
 kontrolüne dahil edilmez (bkz. `docs/decisions/0002-eski-kod-referansi.md`).
 
-## Geliştirme
+## Hızlı Başlangıç (Docker — önerilen)
+
+Windows/Mac/Linux'ta Docker Desktop ile:
+
+```bash
+docker compose up --build -d
+# → http://localhost:8081  (Web)
+# → http://localhost:8080  (API + /swagger-ui.html)
+```
+
+Ayrıntılı Windows kurulumu ve sorun giderme: [`docker/README.md`](docker/README.md).
+
+## Geliştirme (Docker'sız)
 
 ```bash
 # Derle ve testleri çalıştır

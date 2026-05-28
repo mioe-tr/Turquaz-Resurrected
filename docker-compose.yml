@@ -1,0 +1,64 @@
+# Turquaz Resurrected — yerel yığın
+#
+# Windows / Mac / Linux'ta tek komutla:
+#     docker compose up --build
+#
+# Sonra:
+#   http://localhost:8081   →  Web istemcisi (React)
+#   http://localhost:8080   →  REST API + Swagger UI (/swagger-ui.html)
+#   localhost:5432          →  PostgreSQL (turquaz/turquaz)
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: turquaz-postgres
+    environment:
+      POSTGRES_USER: turquaz
+      POSTGRES_PASSWORD: turquaz
+      POSTGRES_DB: turquaz
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U turquaz -d turquaz"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    container_name: turquaz-api
+    environment:
+      TURQUAZ_DB_URL: jdbc:postgresql://postgres:5432/turquaz
+      TURQUAZ_DB_USER: turquaz
+      TURQUAZ_DB_PASSWORD: turquaz
+      # ÜRETİMDE değiştirin: kendi 32+ byte gizli anahtarınız
+      TURQUAZ_JWT_SECRET: ${TURQUAZ_JWT_SECRET:-dev-only-secret-please-change-me-32+bytes-required}
+      TURQUAZ_JWT_TTL: ${TURQUAZ_JWT_TTL:-PT8H}
+      # Actuator endpoint'lerinin gösterimi (sağlık denetimi için)
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    container_name: turquaz-web
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: turquaz_postgres_data
