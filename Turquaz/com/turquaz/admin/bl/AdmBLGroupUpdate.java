@@ -1,0 +1,44 @@
+package com.turquaz.admin.bl;
+
+/************************************************************************/
+/* TURQUAZ: Higly Modular Accounting/ERP Program                        */
+/* ============================================                         */
+/* Copyright (c) 2004 by Turquaz Software Development Group			    */
+/*																		*/
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License, or    */
+/* (at your option) any later version.       							*/
+/* 																		*/
+/* This program is distributed in the hope that it will be useful,		*/
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of		*/
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
+/* GNU General Public License for more details.         				*/
+/************************************************************************/
+/**
+ * @author Huseyin Ergun
+ * @version $Id: AdmBLGroupUpdate.java,v 1.7 2005/04/01 14:53:07 cemdayanik Exp $
+ */
+import java.util.Calendar;
+import com.turquaz.engine.dal.EngDALCommon;
+import com.turquaz.engine.dal.TurqGroup;
+
+public class AdmBLGroupUpdate
+{
+	public static void updateGroup(String name, String description, TurqGroup group) throws Exception
+	{
+		try
+		{
+			Calendar cal = Calendar.getInstance();
+			group.setGroupsName(name);
+			group.setGroupsDescription(description);
+			group.setUpdateDate(cal.getTime());
+			group.setUpdatedBy(System.getProperty("user")); //$NON-NLS-1$
+			EngDALCommon.updateObject(group);
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+}
