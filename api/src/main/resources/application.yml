@@ -18,3 +18,9 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+turquaz:
+  security:
+    # HS256 için kullanılan paylaşılan sır. ÜRETİMDE değişkenlerden alın; min 32 byte.
+    jwt-secret: ${TURQUAZ_JWT_SECRET:dev-only-secret-please-change-me-32+bytes-required}
+    jwt-ttl: ${TURQUAZ_JWT_TTL:PT8H}
