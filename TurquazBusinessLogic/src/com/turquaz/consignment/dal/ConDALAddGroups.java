@@ -1,0 +1,46 @@
+package com.turquaz.consignment.dal;
+
+/************************************************************************/
+/* TURQUAZ: Higly Modular Accounting/ERP Program                        */
+/* ============================================                         */
+/* Copyright (c) 2004 by Turquaz Software Development Group			    */
+/*																		*/
+/* This program is free software. You can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 2 of the License, or    */
+/* (at your option) any later version.       							*/
+/* 																		*/
+/* This program is distributed in the hope that it will be useful,		*/
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of		*/
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the		*/
+/* GNU General Public License for more details.         				*/
+/** ********************************************************************* */
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import server.util.EngDALSessionFactory;
+
+public class ConDALAddGroups
+{
+	public ConDALAddGroups()
+	{
+	}
+
+	public static List getConsignmentGroups() throws Exception
+	{
+		try
+		{
+			Session session = EngDALSessionFactory.getSession();
+			String query = "from TurqConsignmentGroup as gr "; //$NON-NLS-1$
+			Query q = session.createQuery(query);
+			List list = q.list();
+			
+			return list;
+		}
+		catch (Exception ex)
+		{
+			throw ex;
+		}
+	}
+}
