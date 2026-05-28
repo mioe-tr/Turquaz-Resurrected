@@ -223,6 +223,8 @@ class BankCashServicesTest {
         cashType.setUpdatedBy("test");
         cashTxTypeRepo.save(cashType);
 
+        long cashTxBefore = cashTxRepo.count();
+        long cashRowBefore = cashRowRepo.count();
         long accColsBefore = accColRepo.count();
 
         // İki tahsilat satırı: cari A'dan 300, cari B'den 200 — toplam 500 kasa girişi
@@ -235,8 +237,8 @@ class BankCashServicesTest {
                 ctx));
 
         // 1 CashTransaction header + 2 row
-        assertThat(cashTxRepo.count()).isEqualTo(1);
-        assertThat(cashRowRepo.count()).isEqualTo(2);
+        assertThat(cashTxRepo.count() - cashTxBefore).isEqualTo(1);
+        assertThat(cashRowRepo.count() - cashRowBefore).isEqualTo(2);
 
         // Yevmiye: 2 karşı debit + 1 kasa credit özet = 3 satır
         assertThat(accColRepo.count()).isEqualTo(accColsBefore + 3);
