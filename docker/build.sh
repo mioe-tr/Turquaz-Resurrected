@@ -94,6 +94,38 @@ if ! grep -q 'ClassLoader\.getSystemClassLoader()' TurquazStandAlone/src/run/Sta
 fi
 sub "Starter.java URLClassLoader parent patch'i uygulandı"
 
+# Hibernate mapping DTD migrasyonu:
+#   Tüm .hbm.xml dosyaları Hibernate 2.x dönemi DOCTYPE'ıyla başlıyor:
+#       "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+#       "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd"
+#   Modern Hibernate 3.6'nın dahili DTDEntityResolver'ı sadece "3.0"
+#   PUBLIC ID'sini classpath'ten resolve ediyor. 2.0 ID'si yanıtsız
+#   kalıp parser internet'ten DTD çekmeye çalışıyor → SAX patlar.
+#   2.0 DTD'si 3.0 ile geriye uyumlu olduğundan in-place upgrade yeterli.
+HBM_COUNT=$(find . -name '*.hbm.xml' | wc -l)
+find . -name '*.hbm.xml' -exec sed -i \
+    -e 's|Hibernate Mapping DTD 2\.0|Hibernate Mapping DTD 3.0|g' \
+    -e 's|hibernate-mapping-2\.0\.dtd|hibernate-mapping-3.0.dtd|g' \
+    {} +
+sub "Hibernate mapping DTD 2.0 → 3.0 (${HBM_COUNT} .hbm.xml dosyası)"
+
+# EngDALSessionFactory: Hibernate 3.6 query cache açıkken second-level
+# cache'i de açık ister; Hibernate 3.0'da bağımsızdı. Accountancy uygulaması
+# için query cache şart değil — devre dışı bırakıyoruz.
+sed -i 's|props\.put("hibernate.cache.use_query_cache","true");|props.put("hibernate.cache.use_query_cache","false"); props.put("hibernate.hbm2ddl.auto","update");|' \
+    TurquazStandAlone/src/server/util/EngDALSessionFactory.java
+sub "EngDALSessionFactory: query_cache=false + hbm2ddl.auto=update"
+
+# HSQLDB başlangıç durumu:
+# HSQLDB 2.x eski 1.7.3 dosya formatını okuyamaz ("wrong database file
+# version"). Onun yerine boş DB ile başlıyoruz; yukarıda Hibernate'e
+# eklenen hbm2ddl.auto=update flag'i SessionFactory build sırasında 90
+# Hibernate entity'sinden tabloları otomatik yaratıyor. Schema güvenli
+# şekilde oluşur, EngBLVersionValidate sonra Turquaz spesifik seed
+# verileri (turq_services, vd.) ekleyebilir.
+mkdir -p TurquazStandAlone/dist/database
+sub "HSQLDB: dist/database/ boş; Hibernate hbm2ddl.auto=update şema'yı kuracak"
+
 # ---------------------------------------------------------------------------
 # 1. Derleme (Common → Server → BusinessLogic → StandAlone → Client)
 # ---------------------------------------------------------------------------
@@ -175,6 +207,55 @@ done
 # ---------------------------------------------------------------------------
 log "Ant build (turquaz-{standalone,client,common,business}.jar + run.jar + dbgui.jar)"
 (cd TurquazStandAlone && ant -q)
+
+# ---------------------------------------------------------------------------
+# 2b. Hibernate 3.0.3 → 3.6.10.Final swap (runtime için)
+#     Hibernate 3.0.3 (2005) Java 17+ ile DTD resolver patlatıyor; mapping
+#     dosyalarındaki DOCTYPE'ı internet'ten çekmeye çalışıyor. 3.6.10.Final
+#     classpath-relative DTD resolver kullanıyor ve Java 17 ile uyumlu.
+#     API geriye uyumlu (Session/Transaction/Configuration imzaları aynı).
+# ---------------------------------------------------------------------------
+log "Hibernate 3.0.3 → 3.6.10.Final swap (Maven Central)"
+HIB_VERSION=${HIB_VERSION:-3.6.10.Final}
+MVN_BASE=https://repo1.maven.org/maven2
+
+mvn_jar() {
+    local group_path=$1 artifact=$2 ver=$3 outdir=$4
+    local group_slash="${group_path//.//}"
+    local jar="${artifact}-${ver}.jar"
+    curl -fsSL "$MVN_BASE/$group_slash/$artifact/$ver/$jar" -o "$outdir/$jar" \
+        || { err "$jar indirilemedi"; return 1; }
+    sub "+ $jar"
+}
+
+DL=TurquazStandAlone/dist/lib
+
+# Eski Hibernate 3.0.3 + CGLIB/ASM ailesini at (Hibernate 3.6 javassist kullanır)
+rm -f "$DL"/hibernate3.jar \
+      "$DL"/antlr-2.7.5H3.jar \
+      "$DL"/commons-collections-2.1.1.jar \
+      "$DL"/dom4j-1.6.jar \
+      "$DL"/cglib-2.1.jar \
+      "$DL"/cglib2.jar \
+      "$DL"/asm.jar \
+      "$DL"/asm-attrs.jar
+
+# Hibernate 3.6.10 + transitive dependencies
+mvn_jar org.hibernate hibernate-core                   "$HIB_VERSION"      "$DL"
+mvn_jar org.hibernate hibernate-commons-annotations    3.2.0.Final         "$DL"
+mvn_jar org.hibernate.javax.persistence hibernate-jpa-2.0-api 1.0.1.Final  "$DL"
+mvn_jar antlr antlr                                    2.7.7               "$DL"
+mvn_jar commons-collections commons-collections        3.1                 "$DL"
+mvn_jar dom4j dom4j                                    1.6.1               "$DL"
+mvn_jar javassist javassist                            3.12.0.GA           "$DL"
+mvn_jar org.slf4j slf4j-api                            1.6.1               "$DL"
+mvn_jar org.slf4j slf4j-log4j12                        1.6.1               "$DL"
+mvn_jar javax.transaction jta                          1.1                 "$DL"
+
+# HSQLDB 1.7.3 (2005) → 2.7.2 (2023). Modern Hibernate 3.6 + modern HSQLDB
+# daha temiz çalışıyor; 1.7.x kullanıcı yönetimi 2.x'le uyumsuz.
+rm -f "$DL"/hsqldb.jar
+mvn_jar org.hsqldb hsqldb 2.7.2 "$DL"
 
 # ---------------------------------------------------------------------------
 # 3. Her hedef için SWT'yi swap edip dist/'i paketle
