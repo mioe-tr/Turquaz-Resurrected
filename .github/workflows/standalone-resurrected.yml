@@ -1,0 +1,180 @@
+name: Standalone Resurrected — Cross-Platform Build
+
+# 2004–2010 orijinal Turquaz Standalone kaynak kodunu modern toolchain ile
+# Linux/Windows/macOS (x86_64 + aarch64) için derler ve paketler.
+#
+# Tetiklenme:
+#   - Bu branch'e source / docker değişikliği push'lanırsa: otomatik build,
+#     Actions tab'inde "artifact" olarak indirme linkleri.
+#   - `standalone-v*` tag'i push'lanırsa: ayrıca GitHub Release yaratılır,
+#     5 platform paketi release asset'leri olarak eklenir.
+#   - Actions UI'da "Run workflow" ile elle çalıştırılabilir.
+
+on:
+  push:
+    branches:
+      - legacy/standalone-resurrected
+    paths:
+      - 'docker/**'
+      - 'Turquaz/**'
+      - 'TurquazBusinessLogic/**'
+      - 'TurquazClient/**'
+      - 'TurquazCommon/**'
+      - 'TurquazServer/**'
+      - 'TurquazStandAlone/**'
+      - '.github/workflows/standalone-resurrected.yml'
+    tags:
+      - 'standalone-v*'
+  workflow_dispatch:
+    inputs:
+      swt_version:
+        description: 'Eclipse SWT version (Maven Central)'
+        default: '3.124.0'
+      targets:
+        description: 'Comma-separated target OS list'
+        default: 'linux,linux-aarch64,windows,macos,macos-aarch64'
+
+concurrency:
+  group: standalone-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write   # tag push'unda release yaratabilmek için
+
+env:
+  SWT_VERSION: ${{ github.event.inputs.swt_version || '3.124.0' }}
+  TARGETS:     ${{ github.event.inputs.targets || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
+
+jobs:
+  build:
+    name: Cross-platform paketleme (Docker)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build legacy-build image
+        uses: docker/build-push-action@v6
+        with:
+          context: docker
+          tags: turquaz-legacy-build:ci
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run cross-platform build
+        run: |
+          mkdir -p dist
+          docker run --rm \
+            -v "$PWD":/src:ro \
+            -v "$PWD/dist":/out \
+            -e SWT_VERSION="$SWT_VERSION" \
+            -e TARGETS="$TARGETS" \
+            turquaz-legacy-build:ci
+
+      - name: Inspect artifacts (sha256)
+        run: |
+          echo "=== Üretilen paketler ==="
+          ls -lh dist/
+          echo
+          echo "=== SHA-256 ==="
+          (cd dist && sha256sum *.tar.gz *.zip 2>/dev/null | tee SHA256SUMS.txt)
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: turquaz-standalone-resurrected-${{ github.sha }}
+          path: |
+            dist/*.tar.gz
+            dist/*.zip
+            dist/SHA256SUMS.txt
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Create GitHub Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/standalone-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.tar.gz
+            dist/*.zip
+            dist/SHA256SUMS.txt
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generate_release_notes: true
+          name: "Turquaz Standalone — Resurrected ${{ github.ref_name }}"
+          body: |
+            **Turquaz Financial Accounting Standalone — Resurrected build**
+
+            2004–2010 orijinal Turquaz kaynak kodundan (Önsel Armağan, Cem Dayanık,
+            Hüseyin Erkin ve diğerlerinin emeğinden) modern toolchain ile
+            derlenmiş cross-platform paketler.
+
+            ## İndirme
+
+            | OS | Mimari | Dosya |
+            |----|--------|-------|
+            | Linux  | x86_64  | `turquaz-standalone-resurrected-linux.tar.gz` |
+            | Linux  | aarch64 | `turquaz-standalone-resurrected-linux-aarch64.tar.gz` |
+            | Windows| x86_64  | `turquaz-standalone-resurrected-windows.zip` |
+            | macOS  | Intel   | `turquaz-standalone-resurrected-macos.tar.gz` |
+            | macOS  | Apple Silicon | `turquaz-standalone-resurrected-macos-aarch64.tar.gz` |
+
+            ## Çalıştırma
+
+            **Java 17+** kurulu olmalı ([Adoptium Temurin 17 LTS](https://adoptium.net) önerilir).
+
+            ```bash
+            # Linux / macOS
+            tar xzf turquaz-standalone-resurrected-<platform>.tar.gz
+            cd turquaz-standalone
+            ./turquaz.sh
+            ```
+
+            ```cmd
+            REM Windows
+            unzip turquaz-standalone-resurrected-windows.zip
+            cd turquaz-standalone
+            turquaz.bat
+            ```
+
+            ## Build pipeline
+
+            - Eclipse SWT ${{ env.SWT_VERSION }} (Maven Central, modern 64-bit native lib'lerle)
+            - Hibernate 3.6.10.Final (orijinal 3.0.3'ten swap)
+            - HSQLDB 2.7.2 (orijinal 1.7.3'ten swap)
+            - Hibernate `hbm2ddl.auto=update` ile schema entity'lerden otomatik
+
+            Ayrıntılar: [`docker/README.md`](../tree/${{ github.sha }}/docker/README.md)
+
+            **Lisans:** GNU GPL v2 (orijinal Turquaz lisansı).
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Turquaz Standalone — Resurrected build"
+            echo
+            echo "**SWT:** \`$SWT_VERSION\`  •  **Targets:** \`$TARGETS\`"
+            echo
+            if [ -d dist ]; then
+              echo "### Üretilen paketler"
+              echo
+              echo "| Dosya | Boyut |"
+              echo "|-------|-------|"
+              for f in dist/*.tar.gz dist/*.zip; do
+                [ -f "$f" ] && echo "| \`$(basename "$f")\` | $(du -h "$f" | cut -f1) |"
+              done
+              echo
+              if [ -f dist/SHA256SUMS.txt ]; then
+                echo "### SHA-256"
+                echo '```'
+                cat dist/SHA256SUMS.txt
+                echo '```'
+              fi
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
