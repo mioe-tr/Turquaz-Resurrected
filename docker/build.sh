@@ -223,6 +223,30 @@ else:
 PYEOF
 sub "EngBLServer.getApplicationMenus: permission bypass + null-safe FK"
 
+# EngConfiguration.java cross-platform path fix:
+# Orijinal kod Windows-only "\\.turquaz\\config\\turquaz.xml" path'ini
+# hardcode'lamis. macOS/Linux'ta literal `\` karakteri olarak parse edilip
+# FileNotFoundException (Permission denied) atiyor. Forward slash'a cevir;
+# Java tum OS'lerde `/` separator'u kabul eder (Windows dahil).
+python3 - <<'PYEOF'
+p = "TurquazClient/src/com/turquaz/engine/EngConfiguration.java"
+src = open(p).read()
+patches = [
+    ('"\\\\.turquaz\\\\config\\\\turquaz.xml"', '"/.turquaz/config/turquaz.xml"'),
+    ('"\\\\.turquaz\\\\config"',                '"/.turquaz/config"'),
+]
+n = 0
+for old, new in patches:
+    if old in src:
+        src = src.replace(old, new)
+        n += 1
+if n > 0:
+    open(p, "w").write(src)
+    print(f"  PATCH OK: EngConfiguration.java path separator ({n}/2 yer)")
+else:
+    print("  PATCH WARN: EngConfiguration.java path eski format bulunamadi")
+PYEOF
+
 # turquaz-import.sql olustur: EngBLVersionValidate.java icindeki migration
 # zincirindeki tum INSERT'leri (turq_services, turq_engine_menu, vd.)
 # birlestirip statik bir SQL dosyasi olarak yazıyoruz. Ayrica turq_settings'i
