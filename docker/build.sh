@@ -247,22 +247,38 @@ python3 - <<'PYEOF'
 import re
 p = "TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLServer.java"
 src = open(p).read()
-# Lazy proxy ya da silinmis component icin NPE/ObjectNotFoundException kaynagi:
-# "menu.getTurqModuleComponent().getComponentsName()" -> null-safe sarmal
-# + "orphan_" ile baslayan placeholder'lari skip
+# Lazy proxy ya da silinmis component icin NPE/ObjectNotFoundException kaynagi.
+# Tum menuleri (orphan dahil) goster — kullanici siralamayi koruyarak gorebilsin.
+# Tikladiginda Class.forName fail openNewTab try-catch icinde log'a yazilir.
 old = "menu.getTurqModuleComponent().getComponentsName()"
 new = ("(menu.getTurqModuleComponent() != null "
        "&& menu.getTurqModuleComponent().getComponentsName() != null "
-       "&& !menu.getTurqModuleComponent().getComponentsName().startsWith(\"orphan_\") "
        "? menu.getTurqModuleComponent().getComponentsName() : null)")
 n = src.count(old)
 if n > 0:
     open(p, "w").write(src.replace(old, new))
-    print(f"  PATCH OK: getTurqModuleComponent null-safe + orphan skip ({n} occurrences)")
+    print(f"  PATCH OK: getTurqModuleComponent null-safe ({n} occurrences)")
 else:
     print("  PATCH WARN: getTurqModuleComponent() call'i bulunamadi")
+
+# MenuManager.MenuSelectionAdapter null-safe: widget.getData() null donerse
+# .toString() NPE atiyordu (top menu bar item'inda setData(null)'dan kaynaklanir).
+mm = "TurquazClient/src/com/turquaz/engine/ui/component/MenuManager.java"
+src2 = open(mm).read()
+old2 = "EngUIMainFrame.openNewTab(((MenuItem) arg0.widget).getText(), arg0.widget.getData().toString());"
+new2 = (
+    "Object _d = arg0.widget.getData();\n"
+    "\t\tif (_d != null) {\n"
+    "\t\t\tEngUIMainFrame.openNewTab(((MenuItem) arg0.widget).getText(), _d.toString());\n"
+    "\t\t}"
+)
+if old2 in src2:
+    open(mm, "w").write(src2.replace(old2, new2))
+    print("  PATCH OK: MenuManager.MenuSelectionAdapter null-safe")
+else:
+    print("  PATCH WARN: MenuManager satiri bulunamadi")
 PYEOF
-sub "EngBLServer.getApplicationMenus: permission bypass + null-safe FK"
+sub "EngBLServer.getApplicationMenus + MenuManager null-safe"
 
 # EngConfiguration.java cross-platform path fix:
 # Orijinal kod Windows-only "\\.turquaz\\config\\turquaz.xml" path'ini
