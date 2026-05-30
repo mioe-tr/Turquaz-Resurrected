@@ -656,15 +656,27 @@ for tgt in "${TGT_LIST[@]}"; do
     # unsigned olsun.
     zip -dq "$STAGE/lib/swt.jar" 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA' 'META-INF/*.EC' 2>/dev/null || true
 
-    # 3b'. Eski JFace 3.0 koru (TextContentAssistSubjectAdapter vb. iç
-    # API'lere bagimli kod var); SWT 3.131'de kaldirilan TableTreeItem
-    # icin minimal stub class'lar uret ki Class.forName patlamasin.
-    # Modern JFace yerine bu yaklasim daha az API catismasi yaratiyor.
-    STUB_SRC="$WORK/swt-stubs-src"
-    mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
-    # Minimal stub'lar: SWT classpath'i olmadan derlenir (Java 17
-    # bytecode okumasin diye). JFace OpenStrategy.initializeHandler
-    # sadece Class.forName lookup yapiyor; instance yaratilmaz.
+    # 3b'. Modern JFace 3.34 + 3 stub class:
+    #   Eski JFace 3.0 modern SWT 3.131 ile VerifyError veriyor (Event
+    #   sinifi bytecode imza degisikligi). Modern JFace 3.34 SWT 3.131
+    #   ile uyumlu ama bazi eski iç API'leri kaldirmis. Eski Turquaz
+    #   kodunun referans verdigi 3 sinifin stub'ini ekleyerek aciklik
+    #   kapatiyoruz.
+    JFACE_VERSION=${JFACE_VERSION:-3.34.0}
+    rm -f "$STAGE/lib/jface.jar" "$STAGE/lib/jfacetext.jar" \
+          "$STAGE/lib/runtime.jar" "$STAGE/lib/osgi.jar" \
+          "$STAGE/lib/text.jar" "$STAGE/lib/boot.jar"
+    for art in org.eclipse.jface org.eclipse.jface.text org.eclipse.core.commands \
+               org.eclipse.equinox.common; do
+        JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${JFACE_VERSION}/${art}-${JFACE_VERSION}.jar"
+        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
+    done
+
+    # Stub'lar — minimal POJO, sadece Class.forName lookup icin
+    STUB_SRC="$WORK/legacy-stubs-src"
+    rm -rf "$STUB_SRC"
+    mkdir -p "$STUB_SRC/org/eclipse/swt/custom" \
+             "$STUB_SRC/org/eclipse/jface/contentassist"
     cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
 package org.eclipse.swt.custom;
 public class TableTreeItem {
@@ -681,14 +693,24 @@ public class TableTree {
     public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
 }
 JSRC
-    STUB_BIN="$WORK/swt-stubs-bin"
+    cat > "$STUB_SRC/org/eclipse/jface/contentassist/TextContentAssistSubjectAdapter.java" <<'JSRC'
+package org.eclipse.jface.contentassist;
+// Stub for legacy JFace 3.0 internal API; removed in modern JFace 3.34.
+// Old Turquaz inventory.ui.comp.InventoryPicker instantiates this; the
+// stub constructor accepts any argument and does nothing.
+public class TextContentAssistSubjectAdapter {
+    public TextContentAssistSubjectAdapter(Object control) {}
+}
+JSRC
+    STUB_BIN="$WORK/legacy-stubs-bin"
+    rm -rf "$STUB_BIN"
     mkdir -p "$STUB_BIN"
     javac -source 8 -target 8 -nowarn -Xlint:none \
         -d "$STUB_BIN" \
         $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
     if [[ -d "$STUB_BIN/org" ]]; then
-        (cd "$STUB_BIN" && jar cf "$STAGE/lib/swt-legacy-stubs.jar" org/)
-        sub "swt-legacy-stubs.jar (eski JFace icin minimal TableTree* stub)"
+        (cd "$STUB_BIN" && jar cf "$STAGE/lib/turquaz-legacy-stubs.jar" org/)
+        sub "turquaz-legacy-stubs.jar ($(find "$STUB_BIN" -name '*.class' | wc -l) stub class)"
     fi
 
     # 3b''. Adoptium Temurin JRE 17 bundle: orijinal Turquaz install4j ile
