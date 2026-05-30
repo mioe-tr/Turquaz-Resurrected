@@ -385,6 +385,29 @@ with open(schema_path) as f:
             col_names.append(name.lower())
         tbl_cols[tbl] = col_names
 
+# Turquaz2 doneminde eklenen tablolar eski script'te yok; bunlar icin
+# manuel kolon listesi. KRITIK: BL migration kodu VALUES sirasini yanlis
+# yazmis — modern Hibernate hbm.xml property-then-association siralamasiyla
+# uyusmuyor. Eski Hibernate 3.0'da kolon sirasi farkliydi (FK ortada,
+# parent_id sonda). Ornek BL INSERT:
+#   "INSERT INTO turq_engine_menu VALUES (10101, 'STR_ACCOUNTING_PLAN',
+#    ' ', 3, 26, 10100);"
+# Burada VALUES (id, name, image, type, **FK=26**, **parent_id=10100**)
+# olmali; ama modern Hibernate (id, name, image, type, parent_id, FK)
+# diziyor — sonuc: 26 parent_id'ye, 10100 FK'ya gidiyor → orphan_10100.
+# Manuel kolon listesi ile dogru kolonlara map ediyoruz.
+tbl_cols.setdefault("turq_engine_menu", [
+    "id", "menu_name", "menu_image", "menu_type",
+    "menu_module_component",  # 5. VALUES: BL'nin component FK'si
+    "parent_id",               # 6. VALUES: BL'nin parent menu ID'si
+])
+tbl_cols.setdefault("turq_services", [
+    "id", "service_name", "class_name", "method_name",
+])
+tbl_cols.setdefault("turq_settings", [
+    "id", "database_version",
+])
+
 # 2. turquaz-import.sql'i parse et, INSERT'leri kolon-adlandirilmis hale getir
 import_path = "TurquazCommon/bin/turquaz-import.sql"
 with open(import_path) as f:
