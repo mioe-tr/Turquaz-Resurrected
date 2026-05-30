@@ -1,7 +1,7 @@
-FROM eclipse-temurin:11-jdk-jammy
+FROM eclipse-temurin:8-jdk-jammy
 
 LABEL org.opencontainers.image.title="Turquaz Standalone — Resurrected build environment"
-LABEL org.opencontainers.image.description="2005–2010 Turquaz Financial Accounting kaynak kodunu modern SWT (Eclipse 3.124) ile Linux/Windows/macOS (x86_64 + aarch64) için yeniden derleyip paketleyen Docker tabanlı reprodüksiyon yığını."
+LABEL org.opencontainers.image.description="2005-2010 Turquaz kaynak kodunu modern SWT 3.124 ile cross-platform paketleyen Docker yigini. Build env: Java 8 LTS (orijinal kodun javax.rmi.PortableRemoteObject vd. eski J2EE bagimliliklari Java 11+'da kaldirildi). Runtime: kullanici Java 17+ kuracak (modern SWT icin)."
 LABEL org.opencontainers.image.source="https://github.com/mioe-tr/Turquaz-Resurrected"
 LABEL org.opencontainers.image.licenses="GPL-2.0-or-later"
 
