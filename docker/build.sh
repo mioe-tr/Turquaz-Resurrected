@@ -249,12 +249,16 @@ p = "TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLServer.java"
 src = open(p).read()
 # Lazy proxy ya da silinmis component icin NPE/ObjectNotFoundException kaynagi:
 # "menu.getTurqModuleComponent().getComponentsName()" -> null-safe sarmal
+# + "orphan_" ile baslayan placeholder'lari skip
 old = "menu.getTurqModuleComponent().getComponentsName()"
-new = "(menu.getTurqModuleComponent() != null ? menu.getTurqModuleComponent().getComponentsName() : null)"
+new = ("(menu.getTurqModuleComponent() != null "
+       "&& menu.getTurqModuleComponent().getComponentsName() != null "
+       "&& !menu.getTurqModuleComponent().getComponentsName().startsWith(\"orphan_\") "
+       "? menu.getTurqModuleComponent().getComponentsName() : null)")
 n = src.count(old)
 if n > 0:
     open(p, "w").write(src.replace(old, new))
-    print(f"  PATCH OK: getTurqModuleComponent null-safe ({n} occurrences)")
+    print(f"  PATCH OK: getTurqModuleComponent null-safe + orphan skip ({n} occurrences)")
 else:
     print("  PATCH WARN: getTurqModuleComponent() call'i bulunamadi")
 PYEOF
@@ -470,7 +474,8 @@ for mod in TurquazCommon TurquazServer TurquazBusinessLogic TurquazStandAlone Tu
     (cd "$mod/src" && \
         find . -type f \
             \( -name '*.properties' -o -name '*.xml' -o -name '*.hbm.xml' \
-               -o -name '*.gif' -o -name '*.png' -o -name '*.jpg' \
+               -o -name '*.gif' -o -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \
+               -o -name '*.ico' -o -name '*.bmp' -o -name '*.svg' \
                -o -name '*.jrxml' -o -name '*.jasper' \
                -o -name '*.dtd' -o -name '*.txt' \) \
             -exec sh -c 'mkdir -p "../bin/$(dirname "$1")" && cp "$1" "../bin/$1"' _ {} \;)
