@@ -155,6 +155,10 @@ public final class SeedRunner {
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             tx = s.beginTransaction();
             Statement stmt = s.connection().createStatement();
+            // Seed sirasinda FK kontrolu kapali tutuluyor; HSQLDB 2.x sintaksi.
+            // turq_engine_menu -> turq_module_components gibi FK'lar yuzunden
+            // sirayla INSERT gerekmesin diye.
+            try { stmt.execute("SET DATABASE REFERENTIAL INTEGRITY FALSE"); } catch (Exception ignore) {}
             String line;
             StringBuilder buf = new StringBuilder();
             int ok = 0, skip = 0;
@@ -170,6 +174,7 @@ public final class SeedRunner {
                     buf.setLength(0);
                 }
             }
+            try { stmt.execute("SET DATABASE REFERENTIAL INTEGRITY TRUE"); } catch (Exception ignore) {}
             stmt.close();
             tx.commit();
             br.close();
@@ -242,6 +247,17 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
 } > TurquazCommon/bin/turquaz-import.sql
 SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
 sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + components + settings)"
+
+# Bazı INSERT'ler "VALUES (...)" formatında kolon adı içermiyor; bu yüzden
+# kolon sıralaması Hibernate'in entity property + association sırasına bağlı.
+# Hibernate associations'ı (FK kolonlarını) en SONA koyuyor, ama INSERT'ler
+# FK'ları 2. pozisyonda (modules_id) varsayıyor. Mismatch -> 'admin'
+# string'i DATE kolonuna gidip seed fail oluyor. Kolon adlandırmasını
+# açıkça yazarak sıra kararlılığı sağla.
+sed -i -E \
+    's/INSERT INTO turq_module_components VALUES/INSERT INTO turq_module_components (id, modules_id, components_name, components_description, created_by, creation_date, updated_by, update_date) VALUES/gI' \
+    TurquazCommon/bin/turquaz-import.sql
+sub "turq_module_components INSERT'lerine kolon adı eklendi"
 
 # HSQLDB başlangıç durumu:
 # HSQLDB 2.x eski 1.7.3 dosya formatını okuyamaz ("wrong database file
