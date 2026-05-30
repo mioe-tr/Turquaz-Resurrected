@@ -174,11 +174,45 @@ public final class SeedRunner {
                     buf.setLength(0);
                 }
             }
+            // Orphan FK cleanup: turq_engine_menu icindeki menu_module_component
+            // FK'lari turq_module_components ID seti ile eslesmiyorsa (eski
+            // monolitik Turquaz schema farkli ID sistemi kullaniyordu) placeholder
+            // component ekle. Boylece Hibernate lazy initialize ObjectNotFoundException
+            // atmaz; UI bu menuleri "isimlendirilmemis" olarak gosterir.
+            int orphanFixed = 0;
+            try {
+                String selectOrphans =
+                    "SELECT DISTINCT menu_module_component FROM turq_engine_menu " +
+                    "WHERE menu_module_component IS NOT NULL " +
+                    "AND menu_module_component NOT IN (SELECT id FROM turq_module_components)";
+                java.util.ArrayList orphanIds = new java.util.ArrayList();
+                java.sql.ResultSet rs = stmt.executeQuery(selectOrphans);
+                while (rs.next()) orphanIds.add(Integer.valueOf(rs.getInt(1)));
+                rs.close();
+                String ins =
+                    "INSERT INTO turq_module_components " +
+                    "(id, modules_id, components_name, components_description, " +
+                    " created_by, creation_date, updated_by, update_date) " +
+                    "VALUES (?, -1, ?, 'auto-placeholder for orphan FK', " +
+                    "        'system', CURRENT_DATE, 'system', CURRENT_DATE)";
+                java.sql.PreparedStatement ps = s.connection().prepareStatement(ins);
+                for (int idx = 0; idx < orphanIds.size(); idx++) {
+                    int id = ((Integer) orphanIds.get(idx)).intValue();
+                    ps.setInt(1, id);
+                    ps.setString(2, "orphan_" + id);
+                    try { ps.executeUpdate(); orphanFixed++; }
+                    catch (Exception ignore) {}
+                }
+                ps.close();
+            } catch (Exception orphanEx) {
+                System.err.println("SeedRunner: orphan cleanup hata: " + orphanEx.getMessage());
+            }
             try { stmt.execute("SET DATABASE REFERENTIAL INTEGRITY TRUE"); } catch (Exception ignore) {}
             stmt.close();
             tx.commit();
             br.close();
-            System.out.println("SeedRunner: " + ok + " INSERT basarili, " + skip + " atlandi (duplike vs.)");
+            System.out.println("SeedRunner: " + ok + " INSERT basarili, " + skip
+                + " atlandi (duplike vs.), " + orphanFixed + " orphan FK placeholder eklendi");
         } catch (Exception ex) {
             if (tx != null) { try { tx.rollback(); } catch (Exception ignore) {} }
             ex.printStackTrace();
