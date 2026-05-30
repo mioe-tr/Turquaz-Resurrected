@@ -680,7 +680,13 @@ for tgt in "${TGT_LIST[@]}"; do
         [org.eclipse.jface.text]="$JFACE_VERSION"
         [org.eclipse.text]="3.10.0"
         [org.eclipse.core.commands]="3.9.0"
+        [org.eclipse.core.runtime]="3.14.0"
+        [org.eclipse.core.contenttype]="3.7.0"
+        [org.eclipse.core.jobs]="3.10.0"
         [org.eclipse.equinox.common]="3.10.0"
+        [org.eclipse.equinox.preferences]="3.7.100"
+        [org.eclipse.equinox.registry]="3.8.0"
+        [org.eclipse.osgi]="3.13.0"
     )
     for art in "${!JF_DEPS[@]}"; do
         v="${JF_DEPS[$art]}"
