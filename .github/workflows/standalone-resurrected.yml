@@ -40,6 +40,7 @@ concurrency:
 
 permissions:
   contents: write   # tag push'unda release yaratabilmek için
+  actions: write    # actions/cache (gha) için (defensive)
 
 env:
   SWT_VERSION: ${{ github.event.inputs.swt_version || '3.124.0' }}
@@ -64,17 +65,24 @@ jobs:
           context: docker
           tags: turquaz-legacy-build:ci
           load: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # GHA cache: bazi durumlarda buildx driver + load=true ile catisabiliyor;
+          # ilk turlerde devre disi tutuyoruz, build hizliysa hick gerekmiyor.
+          # cache-from: type=gha
+          # cache-to: type=gha,mode=max
 
       - name: Run cross-platform build
         run: |
+          set -euo pipefail
           mkdir -p dist
+          chmod 777 dist
+          # Container icinde runner kullanicisi (uid:gid) ile yaz: /out izin sorunu olmasin.
           docker run --rm \
+            -u "$(id -u):$(id -g)" \
             -v "$PWD":/src:ro \
             -v "$PWD/dist":/out \
             -e SWT_VERSION="$SWT_VERSION" \
             -e TARGETS="$TARGETS" \
+            -e HOME=/tmp \
             turquaz-legacy-build:ci
 
       - name: Inspect artifacts (sha256)
