@@ -116,6 +116,133 @@ sed -i 's|props\.put("hibernate.cache.use_query_cache","true");|props.put("hiber
     TurquazStandAlone/src/server/util/EngDALSessionFactory.java
 sub "EngDALSessionFactory: query_cache=false + hbm2ddl.auto=update"
 
+# ---------------------------------------------------------------------------
+# Seed runner: SessionFactory build'tan sonra turq_settings bossa,
+# turquaz-import.sql'i classpath'ten okuyup statement-by-statement calistirir.
+# Hibernate'in hbm2ddl.auto=update modu import.sql'i otomatik calistirmiyor;
+# kendimiz JDBC ile yapmamiz lazim.
+# ---------------------------------------------------------------------------
+cat > TurquazStandAlone/src/server/util/SeedRunner.java <<'SEED_EOF'
+package server.util;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.Statement;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+public final class SeedRunner {
+    private SeedRunner() {}
+
+    public static void seedIfEmpty(SessionFactory factory) {
+        if (factory == null) return;
+        Session s = factory.openSession();
+        Transaction tx = null;
+        try {
+            Object raw = s.createSQLQuery("SELECT COUNT(*) FROM turq_settings").uniqueResult();
+            int existing = (raw instanceof Number) ? ((Number) raw).intValue() : 0;
+            if (existing > 0) {
+                System.out.println("SeedRunner: turq_settings dolu (" + existing + " row), seed atlandi");
+                return;
+            }
+            InputStream is = SeedRunner.class.getResourceAsStream("/turquaz-import.sql");
+            if (is == null) {
+                System.err.println("SeedRunner: classpath'te /turquaz-import.sql yok");
+                return;
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            tx = s.beginTransaction();
+            Statement stmt = s.connection().createStatement();
+            String line;
+            StringBuilder buf = new StringBuilder();
+            int ok = 0, skip = 0;
+            while ((line = br.readLine()) != null) {
+                String t = line.trim();
+                if (t.length() == 0 || t.startsWith("--")) continue;
+                buf.append(line).append('\n');
+                if (t.endsWith(";")) {
+                    String sql = buf.toString().trim();
+                    sql = sql.substring(0, sql.length() - 1);
+                    try { stmt.execute(sql); ok++; }
+                    catch (Exception ie) { skip++; }
+                    buf.setLength(0);
+                }
+            }
+            stmt.close();
+            tx.commit();
+            br.close();
+            System.out.println("SeedRunner: " + ok + " INSERT basarili, " + skip + " atlandi (duplike vs.)");
+        } catch (Exception ex) {
+            if (tx != null) { try { tx.rollback(); } catch (Exception ignore) {} }
+            ex.printStackTrace();
+        } finally {
+            s.close();
+        }
+    }
+}
+SEED_EOF
+sub "SeedRunner.java yazildi (TurquazStandAlone/src/server/util/)"
+
+# EngDALSessionFactory'yi patch'le: buildSessionFactory'den sonra SeedRunner'i cagir
+sed -i 's|factory = cfg\.buildSessionFactory();|factory = cfg.buildSessionFactory(); server.util.SeedRunner.seedIfEmpty(factory);|' \
+    TurquazStandAlone/src/server/util/EngDALSessionFactory.java
+sub "EngDALSessionFactory: buildSessionFactory sonrasi SeedRunner cagrisi eklendi"
+
+# turquaz-import.sql olustur: EngBLVersionValidate.java icindeki migration
+# zincirindeki tum INSERT'leri (turq_services, turq_engine_menu, vd.)
+# birlestirip statik bir SQL dosyasi olarak yazıyoruz. Ayrica turq_settings'i
+# mevcut DATABASE_VERSION='0.8.1' ile seed ediyoruz, boylece checkVersion()
+# basariyla doner ve migration zinciri (HSQLDB 2.x'te multi-statement
+# execute() sorunlu) tamamen atlanir.
+mkdir -p TurquazCommon/bin
+BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
+{
+    echo "-- Turquaz seed data — Resurrected build script tarafindan uretildi"
+    echo "-- Kaynak: EngBLVersionValidate.java migration zinciri (HSQLDB variant)"
+    echo "-- Hibernate hbm2ddl.auto=update tablolari yarattiktan sonra, SeedRunner"
+    echo "-- bu dosyayi turq_settings bossa calistirir."
+    echo ""
+    echo "-- ===== Services (turq_services) ====="
+    grep -E '"INSERT INTO turq_services' "$BL_FILE" \
+        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
+        | sort -u
+    echo ""
+    echo "-- ===== Engine menu (turq_engine_menu) ====="
+    grep -E '"INSERT INTO turq_engine_menu' "$BL_FILE" \
+        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
+        | sort -u
+    echo ""
+    echo "-- ===== Module components (turq_module_components) ====="
+    grep -E '"INSERT INTO turq_module_components' "$BL_FILE" \
+        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
+        | sort -u
+    echo ""
+    echo "-- ===== Inventory accounting types (turq_inventory_accounting_types) ====="
+    grep -E '"INSERT INTO turq_inventory_accounting_types' "$BL_FILE" \
+        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
+        | sort -u
+    echo ""
+    echo "-- ===== Eski Turquaz/database/turquaz.script'ten reference data ====="
+    echo "-- Hesap planı (~460 hesap), modüller, sırasıyla, döviz, vd."
+    if [[ -f "$SRC/Turquaz/database/turquaz.script" ]]; then
+        # Sadece INSERT INTO satırlarını çıkar (CREATE/SET vd atlanır).
+        # SeedRunner duplike PK ve format farklarını try/catch ile skip ediyor.
+        # Eski script TURQ_SETTINGS'i de içeriyor; onu hariç tut, sonda kendi seed'imizi koyalım.
+        # HSQLDB internal script formatı INSERT'leri ';' olmadan yazıyor;
+        # SeedRunner statement bitişini tanıyabilsin diye sonlarına ';' ekliyoruz.
+        grep -iE "^INSERT INTO TURQ_" "$SRC/Turquaz/database/turquaz.script" \
+            | grep -viE "INSERT INTO TURQ_SETTINGS" \
+            | sed -E 's/[[:space:]]*$/;/'
+    fi
+    echo ""
+    echo "-- ===== Settings: mevcut sürüm ile seed (migration zinciri atlanir) ====="
+    echo "INSERT INTO turq_settings (id, database_version) VALUES (0, '0.8.1');"
+} > TurquazCommon/bin/turquaz-import.sql
+SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
+sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + components + settings)"
+
 # HSQLDB başlangıç durumu:
 # HSQLDB 2.x eski 1.7.3 dosya formatını okuyamaz ("wrong database file
 # version"). Onun yerine boş DB ile başlıyoruz; yukarıda Hibernate'e
