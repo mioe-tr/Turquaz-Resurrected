@@ -170,7 +170,10 @@ public final class SeedRunner {
                     String sql = buf.toString().trim();
                     sql = sql.substring(0, sql.length() - 1);
                     try { stmt.execute(sql); ok++; }
-                    catch (Exception ie) { skip++; }
+                    catch (Exception ie) {
+                        skip++;
+                        if (skip <= 30) System.err.println("SeedRunner skip[" + skip + "]: " + ie.getMessage() + " | SQL: " + sql.substring(0, Math.min(sql.length(), 200)));
+                    }
                     buf.setLength(0);
                 }
             }
@@ -295,24 +298,11 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
     echo "-- Hibernate hbm2ddl.auto=update tablolari yarattiktan sonra, SeedRunner"
     echo "-- bu dosyayi turq_settings bossa calistirir."
     echo ""
-    echo "-- ===== Services (turq_services) ====="
-    grep -E '"INSERT INTO turq_services' "$BL_FILE" \
-        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
-        | sort -u
-    echo ""
-    echo "-- ===== Engine menu (turq_engine_menu) ====="
-    grep -E '"INSERT INTO turq_engine_menu' "$BL_FILE" \
-        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
-        | sort -u
-    echo ""
-    echo "-- ===== Module components (turq_module_components) ====="
-    grep -E '"INSERT INTO turq_module_components' "$BL_FILE" \
-        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
-        | sort -u
-    echo ""
-    echo "-- ===== Inventory accounting types (turq_inventory_accounting_types) ====="
-    grep -E '"INSERT INTO turq_inventory_accounting_types' "$BL_FILE" \
-        | sed -E 's/^[[:space:]]*"//; s/;"[[:space:]]*\+?[[:space:]]*$/;/' \
+    # BL'den INSERT extract'i: Java string literal'leri "INSERT...);" formatinda.
+    # grep -oE ile sadece string content'ini al ($"...";) prefix'siz/suffix'siz.
+    echo "-- ===== Services + menu + components + inventory_accounting_types ====="
+    grep -oE '"INSERT INTO turq_(services|engine_menu|module_components|inventory_accounting_types)[^"]*"' "$BL_FILE" \
+        | sed -E 's/^"//; s/"$/;/' \
         | sort -u
     echo ""
     echo "-- ===== Eski Turquaz/database/turquaz.script'ten reference data ====="
@@ -323,7 +313,11 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
         # Eski script TURQ_SETTINGS'i de içeriyor; onu hariç tut, sonda kendi seed'imizi koyalım.
         # HSQLDB internal script formatı INSERT'leri ';' olmadan yazıyor;
         # SeedRunner statement bitişini tanıyabilsin diye sonlarına ';' ekliyoruz.
-        grep -iE "^INSERT INTO TURQ_" "$SRC/Turquaz/database/turquaz.script" \
+        # Eski script ISO-8859-9 (Latin-5, Türkçe karakterler dahil). UTF-8'e
+        # çevirmeden okursak Python (default UTF-8) ve SeedRunner (UTF-8
+        # BufferedReader) bir noktada decode hatası alıp parsing'i kesiyor.
+        iconv -f ISO-8859-9 -t UTF-8 "$SRC/Turquaz/database/turquaz.script" \
+            | grep -iE "^INSERT INTO TURQ_" \
             | grep -viE "INSERT INTO TURQ_SETTINGS" \
             | sed -E 's/[[:space:]]*$/;/'
     fi
@@ -334,16 +328,67 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
 SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
 sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + components + settings)"
 
-# Bazı INSERT'ler "VALUES (...)" formatında kolon adı içermiyor; bu yüzden
-# kolon sıralaması Hibernate'in entity property + association sırasına bağlı.
-# Hibernate associations'ı (FK kolonlarını) en SONA koyuyor, ama INSERT'ler
-# FK'ları 2. pozisyonda (modules_id) varsayıyor. Mismatch -> 'admin'
-# string'i DATE kolonuna gidip seed fail oluyor. Kolon adlandırmasını
-# açıkça yazarak sıra kararlılığı sağla.
-sed -i -E \
-    's/INSERT INTO turq_module_components VALUES/INSERT INTO turq_module_components (id, modules_id, components_name, components_description, created_by, creation_date, updated_by, update_date) VALUES/gI' \
-    TurquazCommon/bin/turquaz-import.sql
-sub "turq_module_components INSERT'lerine kolon adı eklendi"
+# Eski script ve BL'den gelen tum INSERT'ler "VALUES (...)" formatında —
+# kolon adlari yok. Hibernate'in olusturdugu kolon sirasi (property + en
+# sonda associations) eski CREATE TABLE sirasindan farkli; VALUES tip
+# uyusmazligi olusturuyor.
+# Cozum: eski script'in CREATE TABLE statement'larindan tablo -> kolon
+# listesini Python ile parse et, sonra her INSERT INTO X VALUES (...) 'i
+# INSERT INTO X (col1, col2, ...) VALUES (...) formatina cevir.
+SCHEMA_PATH="$SRC/Turquaz/database/turquaz.script" python3 - <<'PYEOF'
+import os, re
+
+# 1. Eski CREATE TABLE'lardan tablo -> kolon haritasi
+schema_path = os.environ["SCHEMA_PATH"]
+tbl_cols = {}
+with open(schema_path) as f:
+    for line in f:
+        m = re.match(r'^CREATE\s+TABLE\s+(\w+)\s*\((.*)\)\s*$', line, re.I)
+        if not m: continue
+        tbl = m.group(1).lower()
+        body = m.group(2)
+        # CONSTRAINT'leri at, sadece kolon tanimlarini al
+        cols = []
+        depth = 0; cur = []
+        for ch in body:
+            if ch == '(': depth += 1
+            elif ch == ')': depth -= 1
+            if ch == ',' and depth == 0:
+                cols.append(''.join(cur).strip()); cur = []
+            else:
+                cur.append(ch)
+        if cur: cols.append(''.join(cur).strip())
+        col_names = []
+        for c in cols:
+            if c.upper().startswith("CONSTRAINT"): continue
+            name = c.split()[0]
+            col_names.append(name.lower())
+        tbl_cols[tbl] = col_names
+
+# 2. turquaz-import.sql'i parse et, INSERT'leri kolon-adlandirilmis hale getir
+import_path = "TurquazCommon/bin/turquaz-import.sql"
+with open(import_path) as f:
+    src = f.read()
+
+# Hatta "INSERT INTO X VALUES (...)" formatini bul, X icin kolon listesi varsa ekle
+def rewrite(m):
+    tbl = m.group(1).lower()
+    values = m.group(2)
+    cols = tbl_cols.get(tbl)
+    if not cols:
+        return m.group(0)  # tablo bilgisi yok, dokunma
+    return f"INSERT INTO {tbl} ({', '.join(cols)}) VALUES{values};"
+
+# Match: INSERT INTO <table> VALUES (... ); where (...) can span balanced parens
+pat = re.compile(
+    r"INSERT\s+INTO\s+(\w+)\s+VALUES\s*(\([^()]*(?:\([^()]*\)[^()]*)*\))\s*;?",
+    re.I
+)
+rewritten = pat.sub(rewrite, src)
+n = sum(1 for _ in pat.finditer(src))
+open(import_path, "w").write(rewritten)
+print(f"  PATCH OK: {n} INSERT kolon-adlandirildi ({len(tbl_cols)} tablo seması parse edildi)")
+PYEOF
 
 # HSQLDB başlangıç durumu:
 # HSQLDB 2.x eski 1.7.3 dosya formatını okuyamaz ("wrong database file
