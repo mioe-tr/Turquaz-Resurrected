@@ -661,6 +661,42 @@ for tgt in "${TGT_LIST[@]}"; do
         curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
     done
 
+    # 3b''. Adoptium Temurin JRE 17 bundle: orijinal Turquaz install4j ile
+    # JRE'yi paketliyordu — kullanici sifir kurulumla calistirir, eski API'ler
+    # (org.eclipse.core.internal.preferences vd.) modern runtime'da olmayan
+    # sinif yollari problem olmaz.
+    JRE_RELEASE=${JRE_RELEASE:-17.0.13_11}
+    JRE_TAG=${JRE_TAG:-jdk-17.0.13%2B11}
+    declare -A JRE_ARCHIVE
+    JRE_ARCHIVE=(
+        [linux]="OpenJDK17U-jre_x64_linux_hotspot_${JRE_RELEASE}.tar.gz"
+        [linux-aarch64]="OpenJDK17U-jre_aarch64_linux_hotspot_${JRE_RELEASE}.tar.gz"
+        [windows]="OpenJDK17U-jre_x64_windows_hotspot_${JRE_RELEASE}.zip"
+        [macos]="OpenJDK17U-jre_x64_mac_hotspot_${JRE_RELEASE}.tar.gz"
+        [macos-aarch64]="OpenJDK17U-jre_aarch64_mac_hotspot_${JRE_RELEASE}.tar.gz"
+    )
+    JRE_ARCH="${JRE_ARCHIVE[$tgt]:-}"
+    if [[ -n "$JRE_ARCH" ]]; then
+        JRE_BASE_URL="https://github.com/adoptium/temurin17-binaries/releases/download/${JRE_TAG}"
+        JRE_URL="$JRE_BASE_URL/$JRE_ARCH"
+        sub "JRE 17 indiriliyor: $JRE_ARCH"
+        if curl -fsSL "$JRE_URL" -o "$STAGE/jre.archive"; then
+            if [[ "$JRE_ARCH" == *.zip ]]; then
+                unzip -q "$STAGE/jre.archive" -d "$STAGE/"
+            else
+                tar -C "$STAGE" -xzf "$STAGE/jre.archive"
+            fi
+            rm -f "$STAGE/jre.archive"
+            EXTRACTED=$(find "$STAGE" -maxdepth 1 -name "jdk-17*-jre" -type d | head -1)
+            if [[ -n "$EXTRACTED" ]]; then
+                mv "$EXTRACTED" "$STAGE/jre"
+                sub "JRE 17 bundled: $STAGE/jre"
+            fi
+        else
+            err "$tgt: JRE 17 indirme basarisiz"
+        fi
+    fi
+
     # 3c. Platform launcher
     #   SWT 3.124 Java 17+ ister; Hibernate 3.0.3 + CGLIB 2.x ise Java 17'nin
     #   güçlü encapsulation'ı altında reflection iç dökümlerinde patlar.
@@ -673,11 +709,10 @@ for tgt in "${TGT_LIST[@]}"; do
 #!/usr/bin/env sh
 DIR=\$(cd "\$(dirname "\$0")" && pwd)
 cd "\$DIR"
-if ! command -v java >/dev/null 2>&1; then
-    echo "Java 17+ PATH'te bulunamadı. https://adoptium.net adresinden Temurin 17 LTS kur." >&2
-    exit 1
-fi
-exec java $JAVA_OPTS_COMMON -jar run.jar "\$@"
+# Bundled JRE 17 (Adoptium Temurin); kullanici sistem Java'sini gerektirmez.
+JAVA=./jre/bin/java
+if [ ! -x "\$JAVA" ]; then JAVA=java; fi
+exec "\$JAVA" $JAVA_OPTS_COMMON -jar run.jar "\$@"
 LAUNCH
             chmod +x "$STAGE/turquaz.sh"
             ;;
@@ -686,11 +721,10 @@ LAUNCH
 #!/usr/bin/env sh
 DIR=\$(cd "\$(dirname "\$0")" && pwd)
 cd "\$DIR"
-if ! command -v java >/dev/null 2>&1; then
-    echo "Java 17+ PATH'te bulunamadı. \`brew install --cask temurin\` ile Temurin 17 LTS kur." >&2
-    exit 1
-fi
-exec java -XstartOnFirstThread \\
+# Mac JRE archive: Contents/Home/bin/java
+JAVA=./jre/Contents/Home/bin/java
+if [ ! -x "\$JAVA" ]; then JAVA=java; fi
+exec "\$JAVA" -XstartOnFirstThread \\
     -Dapple.awt.UIElement=true \\
     -Dorg.eclipse.swt.internal.cocoa.useNSCellEditing=false \\
     $JAVA_OPTS_COMMON \\
@@ -702,13 +736,9 @@ LAUNCH
             cat > "$STAGE/turquaz.bat" <<LAUNCH
 @echo off
 cd /d "%~dp0"
-where java >nul 2>&1
-if errorlevel 1 (
-  echo Java 17+ PATH'te bulunamadi. https://adoptium.net adresinden Temurin 17 LTS kur.
-  pause
-  exit /b 1
-)
-java $JAVA_OPTS_COMMON -jar run.jar %*
+set JAVA=.\jre\bin\java.exe
+if not exist "%JAVA%" set JAVA=java
+"%JAVA%" $JAVA_OPTS_COMMON -jar run.jar %*
 LAUNCH
             ;;
     esac
