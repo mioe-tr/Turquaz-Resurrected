@@ -649,17 +649,40 @@ for tgt in "${TGT_LIST[@]}"; do
     mv "$STAGE/lib/swt.jar.new" "$STAGE/lib/swt.jar"
     find "$STAGE" -maxdepth 1 \( -name 'swt-*.dll' -o -name 'libswt-*.so' -o -name '*.jnilib' \) -delete
 
-    # 3b'. Modern JFace 3.34: eski jface.jar TableTreeItem'a (SWT 3.4'te
-    # kaldirildi) referans veriyor. SWT 3.131 ile uyumlu JFace ile değiştir.
-    JFACE_VERSION=${JFACE_VERSION:-3.34.0}
-    rm -f "$STAGE/lib/jface.jar" "$STAGE/lib/jfacetext.jar" \
-          "$STAGE/lib/runtime.jar" "$STAGE/lib/osgi.jar" \
-          "$STAGE/lib/text.jar" "$STAGE/lib/boot.jar"
-    for art in org.eclipse.jface org.eclipse.jface.text org.eclipse.core.commands \
-               org.eclipse.equinox.common; do
-        JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${JFACE_VERSION}/${art}-${JFACE_VERSION}.jar"
-        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
-    done
+    # 3b'. Eski JFace 3.0 koru (TextContentAssistSubjectAdapter vb. iç
+    # API'lere bagimli kod var); SWT 3.131'de kaldirilan TableTreeItem
+    # icin minimal stub class'lar uret ki Class.forName patlamasin.
+    # Modern JFace yerine bu yaklasim daha az API catismasi yaratiyor.
+    STUB_SRC="$WORK/swt-stubs-src"
+    mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
+    # Minimal stub'lar: SWT classpath'i olmadan derlenir (Java 17
+    # bytecode okumasin diye). JFace OpenStrategy.initializeHandler
+    # sadece Class.forName lookup yapiyor; instance yaratilmaz.
+    cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
+package org.eclipse.swt.custom;
+public class TableTreeItem {
+    public TableTreeItem(Object parent, int style) {}
+    public Object getData(String key) { return null; }
+    public void setData(String key, Object value) {}
+    public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
+}
+JSRC
+    cat > "$STUB_SRC/org/eclipse/swt/custom/TableTree.java" <<'JSRC'
+package org.eclipse.swt.custom;
+public class TableTree {
+    public TableTree(Object parent, int style) {}
+    public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
+}
+JSRC
+    STUB_BIN="$WORK/swt-stubs-bin"
+    mkdir -p "$STUB_BIN"
+    javac -source 8 -target 8 -nowarn -Xlint:none \
+        -d "$STUB_BIN" \
+        $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
+    if [[ -d "$STUB_BIN/org" ]]; then
+        (cd "$STUB_BIN" && jar cf "$STAGE/lib/swt-legacy-stubs.jar" org/)
+        sub "swt-legacy-stubs.jar (eski JFace icin minimal TableTree* stub)"
+    fi
 
     # 3b''. Adoptium Temurin JRE 17 bundle: orijinal Turquaz install4j ile
     # JRE'yi paketliyordu — kullanici sifir kurulumla calistirir, eski API'ler
