@@ -195,6 +195,34 @@ sed -i 's|factory = cfg\.buildSessionFactory();|factory = cfg.buildSessionFactor
     TurquazStandAlone/src/server/util/EngDALSessionFactory.java
 sub "EngDALSessionFactory: buildSessionFactory sonrasi SeedRunner cagrisi eklendi"
 
+# EngBLServer.getApplicationMenus: yaprak menulerin (type==3) permission
+# check'ini bypass et + null-safe getTurqModuleComponent() cagri.
+# Orijinal kod turq_user_permissions tablosuna bagimli; bu tablo seed'i
+# kompleks, demo "dirilik" modu icin tum menuleri gosterelim.
+BL_SERVER=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLServer.java
+# Permission check'i bypass et: turq_user_permissions seed kompleks; demo
+# modu icin tum yaprak menuleri goster.
+sed -i 's|if(perm_level!=null)|if(true) // resurrected: bypass|' "$BL_SERVER"
+sed -i 's|if(perm_level\.intValue()>0)|if(true) // resurrected: bypass|' "$BL_SERVER"
+# Stale FK referansli menulere karsi null-safe sarmala: lazy proxy NPE'sini
+# sessizce yut.
+python3 - <<'PYEOF'
+import re
+p = "TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLServer.java"
+src = open(p).read()
+# Lazy proxy ya da silinmis component icin NPE/ObjectNotFoundException kaynagi:
+# "menu.getTurqModuleComponent().getComponentsName()" -> null-safe sarmal
+old = "menu.getTurqModuleComponent().getComponentsName()"
+new = "(menu.getTurqModuleComponent() != null ? menu.getTurqModuleComponent().getComponentsName() : null)"
+n = src.count(old)
+if n > 0:
+    open(p, "w").write(src.replace(old, new))
+    print(f"  PATCH OK: getTurqModuleComponent null-safe ({n} occurrences)")
+else:
+    print("  PATCH WARN: getTurqModuleComponent() call'i bulunamadi")
+PYEOF
+sub "EngBLServer.getApplicationMenus: permission bypass + null-safe FK"
+
 # turquaz-import.sql olustur: EngBLVersionValidate.java icindeki migration
 # zincirindeki tum INSERT'leri (turq_services, turq_engine_menu, vd.)
 # birlestirip statik bir SQL dosyasi olarak yazıyoruz. Ayrica turq_settings'i
