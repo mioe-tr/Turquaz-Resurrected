@@ -671,43 +671,69 @@ for tgt in "${TGT_LIST[@]}"; do
     rm -f "$STAGE/lib/jface.jar" "$STAGE/lib/jfacetext.jar" \
           "$STAGE/lib/runtime.jar" "$STAGE/lib/osgi.jar" \
           "$STAGE/lib/text.jar" "$STAGE/lib/boot.jar"
-    for art in org.eclipse.jface org.eclipse.jface.text org.eclipse.core.commands \
-               org.eclipse.equinox.common; do
-        JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${JFACE_VERSION}/${art}-${JFACE_VERSION}.jar"
-        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
+    # JFace 3.14.0 dependencies. Versiyon listesi: jface/jface.text 3.14.0,
+    # text 3.10.0 (org/eclipse/jface/text/IDocument burada), core.commands +
+    # equinox.common 3.x. Her dep'i ayri versiyonla cunku Eclipse Platform
+    # aggregate versioning yapmiyor; her jar kendi semver'iyle release oluyor.
+    declare -A JF_DEPS=(
+        [org.eclipse.jface]="$JFACE_VERSION"
+        [org.eclipse.jface.text]="$JFACE_VERSION"
+        [org.eclipse.text]="3.10.0"
+        [org.eclipse.core.commands]="3.9.0"
+        [org.eclipse.equinox.common]="3.10.0"
+    )
+    for art in "${!JF_DEPS[@]}"; do
+        v="${JF_DEPS[$art]}"
+        JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${v}/${art}-${v}.jar"
+        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${v}.jar" 2>/dev/null || true
     done
 
-    # SWT 3.131'de kaldirilan TableTreeItem icin minimal stub jar.
-    # JFace 3.14 hala bu sinifa referans veriyor (TableTreeViewer); stub
-    # Class.forName lookup'i karsiliyor — gercek instance yaratilmaz.
+    # SWT 3.131'de kaldirilan TableTreeItem icin stub jar.
+    # KRITIK: JFace 3.14'in OpenStrategy$1.setSelection bytecode'u
+    # TableTreeItem'i Widget'a assign etmeyi deniyor — stub MUTLAKA
+    # `extends Widget` (Item zaten Widget'i extend ediyor) ve TableTree
+    # `extends Composite` olmalı, yoksa VerifyError. Dolayisiyla stub
+    # gercek SWT classpath'i ile derlenmeli; JDK 8 javac modern SWT class
+    # file v61'i okuyamaz, JDK 17 javac kullaniyoruz (Dockerfile'da
+    # /opt/jdk17 mevcut).
     STUB_SRC="$WORK/legacy-stubs-src"
     rm -rf "$STUB_SRC"
     mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
     cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
 package org.eclipse.swt.custom;
-public class TableTreeItem {
-    public TableTreeItem(Object parent, int style) {}
-    public Object getData(String key) { return null; }
-    public void setData(String key, Object value) {}
+import org.eclipse.swt.widgets.Item;
+public class TableTreeItem extends Item {
+    public TableTreeItem(TableTree parent, int style) { super(parent.getTable(), style); }
+    public TableTreeItem(TableTree parent, int style, int index) { super(parent.getTable(), style); }
+    public TableTreeItem(TableTreeItem parent, int style) { super(null, style); }
+    public Object getData(String key) { return super.getData(key); }
+    public void setData(String key, Object value) { super.setData(key, value); }
     public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
 }
 JSRC
     cat > "$STUB_SRC/org/eclipse/swt/custom/TableTree.java" <<'JSRC'
 package org.eclipse.swt.custom;
-public class TableTree {
-    public TableTree(Object parent, int style) {}
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Table;
+public class TableTree extends Composite {
+    public TableTree(Composite parent, int style) { super(parent, style); }
     public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
+    public Table getTable() { return null; }
 }
 JSRC
     STUB_BIN="$WORK/legacy-stubs-bin"
     rm -rf "$STUB_BIN"
     mkdir -p "$STUB_BIN"
-    javac -source 8 -target 8 -nowarn -Xlint:none \
+    # JDK 17 javac (SWT class file v61 okuyabilsin), target hala 8.
+    JAVAC17="${JDK17_HOME:-/opt/jdk17}/bin/javac"
+    [[ -x "$JAVAC17" ]] || JAVAC17="javac"
+    "$JAVAC17" -source 8 -target 8 -nowarn -Xlint:none \
+        -cp "$STAGE/lib/swt.jar" \
         -d "$STUB_BIN" \
         $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
     if [[ -d "$STUB_BIN/org" ]]; then
         (cd "$STUB_BIN" && jar cf "$STAGE/lib/turquaz-legacy-stubs.jar" org/)
-        sub "turquaz-legacy-stubs.jar (TableTreeItem/TableTree stub)"
+        sub "turquaz-legacy-stubs.jar (TableTreeItem extends Item + TableTree extends Composite)"
     fi
 
     # 3b''. Adoptium Temurin JRE 17 bundle: orijinal Turquaz install4j ile
