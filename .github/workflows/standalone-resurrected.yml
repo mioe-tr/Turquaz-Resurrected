@@ -93,16 +93,58 @@ jobs:
           echo "=== SHA-256 ==="
           (cd dist && sha256sum *.tar.gz *.zip 2>/dev/null | tee SHA256SUMS.txt)
 
-      - name: Upload workflow artifact
+      - name: Upload — linux x86_64
+        if: hashFiles('dist/turquaz-standalone-resurrected-linux.tar.gz') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: turquaz-standalone-resurrected-${{ github.sha }}
-          path: |
-            dist/*.tar.gz
-            dist/*.zip
-            dist/SHA256SUMS.txt
+          name: turquaz-standalone-resurrected-linux
+          path: dist/turquaz-standalone-resurrected-linux.tar.gz
           retention-days: 30
-          if-no-files-found: error
+          if-no-files-found: warn
+
+      - name: Upload — linux aarch64
+        if: hashFiles('dist/turquaz-standalone-resurrected-linux-aarch64.tar.gz') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: turquaz-standalone-resurrected-linux-aarch64
+          path: dist/turquaz-standalone-resurrected-linux-aarch64.tar.gz
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload — windows x86_64
+        if: hashFiles('dist/turquaz-standalone-resurrected-windows.zip') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: turquaz-standalone-resurrected-windows
+          path: dist/turquaz-standalone-resurrected-windows.zip
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload — macOS x86_64 (Intel)
+        if: hashFiles('dist/turquaz-standalone-resurrected-macos.tar.gz') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: turquaz-standalone-resurrected-macos
+          path: dist/turquaz-standalone-resurrected-macos.tar.gz
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload — macOS aarch64 (Apple Silicon)
+        if: hashFiles('dist/turquaz-standalone-resurrected-macos-aarch64.tar.gz') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: turquaz-standalone-resurrected-macos-aarch64
+          path: dist/turquaz-standalone-resurrected-macos-aarch64.tar.gz
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload — checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: SHA256SUMS
+          path: dist/SHA256SUMS.txt
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Create GitHub Release (on tag)
         if: startsWith(github.ref, 'refs/tags/standalone-v')
