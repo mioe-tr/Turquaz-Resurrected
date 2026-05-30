@@ -662,7 +662,12 @@ for tgt in "${TGT_LIST[@]}"; do
     #   ile uyumlu ama bazi eski iç API'leri kaldirmis. Eski Turquaz
     #   kodunun referans verdigi 3 sinifin stub'ini ekleyerek aciklik
     #   kapatiyoruz.
-    JFACE_VERSION=${JFACE_VERSION:-3.34.0}
+    # JFace 3.14.0 (Eclipse Photon, 2018) — eski Turquaz'in bagimli oldugu
+    # org.eclipse.jface.contentassist.* paketini (TextContentAssistSubjectAdapter,
+    # SubjectControlContentAssistant, ISubjectControl*, vd.) HALA iceriyor.
+    # JFace 3.20+'da bu paket kaldirildi. 3.14 + modern SWT 3.131 uyumlu;
+    # public API stabil kalmis. Stub yaklasimimi tamamen tasinmali oluyor.
+    JFACE_VERSION=${JFACE_VERSION:-3.14.0}
     rm -f "$STAGE/lib/jface.jar" "$STAGE/lib/jfacetext.jar" \
           "$STAGE/lib/runtime.jar" "$STAGE/lib/osgi.jar" \
           "$STAGE/lib/text.jar" "$STAGE/lib/boot.jar"
@@ -672,11 +677,12 @@ for tgt in "${TGT_LIST[@]}"; do
         curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
     done
 
-    # Stub'lar — minimal POJO, sadece Class.forName lookup icin
+    # SWT 3.131'de kaldirilan TableTreeItem icin minimal stub jar.
+    # JFace 3.14 hala bu sinifa referans veriyor (TableTreeViewer); stub
+    # Class.forName lookup'i karsiliyor — gercek instance yaratilmaz.
     STUB_SRC="$WORK/legacy-stubs-src"
     rm -rf "$STUB_SRC"
-    mkdir -p "$STUB_SRC/org/eclipse/swt/custom" \
-             "$STUB_SRC/org/eclipse/jface/contentassist"
+    mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
     cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
 package org.eclipse.swt.custom;
 public class TableTreeItem {
@@ -693,27 +699,15 @@ public class TableTree {
     public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
 }
 JSRC
-    cat > "$STUB_SRC/org/eclipse/jface/contentassist/TextContentAssistSubjectAdapter.java" <<'JSRC'
-package org.eclipse.jface.contentassist;
-import org.eclipse.swt.widgets.Text;
-public class TextContentAssistSubjectAdapter {
-    public TextContentAssistSubjectAdapter(Text control) {}
-    public TextContentAssistSubjectAdapter(Object control) {}
-}
-JSRC
     STUB_BIN="$WORK/legacy-stubs-bin"
     rm -rf "$STUB_BIN"
     mkdir -p "$STUB_BIN"
-    # JDK 17 javac kullan (SWT 3.131 class file v61 okuyabilsin); target hala 8.
-    JAVAC17="${JDK17_HOME:-/opt/jdk17}/bin/javac"
-    [[ -x "$JAVAC17" ]] || JAVAC17="javac"
-    "$JAVAC17" -source 8 -target 8 -nowarn -Xlint:none \
-        -cp "$STAGE/lib/swt.jar" \
+    javac -source 8 -target 8 -nowarn -Xlint:none \
         -d "$STUB_BIN" \
         $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
     if [[ -d "$STUB_BIN/org" ]]; then
         (cd "$STUB_BIN" && jar cf "$STAGE/lib/turquaz-legacy-stubs.jar" org/)
-        sub "turquaz-legacy-stubs.jar ($(find "$STUB_BIN" -name '*.class' | wc -l) stub class)"
+        sub "turquaz-legacy-stubs.jar (TableTreeItem/TableTree stub)"
     fi
 
     # 3b''. Adoptium Temurin JRE 17 bundle: orijinal Turquaz install4j ile
