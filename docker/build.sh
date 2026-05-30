@@ -649,6 +649,13 @@ for tgt in "${TGT_LIST[@]}"; do
     mv "$STAGE/lib/swt.jar.new" "$STAGE/lib/swt.jar"
     find "$STAGE" -maxdepth 1 \( -name 'swt-*.dll' -o -name 'libswt-*.so' -o -name '*.jnilib' \) -delete
 
+    # SWT jar Eclipse tarafindan imzali (META-INF/*.SF, *.RSA). Bizim stub
+    # jar imzasiz oldugu icin "signer information does not match" Security
+    # Exception aliyoruz (ayni `org.eclipse.swt.custom` paketinde mixed
+    # signer). Cozum: SWT jar'dan imza dosyalarini sil — her ikisi de
+    # unsigned olsun.
+    zip -dq "$STAGE/lib/swt.jar" 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA' 'META-INF/*.EC' 2>/dev/null || true
+
     # 3b'. Eski JFace 3.0 koru (TextContentAssistSubjectAdapter vb. iç
     # API'lere bagimli kod var); SWT 3.131'de kaldirilan TableTreeItem
     # icin minimal stub class'lar uret ki Class.forName patlamasin.
