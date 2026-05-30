@@ -18,7 +18,7 @@ set -euo pipefail
 
 SRC=${SRC:-/src}
 OUT=${OUT:-/out}
-SWT_VERSION=${SWT_VERSION:-3.124.0}
+SWT_VERSION=${SWT_VERSION:-3.131.0}
 TARGETS=${TARGETS:-linux,linux-aarch64,windows,macos,macos-aarch64}
 ENCODING=${ENCODING:-ISO-8859-9}
 
@@ -513,7 +513,11 @@ if ! command -v java >/dev/null 2>&1; then
     echo "Java 17+ PATH'te bulunamadı. \`brew install --cask temurin\` ile Temurin 17 LTS kur." >&2
     exit 1
 fi
-exec java -XstartOnFirstThread $JAVA_OPTS_COMMON -jar run.jar "\$@"
+exec java -XstartOnFirstThread \\
+    -Dapple.awt.UIElement=true \\
+    -Dorg.eclipse.swt.internal.cocoa.useNSCellEditing=false \\
+    $JAVA_OPTS_COMMON \\
+    -jar run.jar "\$@"
 LAUNCH
             chmod +x "$STAGE/turquaz.sh"
             ;;

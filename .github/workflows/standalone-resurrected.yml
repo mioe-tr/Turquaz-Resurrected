@@ -43,7 +43,7 @@ permissions:
   actions: write    # actions/cache (gha) için (defensive)
 
 env:
-  SWT_VERSION: ${{ github.event.inputs.swt_version || '3.124.0' }}
+  SWT_VERSION: ${{ github.event.inputs.swt_version || '3.131.0' }}
   TARGETS:     ${{ github.event.inputs.targets || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
 
 jobs:
