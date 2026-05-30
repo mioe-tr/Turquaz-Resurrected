@@ -280,6 +280,23 @@ else:
 PYEOF
 sub "EngBLServer.getApplicationMenus + MenuManager null-safe"
 
+# EngUIMainFrame.tabfldMainItemClosed: getControl() null donerse NPE
+# atiyordu. Modern SWT 3.131'de cabuk-kapanan tab control'unu null donmus
+# olabiliyor; null-safe sarmal.
+python3 - <<'PYEOF'
+p = "TurquazClient/src/com/turquaz/engine/ui/EngUIMainFrame.java"
+src = open(p).read()
+old = "mapList.remove(item.getControl().getClass().getName());"
+new = ("if (item != null && item.getControl() != null) {\n"
+       "\t\t\tmapList.remove(item.getControl().getClass().getName());\n"
+       "\t\t}")
+if old in src:
+    open(p, "w").write(src.replace(old, new))
+    print("  PATCH OK: tabfldMainItemClosed null-safe getControl()")
+else:
+    print("  PATCH WARN: tabfldMainItemClosed satiri bulunamadi")
+PYEOF
+
 # EngConfiguration.java cross-platform path fix:
 # Orijinal kod Windows-only "\\.turquaz\\config\\turquaz.xml" path'ini
 # hardcode'lamis. macOS/Linux'ta literal `\` karakteri olarak parse edilip
@@ -602,10 +619,25 @@ for tgt in "${TGT_LIST[@]}"; do
         continue
     fi
 
-    # 3b. Eski SWT jar'larını ve 32-bit native lib'lerini temizle
-    find "$STAGE/lib" -maxdepth 1 -name 'swt*.jar' -delete
+    # 3b. SWT swap: sadece SWT'nin kendisini sil, swtcalendar / swtjasperviewer
+    # gibi 3rd-party widget'lar dist'te kalsin.
+    rm -f "$STAGE/lib/swt.jar" "$STAGE/lib/swt-windows.jar" \
+          "$STAGE/lib/swt-pi.jar" "$STAGE/lib/swt-nl.jar" \
+          "$STAGE/lib/swt-mozilla.jar"
     mv "$STAGE/lib/swt.jar.new" "$STAGE/lib/swt.jar"
     find "$STAGE" -maxdepth 1 \( -name 'swt-*.dll' -o -name 'libswt-*.so' -o -name '*.jnilib' \) -delete
+
+    # 3b'. Modern JFace 3.34: eski jface.jar TableTreeItem'a (SWT 3.4'te
+    # kaldirildi) referans veriyor. SWT 3.131 ile uyumlu JFace ile değiştir.
+    JFACE_VERSION=${JFACE_VERSION:-3.34.0}
+    rm -f "$STAGE/lib/jface.jar" "$STAGE/lib/jfacetext.jar" \
+          "$STAGE/lib/runtime.jar" "$STAGE/lib/osgi.jar" \
+          "$STAGE/lib/text.jar" "$STAGE/lib/boot.jar"
+    for art in org.eclipse.jface org.eclipse.jface.text org.eclipse.core.commands \
+               org.eclipse.equinox.common; do
+        JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${JFACE_VERSION}/${art}-${JFACE_VERSION}.jar"
+        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${JFACE_VERSION}.jar" 2>/dev/null || true
+    done
 
     # 3c. Platform launcher
     #   SWT 3.124 Java 17+ ister; Hibernate 3.0.3 + CGLIB 2.x ise Java 17'nin
