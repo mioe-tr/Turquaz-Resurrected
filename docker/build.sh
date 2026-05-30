@@ -321,6 +321,28 @@ else:
     print("  PATCH WARN: EngConfiguration.java path eski format bulunamadi")
 PYEOF
 
+# EngUIEntryFrameStandalone Base64: eski Eclipse runtime'daki internal
+# org.eclipse.core.internal.preferences.Base64 modern JFace/runtime'da yok.
+# Java 8'den beri standart java.util.Base64 var.
+python3 - <<'PYEOF'
+p = "TurquazClient/src/com/turquaz/engine/ui/EngUIEntryFrameStandalone.java"
+src = open(p).read()
+src = src.replace(
+    "import org.eclipse.core.internal.preferences.Base64;",
+    "import java.util.Base64;"
+)
+src = src.replace(
+    "org.eclipse.core.internal.preferences.Base64.encode(txtPassword.getText().getBytes())",
+    "Base64.getEncoder().encode(txtPassword.getText().getBytes())"
+)
+src = src.replace(
+    "Base64.decode(password.getBytes())",
+    "Base64.getDecoder().decode(password.getBytes())"
+)
+open(p, "w").write(src)
+print("  PATCH OK: EngUIEntryFrameStandalone Base64 -> java.util.Base64")
+PYEOF
+
 # turquaz-import.sql olustur: EngBLVersionValidate.java icindeki migration
 # zincirindeki tum INSERT'leri (turq_services, turq_engine_menu, vd.)
 # birlestirip statik bir SQL dosyasi olarak yazıyoruz. Ayrica turq_settings'i
