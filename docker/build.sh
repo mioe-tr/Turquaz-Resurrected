@@ -695,17 +695,20 @@ public class TableTree {
 JSRC
     cat > "$STUB_SRC/org/eclipse/jface/contentassist/TextContentAssistSubjectAdapter.java" <<'JSRC'
 package org.eclipse.jface.contentassist;
-// Stub for legacy JFace 3.0 internal API; removed in modern JFace 3.34.
-// Old Turquaz inventory.ui.comp.InventoryPicker instantiates this; the
-// stub constructor accepts any argument and does nothing.
+import org.eclipse.swt.widgets.Text;
 public class TextContentAssistSubjectAdapter {
+    public TextContentAssistSubjectAdapter(Text control) {}
     public TextContentAssistSubjectAdapter(Object control) {}
 }
 JSRC
     STUB_BIN="$WORK/legacy-stubs-bin"
     rm -rf "$STUB_BIN"
     mkdir -p "$STUB_BIN"
-    javac -source 8 -target 8 -nowarn -Xlint:none \
+    # JDK 17 javac kullan (SWT 3.131 class file v61 okuyabilsin); target hala 8.
+    JAVAC17="${JDK17_HOME:-/opt/jdk17}/bin/javac"
+    [[ -x "$JAVAC17" ]] || JAVAC17="javac"
+    "$JAVAC17" -source 8 -target 8 -nowarn -Xlint:none \
+        -cp "$STAGE/lib/swt.jar" \
         -d "$STUB_BIN" \
         $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
     if [[ -d "$STUB_BIN/org" ]]; then

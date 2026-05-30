@@ -17,6 +17,14 @@ RUN apt-get update \
         zip \
  && rm -rf /var/lib/apt/lists/*
 
+# JDK 17 yaninda — stub class'lari modern SWT 3.131 classpath'i ile derlemek
+# icin (SWT class file v61, JDK 8 javac okumaz). Ana derleme hala JDK 8.
+ENV JDK17_HOME=/opt/jdk17
+RUN mkdir -p /opt && \
+    curl -fsSL "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.13%2B11/OpenJDK17U-jdk_x64_linux_hotspot_17.0.13_11.tar.gz" \
+    | tar -xz -C /opt && \
+    mv /opt/jdk-17* "$JDK17_HOME"
+
 COPY build.sh /usr/local/bin/turquaz-build
 RUN chmod +x /usr/local/bin/turquaz-build
 
