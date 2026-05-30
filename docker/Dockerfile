@@ -12,6 +12,7 @@ RUN apt-get update \
         ant \
         ca-certificates \
         curl \
+        python3 \
         unzip \
         zip \
  && rm -rf /var/lib/apt/lists/*
