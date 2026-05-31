@@ -364,25 +364,25 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
         | sed -E 's/^"//; s/"$/;/' \
         | sort -u
     echo ""
-    echo "-- ===== Eski Turquaz/database/turquaz.script'ten reference data ====="
-    echo "-- Hesap planı (~460 hesap), modüller, sırasıyla, döviz, vd."
-    if [[ -f "$SRC/Turquaz/database/turquaz.script" ]]; then
-        # Sadece INSERT INTO satırlarını çıkar (CREATE/SET vd atlanır).
-        # SeedRunner duplike PK ve format farklarını try/catch ile skip ediyor.
-        # Eski script TURQ_SETTINGS'i de içeriyor; onu hariç tut, sonda kendi seed'imizi koyalım.
-        # HSQLDB internal script formatı INSERT'leri ';' olmadan yazıyor;
-        # SeedRunner statement bitişini tanıyabilsin diye sonlarına ';' ekliyoruz.
-        # Eski script ISO-8859-9 (Latin-5, Türkçe karakterler dahil). UTF-8'e
-        # çevirmeden okursak Python (default UTF-8) ve SeedRunner (UTF-8
-        # BufferedReader) bir noktada decode hatası alıp parsing'i kesiyor.
-        iconv -f ISO-8859-9 -t UTF-8 "$SRC/Turquaz/database/turquaz.script" \
+    echo "-- ===== Orijinal Turquaz 0.8 Beta 4 turquaz.script (production seed) ====="
+    echo "-- 462 hesap planı + 227 services + 141 menu + 102 components + settings"
+    # Orijinal Windows installer'dan cikartilmis tam dist/database/turquaz.script:
+    # 75 CREATE TABLE + 1106 INSERT. Eski Turquaz/database/turquaz.script
+    # (745 INSERT) eksikti — turq_accounting_accounts 0 row, services az vd.
+    # Bu dosya 2005 production'da kullanilan tam seed.
+    SCRIPT_SRC=""
+    for cand in "$SRC/Turquaz/database/turquaz-08beta4.script" \
+                "$SRC/Turquaz/database/turquaz.script"; do
+        [[ -f "$cand" ]] && SCRIPT_SRC="$cand" && break
+    done
+    if [[ -n "$SCRIPT_SRC" ]]; then
+        # HSQLDB internal format INSERT'leri ';' olmadan yazar; sed ile ekliyoruz.
+        # ISO-8859-9 -> UTF-8 (Turkce karakterler icin).
+        # turq_settings dahil — orijinal script'te 0.8.1 set ediliyor zaten.
+        iconv -f ISO-8859-9 -t UTF-8 "$SCRIPT_SRC" \
             | grep -iE "^INSERT INTO TURQ_" \
-            | grep -viE "INSERT INTO TURQ_SETTINGS" \
             | sed -E 's/[[:space:]]*$/;/'
     fi
-    echo ""
-    echo "-- ===== Settings: mevcut sürüm ile seed (migration zinciri atlanir) ====="
-    echo "INSERT INTO turq_settings (id, database_version) VALUES (0, '0.8.1');"
 } > TurquazCommon/bin/turquaz-import.sql
 SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
 sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + components + settings)"
@@ -394,7 +394,9 @@ sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + compone
 # Cozum: eski script'in CREATE TABLE statement'larindan tablo -> kolon
 # listesini Python ile parse et, sonra her INSERT INTO X VALUES (...) 'i
 # INSERT INTO X (col1, col2, ...) VALUES (...) formatina cevir.
-SCHEMA_PATH="$SRC/Turquaz/database/turquaz.script" python3 - <<'PYEOF'
+SCHEMA_CAND="$SRC/Turquaz/database/turquaz-08beta4.script"
+[[ -f "$SCHEMA_CAND" ]] || SCHEMA_CAND="$SRC/Turquaz/database/turquaz.script"
+SCHEMA_PATH="$SCHEMA_CAND" python3 - <<'PYEOF'
 import os, re
 
 # 1. Eski CREATE TABLE'lardan tablo -> kolon haritasi
