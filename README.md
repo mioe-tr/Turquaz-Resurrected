@@ -73,9 +73,9 @@ yok — bu yüzden GitHub'da `main`'e PR açılamaz, doğrudan branch'i ziyaret 
 
 | Geliştirici | Commit | Aktif dönem |
 |-------------|--------|-------------|
-| **onsel** | 1038 | 2004-08 → 2005-06 |
-| **cem** / **cemdayanik** | 1193 | 2004-10 → 2005-06 |
-| **huseyin** / **huseyiner** | 346 | 2004-09 → 2010-01 (en uzun) |
+| **onsel** (Önsel Armağan) | 1038 | 2004-08 → 2005-06 |
+| **cem** / **cemdayanik** (Cem Dayanık) | 1193 | 2004-10 → 2005-06 |
+| **huseyin** / **huseyiner** (Hüseyin Ergün) | 346 | 2004-09 → 2010-01 (en uzun) |
 | **ehad** | 10 | 2004-11 → 2004-12 |
 | **erhanb** | 8 | 2005-04 → 2005-04 |
 
