@@ -297,7 +297,7 @@ sub "EngDALSessionFactory: JDBC URL'e default_table_type=memory + write_delay=fa
 # EngBLServer.getApplicationMenus: yaprak menulerin (type==3) permission
 # check'ini bypass et + null-safe getTurqModuleComponent() cagri.
 # Orijinal kod turq_user_permissions tablosuna bagimli; bu tablo seed'i
-# kompleks, demo "dirilik" modu icin tum menuleri gosterelim.
+# kompleks, demo "dirilis" modu icin tum menuleri gosterelim.
 BL_SERVER=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLServer.java
 # Permission check'i bypass et: turq_user_permissions seed kompleks; demo
 # modu icin tum yaprak menuleri goster.

@@ -2,7 +2,7 @@
 
 Bu branch, orijinal **Turquaz Financial Accounting** (2004–2010) kaynak kodunu
 modern toolchain ile derleyip Linux/Windows/macOS (x86_64 + Apple Silicon)
-için paketleyen "dirilik" branch'idir. CVS'den Git'e dönüştürülmüş tam
+için paketleyen "diriliş" branch'idir. CVS'den Git'e dönüştürülmüş tam
 sürüm tarihi + SourceForge release tarball'ları + Docker tabanlı build yığını
 bir arada.
 
