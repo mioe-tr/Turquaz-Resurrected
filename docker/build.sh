@@ -405,6 +405,20 @@ open(p, "w").write(src)
 print("  PATCH OK: EngUIEntryFrameStandalone Base64 -> java.util.Base64")
 PYEOF
 
+# IconSource.loadImageResource: orijinal kod `new Object().getClass()` ile
+# bootstrap classloader'a dusuyor → modern Java 17'de turquaz-client.jar'i
+# (icinde gfx/*.gif var) goremiyor → "Error loading bitmap: /gfx/print.gif".
+# Java 1.4 doneminde Starter.java'nin `java.class.path` system property
+# mutasyonu eski JVM'lerde dinamik okunuyordu; modern JVM cached classpath
+# kullaniyor. IconSource kendi classloader'i (Starter URLClassLoader) ile
+# resource cozmeli — bu hem turquaz-client.jar'i hem digerlerini kapsiyor.
+ICON=TurquazClient/src/de/kupzog/ktools/kprint/gui/IconSource.java
+if grep -q "new Object().getClass()" "$ICON"; then
+    sed -i 's|Class clazz = new Object().getClass();|Class clazz = de.kupzog.ktools.kprint.gui.IconSource.class;|' "$ICON"
+    grep -q "IconSource.class" "$ICON" || { err "IconSource.java patch'i basarisiz"; exit 1; }
+    sub "IconSource: bootstrap CL -> URLClassLoader (gfx/*.gif gozukur)"
+fi
+
 # turquaz-import.sql olustur: EngBLVersionValidate.java icindeki migration
 # zincirindeki tum INSERT'leri (turq_services, turq_engine_menu, vd.)
 # birlestirip statik bir SQL dosyasi olarak yazıyoruz. Ayrica turq_settings'i
