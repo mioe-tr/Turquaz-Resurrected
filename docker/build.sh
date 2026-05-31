@@ -214,6 +214,52 @@ public final class SeedRunner {
             stmt.close();
             tx.commit();
             br.close();
+            // SQL VIEW restore: orijinal Turquaz database/turquaz.script icinde
+            // 8 adet CREATE VIEW vardi (TURQ_VIEW_ACC_TOTALS vd.). Bu view'lar
+            // Hibernate .hbm.xml mapping'lerinde "<class table=turq_view_*>"
+            // olarak tanimli — hbm2ddl.auto=update bunlari BOS TABLO olarak
+            // yaratiyor, view olarak degil. Sonuc: AccUIAccountingPlan.getAllAccountsWithSum
+            // sorgusu TurqAccountingAccount ile TurqViewAccTotal'i INNER JOIN
+            // edip 0 row donduruyor — hesap plani UI'de tamamen bos kaliyor.
+            // Cozum: bos turq_view_* tablolarini drop edip orijinal CREATE VIEW'lari
+            // calistir, boylece view'lar canlanir ve query 462 row doner.
+            int viewsOk = 0, viewsSkip = 0;
+            InputStream vis = SeedRunner.class.getResourceAsStream("/turquaz-views.sql");
+            if (vis != null) {
+                BufferedReader vbr = new BufferedReader(new InputStreamReader(vis, "UTF-8"));
+                Statement vstmt = s.connection().createStatement();
+                StringBuilder vbuf = new StringBuilder();
+                String vline;
+                while ((vline = vbr.readLine()) != null) {
+                    String t = vline.trim();
+                    if (t.length() == 0 || t.startsWith("--")) continue;
+                    vbuf.append(vline).append('\n');
+                    if (t.endsWith(";")) {
+                        String sql = vbuf.toString().trim();
+                        sql = sql.substring(0, sql.length() - 1);
+                        java.util.regex.Matcher vm = java.util.regex.Pattern
+                            .compile("CREATE VIEW\\s+(\\w+)", java.util.regex.Pattern.CASE_INSENSITIVE)
+                            .matcher(sql);
+                        if (vm.find()) {
+                            String viewName = vm.group(1);
+                            try { vstmt.execute("DROP TABLE IF EXISTS " + viewName + " CASCADE"); } catch (Exception ignore) {}
+                            try { vstmt.execute("DROP VIEW IF EXISTS " + viewName + " CASCADE"); } catch (Exception ignore) {}
+                        }
+                        try { vstmt.execute(sql); viewsOk++; }
+                        catch (Exception ve) {
+                            viewsSkip++;
+                            System.err.println("SeedRunner view skip: " + ve.getMessage()
+                                + " | SQL: " + sql.substring(0, Math.min(sql.length(), 200)));
+                        }
+                        vbuf.setLength(0);
+                    }
+                }
+                vstmt.close();
+                vbr.close();
+                System.out.println("SeedRunner: " + viewsOk + " VIEW yaratildi, " + viewsSkip + " atlandi");
+            } else {
+                System.err.println("SeedRunner: /turquaz-views.sql classpath'te yok — view restore atlandi");
+            }
             // CHECKPOINT: pending degisiklikleri .script dosyasina flush et;
             // uygulama crashed/force-quit olsa bile seed kalir, kullanici
             // turquaz.script acinca INSERT'leri gorur.
@@ -402,6 +448,18 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
 } > TurquazCommon/bin/turquaz-import.sql
 SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
 sub "turquaz-import.sql üretildi: $SEED_LINES INSERT (services + menu + components + settings)"
+
+# turquaz-views.sql: orijinal HSQLDB 1.x script'inden cikartilmis 8 adet
+# CREATE VIEW statement. SeedRunner INSERT'lerden sonra bunlari restore eder;
+# yoksa Hibernate hbm2ddl=update bunlari bos tablo olarak yaratir ve hesap
+# plani UI'si TurqViewAccTotal join'i ile 0 row doner.
+if [[ -f "$SRC/docker/turquaz-views.sql" ]]; then
+    cp "$SRC/docker/turquaz-views.sql" TurquazCommon/bin/turquaz-views.sql
+    VIEW_COUNT=$(grep -c "^CREATE VIEW" TurquazCommon/bin/turquaz-views.sql)
+    sub "turquaz-views.sql kopyalandi: $VIEW_COUNT CREATE VIEW (TurqViewAccTotal vd.)"
+else
+    sub "UYARI: docker/turquaz-views.sql yok — hesap plani UI bos kalabilir"
+fi
 
 # Eski script ve BL'den gelen tum INSERT'ler "VALUES (...)" formatında —
 # kolon adlari yok. Hibernate'in olusturdugu kolon sirasi (property + en
