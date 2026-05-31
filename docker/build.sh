@@ -691,7 +691,13 @@ for tgt in "${TGT_LIST[@]}"; do
     for art in "${!JF_DEPS[@]}"; do
         v="${JF_DEPS[$art]}"
         JF_URL="$MVN_BASE/org/eclipse/platform/${art}/${v}/${art}-${v}.jar"
-        curl -fsSL "$JF_URL" -o "$STAGE/lib/${art}-${v}.jar" 2>/dev/null || true
+        JF_PATH="$STAGE/lib/${art}-${v}.jar"
+        if curl -fsSL "$JF_URL" -o "$JF_PATH" 2>/dev/null; then
+            # Eclipse Foundation imzasini sil — eski Turquaz jasperreports vs.
+            # ayni paketi imzasiz iceriyorsa mixed signer SecurityException
+            # atiyor (ornegin: org.eclipse.jface.text.IWidgetTokenKeeper).
+            zip -dq "$JF_PATH" 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA' 'META-INF/*.EC' 2>/dev/null || true
+        fi
     done
 
     # SWT 3.131'de kaldirilan TableTreeItem icin stub jar.
