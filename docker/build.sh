@@ -726,10 +726,23 @@ for tgt in "${TGT_LIST[@]}"; do
     # gercek SWT classpath'i ile derlenmeli; JDK 8 javac modern SWT class
     # file v61'i okuyamaz, JDK 17 javac kullaniyoruz (Dockerfile'da
     # /opt/jdk17 mevcut).
-    STUB_SRC="$WORK/legacy-stubs-src"
-    rm -rf "$STUB_SRC"
-    mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
-    cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
+    # Stub jar: önceden derlenmiş .class dosyaları docker/stubs/'ta. JDK 17
+    # javac SWT 3.131'i (class file v61) okuyup TableTreeItem extends Item
+    # bytecode'unu üretiyor. Lokal build env'inde JDK 17 yoksa fallback
+    # olarak repo'daki precompiled class'lar kullanılır.
+    STUB_BIN="$WORK/legacy-stubs-bin"
+    rm -rf "$STUB_BIN"
+    mkdir -p "$STUB_BIN"
+    PRECOMPILED_STUBS="$SRC/docker/stubs"
+    if [[ -d "$PRECOMPILED_STUBS/org" ]]; then
+        cp -a "$PRECOMPILED_STUBS/org" "$STUB_BIN/"
+        sub "stub class'lari docker/stubs/'tan kopyalandi"
+    else
+        # JDK 17 ile derle (build env'inde mevcut, ya da fallback javac)
+        STUB_SRC="$WORK/legacy-stubs-src"
+        rm -rf "$STUB_SRC"
+        mkdir -p "$STUB_SRC/org/eclipse/swt/custom"
+        cat > "$STUB_SRC/org/eclipse/swt/custom/TableTreeItem.java" <<'JSRC'
 package org.eclipse.swt.custom;
 import org.eclipse.swt.widgets.Item;
 public class TableTreeItem extends Item {
@@ -741,7 +754,7 @@ public class TableTreeItem extends Item {
     public TableTreeItem[] getItems() { return new TableTreeItem[0]; }
 }
 JSRC
-    cat > "$STUB_SRC/org/eclipse/swt/custom/TableTree.java" <<'JSRC'
+        cat > "$STUB_SRC/org/eclipse/swt/custom/TableTree.java" <<'JSRC'
 package org.eclipse.swt.custom;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
@@ -751,16 +764,13 @@ public class TableTree extends Composite {
     public Table getTable() { return null; }
 }
 JSRC
-    STUB_BIN="$WORK/legacy-stubs-bin"
-    rm -rf "$STUB_BIN"
-    mkdir -p "$STUB_BIN"
-    # JDK 17 javac (SWT class file v61 okuyabilsin), target hala 8.
-    JAVAC17="${JDK17_HOME:-/opt/jdk17}/bin/javac"
-    [[ -x "$JAVAC17" ]] || JAVAC17="javac"
-    "$JAVAC17" -source 8 -target 8 -nowarn -Xlint:none \
-        -cp "$STAGE/lib/swt.jar" \
-        -d "$STUB_BIN" \
-        $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
+        JAVAC17="${JDK17_HOME:-/opt/jdk17}/bin/javac"
+        [[ -x "$JAVAC17" ]] || JAVAC17="javac"
+        "$JAVAC17" -source 8 -target 8 -nowarn -Xlint:none \
+            -cp "$STAGE/lib/swt.jar" \
+            -d "$STUB_BIN" \
+            $(find "$STUB_SRC" -name "*.java") 2>&1 | tail -3 || true
+    fi
     if [[ -d "$STUB_BIN/org" ]]; then
         (cd "$STUB_BIN" && jar cf "$STAGE/lib/turquaz-legacy-stubs.jar" org/)
         sub "turquaz-legacy-stubs.jar (TableTreeItem extends Item + TableTree extends Composite)"
