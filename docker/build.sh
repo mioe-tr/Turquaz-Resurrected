@@ -438,12 +438,19 @@ BL_FILE=TurquazBusinessLogic/src/com/turquaz/engine/bl/EngBLVersionValidate.java
         [[ -f "$cand" ]] && SCRIPT_SRC="$cand" && break
     done
     if [[ -n "$SCRIPT_SRC" ]]; then
-        # HSQLDB internal format INSERT'leri ';' olmadan yazar; sed ile ekliyoruz.
-        # ISO-8859-9 -> UTF-8 (Turkce karakterler icin).
-        # turq_settings dahil — orijinal script'te 0.8.1 set ediliyor zaten.
-        iconv -f ISO-8859-9 -t UTF-8 "$SCRIPT_SRC" \
-            | grep -iE "^INSERT INTO TURQ_" \
-            | sed -E 's/[[:space:]]*$/;/'
+        # HSQLDB 1.x internal format INSERT'leri ';' olmadan yazar; sed ile ekliyoruz.
+        # Dosya pure ASCII — Turkce karakterler Java unicode escape sekansi
+        # olarak yazilmis: 'ALINAN ÇEKLER' gibi. JDBC Statement.execute()
+        # bu escape'leri literal 6 karakter olarak gonderir (javac sadece .java
+        # kaynaginda \u'yi isler, runtime'da hayir). Python ile decode edip
+        # gercek Turkce karakterlere ceviriyoruz: Ç -> Ç vd.
+        grep -iE "^INSERT INTO TURQ_" "$SCRIPT_SRC" \
+            | python3 -c "
+import sys, re
+for line in sys.stdin:
+    line = re.sub(r'\\\\u([0-9a-fA-F]{4})', lambda m: chr(int(m.group(1), 16)), line)
+    sys.stdout.write(line.rstrip() + ';\n')
+"
     fi
 } > TurquazCommon/bin/turquaz-import.sql
 SEED_LINES=$(grep -c "^INSERT" TurquazCommon/bin/turquaz-import.sql)
