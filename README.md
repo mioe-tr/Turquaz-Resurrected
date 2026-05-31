@@ -1,6 +1,6 @@
 # Turquaz Resurrected
 
-Turquaz Financial Accounting Software (2003–2010, GPLv2) için arşiv + dirilik
+Turquaz Financial Accounting Software (2003–2010, GPLv2) için arşiv + diriliş
 deposu. Türkiye'de yazılmış ilk açık kaynak ön muhasebe yazılımlarından birini
 modern toolchain ile yeniden çalışır hâle getirme ve tarihi koruma projesi.
 
@@ -39,7 +39,7 @@ Bu deponun branch'leri farklı amaçlara hizmet ediyor; her birinin commit
 geçmişi bağımsız (CVS'den ayrı ayrı dönüştürüldüğü için aralarında ortak ata
 yok — bu yüzden GitHub'da `main`'e PR açılamaz, doğrudan branch'i ziyaret et).
 
-### Dirilik (çalışan kod)
+### Diriliş (çalışan kod)
 
 | Branch | İçerik |
 |--------|--------|
@@ -69,7 +69,7 @@ yok — bu yüzden GitHub'da `main`'e PR açılamaz, doğrudan branch'i ziyaret 
 ## Orijinal geliştiriciler
 
 2004–2010 arası CVS commit'lerinden çıkarılmış katkı dağılımı. Hepsine teşekkür
-— bu kod onların eseri; "dirilik" tarafı sadece runtime'ı çağa taşıyor.
+— bu kod onların eseri; "diriliş" tarafı sadece runtime'ı çağa taşıyor.
 
 | Geliştirici | Commit | Aktif dönem |
 |-------------|--------|-------------|
