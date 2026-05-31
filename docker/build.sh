@@ -214,6 +214,14 @@ public final class SeedRunner {
             stmt.close();
             tx.commit();
             br.close();
+            // CHECKPOINT: pending degisiklikleri .script dosyasina flush et;
+            // uygulama crashed/force-quit olsa bile seed kalir, kullanici
+            // turquaz.script acinca INSERT'leri gorur.
+            try {
+                java.sql.Statement cp = s.connection().createStatement();
+                cp.execute("CHECKPOINT");
+                cp.close();
+            } catch (Exception cpe) { System.err.println("SeedRunner: CHECKPOINT atlandi: " + cpe.getMessage()); }
             System.out.println("SeedRunner: " + ok + " INSERT basarili, " + skip
                 + " atlandi (duplike vs.), " + orphanFixed + " orphan FK placeholder eklendi");
         } catch (Exception ex) {
@@ -231,6 +239,14 @@ sub "SeedRunner.java yazildi (TurquazStandAlone/src/server/util/)"
 sed -i 's|factory = cfg\.buildSessionFactory();|factory = cfg.buildSessionFactory(); server.util.SeedRunner.seedIfEmpty(factory);|' \
     TurquazStandAlone/src/server/util/EngDALSessionFactory.java
 sub "EngDALSessionFactory: buildSessionFactory sonrasi SeedRunner cagrisi eklendi"
+
+# HSQLDB 2.x default'ta CACHED tablo yaratir (data .data dosyasinda); orijinal
+# Turquaz HSQLDB 1.x MEMORY mode kullaniyordu (data .script dosyasinda).
+# JDBC URL'e hsqldb.default_table_type=memory ekleyerek orijinal davranisa
+# don — kullanici turquaz.script'i acinca tum INSERT'leri gorur.
+sed -i 's|jdbc:hsqldb:database/turquaz|jdbc:hsqldb:file:database/turquaz;hsqldb.default_table_type=memory;hsqldb.write_delay=false|' \
+    TurquazStandAlone/src/server/util/EngDALSessionFactory.java
+sub "EngDALSessionFactory: JDBC URL'e default_table_type=memory + write_delay=false"
 
 # EngBLServer.getApplicationMenus: yaprak menulerin (type==3) permission
 # check'ini bypass et + null-safe getTurqModuleComponent() cagri.
