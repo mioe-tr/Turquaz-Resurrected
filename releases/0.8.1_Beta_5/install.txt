@@ -1,0 +1,2 @@
+linux
+run TURQUAZ/08Beta5/turquaz.sh
