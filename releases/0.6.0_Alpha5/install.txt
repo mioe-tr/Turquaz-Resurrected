@@ -1,0 +1,11 @@
+windows
+run turquaz\04ALPHA4\turquaz.bat 
+
+linux
+go to turquaz_042alpha4_linux/TURQUAZ/06ALPHA5 directory, one time write
+
+$chmod +x turquaz.sh 
+
+now you can write this command to run turquaz
+
+$./turquaz.sh 

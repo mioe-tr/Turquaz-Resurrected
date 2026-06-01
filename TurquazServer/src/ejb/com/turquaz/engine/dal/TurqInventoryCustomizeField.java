@@ -1,0 +1,73 @@
+package com.turquaz.engine.dal;
+
+import java.io.Serializable;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
+
+/** @author Hibernate CodeGenerator */
+public class TurqInventoryCustomizeField implements Serializable {
+
+    /** identifier field */
+    private Integer id;
+
+    /** identifier field */
+    private String fieldValue;
+
+    /** persistent field */
+    private com.turquaz.engine.dal.TurqInventoryCustomizeType turqInventoryCustomizeType;
+
+    /** persistent field */
+    private com.turquaz.engine.dal.TurqInventoryCard turqInventoryCard;
+
+    /** full constructor */
+    public TurqInventoryCustomizeField(Integer id, String fieldValue, com.turquaz.engine.dal.TurqInventoryCustomizeType turqInventoryCustomizeType, com.turquaz.engine.dal.TurqInventoryCard turqInventoryCard) {
+        this.id = id;
+        this.fieldValue = fieldValue;
+        this.turqInventoryCustomizeType = turqInventoryCustomizeType;
+        this.turqInventoryCard = turqInventoryCard;
+    }
+
+    /** default constructor */
+    public TurqInventoryCustomizeField() {
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFieldValue() {
+        return this.fieldValue;
+    }
+
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+    }
+
+    public com.turquaz.engine.dal.TurqInventoryCustomizeType getTurqInventoryCustomizeType() {
+        return this.turqInventoryCustomizeType;
+    }
+
+    public void setTurqInventoryCustomizeType(com.turquaz.engine.dal.TurqInventoryCustomizeType turqInventoryCustomizeType) {
+        this.turqInventoryCustomizeType = turqInventoryCustomizeType;
+    }
+
+    public com.turquaz.engine.dal.TurqInventoryCard getTurqInventoryCard() {
+        return this.turqInventoryCard;
+    }
+
+    public void setTurqInventoryCard(com.turquaz.engine.dal.TurqInventoryCard turqInventoryCard) {
+        this.turqInventoryCard = turqInventoryCard;
+    }
+
+    public String toString() {
+        return new ToStringBuilder(this)
+            .append("id", getId())
+            .append("fieldValue", getFieldValue())
+            .toString();
+    }
+
+}

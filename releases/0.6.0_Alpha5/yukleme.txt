@@ -1,0 +1,12 @@
+windows
+turquaz\06ALPHA5\turquaz.bat dosyasini calistirin. 
+
+
+linux
+turquaz_linux_06alpha5\TURQUAZ\06ALPHA5 dizini icersine girin. bir defaligina 
+
+chmod +x turquaz.sh yazin
+
+artik asagidaki komutla turquaz'i calistirabilirsiniz
+
+./turquaz.sh

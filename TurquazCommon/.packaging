@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+<archive destination="" exploded="false" name="turquaz-commons.jar" used="true">
+<folder excludes="" includes="" location="bin" name="bin" prefix="" project="" projectLocation="bin" used="true"/>
+</archive>
+</configurations>

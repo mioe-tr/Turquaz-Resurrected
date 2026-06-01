@@ -1,100 +1,97 @@
-# Turquaz Resurrected
+# Turquaz Standalone — Resurrected
 
-Turquaz Financial Accounting Software (2003–2010, GPLv2) için arşiv + diriliş
-deposu. Türkiye'de yazılmış ilk açık kaynak ön muhasebe yazılımlarından birini
-modern toolchain ile yeniden çalışır hâle getirme ve tarihi koruma projesi.
+> **Not (e-belge entegrasyon dalı):** Bu branch
+> (`claude/einvoice-api-integration-6ylE8`) `legacy/standalone-resurrected`
+> kodu üzerine kuruludur ve GİB e-Arşiv/e-Fatura entegrasyonu (özel entegratör
+> API'leri için sağlayıcı-bağımsız katman) eklemeyi hedefler. Tasarım:
+> `docs/einvoice/PLAN.md`.
 
-Orijinal kod CVS'den Git'e dönüştürüldü; SourceForge release tarball'ları
-arşivlendi; modern SWT 3.131 + Java 17 + HSQLDB 2.x ile derleme ortamı kuruldu.
+Bu branch, orijinal **Turquaz Financial Accounting** (2004–2010) kaynak kodunu
+modern toolchain ile derleyip Linux/Windows/macOS (x86_64 + Apple Silicon)
+için paketleyen "diriliş" branch'idir. CVS'den Git'e dönüştürülmüş tam
+sürüm tarihi + SourceForge release tarball'ları + Docker tabanlı build yığını
+bir arada.
 
----
-
-## Hemen çalıştırmak istiyorum
-
-Doğrudan [`legacy/standalone-resurrected`](../../tree/legacy/standalone-resurrected)
-branch'ine git — Docker tabanlı build yığını 5 platform için paket üretiyor.
+## Hızlı kullanım
 
 ```bash
-git checkout legacy/standalone-resurrected
 docker build -t turquaz-legacy-build docker/
 docker run --rm -v "$PWD":/src:ro -v "$PWD/dist":/out turquaz-legacy-build
 ls dist/
+# turquaz-standalone-resurrected-linux.tar.gz          (15 MB)
+# turquaz-standalone-resurrected-linux-aarch64.tar.gz
+# turquaz-standalone-resurrected-windows.zip
+# turquaz-standalone-resurrected-macos.tar.gz
+# turquaz-standalone-resurrected-macos-aarch64.tar.gz
 ```
 
-Çıktı:
+Ayrıntılı dökümantasyon: [`docker/README.md`](docker/README.md).
 
-- `turquaz-standalone-resurrected-linux.tar.gz`
-- `turquaz-standalone-resurrected-linux-aarch64.tar.gz`
-- `turquaz-standalone-resurrected-windows.zip`
-- `turquaz-standalone-resurrected-macos.tar.gz`
-- `turquaz-standalone-resurrected-macos-aarch64.tar.gz`
+## Branch içeriği
 
-Her paket gömülü JRE 17 + modern SWT içerir; harici Java kurulumu gerektirmez.
+### Kaynak kod (CVS'den dönüştürülmüş, alt dizinler)
 
----
+5 alt modül (Turquaz2 dönemi, 2007–2010):
 
-## Branch haritası
+- `TurquazCommon/`     — paylaşılan sabitler, i18n, RPC kontratları
+- `TurquazServer/`     — servlet + servis mapper
+- `TurquazBusinessLogic/` — XxxBL + XxxDAL iş kuralları (Hibernate 3)
+- `TurquazStandAlone/`    — in-process Hibernate bootstrap, ServiceCaller
+- `TurquazClient/`        — SWT istemcisi (büyük modül, ~454 .java)
 
-Bu deponun branch'leri farklı amaçlara hizmet ediyor; her birinin commit
-geçmişi bağımsız (CVS'den ayrı ayrı dönüştürüldüğü için aralarında ortak ata
-yok — bu yüzden GitHub'da `main`'e PR açılamaz, doğrudan branch'i ziyaret et).
+Plus eski monolitik (Turquaz1 dönemi, 2004–2005):
 
-### Diriliş (çalışan kod)
+- `Turquaz/`           — tek Eclipse projesi içinde her şey, 1831 commit
+
+Her birinin orijinal commit zaman damgaları ve yazarları (`onsel`,
+`cemdayanik`, `huseyiner`, `cem`, `huseyin`, `ehad`, `erhanb`) korundu.
+
+### SourceForge release tarball'ları (`releases/`)
+
+5 sürüm Linux dağıtım içeriği:
+
+- `releases/0.4.2_alpha4_YTL/`     (2004-12-20)
+- `releases/0.6.0_Alpha5/`         (2005-02-18)
+- `releases/0.7.0_Beta2/`          (2005-04-08)
+- `releases/0.7.0_Beta4_TURKISH/`  (2005-04-15)
+- `releases/0.8.1_Beta_5/`         (2006-05-06)
+
+Her biri orijinal release tarihiyle commit edildi; gömülü JRE'ler hariç
+tutuldu (yer kazancı için).
+
+### Docker build yığını (`docker/`)
+
+- `docker/Dockerfile`  — Eclipse Temurin JDK 11 + Ant + curl tabanlı build env
+- `docker/build.sh`    — 5 modül derleme + Ant + SWT swap + paketleme
+- `docker/README.md`   — kullanım, yapılandırma, build pipeline, yol haritası
+
+## Diğer ilgili branch'ler
 
 | Branch | İçerik |
 |--------|--------|
-| ⭐ [`legacy/standalone-resurrected`](../../tree/legacy/standalone-resurrected) | Orijinal kaynak kod + Docker build yığını + modern SWT/JFace/Hibernate swap + Java 17 runtime. **Burada başla.** |
+| `main` | Modern Turquaz Resurrected — Spring Boot + React + modern SWT |
+| `legacy/cvs-Turquaz` | Eski monolitik proje CVS history (1831 commit) |
+| `legacy/cvs-TurquazBusinessLogic` | BL modülü izole CVS history |
+| `legacy/cvs-TurquazClient` | Client modülü izole CVS history |
+| `legacy/cvs-TurquazCommon` | Common modülü izole CVS history |
+| `legacy/cvs-TurquazServer` | Server modülü izole CVS history |
+| `legacy/cvs-TurquazStandAlone` | StandAlone modülü izole CVS history |
+| `legacy/cvs-import` | 6 CVS modülünün birleşik history (1860 commit) |
+| `legacy/sourceforge-releases` | `cvs-import` + 5 release tarball commit |
+| `legacy/standalone-resurrected` | **Bu branch** — `sourceforge-releases` + Docker build yığını |
 
-### Arşiv / arkeoloji
+## Durum
 
-| Branch | İçerik |
-|--------|--------|
-| [`legacy/sourceforge-releases`](../../tree/legacy/sourceforge-releases) | 5 SourceForge release tarball'ı (0.4.2 → 0.8.1 Beta 5, 2004–2006), `cvs-import` üzerine eklendi. |
-| [`legacy/cvs-import`](../../tree/legacy/cvs-import) | 6 CVS modülünün birleşik history'si — toplam **1860 commit**, 2004–2010. |
-| [`legacy/cvs-Turquaz`](../../tree/legacy/cvs-Turquaz) | Eski monolitik proje (Turquaz1 dönemi, 2004–2005, **1831 commit**). |
-| [`legacy/cvs-TurquazCommon`](../../tree/legacy/cvs-TurquazCommon) | Paylaşılan sabitler, i18n, RPC kontratları (Turquaz2). |
-| [`legacy/cvs-TurquazServer`](../../tree/legacy/cvs-TurquazServer) | Servlet + servis mapper. |
-| [`legacy/cvs-TurquazBusinessLogic`](../../tree/legacy/cvs-TurquazBusinessLogic) | XxxBL + XxxDAL iş kuralları (Hibernate 3). |
-| [`legacy/cvs-TurquazStandAlone`](../../tree/legacy/cvs-TurquazStandAlone) | In-process Hibernate bootstrap, ServiceCaller. |
-| [`legacy/cvs-TurquazClient`](../../tree/legacy/cvs-TurquazClient) | SWT istemcisi (büyük modül, ~454 .java). |
+✅ Build pipeline tamamlanmış: 5 hedef OS için cross-platform paketleme,
+modern SWT, Java 17+ runtime, Hibernate Configuration init noktasına kadar
+sınanmış. Geri kalan (Hibernate 3.0.3 DTD resolver patch'i, HSQLDB 2.x
+migrasyonu) `docker/README.md`'deki yol haritasında.
 
-### Gelecek
-
-| Branch | İçerik |
-|--------|--------|
-| `main` | (planlanan) Modern rebuild — Spring Boot + React veya modernize edilmiş SWT. Şu an boş; bu README "harita" olarak duruyor. |
-
----
-
-## Orijinal geliştiriciler
-
-2004–2010 arası CVS commit'lerinden çıkarılmış katkı dağılımı. Hepsine teşekkür
-— bu kod onların eseri; "diriliş" tarafı sadece runtime'ı çağa taşıyor.
-
-| Geliştirici | Commit | Aktif dönem |
-|-------------|--------|-------------|
-| **onsel** (Önsel Armağan) | 1038 | 2004-08 → 2005-06 |
-| **cem** / **cemdayanik** (Cem Dayanık) | 1193 | 2004-10 → 2005-06 |
-| **huseyin** / **huseyiner** (Hüseyin Ergün) | 346 | 2004-09 → 2010-01 (en uzun) |
-| **ehad** | 10 | 2004-11 → 2004-12 |
-| **erhanb** | 8 | 2005-04 → 2005-04 |
-
-Orijinal proje 2003'te kurulmuş, 2010'a kadar aktif geliştirildi. SourceForge
-deposu: https://sourceforge.net/projects/turquaz/
-
----
-
-## Felsefe
-
-**Diriltirken aynı zamanda modernleştirmek.** Orijinal kaynak kodu en az
-değişiklikle koru, dış katmanları (JRE, SWT, paketleme, build araçları) çağa
-getir. Kod arkeolojisi + canlı uygulama bir arada.
-
----
+Felsefe: **diriltirken aynı zamanda modernleştirmek**. Orijinal kaynak
+kodu en az değişiklikle koru, dış katmanları (JRE, SWT, paketleme) çağa
+getir.
 
 ## Lisans
 
-Orijinal Turquaz: **GNU GPL v2 (veya sonrası)**.
-Bu reprodüksiyon, build yığını ve tüm türev branch'ler GPLv2-uyumlu kalır.
-
-Detay: [LICENSE](LICENSE) (orijinal projeden korunmuş).
+Orijinal Turquaz **GNU GPL v2**. Bu reprodüksiyon ve build yığını da
+GPLv2-uyumlu kalır.

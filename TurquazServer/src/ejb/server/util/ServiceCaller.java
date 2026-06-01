@@ -1,0 +1,90 @@
+/*
+ * Created on May 18, 2005
+ *
+ * 
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+package server.util;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Iterator;
+import com.turquaz.common.HttpServiceRequest;
+import com.turquaz.common.HttpServiceResponse;
+import com.turquaz.engine.exceptions.TurquazException;
+
+/**
+ * @author Cem
+ *
+ * 
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+public class ServiceCaller
+{
+	public static HttpServiceResponse CallService(HttpServiceRequest request)throws TurquazException
+	{
+		try
+		{
+			HashMap serviceMap = request.getRequestMap();
+			
+			HashMap resultMap = new HashMap();
+		
+			Iterator it = serviceMap.keySet().iterator();
+			while(it.hasNext())
+			{
+				String serviceName =(String)it.next();
+				Object serviceResult=ServiceCaller.CallService(serviceName,(HashMap)serviceMap.get(serviceName));
+				resultMap.put(serviceName,serviceResult);				
+				
+			}				
+			
+			return new HttpServiceResponse(resultMap,request.getCompressionMethod());
+			
+		}
+		catch (TurquazException ex)
+		{
+			throw ex;
+		}
+	}
+
+	public static Object CallService(String serviceName, HashMap argMap) throws TurquazException
+	{
+		try
+		{
+			Service service = ServiceList.getService(serviceName);
+			if (service == null)
+			{
+				throw new TurquazException("No such service is available: " + serviceName);
+			}
+			
+			System.out.println(service.getServiceName());
+			
+			Class cls = Class.forName(service.getClassName());
+			
+			
+			Class[] classList = null;
+			Object[] argList = null;
+			if (argMap != null)
+			{
+				classList = new Class[]{argMap.getClass()};
+				argList = new Object[]{argMap};
+			}
+			Method method = cls.getMethod(service.getMethodName(), classList);
+			Object retVal = method.invoke(null, argList);
+			System.out.println("DONE");
+			return retVal;
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			if (ex.getCause() == null)
+				throw new TurquazException(ex);
+			else if(ex.getMessage()!=null)
+				throw new TurquazException(ex.getMessage(),ex.getCause());
+			else 
+				throw new TurquazException("",ex.getCause());
+
+		}
+		
+	}
+}
