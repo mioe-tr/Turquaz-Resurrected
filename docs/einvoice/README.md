@@ -22,7 +22,10 @@ dokümantasyonudur. Tasarım kararları ve maliyet/mevzuat araştırması için
 | `model` | Sağlayıcı-bağımsız belge modeli (`EInvoice`, `EInvoiceLine`, `EInvoiceParty`), `EInvoiceType`, `EDocStatus`, `EInvoiceResult` |
 | `provider` | `EInvoiceProvider` arayüzü, `ProviderCredentials`, `EInvoiceProviderRegistry`, `NilveraProvider` |
 | `routing` | `EInvoiceRouter` — belge tipini aktif entegratör + seriye yönlendirir |
-| `config` | `ProviderProfile`, `EInvoiceSettings` (çoklu entegratör + seri doğrulama) |
+| `config` | `ProviderProfile`, `EInvoiceSettings` (çoklu entegratör + seri doğrulama + satıcı kimliği) |
+| `map` | `TurqInvoiceMapper` — `TurqCurrentTransaction` (+ stok satırları/KDV) → `EInvoice` |
+| `dal` | `EinvoiceDAL` — fatura/şirket yükleme, durum bulma/saklama (mevcut `EngDALSessionFactory`/`EngDALCommon`) |
+| `bl` | `EinvoiceBLIssue` — "Kes" orkestrasyonu (mükerrer koruması dahil) |
 | `util` | `HttpJson` (Java 8 uyumlu `HttpURLConnection`), `Json` (minimal, bağımlılıksız) |
 
 Kalıcılık katmanı: `TurqEInvoiceStatus` entity'si
@@ -63,6 +66,6 @@ Yeni `.java` dosyaları mevcut modül `src` ağaçlarına eklendiğinden
 - [x] Faz 0 — branch `legacy/standalone-resurrected` kodu üzerine kuruldu
 - [x] Faz 1 — `TurqEInvoiceStatus` entity + mapping + cfg kaydı
 - [x] Faz 2 — sağlayıcı-bağımsız katman (model, provider, routing, config, util)
-- [ ] Faz 3 — `TurqInvoiceMapper` (fatura → EInvoice, KDV dahil) + `EinvoiceBLIssue` ("Kes" orkestrasyonu)
+- [x] Faz 3 — `TurqInvoiceMapper` (fatura → EInvoice, KDV dahil) + `EinvoiceBLIssue` ("Kes" orkestrasyonu) + `EinvoiceDAL`
 - [ ] Faz 4 — SWT UI: "e-Arşiv Kes" + durum sütunu + çoklu entegratör ayar ekranı
 - [ ] Faz 5 — ikinci entegratör adaptörü + uçtan uca test (Nilvera test ortamı)

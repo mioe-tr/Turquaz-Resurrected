@@ -26,6 +26,46 @@ public class EInvoiceSettings {
     /** Belge tipi -> aktif profil id (yönlendirme tablosu). */
     private final Map<EInvoiceType, String> routing = new EnumMap<EInvoiceType, String>(EInvoiceType.class);
 
+    // --- satıcı (mükellef) kimliği: e-belge gönderiminde "satıcı" tarafı -----
+    // TurqCompany unvan/adres tutar ama VKN/vergi dairesi tutmaz; bunlar burada
+    // tanımlanır (UI'da şirket ayarlarıyla doldurulur).
+    private String sellerTaxNumber;
+    private String sellerTaxOffice;
+    private String sellerCity;
+    private String sellerDistrict;
+
+    public String getSellerTaxNumber() {
+        return sellerTaxNumber;
+    }
+
+    public void setSellerTaxNumber(String sellerTaxNumber) {
+        this.sellerTaxNumber = sellerTaxNumber;
+    }
+
+    public String getSellerTaxOffice() {
+        return sellerTaxOffice;
+    }
+
+    public void setSellerTaxOffice(String sellerTaxOffice) {
+        this.sellerTaxOffice = sellerTaxOffice;
+    }
+
+    public String getSellerCity() {
+        return sellerCity;
+    }
+
+    public void setSellerCity(String sellerCity) {
+        this.sellerCity = sellerCity;
+    }
+
+    public String getSellerDistrict() {
+        return sellerDistrict;
+    }
+
+    public void setSellerDistrict(String sellerDistrict) {
+        this.sellerDistrict = sellerDistrict;
+    }
+
     public List<ProviderProfile> getProfiles() {
         return profiles;
     }
