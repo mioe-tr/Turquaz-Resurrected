@@ -43,8 +43,10 @@ otomatik oluşur.
 2. `EInvoiceProviderRegistry` statik bloğunda `register(new IzibizProvider())`.
 3. Ayar ekranında profil oluştururken bu entegratör seçilebilir hale gelir.
 
-Mevcut `NilveraProvider`, REST + Bearer kimlik doğrulama ve e-Arşiv gönderimi
-için referans uygulamadır.
+Mevcut `NilveraProvider` ve `IzibizProvider`, REST + Bearer kimlik doğrulama ve
+e-Arşiv gönderimi için referans uygulamalardır (iki adaptör, soyutlamanın
+sağlayıcı-bağımsız olduğunu kanıtlar). Offline test için `MockEInvoiceProvider`
+de mevcuttur.
 
 ## Çoklu entegratör (resmi durum)
 
@@ -71,4 +73,23 @@ Yeni `.java` dosyaları mevcut modül `src` ağaçlarına eklendiğinden
 - [x] Faz 2 — sağlayıcı-bağımsız katman (model, provider, routing, config, util)
 - [x] Faz 3 — `TurqInvoiceMapper` (fatura → EInvoice, KDV dahil) + `EinvoiceBLIssue` ("Kes" orkestrasyonu) + `EinvoiceDAL`
 - [x] Faz 4 — SWT UI: fatura arama ekranında sağ-tık "e-Arşiv Kes / Durum" (`EInvoiceIssueDialog`) + çoklu entegratör ayar ekranı (`EInvoiceSettingsDialog`) + ayar kalıcılığı (`EInvoiceSettingsStore`)
+- [x] Faz 5 — ikinci entegratör adaptörü (`IzibizProvider`) + offline self-test (`EInvoiceSelfTest`, mock sağlayıcı ile) + Nilvera test ortamı talimatları
+
+## Test
+
+Ağ/DB/GUI gerektirmeyen offline self-test (toplamlar, JSON, çoklu entegratör
+doğrulaması, router/provider akışı):
+
+```bash
+# einvoice katmanını derle (dal/bl/map hariç — onlar Hibernate ister)
+javac --release 8 -encoding ISO-8859-9 -d /tmp/eitest \
+  $(find TurquazBusinessLogic/src/com/turquaz/einvoice -name '*.java' | grep -vE '/dal/|/bl/|/map/')
+java -cp /tmp/eitest com.turquaz.einvoice.test.EInvoiceSelfTest
+```
+
+Gerçek Nilvera **test ortamına** karşı canlı gönderim için `NILVERA_API_KEY`
+(ve gerekirse `NILVERA_BASE_URL`) ortam değişkenini ayarlayın; self-test o
+zaman canlı bir submit yapıp sonucu yazar. API anahtarı için
+[developer.nilvera.com](https://developer.nilvera.com/) üzerinden test hesabı
+açılır, sahte mükellef tanımlanır.
 - [ ] Faz 5 — ikinci entegratör adaptörü + uçtan uca test (Nilvera test ortamı)

@@ -20,6 +20,7 @@ public final class EInvoiceProviderRegistry {
         // Ýlk teslimat: Nilvera. Diðer entegratörler ayný arayüzle eklenecek
         // (Ýzibiz, Uyumsoft, Foriba/Sovos, EDM, Paraþüt, Turkcell e-Þirket, ...).
         register(new NilveraProvider());
+        register(new IzibizProvider());
     }
 
     private EInvoiceProviderRegistry() {
