@@ -6,21 +6,21 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * SaÄŸlayÄ±cÄ±-baÄŸÄ±msÄ±z e-belge modeli. Turquaz fatura kayÄ±tlarÄ±ndan
- * (TurqCurrentTransaction + satÄ±rlar) {@code TurqInvoiceMapper} tarafÄ±ndan
- * Ã¼retilir; her {@link com.turquaz.einvoice.provider.EInvoiceProvider} bu
- * modeli kendi API biÃ§imine (Nilvera JSON, UBL-TR, ...) Ã§evirir.
+ * Saðlayýcý-baðýmsýz e-belge modeli. Turquaz fatura kayýtlarýndan
+ * (TurqCurrentTransaction + satýrlar) {@code TurqInvoiceMapper} tarafýndan
+ * üretilir; her {@link com.turquaz.einvoice.provider.EInvoiceProvider} bu
+ * modeli kendi API biçimine (Nilvera JSON, UBL-TR, ...) çevirir.
  */
 public class EInvoice {
 
     private EInvoiceType type = EInvoiceType.EARSIV;
-    private String ettn;            // 36 karakterlik UUID (boÅŸsa provider/mapper Ã¼retir)
-    private String series;          // fatura serisi (Ã¶rn. "TUR")
-    private String documentNo;      // tam belge no (seri + sÄ±ra), opsiyonel
+    private String ettn;            // 36 karakterlik UUID (boþsa provider/mapper üretir)
+    private String series;          // fatura serisi (örn. "TUR")
+    private String documentNo;      // tam belge no (seri + sýra), opsiyonel
     private Date issueDate = new Date();
     private String currency = "TRY";
 
-    /** e-ArÅŸiv iÃ§in satÄ±ÅŸ kanalÄ±: KAGIT / ELEKTRONIK (internet satÄ±ÅŸÄ±). */
+    /** e-Arþiv için satýþ kanalý: KAGIT / ELEKTRONIK (internet satýþý). */
     private String sendType = "ELEKTRONIK";
 
     private EInvoiceParty seller;
@@ -117,7 +117,7 @@ public class EInvoice {
         this.note = note;
     }
 
-    /** KDV hariÃ§ toplam (mal/hizmet tutarÄ±, satÄ±r indirimi dÃ¼ÅŸÃ¼lmÃ¼ÅŸ). */
+    /** KDV hariç toplam (mal/hizmet tutarý, satýr indirimi düþülmüþ). */
     public BigDecimal getLineExtensionTotal() {
         BigDecimal t = BigDecimal.ZERO;
         for (EInvoiceLine l : lines) {
@@ -139,7 +139,7 @@ public class EInvoice {
         return t;
     }
 
-    /** Ã–denecek toplam (matrah + KDV). */
+    /** Ödenecek toplam (matrah + KDV). */
     public BigDecimal getPayableTotal() {
         return getLineExtensionTotal().add(getTaxTotal());
     }

@@ -1,9 +1,9 @@
 package com.turquaz.einvoice.provider;
 
 /**
- * Bir Ã¶zel entegratÃ¶re baÄŸlanmak iÃ§in gereken kimlik/uÃ§-nokta bilgileri.
- * Ã‡oklu entegratÃ¶r senaryosunda her entegratÃ¶r profili kendi kimlik bilgisini
- * ve GB-PK etiketini (senderAlias) taÅŸÄ±r.
+ * Bir özel entegratöre bağlanmak için gereken kimlik/uç-nokta bilgileri.
+ * Çoklu entegratör senaryosunda her entegratör profili kendi kimlik bilgisini
+ * ve GB-PK etiketini (senderAlias) taşır.
  */
 public class ProviderCredentials {
 
@@ -12,10 +12,10 @@ public class ProviderCredentials {
     }
 
     private Environment environment = Environment.TEST;
-    private String baseUrl;        // entegratÃ¶r API kÃ¶k adresi (boÅŸsa saÄŸlayÄ±cÄ± varsayÄ±lanÄ±)
-    private String apiKey;         // OAuth2 client / API anahtarÄ± veya kullanÄ±cÄ± adÄ±
+    private String baseUrl;        // entegratör API kök adresi (boşsa sağlayıcı varsayılanı)
+    private String apiKey;         // OAuth2 client / API anahtarı veya kullanıcı adı
     private String apiSecret;      // parola / secret
-    private String senderAlias;    // GB-PK etiketi (e-Fatura yÃ¶nlendirmesi iÃ§in)
+    private String senderAlias;    // GB-PK etiketi (e-Fatura yönlendirmesi için)
 
     public ProviderCredentials() {
     }

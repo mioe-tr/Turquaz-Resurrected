@@ -8,9 +8,9 @@ import com.turquaz.einvoice.provider.EInvoiceProvider;
 import com.turquaz.einvoice.provider.EInvoiceProviderRegistry;
 
 /**
- * Bir belge tipini, ayarlardaki aktif profile gÃ¶re doÄŸru entegratÃ¶r adaptÃ¶rÃ¼ne
- * ve fatura serisine yÃ¶nlendirir. "Kes" akÄ±ÅŸÄ±nÄ±n kalbi: BL hangi entegratÃ¶rle
- * Ã§alÄ±ÅŸÄ±lacaÄŸÄ±nÄ± bilmek zorunda kalmadan buradan {@link Route} alÄ±r.
+ * Bir belge tipini, ayarlardaki aktif profile göre doðru entegratör adaptörüne
+ * ve fatura serisine yönlendirir. "Kes" akýþýnýn kalbi: BL hangi entegratörle
+ * çalýþýlacaðýný bilmek zorunda kalmadan buradan {@link Route} alýr.
  */
 public class EInvoiceRouter {
 
@@ -20,7 +20,7 @@ public class EInvoiceRouter {
         this.settings = settings;
     }
 
-    /** Ã‡Ã¶zÃ¼lmÃ¼ÅŸ yÃ¶nlendirme: adaptÃ¶r + kimlik bilgisi + seri. */
+    /** Çözülmüþ yönlendirme: adaptör + kimlik bilgisi + seri. */
     public static final class Route {
         public final EInvoiceProvider provider;
         public final ProviderProfile profile;
@@ -37,14 +37,14 @@ public class EInvoiceRouter {
         ProviderProfile profile = settings.getActiveProfile(type);
         if (profile == null) {
             throw new EInvoiceException(type.getLabel()
-                    + " iÃ§in aktif entegratÃ¶r profili tanÄ±mlÄ± deÄŸil. Ayarlardan bir profil seÃ§in.");
+                    + " için aktif entegratör profili tanýmlý deðil. Ayarlardan bir profil seçin.");
         }
         if (!profile.isEnabled()) {
-            throw new EInvoiceException("SeÃ§ili profil pasif: " + profile.getId());
+            throw new EInvoiceException("Seçili profil pasif: " + profile.getId());
         }
         EInvoiceProvider provider = EInvoiceProviderRegistry.get(profile.getProviderName());
         if (provider == null) {
-            throw new EInvoiceException("Bilinmeyen entegratÃ¶r adaptÃ¶rÃ¼: " + profile.getProviderName());
+            throw new EInvoiceException("Bilinmeyen entegratör adaptörü: " + profile.getProviderName());
         }
         if (!provider.supports(type)) {
             throw new EInvoiceException(provider.displayName() + " bu belge tipini desteklemiyor: "

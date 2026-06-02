@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * KullanÄ±labilir entegratÃ¶r adaptÃ¶rlerinin merkezi kaydÄ±. Uygulama aÃ§Ä±lÄ±ÅŸÄ±nda
- * bilinen saÄŸlayÄ±cÄ±lar burada register edilir; UI ayar ekranÄ± listeyi buradan
- * Ã§eker, router seÃ§ili saÄŸlayÄ±cÄ±yÄ± buradan alÄ±r.
+ * Kullanılabilir entegratör adaptörlerinin merkezi kaydı. Uygulama açılışında
+ * bilinen sağlayıcılar burada register edilir; UI ayar ekranı listeyi buradan
+ * çeker, router seçili sağlayıcıyı buradan alır.
  */
 public final class EInvoiceProviderRegistry {
 
@@ -17,8 +17,8 @@ public final class EInvoiceProviderRegistry {
             new LinkedHashMap<String, EInvoiceProvider>();
 
     static {
-        // Ä°lk teslimat: Nilvera. DiÄŸer entegratÃ¶rler aynÄ± arayÃ¼zle eklenecek
-        // (Ä°zibiz, Uyumsoft, Foriba/Sovos, EDM, ParaÅŸÃ¼t, Turkcell e-Åirket, ...).
+        // İlk teslimat: Nilvera. Diğer entegratörler aynı arayüzle eklenecek
+        // (İzibiz, Uyumsoft, Foriba/Sovos, EDM, Paraşüt, Turkcell e-Şirket, ...).
         register(new NilveraProvider());
     }
 
@@ -37,7 +37,7 @@ public final class EInvoiceProviderRegistry {
         return name != null && PROVIDERS.containsKey(name);
     }
 
-    /** KayÄ±tlÄ± tÃ¼m saÄŸlayÄ±cÄ±lar (ekleme sÄ±rasÄ±na gÃ¶re). */
+    /** Kayıtlı tüm sağlayıcılar (ekleme sırasına göre). */
     public static List<EInvoiceProvider> all() {
         return Collections.unmodifiableList(new ArrayList<EInvoiceProvider>(PROVIDERS.values()));
     }

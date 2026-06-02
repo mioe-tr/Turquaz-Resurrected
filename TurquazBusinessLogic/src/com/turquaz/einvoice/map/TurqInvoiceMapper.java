@@ -17,18 +17,18 @@ import com.turquaz.engine.dal.TurqInventoryCard;
 import com.turquaz.engine.dal.TurqInventoryTransaction;
 
 /**
- * Turquaz fatura kayÄ±tlarÄ±nÄ± saÄŸlayÄ±cÄ±-baÄŸÄ±msÄ±z {@link EInvoice} modeline Ã§evirir.
+ * Turquaz fatura kayıtlarını sağlayıcı-bağımsız {@link EInvoice} modeline çevirir.
  *
- * <p>Ä°liÅŸki: fatura baÅŸlÄ±ÄŸÄ± {@code TurqCurrentTransaction} bir
- * {@code TurqEngineSequence}'e baÄŸlÄ±dÄ±r; o sÄ±raya baÄŸlÄ±
- * {@code TurqInventoryTransaction} kayÄ±tlarÄ± KDV'li Ã¼rÃ¼n satÄ±rlarÄ±dÄ±r
- * (amountIn/Out, unitPrice, vatRate, vatAmount). AlÄ±cÄ± bilgisi baÅŸlÄ±ÄŸÄ±n
- * {@code TurqCurrentCard}'Ä±ndan (VKN = cardsTaxNumber, vergi dairesi =
- * cardsTaxDepartment) gelir; satÄ±cÄ± bilgisi {@code TurqCompany} + ayarlardaki
- * mÃ¼kellef kimliÄŸinden kurulur.
+ * <p>İlişki: fatura başlığı {@code TurqCurrentTransaction} bir
+ * {@code TurqEngineSequence}'e bağlıdır; o sıraya bağlı
+ * {@code TurqInventoryTransaction} kayıtları KDV'li ürün satırlarıdır
+ * (amountIn/Out, unitPrice, vatRate, vatAmount). Alıcı bilgisi başlığın
+ * {@code TurqCurrentCard}'ından (VKN = cardsTaxNumber, vergi dairesi =
+ * cardsTaxDepartment) gelir; satıcı bilgisi {@code TurqCompany} + ayarlardaki
+ * mükellef kimliğinden kurulur.
  *
- * <p>Bu metotlar aÃ§Ä±k bir Hibernate session iÃ§inde Ã§aÄŸrÄ±lmalÄ±dÄ±r (lazy
- * koleksiyon gezinimi iÃ§in); {@code EinvoiceBLIssue} bunu saÄŸlar.
+ * <p>Bu metotlar açık bir Hibernate session içinde çağrılmalıdır (lazy
+ * koleksiyon gezinimi için); {@code EinvoiceBLIssue} bunu sağlar.
  */
 public final class TurqInvoiceMapper {
 
@@ -103,7 +103,7 @@ public final class TurqInvoiceMapper {
         TurqInventoryCard card = t.getTurqInventoryCard();
         line.setName(card != null ? card.getCardName() : t.getDefinition());
 
-        // SatÄ±ÅŸ stoÄŸu azaltÄ±r (amountOut); yoksa amountIn kullan.
+        // Satış stoğu azaltır (amountOut); yoksa amountIn kullan.
         BigDecimal qty = nz(t.getAmountOut());
         if (qty.signum() == 0) {
             qty = nz(t.getAmountIn());
@@ -115,7 +115,7 @@ public final class TurqInvoiceMapper {
 
         line.setUnitPrice(nz(t.getUnitPrice()));
         line.setDiscountAmount(nz(t.getDiscountAmount()));
-        // totalPrice = KDV hariÃ§ satÄ±r matrahÄ± (miktar*birim - iskonto).
+        // totalPrice = KDV hariç satır matrahı (miktar*birim - iskonto).
         line.setLineTotal(nz(t.getTotalPrice()));
         line.setVatRate(nz(t.getVatRate()));
         line.setVatAmount(nz(t.getVatAmount()));

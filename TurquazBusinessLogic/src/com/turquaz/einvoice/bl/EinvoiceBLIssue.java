@@ -15,24 +15,24 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqEInvoiceStatus;
 
 /**
- * "Kes" iÅŸ kuralÄ±: bir Turquaz faturasÄ±nÄ± seÃ§ili entegratÃ¶re gÃ¶nderip
- * kesinleÅŸtirir ve sonucu {@link TurqEInvoiceStatus} kaydÄ±na yazar.
+ * "Kes" iş kuralı: bir Turquaz faturasını seçili entegratöre gönderip
+ * kesinleştirir ve sonucu {@link TurqEInvoiceStatus} kaydına yazar.
  *
- * <p>AkÄ±ÅŸ: yÃ¼kle â†’ mÃ¼kerrer kontrolÃ¼ â†’ yÃ¶nlendir (entegratÃ¶r + seri) â†’ maple
- * â†’ gÃ¶nder â†’ durumu sakla. Fatura otomatik kesilmez; bu metot kullanÄ±cÄ±nÄ±n
- * UI'daki "e-ArÅŸiv Kes" aksiyonuyla tetiklenir.
+ * <p>Akış: yükle -> mükerrer kontrolü -> yönlendir (entegratör + seri) -> maple
+ * -> gönder -> durumu sakla. Fatura otomatik kesilmez; bu metot kullanıcının
+ * UI'daki "e-Arşiv Kes" aksiyonuyla tetiklenir.
  */
 public class EinvoiceBLIssue {
 
     private static final int RESPONSE_MAX = 2000;
 
     /**
-     * Verilen faturayÄ± keser.
+     * Verilen faturayı keser.
      *
      * @param transactionId {@code TurqCurrentTransaction} id'si
-     * @param type          belge tipi (ÅŸimdilik EARSIV)
-     * @param settings      entegratÃ¶r profilleri + yÃ¶nlendirme + satÄ±cÄ± kimliÄŸi
-     * @param currentUser   iÅŸlemi yapan kullanÄ±cÄ± (audit alanlarÄ± iÃ§in)
+     * @param type          belge tipi (şimdilik EARSIV)
+     * @param settings      entegratör profilleri + yönlendirme + satıcı kimliği
+     * @param currentUser   işlemi yapan kullanıcı (audit alanları için)
      */
     public static EInvoiceResult issue(Integer transactionId, EInvoiceType type,
                                        EInvoiceSettings settings, String currentUser)
@@ -40,12 +40,12 @@ public class EinvoiceBLIssue {
         try {
             TurqCurrentTransaction header = EinvoiceDAL.loadTransaction(transactionId);
             if (header == null) {
-                throw new EInvoiceException("Fatura bulunamadÄ±: id=" + transactionId);
+                throw new EInvoiceException("Fatura bulunamadı: id=" + transactionId);
             }
 
             TurqEInvoiceStatus status = EinvoiceDAL.findStatus(transactionId);
             if (status != null && isFinal(status.getStatus())) {
-                throw new EInvoiceException("Bu fatura zaten kesilmiÅŸ (durum: "
+                throw new EInvoiceException("Bu fatura zaten kesilmiş (durum: "
                         + status.getStatus() + ", ETTN: " + status.getEttn()
                         + "). Tekrar kesilemez.");
             }
@@ -64,7 +64,7 @@ public class EinvoiceBLIssue {
         } catch (EInvoiceException ee) {
             throw ee;
         } catch (Exception e) {
-            throw new EInvoiceException("e-belge kesme sÄ±rasÄ±nda beklenmeyen hata: " + e.getMessage(), e);
+            throw new EInvoiceException("e-belge kesme sırasında beklenmeyen hata: " + e.getMessage(), e);
         }
     }
 

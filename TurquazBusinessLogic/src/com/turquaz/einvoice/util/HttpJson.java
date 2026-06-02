@@ -10,16 +10,16 @@ import java.nio.charset.Charset;
 import java.util.Map;
 
 /**
- * Java 8'de gÃ¶mÃ¼lÃ¼ {@link HttpURLConnection} Ã¼zerine ince bir JSON/HTTP istemcisi.
- * Build {@code -source 8} ile derlendiÄŸinden Java 11 {@code HttpClient}
- * kullanÄ±lamaz; bu sÄ±nÄ±f ek baÄŸÄ±mlÄ±lÄ±k olmadan REST Ã§aÄŸrÄ±sÄ± yapar ve Java 17
- * runtime'da da Ã§alÄ±ÅŸÄ±r.
+ * Java 8'de gömülü {@link HttpURLConnection} üzerine ince bir JSON/HTTP istemcisi.
+ * Build {@code -source 8} ile derlendiğinden Java 11 {@code HttpClient}
+ * kullanılamaz; bu sınıf ek bağımlılık olmadan REST çağrısı yapar ve Java 17
+ * runtime'da da çalışır.
  */
 public final class HttpJson {
 
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
-    /** Basit HTTP yanÄ±tÄ±: durum kodu + gÃ¶vde. */
+    /** Basit HTTP yanıtı: durum kodu + gövde. */
     public static final class Response {
         public final int code;
         public final String body;

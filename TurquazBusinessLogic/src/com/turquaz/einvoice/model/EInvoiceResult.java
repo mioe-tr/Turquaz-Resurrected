@@ -1,8 +1,8 @@
 package com.turquaz.einvoice.model;
 
 /**
- * Bir e-belge iÅŸleminin (gÃ¶nder / durum sorgula / iptal) sonucu. SaÄŸlayÄ±cÄ±dan
- * baÄŸÄ±msÄ±z; {@code EinvoiceBLIssue} bunu {@code TurqEInvoiceStatus} kaydÄ±na yazar.
+ * Bir e-belge işleminin (gönder / durum sorgula / iptal) sonucu. Sağlayıcıdan
+ * bağımsız; {@code EinvoiceBLIssue} bunu {@code TurqEInvoiceStatus} kaydına yazar.
  */
 public class EInvoiceResult {
 
@@ -11,8 +11,8 @@ public class EInvoiceResult {
     private String ettn;
     private String providerDocId;
     private String pdfUrl;
-    private String message;       // hata veya bilgi mesajÄ±
-    private String rawResponse;   // entegratÃ¶rÃ¼n ham yanÄ±tÄ± (loglama/teÅŸhis iÃ§in)
+    private String message;       // hata veya bilgi mesajı
+    private String rawResponse;   // entegratörün ham yanıtı (loglama/teşhis için)
 
     public static EInvoiceResult ok(EDocStatus status) {
         EInvoiceResult r = new EInvoiceResult();

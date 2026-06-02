@@ -1,14 +1,14 @@
 package com.turquaz.einvoice.model;
 
 /**
- * Desteklenen GÄ°B e-belge tipleri. Ä°lk teslimat e-ArÅŸiv ile sÄ±nÄ±rlÄ±dÄ±r; e-Fatura
- * ve e-Ä°rsaliye iÃ§in yer ayrÄ±lmÄ±ÅŸtÄ±r (aynÄ± saÄŸlayÄ±cÄ± arayÃ¼zÃ¼nden geÃ§erler).
+ * Desteklenen GİB e-belge tipleri. İlk teslimat e-Arşiv ile sınırlıdır; e-Fatura
+ * ve e-İrsaliye için yer ayrılmıştır (aynı sağlayıcı arayüzünden geçerler).
  */
 public enum EInvoiceType {
 
-    EARSIV("e-ArÅŸiv Fatura"),
+    EARSIV("e-Arşiv Fatura"),
     EFATURA("e-Fatura"),
-    EIRSALIYE("e-Ä°rsaliye");
+    EIRSALIYE("e-İrsaliye");
 
     private final String label;
 

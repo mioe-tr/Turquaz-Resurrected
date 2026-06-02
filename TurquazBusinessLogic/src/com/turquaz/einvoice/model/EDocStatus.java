@@ -1,21 +1,21 @@
 package com.turquaz.einvoice.model;
 
 /**
- * Bir e-belgenin yaÅŸam dÃ¶ngÃ¼sÃ¼ durumu. {@code TurqEInvoiceStatus.status}
- * kolonunda string olarak saklanÄ±r.
+ * Bir e-belgenin yaşam döngüsü durumu. {@code TurqEInvoiceStatus.status}
+ * kolonunda string olarak saklanır.
  */
 public enum EDocStatus {
 
-    /** Uygulamada oluÅŸturuldu, henÃ¼z "Kes" ile gÃ¶nderilmedi. */
+    /** Uygulamada oluşturuldu, henüz "Kes" ile gönderilmedi. */
     DRAFT,
-    /** EntegratÃ¶re gÃ¶nderildi, GÄ°B onayÄ± bekleniyor. */
+    /** Entegratöre gönderildi, GİB onayı bekleniyor. */
     SENT,
-    /** GÄ°B tarafÄ±ndan kabul edildi / kesinleÅŸti. */
+    /** GİB tarafından kabul edildi / kesinleşti. */
     ACCEPTED,
     /** Reddedildi. */
     REJECTED,
-    /** Ä°ptal edildi. */
+    /** İptal edildi. */
     CANCELLED,
-    /** GÃ¶nderim sÄ±rasÄ±nda hata oluÅŸtu. */
+    /** Gönderim sırasında hata oluştu. */
     ERROR
 }

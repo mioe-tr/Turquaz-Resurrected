@@ -260,6 +260,20 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				tableCurrentTransactionsLData.grabExcessVerticalSpace = true;
 				tableCurrentTransactions.setLayoutData(tableCurrentTransactionsLData);
 				{
+					// e-Belge: row context menu (e-Arsiv kes / durum)
+					org.eclipse.swt.widgets.Menu eInvoiceMenu = new org.eclipse.swt.widgets.Menu(tableCurrentTransactions);
+					org.eclipse.swt.widgets.MenuItem eInvoiceItem = new org.eclipse.swt.widgets.MenuItem(eInvoiceMenu, SWT.PUSH);
+					eInvoiceItem.setText("e-Ar\u015fiv Kes / Durum");
+					eInvoiceItem.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
+					{
+						public void widgetSelected(org.eclipse.swt.events.SelectionEvent evt)
+						{
+							openEInvoiceForSelected();
+						}
+					});
+					tableCurrentTransactions.setMenu(eInvoiceMenu);
+				}
+				{
 					tableColumnTransDate = new TableColumn(tableCurrentTransactions, SWT.NONE);
 					tableColumnTransDate.setText(EngLangCommonKeys.STR_DATE); //$NON-NLS-1$
 					tableColumnTransDate.setWidth(98);
@@ -561,5 +575,27 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableCurrentTransactions, CurLangKeys.STR_CURRENT_TRANSACTIONS); //$NON-NLS-1$
+	}
+
+	/** e-Belge: opens the selected invoice in the e-Arsiv issue/status dialog. */
+	protected void openEInvoiceForSelected()
+	{
+		try
+		{
+			TableItem items[] = tableCurrentTransactions.getSelection();
+			if (items.length > 0)
+			{
+				Integer[] rowData = (Integer[]) ((ITableRow) items[0].getData()).getDBObject();
+				Integer transId = rowData[0];
+				if (transId != null)
+				{
+					new com.turquaz.einvoice.ui.EInvoiceIssueDialog(this.getShell(), SWT.NULL, transId).open();
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			server.util.EngBLLogger.log(this.getClass(), ex, getShell());
+		}
 	}
 }

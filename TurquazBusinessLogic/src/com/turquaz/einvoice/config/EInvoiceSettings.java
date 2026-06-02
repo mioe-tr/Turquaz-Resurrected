@@ -8,27 +8,27 @@ import java.util.Map;
 import com.turquaz.einvoice.model.EInvoiceType;
 
 /**
- * e-belge entegrasyon ayarlarÄ±: tanÄ±mlÄ± entegratÃ¶r profilleri ve belge-tipi
- * baÅŸÄ±na aktif profil yÃ¶nlendirmesi.
+ * e-belge entegrasyon ayarları: tanımlı entegratör profilleri ve belge-tipi
+ * başına aktif profil yönlendirmesi.
  *
- * <p>Ã‡oklu entegratÃ¶r mevzuat olarak mÃ¼mkÃ¼ndÃ¼r (VUK 509); farklÄ± belge tipleri
- * farklÄ± entegratÃ¶rlere yÃ¶nlendirilebilir. AynÄ± belge tipinde birden fazla
- * profil kullanÄ±lacaksa her profilin <b>ayrÄ± fatura serisi</b> olmalÄ±dÄ±r â€”
+ * <p>Çoklu entegratör mevzuat olarak mümkündür (VUK 509); farklı belge tipleri
+ * farklı entegratörlere yönlendirilebilir. Aynı belge tipinde birden fazla
+ * profil kullanılacaksa her profilin <b>ayrı fatura serisi</b> olmalıdır -
  * {@link #validate()} bunu denetler.
  *
- * <p>KalÄ±cÄ±lÄ±k (TurqSetting tablosu / properties dosyasÄ±) ve UI baÄŸlama Faz 4'te
- * eklenecektir; burada bellek-iÃ§i model ve doÄŸrulama tutulur.
+ * <p>Kalıcılık (TurqSetting tablosu / properties dosyası) ve UI bağlama Faz 4'te
+ * eklenecektir; burada bellek-içi model ve doğrulama tutulur.
  */
 public class EInvoiceSettings {
 
     private final List<ProviderProfile> profiles = new ArrayList<ProviderProfile>();
 
-    /** Belge tipi -> aktif profil id (yÃ¶nlendirme tablosu). */
+    /** Belge tipi -> aktif profil id (yönlendirme tablosu). */
     private final Map<EInvoiceType, String> routing = new EnumMap<EInvoiceType, String>(EInvoiceType.class);
 
-    // --- satÄ±cÄ± (mÃ¼kellef) kimliÄŸi: e-belge gÃ¶nderiminde "satÄ±cÄ±" tarafÄ± -----
+    // --- satıcı (mükellef) kimliği: e-belge gönderiminde "satıcı" tarafı -----
     // TurqCompany unvan/adres tutar ama VKN/vergi dairesi tutmaz; bunlar burada
-    // tanÄ±mlanÄ±r (UI'da ÅŸirket ayarlarÄ±yla doldurulur).
+    // tanımlanır (UI'da şirket ayarlarıyla doldurulur).
     private String sellerTaxNumber;
     private String sellerTaxOffice;
     private String sellerCity;
@@ -88,7 +88,7 @@ public class EInvoiceSettings {
         if (p != null) {
             profiles.remove(p);
         }
-        // yÃ¶nlendirmede bu profili kullanan girdileri temizle
+        // yönlendirmede bu profili kullanan girdileri temizle
         List<EInvoiceType> toClear = new ArrayList<EInvoiceType>();
         for (Map.Entry<EInvoiceType, String> e : routing.entrySet()) {
             if (e.getValue() != null && e.getValue().equals(id)) {
@@ -100,7 +100,7 @@ public class EInvoiceSettings {
         }
     }
 
-    /** Verilen belge tipi iÃ§in aktif profili belirler. */
+    /** Verilen belge tipi için aktif profili belirler. */
     public void setActiveProfile(EInvoiceType type, String profileId) {
         routing.put(type, profileId);
     }
@@ -115,16 +115,16 @@ public class EInvoiceSettings {
     }
 
     /**
-     * Ã‡oklu entegratÃ¶r uyumluluÄŸunu denetler: aynÄ± belge tipi iÃ§in aynÄ±
-     * entegratÃ¶r adaptÃ¶rÃ¼ birden fazla profilde kullanÄ±lÄ±yorsa, bu profillerin
-     * serileri birbirinden farklÄ± olmalÄ±dÄ±r (GÄ°B hata 1104/1163'Ã¼ Ã¶nlemek iÃ§in).
+     * Çoklu entegratör uyumluluğunu denetler: aynı belge tipi için aynı
+     * entegratör adaptörü birden fazla profilde kullanılıyorsa, bu profillerin
+     * serileri birbirinden farklı olmalıdır (GİB hata 1104/1163'ü önlemek için).
      *
-     * @return ihlal mesajlarÄ±; boÅŸsa ayarlar uyumludur.
+     * @return ihlal mesajları; boşsa ayarlar uyumludur.
      */
     public List<String> validate() {
         List<String> errors = new ArrayList<String>();
         for (EInvoiceType type : EInvoiceType.values()) {
-            // (provider + series) Ã§iftlerinin tipi iÃ§inde benzersizliÄŸi
+            // (provider + series) çiftlerinin tipi içinde benzersizliği
             List<String> seen = new ArrayList<String>();
             for (ProviderProfile p : profiles) {
                 if (!p.isEnabled()) {
@@ -136,10 +136,10 @@ public class EInvoiceSettings {
                 }
                 String key = p.getProviderName() + "/" + series;
                 if (seen.contains(key)) {
-                    errors.add(type.getLabel() + " iÃ§in '" + p.getProviderName()
-                            + "' entegratÃ¶rÃ¼nde '" + series
-                            + "' serisi birden fazla profilde kullanÄ±lÄ±yor; "
-                            + "her profil ayrÄ± seri kullanmalÄ±.");
+                    errors.add(type.getLabel() + " için '" + p.getProviderName()
+                            + "' entegratöründe '" + series
+                            + "' serisi birden fazla profilde kullanılıyor; "
+                            + "her profil ayrı seri kullanmalı.");
                 } else {
                     seen.add(key);
                 }

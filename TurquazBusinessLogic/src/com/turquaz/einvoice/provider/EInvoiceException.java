@@ -1,6 +1,6 @@
 package com.turquaz.einvoice.provider;
 
-/** e-belge gÃ¶nderim/sorgu katmanÄ± hatasÄ±. */
+/** e-belge gönderim/sorgu katmaný hatasý. */
 public class EInvoiceException extends Exception {
 
     private static final long serialVersionUID = 1L;

@@ -6,44 +6,44 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 
 /**
- * GÄ°B e-belge (e-ArÅŸiv / e-Fatura / e-Ä°rsaliye) gÃ¶nderim durumunu, bir
- * {@link TurqCurrentTransaction} faturasÄ±na baÄŸlÄ± olarak tutan kayÄ±t.
+ * GİB e-belge (e-Arşiv / e-Fatura / e-İrsaliye) gönderim durumunu, bir
+ * {@link TurqCurrentTransaction} faturasına bağlı olarak tutan kayıt.
  *
- * Fatura uygulamada normal ÅŸekilde oluÅŸturulur (DRAFT); kullanÄ±cÄ± "Kes"
- * aksiyonuyla seÃ§ili Ã¶zel entegratÃ¶re gÃ¶nderince burada ETTN / durum /
- * entegratÃ¶r / seri / GÄ°B yanÄ±tÄ± saklanÄ±r. Ã‡oklu entegratÃ¶r senaryosunda her
- * belge hangi entegratÃ¶r + seri ile kesildiyse o bilgi burada kalÄ±r.
+ * Fatura uygulamada normal şekilde oluşturulur (DRAFT); kullanıcı "Kes"
+ * aksiyonuyla seçili özel entegratöre gönderince burada ETTN / durum /
+ * entegratör / seri / GİB yanıtı saklanır. Çoklu entegratör senaryosunda her
+ * belge hangi entegratör + seri ile kesildiyse o bilgi burada kalır.
  */
 public class TurqEInvoiceStatus implements Serializable {
 
     /** identifier field */
     private Integer id;
 
-    /** persistent field â€” baÄŸlÄ± fatura baÅŸlÄ±ÄŸÄ± */
+    /** persistent field - bağlı fatura başlığı */
     private TurqCurrentTransaction turqCurrentTransaction;
 
-    /** persistent field â€” EARSIV / EFATURA / EIRSALIYE */
+    /** persistent field - EARSIV / EFATURA / EIRSALIYE */
     private String documentType;
 
-    /** persistent field â€” kullanÄ±lan Ã¶zel entegratÃ¶r adÄ± (nilvera, izibiz, ...) */
+    /** persistent field - kullanılan özel entegratör adı (nilvera, izibiz, ...) */
     private String provider;
 
-    /** nullable persistent field â€” entegratÃ¶r baÅŸÄ±na ayrÄ± fatura serisi */
+    /** nullable persistent field - entegratör başına ayrı fatura serisi */
     private String invoiceSeries;
 
-    /** nullable persistent field â€” 36 karakterlik ETTN (UUID) */
+    /** nullable persistent field - 36 karakterlik ETTN (UUID) */
     private String ettn;
 
-    /** nullable persistent field â€” entegratÃ¶rÃ¼n dÃ¶ndÃ¼rdÃ¼ÄŸÃ¼ belge kimliÄŸi */
+    /** nullable persistent field - entegratörün döndürdüğü belge kimliği */
     private String providerDocId;
 
-    /** persistent field â€” DRAFT / SENT / ACCEPTED / REJECTED / CANCELLED / ERROR */
+    /** persistent field - DRAFT / SENT / ACCEPTED / REJECTED / CANCELLED / ERROR */
     private String status;
 
-    /** nullable persistent field â€” GÄ°B / entegratÃ¶r yanÄ±t veya hata metni */
+    /** nullable persistent field - GİB / entegratör yanıt veya hata metni */
     private String gibResponse;
 
-    /** nullable persistent field â€” kesilen belgenin PDF / gÃ¶rÃ¼ntÃ¼ adresi */
+    /** nullable persistent field - kesilen belgenin PDF / görüntü adresi */
     private String pdfUrl;
 
     /** persistent field */

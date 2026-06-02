@@ -3,17 +3,17 @@ package com.turquaz.einvoice.model;
 import java.math.BigDecimal;
 
 /**
- * Fatura satÄ±rÄ±. KDV bilgisi Turquaz {@code TurqInventoryTransaction}
- * (vatRate / vatAmount) kayÄ±tlarÄ±ndan gelir.
+ * Fatura satýrý. KDV bilgisi Turquaz {@code TurqInventoryTransaction}
+ * (vatRate / vatAmount) kayýtlarýndan gelir.
  */
 public class EInvoiceLine {
 
-    private String name;                 // Ã¼rÃ¼n/hizmet adÄ±
+    private String name;                 // ürün/hizmet adý
     private String unit = "C62";         // UBL birim kodu (C62 = adet)
     private BigDecimal quantity = BigDecimal.ONE;
     private BigDecimal unitPrice = BigDecimal.ZERO;
     private BigDecimal discountAmount = BigDecimal.ZERO;
-    private BigDecimal lineTotal = BigDecimal.ZERO;   // KDV hariÃ§ satÄ±r tutarÄ±
+    private BigDecimal lineTotal = BigDecimal.ZERO;   // KDV hariç satýr tutarý
     private BigDecimal vatRate = BigDecimal.ZERO;     // %20 -> 20
     private BigDecimal vatAmount = BigDecimal.ZERO;
 

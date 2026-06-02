@@ -1,9 +1,9 @@
 package com.turquaz.einvoice.util;
 
 /**
- * BaÄŸÄ±mlÄ±lÄ±k eklememek iÃ§in minimal JSON yardÄ±mcÄ±sÄ±. Tam bir parser deÄŸildir;
- * entegratÃ¶r REST gÃ¶vdesi Ã¼retmek (yazma) ve yanÄ±ttan tek tek alan Ã§ekmek
- * (sÄ±ÄŸ okuma) iÃ§in yeterlidir. KarmaÅŸÄ±k yanÄ±t iÅŸleme gerekirse ileride
+ * Bağımlılık eklememek için minimal JSON yardımcısı. Tam bir parser değildir;
+ * entegratör REST gövdesi üretmek (yazma) ve yanıttan tek tek alan çekmek
+ * (sığ okuma) için yeterlidir. Karmaşık yanıt işleme gerekirse ileride
  * Jackson eklenebilir.
  */
 public final class Json {
@@ -11,7 +11,7 @@ public final class Json {
     private Json() {
     }
 
-    /** Bir String deÄŸeri JSON iÃ§in escape'ler (tÄ±rnak dahil deÄŸildir). */
+    /** Bir String değeri JSON için escape'ler (tırnak dahil değildir). */
     public static String escape(String s) {
         if (s == null) {
             return "";
@@ -36,19 +36,19 @@ public final class Json {
         return b.toString();
     }
 
-    /** {@code "key":"value"} biÃ§iminde, escape edilmiÅŸ bir string alan Ã¼retir. */
+    /** {@code "key":"value"} biçiminde, escape edilmiş bir string alan üretir. */
     public static String str(String key, String value) {
         return "\"" + escape(key) + "\":\"" + escape(value == null ? "" : value) + "\"";
     }
 
-    /** {@code "key":value} biÃ§iminde ham (string olmayan) bir alan Ã¼retir. */
+    /** {@code "key":value} biçiminde ham (string olmayan) bir alan üretir. */
     public static String raw(String key, String value) {
         return "\"" + escape(key) + "\":" + (value == null ? "null" : value);
     }
 
     /**
-     * SÄ±ÄŸ bir okuma: verilen anahtarÄ±n string deÄŸerini dÃ¶ndÃ¼rÃ¼r. YalnÄ±zca dÃ¼z
-     * (iÃ§ iÃ§e olmayan) {@code "key":"value"} kalÄ±bÄ±nÄ± arar; bulamazsa null dÃ¶ner.
+     * Sığ bir okuma: verilen anahtarın string değerini döndürür. Yalnızca düz
+     * (iç içe olmayan) {@code "key":"value"} kalıbını arar; bulamazsa null döner.
      */
     public static String getString(String json, String key) {
         if (json == null) {
@@ -68,7 +68,7 @@ public final class Json {
             i++;
         }
         if (i >= json.length() || json.charAt(i) != '"') {
-            return null;   // string deÄŸil (sayÄ±/bool/obje) â€” bu yardÄ±mcÄ± kapsamaz
+            return null;   // string değil (sayı/bool/obje) - bu yardımcı kapsamaz
         }
         i++;
         StringBuilder b = new StringBuilder();

@@ -13,8 +13,8 @@ import com.turquaz.engine.dal.TurqCurrentTransaction;
 import com.turquaz.engine.dal.TurqEInvoiceStatus;
 
 /**
- * e-belge durum/okuma iÃ§in veri eriÅŸimi. Mevcut DAL desenini
- * ({@link EngDALSessionFactory} + {@link EngDALCommon}) yeniden kullanÄ±r.
+ * e-belge durum/okuma için veri eriþimi. Mevcut DAL desenini
+ * ({@link EngDALSessionFactory} + {@link EngDALCommon}) yeniden kullanýr.
  */
 public class EinvoiceDAL {
 
@@ -30,7 +30,7 @@ public class EinvoiceDAL {
         return list.isEmpty() ? null : (TurqCompany) list.get(0);
     }
 
-    /** Bir faturaya ait mevcut e-belge durum kaydÄ±nÄ± dÃ¶ndÃ¼rÃ¼r (yoksa null). */
+    /** Bir faturaya ait mevcut e-belge durum kaydýný döndürür (yoksa null). */
     public static TurqEInvoiceStatus findStatus(Integer transactionId) throws Exception {
         Session session = EngDALSessionFactory.getSession();
         Query q = session.createQuery(

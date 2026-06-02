@@ -27,6 +27,9 @@ dokümantasyonudur. Tasarım kararları ve maliyet/mevzuat araştırması için
 | `dal` | `EinvoiceDAL` — fatura/şirket yükleme, durum bulma/saklama (mevcut `EngDALSessionFactory`/`EngDALCommon`) |
 | `bl` | `EinvoiceBLIssue` — "Kes" orkestrasyonu (mükerrer koruması dahil) |
 | `util` | `HttpJson` (Java 8 uyumlu `HttpURLConnection`), `Json` (minimal, bağımlılıksız) |
+| `ui` (TurquazClient) | `EInvoiceIssueDialog` (Kes/durum), `EInvoiceSettingsDialog` (çoklu entegratör + satıcı kimliği) |
+
+> **Kodlama:** Tüm `.java` kaynakları **ISO-8859-9** ile yazılır (build `javac -encoding ISO-8859-9` kullanır). Yeni dosya eklerken bu kodlamaya uyun; aksi halde Türkçe karakterler bozulur.
 
 Kalıcılık katmanı: `TurqEInvoiceStatus` entity'si
 (`com.turquaz.engine.dal`) her belgenin durum/ETTN/entegratör/seri/yanıt
@@ -67,5 +70,5 @@ Yeni `.java` dosyaları mevcut modül `src` ağaçlarına eklendiğinden
 - [x] Faz 1 — `TurqEInvoiceStatus` entity + mapping + cfg kaydı
 - [x] Faz 2 — sağlayıcı-bağımsız katman (model, provider, routing, config, util)
 - [x] Faz 3 — `TurqInvoiceMapper` (fatura → EInvoice, KDV dahil) + `EinvoiceBLIssue` ("Kes" orkestrasyonu) + `EinvoiceDAL`
-- [ ] Faz 4 — SWT UI: "e-Arşiv Kes" + durum sütunu + çoklu entegratör ayar ekranı
+- [x] Faz 4 — SWT UI: fatura arama ekranında sağ-tık "e-Arşiv Kes / Durum" (`EInvoiceIssueDialog`) + çoklu entegratör ayar ekranı (`EInvoiceSettingsDialog`) + ayar kalıcılığı (`EInvoiceSettingsStore`)
 - [ ] Faz 5 — ikinci entegratör adaptörü + uçtan uca test (Nilvera test ortamı)

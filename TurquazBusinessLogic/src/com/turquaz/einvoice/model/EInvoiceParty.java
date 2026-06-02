@@ -1,8 +1,8 @@
 package com.turquaz.einvoice.model;
 
 /**
- * Fatura tarafÄ± (satÄ±cÄ± veya alÄ±cÄ±). Turquaz {@code TurqCurrentCard} ve
- * {@code TurqCompany} kayÄ±tlarÄ±ndan doldurulur.
+ * Fatura tarafı (satıcı veya alıcı). Turquaz {@code TurqCurrentCard} ve
+ * {@code TurqCompany} kayıtlarından doldurulur.
  */
 public class EInvoiceParty {
 
@@ -10,9 +10,9 @@ public class EInvoiceParty {
     private String name;        // unvan / ad soyad
     private String taxOffice;   // vergi dairesi
     private String address;
-    private String district;    // ilÃ§e
+    private String district;    // ilçe
     private String city;        // il
-    private String country = "TÃ¼rkiye";
+    private String country = "Türkiye";
     private String postalCode;
     private String email;
     private String phone;
@@ -101,8 +101,8 @@ public class EInvoiceParty {
     }
 
     /**
-     * TCKN 11 haneli; VKN 10 haneli. AlÄ±cÄ± bireysel mi (e-ArÅŸiv iÃ§in tipik)
-     * yoksa kurumsal mÄ± ayrÄ±mÄ±nda kullanÄ±lÄ±r.
+     * TCKN 11 haneli; VKN 10 haneli. Alıcı bireysel mi (e-Arşiv için tipik)
+     * yoksa kurumsal mı ayrımında kullanılır.
      */
     public boolean isIndividual() {
         return taxNumber != null && taxNumber.trim().length() == 11;

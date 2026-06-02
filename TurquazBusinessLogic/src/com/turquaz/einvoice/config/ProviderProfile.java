@@ -7,18 +7,18 @@ import com.turquaz.einvoice.model.EInvoiceType;
 import com.turquaz.einvoice.provider.ProviderCredentials;
 
 /**
- * KullanÄ±cÄ±nÄ±n tanÄ±mladÄ±ÄŸÄ± bir entegratÃ¶r profili: hangi adaptÃ¶r (Nilvera,
- * Ä°zibiz, ...), o adaptÃ¶rÃ¼n kimlik bilgileri ve belge tipi baÅŸÄ±na kullanÄ±lacak
- * fatura serisi. Ã‡oklu entegratÃ¶r senaryosunda birden fazla profil tanÄ±mlanÄ±r.
+ * Kullanıcının tanımladığı bir entegratör profili: hangi adaptör (Nilvera,
+ * İzibiz, ...), o adaptörün kimlik bilgileri ve belge tipi başına kullanılacak
+ * fatura serisi. Çoklu entegratör senaryosunda birden fazla profil tanımlanır.
  */
 public class ProviderProfile {
 
-    private String id;             // kullanÄ±cÄ± tarafÄ±ndan verilen benzersiz ad
-    private String providerName;   // registry anahtarÄ± (Ã¶rn. "nilvera")
+    private String id;             // kullanıcı tarafından verilen benzersiz ad
+    private String providerName;   // registry anahtarı (örn. "nilvera")
     private ProviderCredentials credentials = new ProviderCredentials();
     private boolean enabled = true;
 
-    /** Belge tipi baÅŸÄ±na fatura serisi (ETTN/numara Ã§akÄ±ÅŸmasÄ±nÄ± Ã¶nlemek iÃ§in). */
+    /** Belge tipi başına fatura serisi (ETTN/numara çakışmasını önlemek için). */
     private final Map<EInvoiceType, String> seriesByType = new EnumMap<EInvoiceType, String>(EInvoiceType.class);
 
     public ProviderProfile() {

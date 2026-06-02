@@ -5,29 +5,29 @@ import com.turquaz.einvoice.model.EInvoiceResult;
 import com.turquaz.einvoice.model.EInvoiceType;
 
 /**
- * TÃ¼m Ã¶zel entegratÃ¶r adaptÃ¶rlerinin uyguladÄ±ÄŸÄ± saÄŸlayÄ±cÄ±-baÄŸÄ±msÄ±z arayÃ¼z.
- * Yeni bir entegratÃ¶r eklemek = bu arayÃ¼zÃ¼ uygulayan yeni bir sÄ±nÄ±f + ayar
- * formunda bir satÄ±r. BÃ¶ylece uygulamanÄ±n geri kalanÄ± (router, BL, UI) hangi
- * entegratÃ¶rle Ã§alÄ±ÅŸÄ±ldÄ±ÄŸÄ±nÄ± bilmek zorunda kalmaz.
+ * Tüm özel entegratör adaptörlerinin uyguladığı sağlayıcı-bağımsız arayüz.
+ * Yeni bir entegratör eklemek = bu arayüzü uygulayan yeni bir sınıf + ayar
+ * formunda bir satır. Böylece uygulamanın geri kalanı (router, BL, UI) hangi
+ * entegratörle çalışıldığını bilmek zorunda kalmaz.
  */
 public interface EInvoiceProvider {
 
-    /** KayÄ±t/seÃ§im iÃ§in benzersiz, kÄ±sa ad (Ã¶rn. "nilvera", "izibiz"). */
+    /** Kayıt/seçim için benzersiz, kısa ad (örn. "nilvera", "izibiz"). */
     String name();
 
-    /** KullanÄ±cÄ±ya gÃ¶sterilecek gÃ¶rÃ¼nen ad (Ã¶rn. "Nilvera"). */
+    /** Kullanıcıya gösterilecek görünen ad (örn. "Nilvera"). */
     String displayName();
 
-    /** Bu entegratÃ¶rÃ¼n verilen belge tipini destekleyip desteklemediÄŸi. */
+    /** Bu entegratörün verilen belge tipini destekleyip desteklemediği. */
     boolean supports(EInvoiceType type);
 
     /**
-     * Belgeyi entegratÃ¶re gÃ¶nderir ("Kes"). BaÅŸarÄ±lÄ±ysa sonuÃ§ta ETTN /
-     * entegratÃ¶r belge kimliÄŸi / durum dÃ¶ner.
+     * Belgeyi entegratöre gönderir ("Kes"). Başarılıysa sonuçta ETTN /
+     * entegratör belge kimliği / durum döner.
      */
     EInvoiceResult submit(EInvoice doc, ProviderCredentials credentials) throws EInvoiceException;
 
-    /** Daha Ã¶nce gÃ¶nderilmiÅŸ bir belgenin gÃ¼ncel durumunu sorgular. */
+    /** Daha önce gönderilmiş bir belgenin güncel durumunu sorgular. */
     EInvoiceResult queryStatus(String ettn, ProviderCredentials credentials) throws EInvoiceException;
 
     /** Belgeyi iptal eder (destekleniyorsa). */

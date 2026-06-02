@@ -17,13 +17,13 @@ import com.turquaz.einvoice.util.HttpJson;
 import com.turquaz.einvoice.util.Json;
 
 /**
- * Nilvera Ã¶zel entegratÃ¶r adaptÃ¶rÃ¼ (ilk implementasyon). REST + Bearer
- * kimlik doÄŸrulama kullanÄ±r; e-ArÅŸiv gÃ¶nderimi, durum sorgu ve iptal saÄŸlar.
+ * Nilvera özel entegratör adaptörü (ilk implementasyon). REST + Bearer
+ * kimlik doðrulama kullanýr; e-Arþiv gönderimi, durum sorgu ve iptal saðlar.
  *
- * NOT: UÃ§-nokta yollarÄ± ve JSON alan adlarÄ± Nilvera geliÅŸtirici
- * dokÃ¼mantasyonuna (developer.nilvera.com) gÃ¶re canlÄ±ya geÃ§iÅŸte teyit
- * edilmelidir; bu sÄ±nÄ±f saÄŸlayÄ±cÄ± arayÃ¼zÃ¼nÃ¼n referans uygulamasÄ±dÄ±r ve
- * test ortamÄ±na (apitest.nilvera.com) karÅŸÄ± denenecek ÅŸekilde yazÄ±lmÄ±ÅŸtÄ±r.
+ * NOT: Uç-nokta yollarý ve JSON alan adlarý Nilvera geliþtirici
+ * dokümantasyonuna (developer.nilvera.com) göre canlýya geçiþte teyit
+ * edilmelidir; bu sýnýf saðlayýcý arayüzünün referans uygulamasýdýr ve
+ * test ortamýna (apitest.nilvera.com) karþý denenecek þekilde yazýlmýþtýr.
  */
 public class NilveraProvider implements EInvoiceProvider {
 
@@ -41,13 +41,13 @@ public class NilveraProvider implements EInvoiceProvider {
     }
 
     public boolean supports(EInvoiceType type) {
-        // Nilvera e-ArÅŸiv, e-Fatura ve e-Ä°rsaliye'yi destekler.
+        // Nilvera e-Arþiv, e-Fatura ve e-Ýrsaliye'yi destekler.
         return true;
     }
 
     public EInvoiceResult submit(EInvoice doc, ProviderCredentials creds) throws EInvoiceException {
         if (doc.getType() != EInvoiceType.EARSIV) {
-            throw new EInvoiceException("Bu sÃ¼rÃ¼mde Nilvera adaptÃ¶rÃ¼ yalnÄ±zca e-ArÅŸiv gÃ¶nderimini uygular: "
+            throw new EInvoiceException("Bu sürümde Nilvera adaptörü yalnýzca e-Arþiv gönderimini uygular: "
                     + doc.getType());
         }
         String body = buildEArchiveJson(doc);
@@ -56,9 +56,9 @@ public class NilveraProvider implements EInvoiceProvider {
                     baseUrl(creds) + "/earchive/send/model",
                     body,
                     authHeaders(creds));
-            return interpret(resp, "gÃ¶nderim");
+            return interpret(resp, "gönderim");
         } catch (IOException e) {
-            throw new EInvoiceException("Nilvera e-ArÅŸiv gÃ¶nderiminde aÄŸ hatasÄ±: " + e.getMessage(), e);
+            throw new EInvoiceException("Nilvera e-Arþiv gönderiminde að hatasý: " + e.getMessage(), e);
         }
     }
 
@@ -69,7 +69,7 @@ public class NilveraProvider implements EInvoiceProvider {
                     authHeaders(creds));
             return interpret(resp, "durum sorgu");
         } catch (IOException e) {
-            throw new EInvoiceException("Nilvera durum sorgusunda aÄŸ hatasÄ±: " + e.getMessage(), e);
+            throw new EInvoiceException("Nilvera durum sorgusunda að hatasý: " + e.getMessage(), e);
         }
     }
 
@@ -87,11 +87,11 @@ public class NilveraProvider implements EInvoiceProvider {
             }
             return r;
         } catch (IOException e) {
-            throw new EInvoiceException("Nilvera iptalde aÄŸ hatasÄ±: " + e.getMessage(), e);
+            throw new EInvoiceException("Nilvera iptalde að hatasý: " + e.getMessage(), e);
         }
     }
 
-    // ---- yardÄ±mcÄ±lar -------------------------------------------------------
+    // ---- yardýmcýlar -------------------------------------------------------
 
     private String baseUrl(ProviderCredentials creds) {
         if (creds.getBaseUrl() != null && creds.getBaseUrl().trim().length() > 0) {
@@ -118,14 +118,14 @@ public class NilveraProvider implements EInvoiceProvider {
             r.setProviderDocId(Json.getString(resp.body, "InvoiceId"));
             return r;
         }
-        EInvoiceResult r = EInvoiceResult.fail("Nilvera " + op + " baÅŸarÄ±sÄ±z (HTTP " + resp.code + ")");
+        EInvoiceResult r = EInvoiceResult.fail("Nilvera " + op + " baþarýsýz (HTTP " + resp.code + ")");
         r.setRawResponse(resp.body);
         return r;
     }
 
     /**
-     * e-ArÅŸiv belgesini Nilvera "model" JSON gÃ¶vdesine Ã§evirir. Alan adlarÄ±
-     * Nilvera EArchiveModel ÅŸemasÄ±na yakÄ±n tutulmuÅŸtur; canlÄ±da dokÃ¼man ile
+     * e-Arþiv belgesini Nilvera "model" JSON gövdesine çevirir. Alan adlarý
+     * Nilvera EArchiveModel þemasýna yakýn tutulmuþtur; canlýda doküman ile
      * birebir teyit edilmelidir.
      */
     private String buildEArchiveJson(EInvoice doc) {
