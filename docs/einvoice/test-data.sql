@@ -121,6 +121,8 @@ VALUES
    100, 1000, 0, 200, 0, 0, 1000,
    9001, 9001, 9001, 9001, 9001, 9001, 9001);
 
--- Kalıcı yaz ve kapat (HSQLDB file DB .script'e yazsın)
+-- Kalıcı yaz (bağlantıyı KAPATMADAN). SHUTDOWN kullanma: DatabaseManagerSwing
+-- SHUTDOWN'dan sonra ağacı tazelemeye çalışıp "connection closed" hatası verir.
+-- CHECKPOINT veriyi .script'e yazar, bağlantı açık kalır.
 COMMIT;
-SHUTDOWN;
+CHECKPOINT;
