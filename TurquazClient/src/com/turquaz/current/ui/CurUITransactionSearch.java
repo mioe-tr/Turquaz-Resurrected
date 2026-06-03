@@ -82,7 +82,7 @@ import com.turquaz.current.ui.comp.CurrentPicker;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CurUITransactionSearch extends Composite implements SearchComposite
+public class CurUITransactionSearch extends Composite implements SearchComposite, com.turquaz.engine.interfaces.EInvoiceCapable
 {
 
     {
@@ -318,6 +318,12 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					tableColumnCurrency.setText(EngLangCommonKeys.STR_CURRENCY);
 					tableColumnCurrency.setWidth(80);
 				}
+				{
+					// e-Belge durum sutunu
+					TableColumn tableColumnEInvoice = new TableColumn(tableCurrentTransactions, SWT.NONE);
+					tableColumnEInvoice.setText("e-Belge");
+					tableColumnEInvoice.setWidth(120);
+				}
 			}
 			thisLayout.marginWidth = 5;
 			thisLayout.marginHeight = 5;
@@ -437,12 +443,13 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				String currencyAbbr=(String)transInfo.get(EngKeys.CURRENCY_ABBR);
 				
 				tableViewer.addRow(new String[]{DatePicker.formatter.format(transDate), transDocNo, curCardCode, curCardName,
-						transTypeName, transDefinition, cf.format(transTotalDept), cf.format(transTotalCredit),currencyAbbr}, rowData);
+						transTypeName, transDefinition, cf.format(transTotalDept), cf.format(transTotalCredit),currencyAbbr,
+						com.turquaz.einvoice.dal.EinvoiceDAL.statusLabel(transId)}, rowData);
 				totalDept = totalDept.add(transTotalDept);
 				totalCredit = totalCredit.add(transTotalCredit);
 			}
-			tableViewer.addRow(new String[]{"", "", "", "", "", "", "", "",""}, null);
-			tableViewer.addRow(new String[]{"", "", "", "", "", "---TOPLAM---", cf.format(totalDept), cf.format(totalCredit),""}, null);
+			tableViewer.addRow(new String[]{"", "", "", "", "", "", "", "","",""}, null);
+			tableViewer.addRow(new String[]{"", "", "", "", "", "---TOPLAM---", cf.format(totalDept), cf.format(totalCredit),"",""}, null);
 		}
 		catch (Exception ex)
 		{
@@ -575,6 +582,12 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableCurrentTransactions, CurLangKeys.STR_CURRENT_TRANSACTIONS); //$NON-NLS-1$
+	}
+
+	/** EInvoiceCapable: ust arac cubugu "e-Arsiv" butonu buraya yonlenir. */
+	public void issueEInvoiceForSelection()
+	{
+		openEInvoiceForSelected();
 	}
 
 	/** e-Belge: opens the selected invoice in the e-Arsiv issue/status dialog. */

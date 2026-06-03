@@ -58,7 +58,7 @@ import server.util.EngBLLogger;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
+public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite, com.turquaz.engine.interfaces.EInvoiceCapable
 {
 
 	{
@@ -281,6 +281,12 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
                 tableColumnGrandTotal.setText(EngLangCommonKeys.STR_GENERAL_TOTAL);
                 tableColumnGrandTotal.setWidth(80);
                 //END <<  tableColumnGrandTotal
+                {
+                    // e-Belge durum sutunu
+                    TableColumn tableColumnEInvoice = new TableColumn(tableBills, SWT.NONE);
+                    tableColumnEInvoice.setText("e-Belge");
+                    tableColumnEInvoice.setWidth(120);
+                }
 			}
 			postInitGui();
 			this.layout();
@@ -403,10 +409,11 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
 				generalDiscountAmount = generalDiscountAmount.add(discountAmount);    
 				
 				tableViewer.addRow(new String[]{DatePicker.formatter.format(billDate), billDocNo, curCardCode, curCardName,currency,
-						cf.format(totalAmount), cf.format(vatAmount), cf.format(specVatAmount),cf.format(discountAmount),cf.format(netTotalAmount)}, billId);
+						cf.format(totalAmount), cf.format(vatAmount), cf.format(specVatAmount),cf.format(discountAmount),cf.format(netTotalAmount),
+						com.turquaz.einvoice.dal.EinvoiceDAL.statusLabelByBill(billId)}, billId);
 			}
-			tableViewer.addRow(new String[]{"","","","","","","","","",""},null);
-			tableViewer.addRow(new String[]{"","","","",EngLangCommonKeys.STR_GENERAL_TOTAL_CAPITAL,cf.format(generalNetTotalAmount),cf.format(generalVATAmount),cf.format(generalSpecVATAmount),cf.format(generalDiscountAmount),cf.format(generalTotalAmount)},null);
+			tableViewer.addRow(new String[]{"","","","","","","","","","",""},null);
+			tableViewer.addRow(new String[]{"","","","",EngLangCommonKeys.STR_GENERAL_TOTAL_CAPITAL,cf.format(generalNetTotalAmount),cf.format(generalVATAmount),cf.format(generalSpecVATAmount),cf.format(generalDiscountAmount),cf.format(generalTotalAmount),""},null);
 		}
 		catch (Exception ex)
 		{
@@ -510,6 +517,12 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableBills, BillLangKeys.STR_BILLS);
+	}
+
+	/** EInvoiceCapable: ust arac cubugu "e-Arsiv" butonu buraya yonlenir. */
+	public void issueEInvoiceForSelection()
+	{
+		openEInvoiceForSelectedBill();
 	}
 
 	/** e-Belge: opens the e-Arsiv issue/status dialog for the selected sales invoice. */

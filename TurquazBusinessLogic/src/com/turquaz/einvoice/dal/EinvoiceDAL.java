@@ -55,4 +55,30 @@ public class EinvoiceDAL {
         List list = q.list();
         return list.isEmpty() ? null : (Integer) list.get(0);
     }
+
+    /** Bir cari hareketin e-belge durumunu kisa etiket olarak dondurur. */
+    public static String statusLabel(Integer transactionId) {
+        try { return labelOf(findStatus(transactionId)); } catch (Exception e) { return "-"; }
+    }
+
+    /** Bir faturanin (TurqBill) e-belge durum etiketi (cari harekete cozer). */
+    public static String statusLabelByBill(Integer billId) {
+        try { Integer t = findTransactionIdByBill(billId); return t == null ? "-" : statusLabel(t); }
+        catch (Exception e) { return "-"; }
+    }
+
+    private static String labelOf(TurqEInvoiceStatus st) {
+        if (st == null) return "-";
+        String doc = "EFATURA".equals(st.getDocumentType()) ? "e-Fatura" : "e-Ar\u015fiv";
+        String s = st.getStatus();
+        String tr;
+        if ("SENT".equals(s)) tr = "G\u00f6nderildi";
+        else if ("ACCEPTED".equals(s)) tr = "Kabul";
+        else if ("REJECTED".equals(s)) tr = "Ret";
+        else if ("CANCELLED".equals(s)) tr = "\u0130ptal";
+        else if ("ERROR".equals(s)) tr = "Hata";
+        else if ("DRAFT".equals(s)) tr = "Taslak";
+        else tr = (s == null ? "-" : s);
+        return doc + ": " + tr;
+    }
 }
