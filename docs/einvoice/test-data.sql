@@ -121,6 +121,48 @@ VALUES
    100, 1000, 0, 200, 0, 0, 1000,
    9001, 9001, 9001, 9001, 9001, 9001, 9001);
 
+-- =====================================================================
+-- FATURA (Bill) tarafı: faturanın "Satış Faturası Arama" ekranında da
+-- görünmesi ve oradan sağ-tık "e-Arşiv Kes / Durum" yapılabilmesi için.
+-- Fatura, paylaşılan engine_sequences_id=9001 üzerinden hem cari harekete
+-- hem de stok satırına bağlanır; TURQ_VIEW_BILL_TRANS_TOTAL view'i toplamı
+-- bu bağdan üretir (karmaşık inventory_transaction_bill gerekmez).
+-- =====================================================================
+
+-- 14) Stok kartı birim baglantisi + fiyat (Satış Faturası Ekle ekranında
+--     ürünü elle seçebilmek için; SQL ile kestiğimiz fatura için şart değil
+--     ama UI'da kullanmak istersen "base_unit null" hatasını önler).
+INSERT INTO turq_inventory_card_units
+  (id, card_units_factor, created_by, creation_date, updated_by, last_modified,
+   inventory_units_id, inventory_cards_id)
+VALUES (9001, 1, 'admin', '2026-06-03', 'admin', '2026-06-03', 9001, 9001);
+INSERT INTO turq_inventory_prices
+  (id, prices_type, prices_amount, created_by, creation_date, updated_by, last_modified,
+   currencies_id, inventory_cards_id)
+VALUES (9001, 0, 100, 'admin', '2026-06-03', 'admin', '2026-06-03', 9001, 9001);
+INSERT INTO turq_inventory_prices
+  (id, prices_type, prices_amount, created_by, creation_date, updated_by, last_modified,
+   currencies_id, inventory_cards_id)
+VALUES (9002, 1, 100, 'admin', '2026-06-03', 'admin', '2026-06-03', 9001, 9001);
+
+-- 15) FATURA BAŞLIĞI (turq_bills). bills_type=1 => Satış (COMMON_SELL_INT).
+--     engine_sequences_id=9001 (cari hareket + stok satırı ile aynı).
+INSERT INTO turq_bills
+  (id, bills_type, bills_date, bills_definition, bills_printed, is_open,
+   created_by, creation_date, updated_by, last_modified, due_date, bill_document_no,
+   exchange_rate_id, engine_sequences_id, current_cards_id)
+VALUES
+  (9001, 1, '2026-06-03', 'Test satış faturası', FALSE, FALSE,
+   'admin', '2026-06-03', 'admin', '2026-06-03', '2026-06-03', 'SF-2026-0001',
+   9001, 9001, 9001);
+
+-- 16) Fatura <-> engine sequence baği. View (TURQ_VIEW_BILL_TRANS_TOTAL) bu
+--     bağ + stok hareketinden faturanın toplam/KDV'sini hesaplar; bu satır
+--     olmadan fatura "Satış Faturası Arama"da GÖRÜNMEZ (iç-join dışta kalır).
+INSERT INTO turq_bill_in_engine_sequences
+  (id, engine_sequences_id, bills_id)
+VALUES (9001, 9001, 9001);
+
 -- Kalıcı yaz (bağlantıyı KAPATMADAN). SHUTDOWN kullanma: DatabaseManagerSwing
 -- SHUTDOWN'dan sonra ağacı tazelemeye çalışıp "connection closed" hatası verir.
 -- CHECKPOINT veriyi .script'e yazar, bağlantı açık kalır.
