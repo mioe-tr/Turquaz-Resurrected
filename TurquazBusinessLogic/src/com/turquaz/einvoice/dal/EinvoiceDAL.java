@@ -43,4 +43,16 @@ public class EinvoiceDAL {
     public static void save(TurqEInvoiceStatus status) throws Exception {
         EngDALCommon.saveOrUpdateObject(status);
     }
+
+    /** Bir faturaya (TurqBill) bagli cari hareketin id'sini paylasilan engine
+     *  sequence uzerinden bulur; yoksa null. */
+    public static Integer findTransactionIdByBill(Integer billId) throws Exception {
+        Session session = EngDALSessionFactory.getSession();
+        Query q = session.createQuery(
+                "select ct.id from TurqCurrentTransaction ct, TurqBill b "
+                + "where b.id = :billId and ct.turqEngineSequence.id = b.turqEngineSequence.id");
+        q.setInteger("billId", billId.intValue());
+        List list = q.list();
+        return list.isEmpty() ? null : (Integer) list.get(0);
+    }
 }
