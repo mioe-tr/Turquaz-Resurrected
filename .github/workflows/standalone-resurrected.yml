@@ -25,6 +25,18 @@ on:
       - '.github/workflows/standalone-resurrected.yml'
     tags:
       - 'standalone-v*'
+  pull_request:
+    branches:
+      - legacy/standalone-resurrected
+    paths:
+      - 'docker/**'
+      - 'Turquaz/**'
+      - 'TurquazBusinessLogic/**'
+      - 'TurquazClient/**'
+      - 'TurquazCommon/**'
+      - 'TurquazServer/**'
+      - 'TurquazStandAlone/**'
+      - '.github/workflows/standalone-resurrected.yml'
   workflow_dispatch:
     inputs:
       swt_version:
@@ -44,7 +56,9 @@ permissions:
 
 env:
   SWT_VERSION: ${{ github.event.inputs.swt_version || '3.131.0' }}
-  TARGETS:     ${{ github.event.inputs.targets || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
+  # PR'larda CI'ı hızlı tutmak için yalnızca linux derlenir; push/tag/dispatch
+  # tam 5 platform üretir.
+  TARGETS:     ${{ github.event.inputs.targets || (github.event_name == 'pull_request' && 'linux') || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
 
 jobs:
   build:
