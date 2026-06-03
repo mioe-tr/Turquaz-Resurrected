@@ -56,15 +56,15 @@ permissions:
 
 env:
   SWT_VERSION: ${{ github.event.inputs.swt_version || '3.131.0' }}
-  # PR'larda CI'ı hızlı tutmak için yalnızca linux derlenir; push/tag/dispatch
-  # tam 5 platform üretir.
-  TARGETS:     ${{ github.event.inputs.targets || (github.event_name == 'pull_request' && 'linux') || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
+  # PR dahil tüm tetiklerde 5 platformun tamamı (linux x64/arm64, windows,
+  # macos x64/arm64) paketlenir; dispatch'te 'targets' girdisiyle daraltılabilir.
+  TARGETS:     ${{ github.event.inputs.targets || 'linux,linux-aarch64,windows,macos,macos-aarch64' }}
 
 jobs:
   build:
     name: Cross-platform paketleme (Docker)
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout source
