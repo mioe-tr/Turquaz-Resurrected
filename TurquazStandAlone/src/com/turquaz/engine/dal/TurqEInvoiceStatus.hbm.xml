@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    GİB e-belge gönderim durumu. hbm2ddl.auto=update ile turq_einvoice_status
+    tablosu uygulama açılışında otomatik oluşturulur.
+-->
+
+<class
+    name="com.turquaz.engine.dal.TurqEInvoiceStatus"
+    table="turq_einvoice_status"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="id"
+    >
+        <generator class="native" />
+    </id>
+
+    <property
+        name="documentType"
+        type="java.lang.String"
+        column="document_type"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="provider"
+        type="java.lang.String"
+        column="provider"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="invoiceSeries"
+        type="java.lang.String"
+        column="invoice_series"
+        length="16"
+    />
+    <property
+        name="ettn"
+        type="java.lang.String"
+        column="ettn"
+        length="36"
+    />
+    <property
+        name="providerDocId"
+        type="java.lang.String"
+        column="provider_doc_id"
+        length="64"
+    />
+    <property
+        name="status"
+        type="java.lang.String"
+        column="status"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="gibResponse"
+        type="java.lang.String"
+        column="gib_response"
+        length="2000"
+    />
+    <property
+        name="pdfUrl"
+        type="java.lang.String"
+        column="pdf_url"
+        length="512"
+    />
+    <property
+        name="createdBy"
+        type="java.lang.String"
+        column="created_by"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="creationDate"
+        type="timestamp"
+        column="creation_date"
+        not-null="true"
+    />
+    <property
+        name="updatedBy"
+        type="java.lang.String"
+        column="updated_by"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="lastModified"
+        type="timestamp"
+        column="last_modified"
+        not-null="true"
+    />
+
+    <!-- Associations -->
+
+    <!-- bağlı fatura başlığı -->
+    <many-to-one
+        name="turqCurrentTransaction"
+        class="com.turquaz.engine.dal.TurqCurrentTransaction"
+        not-null="true"
+    >
+        <column name="current_transactions_id" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

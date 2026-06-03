@@ -1,5 +1,11 @@
 # Turquaz Standalone — Resurrected
 
+> **Not (e-belge entegrasyon dalı):** Bu branch
+> (`claude/einvoice-api-integration-6ylE8`) `legacy/standalone-resurrected`
+> kodu üzerine kuruludur ve GİB e-Arşiv/e-Fatura entegrasyonu (özel entegratör
+> API'leri için sağlayıcı-bağımsız katman) eklemeyi hedefler. Tasarım:
+> `docs/einvoice/PLAN.md`.
+
 Bu branch, orijinal **Turquaz Financial Accounting** (2004–2010) kaynak kodunu
 modern toolchain ile derleyip Linux/Windows/macOS (x86_64 + Apple Silicon)
 için paketleyen "diriliş" branch'idir. CVS'den Git'e dönüştürülmüş tam

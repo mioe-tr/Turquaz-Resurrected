@@ -58,7 +58,7 @@ import server.util.EngBLLogger;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite
+public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implements SearchComposite, com.turquaz.engine.interfaces.EInvoiceCapable
 {
 
 	{
@@ -218,6 +218,20 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
 				tableConsignmentsLData.grabExcessVerticalSpace = true;
 				tableBills.setLayoutData(tableConsignmentsLData);
 				{
+					// e-Belge: row context menu (e-Arsiv kes / durum) on sales invoices
+					org.eclipse.swt.widgets.Menu eInvBillMenu = new org.eclipse.swt.widgets.Menu(tableBills);
+					org.eclipse.swt.widgets.MenuItem eInvBillItem = new org.eclipse.swt.widgets.MenuItem(eInvBillMenu, SWT.PUSH);
+					eInvBillItem.setText("e-Ar\u015fiv Kes / Durum");
+					eInvBillItem.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
+					{
+						public void widgetSelected(org.eclipse.swt.events.SelectionEvent evt)
+						{
+							openEInvoiceForSelectedBill();
+						}
+					});
+					tableBills.setMenu(eInvBillMenu);
+				}
+				{
 					tableColumnConsignmentDate = new TableColumn(tableBills, SWT.NONE);
 					tableColumnConsignmentDate.setText(EngLangCommonKeys.STR_DATE);
 					tableColumnConsignmentDate.setWidth(104);
@@ -267,6 +281,12 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
                 tableColumnGrandTotal.setText(EngLangCommonKeys.STR_GENERAL_TOTAL);
                 tableColumnGrandTotal.setWidth(80);
                 //END <<  tableColumnGrandTotal
+                {
+                    // e-Belge durum sutunu
+                    TableColumn tableColumnEInvoice = new TableColumn(tableBills, SWT.NONE);
+                    tableColumnEInvoice.setText("e-Belge");
+                    tableColumnEInvoice.setWidth(120);
+                }
 			}
 			postInitGui();
 			this.layout();
@@ -389,10 +409,11 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
 				generalDiscountAmount = generalDiscountAmount.add(discountAmount);    
 				
 				tableViewer.addRow(new String[]{DatePicker.formatter.format(billDate), billDocNo, curCardCode, curCardName,currency,
-						cf.format(totalAmount), cf.format(vatAmount), cf.format(specVatAmount),cf.format(discountAmount),cf.format(netTotalAmount)}, billId);
+						cf.format(totalAmount), cf.format(vatAmount), cf.format(specVatAmount),cf.format(discountAmount),cf.format(netTotalAmount),
+						com.turquaz.einvoice.dal.EinvoiceDAL.statusLabelByBill(billId)}, billId);
 			}
-			tableViewer.addRow(new String[]{"","","","","","","","","",""},null);
-			tableViewer.addRow(new String[]{"","","","",EngLangCommonKeys.STR_GENERAL_TOTAL_CAPITAL,cf.format(generalNetTotalAmount),cf.format(generalVATAmount),cf.format(generalSpecVATAmount),cf.format(generalDiscountAmount),cf.format(generalTotalAmount)},null);
+			tableViewer.addRow(new String[]{"","","","","","","","","","",""},null);
+			tableViewer.addRow(new String[]{"","","","",EngLangCommonKeys.STR_GENERAL_TOTAL_CAPITAL,cf.format(generalNetTotalAmount),cf.format(generalVATAmount),cf.format(generalSpecVATAmount),cf.format(generalDiscountAmount),cf.format(generalTotalAmount),""},null);
 		}
 		catch (Exception ex)
 		{
@@ -496,5 +517,43 @@ public class BillUIBillSearch extends org.eclipse.swt.widgets.Composite implemen
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableBills, BillLangKeys.STR_BILLS);
+	}
+
+	/** EInvoiceCapable: ust arac cubugu "e-Arsiv" butonu buraya yonlenir. */
+	public void issueEInvoiceForSelection()
+	{
+		openEInvoiceForSelectedBill();
+	}
+
+	/** e-Belge: opens the e-Arsiv issue/status dialog for the selected sales invoice. */
+	protected void openEInvoiceForSelectedBill()
+	{
+		try
+		{
+			TableItem items[] = tableBills.getSelection();
+			if (items.length > 0)
+			{
+				Integer billId = (Integer) ((ITableRow) items[0].getData()).getDBObject();
+				if (billId != null)
+				{
+					Integer transId = com.turquaz.einvoice.dal.EinvoiceDAL.findTransactionIdByBill(billId);
+					if (transId != null)
+					{
+						new com.turquaz.einvoice.ui.EInvoiceIssueDialog(this.getShell(), SWT.NULL, transId).open();
+					}
+					else
+					{
+						org.eclipse.swt.widgets.MessageBox mb = new org.eclipse.swt.widgets.MessageBox(getShell(), SWT.ICON_INFORMATION | SWT.OK);
+						mb.setText("e-Ar\u015fiv");
+						mb.setMessage("Bu faturaya ba\u011fl\u0131 cari hareket bulunamad\u0131.");
+						mb.open();
+					}
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			EngBLLogger.log(this.getClass(), ex, getShell());
+		}
 	}
 }

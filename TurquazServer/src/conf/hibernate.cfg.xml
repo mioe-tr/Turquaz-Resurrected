@@ -92,6 +92,7 @@
        <mapping resource="com/turquaz/engine/dal/TurqInventoryTransactionBill.hbm.xml"/>
 <mapping resource="com/turquaz/engine/dal/TurqInventoryCustomizeField.hbm.xml"/>
 <mapping resource="com/turquaz/engine/dal/TurqInventoryCustomizeType.hbm.xml"/>
+<mapping resource="com/turquaz/engine/dal/TurqEInvoiceStatus.hbm.xml"/>
        </session-factory>
     
 </hibernate-configuration>

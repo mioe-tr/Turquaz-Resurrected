@@ -149,6 +149,8 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 
 	private static ToolItem toolPrint;
 
+	private static ToolItem toolEInvoice;
+
 	private static Tree treeHistory;
 
 	private CLabel lblHistory;
@@ -480,6 +482,17 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 					toolPrint.addSelectionListener(new SelectionAdapter() {
 						public void widgetSelected(SelectionEvent evt) {
 							printTable();
+						}
+					});
+				}
+				{
+					// e-Belge: secili faturayi e-Arsiv kes / durum
+					toolEInvoice = new ToolItem(toolbarMainTop, SWT.PUSH);
+					toolEInvoice.setText("e-Ar\u015fiv");
+					toolEInvoice.setToolTipText("Se\u00e7ili faturay\u0131 e-Ar\u015fiv kes / durum");
+					toolEInvoice.addSelectionListener(new SelectionAdapter() {
+						public void widgetSelected(SelectionEvent evt) {
+							toolEInvoiceWidgetSelected(evt);
 						}
 					});
 				}
@@ -1037,6 +1050,23 @@ public class EngUIMainFrame extends org.eclipse.swt.widgets.Composite {
 		Composite c = (Composite) tabfldMain.getSelection().getControl();
 		if (c instanceof SearchComposite) {
 			((SearchComposite) c).delete();
+		}
+	}
+
+	/** e-Belge: ust arac cubugu "e-Arsiv" butonu. Aktif ekran EInvoiceCapable
+	 *  ise secili satir icin e-Arsiv penceresini acar; degilse bilgi verir. */
+	protected void toolEInvoiceWidgetSelected(SelectionEvent evt) {
+		if (tabfldMain.getSelection() == null || tabfldMain.getSelection().getControl() == null) {
+			return;
+		}
+		Composite c = (Composite) tabfldMain.getSelection().getControl();
+		if (c instanceof com.turquaz.engine.interfaces.EInvoiceCapable) {
+			((com.turquaz.engine.interfaces.EInvoiceCapable) c).issueEInvoiceForSelection();
+		} else {
+			MessageBox mb = new MessageBox(tabfldMain.getShell(), SWT.ICON_INFORMATION | SWT.OK);
+			mb.setText("e-Arsiv");
+			mb.setMessage("Bu ekranda e-Arsiv kesilemez. Cari Hareket Arama veya Satis Faturasi Arama ekranindan bir satir secin.");
+			mb.open();
 		}
 	}
 

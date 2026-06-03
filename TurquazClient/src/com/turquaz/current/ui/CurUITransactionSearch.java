@@ -82,7 +82,7 @@ import com.turquaz.current.ui.comp.CurrentPicker;
 * for any corporate or commercial purpose.
 * *************************************
 */
-public class CurUITransactionSearch extends Composite implements SearchComposite
+public class CurUITransactionSearch extends Composite implements SearchComposite, com.turquaz.engine.interfaces.EInvoiceCapable
 {
 
     {
@@ -260,6 +260,20 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				tableCurrentTransactionsLData.grabExcessVerticalSpace = true;
 				tableCurrentTransactions.setLayoutData(tableCurrentTransactionsLData);
 				{
+					// e-Belge: row context menu (e-Arsiv kes / durum)
+					org.eclipse.swt.widgets.Menu eInvoiceMenu = new org.eclipse.swt.widgets.Menu(tableCurrentTransactions);
+					org.eclipse.swt.widgets.MenuItem eInvoiceItem = new org.eclipse.swt.widgets.MenuItem(eInvoiceMenu, SWT.PUSH);
+					eInvoiceItem.setText("e-Ar\u015fiv Kes / Durum");
+					eInvoiceItem.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter()
+					{
+						public void widgetSelected(org.eclipse.swt.events.SelectionEvent evt)
+						{
+							openEInvoiceForSelected();
+						}
+					});
+					tableCurrentTransactions.setMenu(eInvoiceMenu);
+				}
+				{
 					tableColumnTransDate = new TableColumn(tableCurrentTransactions, SWT.NONE);
 					tableColumnTransDate.setText(EngLangCommonKeys.STR_DATE); //$NON-NLS-1$
 					tableColumnTransDate.setWidth(98);
@@ -303,6 +317,12 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 					tableColumnCurrency = new TableColumn(tableCurrentTransactions, SWT.NONE);
 					tableColumnCurrency.setText(EngLangCommonKeys.STR_CURRENCY);
 					tableColumnCurrency.setWidth(80);
+				}
+				{
+					// e-Belge durum sutunu
+					TableColumn tableColumnEInvoice = new TableColumn(tableCurrentTransactions, SWT.NONE);
+					tableColumnEInvoice.setText("e-Belge");
+					tableColumnEInvoice.setWidth(120);
 				}
 			}
 			thisLayout.marginWidth = 5;
@@ -423,12 +443,13 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 				String currencyAbbr=(String)transInfo.get(EngKeys.CURRENCY_ABBR);
 				
 				tableViewer.addRow(new String[]{DatePicker.formatter.format(transDate), transDocNo, curCardCode, curCardName,
-						transTypeName, transDefinition, cf.format(transTotalDept), cf.format(transTotalCredit),currencyAbbr}, rowData);
+						transTypeName, transDefinition, cf.format(transTotalDept), cf.format(transTotalCredit),currencyAbbr,
+						com.turquaz.einvoice.dal.EinvoiceDAL.statusLabel(transId)}, rowData);
 				totalDept = totalDept.add(transTotalDept);
 				totalCredit = totalCredit.add(transTotalCredit);
 			}
-			tableViewer.addRow(new String[]{"", "", "", "", "", "", "", "",""}, null);
-			tableViewer.addRow(new String[]{"", "", "", "", "", "---TOPLAM---", cf.format(totalDept), cf.format(totalCredit),""}, null);
+			tableViewer.addRow(new String[]{"", "", "", "", "", "", "", "","",""}, null);
+			tableViewer.addRow(new String[]{"", "", "", "", "", "---TOPLAM---", cf.format(totalDept), cf.format(totalCredit),"",""}, null);
 		}
 		catch (Exception ex)
 		{
@@ -561,5 +582,33 @@ public class CurUITransactionSearch extends Composite implements SearchComposite
 	public void printTable()
 	{
 		EngBLUtils.printTable(tableCurrentTransactions, CurLangKeys.STR_CURRENT_TRANSACTIONS); //$NON-NLS-1$
+	}
+
+	/** EInvoiceCapable: ust arac cubugu "e-Arsiv" butonu buraya yonlenir. */
+	public void issueEInvoiceForSelection()
+	{
+		openEInvoiceForSelected();
+	}
+
+	/** e-Belge: opens the selected invoice in the e-Arsiv issue/status dialog. */
+	protected void openEInvoiceForSelected()
+	{
+		try
+		{
+			TableItem items[] = tableCurrentTransactions.getSelection();
+			if (items.length > 0)
+			{
+				Integer[] rowData = (Integer[]) ((ITableRow) items[0].getData()).getDBObject();
+				Integer transId = rowData[0];
+				if (transId != null)
+				{
+					new com.turquaz.einvoice.ui.EInvoiceIssueDialog(this.getShell(), SWT.NULL, transId).open();
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			server.util.EngBLLogger.log(this.getClass(), ex, getShell());
+		}
 	}
 }
